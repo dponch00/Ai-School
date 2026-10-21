@@ -221,6 +221,39 @@ export const Practice = z.object({
 })
 export type Practice = z.infer<typeof Practice>
 
+// ---------- Diagnóstico (D-015) ----------
+
+/** Microtarea del diagnóstico: muestra producción, no solo reconocimiento. */
+export const Microtask = z.object({
+  id: Slug,
+  version: z.int().min(1),
+  diagnosticBlock: BlockId,
+  competencyIds: z.array(CompetencyId).min(1),
+  title: z.string().min(3),
+  /** Material que recibe el alumno (Markdown; puede incluir un diff). */
+  material: z.string().min(20),
+  /** Pregunta rápida antes de la tarea completa: "¿qué revisarías primero y por qué?". */
+  firstQuestion: z.string().endsWith('?'),
+  task: z.string().min(20),
+  estimatedMinutes: z.int().positive().max(15),
+  rubric: z.array(RubricCriterion).min(3).max(4),
+  anchors: z.object({ achieved: z.string().min(10), insufficient: z.string().min(10) }),
+})
+export type Microtask = z.infer<typeof Microtask>
+
+export const DiagnosticForm = z.object({
+  id: Slug,
+  version: SemVer,
+  /** Se declara en la pantalla de inicio y en el reporte (pedagogia-evaluacion §4.1). */
+  purpose: z.string().min(20),
+  itemIds: z.array(Slug).length(24),
+  microtaskIds: z.array(Slug).length(2),
+  blocks: z
+    .array(z.object({ id: BlockId, name: z.string().min(3), competencyIds: z.array(CompetencyId).min(1) }))
+    .length(6),
+})
+export type DiagnosticForm = z.infer<typeof DiagnosticForm>
+
 // ---------- Fuentes y fichas de producto ----------
 
 export const Source = z.object({

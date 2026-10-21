@@ -1,0 +1,22 @@
+{
+  "id": "dx-form",
+  "version": "0.1.0",
+  "purpose": "Este diagnóstico es una ruta inicial de baja consecuencia: decide por dónde empezar y cuánta ayuda mostrar en cada bloque. No certifica nada, no bloquea ningún manual y se corrige con cada comprobación de lección y cada primer intento de examen. Con cuatro preguntas por bloque, los resultados son señales, no niveles.",
+  "itemIds": [
+    "dx-b1-01", "dx-b1-02", "dx-b1-03", "dx-b1-04",
+    "dx-b2-01", "dx-b2-02", "dx-b2-03", "dx-b2-04",
+    "dx-b3-01", "dx-b3-02", "dx-b3-03", "dx-b3-04",
+    "dx-b4-01", "dx-b4-02", "dx-b4-03", "dx-b4-04",
+    "dx-b5-01", "dx-b5-02", "dx-b5-03", "dx-b5-04",
+    "dx-b6-01", "dx-b6-02", "dx-b6-03", "dx-b6-04"
+  ],
+  "microtaskIds": ["dx-mt1", "dx-mt2"],
+  "blocks": [
+    { "id": "B1", "name": "Herramientas y límites", "competencyIds": ["C01"] },
+    { "id": "B2", "name": "Especificación", "competencyIds": ["C02"] },
+    { "id": "B3", "name": "Contexto y configuración", "competencyIds": ["C03", "C04"] },
+    { "id": "B4", "name": "Código, Git y dirección de agentes", "competencyIds": ["C05", "C06", "C07"] },
+    { "id": "B5", "name": "Datos e integraciones", "competencyIds": ["C08", "C09"] },
+    { "id": "B6", "name": "Autonomía, seguridad y evaluación", "competencyIds": ["C10", "C11", "C12"] }
+  ]
+}
