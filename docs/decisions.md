@@ -55,3 +55,9 @@ Una entrada por decisión. Estados: **aceptada**, **propuesta** (espera a Daniel
 - **Estado:** aceptada por Daniel · 2026-10-21
 - **Decisión:** el programa `Documents/AI/Educacion` (Claude Code, de 62 a 80) sigue separado. Su evaluación entra al perfil inicial de Daniel como evidencia previa, marcada como tal (ni "declarado" ni "observado en la app"), y AI School no duplica sus sesiones.
 - **Cuidado:** esa evaluación habla de repos reales; en el repo de AI School solo entra el resumen de competencias, no rutas, código ni datos de esos proyectos.
+
+## D-010 · Sección 17 delgada en el piloto
+
+- **Estado:** aceptada por Daniel · 2026-10-21
+- **Decisión:** el piloto implementa solo el recorrido mínimo de `plan.md` §17.10: perfil, respuestas individuales con revisión y explicación, HTML de evaluación, pegar feedback y aplicar una acción a la ruta. La importación estructurada de feedback (JSON) y las métricas de evolución (§17.8) pasan a la Fase 2.
+- **Por qué:** la sección 17 es casi un segundo producto; el piloto debe fijar el estándar de contenido y del ciclo, no agotar todas sus funciones.
