@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-21 |
 | Depende de | — |
 | Fase del plan | 0 — Definición |
@@ -53,17 +53,17 @@ Generar imágenes finales, editar `plan.md`, tocar `docs/` o escribir código.
 
 ## Entrega
 
-_(La llena Codex.)_
+**Fecha:** 2026-10-21. Estado de cada capacidad según las herramientas visibles en esta sesión; “disponible” indica acceso comprobado o una herramienta invocable, no una promesa para otras superficies.
 
-- **Superficie:**
-- **Lectura/escritura de la carpeta y commits:**
-- **Generación de imágenes (herramienta, modelo, formatos, transparencia, edición, límites):**
-- **Subagentes / tareas paralelas:**
-- **Web:**
-- **Ejecución de comandos / capturas:**
-- **Archivos:**
-- **Limitaciones o bloqueos:**
-- **Preguntas abiertas:**
+- **Superficie:** **disponible** — Codex en la aplicación de escritorio para Windows, con shell PowerShell y carpeta de trabajo local `C:\Users\Daniel\Documents\AI\AI_School`. No es una sesión CLI ni de extensión IDE; la conversación y herramientas corren en la app.
+- **Lectura/escritura de la carpeta y commits:** lectura **disponible**, comprobada al inspeccionar los archivos del ticket y el plan; escritura **disponible**, comprobada al crear `investigacion/codex-revision-plan.md` y editar este ticket. Git local **disponible** (`main`, sin remoto); commit de T-001 registrado en el historial al cerrar esta entrega.
+- **Generación de imágenes (herramienta, modelo, formatos, transparencia, edición, límites):** herramienta integrada `image_gen.imagegen` **disponible** para generar imágenes. El modelo concreto **no pude comprobar**: la herramienta no expone su identificador. La herramienta acepta petición de fondo transparente y edición mediante imágenes de referencia (rutas locales o imágenes recientes), ambas **disponibles como controles**, aún sin prueba de resultado en T-001. Relaciones de aspecto, tamaños y formato de salida configurables **no pude comprobar**: el esquema visible no ofrece esos parámetros. Límites de uso restantes **no pude comprobar**: no se muestran en la herramienta. Las capacidades de la API de imagen documentadas por OpenAI no se trasladan automáticamente a este generador integrado.
+- **Subagentes / tareas paralelas:** **disponible como capacidad de sesión**: hay herramientas `spawn_agent`, mensajería y espera, con cuatro ranuras de concurrencia incluyéndome. **No se usaron**; la configuración actual solo permite lanzarlos si el usuario o instrucciones aplicables piden delegación explícita. Tareas de shell independientes pueden orquestarse en paralelo; T-001 y T-002 se ejecutan en el orden solicitado.
+- **Web:** **disponible**, comprobada con búsqueda y apertura de páginas de documentación oficial de OpenAI el 2026-10-21.
+- **Ejecución de comandos / capturas:** PowerShell **disponible**, comprobado con lectura de archivos, `rg` y `git status`. Control de navegador existe en esta sesión; captura de una página **local** **no pude comprobar** durante T-001. No declaro esa prueba como superada.
+- **Archivos:** [`investigacion/codex-revision-plan.md`](../../investigacion/codex-revision-plan.md) (ocho hallazgos y una propuesta). No modifiqué `plan.md`, `docs/` ni archivos marcados en curso.
+- **Limitaciones o bloqueos:** modelo de imagen, tamaños configurables, cuota visible y captura local no comprobados. No hay bloqueo para la revisión.
+- **Preguntas abiertas:** Claude/Daniel: ¿adoptar una puerta de calidad por manual antes de escalar la V1 (R-01) y un solo escritor de `ESTADO.md` en cada traspaso (R-03)?
 
 ## Revisión
 

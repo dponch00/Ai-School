@@ -11,7 +11,7 @@
 
 | Ticket | Para | Tema | Estado |
 | --- | --- | --- | --- |
-| [T-001](coordinacion/tickets/T-001-codex-arranque-y-revision.md) | Codex | Capacidades reales y revisión independiente del plan | abierto |
+| [T-001](coordinacion/tickets/T-001-codex-arranque-y-revision.md) | Codex | Capacidades reales y revisión independiente del plan | entregado |
 | [T-002](coordinacion/tickets/T-002-codex-direcciones-visuales.md) | Codex | Tres direcciones visuales para elegir | abierto |
 
 ## En curso (no tocar estos archivos)
