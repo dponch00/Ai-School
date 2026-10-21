@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-21 |
 | Depende de | — |
 | Fase del plan | 0 — Definición (F0-07, F0-08) |
@@ -61,13 +61,11 @@ Escribir lecciones o preguntas, diseño visual y código.
 
 ## Entrega
 
-_(La llena Codex.)_
-
-- **Qué hice:**
-- **Archivos:**
-- **Cómo lo verifiqué:**
-- **Limitaciones o bloqueos:**
-- **Preguntas abiertas:**
+- **Qué hice:** revisión independiente del currículo y estándar; 12 hallazgos (4 altos, 8 medios), 14 afirmaciones contrastadas y respuestas argumentadas a las tres preguntas abiertas del currículo.
+- **Archivos:** `investigacion/codex-revision-curriculo-estandar.md`; este ticket.
+- **Cómo lo verifiqué:** contraste de `docs/curriculum.md` y `docs/content-standard.md` con `plan.md`, D-001…D-014 y las cuatro investigaciones indicadas; dos subrevisiones independientes, una por documento.
+- **Limitaciones o bloqueos:** no se reconsultaron fuentes web primarias; los puntos evaluados se apoyaron en los registros de investigación fechados el 2026-10-21.
+- **Preguntas abiertas:** respondidas en la sección final del informe; las decisiones pendientes se señalan como correcciones recomendadas.
 
 ## Revisión
 
