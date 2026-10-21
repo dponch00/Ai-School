@@ -1,0 +1,22 @@
+# Dependencias y compilados
+node_modules/
+dist/
+coverage/
+.vite/
+
+# Variantes de imagen descartables (los masters elegidos sí se versionan)
+design/images/raw/
+
+# Pruebas y reportes generados
+playwright-report/
+test-results/
+
+# Entorno local y secretos (nunca al repo)
+.env
+.env.*
+!.env.example
+
+# Sistema
+Thumbs.db
+.DS_Store
+desktop.ini

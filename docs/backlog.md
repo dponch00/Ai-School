@@ -1,0 +1,42 @@
+# Backlog — Fase 0 y Fase 1
+
+Estados: ⬜ pendiente · 🔄 en curso · 🧪 en revisión · ✅ hecho · ⛔ bloqueado.
+Las fases 2–5 se detallan cuando cierre el piloto (plan §12).
+
+## Fase 0 — Definición
+
+Salida: especificación ejecutable y criterios de aceptación coherentes.
+
+| ID | Tarea | Quién | Depende de | Estado |
+| --- | --- | --- | --- | --- |
+| F0-01 | Investigación M02: prompting y especificaciones → `investigacion/M02-prompting-especificaciones.md` | Claude (subagente) | — | 🔄 |
+| F0-02 | Investigación pedagogía y evaluación → `investigacion/pedagogia-evaluacion.md` | Claude (subagente) | — | 🔄 |
+| F0-03 | Verificación de stack y hosting → `investigacion/stack-tecnico.md` | Claude (subagente) | — | 🔄 |
+| F0-04 | Currículo vs. estado del arte y mapa de competencias candidato → `investigacion/curriculo-estado-del-arte.md` | Claude (subagente) | — | 🔄 |
+| F0-05 | Capacidades reales de Codex + revisión independiente del plan (T-001) | Codex | — | ⬜ |
+| F0-06 | Tres direcciones visuales (T-002) → Daniel elige | Codex → Daniel | — | ⬜ |
+| F0-07 | Ajustes al currículo y mapa de competencias definitivo → `docs/curriculum.md` | Claude; revisa Codex | F0-02, F0-04, F0-05 | ⬜ |
+| F0-08 | Estándar de contenido → `docs/content-standard.md` (lección, pregunta, práctica, imagen, fuentes) | Claude; revisa Codex | F0-01, F0-02 | ⬜ |
+| F0-09 | Contratos de datos como esquemas validables (curso, lección, pregunta, práctica, fuente, progreso, perfil, respuesta, reporte, feedback, ajuste, activo) | Claude | F0-03, F0-07 | ⬜ |
+| F0-10 | Diagnóstico: 24 preguntas + 2 microtareas, mapa a competencias y formato del reporte | Claude; revisa Codex | F0-07, F0-08 | ⬜ |
+| F0-11 | Prueba de hosting: PWA mínima con service worker, rutas, instalación y offline en Chrome Android y escritorio | Claude + Daniel (prueba en celular) | F0-03, D-006 | ⬜ |
+| F0-12 | Sistema de diseño a partir de la dirección elegida → `docs/design-system.md` | Codex propone; Claude traduce a tokens | F0-06 | ⬜ |
+
+## Fase 1 — Piloto M02
+
+Salida: un curso completo y funcional que fija el estándar del producto. Las otras nueve tarjetas se muestran como pendientes, sin relleno.
+
+| ID | Tarea | Quién | Depende de | Estado |
+| --- | --- | --- | --- | --- |
+| F1-01 | Esqueleto de la app (Vite + React + TS), rutas, layout de lector, tokens del sistema visual | Claude | F0-09, F0-11, F0-12 | ⬜ |
+| F1-02 | Pipeline de contenido: Markdown + JSON validados en build (`scripts/validate-content`) | Claude | F0-09 | ⬜ |
+| F1-03 | Seis lecciones de M02: investigación → borrador → verificación de fuentes → revisión Codex → integración | Claude; revisa Codex | F0-01, F0-08 | ⬜ |
+| F1-04 | Banco M02 (20–24 preguntas con feedback por opción) | Claude; revisa Codex | F1-03 | ⬜ |
+| F1-05 | Laboratorio M02: petición de dashboard → especificación verificable, con rúbrica | Claude; revisa Codex | F1-03 | ⬜ |
+| F1-06 | Imágenes piloto: imagen principal, portada M02, ilustración de una especificación | Codex; revisa Claude + Daniel | F0-06 | ⬜ |
+| F1-07 | Persistencia IndexedDB: progreso, respuestas, intentos versionados | Claude | F1-01 | ⬜ |
+| F1-08 | Examen: selección con cobertura, corrección, revisión del intento, modo práctica | Claude | F1-04, F1-07 | ⬜ |
+| F1-09 | Perfil + respuestas individuales + HTML de evaluación (plan §17.10) | Claude | F1-07 | ⬜ |
+| F1-10 | Exportar/importar respaldo con validación | Claude | F1-07 | ⬜ |
+| F1-11 | Registrar feedback y aplicar una acción a la ruta personal | Claude | F1-09 | ⬜ |
+| F1-12 | Revisión del piloto: contenido (Codex), UX móvil, accesibilidad, fuentes; cerrar hallazgos | Codex + Claude + Daniel | F1-01…F1-11 | ⬜ |
