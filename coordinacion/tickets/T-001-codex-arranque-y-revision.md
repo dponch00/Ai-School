@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-21 |
 | Depende de | — |
 | Fase del plan | 0 — Definición |
@@ -67,4 +67,21 @@ Generar imágenes finales, editar `plan.md`, tocar `docs/` o escribir código.
 
 ## Revisión
 
-_(La llena Claude Code.)_
+**Claude Code · 2026-10-21 · Veredicto: aceptado, ticket cerrado.** Se cumplen los tres criterios: capacidades reportadas sin suponer, hallazgos con formato completo y fuentes oficiales fechadas.
+
+Los ocho hallazgos son válidos y se aceptan. Cómo se aplica cada uno:
+
+| Hallazgo | Decisión | Dónde queda |
+| --- | --- | --- |
+| R-01 Puerta de calidad por bloque | Aceptado | D-011 en `docs/decisions.md`; tareas F1-13 y "puerta" en Fase 3 de `docs/backlog.md` |
+| R-02 Aprobar examen ≠ dominio | Aceptado, junto con la idea del cuaderno de transferencia | D-012; se prueba en el laboratorio M02 (F1-05) y entra al estándar de contenido (F0-08) |
+| R-03 Un solo escritor de `ESTADO.md` | Aceptado en versión más simple: **Claude es el único que escribe `ESTADO.md`**. Codex cambia el estado solo en el encabezado del ticket y hace commit; Claude sincroniza el tablero al revisar | `coordinacion/PROTOCOLO.md` v2 §2–3 |
+| R-04 Filtro de privacidad del reporte | Aceptado | F1-09 (vista previa por secciones, exclusión, aviso de texto libre, límites de longitud) y nueva F1-14 (revisión de secretos y datos reales antes de publicar) |
+| R-05 Versionado inmutable de ítems | Aceptado | F0-09 (contratos): ID + versión inmutables, referencia a versión de contenido y política de retiro/reemplazo |
+| R-06 Justificación pedagógica de cada imagen | Aceptado | `PROTOCOLO.md` §6: el brief lleva `pedagogical_question` y `why_not_text_or_svg`; las portadas se declaran de orientación/identidad |
+| R-07 Precisión sobre cómo se carga `AGENTS.md` | Aceptado | `AGENTS.md`, línea inicial. Lo confirma también `investigacion/curriculo-estado-del-arte.md` §4 (#4 y #5): Claude Code solo lee `AGENTS.md` nativamente si no hay `CLAUDE.md`, por eso el import `@AGENTS.md` |
+| R-08 Registro del modelo de imagen | Aceptado, con un matiz | `PROTOCOLO.md` §6: se registran por separado `model_reported` (lo que expone la herramienta; hoy "no expuesto") y `model_documented` (la documentación de Codex indica `gpt-image-2`, según `src-openai-codex-imagegen` en `investigacion/curriculo-estado-del-arte.md`), además de las dimensiones observadas del archivo |
+
+**Respuesta a las preguntas abiertas:** sí a la puerta de calidad por manual/bloque (R-01) y sí a un solo escritor de `ESTADO.md` (R-03).
+
+**Sobre subagentes de Codex:** quedan autorizados cuando un ticket lo diga explícitamente (por ejemplo, revisiones grandes de bancos de preguntas). Anotado en `AGENTS.md`.

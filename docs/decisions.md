@@ -61,3 +61,22 @@ Una entrada por decisión. Estados: **aceptada**, **propuesta** (espera a Daniel
 - **Estado:** aceptada por Daniel · 2026-10-21
 - **Decisión:** el piloto implementa solo el recorrido mínimo de `plan.md` §17.10: perfil, respuestas individuales con revisión y explicación, HTML de evaluación, pegar feedback y aplicar una acción a la ruta. La importación estructurada de feedback (JSON) y las métricas de evolución (§17.8) pasan a la Fase 2.
 - **Por qué:** la sección 17 es casi un segundo producto; el piloto debe fijar el estándar de contenido y del ciclo, no agotar todas sus funciones.
+
+## D-011 · Puerta de calidad antes de cada bloque
+
+- **Estado:** aceptada (hallazgo R-01 de Codex en T-001) · 2026-10-21
+- **Decisión:** ningún bloque de manuales empieza hasta que el anterior pase su puerta:
+  1. Matriz objetivo → lección → actividad → evidencia completa, sin objetivos sin evaluar.
+  2. Revisión independiente (Codex) con todos sus hallazgos críticos y altos cerrados y comprobados.
+  3. Esfuerzo real medido y comparado con lo estimado.
+- **Si falta tiempo:** se recortan funciones de apoyo de la app antes que objetivos de aprendizaje o calidad editorial.
+- **Primera puerta:** el piloto M02 (F1-13).
+
+## D-012 · Aprobar un examen no es dominar
+
+- **Estado:** aceptada (hallazgo R-02 y propuesta de Codex en T-001) · 2026-10-21
+- **Decisión:**
+  - El resultado del examen se muestra como desempeño en esa versión del examen ("aprobado · examen M02 v1"), no como dominio.
+  - El dominio exige además una **tarea de transferencia** nueva: un **cuaderno de decisiones** en el laboratorio de cada manual. Tiene cuatro piezas: decisión inicial → contraejemplo nuevo → decisión revisada → evidencia que hizo cambiar el criterio. Va en el HTML de evaluación.
+  - Cada objetivo tiene una cobertura mínima en el banco. Antes de anunciar reintentos "equivalentes" se revisa que los escenarios lo sean de verdad.
+- **Se prueba primero en** el laboratorio M02 (F1-05). El estándar de contenido (F0-08) lo vuelve obligatorio si funciona.
