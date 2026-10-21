@@ -80,3 +80,17 @@ Una entrada por decisión. Estados: **aceptada**, **propuesta** (espera a Daniel
   - El dominio exige además una **tarea de transferencia** nueva: un **cuaderno de decisiones** en el laboratorio de cada manual. Tiene cuatro piezas: decisión inicial → contraejemplo nuevo → decisión revisada → evidencia que hizo cambiar el criterio. Va en el HTML de evaluación.
   - Cada objetivo tiene una cobertura mínima en el banco. Antes de anunciar reintentos "equivalentes" se revisa que los escenarios lo sean de verdad.
 - **Se prueba primero en** el laboratorio M02 (F1-05). El estándar de contenido (F0-08) lo vuelve obligatorio si funciona.
+
+## D-013 · Origen propio: organización gratuita de GitHub
+
+- **Estado:** aceptada por Daniel · 2026-10-21 · **ajusta D-006**
+- **Decisión:** AI School se publica en GitHub Pages bajo una **organización gratuita** (`<org>.github.io`, `base: '/'`), no en `dponch-00.github.io/<repo>/`. El nombre de la org puede esperar al nombre de la app; se crea en la prueba de hosting (F0-11), con visto bueno de Daniel.
+- **Por qué:** `dponch-00.github.io` ya aloja Python GO y MKompact, y sus service workers borran toda caché ajena del mismo origen (verificado en sus `sw.js`). Además, un origen compartido comparte IndexedDB, cuota y "borrar datos del sitio". El origen es definitivo: cambiarlo después obliga a exportar e importar.
+- **Regla para nuestro SW:** borrar solo cachés con prefijo `ais-`.
+
+## D-014 · Stack concreto verificado
+
+- **Estado:** aceptada (concreta D-005 con `investigacion/stack-tecnico.md`) · 2026-10-21
+- **Decisión:** Node 24 LTS · React 19.3 · Vite 8.3 · **TypeScript 6.0** (no 7: sin API y typescript-eslint exige <6.1) · vite-plugin-pwa 2.0 (`injectManifest`, `registerType: 'prompt'`) sobre Workbox 7.4 · Dexie 4.4 · React Router 8.5 con `createHashRouter` · unified/remark/rehype + Zod 4.6 · MiniSearch 7.2 con stemmer español · Vitest 5 + Playwright 1.64 + axe-core 4.14. Versiones exactas fijadas por lockfile al crear el proyecto.
+- **Notas de implementación:** cada curso en su propia caché (`ais-course-<id>-<hash>`) fuera del precache, descargada con verificación de integridad y estado en IndexedDB; con hash routing las anclas internas de lección necesitan desplazamiento propio; el reporte HTML se construye con DOM + `textContent`, JSON en `<pre>` y CSP sin scripts.
+- **Riesgos vigilados:** fork anunciado de Workbox por vite-plugin-pwa; Workbox en mantenimiento mínimo (aislar la lógica de descargas de su API); GitHub Pages sin encabezados propios y `max-age=600`.

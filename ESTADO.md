@@ -18,7 +18,7 @@
 
 | Quién | Archivos |
 | --- | --- |
-| Claude (subagentes) | `investigacion/pedagogia-evaluacion.md`, `investigacion/stack-tecnico.md` |
+| Claude (subagentes) | `investigacion/pedagogia-evaluacion.md` |
 
 ## Decisiones recientes
 

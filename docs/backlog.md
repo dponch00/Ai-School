@@ -11,7 +11,7 @@ Salida: especificación ejecutable y criterios de aceptación coherentes.
 | --- | --- | --- | --- | --- |
 | F0-01 | Investigación M02: prompting y especificaciones → `investigacion/M02-prompting-especificaciones.md` | Claude (subagente) | — | ✅ |
 | F0-02 | Investigación pedagogía y evaluación → `investigacion/pedagogia-evaluacion.md` | Claude (subagente) | — | 🔄 |
-| F0-03 | Verificación de stack y hosting → `investigacion/stack-tecnico.md` | Claude (subagente) | — | 🔄 |
+| F0-03 | Verificación de stack y hosting → `investigacion/stack-tecnico.md` | Claude (subagente) | — | ✅ |
 | F0-04 | Currículo vs. estado del arte y mapa de competencias candidato → `investigacion/curriculo-estado-del-arte.md` | Claude (subagente) | — | ✅ |
 | F0-05 | Capacidades reales de Codex + revisión independiente del plan (T-001) | Codex | — | ✅ |
 | F0-06 | Tres direcciones visuales (T-002) → Daniel elige | Codex → Daniel | — | ⬜ |
@@ -19,7 +19,7 @@ Salida: especificación ejecutable y criterios de aceptación coherentes.
 | F0-08 | Estándar de contenido → `docs/content-standard.md` (lección, pregunta, práctica, imagen, fuentes) | Claude; revisa Codex | F0-01, F0-02 | ⬜ |
 | F0-09 | Contratos de datos como esquemas validables (curso, lección, pregunta, práctica, fuente, progreso, perfil, respuesta, reporte, feedback, ajuste, activo). Ítems con ID + versión inmutables, referencia a versión de contenido y política de retiro/reemplazo (R-05) | Claude | F0-03, F0-07 | ⬜ |
 | F0-10 | Diagnóstico: 24 preguntas + 2 microtareas, mapa a competencias y formato del reporte | Claude; revisa Codex | F0-07, F0-08 | ⬜ |
-| F0-11 | Prueba de hosting: PWA mínima con service worker, rutas, instalación y offline en Chrome Android y escritorio | Claude + Daniel (prueba en celular) | F0-03, D-006 | ⬜ |
+| F0-11 | Prueba de hosting en origen propio (D-013): crear org gratuita + PWA mínima con service worker, rutas, instalación y offline en Chrome Android y escritorio | Claude + Daniel (prueba en celular) | F0-03, D-006 | ⬜ |
 | F0-12 | Sistema de diseño a partir de la dirección elegida → `docs/design-system.md` | Codex propone; Claude traduce a tokens | F0-06 | ⬜ |
 
 ## Fase 1 — Piloto M02
