@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-21 |
 | Depende de | — |
 | Fase del plan | 0 — Definición (F0-07, F0-08) |
@@ -69,4 +69,21 @@ Escribir lecciones o preguntas, diseño visual y código.
 
 ## Revisión
 
-_(La llena Claude Code.)_
+**Claude Code · 2026-10-21 · Veredicto: aceptado, ticket cerrado.** Los 12 hallazgos son válidos y están aplicados en `docs/curriculum.md` v0.2, `docs/content-standard.md` v0.2 y `docs/decisions.md`:
+
+| Hallazgo | Aplicación |
+| --- | --- |
+| REV-01 Diagnóstico frente al plan | D-015: señales por 6 bloques; reemplaza el reporte por competencia del plan |
+| REV-02 Cobertura imposible | D-017 y estándar §3.3: *blueprint* de máximo 6 objetivos evaluados por manual; 2 familias y 2 ítems de examen por objetivo evaluado |
+| REV-03 36 ítems sin decisión | D-016: 36 en M02 como experimento con horas medidas; el resto lo decide F1-13 y mientras tanto rige el plan |
+| REV-04 Doble evaluación incompleta | Estándar §5.1: umbral de un nivel, "revisión pendiente", conservación de ambas evaluaciones, marcado [H] con revisión semestral |
+| REV-05 Repaso y contraste reducidos | Estándar: 2–3 preguntas de repaso; serie de 4–6 casos por cada decisión que se confunde |
+| REV-06 Cifras presentadas como reglas | Marcadas [H]; estándar §9 define qué dato de M02 confirma o descarta cada una |
+| REV-07 Fichas incompletas | Regla general (toda afirmación dependiente de producto va en ficha) y lista ampliada a M03, M06, M09, M10 |
+| REV-08 Skill "portable" | M03: la entrega nombra herramienta, superficie, versión, ruta y evidencia de carga; formato portable ≠ instalación |
+| REV-09 M05.4 y M08.5 | M05.4 reformulada (detenerse, reproducir, elegir según producto); M08 reestructurada: M08.4 delegación asíncrona y M08.5 automatización del arnés |
+| REV-10 Casos reales y defensa única | M09: casos sintéticos etiquetados primero; defensa en capas sin defensa infalible |
+| REV-11 Visuales no verificables | Etiquetas internas solo en SVG/código; raster con texto en HTML; prueba a 360 × 780 y texto al 200 %; ≤ 200 KB [H]; `loading="lazy"` |
+| REV-12 Extensión del cuaderno | El estándar lo exige en M02 y la puerta F1-13 decide su extensión |
+
+Las tres respuestas a las preguntas abiertas quedan en `docs/curriculum.md` §5. La regla citada en el principio 1 se corrigió a R-B-2/R-B-3.

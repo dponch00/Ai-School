@@ -1,6 +1,6 @@
 # Currículo y mapa de competencias
 
-**Versión:** 0.1 (borrador para revisión de Codex) · **Fecha:** 2026-10-21 · **Tarea:** F0-07
+**Versión:** 0.2 (incorpora la revisión de Codex en T-003) · **Fecha:** 2026-10-21 · **Tarea:** F0-07
 **Base:** `plan.md` §2 y §4, más `investigacion/curriculo-estado-del-arte.md`, `investigacion/pedagogia-evaluacion.md`, `investigacion/M02-prompting-especificaciones.md` y la revisión de Codex en T-001.
 
 Este documento reemplaza el temario de `plan.md` §4 cuando se apruebe. Los objetivos finales del plan (§2) no cambian. Lo que cambia es el reparto de temas, que se pone al día con el estado del arte de 2026, y la forma de medirlos.
@@ -18,12 +18,12 @@ Este documento reemplaza el temario de `plan.md` §4 cuando se apruebe. Los obje
 | Agent Skills y capas de instrucciones | Una lección breve en M03 | Dos lecciones en M03, con reglas de precedencia por producto | Estándar abierto adoptado por Claude Code, Codex y Copilot; las rutas difieren entre herramientas |
 | Seguridad | Solo en M07.2 y M09.5 | Se adelanta: permisos, sandbox y red en M05; secretos y mínimo privilegio en M07; modelo de amenazas y guardrails deterministas en M09 | Hay que saber limitar a un agente antes de dejarlo actuar |
 | Autonomía actual | M08 genérico | M08 con subagentes, worktrees, agentes en la nube, tareas programadas, modo *headless*, hooks y costo en tokens | Los tres productos tienen ya estas capacidades |
-| Revisión adversarial | En M08.5 | En M09.6 (revisión independiente). M08.5 pasa a "delegación asíncrona" | Es una técnica de evaluación, no de diseño de agentes |
+| Revisión adversarial | En M08.5 | En M09.6 (revisión independiente). Su lugar en M08 lo ocupan "delegación asíncrona" (M08.4) y "automatización del arnés" (M08.5) | Es una técnica de evaluación, no de diseño de agentes |
 | M10 | "Distribución, offline y actualización" | "Despliegue, actualización y continuidad" + mantenimiento de instrucciones, skills y regresión | Lo offline es particular de esta app; mantener lo construido con IA es universal |
 | Lenguajes en M04 | Cuatro al mismo nivel | Python, SQL y JSON/TOML/YAML primero; TypeScript solo para reconocerlo | El arnés de los agentes se configura en JSON/TOML/YAML, y Python y SQL son los del dominio financiero |
 | Imagen y audio en M01 | Una lección compartida | Una sección dentro de L2 | Poca relevancia para herramientas financieras |
 
-**Fichas de producto (D-007).** M01, M05, M07 y M08 tienen contenido muy volátil. Cada lección separa los principios duraderos de las fichas de producto fechadas (producto, superficie, fecha de verificación, fuente, próxima revisión).
+**Fichas de producto (D-007).** Toda afirmación que depende de un producto o una versión va en una ficha fechada (producto, superficie, estado, fecha de verificación, fuente, próxima revisión), nunca en el cuerpo de la lección. Las más volátiles están en M01, M05, M07 y M08, pero también hay fichas en M03 (precedencia de instrucciones, rutas de skills), M06 (MCP de Databricks), M09 (plataformas de evals, listas OWASP) y M10 (hosting).
 
 **Caso transversal.** Todos los manuales usan la misma empresa ficticia: **Altiplano Industrial S.A.**, un distribuidor B2B con tres regiones. Sus datos sintéticos e inspeccionables están definidos en `investigacion/M02-prompting-especificaciones.md` §2.0. Cada manual añade además un caso de transferencia distinto.
 
@@ -53,7 +53,7 @@ Conductas observables de cada competencia: `investigacion/curriculo-estado-del-a
 
 ### 2.1 Bloques del diagnóstico
 
-Con 24 preguntas no se pueden distinguir 13 competencias (2 ítems por competencia no dan precisión). El diagnóstico informa por **6 bloques de 4 ítems** (2 de base + 2 de juicio avanzado), con conteos e incertidumbre explícita, nunca con porcentajes ni niveles (`investigacion/pedagogia-evaluacion.md` §4).
+Con 24 preguntas no se pueden distinguir 13 competencias (2 ítems por competencia no dan precisión). El diagnóstico informa por **6 bloques de 4 ítems** (2 de base + 2 de juicio avanzado), con conteos e incertidumbre explícita, nunca con porcentajes ni niveles (`investigacion/pedagogia-evaluacion.md` §4). Esto reemplaza el «reporte por competencia» de `plan.md` §5 (D-015). Las 13 competencias siguen siendo el mapa del currículo; el diagnóstico no certifica ninguna.
 
 | Bloque | Competencias | Manuales | Microtarea |
 | --- | --- | --- | --- |
@@ -113,7 +113,8 @@ Cada manual: pregunta central, 6 lecciones, práctica con entregable, competenci
 5. Continuidad: registro de decisiones, documento de traspaso, memoria automática frente a instrucciones escritas.
 6. Fuentes y recuperación justo a tiempo; límites de las citas (el RAG completo está en M07).
 
-**Práctica:** un paquete de contexto para Altiplano con un AGENTS.md breve, una skill portable con su descripción probada y un documento de continuidad, verificando en dos herramientas que se cargan. **Entregable:** el paquete y la evidencia de carga.
+**Práctica:** un paquete de contexto para Altiplano con un AGENTS.md breve, una skill en formato Agent Skills con su descripción probada y un documento de continuidad. Se verifica la carga en dos herramientas. **Entregable:** el paquete y, por cada herramienta, superficie, versión, ruta de instalación usada y evidencia de carga. El formato de la skill es portable; la instalación es específica de cada producto.
+**Nota de diseño:** M03.2 se apoya en una tabla de precedencias por producto ya preparada (ficha), para que la lección quepa en 25 minutos.
 
 ### M04 — Código, Git y entornos para dirigir agentes
 
@@ -135,10 +136,10 @@ Cada manual: pregunta central, 6 lecciones, práctica con entregable, competenci
 **Pregunta central:** ¿cómo dirijo una mejora de principio a fin, con el agente bajo control?
 **Competencias:** C07 (principal), C01, C03, C11 · **Volatilidad:** muy alta · **Revisión:** trimestral, y una comprobación rápida antes de usar el manual
 
-1. Antes de dejar actuar al agente: superficie, modo de permisos, sandbox y acceso a red.
+1. Antes de dejar actuar al agente: superficie, modo de permisos, sandbox y acceso a red (practicando un solo escenario; el resto en la ficha).
 2. Explorar y planear según la complejidad (modo plan, entrevista, cuándo no hace falta).
 3. Cambios acotados con verificación ejecutable: el agente presenta evidencia, no afirmaciones.
-4. Depurar reproduciendo el fallo; reiniciar la sesión tras correcciones fallidas; leer el consumo de la sesión.
+4. Depurar reproduciendo el fallo. Cuando las correcciones no funcionan: detenerse, reproducir y elegir entre limpiar, compactar, bifurcar o reiniciar la sesión según el producto. Leer el consumo de la sesión.
 5. Pruebas, verificación visual con navegador y revisión asistida.
 6. Local frente a nube, y traspaso entre herramientas con el artefacto de continuidad de M03.
 
@@ -171,7 +172,7 @@ Cada manual: pregunta central, 6 lecciones, práctica con entregable, competenci
 5. Recuperación conectada: RAG documental frente a consulta estructurada (SQL o MCP).
 6. Simular antes de conectar; conectores en ejecuciones desatendidas.
 
-**Práctica:** diseñar y probar un intercambio simulado con datos sintéticos de Altiplano. **Entregable:** contrato de integración, simulación y explicación de permisos.
+**Práctica:** diseñar y probar un intercambio simulado con datos sintéticos de Altiplano: contrato, alcances OAuth, manejo de un error y un contenido no confiable que llega por el conector. **Entregable:** contrato de integración, simulación y explicación de permisos.
 **Límite:** ninguna clave privada en el HTML, el bundle ni el repositorio.
 
 ### M08 — Agentes, automatización y equipos
@@ -180,13 +181,14 @@ Cada manual: pregunta central, 6 lecciones, práctica con entregable, competenci
 **Competencias:** C10 (principal), C03, C06 · **Volatilidad:** alta (muchas funciones en *preview*) · **Revisión:** trimestral
 
 1. Flujo fijo, scheduler o agente; patrones de flujo y el principio de empezar simple.
-2. Objetivos, herramientas, estado y condiciones de término.
-3. Delegar con entregable, criterio y condición de término; subagentes con contexto aislado.
-4. Paralelismo y coordinación: worktrees, dependencias y costo en tokens.
-5. Delegación asíncrona: nube, segundo plano, tareas programadas, modo *headless* y hooks.
+2. Objetivos, herramientas, estado y condiciones de término; delegar con entregable, criterio y condición de término.
+3. Subagentes y paralelismo: contexto aislado, worktrees, dependencias y costo en tokens.
+4. Delegación asíncrona: cuándo mandar trabajo a la nube, al segundo plano o a una tarea programada.
+5. Automatización del arnés: modo *headless* y hooks (con ficha por producto, superficie y estado).
 6. Costos, registros y fallos; comparar con la solución simple y verificar en proporción a lo que no se supervisó.
 
 **Práctica:** comparar un flujo determinista con uno de agentes para el reporte semanal de Altiplano. **Entregable:** diseño, responsabilidades y evaluación de ambas alternativas.
+**Caso de transferencia:** una tarea programada que falla. Hay que revisar el registro, detenerla y elegir una alternativa más simple.
 **Límite:** usar más agentes no acredita más calidad; el beneficio se justifica.
 
 ### M09 — Evaluación, confiabilidad y control
@@ -195,10 +197,10 @@ Cada manual: pregunta central, 6 lecciones, práctica con entregable, competenci
 **Competencias:** C12, C11 (principales), C05 · **Volatilidad:** media (listas OWASP, plataformas de evals) · **Revisión:** semestral
 
 1. Tests de software frente a evals de respuestas y de agentes: tarea, intento, transcript, grader; pass@k frente a pass^k.
-2. Casos normales, límite y adversariales; armar los primeros 20–50 a partir de fallos reales.
+2. Casos normales, límite y adversariales. El laboratorio empieza con casos sintéticos etiquetados como tales; después se añaden fallos reales con su procedencia y se convierten en regresión (la guía de referencia recomienda 20–50 casos tomados de fallos reales).
 3. Rúbricas, LLM como juez calibrado y comparación de versiones de prompts.
 4. Consistencia numérica, fuentes y resultados inventados; graders de código para finanzas (invariantes, totales, reconciliación).
-5. Seguridad: inyección de instrucciones directa e indirecta, permisos y guardrails deterministas.
+5. Seguridad: inyección de instrucciones directa e indirecta, para la que no existe defensa infalible. Defensa en capas: mínimo privilegio, aprobaciones, controles deterministas, revisión de salidas, y los límites de cada capa.
 6. Revisión independiente, límites de la segunda opinión, regresión y registro de cambios.
 
 **Práctica:** detectar errores sembrados y evaluar dos versiones de un prompt de análisis de Altiplano. **Entregable:** conjunto de casos, resultados y recomendación sustentada.
@@ -224,8 +226,8 @@ Cada manual: pregunta central, 6 lecciones, práctica con entregable, competenci
 
 Igual que el plan: forecasting probabilístico, calibración, P10/P50/P90, conversión por etapa y analítica agéntica financiera forman una segunda colección.
 
-## 5. Abierto para la revisión
+## 5. Preguntas resueltas en la revisión (T-003)
 
-- ¿Las 13 competencias son distinguibles en la práctica o conviene fusionar alguna (C03/C04, C05/C06)?
-- ¿Alguna lección queda demasiado cargada para 25 minutos (M03.2, M05.1, M08.5 son candidatas)?
-- ¿El caso transversal Altiplano alcanza para M07 y M08 o necesitan un segundo caso propio?
+- **¿Fusionar competencias?** No. C03 decide el contexto y C04 dónde viven reglas y skills; C05 revisa la corrección de un cambio y C06 aísla o recupera historial. Son conductas distintas. En el diagnóstico sí se agrupan por bloque, sin resultados individuales.
+- **¿Lecciones demasiado cargadas?** M03.2 se apoya en una tabla preparada, M05.1 practica un solo escenario y la antigua M08.5 se partió en dos (M08.4 delegación asíncrona y M08.5 automatización del arnés), fusionando las antiguas M08.2 y M08.3. El piloto M02 mide la duración real (`docs/content-standard.md` §9).
+- **¿Basta Altiplano?** Sí para M07, que suma contrato, OAuth, error y contenido no confiable, y para el caso principal de M08. M08 añade un caso de transferencia propio (la tarea programada que falla).

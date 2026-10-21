@@ -94,3 +94,21 @@ Una entrada por decisión. Estados: **aceptada**, **propuesta** (espera a Daniel
 - **Decisión:** Node 24 LTS · React 19.3 · Vite 8.3 · **TypeScript 6.0** (no 7: sin API y typescript-eslint exige <6.1) · vite-plugin-pwa 2.0 (`injectManifest`, `registerType: 'prompt'`) sobre Workbox 7.4 · Dexie 4.4 · React Router 8.5 con `createHashRouter` · unified/remark/rehype + Zod 4.6 · MiniSearch 7.2 con stemmer español · Vitest 5 + Playwright 1.64 + axe-core 4.14. Versiones exactas fijadas por lockfile al crear el proyecto.
 - **Notas de implementación:** cada curso en su propia caché (`ais-course-<id>-<hash>`) fuera del precache, descargada con verificación de integridad y estado en IndexedDB; con hash routing las anclas internas de lección necesitan desplazamiento propio; el reporte HTML se construye con DOM + `textContent`, JSON en `<pre>` y CSP sin scripts.
 - **Riesgos vigilados:** fork anunciado de Workbox por vite-plugin-pwa; Workbox en mantenimiento mínimo (aislar la lógica de descargas de su API); GitHub Pages sin encabezados propios y `max-age=600`.
+
+## D-015 · El diagnóstico informa por bloques, no por competencia
+
+- **Estado:** aceptada (hallazgo REV-01 de Codex en T-003) · 2026-10-21 · **reemplaza** el "reporte por competencia" de `plan.md` §5
+- **Decisión:** el diagnóstico de 24 preguntas + 2 microtareas da señales para 6 bloques de 4 ítems (`docs/curriculum.md` §2.1), con conteos e incertidumbre explícita. No emite niveles, porcentajes ni resultados por competencia. Las 13 competencias son el mapa del currículo.
+- **Por qué:** con 2–3 ítems por competencia no hay precisión para concluir nada (`investigacion/pedagogia-evaluacion.md` §4).
+
+## D-016 · 36 ítems en M02 como experimento
+
+- **Estado:** aceptada (hallazgo REV-03 de Codex en T-003) · 2026-10-21
+- **Decisión:** el banco de M02 tiene 36 ítems (12 familias × 3 variantes) **como experimento**. Se registran las horas de autoría, revisión y corrección. La puerta F1-13 decide para el resto de manuales: 36, o 24 en dos formas disjuntas de 12. Hasta entonces rige el plan (20–24).
+- **Por qué:** con 24 ítems, un examen de 12 más un reintento ya los agotan, y reutilizar ítems infla el puntaje sin demostrar transferencia. Pero triplicar variantes tiene un costo editorial alto que hay que medir antes de comprometerlo.
+
+## D-017 · *Blueprint*: máximo 6 objetivos evaluados por manual
+
+- **Estado:** aceptada (hallazgo REV-02 de Codex en T-003) · 2026-10-21
+- **Decisión:** cada manual declara como máximo 6 objetivos evaluados; los objetivos de lección se vinculan a ellos. Banco: 2 familias por objetivo evaluado. Examen: 2 ítems por objetivo evaluado. Detalle en `docs/content-standard.md` §3.3.
+- **Por qué:** con 6–18 objetivos de lección y 2 familias por cada uno, un banco de 12 familias no podía cubrirlos; la matriz no habría sido auditable.
