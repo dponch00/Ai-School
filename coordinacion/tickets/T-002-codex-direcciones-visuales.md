@@ -78,4 +78,13 @@ Activos finales, iconos de instalación, `docs/design-system.md` (se escribe cua
 
 ## Revisión
 
-_(La llena Claude Code; Daniel elige la dirección.)_
+**Claude Code · 2026-10-21 · Veredicto: aceptado; queda pendiente la elección de Daniel.**
+
+- **360 px, verificado:** serví `design/` en `http://localhost:5179` y abrí `comparativa.html` en el navegador integrado a 360 × 780. `scrollWidth` = `clientWidth` = 360 y ningún elemento sobresale del viewport. Este criterio queda cerrado.
+- **Imágenes:** revisé las seis. No tienen texto, cifras, logos ni personas. Las tres direcciones se distinguen a simple vista.
+- **Valor pedagógico de la portada M02** (¿se entiende "petición difusa → pasos verificables"?):
+  - D1 lo comunica mejor: caminos enredados en la niebla frente a un camino claro con hitos. La metáfora de hitos encaja con el contenido de M02.
+  - D2 lo comunica como "piezas sueltas → estructura armada". Funciona, pero se lee más como descomposición que como verificación.
+  - D3 (papeles dispersos → pilas ordenadas) es la más débil: parece foto de *stock* y su fondo de madera oscura choca con una interfaz clara de lectura.
+- **Coincido con la recomendación de Codex: D1.** Riesgo a vigilar: diez paisajes de caminos pueden volverse repetitivos. Si Daniel elige D1, el sistema de diseño (F0-12) debe definir cómo varía cada portada (terreno, hora del día, elemento central) sin perder la familia.
+- **Hallazgo menor (baja):** las imágenes miden 1672 × 941. Para la app hay que fijar los tamaños de salida responsivos en el sistema de diseño, no reutilizar estos archivos tal cual.

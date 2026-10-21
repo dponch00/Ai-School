@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "design-static",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "5179", "--bind", "127.0.0.1", "--directory", "design"],
+      "port": 5179
+    }
+  ]
+}
