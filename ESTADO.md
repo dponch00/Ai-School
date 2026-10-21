@@ -6,7 +6,6 @@
 
 1. **Daniel → Codex:** pasarle T-001 y T-002 (pueden ir en la misma sesión).
 2. **Claude:** consolidar las cuatro investigaciones en curso y redactar currículo ajustado, mapa de competencias y estándar de contenido (F0-07, F0-08).
-3. **Daniel:** responder las decisiones pendientes de abajo.
 
 ## Tickets
 
@@ -21,9 +20,9 @@
 | --- | --- |
 | Claude (subagentes) | `investigacion/M02-prompting-especificaciones.md`, `investigacion/pedagogia-evaluacion.md`, `investigacion/stack-tecnico.md`, `investigacion/curriculo-estado-del-arte.md` |
 
-## Decisiones pendientes de Daniel
+## Decisiones recientes
 
-Ver [`docs/decisions.md`](docs/decisions.md): D-003 (Codex también revisa contenido), D-005 (stack), D-006 (hosting y repo público).
+Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
 

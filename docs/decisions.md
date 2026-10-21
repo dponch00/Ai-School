@@ -17,10 +17,9 @@ Una entrada por decisión. Estados: **aceptada**, **propuesta** (espera a Daniel
 
 ## D-003 · Roles y revisión cruzada entre modelos
 
-- **Estado:** propuesta · 2026-10-21
+- **Estado:** aceptada por Daniel · 2026-10-21
 - **Decisión:** Claude Code coordina, investiga, escribe contenido y evaluaciones, e implementa. Codex lleva dirección visual, imágenes y propuestas de UI, y **revisa de forma independiente** el contenido y los exámenes de Claude. Claude revisa el valor pedagógico de las imágenes de Codex. Detalle en `coordinacion/PROTOCOLO.md`.
 - **Por qué:** el plan (§10) advierte que un mismo modelo con otro rol no garantiza diversidad de criterio. Tener dos modelos distintos sí la da; es la mayor ventaja de trabajar juntos.
-- **Pendiente:** confirmar con Daniel que Codex hará también revisión de contenido, además de imágenes y diseño.
 
 ## D-004 · Comunicación por tickets en archivos
 
@@ -29,17 +28,16 @@ Una entrada por decisión. Estados: **aceptada**, **propuesta** (espera a Daniel
 
 ## D-005 · Stack: React + TypeScript + Vite
 
-- **Estado:** propuesta · 2026-10-21
+- **Estado:** aceptada por Daniel · 2026-10-21
 - **Decisión:** la del plan §8. Versiones y librerías concretas (PWA, IndexedDB, Markdown, búsqueda, pruebas) se fijan con `investigacion/stack-tecnico.md`.
 - **Por qué no vanilla como Python GO o MKompact:** esta app tiene 13 pantallas, estado versionado en IndexedDB, exámenes reproducibles y exportaciones; con tipos y componentes eso se mantiene mejor. Ventaja extra: la propia app sirve de material real para M04 (leer TypeScript) y M05 (dirigir cambios).
-- **Pendiente:** confirmación de Daniel.
 
 ## D-006 · Hosting candidato: GitHub Pages
 
-- **Estado:** propuesta · 2026-10-21
+- **Estado:** aceptada por Daniel (repo público) · 2026-10-21
 - **Decisión:** GitHub Pages en `dponch-00.github.io/<repo>/`, como Python GO y MKompact. Se valida con la prueba de hosting de la Fase 0 (service worker en subpath, rutas, instalación, offline) antes de comprometer la arquitectura.
 - **Implicación:** Pages gratis exige repositorio público. Los datos personales (perfil, respuestas) viven solo en el navegador, pero los documentos del repo serían públicos: antes de publicar hay que revisar `plan.md` y los perfiles de ejemplo.
-- **Pendiente:** Daniel decide público, privado (requiere plan de pago de GitHub) o solo local por ahora.
+- **Antes de cada publicación:** crear el remoto y desplegar siguen necesitando el visto bueno de Daniel en el chat (también para la prueba de hosting F0-11).
 
 ## D-007 · Contenido volátil separado del duradero
 
@@ -51,3 +49,9 @@ Una entrada por decisión. Estados: **aceptada**, **propuesta** (espera a Daniel
 
 - **Estado:** aceptada · 2026-10-21
 - **Decisión:** contenido y documentación del proyecto en español; código, IDs, nombres de archivo y esquemas en inglés.
+
+## D-009 · Programa de Educación como contexto del perfil
+
+- **Estado:** aceptada por Daniel · 2026-10-21
+- **Decisión:** el programa `Documents/AI/Educacion` (Claude Code, de 62 a 80) sigue separado. Su evaluación entra al perfil inicial de Daniel como evidencia previa, marcada como tal (ni "declarado" ni "observado en la app"), y AI School no duplica sus sesiones.
+- **Cuidado:** esa evaluación habla de repos reales; en el repo de AI School solo entra el resumen de competencias, no rutas, código ni datos de esos proyectos.
