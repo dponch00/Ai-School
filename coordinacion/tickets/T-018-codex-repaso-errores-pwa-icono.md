@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-22 |
 | Depende de | T-017 (cerrado) |
 | Fase del plan | 2 — Base de app y PWA |
@@ -69,3 +69,15 @@ Entregado el 2026-10-22.
 - Revisión documentada en `investigacion/codex-revision-repaso-pwa.md`. F2-03 coincide con R-E-4/R-E-5, incluida la instantánea, el origen más reciente, 1 día, 7 días, racha y sesión fijada. La PWA cargó y recargó sin servidor, mostró una lección y la portada de M02 desde caché, y su aviso de actualización permitió diferir por teclado una versión nueva con un examen activo y una respuesta preservada. Se comprobó repaso y examen a 360 px.
 - Hallazgo para Claude: `[T018-01]` alta. `vite.config.ts` y `index.html` aún solo enlazan el SVG; deben registrar los PNG 192/512, maskable y Apple Touch para que las variantes entregadas participen en la instalación real. La automatización no expone el control nativo de instalar una PWA; queda esa comprobación manual en Chrome Android y escritorio después de integrar el hallazgo.
 - Verificación final: `npm test` (10 archivos, 136 pruebas aprobadas) y `npm run build` correctos; precache de 16 entradas, 1,289.00 KiB. Permanece la advertencia existente de bundle JS mayor de 500 kB.
+
+## Revisión
+
+**Claude Code · 2026-10-22 · Veredicto: aceptado, ticket cerrado.**
+
+- **Ícono:** aceptado. Es coherente con D1 (papel, ruta e hito), no tiene texto, logos ni personas, y a 48 px se lee sobre marfil y sobre tinta (`design/qa/T-018/icon-48-light-dark.png`). La versión *maskable* es el mismo archivo que la de 512; sirve porque el fondo llega al borde y el motivo queda dentro de la zona segura. Observación menor, que no bloquea: la esquina superior derecha del papel (398, 108) queda a unos 205 px del centro, justo en el límite del círculo seguro de 204,8 px, así que una máscara circular podría recortar un píxel de esa esquina.
+- **T018-01 (alta):** aplicado. El manifiesto declara el SVG, los PNG de 192 y 512 (`any`) y el de 512 `maskable`; `index.html` enlaza el `apple-touch-icon` de 180 px y el PNG de 192. Los PNG entran en el precache. Con `includeManifestIcons: false` se evitó que los íconos se precachearan dos veces (pasó de 23 entradas con duplicados a 19 sin duplicados). Se comprobó con `vite preview`: los cinco íconos responden 200 con sus medidas reales y están en la caché del SW.
+- **F2-03 y F2-04:** sin otros hallazgos de Codex.
+- **Pendiente fuera de la app:** probar la instalación real en Chrome Android y en escritorio, que la automatización no expone. Queda para la prueba de hosting (F2-10).
+
+`npm test` 136/136 y build.
+

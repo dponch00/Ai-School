@@ -5,10 +5,9 @@
 ## Siguiente acción
 
 1. **Daniel:** hacer el recorrido completo como alumno (perfil, lecciones, examen, laboratorio, reporte compartido en un chat y retroalimentación registrada) y anotar su tiempo en `docs/registro-esfuerzo.md` o pasárselo a Claude. Con eso arranca el Bloque A.
-2. **Codex:** T-018: ícono definitivo de la app y revisión del repaso de errores y la PWA.
-3. **Claude:** F2-06 (diagnóstico inicial) y F2-09 (manejo de errores de almacenamiento).
-4. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
-5. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
+2. **Claude:** F2-06 (diagnóstico inicial) y F2-09 (manejo de errores de almacenamiento).
+3. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
+4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-22)
 
@@ -45,20 +44,22 @@
 | [T-015](coordinacion/tickets/T-015-codex-revision-piloto.md) | Codex | Revisión completa del piloto (F1-12), incluida la ruta personal | cerrado |
 | [T-016](coordinacion/tickets/T-016-codex-revision-puerta-f1-13.md) | Codex | Revisión del documento de la puerta F1-13 | cerrado |
 | [T-017](coordinacion/tickets/T-017-codex-revision-reglas-examen-revisiones.md) | Codex | Revisión de las reglas del examen y las revisiones externas | cerrado |
-| [T-018](coordinacion/tickets/T-018-codex-repaso-errores-pwa-icono.md) | Codex | Ícono de la app y revisión del repaso de errores y la PWA | abierto |
+| [T-018](coordinacion/tickets/T-018-codex-repaso-errores-pwa-icono.md) | Codex | Ícono de la app y revisión del repaso de errores y la PWA | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | F2-06 y F2-09 (sin tocar `src/sw/`, `review-queue.ts` ni `ErrorReviewPage.tsx` hasta la entrega de T-018) |
-| Codex (T-018) | `public/icons/`, entradas de íconos en `design/asset-manifest.json` |
+| Claude | F2-06 y F2-09 |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-22 · Claude Code — revisión de T-018
+Codex entregó el ícono definitivo D1: SVG maestro, PNG de 192 y 512, *maskable* y Apple Touch. Se aceptó y se integró en el manifiesto, el `index.html` y el precache, sin duplicados. Su revisión del repaso de errores y de la PWA no encontró más problemas; incluyó una recarga sin servidor y aplazar una actualización con un examen activo. La instalación real en Chrome Android y escritorio queda para la prueba de hosting.
 
 ### 2026-10-22 · Claude Code — repaso de errores y PWA (F2-03, F2-04)
 Los errores cometidos con mucha seguridad vuelven como repaso al día siguiente y a los 7 días, y salen con dos aciertos seguidos (R-E-4, R-E-5). La cola se calcula a partir de los intentos guardados y se ve en la portada del curso. La app es una PWA: SW propio con precache del shell (16 entradas, 1,3 MB) y una actualización que solo ocurre si Daniel la acepta. Se probó sin servidor: la app y la lección cargan desde la caché. El ícono es provisional; el definitivo lo hace Codex en T-018. `npm test` 136/136, lint y build. Avance: ≈ 35 %.

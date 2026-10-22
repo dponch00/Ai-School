@@ -15,6 +15,8 @@ export default defineConfig({
       filename: 'sw.ts',
       registerType: 'prompt',
       injectRegister: false,
+      // Los íconos ya entran por globPatterns; sin esto se precachearían dos veces.
+      includeManifestIcons: false,
       manifest: {
         name: 'AI School',
         short_name: 'AI School',
@@ -25,11 +27,17 @@ export default defineConfig({
         display: 'standalone',
         background_color: '#F5F0E6',
         theme_color: '#172A33',
-        icons: [{ src: '/icons/icon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' }],
+        // Íconos D1 de Codex (T-018). El de 512 sirve también como maskable: el motivo respeta la zona segura.
+        icons: [
+          { src: '/icons/icon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
+          { src: '/icons/icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
+          { src: '/icons/icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
+          { src: '/icons/icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+        ],
       },
       injectManifest: {
         // Shell completo para el celular: las imágenes de 1600 px solo se piden en pantallas anchas.
-        globPatterns: ['**/*.{js,css,html,woff2,svg}', 'images/*-480.webp', 'images/*-960.webp'],
+        globPatterns: ['**/*.{js,css,html,woff2,svg}', 'images/*-480.webp', 'images/*-960.webp', 'icons/*.png'],
         globIgnores: ['ai-school-m02-prueba.html'],
         maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
       },
