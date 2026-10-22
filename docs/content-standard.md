@@ -51,7 +51,7 @@ Todo contenido del curso cumple este estándar antes de publicarse. Cada punto d
 - [ ] Hay caso resuelto, ejemplo para completar y problema o práctica.
 - [ ] Para cada decisión que se confunde con otra (flujo o agente, API o MCP, qué modelo para qué tarea), el manual incluye, después de enseñarla, una serie de 4–6 casos breves intercalados que obligan a elegir (R-A4-2).
 - [ ] Lo "interesante pero no evaluable" va en un recuadro **Aparte** (R-A8-2).
-- [ ] Toda afirmación que depende de un producto o una versión está en una ficha de producto (§7.2).
+- [ ] **Dos capas** (revisión T-006): el cuerpo enuncia principios duraderos, citados, sin nombrar productos ni proveedores; todo lo que depende de un producto, un modelo o una versión va en una ficha de producto (§7.2) enlazada desde el segmento. Lo comprueba `course-files.test.ts`.
 - [ ] Legible a 360 px; bloques de código con desplazamiento propio.
 
 ### 3.3 Objetivos evaluados del manual (*blueprint*)

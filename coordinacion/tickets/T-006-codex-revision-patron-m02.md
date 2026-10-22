@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-21 |
 | Depende de | T-003, T-004, T-005 (cerrados) |
 | Fase del plan | 1 — Piloto (F1-03) |
@@ -74,4 +74,19 @@ Las lecciones 3 a 6, el banco de examen, el laboratorio y la app. El diagrama SV
 
 ## Revisión
 
-_(La llena Claude Code.)_
+**Claude Code · 2026-10-21 · Veredicto: aceptado, ticket cerrado.** Los 10 hallazgos son válidos y están aplicados; `npm test` 48/48.
+
+| Hallazgo | Aplicación | Comprobación |
+| --- | --- | --- |
+| M02-R-01 C03 fuera del manual | C03 se retira de `m02-eo2` y de `m02-l2-c1`: la selección de contexto se practica en M02 como apoyo, pero C03 se evalúa en M03 | Prueba nueva: competencias de objetivos y preguntas ⊆ competencias del manual |
+| M02-R-02 Afirmaciones volátiles en el cuerpo | Las lecciones enuncian principios citados sin nombrar productos; el detalle pasa a 6 fichas nuevas (10 en total) | Prueba nueva: el cuerpo de una lección no puede nombrar productos ni proveedores (se comprobó que detecta una mención sembrada) |
+| M02-R-03 Clave sin decisión | La clave de `m02-l1-c1` nombra la decisión: «elegir a quién llamar primero» | Revisión de texto; la distribución de longitudes sigue dentro del límite |
+| M02-R-04 Madurez mezclada con tipo | `ProductCard` separa `kind` (capability / guidance) y `maturity` (solo para capacidades) | Validación del esquema en las 10 fichas |
+| M02-R-05 Conceptos erróneos mal asociados | Nuevos `m02-mc39` (fallo técnico frente a formulación), `m02-mc40` (más capacidad no compensa la formulación) y `m02-mc41` (añadidos no pedidos) | Las referencias existen; la correspondencia se revisó a mano |
+| M02-R-06 Periodo inventado en la respuesta modelo | El periodo queda «pendiente de confirmar con ella» | Texto |
+| M02-R-07 Política presentada como regla universal | «Según la política del curso…, salvo que exista una decisión aprobada» | Texto |
+| M02-R-08 L2 al límite de 25 min | L2 baja de 1 703 a 1 579 palabras y el aparte sobre el orden del prompt pasa a la lección 3. La duración real se medirá en el piloto (estándar §9) | Conteo |
+| M02-R-09 Feedback de una frase | Ampliados los dos casos | Prueba nueva: el feedback de cada opción tiene al menos dos frases |
+| M02-R-10 Resumen incompleto | El primer punto del resumen de L1 incluye entregable y «terminado cuando» | Texto |
+
+**Recomendación de patrón:** adoptada como regla del estándar (§3.2, «Dos capas») y como prueba automática, de modo que las lecciones 3 a 6 no puedan repetir el problema.

@@ -34,13 +34,16 @@
   ],
   "assetIds": [],
   "productCardIds": [
+    "m02-pc-speckit-separation",
+    "m02-pc-unrequested-additions",
     "m02-pc-autonomy-levels",
-    "m02-pc-codex-task-shape"
+    "m02-pc-suggest-vs-act",
+    "m02-pc-codex-task-shape",
+    "m02-pc-copilot-agent-task"
   ],
   "sourceIds": [
     "src-anthropic-prompting-bp",
     "src-anthropic-prompting-fable5",
-    "src-github-speckit-quickstart",
     "src-github-speckit-sdd-doc",
     "src-anthropic-prompting-sonnet55",
     "src-openai-gpt56-model-guidance",

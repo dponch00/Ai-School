@@ -61,6 +61,9 @@ for (const courseDir of readdirSync(resolve(root, 'courses'))) {
         }
         for (const id of [...l.checkQuestionIds, ...l.reviewQuestionIds]) expect(checkIds.has(id), `${l.id} → ${id}`).toBe(true)
         expect(md.includes('::check-questions'), `${l.id} sin marca de comprobación`).toBe(true)
+        // Dos capas (M02-R-02): el cuerpo enuncia principios; productos y proveedores solo viven en fichas.
+        const vendors = md.match(/\b(Codex|Claude|Copilot|Spec Kit|GPT-?\d|Gemini|Sonnet|Opus|Haiku|Fable|Anthropic|OpenAI|Google|GitHub|Cursor)\b/g)
+        expect(vendors, `${l.id} menciona productos en el cuerpo: ${vendors?.join(', ')}`).toBeNull()
         if (l.order > 1) expect(l.reviewQuestionIds.length, `${l.id} sin repaso (R-A2-1)`).toBeGreaterThanOrEqual(2)
       }
     })
@@ -83,6 +86,20 @@ for (const courseDir of readdirSync(resolve(root, 'courses'))) {
       const bias = keyLengthBias(checks)
       expect(bias.longest / bias.total, `clave más larga en ${bias.longest}/${bias.total}`).toBeLessThanOrEqual(0.5)
       expect(bias.shortest / bias.total, `clave más corta en ${bias.shortest}/${bias.total}`).toBeLessThanOrEqual(0.5)
+    })
+
+    it('las competencias de objetivos y preguntas pertenecen al manual (M02-R-01)', () => {
+      const own = new Set(course.competencyIds)
+      for (const eo of course.evaluatedObjectives) for (const c of eo.competencyIds) expect(own.has(c), `${eo.id} declara ${c}`).toBe(true)
+      for (const q of checks) for (const c of q.competencyIds) expect(own.has(c), `${q.id} declara ${c}`).toBe(true)
+    })
+
+    it('el feedback de cada opción tiene al menos dos frases (estándar §4.4, M02-R-09)', () => {
+      for (const q of checks)
+        for (const o of q.options) {
+          const sentences = o.feedback.split(/[.!?](?:\s|$)/).filter((x) => x.trim().length > 0)
+          expect(sentences.length, `${q.id}/${o.id}`).toBeGreaterThanOrEqual(2)
+        }
     })
 
     it('fichas de producto: fuentes existentes', () => {

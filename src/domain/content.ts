@@ -276,11 +276,22 @@ export const ProductCard = z.object({
   product: z.string().min(2),
   surfaces: z.array(z.enum(['chat', 'api', 'cli', 'ide', 'desktop', 'web', 'cloud', 'mobile'])).min(1),
   capability: z.string().min(5),
-  /** 'guidance' = recomendación documentada del proveedor, no una función con estado de lanzamiento. */
-  maturity: z.enum(['ga', 'beta', 'preview', 'deprecated', 'guidance']),
+  /**
+   * 'capability' = una función del producto, con estado de lanzamiento (maturity obligatorio).
+   * 'guidance' = una recomendación documentada del proveedor; no tiene estado de lanzamiento (M02-R-04).
+   */
+  kind: z.enum(['capability', 'guidance']),
+  maturity: z.enum(['ga', 'beta', 'preview', 'deprecated']).optional(),
   verifiedAt: IsoDate,
   sourceIds: z.array(SourceId).min(1),
   nextReview: IsoDate,
+}).superRefine((c, ctx) => {
+  if (c.kind === 'capability' && !c.maturity) {
+    ctx.addIssue({ code: 'custom', path: ['maturity'], message: 'una capacidad necesita su estado de lanzamiento' })
+  }
+  if (c.kind === 'guidance' && c.maturity) {
+    ctx.addIssue({ code: 'custom', path: ['maturity'], message: 'una recomendación no tiene estado de lanzamiento' })
+  }
 })
 export type ProductCard = z.infer<typeof ProductCard>
 

@@ -37,8 +37,10 @@
   ],
   "assetIds": [],
   "productCardIds": [
+    "m02-pc-session-scope",
     "m02-pc-instruction-files",
-    "m02-pc-emphasis-claude"
+    "m02-pc-emphasis-claude",
+    "m02-pc-ambiguity-mechanisms"
   ],
   "sourceIds": [
     "src-anthropic-cc-best-practices",
@@ -52,8 +54,7 @@
     "src-openai-codex-execplans",
     "src-github-speckit-quickstart",
     "src-anthropic-prompting-fable5",
-    "src-google-prompting-strategies",
-    "src-openai-prompt-engineering"
+    "src-google-prompting-strategies"
   ],
   "estimatedMinutes": 25,
   "status": "draft"

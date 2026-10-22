@@ -374,5 +374,33 @@
       "src-anthropic-prompting-fable5",
       "src-openai-codex-execplans"
     ]
+  },
+  {
+    "id": "m02-mc39",
+    "courseId": "m02",
+    "description": "Si el agente no hace lo esperado, la causa es un fallo técnico (permisos, herramientas) y no cómo se formuló la petición.",
+    "whyWrong": "A menudo el agente hizo justo lo que la formulación pedía; antes de buscar un fallo técnico hay que revisar qué se le pidió.",
+    "sourceIds": [
+      "src-anthropic-prompting-bp"
+    ]
+  },
+  {
+    "id": "m02-mc40",
+    "courseId": "m02",
+    "description": "Un modelo más capaz compensa una petición mal formulada.",
+    "whyWrong": "La capacidad no aclara qué entregable se espera; si la petición pide sugerencias, un modelo mejor dará mejores sugerencias, no ediciones.",
+    "sourceIds": [
+      "src-anthropic-prompting-bp",
+      "src-anthropic-prompting-fable5"
+    ]
+  },
+  {
+    "id": "m02-mc41",
+    "courseId": "m02",
+    "description": "Un buen agente añade por iniciativa propia lo que considere útil, aunque no se haya pedido.",
+    "whyWrong": "Los añadidos no pedidos amplían el alcance sin que nadie lo decida y hacen más difícil verificar la entrega.",
+    "sourceIds": [
+      "src-anthropic-prompting-sonnet55"
+    ]
   }
 ]

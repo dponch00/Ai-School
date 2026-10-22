@@ -16,13 +16,13 @@
     "options": [
       {
         "id": "o1",
-        "text": "Para la reunión de cobranza: clientes con más de 60 días de saldo vencido al cierre de octubre",
+        "text": "Para la reunión de cobranza: elegir a quién llamar primero entre clientes con más de 60 días vencidos",
         "correct": true,
-        "feedback": "Correcta. Nombra a quién sirve (la reunión de cobranza), el periodo (cierre de octubre) y el umbral (más de 60 días). Con eso se pueden elegir datos y comprobar el resultado."
+        "feedback": "Correcta. Nombra a quién sirve (la reunión de cobranza), la decisión que apoya (a quién llamar primero) y el umbral (más de 60 días). Con eso se pueden elegir los datos y comprobar si el resultado sirve."
       },
       {
         "id": "o2",
-        "text": "Un reporte de cartera vencida completo, moderno y con todas las métricas que se puedan incluir",
+        "text": "Un reporte de cartera vencida completo y moderno, con todas las métricas que se puedan incluir",
         "correct": false,
         "misconceptionId": "m02-mc03",
         "feedback": "«Todas las métricas posibles» declara ambición, no un objetivo. Sin alcance acotado el agente añadirá cosas que nadie pidió y nada se podrá verificar."
@@ -82,7 +82,7 @@
         "id": "o3",
         "text": "Una gráfica semanal nueva en el dashboard para poder seguir la evolución del pipeline",
         "correct": false,
-        "misconceptionId": "m02-mc03",
+        "misconceptionId": "m02-mc41",
         "feedback": "Es un añadido que nadie pidió. Lo que el prompt no fija lo decide el modelo, por eso conviene declarar el tipo de entregable."
       }
     ],
@@ -119,14 +119,14 @@
         "id": "o2",
         "text": "El agente perdió los permisos de escritura sobre los archivos del proyecto a mitad de la sesión",
         "correct": false,
-        "misconceptionId": "m02-mc01",
+        "misconceptionId": "m02-mc39",
         "feedback": "El agente editó archivos en esta misma sesión, así que no es un problema de permisos. La causa está en cómo se formuló la petición."
       },
       {
         "id": "o3",
         "text": "El modelo no es lo bastante capaz para modificar por su cuenta un cálculo financiero",
         "correct": false,
-        "misconceptionId": "m02-mc01",
+        "misconceptionId": "m02-mc40",
         "feedback": "La capacidad no explica que responda con ideas: hizo justo lo que la pregunta pedía. Ajustar la formulación resuelve el problema."
       }
     ],
@@ -223,7 +223,7 @@
         "text": "Más métricas por región, para que el dashboard quede completo y no le falte nada",
         "correct": false,
         "misconceptionId": "m02-mc03",
-        "feedback": "Añadir métricas sin una decisión que las justifique hace el dashboard más difícil de verificar y de leer."
+        "feedback": "Añadir métricas sin una decisión que las justifique hace el dashboard más difícil de verificar y de leer. Primero se fija qué decide el comité; de ahí salen las métricas necesarias."
       }
     ],
     "fixedOrder": false,
@@ -287,8 +287,7 @@
     "lessonId": "m02-l2",
     "evaluatedObjectiveId": "m02-eo2",
     "competencyIds": [
-      "C02",
-      "C03"
+      "C02"
     ],
     "difficulty": "base",
     "process": "analyze",
@@ -349,7 +348,7 @@
         "text": "NUNCA, BAJO NINGUNA CIRCUNSTANCIA, MODIFIQUES NADA DE LO QUE HAY EN LA CARPETA DE DATOS",
         "correct": false,
         "misconceptionId": "m02-mc07",
-        "feedback": "El énfasis no explica el motivo ni ofrece alternativa, y en modelos recientes el lenguaje agresivo puede provocar conductas de más."
+        "feedback": "El énfasis no explica el motivo ni ofrece una alternativa, así que el agente no sabe qué hacer cuando necesite limpiar datos. Además, en modelos recientes el lenguaje agresivo puede provocar conductas de más."
       },
       {
         "id": "o3",

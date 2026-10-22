@@ -118,3 +118,9 @@ Una entrada por decisión. Estados: **aceptada**, **propuesta** (espera a Daniel
 - **Estado:** aceptada por Daniel · 2026-10-21
 - **Decisión:** la identidad visual es D1 (collage de papel con rutas e hitos; Source Serif 4, Fraunces e IBM Plex Mono; paleta marfil, azul tinta, ocre y verde azulado). Detalle en `design/direcciones/D1-atlas-de-criterio/README.md`; el sistema completo lo propone Codex en T-005.
 - **Riesgo vigilado:** que diez paisajes se repitan. Cada portada varía terreno, hora y un motivo central propio del manual.
+
+## D-019 · Lecciones en dos capas
+
+- **Estado:** aceptada (recomendación de Codex en T-006) · 2026-10-21 · **concreta D-007**
+- **Decisión:** el cuerpo de una lección enuncia principios duraderos, citados, sin nombrar productos ni proveedores. Todo lo que depende de un producto, un modelo o una versión va en una ficha de producto enlazada desde el segmento. Las fichas distinguen recomendaciones (`guidance`) de capacidades con estado de lanzamiento (`capability` + `maturity`).
+- **Cómo se hace cumplir:** `src/domain/course-files.test.ts` falla si el cuerpo de una lección nombra un producto o proveedor.
