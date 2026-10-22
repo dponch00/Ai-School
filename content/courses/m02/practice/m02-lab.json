@@ -120,7 +120,7 @@
         },
         {
           "level": 3,
-          "descriptor": "Trazados al objetivo; al menos uno negativo; el terminado incluye un check ejecutable (por ejemplo, la reconciliación) y el reporte final exige comandos y resultados."
+          "descriptor": "Trazados al objetivo; al menos uno negativo; la condición de «está listo» incluye una comprobación ejecutable (por ejemplo, la reconciliación) y el reporte final exige comandos y resultados."
         }
       ]
     }

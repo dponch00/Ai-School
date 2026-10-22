@@ -1,6 +1,6 @@
 # Estándar de contenido
 
-**Versión:** 0.2 (incorpora la revisión de Codex en T-003) · **Fecha:** 2026-10-21 · **Tarea:** F0-08
+**Versión:** 0.3 (0.2: revisión de Codex en T-003; 0.3: guía de estilo y revisión de estilo, D-021) · **Fecha:** 2026-10-21 · **Tarea:** F0-08
 **Base:** `investigacion/pedagogia-evaluacion.md` (reglas R-…, con su evidencia), `investigacion/M02-prompting-especificaciones.md` §4, `plan.md` §5 y §11, y las decisiones D-007, D-011 y D-012.
 
 Todo contenido del curso cumple este estándar antes de publicarse. Cada punto de las listas tiene que poder verificarlo un revisor. Entre paréntesis va la regla de origen en la investigación de pedagogía.
@@ -21,8 +21,10 @@ Todo contenido del curso cumple este estándar antes de publicarse. Cada punto d
 
 ## 2. Voz y estilo
 
+La guía completa, con ejemplos de antes y después y la tabla de calcos que se evitan, está en [`guia-de-estilo.md`](guia-de-estilo.md). Estos puntos la resumen.
+
 - Español claro, en segunda persona ("tú") y en registro conversacional. Términos técnicos en inglés cuando ayuden a reconocer la interfaz o la documentación (*diff*, *worktree*, *prompt*).
-- Frases cortas; un concepto nuevo por segmento. Los títulos de segmento enuncian la idea ("JSON Schema garantiza la forma, no la verdad"), no el tema ("JSON Schema").
+- Prosa explicada, no telegráfica: cada párrafo une sus ideas con conectores y empieza por un caso antes de la regla. Un concepto nuevo por segmento. Los títulos de segmento enuncian la idea ("JSON Schema garantiza la forma, no la verdad"), no el tema ("JSON Schema").
 - Términos clave definidos antes de usarse, con enlace al glosario.
 - Ejemplos concretos e inspeccionables antes que abstracciones.
 - Sin relleno motivacional, sin promesas ("dominarás…"), sin superlativos sobre productos.
@@ -176,11 +178,12 @@ La app muestra la fecha de verificación. Si una ficha caduca, se marca "pendien
 1. **Investigación:** registro de fuentes y conceptos erróneos (subagente de Claude).
 2. **Borrador:** lección, comprobaciones y familias del banco (Claude).
 3. **Verificación factual:** cada afirmación contra su fuente; las fichas, con fecha.
-4. **Revisión independiente:** Codex aplica este estándar y reporta hallazgos con el formato del protocolo.
-5. **Corrección:** se cierran los hallazgos con una comprobación.
-6. **Integración:** validación automática del contenido (esquemas, enlaces, IDs, cobertura de objetivos).
+4. **Revisión de estilo:** el agente `revisor-de-texto` (`.claude/agents/revisor-de-texto.md`) reescribe con la guía de estilo sin tocar hechos, citas, directivas ni IDs; Claude revisa su diff.
+5. **Revisión independiente:** Codex aplica este estándar y reporta hallazgos con el formato del protocolo.
+6. **Corrección:** se cierran los hallazgos con una comprobación.
+7. **Integración:** validación automática del contenido (esquemas, enlaces, IDs, cobertura de objetivos).
 
-Una lección está **lista** solo cuando pasó los seis pasos.
+Una lección está **lista** solo cuando pasó los siete pasos. Codex revisa también la voz en el paso 5.
 
 ## 9. Cómo se ponen a prueba las hipótesis [H] en el piloto
 

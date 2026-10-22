@@ -151,14 +151,14 @@
     "difficulty": "base",
     "process": "apply",
     "scenario": "Pediste corregir el cálculo de cobertura de cuota por región y tienes un archivo de prueba con datos sintéticos.",
-    "stem": "¿Qué condición de terminado es observable?",
+    "stem": "¿Cuál de estas condiciones para dar la tarea por lista es observable?",
     "options": [
       {
         "id": "o2",
         "text": "Cuando el dashboard de cobertura se vea profesional, ordenado y fácil de leer para todo el comité",
         "correct": false,
         "misconceptionId": "m02-mc25",
-        "feedback": "«Profesional» y «fácil» no se pueden comprobar. Un criterio de terminado describe algo observable."
+        "feedback": "«Profesional» y «fácil» no se pueden comprobar. Un criterio para saber que está lista describe algo observable."
       },
       {
         "id": "o3",
@@ -248,7 +248,7 @@
     "difficulty": "base",
     "process": "apply",
     "scenario": "Pediste corregir la conversión de EUR a USD en el pipeline. Tienes un caso de prueba de tres filas calculado a mano.",
-    "stem": "¿Qué condición de terminado elegirías?",
+    "stem": "¿Con qué criterio darías la tarea por lista?",
     "options": [
       {
         "id": "o2",
@@ -262,7 +262,7 @@
         "text": "La conversión de monedas queda bien hecha y revisada en todo el pipeline",
         "correct": false,
         "misconceptionId": "m02-mc25",
-        "feedback": "«Bien hecha» no dice cómo comprobarlo. Un criterio de terminado nombra una salida observable."
+        "feedback": "«Bien hecha» no dice cómo comprobarlo. Un buen criterio para darla por lista nombra un resultado observable."
       },
       {
         "id": "o1",
@@ -830,7 +830,7 @@
     ],
     "difficulty": "base",
     "process": "analyze",
-    "scenario": "Tu especificación tenía objetivo, archivos y condición de terminado. El agente entregó la vista pedida y, además, un inicio de sesión y un envío de correos.",
+    "scenario": "Tu especificación tenía objetivo, archivos y cómo comprobar que estaba lista. El agente entregó la vista pedida y, además, un inicio de sesión y un envío de correos.",
     "stem": "¿Qué le faltó a la especificación?",
     "options": [
       {
@@ -1101,7 +1101,7 @@
     "options": [
       {
         "id": "o1",
-        "text": "Directo, con el archivo, el texto correcto y cómo comprobarlo, sin plan",
+        "text": "Directamente, con el archivo, el texto correcto y cómo comprobarlo, sin plan",
         "correct": true,
         "feedback": "Correcta. Si el cambio cabe en una frase, el plan sobra. Lo que no sobra es decir cómo comprobarlo."
       },

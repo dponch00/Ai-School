@@ -37,10 +37,8 @@
   ],
   "assetIds": [],
   "productCardIds": [
-    "m02-pc-session-scope",
     "m02-pc-instruction-files",
-    "m02-pc-emphasis-claude",
-    "m02-pc-ambiguity-mechanisms"
+    "m02-pc-emphasis-claude"
   ],
   "sourceIds": [
     "src-anthropic-cc-best-practices",

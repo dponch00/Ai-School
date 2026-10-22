@@ -1,31 +1,34 @@
 [
   {
     "id": "m02-pc-autonomy-levels",
-    "product": "OpenAI · modelos GPT-5.6 (API)",
+    "product": "OpenAI · GPT-5.6 (API) · Anthropic · modelos Claude (API)",
     "surfaces": [
       "api"
     ],
-    "capability": "La guía del modelo propone tres niveles según la petición: explicar, revisar, diagnosticar o planificar lleva a inspeccionar e informar; cambiar, construir o corregir permite ediciones locales dentro del alcance; escrituras externas, acciones destructivas o ampliaciones de alcance requieren confirmación.",
+    "capability": "La guía de GPT-5.6 propone tres niveles según el encargo: explicar, revisar o diagnosticar lleva a revisar e informar; cambiar o construir permite editar dentro del alcance; borrar, escribir en sistemas externos o ampliar el alcance requiere confirmación. La guía de prompting de Anthropic documenta que preguntar «¿puedes sugerir cambios?» suele producir sugerencias y no ediciones.",
     "kind": "guidance",
     "verifiedAt": "2026-10-21",
     "sourceIds": [
-      "src-openai-gpt56-model-guidance"
+      "src-openai-gpt56-model-guidance",
+      "src-anthropic-prompting-bp"
     ],
     "nextReview": "2027-01-21"
   },
   {
     "id": "m02-pc-codex-task-shape",
-    "product": "OpenAI Codex",
+    "product": "OpenAI Codex · GitHub Copilot (agente en la nube)",
     "surfaces": [
       "cli",
       "ide",
-      "desktop"
+      "desktop",
+      "cloud"
     ],
-    "capability": "La guía de buenas prácticas propone estructurar cada tarea en cuatro bloques (Goal, Context, Constraints, Done when). Es un valor por defecto recomendado, no un formato obligatorio: la misma guía indica que Codex maneja prompts imperfectos.",
+    "capability": "La guía de Codex propone organizar cada encargo en cuatro partes (objetivo, contexto, restricciones y «Done when», el momento en que está listo); es una recomendación, no un formato obligatorio. GitHub pide para su agente en la nube algo parecido: descripción del problema, criterios de aceptación completos y archivos relevantes, y sugiere tratar el issue asignado como el propio encargo.",
     "kind": "guidance",
     "verifiedAt": "2026-10-21",
     "sourceIds": [
-      "src-openai-codex-best-practices"
+      "src-openai-codex-best-practices",
+      "src-github-copilot-agent-bp"
     ],
     "nextReview": "2027-01-21"
   },
@@ -38,14 +41,15 @@
       "desktop",
       "cloud"
     ],
-    "capability": "Cada herramienta lee sus propios archivos de instrucciones permanentes: Claude Code usa CLAUDE.md (y /context muestra qué se cargó); Codex usa AGENTS.md en varios niveles, donde prevalece el más cercano; Copilot usa .github/copilot-instructions.md y también reconoce AGENTS.md. Las reglas de precedencia cambian por producto y versión; el detalle está en M03.",
+    "capability": "Cada herramienta lee sus propios archivos de instrucciones permanentes: Claude Code usa CLAUDE.md (y /context muestra qué se cargó); Codex usa AGENTS.md en varios niveles, donde prevalece el más cercano; Copilot usa .github/copilot-instructions.md y también reconoce AGENTS.md. Las reglas de precedencia cambian por producto y versión; el detalle está en M03. Las tres coinciden también en acotar cada sesión: Claude Code lista como patrones de fallo mezclar tareas y explorar sin límite; Codex recomienda una conversación por unidad coherente de trabajo, y Copilot, una conversación nueva por tarea.",
     "kind": "capability",
     "maturity": "ga",
     "verifiedAt": "2026-10-21",
     "sourceIds": [
       "src-anthropic-cc-best-practices",
       "src-openai-codex-best-practices",
-      "src-github-copilot-agent-bp"
+      "src-github-copilot-agent-bp",
+      "src-github-copilot-prompt-eng"
     ],
     "nextReview": "2027-01-21"
   },
@@ -62,101 +66,6 @@
     "sourceIds": [
       "src-anthropic-prompting-bp",
       "src-anthropic-cc-best-practices"
-    ],
-    "nextReview": "2027-01-21"
-  },
-  {
-    "id": "m02-pc-speckit-separation",
-    "product": "GitHub Spec Kit",
-    "surfaces": [
-      "cli"
-    ],
-    "capability": "Spec Kit separa el trabajo en artefactos distintos: una especificación con metas, comportamiento y requisitos sin mencionar el stack, y después un plan técnico con stack, arquitectura e interfaces.",
-    "kind": "guidance",
-    "verifiedAt": "2026-10-21",
-    "sourceIds": [
-      "src-github-speckit-quickstart",
-      "src-github-speckit-sdd-doc"
-    ],
-    "nextReview": "2027-01-21"
-  },
-  {
-    "id": "m02-pc-unrequested-additions",
-    "product": "Anthropic · Claude Sonnet 5.5 (API)",
-    "surfaces": [
-      "api"
-    ],
-    "capability": "La guía del modelo documenta que tiende a añadir pruebas, documentación o archivos pequeños no pedidos, más cuanto mayor es el esfuerzo, y publica un párrafo para limitarlo. Su guía general usa «incluye tantas funciones como sea posible» para mostrar cómo declarar ambición en un dashboard genérico.",
-    "kind": "guidance",
-    "verifiedAt": "2026-10-21",
-    "sourceIds": [
-      "src-anthropic-prompting-sonnet55",
-      "src-anthropic-prompting-bp"
-    ],
-    "nextReview": "2027-01-21"
-  },
-  {
-    "id": "m02-pc-suggest-vs-act",
-    "product": "Anthropic · modelos Claude (API)",
-    "surfaces": [
-      "api"
-    ],
-    "capability": "La guía de prompting documenta que una petición del tipo «¿puedes sugerir cambios?» tiende a producir sugerencias y no ediciones; para que el modelo actúe hay que pedirlo de forma directa.",
-    "kind": "guidance",
-    "verifiedAt": "2026-10-21",
-    "sourceIds": [
-      "src-anthropic-prompting-bp"
-    ],
-    "nextReview": "2027-01-21"
-  },
-  {
-    "id": "m02-pc-copilot-agent-task",
-    "product": "GitHub Copilot · cloud agent",
-    "surfaces": [
-      "cloud"
-    ],
-    "capability": "GitHub recomienda que la tarea asignada al agente incluya descripción del problema, criterios de aceptación completos y archivos relevantes, y sugiere tratar el issue asignado como el prompt.",
-    "kind": "guidance",
-    "verifiedAt": "2026-10-21",
-    "sourceIds": [
-      "src-github-copilot-agent-bp",
-      "src-github-copilot-prompt-eng"
-    ],
-    "nextReview": "2027-01-21"
-  },
-  {
-    "id": "m02-pc-session-scope",
-    "product": "Claude Code · Codex · GitHub Copilot",
-    "surfaces": [
-      "cli",
-      "ide",
-      "desktop"
-    ],
-    "capability": "Claude Code lista como patrones de fallo mezclar tareas en una sesión y explorar sin acotar; Codex recomienda una conversación por unidad coherente de trabajo; Copilot, una conversación nueva por tarea.",
-    "kind": "guidance",
-    "verifiedAt": "2026-10-21",
-    "sourceIds": [
-      "src-anthropic-cc-best-practices",
-      "src-openai-codex-best-practices",
-      "src-github-copilot-prompt-eng"
-    ],
-    "nextReview": "2027-01-21"
-  },
-  {
-    "id": "m02-pc-ambiguity-mechanisms",
-    "product": "Anthropic · GitHub Spec Kit · OpenAI",
-    "surfaces": [
-      "api",
-      "cli"
-    ],
-    "capability": "Mecanismos documentados para hacer visibles los supuestos: Anthropic recomienda permitir «no tengo información suficiente»; Spec Kit marca [NEEDS CLARIFICATION] en la especificación; los ExecPlans de Codex (guía archivada) registran cada decisión con su motivo en un Decision Log; la guía de GPT-5.6 pide decir qué ambigüedades llevan a preguntar.",
-    "kind": "guidance",
-    "verifiedAt": "2026-10-21",
-    "sourceIds": [
-      "src-anthropic-reduce-hallucinations",
-      "src-github-speckit-sdd-doc",
-      "src-openai-codex-execplans",
-      "src-openai-gpt56-model-guidance"
     ],
     "nextReview": "2027-01-21"
   },

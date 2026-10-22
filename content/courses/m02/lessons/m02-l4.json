@@ -7,7 +7,7 @@
   "objectives": [
     {
       "id": "m02-l4-o1",
-      "statement": "Dado un cambio, redacta una especificación con las cinco partes (objetivo, alcance y exclusiones, archivos, supuestos y terminado) que se pueda ejecutar en una sesión nueva sin preguntas, salvo las marcadas.",
+      "statement": "Dado un cambio, redacta una especificación con las cinco partes (objetivo, alcance y exclusiones, archivos, supuestos y cuándo está listo) que se pueda ejecutar en una sesión nueva sin preguntas, salvo las marcadas.",
       "process": "create",
       "evaluatedObjectiveId": "m02-eo4"
     },

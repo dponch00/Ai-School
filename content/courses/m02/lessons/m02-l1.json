@@ -19,7 +19,7 @@
     },
     {
       "id": "m02-l1-o3",
-      "statement": "Dado un objetivo, escribe una condición de terminado que se pueda comprobar con evidencia.",
+      "statement": "Dado un objetivo, escribe cómo vas a saber que está listo, de forma que se pueda comprobar con evidencia.",
       "process": "apply",
       "evaluatedObjectiveId": "m02-eo6"
     }
@@ -34,12 +34,8 @@
   ],
   "assetIds": [],
   "productCardIds": [
-    "m02-pc-speckit-separation",
-    "m02-pc-unrequested-additions",
     "m02-pc-autonomy-levels",
-    "m02-pc-suggest-vs-act",
-    "m02-pc-codex-task-shape",
-    "m02-pc-copilot-agent-task"
+    "m02-pc-codex-task-shape"
   ],
   "sourceIds": [
     "src-anthropic-prompting-bp",

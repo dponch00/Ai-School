@@ -4,23 +4,24 @@
 
 ## Siguiente acción
 
-1. **Claude:** persistencia en IndexedDB (F1-07) y examen de 12 preguntas (F1-08).
-2. **Daniel:** probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
-3. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
+1. **Codex:** T-012, revisión de estilo de las seis lecciones de M02.
+2. **Claude:** pasar el laboratorio y el feedback de las preguntas por el revisor de texto; después, persistencia en IndexedDB (F1-07) y examen de 12 preguntas (F1-08).
+3. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
+4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-21)
 
-**≈ 23 % de la V1** (rango razonable: 20–26 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 24 % de la V1** (rango razonable: 21–27 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
-| 1 · Piloto M02 | 22 % | 61 % (contenido y lector revisados por Codex; faltan persistencia, examen, perfil, reporte y revisión del piloto) | 13,4 |
+| 1 · Piloto M02 | 22 % | 63 % (contenido reescrito con la guía de estilo; faltan la revisión de estilo de Codex, persistencia, examen, perfil, reporte y revisión del piloto) | 13,9 |
 | 2 · Base de app y PWA | 15 % | 8 % (contratos, validación, rutas y estructura) | 1,2 |
 | 3 · Nueve manuales restantes | 40 % | 3 % (currículo y mapa de competencias) | 1,2 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 23 %** |
+| **Total** | 100 % | | **≈ 24 %** |
 
 ## Tickets
 
@@ -37,18 +38,23 @@
 | [T-009](coordinacion/tickets/T-009-codex-revision-examen-laboratorio-m02.md) | Codex | Revisión del banco de examen y del laboratorio M02 | cerrado |
 | [T-010](coordinacion/tickets/T-010-codex-revision-variantes-nuevas.md) | Codex | Revisión de las 13 variantes nuevas y del laboratorio | cerrado |
 | [T-011](coordinacion/tickets/T-011-codex-revision-interfaz-lector.md) | Codex | Revisión de interfaz del lector frente al sistema D1 | cerrado |
+| [T-012](coordinacion/tickets/T-012-codex-revision-estilo-m02.md) | Codex | Revisión de estilo de las seis lecciones de M02 | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
 | Claude | `src/storage/` (persistencia, siguiente) |
+| Codex (T-012) | Solo `investigacion/codex-revision-estilo-m02.md`; Claude no toca `content/courses/m02/lessons/` hasta su entrega |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-21 · Claude Code — lecciones más humanas (D-021)
+Daniel leyó L1 en la app y encontró que sonaba a IA. Diagnóstico: frases telegráficas, calcos («qué habilitará el resultado»), una frase sin sentido, negritas en cada línea, seis fichas cortando la explicación y la marca [inferencia] a la vista. Se escribió `docs/guia-de-estilo.md` y el agente `revisor-de-texto` (paso nuevo del flujo editorial, estándar §8). Claude reescribió L1, y cinco instancias del revisor reescribieron L2 a L6. Claude revisó cada diff para verificar sentido, cifras, citas e IDs. Fichas: de 18 a 12, máximo dos por lección (con prueba). El término «terminado» pasó a «está listo» en preguntas, objetivos, rúbrica y diagrama. [inferencia] ahora se muestra como un asterisco discreto. Daniel notó además que todas las respuestas de la L1 eran la primera opción, y era un error real: la clave estaba en la posición 1 en 34 de 34 comprobaciones. Ahora está repartida, la app baraja las opciones y hay una prueba que lo impide en todos los bancos. `npm test` 54/54 y build; comprobado en el navegador. Abierto T-012. Avance: ≈ 24 %.
 
 ### 2026-10-21 · Claude Code — revisión de T-011
 Los 4 hallazgos de interfaz de Codex se aplicaron y se midieron en el navegador: portada en dos columnas en escritorio, bloques de código según D1 (etiqueta, foco con teclado, copiar, indicador de desplazamiento), enunciado de cada pregunta en su descripción accesible e índice móvil de 44 px. F1-01 y F1-02 quedan revisados.

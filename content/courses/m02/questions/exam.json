@@ -117,7 +117,7 @@
         "text": "Un análisis profundo de la rotación con aprendizaje automático y todos los factores disponibles en los datos de RR. HH.",
         "correct": false,
         "misconceptionId": "m02-mc03",
-        "feedback": "Más técnica y más factores no reemplazan una decisión. El análisis crecería sin un criterio para saber cuándo está terminado."
+        "feedback": "Más técnica y más factores no reemplazan una decisión. El análisis crecería sin un criterio para saber cuándo está listo."
       },
       {
         "id": "o3",
@@ -826,9 +826,9 @@
     "options": [
       {
         "id": "o1",
-        "text": "Una condición de terminado que se pueda comprobar",
+        "text": "Una forma comprobable de saber cuándo está lista",
         "correct": true,
-        "feedback": "Correcta. Sin un «terminado cuando…» observable, ni el agente ni tú saben cuándo la tarea está cerrada."
+        "feedback": "Correcta. Sin un «está listo cuando…» observable, ni el agente ni tú saben cuándo la tarea está cerrada."
       },
       {
         "id": "o2",
@@ -1196,7 +1196,7 @@
       },
       {
         "id": "o2",
-        "text": "Directo, con el archivo, el color nuevo y cómo comprobarlo",
+        "text": "Directamente, con el archivo, el color nuevo y cómo comprobarlo",
         "correct": true,
         "feedback": "Correcta. Si el cambio cabe en una frase, el plan sobra. Lo que no sobra es decir cómo comprobarlo."
       },

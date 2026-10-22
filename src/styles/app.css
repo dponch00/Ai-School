@@ -144,6 +144,7 @@ main:focus { outline: none; }
               var(--ais-color-ink); }
 .prose :not(pre) > code { background: var(--ais-color-disabled-surface); padding: 0.05em 0.3em; border-radius: var(--ais-radius-sm); overflow-wrap: anywhere; }
 .cite { font-size: 0.7em; line-height: 0; }
+.inference { font-size: 0.7em; line-height: 0; color: var(--ais-color-muted); cursor: help; }
 .cite a { text-decoration: none; padding-inline: 0.1em; }
 .block-title { font-family: var(--ais-font-display); font-weight: 650; font-size: var(--ais-font-size-lg); margin-bottom: var(--ais-space-3); }
 

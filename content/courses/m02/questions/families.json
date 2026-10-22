@@ -39,7 +39,7 @@
     "family": "m02-f07",
     "evaluatedObjectiveId": "m02-eo4",
     "decision": "Diagnosticar, a partir del síntoma de una entrega, qué parte de la especificación faltó",
-    "equivalence": "La decisión es la misma, ir del síntoma a la parte ausente, aunque la respuesta correcta sea distinta en cada variante (terminado, archivos, supuestos). Se acepta como equivalente porque las tres exigen el mismo modelo de las cinco partes y tienen distractores del mismo tipo (más contexto, más énfasis, prompt más largo). Equivalencia supuesta, a revisar con datos del piloto."
+    "equivalence": "La decisión es la misma, ir del síntoma a la parte ausente, aunque la respuesta correcta sea distinta en cada variante (cuándo está listo, archivos, supuestos). Se acepta como equivalente porque las tres exigen el mismo modelo de las cinco partes y tienen distractores del mismo tipo (más contexto, más énfasis, prompt más largo). Equivalencia supuesta, a revisar con datos del piloto."
   },
   {
     "family": "m02-f08",

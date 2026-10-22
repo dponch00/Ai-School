@@ -131,3 +131,11 @@ Una entrada por decisión. Estados: **aceptada**, **propuesta** (espera a Daniel
 - **Decisión:** `scripts/build-content.ts` valida todo `content/` contra los contratos y genera `src/generated/content.json` (lecciones ya convertidas a bloques HTML saneados, preguntas, fichas, activos y fuentes) y `src/generated/tokens.css`. Corre antes de `dev`, `build`, `test` y `typecheck`; si algo no cumple el contrato, el build falla. Lo generado no se versiona.
 - **Por qué:** el contenido llega validado y saneado al navegador, sin parsear Markdown en el cliente.
 - **Deuda conocida:** hoy todo el contenido va en el bundle principal (> 500 kB). Con varios cursos, cada curso debe ir en su propio paquete descargable para el modo offline por curso (Fase 2, D-014).
+
+## D-021 · Guía de estilo y agente revisor de texto
+
+- **Estado:** aceptada (pedido de Daniel tras leer la lección 1 en la app) · 2026-10-21 · **concreta** el §2 del estándar de contenido
+- **Decisión:** las lecciones se escriben con la voz de un autor de libros de aprendizaje para adultos, según [`docs/guia-de-estilo.md`](guia-de-estilo.md): explicar en vez de enumerar, el caso antes que la regla, sin calcos del inglés, términos explicados la primera vez, como máximo dos fichas de producto por lección y al final de su apartado. Antes de la revisión de Codex, cada lección pasa por el agente `revisor-de-texto` (`.claude/agents/revisor-de-texto.md`), que reescribe sin tocar hechos, citas, directivas ni IDs.
+- **Por qué:** la primera versión de M02 era correcta pero sonaba a texto generado: frases telegráficas, negritas en cada línea, calcos («qué habilitará el resultado») y hasta seis fichas cortando la explicación.
+- **Cómo se hace cumplir:** `course-files.test.ts` falla con más de dos fichas por lección; la marca `[inferencia]` se muestra como un asterisco discreto con explicación al pasar el cursor. Lo demás (voz, calcos) lo revisan el agente y Codex.
+

@@ -6,7 +6,7 @@
     "function": "organize",
     "pedagogicalQuestion": "¿Qué partes necesita una especificación para que alguien sin contexto pueda ejecutarla y verificarla?",
     "whyNotTextOrSvg": "Es un SVG hecho con código: muestra las cinco partes y su orden con etiquetas exactas. Una ilustración generada no podría llevar texto y no garantizaría la relación.",
-    "alt": "Una petición ambigua se convierte en una especificación con cinco partes: objetivo y decisión; alcance y exclusiones; archivos e interfaces; supuestos y ambigüedad; y terminado cuando, que lleva a una verificación de extremo a extremo.",
+    "alt": "Una petición ambigua se convierte en una especificación con cinco partes: objetivo y decisión; alcance y exclusiones; archivos e interfaces; supuestos y ambigüedad; y está listo cuando, que lleva a una verificación de extremo a extremo.",
     "dimensions": {
       "width": 480,
       "height": 880

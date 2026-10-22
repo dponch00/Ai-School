@@ -71,6 +71,8 @@ for (const courseDir of readdirSync(resolve(root, 'courses'))) {
         const vendors = md.match(/\b(Codex|Claude|Copilot|Spec Kit|GPT-?\d|Gemini|Sonnet|Opus|Haiku|Fable|Anthropic|OpenAI|Google|GitHub|Cursor)\b/g)
         expect(vendors, `${l.id} menciona productos en el cuerpo: ${vendors?.join(', ')}`).toBeNull()
         if (l.order > 1) expect(l.reviewQuestionIds.length, `${l.id} sin repaso (R-A2-1)`).toBeGreaterThanOrEqual(2)
+        const cardsInBody = [...md.matchAll(/::product-card\{/g)].length
+        expect(cardsInBody, `${l.id}: ${cardsInBody} fichas; máximo 2 (guía de estilo §2.6)`).toBeLessThanOrEqual(2)
       }
     })
 

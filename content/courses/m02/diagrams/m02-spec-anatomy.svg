@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 880" role="img" aria-labelledby="spec-title spec-desc" font-family="'Source Serif 4', Georgia, serif">
   <title id="spec-title">De una petición ambigua a una especificación verificable</title>
-  <desc id="spec-desc">Una petición ambigua se convierte en una especificación con cinco partes: objetivo y decisión; alcance y exclusiones; contexto con archivos e interfaces; supuestos y política de ambigüedad; y terminado cuando, que lleva a una verificación de extremo a extremo.</desc>
+  <desc id="spec-desc">Una petición ambigua se convierte en una especificación con cinco partes: objetivo y decisión; alcance y exclusiones; contexto con archivos e interfaces; supuestos y política de ambigüedad; y está listo cuando, que lleva a una verificación de extremo a extremo.</desc>
   <rect x="0" y="0" width="480" height="880" rx="18" fill="#FFFDF7"/>
 
   <!-- Petición ambigua -->
@@ -41,7 +41,7 @@
     <rect x="20" y="680" width="440" height="96" rx="14" fill="#FFFFFF" stroke="#23694D" stroke-width="3"/>
     <circle cx="60" cy="728" r="20" fill="#23694D"/>
     <text x="60" y="735" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="700" font-size="20" fill="#FFFFFF">5</text>
-    <text x="94" y="720" font-family="Fraunces, Georgia, serif" font-weight="700" font-size="22">Terminado cuando…</text>
+    <text x="94" y="720" font-family="Fraunces, Georgia, serif" font-weight="700" font-size="22">Está listo cuando…</text>
     <text x="94" y="750" fill="#4D6265">Verificación de extremo a extremo</text>
   </g>
 

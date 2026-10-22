@@ -85,6 +85,17 @@ function lessonPlugin(state: { citations: string[]; toc: { id: string; text: str
         node.data = { hName: 'div', hProperties: { dataBlock: node.name, dataId: id } }
         node.children = []
       }
+      if (node.type === 'text' && node.value.includes('[inferencia]') && parent && typeof index === 'number') {
+        const parts = node.value.split('[inferencia]')
+        const out: any[] = []
+        parts.forEach((part: string, i: number) => {
+          if (part) out.push({ type: 'text', value: i < parts.length - 1 ? part.replace(/\s+$/, '') : part })
+          if (i < parts.length - 1)
+            out.push({ type: 'emphasis', data: { hName: 'sup', hProperties: { className: ['inference'], title: 'Conclusión del curso, no de una fuente citada' } }, children: [{ type: 'text', value: '*' }] })
+        })
+        parent.children.splice(index, 1, ...out)
+        return index + out.length
+      }
       if (node.type === 'textDirective') {
         if (node.name !== 'cite') throw new Error(`${state.file}: directiva de texto desconocida «:${node.name}» (¿un «:» seguido de letra en el texto?)`)
         const id = node.children.map((c: any) => c.value).join('')
