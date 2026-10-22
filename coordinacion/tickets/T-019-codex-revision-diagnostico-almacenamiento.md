@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-22 |
 | Depende de | T-018 (cerrado) |
 | Fase del plan | 2 — Base de app y PWA |
@@ -50,5 +50,10 @@ No edites `src/` ni `content/`.
 ---
 
 ## Entrega
+
+- Informe: `investigacion/codex-revision-diagnostico-almacenamiento.md`.
+- Hallazgos: 1 alto y 3 medios. El principal: el prompt y el Markdown del reporte de diagnóstico vuelven a pedir e informar por competencia, contrario a D-015.
+- Verificación: recorrido sintético completo del diagnóstico y reporte a 360 px, escritorio y teclado; almacenamiento normal revisado en perfil. La prueba manual con IndexedDB bloqueado en ventana privada queda documentada como limitación del entorno.
+- Pruebas: `npm test` (143/143) y `npm run build` correctos.
 
 _(Codex)_
