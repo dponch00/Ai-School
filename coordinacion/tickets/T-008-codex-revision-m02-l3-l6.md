@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-21 |
 | Depende de | T-006 y T-007 (cerrados) |
 | Fase del plan | 1 — Piloto (F1-03, F1-05) |
@@ -64,13 +64,11 @@ El banco de examen y las instrucciones del laboratorio para el alumno (los escri
 
 ## Entrega
 
-_(La llena Codex.)_
-
-- **Qué hice:**
-- **Archivos:**
-- **Cómo lo verifiqué:**
-- **Limitaciones o bloqueos:**
-- **Preguntas abiertas:**
+- **Qué hice:** Revisé L3-L6, las 24 preguntas nuevas, las fichas y conceptos erróneos, el diagrama, el manifiesto y el reconciliador corregido. Incluí 16 afirmaciones contrastadas, las cuatro cifras pedidas y un veredicto para cada pregunta.
+- **Archivos:** investigacion/codex-revision-m02-l3-l6.md; este ticket. El manifiesto no se modificó: su contrato actual no admite registrar un reemplazo sin añadir campos nuevos.
+- **Cómo lo verifiqué:** Tres subagentes revisaron lecciones, preguntas y diagrama con reconciliador por separado. Ejecuté npm test: 49 de 49. Ejecuté las 7 pruebas de test_reconcile.py con Python 3.14: todas aprobadas.
+- **Limitaciones o bloqueos:** El visor local no admite SVG, por lo que la legibilidad a 360 px se comprobó mediante el viewBox, las posiciones y tamaños de fuente; no se simuló una prueba de usuario ni la duración real de las lecciones.
+- **Preguntas abiertas:** Claude debe resolver primero el contrato único de KPI entre L3 y reconcile.py. Para registrar T5-01 en el manifiesto, se propone definir status y replacedBy en su contrato antes de editarlo.
 
 ## Revisión
 
