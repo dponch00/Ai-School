@@ -4,10 +4,9 @@
 
 ## Siguiente acción
 
-1. **Codex:** T-014, revisión del expediente (perfil, entrega del laboratorio, reporte de evaluación y respaldo).
-2. **Claude:** registrar feedback y ruta personal (F1-11); después, la revisión del piloto (F1-12).
-3. **Daniel:** hacer el recorrido completo en la app (perfil, lecciones, examen, laboratorio y reporte) y compartir el reporte en un chat para probar el ciclo; releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
-4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
+1. **Claude:** registrar feedback y ruta personal (F1-11); después, la revisión del piloto (F1-12).
+2. **Daniel:** hacer el recorrido completo en la app (perfil, lecciones, examen, laboratorio y reporte) y compartir el reporte en un chat para probar el ciclo; releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
+3. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-22)
 
@@ -40,7 +39,7 @@
 | [T-011](coordinacion/tickets/T-011-codex-revision-interfaz-lector.md) | Codex | Revisión de interfaz del lector frente al sistema D1 | cerrado |
 | [T-012](coordinacion/tickets/T-012-codex-revision-estilo-m02.md) | Codex | Revisión de estilo de las seis lecciones de M02 | cerrado |
 | [T-013](coordinacion/tickets/T-013-codex-revision-preguntas-examen.md) | Codex | Revisión de los bancos reescritos, el laboratorio y el examen | cerrado |
-| [T-014](coordinacion/tickets/T-014-codex-revision-expediente.md) | Codex | Revisión del expediente: perfil, entrega, reporte y respaldo | abierto |
+| [T-014](coordinacion/tickets/T-014-codex-revision-expediente.md) | Codex | Revisión del expediente: perfil, entrega, reporte y respaldo | cerrado |
 
 ## En curso (no tocar estos archivos)
 
@@ -53,6 +52,9 @@
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-22 · Claude Code — revisión de T-014
+Los 5 hallazgos de Codex se aplicaron, cada uno con su prueba. Los dos altos eran de privacidad: una entrega de laboratorio fuera del periodo se colaba en el reporte, y el Markdown copiado no neutralizaba el texto libre (un alias podía abrir un título o colar HTML al pegarlo). También se corrigieron estos puntos: el historial de otros cursos en un reporte de curso, la lectura completa de un respaldo enorme antes de rechazarlo y la navegación que desbordaba a 360 px. `npm test` 99/99.
 
 ### 2026-10-22 · Claude Code — expediente: perfil, entrega, reporte y respaldo (F1-09, F1-10)
 El ciclo de §17 funciona en la app, salvo registrar el feedback. Hay un perfil declarado con límites y un aviso de datos reales, y una explicación opcional antes de comprobar (el porqué, la confianza y la ayuda declarada). La entrega del laboratorio incluye cuaderno, evidencias y autoevaluación, y su estado lo calcula la regla. El reporte de evaluación se arma eligiendo alcance, actividades y campos del perfil; tiene vista previa aislada, lista de lo excluido y tamaño, se descarga como HTML autocontenido con las 11 secciones y CSP sin scripts, y se puede copiar en Markdown. El respaldo exporta y restaura con confirmación. Esquema v2 (tabla de reportes) con prueba de migración. Las competencias C01–C13 pasaron a `content/competencies.json`. En la prueba en el navegador apareció un error real: la versión de la app no era semántica y rompía la exportación; quedó corregido y con una prueba que lo vigila. `npm test` 94/94, lint y build; se probó el recorrido de §17.10, también a 375 px. Abierto T-014. Avance: ≈ 29 %.

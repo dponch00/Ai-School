@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { APP_VERSION } from '../app/version'
 import { content } from '../content'
 import type { Backup } from '../domain/learner'
-import { backupFileName, backupSummary, exportBackup, parseBackup, restoreBackup } from '../storage/backup'
+import { backupFileName, backupSummary, exportBackup, readBackupFile, restoreBackup } from '../storage/backup'
 import { db } from '../storage/db'
 
 /** Exportar e importar el respaldo completo (F1-10). Restaurar pide confirmación porque reemplaza todo. */
@@ -31,7 +31,7 @@ export default function BackupPanel() {
     setPending(null)
     if (!file) return
     try {
-      setPending(parseBackup(await file.text()))
+      setPending(await readBackupFile(file))
       setMessage(null)
     } catch (e) {
       setMessage(e instanceof Error ? e.message : String(e))

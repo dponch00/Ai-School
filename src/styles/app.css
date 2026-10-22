@@ -254,3 +254,10 @@ main:focus { outline: none; }
 .question__notes label { display: grid; gap: var(--ais-space-1); margin-bottom: var(--ais-space-3); font-size: var(--ais-font-size-sm); font-weight: 600; }
 .question__notes-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: var(--ais-space-3); }
 @media (max-width: 30rem) { .preview__facts { grid-template-columns: 1fr; } .form-group { padding: var(--ais-space-3); } }
+
+/* Cabecera en pantallas angostas (T014-U01): la navegación baja a su propia fila y no desborda. */
+@media (max-width: 34rem) {
+  .site-header__inner { flex-wrap: wrap; gap: 0 var(--ais-space-2); padding-block: var(--ais-space-1); }
+  .site-header nav { flex-wrap: wrap; gap: 0; width: 100%; justify-content: space-between; }
+  .site-header nav a { padding-inline: var(--ais-space-2); }
+}

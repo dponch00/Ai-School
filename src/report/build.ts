@@ -67,6 +67,8 @@ export interface ReportOptions {
   profileFields: ProfileField[]
   sections: Record<SectionKey, boolean>
   questionsForEvaluator: string
+  /** Ajustes de la ruta que no se pueden ligar a un curso: fuera salvo que Daniel los marque (T014-S03). */
+  includeUntracedAdjustments?: boolean
 }
 
 export interface ReportContext {
@@ -143,6 +145,26 @@ export function escapeHtml(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;')
 }
 const e = escapeHtml
+
+/**
+ * Texto del alumno dentro de una línea de Markdown: sin saltos de línea (no puede abrir un bloque),
+ * con la puntuación de Markdown escapada y el HTML convertido en entidades (T014-S02).
+ */
+export function mdInline(s: string): string {
+  return s
+    .replace(/\r?\n/g, ' ')
+    .replace(/[\\`*_{}[\]()#+!|~]/g, '\\$&')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+}
+
+/** Bloque de código con una cerca más larga que cualquier racha de comillas invertidas del texto. */
+export function mdFence(s: string): string {
+  const longest = Math.max(0, ...[...s.matchAll(/`+/g)].map((m) => m[0].length))
+  const fence = '`'.repeat(Math.max(3, longest + 1))
+  return `${fence}text\n${s}\n${fence}`
+}
 
 const day = (iso: string) => iso.slice(0, 10)
 const inPeriod = (iso: string, from?: string, to?: string) => (!from || day(iso) >= from) && (!to || day(iso) <= to)
@@ -236,10 +258,17 @@ export function buildReport(rec: LearnerRecord, ctx: ReportContext, opts: Report
 
   // ---------- Laboratorios ----------
   const practices = new Map(ctx.practices.map((p) => [p.id, p]))
+  let labsOutOfPeriod = 0
   const submissions = rec.submissions.filter((s) => {
     const p = practices.get(s.practiceId)
-    return p && courseOk(p.courseId) && s.createdAt <= opts.generatedAt
+    if (!p || !courseOk(p.courseId) || s.createdAt > opts.generatedAt) return false
+    if (!inPeriod(s.createdAt, scope.from, scope.to)) {
+      labsOutOfPeriod++
+      return false
+    }
+    return true
   })
+  if (labsOutOfPeriod > 0) excluded.push(`${labsOutOfPeriod} entrega(s) de laboratorio fuera del periodo elegido`)
   if (!sections.labs && submissions.length > 0) excluded.push(`${submissions.length} entrega(s) de laboratorio que decidiste no incluir`)
   // Una evidencia que Daniel no quiso incorporar no viaja en ninguna parte del reporte, tampoco en el JSON.
   const labs = (sections.labs ? submissions : []).map((s) => ({
@@ -289,7 +318,22 @@ export function buildReport(rec: LearnerRecord, ctx: ReportContext, opts: Report
     counts: { attempts: attempts.length, responses: rows.length, practices: labs.length },
     byCompetency: byCompetency.map(({ competencyId, correct, total }) => ({ competencyId, correct, total })),
   }
-  const previous = rec.reports.filter((r) => r.id !== opts.reportId && r.createdAt < opts.generatedAt)
+  // Historial (T014-S03): en un reporte de curso solo entra lo que se puede ligar a ese curso.
+  const earlier = rec.reports.filter((r) => r.id !== opts.reportId && r.createdAt < opts.generatedAt)
+  const previous = scope.kind === 'course' ? earlier.filter((r) => r.scope.kind === 'course' && r.scope.courseId === scope.courseId) : earlier
+  if (earlier.length > previous.length) excluded.push(`${earlier.length - previous.length} reporte(s) anterior(es) de otro alcance`)
+  const previousIds = new Set(previous.map((r) => r.id))
+  const feedbackList = rec.feedback.filter((f) => (scope.kind !== 'course' || previousIds.has(f.sourceReportId)) && inPeriod(f.receivedAt, scope.from, scope.to))
+  if (rec.feedback.length > feedbackList.length) excluded.push(`${rec.feedback.length - feedbackList.length} retroalimentación(es) de otro curso, otro alcance u otro periodo`)
+  const feedbackIds = new Set(feedbackList.map((f) => f.id))
+  const tracedToCourse = (a: LearnerRecord['adjustments'][number]) =>
+    (a.feedbackId !== undefined && feedbackIds.has(a.feedbackId)) || a.targetIds.some((t) => t === scope.courseId || t.startsWith(`${scope.courseId}-`))
+  const adjustmentsList = rec.adjustments.filter((a) => {
+    if (!inPeriod(a.createdAt, scope.from, scope.to)) return false
+    if (scope.kind !== 'course') return true
+    return tracedToCourse(a) || (opts.includeUntracedAdjustments === true && a.targetIds.length === 0 && a.feedbackId === undefined)
+  })
+  if (rec.adjustments.length > adjustmentsList.length) excluded.push(`${rec.adjustments.length - adjustmentsList.length} ajuste(s) de la ruta de otro curso, sin curso identificado u otro periodo`)
 
   // ---------- Datos estructurados (mismo alcance) ----------
   const data = {
@@ -308,8 +352,8 @@ export function buildReport(rec: LearnerRecord, ctx: ReportContext, opts: Report
     responses: rows,
     practiceSubmissions: labs,
     previousReports: previous,
-    feedback: rec.feedback.map((f) => ({ id: f.id, sourceReportId: f.sourceReportId, reviewer: f.reviewer, receivedAt: f.receivedAt })),
-    adjustments: rec.adjustments,
+    feedback: feedbackList.map((f) => ({ id: f.id, sourceReportId: f.sourceReportId, reviewer: f.reviewer, receivedAt: f.receivedAt })),
+    adjustments: adjustmentsList,
     questionsForEvaluator: questions,
     excluded,
   }
@@ -441,11 +485,11 @@ ${excluded.length > 0 ? `<ul>${excluded.map((x) => `<li>${e(x)}</li>`).join('')}
 
     // 8. Retroalimentación previa
     h.push(`<section id="feedback"><h2>8. Retroalimentación previa</h2>`)
-    if (rec.feedback.length === 0 && rec.adjustments.length === 0) h.push('<p>Sin retroalimentación ni ajustes registrados todavía.</p>')
+    if (feedbackList.length === 0 && adjustmentsList.length === 0) h.push('<p>Sin retroalimentación ni ajustes dentro de este alcance.</p>')
     else {
       h.push('<ul>')
-      for (const f of rec.feedback) h.push(`<li>Evaluación de ${e(f.reviewer.declaredName)} (${e(f.reviewer.reviewType)}) recibida el ${e(day(f.receivedAt))} sobre el reporte ${e(f.sourceReportId)}.</li>`)
-      for (const a of rec.adjustments) h.push(`<li>Ajuste «${e(a.change)}» · estado ${e(a.state)} · motivo: ${e(a.reason)}</li>`)
+      for (const f of feedbackList) h.push(`<li>Evaluación de ${e(f.reviewer.declaredName)} (${e(f.reviewer.reviewType)}) recibida el ${e(day(f.receivedAt))} sobre el reporte ${e(f.sourceReportId)}.</li>`)
+      for (const a of adjustmentsList) h.push(`<li>Ajuste «${e(a.change)}» · estado ${e(a.state)} · motivo: ${e(a.reason)}</li>`)
       h.push('</ul>')
     }
     h.push('</section>')
@@ -514,15 +558,16 @@ ${s.notebook ? `<h4>Cuaderno de decisiones</h4><dl><dt>Decisión inicial</dt><dd
   // ---------- Markdown ----------
   function renderMarkdown(): string {
     const m: string[] = []
-    const fence = (s: string) => '```\n' + s.replace(/```/g, '`​``') + '\n```'
+    const fence = mdFence
+    const t = mdInline
     m.push(`# Expediente de aprendizaje de IA aplicada`, '', `Reporte ${opts.reportId} · corte ${opts.generatedAt} (${opts.timezone}) · ${scopeText}${periodText}`, '')
-    m.push('## Lo que queda fuera', ...(excluded.length > 0 ? excluded.map((x) => `- ${x}`) : ['- Nada dentro del alcance.']), '')
+    m.push('## Lo que queda fuera', ...(excluded.length > 0 ? excluded.map((x) => `- ${t(x)}`) : ['- Nada dentro del alcance.']), '')
     m.push('## Contexto personal (declarado)')
     if (profileIncluded.length === 0) m.push('No comparto datos del perfil.')
     for (const f of profileIncluded) {
       const v = f === 'priorEvidence' ? profile!.priorEvidence.map((x) => `${x.date} · ${x.source}: ${x.summary}`) : (declared as Record<string, unknown>)[f]
       const text = f === 'selfAssessment' ? declared!.selfAssessment.map((s) => `${s.competencyId}: ${LEVEL_LABEL[s.level]}${s.note ? ` — ${s.note}` : ''}`) : v
-      m.push(`- **${PROFILE_FIELDS[f]}:** ${Array.isArray(text) ? text.join('; ') : String(text)}`)
+      m.push(`- **${PROFILE_FIELDS[f]}:** ${Array.isArray(text) ? text.map((x) => t(String(x))).join('; ') : t(String(text))}`)
     }
     m.push('', '## Resumen por competencia (observado)')
     for (const c of byCompetency) m.push(`- ${c.competencyId} ${ctxName(c.competencyId)}: ${c.correct}/${c.total} (primeros intentos ${c.firstCorrect}/${c.firstTotal})`)
@@ -533,16 +578,16 @@ ${s.notebook ? `<h4>Cuaderno de decisiones</h4><dl><dt>Decisión inicial</dt><dd
       m.push(
         '',
         `### ${r.questionId} v${r.questionVersion} · ${KIND_LABEL[r.kind]} · ${r.isFirstAttempt ? 'primer intento' : 'reintento'}`,
-        r.scenario,
-        `**${r.stem}**`,
-        ...r.options.map((o) => `${o.letter}. ${o.text}${o.correct ? ' (clave)' : ''}`),
+        t(r.scenario),
+        `**${t(r.stem)}**`,
+        ...r.options.map((o) => `${o.letter}. ${t(o.text)}${o.correct ? ' (clave)' : ''}`),
         `Primera: ${letter(r.firstSelectedOptionId)}${r.revisions.length ? ` · cambios: ${r.revisions.map((v) => letter(v.selectedOptionId)).join(' → ')}` : ''} · final: ${letter(r.finalSelectedOptionId)} · ${r.correct ? 'correcta' : r.finalSelectedOptionId ? 'incorrecta' : 'sin responder'}${r.confidence ? ` · confianza ${LEVEL_LABEL[r.confidence]}` : ''}${r.declaredHelp ? ` · ${HELP_LABEL[r.declaredHelp]}` : ''}`,
         ...(r.explanation ? ['Mi explicación:', fence(r.explanation)] : []),
       )
     }
     if (labs.length > 0) {
       m.push('', '## Laboratorios')
-      for (const s of labs) m.push('', `### ${practices.get(s.practiceId)!.title} (${STATE_LABEL[s.state]})`, fence(s.text || '(vacía)'))
+      for (const s of labs) m.push('', `### ${t(practices.get(s.practiceId)!.title)} (${STATE_LABEL[s.state]})`, fence(s.text || '(vacía)'))
     }
     if (questions) m.push('', '## Preguntas para el evaluador', fence(questions))
     m.push('', '## Instrucción de evaluación sugerida', fence(EVALUATION_PROMPT))

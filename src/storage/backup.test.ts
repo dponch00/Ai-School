@@ -1,10 +1,10 @@
 // Respaldo completo: ida y vuelta, validación y migración (fake-indexeddb).
 import 'fake-indexeddb/auto'
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { makeQuestion } from '../domain/fixtures.test-utils'
 import { APP_VERSION } from '../app/version'
 import { openDb, type LearnerDb } from './db'
-import { backupSummary, exportBackup, parseBackup, restoreBackup } from './backup'
+import { MAX_BACKUP_BYTES, backupSummary, exportBackup, parseBackup, readBackupFile, restoreBackup } from './backup'
 import { saveProfile, saveReport } from './learner'
 import { recordCheckAnswer } from './progress'
 
@@ -75,5 +75,10 @@ describe('respaldo', () => {
     const parsed = parseBackup(JSON.stringify(v1))
     expect(parsed.schemaVersion).toBe(2)
     expect(parsed.reports).toEqual([])
+  })
+  it('un archivo más grande que el límite se rechaza sin leerlo (T014-S04)', async () => {
+    const text = vi.fn(async () => '{}')
+    await expect(readBackupFile({ size: MAX_BACKUP_BYTES + 1, text })).rejects.toThrow('demasiado grande')
+    expect(text).not.toHaveBeenCalled()
   })
 })

@@ -4,7 +4,7 @@ import { makeAttempt, makeQuestion } from '../domain/fixtures.test-utils'
 import type { Practice } from '../domain/content'
 import type { Attempt, PracticeSubmission, Profile, Response } from '../domain/learner'
 import type { LearnerRecord } from '../storage/learner'
-import { buildReport, escapeHtml, type ReportOptions } from './build'
+import { buildReport, escapeHtml, mdFence, mdInline, type ReportOptions } from './build'
 
 const INJECTION = '</pre><script>alert("x")</script><img src=x onerror=alert(1)>'
 
@@ -148,5 +148,55 @@ describe('reporte de evaluación', () => {
     const prev = buildReport(record(), ctx, opts({ reportId: 'report-anterior-01', generatedAt: '2026-10-21T23:00:00.000Z' })).record
     const { html } = buildReport(record({ reports: [prev] }), ctx, opts())
     expect(html).toContain('report-anterior-01')
+  })
+  it('una entrega anterior al periodo queda fuera del HTML, el Markdown y el JSON, y se dice (T014-S01)', () => {
+    const built = buildReport(record(), ctx, opts({ scope: { kind: 'course', courseId: 'm02', from: '2026-10-22' } }))
+    expect(built.record.counts.practices).toBe(0)
+    expect(built.record.excluded.join(' ')).toContain('1 entrega(s) de laboratorio fuera del periodo')
+    expect(built.html).not.toContain('Mi brief')
+    expect(built.markdown).not.toContain('Mi brief')
+    expect((jsonBlock(built.html) as { practiceSubmissions: unknown[] }).practiceSubmissions).toEqual([])
+  })
+
+  it('el Markdown neutraliza el texto libre: no abre títulos, listas ni HTML (T014-S02)', () => {
+    const hostile = '# Título\n- lista\n<img src=x onerror=alert(1)> "\'</pre></textarea> 𝒰ñïçødé'
+    const rec = record({ profile: { ...profile, declared: { ...profile.declared, alias: hostile, goals: [hostile] } } })
+    const { markdown: full } = buildReport(rec, ctx, opts())
+    // Dentro de un bloque de código el texto es literal; fuera, no puede quedar nada activo.
+    const markdown = full.replace(/(`{3,})text\n[\s\S]*?\n\1/g, '')
+    expect(markdown).not.toMatch(/<img/i)
+    expect(markdown).not.toMatch(/^# Título/m)
+    expect(markdown).not.toMatch(/^- lista/m)
+    expect(markdown).toContain('𝒰ñïçødé')
+    expect(markdown).toContain('&lt;img')
+    expect(mdInline('a*b*_c_ [x](y) `z`')).toBe('a\\*b\\*\\_c\\_ \\[x\\]\\(y\\) \\`z\\`')
+  })
+
+  it('un bloque de código usa una cerca más larga que cualquier racha de comillas invertidas (T014-S02)', () => {
+    const block = mdFence('antes ```` después')
+    expect(block.startsWith('`````text')).toBe(true)
+    expect(block.endsWith('`````')).toBe(true)
+  })
+
+  it('en un reporte de curso, el historial de otro curso no entra y se dice (T014-S03)', () => {
+    const other = buildReport(record(), { ...ctx, courses: [...ctx.courses, { id: 'm03', title: 'Otro', version: '0.1.0' }] }, opts({ reportId: 'rep-otro-curso-1', generatedAt: '2026-10-21T20:00:00.000Z', scope: { kind: 'course', courseId: 'm03' } })).record
+    const feedback = { id: 'feedback-0001', sourceReportId: other.id, reviewer: { declaredName: 'Evaluador', reviewType: 'external-assisted' as const }, receivedAt: '2026-10-21T21:00:00.000Z', fullText: 'secreto de m03', textHash: 'hash-0001' }
+    const adj = (id: string, over: object) => ({ id, origin: 'manual' as const, targetIds: [], kind: 'note' as const, change: `cambio ${id}`, reason: 'motivo', createdAt: '2026-10-21T22:00:00.000Z', state: 'proposed' as const, history: [], ...over })
+    const rec = record({
+      reports: [other],
+      feedback: [feedback],
+      adjustments: [adj('adj-m03-0001', { targetIds: ['m03-l1'] }), adj('adj-m02-0001', { targetIds: ['m02-l2'] }), adj('adj-libre-001', {})],
+    })
+    const built = buildReport(rec, ctx, opts())
+    expect(built.html).not.toContain('rep-otro-curso-1')
+    expect(built.html).not.toContain('cambio adj-m03-0001')
+    expect(built.html).not.toContain('cambio adj-libre-001')
+    expect(built.html).toContain('cambio adj-m02-0001')
+    const ex = built.record.excluded.join(' | ')
+    expect(ex).toContain('1 reporte(s) anterior(es) de otro alcance')
+    expect(ex).toContain('1 retroalimentación(es)')
+    expect(ex).toContain('2 ajuste(s)')
+    expect(buildReport(rec, ctx, opts({ includeUntracedAdjustments: true })).html).toContain('cambio adj-libre-001')
+    expect(buildReport(rec, ctx, opts({ scope: { kind: 'full' } })).html).toContain('rep-otro-curso-1')
   })
 })

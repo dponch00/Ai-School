@@ -21,6 +21,7 @@ export default function EvaluationPage() {
   const [sections, setSections] = useState(ALL_SECTIONS)
   const [omitted, setOmitted] = useState<ProfileField[]>([])
   const [questions, setQuestions] = useState('')
+  const [untraced, setUntraced] = useState(false)
   const [reportId, setReportId] = useState(() => `rep-${newLocalId().slice(0, 12)}`)
   const [stamp, setStamp] = useState(now)
   const [message, setMessage] = useState<string | null>(null)
@@ -41,10 +42,10 @@ export default function EvaluationPage() {
   const built = useMemo(
     () =>
       record
-        ? buildReport(record, ctx, { reportId, generatedAt: stamp, timezone, appVersion: APP_VERSION, scope, profileFields, sections, questionsForEvaluator: questions })
+        ? buildReport(record, ctx, { reportId, generatedAt: stamp, timezone, appVersion: APP_VERSION, scope, profileFields, sections, questionsForEvaluator: questions, includeUntracedAdjustments: untraced })
         : null,
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [record, ctx, reportId, stamp, timezone, kind, courseId, from, to, omitted, sections, questions],
+    [record, ctx, reportId, stamp, timezone, kind, courseId, from, to, omitted, sections, questions, untraced],
   )
 
   const filledFields = record?.profile
@@ -120,6 +121,11 @@ export default function EvaluationPage() {
               <input type="checkbox" checked={sections[k]} onChange={(e) => setSections({ ...sections, [k]: e.target.checked })} /> {SECTIONS[k]}
             </label>
           ))}
+          {kind === 'course' && (record?.adjustments.length ?? 0) > 0 && (
+            <label className="check">
+              <input type="checkbox" checked={untraced} onChange={(e) => setUntraced(e.target.checked)} /> Ajustes de mi ruta que no están ligados a ningún curso
+            </label>
+          )}
           <p className="muted">Tus explicaciones y la entrega del laboratorio van tal como las escribiste. Revisa la vista previa antes de compartir.</p>
         </fieldset>
 

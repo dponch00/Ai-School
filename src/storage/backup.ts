@@ -60,6 +60,12 @@ export function parseBackup(text: string): Backup {
   return parsed.data
 }
 
+/** Lee un archivo de respaldo: rechaza por tamaño antes de cargarlo en memoria (T014-S04). */
+export async function readBackupFile(file: Pick<Blob, 'size' | 'text'>): Promise<Backup> {
+  if (file.size > MAX_BACKUP_BYTES) throw new Error('El archivo es demasiado grande para ser un respaldo de AI School.')
+  return parseBackup(await file.text())
+}
+
 export function backupSummary(b: Backup) {
   return {
     exportedAt: b.exportedAt,

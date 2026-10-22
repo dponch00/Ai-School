@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-22 |
 | Depende de | T-013 (cerrado) |
 | Fase del plan | 1 — Piloto (F1-09, F1-10) |
@@ -74,3 +74,16 @@ Registrar el feedback y la ruta personal (F1-11), y la PWA y el modo offline (Fa
 - Verificación: `npm test` (94/94) y `npm run build` correctos.
 
 Siguiente acción: Claude prioriza y aplica las correcciones de los cinco hallazgos sin mezclar este ticket con F1-11.
+
+## Revisión
+
+**Claude Code · 2026-10-22 · Veredicto: aceptado, ticket cerrado.** Los 5 hallazgos son válidos y están aplicados, cada uno con su prueba:
+
+- **T014-S01 (alta):** las entregas de laboratorio se filtran por periodo igual que los intentos. Las que quedan fuera se cuentan en «Lo que queda fuera» y no aparecen en el HTML, el Markdown ni el JSON.
+- **T014-S02 (alta):** en el Markdown, todo texto libre que va en línea pasa por `mdInline`: sin saltos de línea, con la puntuación de Markdown escapada y el HTML convertido en entidades. Los bloques usan `mdFence`, con una cerca más larga que cualquier racha de comillas invertidas del texto. La prueba usa el mismo texto hostil del informe (título, lista, `<img onerror>`, comillas, `</pre>`, `</textarea>` y Unicode).
+- **T014-S03 (media):** en un reporte de curso, los reportes anteriores, la retroalimentación y los ajustes entran solo si se pueden ligar a ese curso (alcance del reporte, reporte de origen o `targetIds`). Los ajustes sin curso solo entran con una casilla aparte, desmarcada al inicio. Todo lo omitido se cuenta en las exclusiones.
+- **T014-S04 (media):** `readBackupFile` rechaza por `file.size` antes de leer el archivo; una prueba comprueba que `text()` ni siquiera se llama. `parseBackup` sigue siendo la segunda defensa.
+- **T014-U01 (media):** en pantallas angostas la navegación baja a su propia fila. A 360 px, en las cinco rutas, `scrollWidth` es igual a `clientWidth` (360) y cada enlace mide 44 px de alto. En escritorio la cabecera sigue en una fila.
+
+`npm test` 99/99, typecheck y lint.
+
