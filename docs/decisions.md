@@ -139,3 +139,10 @@ Una entrada por decisión. Estados: **aceptada**, **propuesta** (espera a Daniel
 - **Por qué:** la primera versión de M02 era correcta pero sonaba a texto generado: frases telegráficas, negritas en cada línea, calcos («qué habilitará el resultado») y hasta seis fichas cortando la explicación.
 - **Cómo se hace cumplir:** `course-files.test.ts` falla con más de dos fichas por lección; la marca `[inferencia]` se muestra como un asterisco discreto con explicación al pasar el cursor. Lo demás (voz, calcos) lo revisan el agente y Codex.
 
+## D-022 · Decisión de la puerta F1-13: Fase 2 ahora, Bloque A después del recorrido
+
+- **Estado:** aceptada por Daniel · 2026-10-22 · con base en `docs/puerta-f1-13.md` (revisada por Codex en T-016)
+- **Decisión:** se avanza la Fase 2 de inmediato. El Bloque A (M01, M03 y M04) empieza cuando Daniel termine su recorrido como alumno y pase su tiempo de estudio y sus notas. El banco de examen se mantiene en 36 ítems (12 × 3) de forma **provisional**: su esfuerzo se mide aparte en `docs/registro-esfuerzo.md` y se recalibra después de M03 o M04 (actualiza D-016).
+- **Por qué:** la puerta cumple la matriz y la revisión independiente, pero el criterio de esfuerzo sigue pendiente. El recorrido de Daniel es la única fuente del tiempo real de estudio y de la validación con el lector real.
+- **Primero en la Fase 2:** las reglas del examen del estándar §4.3 que faltaban en la app (reintento al día siguiente y tras repasar los errores, confianza en el examen y comprobación de retención a 7 días). Con ellas, el recorrido de Daniel ya produce los datos de las hipótesis.
+

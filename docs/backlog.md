@@ -1,7 +1,7 @@
-# Backlog — Fase 0 y Fase 1
+# Backlog — Fases 0 a 2
 
 Estados: ⬜ pendiente · 🔄 en curso · 🧪 en revisión · ✅ hecho · ⛔ bloqueado.
-Las fases 2–5 se detallan cuando cierre el piloto (plan §12).
+La Fase 2 se detalló al cerrar el piloto (D-022); las fases 3–5, al empezar cada una.
 
 ## Fase 0 — Definición
 
@@ -42,3 +42,21 @@ Salida: un curso completo y funcional que fija el estándar del producto. Las ot
 | F1-12 | Revisión del piloto: contenido (Codex), UX móvil, accesibilidad, fuentes; cerrar hallazgos | Codex + Claude + Daniel | F1-01…F1-11 | 🟡 Codex y Claude cerrados (T-015); falta la prueba de Daniel |
 | F1-13 | **Puerta de calidad del piloto (D-011):** matriz objetivo→evidencia, hallazgos altos cerrados, esfuerzo real medido; decidir alcance de la Fase 3 | Claude + Codex → Daniel decide | F1-12 | 🟡 preparada en `docs/puerta-f1-13.md`; falta el recorrido de Daniel y su decisión |
 | F1-14 | Revisión antes de publicar: buscar secretos, datos reales y referencias personales en todo lo versionado (repo público, D-006) | Claude; revisa Codex | antes de cualquier publicación | ⬜ |
+
+## Fase 2 — Base de app y PWA (D-022)
+
+Salida: base funcional y comprobada que permite integrar los cursos restantes (plan §12).
+
+| ID | Tarea | Quién | Depende de | Estado |
+| --- | --- | --- | --- | --- |
+| F2-01 | Reglas del examen del estándar §4.3: reintento al día siguiente y tras repasar los apartados de los errores, confianza opcional por pregunta, comprobación de retención a 7 días (6 variantes no vistas, 5/6) | Claude; revisa Codex | F1-08 | 🔄 |
+| F2-02 | Revisiones externas de la práctica: registrar revisiones con corrida, evaluador y evidencia por criterio; estado con `reviewState` (prueba la hipótesis de doble evaluación) | Claude; revisa Codex | F1-09 | ⬜ |
+| F2-03 | Errores con confianza alta: reaparecen en la sesión siguiente como repaso (R-E-4) | Claude | F2-01 | ⬜ |
+| F2-04 | PWA: manifiesto, service worker (vite-plugin-pwa, `injectManifest`, `registerType: 'prompt'`), instalación, aviso de actualización que no interrumpe un examen en curso | Claude; revisa Codex | — | ⬜ |
+| F2-05 | Offline por curso: contenido de cada curso en su propio paquete y caché, descargado con verificación (deuda de D-020) | Claude | F2-04 | ⬜ |
+| F2-06 | Diagnóstico inicial: 24 ítems y 2 microtareas, señales por bloque y recomendaciones por competencia (D-015) | Claude; revisa Codex | — | ⬜ |
+| F2-07 | Búsqueda (MiniSearch con stemmer español), glosario, notas y marcadores | Claude | — | ⬜ |
+| F2-08 | Pruebas de interacción y accesibilidad (Playwright + axe) en las rutas principales | Claude; revisa Codex | — | ⬜ |
+| F2-09 | Manejo de errores: aviso visible si IndexedDB no está disponible, cuota y `navigator.storage.persist()` | Claude | — | ⬜ |
+| F2-10 | Prueba de hosting en origen propio (F0-11) y revisión antes de publicar (F1-14) | Claude + Daniel | Organización de GitHub creada por Daniel | ⛔ espera a Daniel |
+

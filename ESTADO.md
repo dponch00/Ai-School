@@ -1,11 +1,11 @@
 # Estado del proyecto
 
-**Fase actual:** 1 — Piloto M02 (Fase 0 cerrada salvo la prueba de hosting F0-11) · **Actualizado:** 2026-10-22 por Claude Code
+**Fase actual:** 2 — Base de app y PWA (D-022). Piloto M02 cerrado salvo el recorrido de Daniel; el Bloque A empieza después. · **Actualizado:** 2026-10-22 por Claude Code
 
 ## Siguiente acción
 
-1. **Daniel:** leer [`docs/puerta-f1-13.md`](docs/puerta-f1-13.md), hacer el recorrido completo como alumno (perfil, lecciones, examen, laboratorio, reporte compartido en un chat y retroalimentación registrada), que da el tiempo real de estudio, y decidir la Fase 3.
-2. **Claude (si Daniel lo aprueba):** avanzar la Fase 2 en paralelo (PWA, offline, comprobación diferida, revisiones externas de la práctica).
+1. **Daniel:** hacer el recorrido completo como alumno (perfil, lecciones, examen, laboratorio, reporte compartido en un chat y retroalimentación registrada) y anotar su tiempo en `docs/registro-esfuerzo.md` o pasárselo a Claude. Con eso arranca el Bloque A.
+2. **Claude:** Fase 2 en el orden del backlog, empezando por F2-01 (reglas del examen del estándar §4.3).
 3. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
@@ -48,7 +48,7 @@
 
 | Quién | Archivos |
 | --- | --- |
-| — | Nada en curso: se espera la decisión de Daniel sobre la puerta F1-13 |
+| Claude | F2-01: `src/storage/exam.ts`, `src/pages/ExamPage.tsx` |
 
 ## Decisiones recientes
 
