@@ -5,7 +5,8 @@ import { makeBank, seededRng } from '../domain/fixtures.test-utils'
 import { Attempt, responseIssues } from '../domain/learner'
 import { openDb, type LearnerDb } from './db'
 import { examAttempts, retentionStatus, retryGate, selectExamAnswer, setExamConfidence, startExam, startRetention, submitExam } from './exam'
-import { markLessonVisited } from './progress'
+import { recordCheckAnswer } from './progress'
+import { makeQuestion } from '../domain/fixtures.test-utils'
 
 let db: LearnerDb
 let n = 0
@@ -21,6 +22,9 @@ const objectiveIds = [...new Set(bank.map((q) => q.evaluatedObjectiveId!))]
 const course = { id: 'm02', version: '0.1.0', evaluatedObjectiveIds: objectiveIds }
 const T0 = '2026-10-20T15:00:00.000Z'
 const plus = (iso: string, hours: number) => new Date(new Date(iso).getTime() + hours * 3_600_000).toISOString()
+/** Responde de nuevo las comprobaciones de una lección (el repaso que exige R-G-3). */
+const redoChecks = (lessonId: string, at: string) =>
+  recordCheckAnswer(db, { courseId: 'm02', lessonId, purpose: 'checks', contentVersion: '0.1.0', size: 1 }, null, makeQuestion({ id: `${lessonId}-c1`, use: 'check' }), ['k1', 'd1', 'd2'], 'k1', {}, at)
 const key = (a: Attempt, i: number) => a.items[i].question.options.find((o) => o.correct)!.id
 const wrong = (a: Attempt, i: number) => a.items[i].question.options.find((o) => !o.correct)!.id
 
@@ -77,7 +81,7 @@ describe('examen', () => {
     const first = await startExam(db, course, bank, seededRng(1), T0)
     await answerAll(first, 6)
     await submitExam(db, first.id, T0)
-    await markLessonVisited(db, 'm02', 'm02-l2', plus(T0, 1))
+    await redoChecks('m02-l2', plus(T0, 1))
     const failed = first.items.slice(6).map((it) => it.question)
     const retry = await startExam(db, course, bank, seededRng(3), plus(T0, 48))
     expect(retry.id).not.toBe(first.id)
@@ -95,9 +99,9 @@ describe('examen', () => {
     await submitExam(db, first.id, T0)
     const before = await retryGate(db, 'm02', plus(T0, 1))
     expect(before).toMatchObject({ allowed: false, reason: 'review' })
-    expect(before.pending).toEqual([{ lessonId: 'm02-l2', anchor: 'supuestos', visited: false }])
+    expect(before.pending).toEqual([{ lessonId: 'm02-l2', anchor: 'supuestos', done: false }])
     await expect(startExam(db, course, bank, seededRng(2), plus(T0, 1))).rejects.toThrow('repasa')
-    await markLessonVisited(db, 'm02', 'm02-l2', plus(T0, 2))
+    await redoChecks('m02-l2', plus(T0, 2))
     expect(await retryGate(db, 'm02', plus(T0, 2))).toMatchObject({ allowed: false, reason: 'wait' })
     expect(await retryGate(db, 'm02', plus(T0, 48))).toMatchObject({ allowed: true, reason: 'ok' })
   })
@@ -141,4 +145,44 @@ describe('examen', () => {
     await setExamConfidence(db, a.id, qid, undefined)
     expect((await db.responses.toArray())[0].confidence).toBeUndefined()
   })
+
+  it('abrir la lección no basta: hay que volver a responder sus comprobaciones después del examen (T017-01)', async () => {
+    const first = await startExam(db, course, bank, seededRng(1), T0)
+    await answerAll(first, 6)
+    await submitExam(db, first.id, T0)
+    await redoChecks('m02-l2', plus(T0, -1)) // antes del examen: no cuenta
+    expect((await retryGate(db, 'm02', plus(T0, 48))).reason).toBe('review')
+  })
+
+  it('la fecha del reintento se fija al enviar y las comparaciones son por instante (T017-03)', async () => {
+    const first = await startExam(db, course, bank, seededRng(1), '2026-10-22T20:00:00-06:00')
+    await answerAll(first, 6)
+    const sent = await submitExam(db, first.id, '2026-10-22T23:30:00-06:00')
+    expect(sent.retryAvailableAt).toBeDefined()
+    // 2026-10-23T00:00:00-05:00 es 05:00 Z, antes del envío (05:30 Z): no cuenta como repaso aunque como texto «parezca» posterior.
+    await redoChecks('m02-l2', '2026-10-23T00:00:00-05:00')
+    expect((await retryGate(db, 'm02', '2026-10-25T12:00:00Z')).reason).toBe('review')
+  })
+
+  it('cada slot del reintento usa una variante no vista; sin variantes suficientes avisa (T017-02)', async () => {
+    let at = T0
+    const seen = new Set<string>()
+    for (let round = 0; round < 3; round++) {
+      const a = await startExam(db, course, bank, seededRng(10 + round), at)
+      for (const it of a.items) {
+        const k = `${it.question.family}/${it.question.variant}`
+        expect(seen.has(k), `${k} repetida en el intento ${round + 1}`).toBe(false)
+        seen.add(k)
+      }
+      await answerAll(a, 6)
+      await submitExam(db, a.id, at)
+      await redoChecks('m02-l2', plus(at, 1))
+      at = plus(at, 48)
+    }
+    // 36 variantes, 12 por intento: el cuarto intento no tiene variantes nuevas y no repite.
+    await expect(startExam(db, course, bank, seededRng(20), at)).rejects.toThrow('sin ver')
+    // Pasados 30 días desde el primero, sus variantes vuelven a estar disponibles.
+    await expect(startExam(db, course, bank, seededRng(21), plus(T0, 24 * 31))).resolves.toBeDefined()
+  })
 })
+

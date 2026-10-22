@@ -5,10 +5,9 @@
 ## Siguiente acción
 
 1. **Daniel:** hacer el recorrido completo como alumno (perfil, lecciones, examen, laboratorio, reporte compartido en un chat y retroalimentación registrada) y anotar su tiempo en `docs/registro-esfuerzo.md` o pasárselo a Claude. Con eso arranca el Bloque A.
-2. **Codex:** T-017, revisión de las reglas del examen y las revisiones externas de la práctica.
-3. **Claude:** siguiente pieza de la Fase 2: F2-03 (errores con confianza alta como repaso) y F2-04 (PWA).
-4. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
-5. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
+2. **Claude:** siguiente pieza de la Fase 2: F2-03 (errores con confianza alta como repaso) y F2-04 (PWA).
+3. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
+4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-22)
 
@@ -44,19 +43,22 @@
 | [T-014](coordinacion/tickets/T-014-codex-revision-expediente.md) | Codex | Revisión del expediente: perfil, entrega, reporte y respaldo | cerrado |
 | [T-015](coordinacion/tickets/T-015-codex-revision-piloto.md) | Codex | Revisión completa del piloto (F1-12), incluida la ruta personal | cerrado |
 | [T-016](coordinacion/tickets/T-016-codex-revision-puerta-f1-13.md) | Codex | Revisión del documento de la puerta F1-13 | cerrado |
-| [T-017](coordinacion/tickets/T-017-codex-revision-reglas-examen-revisiones.md) | Codex | Revisión de las reglas del examen y las revisiones externas | abierto |
+| [T-017](coordinacion/tickets/T-017-codex-revision-reglas-examen-revisiones.md) | Codex | Revisión de las reglas del examen y las revisiones externas | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | Siguiente: F2-03 y F2-04 (sin tocar `exam.ts` ni `LabSubmission.tsx` hasta la entrega de T-017) |
+| Claude | F2-03 y F2-04 |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-22 · Claude Code — revisión de T-017
+Los 6 hallazgos de Codex se aplicaron con su prueba. Los dos altos eran pedagógicos. El reintento se desbloqueaba con solo abrir las lecciones, y ahora exige volver a responder sus comprobaciones (R-G-3). Un reintento podía repetir variantes ya vistas en slots acertados, y ahora cada slot usa una variante no vista en 30 días o el examen avisa (R-G-4). También se corrigieron estos puntos: la fecha del reintento se fija al enviar y las fechas se comparan por instante; las revisiones exigen cita y un nivel válido; una revisión repetida en la misma corrida no deshace un «revisada»; y la instrucción del revisor incluye los ejemplos anclados. `npm test` 130/130.
 
 ### 2026-10-22 · Claude Code — decisión de la puerta, reglas del examen y revisiones externas (D-022, F2-01, F2-02)
 Daniel decidió avanzar la Fase 2 ahora, empezar el Bloque A después de su recorrido y mantener 36 ítems de forma provisional (D-022). Al revisar el estándar §4.3 aparecieron tres reglas del examen que la app no cumplía, y ninguna revisión las había señalado: el reintento al día siguiente tras repasar los errores, la confianza en el examen y la comprobación de retención a 7 días. Ya están, junto con las revisiones externas del laboratorio, que permiten probar la doble evaluación. En la prueba en el navegador salieron seis errores reales y quedaron corregidos: revisiones sobre una entrega incompleta, instrucción con un nivel máximo equivocado, casilla de corrida que se arrastraba, estado actualizado con una copia vieja, formulario sin bloqueo al guardar y una lista de repaso que repetía lecciones. `npm test` 123/123, lint y build; 360 px. Abierto T-017. Avance: ≈ 33 %.

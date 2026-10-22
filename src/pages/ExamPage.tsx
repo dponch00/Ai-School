@@ -80,7 +80,7 @@ export default function ExamPage() {
               <ul>
                 <li>No verás si aciertas hasta enviarlo. Antes de enviar puedes cambiar cualquier respuesta y, si quieres, marcar qué tan seguro estás.</li>
                 <li>Cada respuesta se guarda al elegirla: si cierras la app, el examen te espera donde lo dejaste.</li>
-                <li>Si no apruebas, el reintento se habilita al día siguiente y después de repasar los apartados de las preguntas que fallaste. Las preguntas falladas vuelven con otro escenario.</li>
+                <li>Si no apruebas, el reintento se habilita al día siguiente y después de repasar las lecciones de las preguntas que fallaste, respondiendo otra vez sus comprobaciones. Cada pregunta del reintento es una variante que no has visto.</li>
               </ul>
 
               {gate.reason === 'first' && <button type="button" className="button button--primary" onClick={() => run(() => startExam(db, examCourse, bank))}>Empezar el examen</button>}
@@ -91,9 +91,9 @@ export default function ExamPage() {
                   <ul className="exam__pending">
                     {gate.pending.map((p) => (
                       <li key={`${p.lessonId}#${p.anchor}`}>
-                        <span aria-hidden="true">{p.visited ? '✓' : '○'}</span>{' '}
+                        <span aria-hidden="true">{p.done ? '✓' : '○'}</span>{' '}
                         <Link to={`/cursos/${course.id}/lecciones/${p.lessonId}?seccion=${p.anchor}`}>Repasar «{lessonTitle(p.lessonId)}»</Link>
-                        {p.visited && <span className="muted"> · repasado</span>}
+                        <span className="muted"> · {p.done ? 'listo' : 'falta responder sus comprobaciones'}</span>
                       </li>
                     ))}
                     <li>

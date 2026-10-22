@@ -109,6 +109,15 @@ describe('revisiones externas de la práctica (F2-02)', () => {
     expect(ok.reviews).toHaveLength(1)
   })
 
+  it('rechaza una cita vacía o un nivel que no existe en la rúbrica (T017-04)', async () => {
+    await ready()
+    const noQuote = review('run-0001', [3, 3, 3])
+    noQuote.criteria[0].evidenceQuote = '  '
+    await expect(addPracticeReview(db, practice, noQuote)).rejects.toThrow()
+    const threeLevels = { ...practice, rubric: practice.rubric.map((c) => ({ ...c, levels: c.levels.slice(0, 3) })) }
+    await expect(addPracticeReview(db, threeLevels, review('run-0002', [4, 3, 3]))).rejects.toThrow('no existe')
+  })
+
   it('rechaza una revisión que no evalúa todos los criterios', async () => {
     await ready()
     await expect(addPracticeReview(db, practice, review('run-0001', [3, 3]))).rejects.toThrow('cada criterio')
@@ -120,6 +129,8 @@ describe('revisiones externas de la práctica (F2-02)', () => {
     expect(p).toContain('Criterio 1 (crítico)')
     expect(p).toContain('4. nivel 4 del criterio 3')
     expect(p).toContain('nivel del 1 al 4')
+    expect(p).toContain('No son mi entrega')
+    expect(p).toContain('ejemplo logrado')
   })
 })
 

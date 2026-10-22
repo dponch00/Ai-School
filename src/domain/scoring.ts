@@ -18,9 +18,12 @@ export interface SelectionInput {
   evaluatedObjectiveIds: string[]
   itemsPerObjective: number
   rng: Rng
-  /** Variantes ya usadas por familia en intentos anteriores. */
+  /**
+   * Variantes que no se pueden repetir todavía, por familia (vistas hace menos de 30 días, R-G-4).
+   * Cada slot del examen usa una variante fuera de esta lista; si no alcanza, se avisa en vez de repetir.
+   */
   usedVariantsByFamily?: Record<string, string[]>
-  /** Familias falladas en el intento anterior: deben cambiar de variante. */
+  /** Familias falladas en el intento anterior: cambian de variante (ya lo garantiza la regla anterior). */
   failedFamilies?: string[]
   /** Piloto: un curso aún no publicado arma su examen con ítems en borrador (puerta F1-13). */
   allowDraft?: boolean
@@ -80,17 +83,18 @@ export function selectExam(input: SelectionInput): ItemSnapshot[] {
     if (families.length < itemsPerObjective) {
       throw new Error(`El objetivo ${objectiveId} tiene ${families.length} familias publicadas; se necesitan ${itemsPerObjective}`)
     }
-    for (const family of shuffle(families, rng).slice(0, itemsPerObjective)) {
-      const variants = examItems.filter((q) => q.family === family && q.evaluatedObjectiveId === objectiveId)
-      const unseen = variants.filter((q) => !(used[family] ?? []).includes(q.variant!))
-      let pool = variants
-      if (failed.has(family)) {
-        if (unseen.length === 0) throw new Error(`La familia ${family} se falló y no le quedan variantes sin ver`)
-        pool = unseen
-      } else if (unseen.length > 0) {
-        pool = unseen
-      }
-      const question = pick(pool, rng)
+    const unseenOf = (family: string) =>
+      examItems.filter((q) => q.family === family && q.evaluatedObjectiveId === objectiveId && !(used[family] ?? []).includes(q.variant!))
+    const eligible = families.filter((f) => unseenOf(f).length > 0)
+    if (eligible.length < itemsPerObjective) {
+      const lost = families.filter((f) => !eligible.includes(f))
+      const failedNote = lost.some((f) => failed.has(f)) ? ' (incluida una familia fallada)' : ''
+      throw new Error(
+        `El objetivo ${objectiveId} no tiene suficientes variantes sin ver${failedNote}. Las variantes vistas vuelven a estar disponibles 30 días después de verse.`,
+      )
+    }
+    for (const family of shuffle(eligible, rng).slice(0, itemsPerObjective)) {
+      const question = pick(unseenOf(family), rng)
       const ids = question.options.map((o) => o.id)
       snapshots.push({ question, shownOptionIds: question.fixedOrder ? ids : shuffle(ids, rng) })
     }

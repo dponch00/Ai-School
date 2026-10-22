@@ -193,7 +193,7 @@ export function buildReport(rec: LearnerRecord, ctx: ReportContext, opts: Report
         if (a.status === 'in-progress' && courseOk(a.courseId)) inProgress++
         return false
       }
-      if (stamp(a) > opts.generatedAt) return false
+      if (Date.parse(stamp(a)) > Date.parse(opts.generatedAt)) return false
       if (!courseOk(a.courseId)) {
         otherCourse++
         return false
@@ -210,7 +210,7 @@ export function buildReport(rec: LearnerRecord, ctx: ReportContext, opts: Report
       }
       return true
     })
-    .sort((a, b) => stamp(a).localeCompare(stamp(b)))
+    .sort((a, b) => Date.parse(stamp(a)) - Date.parse(stamp(b)))
 
   for (const [section, n] of disabledKinds) excluded.push(`${SECTIONS[section]}: ${n} intento(s) que decidiste no incluir`)
   if (inProgress > 0) excluded.push(`${inProgress} examen(es) en curso, sin enviar`)
@@ -265,7 +265,7 @@ export function buildReport(rec: LearnerRecord, ctx: ReportContext, opts: Report
   let labsOutOfPeriod = 0
   const submissions = rec.submissions.filter((s) => {
     const p = practices.get(s.practiceId)
-    if (!p || !courseOk(p.courseId) || s.createdAt > opts.generatedAt) return false
+    if (!p || !courseOk(p.courseId) || Date.parse(s.createdAt) > Date.parse(opts.generatedAt)) return false
     if (!inPeriod(s.createdAt, scope.from, scope.to)) {
       labsOutOfPeriod++
       return false

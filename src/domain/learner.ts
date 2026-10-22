@@ -66,6 +66,8 @@ export const Attempt = z
     startedAt: Timestamp,
     submittedAt: Timestamp.optional(),
     status: z.enum(['in-progress', 'submitted', 'abandoned']),
+    /** Examen reprobado: desde cuándo se puede reintentar, fijado al enviar con la zona horaria de ese momento (T017-03). */
+    retryAvailableAt: Timestamp.optional(),
     items: z.array(ItemSnapshot).min(1),
     /**
      * Resultado calculado al enviar, congelado con la regla aplicada (CTR-06).
@@ -174,7 +176,8 @@ export const PracticeReview = z.object({
   }),
   at: Timestamp,
   /** Evidencia citada antes del nivel (R-H-1). */
-  criteria: z.array(z.object({ criterionId: Slug, evidenceQuote: z.string().max(2000), level: CriterionLevel })).min(1),
+  /** Sin cita no hay nivel (R-H-1, T017-04). */
+  criteria: z.array(z.object({ criterionId: Slug, evidenceQuote: z.string().max(2000).refine((s) => s.trim().length > 0, 'la revisión debe citar evidencia'), level: CriterionLevel })).min(1),
 })
 export type PracticeReview = z.infer<typeof PracticeReview>
 
@@ -234,10 +237,16 @@ export function reviewState(
   if (practice.transferNotebook && !sub.notebook) return 'presented'
   if (!coversExactly(sub.selfAssessment, practice.criterionIds)) return 'presented'
   if (sub.reviews.length === 0) return 'self-assessed'
-  const valid = sub.reviews.filter((r) => coversExactly(r.criteria, practice.criterionIds))
-  if (valid.length < 2) return 'review-pending'
-  const [a, b] = valid.slice(-2)
-  if (a.runId === b.runId) return 'review-pending'
+  // Cada corrida cuenta con su revisión más reciente: repetir una revisión en la misma conversación
+  // no es una evaluación nueva y no puede deshacer una pareja independiente (T017-05).
+  const latestByRun = new Map<string, PracticeReview>()
+  for (const r of sub.reviews.filter((x) => coversExactly(x.criteria, practice.criterionIds))) {
+    latestByRun.delete(r.runId)
+    latestByRun.set(r.runId, r)
+  }
+  const independent = [...latestByRun.values()]
+  if (independent.length < 2) return 'review-pending'
+  const [a, b] = independent.slice(-2)
   for (const ca of a.criteria) {
     const cb = b.criteria.find((c) => c.criterionId === ca.criterionId)!
     if (ca.level === 'insufficient-evidence' || cb.level === 'insufficient-evidence') {

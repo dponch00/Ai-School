@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { Course, Question } from './content'
-import { Attempt, finalSelection, Response, reviewState, type PracticeReview } from './learner'
+import { Attempt, finalSelection, PracticeReview, Response, reviewState } from './learner'
 import { bankIssues, diagnosticBlockSignal, scoreAttempt, selectExam } from './scoring'
 import { answer, makeAttempt, makeBank, makeQuestion, seededRng } from './fixtures.test-utils'
 
@@ -205,6 +205,18 @@ describe('reviewState (R-H-8, CTR-02, CTR-05)', () => {
 
   it('caso de Codex: dos copias de la misma corrida no son independientes', () => {
     expect(state([review([3, 3], 'run-x'), review([3, 3], 'run-x')])).toBe('review-pending')
+  })
+
+  it('una revisión repetida en la misma corrida no deshace una pareja independiente (T017-05)', () => {
+    expect(state([review([3, 3], 'run-a'), review([3, 2], 'run-b'), review([3, 2], 'run-b')])).toBe('reviewed')
+  })
+
+  it('cuenta la revisión más reciente de cada corrida: si contradice a la otra corrida, vuelve a pendiente (T017-05)', () => {
+    expect(state([review([3, 3], 'run-a'), review([3, 2], 'run-b'), review([1, 1], 'run-b')])).toBe('review-pending')
+  })
+
+  it('una revisión sin cita no cumple el contrato (T017-04)', () => {
+    expect(() => PracticeReview.parse({ ...review([3, 3]), criteria: [{ criterionId: 'c1', evidenceQuote: '   ', level: 3 }] })).toThrow()
   })
 
   it('caso de Codex: sin autoevaluación completa o sin cuaderno sigue presentada', () => {

@@ -66,7 +66,8 @@ const record = (over: Partial<LearnerRecord> = {}): LearnerRecord => ({
 const ctx = { courses: [{ id: 'm02', title: 'Prompting avanzado', version: '0.1.0' }], competencies: { C02: { name: 'Especificación ejecutable' }, C07: { name: 'Dirección del ciclo' } }, practices: [practice] }
 const opts = (over: Partial<ReportOptions> = {}): ReportOptions => ({
   reportId: 'report-0123456789',
-  generatedAt: '2026-10-22T12:00:00.000Z',
+  // Después del último envío de los datos de prueba (09:00 -06:00 = 15:00 Z).
+  generatedAt: '2026-10-22T18:00:00.000Z',
   timezone: 'America/Mexico_City',
   appVersion: '0.1.0',
   scope: { kind: 'course', courseId: 'm02' },

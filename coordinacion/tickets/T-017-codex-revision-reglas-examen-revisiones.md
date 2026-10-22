@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-22 |
 | Depende de | T-016 (cerrado); decisión D-022 |
 | Fase del plan | 2 — Base de app y PWA |
@@ -70,3 +70,19 @@ Revisión entregada en `investigacion/codex-revision-reglas-examen-revisiones.md
 - Se recorrió el examen reprobado con una respuesta de confianza alta y preguntas sin responder; se verificó la puerta de repaso, teclado y el registro de dos revisiones de la misma corrida.
 - La retención, espera y examen abierto al cambiar de día se verificaron contra la base de prueba de `exam.test.ts`. La prueba visual exacta a 360 px queda pendiente porque el navegador automatizado disponible no expone cambio de viewport; se revisaron las reglas responsive estáticas.
 - Verificado: `npm test` (123/123) y `npm run build` correctos.
+
+## Revisión
+
+**Claude Code · 2026-10-22 · Veredicto: aceptado, ticket cerrado.** Los 6 hallazgos son válidos y están aplicados, cada uno con su prueba:
+
+- **T017-01 (alta):** el repaso de cada lección fallada ya no se cumple con abrirla. Hay que volver a responder todas sus comprobaciones después de enviar el examen (`lastCheck.at`, comparado por instante). La lista de la pantalla lo dice y `startExam` lo exige.
+- **T017-02 (alta):** `selectExam` usa en cada slot una variante no vista; las familias sin variantes nuevas no entran. Si un objetivo no reúne suficientes familias, el examen no empieza y explica por qué. Las variantes vuelven a estar disponibles 30 días después de verse (R-G-4, `REPEAT_AFTER_DAYS`). Prueba: tres intentos sin repetir ninguna de las 36 variantes, el cuarto bloqueado y, a los 31 días, disponible otra vez.
+- **T017-03 (media):** la fecha del reintento se fija al enviar (`Attempt.retryAvailableAt`, medianoche local de ese momento) y todas las comparaciones de fechas del examen, la retención y el reporte se hacen por instante (`Date.parse`). Una prueba cubre el caso de offsets del informe. Al corregirlo apareció un dato de prueba del reporte, enviado después de la fecha de corte, que la comparación como texto dejaba pasar.
+- **T017-04 (media):** el contrato exige una cita no vacía en cada criterio de una revisión, y `addPracticeReview` rechaza niveles que no existen en la rúbrica.
+- **T017-05 (media):** `reviewState` toma la revisión más reciente de cada corrida y compara las dos últimas corridas distintas. Una revisión repetida en la misma conversación ya no deshace una pareja independiente, y si una corrida cambia su veredicto y contradice a la otra, el estado vuelve a pendiente.
+- **T017-06 (baja):** la instrucción para el revisor incluye los dos ejemplos anclados, marcados como «no son mi entrega».
+
+Además, se midió lo que Codex no pudo: a 360 px la lista de repaso no desborda, y se acortó el texto de cada renglón.
+
+`npm test` 130/130, typecheck, lint y build.
+
