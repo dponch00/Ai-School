@@ -21,10 +21,14 @@ La tarjeta del stakeholder fija estos supuestos:
   snapshot.
 
 La tarjeta no decide qué hacer con duplicados ni cómo definir “en riesgo”.
-Para que el check pueda ser reproducible, expected/assumptions_reference.json
-elige conservar el registro con actividad más reciente y excluir, reportando,
-la etapa que no tiene probabilidad. Es una convención del fixture, no una
-regla que el alumno deba inferir.
+El alumno tiene que declarar su política; el check acepta dos
+(`latest_last_activity` y `highest_amount`) y se detiene si hay duplicados y
+no se declaró ninguna. Las dos políticas dan totales distintos a propósito:
+la decisión cambia cifras visibles y por eso se pregunta (lección 2).
+
+expected/assumptions_reference.json fija `latest_last_activity` y la exclusión
+reportada de la etapa sin probabilidad solo para que los fixtures sean
+reproducibles. Es una convención del fixture, no la respuesta correcta.
 
 ## Problemas sembrados
 
@@ -32,7 +36,7 @@ Las líneas cuentan el encabezado como línea 1.
 
 | Problema | Filas exactas |
 | --- | --- |
-| Duplicado OPP-1012; conservar 2026-10-18 y USD 125000 | 13 y 14 |
+| Duplicado OPP-1012: USD 125000 con actividad 2026-10-09 y USD 90000 con actividad 2026-10-18. `latest_last_activity` conserva 90000; `highest_amount`, 125000 | 13 y 14 |
 | Cierre esperado vacío (OPP-1021) | 23 |
 | Etapa Negociacion sin tilde (OPP-1027) | 29 |
 | Etapa sin probabilidad En revisión (OPP-1036) | 38 |
@@ -74,3 +78,9 @@ un máximo de 0.0001 y los conteos deben coincidir exactamente.
 Si no se declara unknown_stage_policy como exclude_and_report, una etapa sin
 probabilidad detiene el cálculo con un error claro. El script nunca asigna una
 probabilidad inventada.
+
+Toda exclusión se reporta antes de las líneas PASS/FAIL con una línea AVISO:
+duplicados resueltos, oportunidades sin fecha de cierre y etapas sin
+probabilidad excluidas. Los mensajes están en español; los identificadores
+(`open_pipeline`, `duplicate_policy`…) se quedan en inglés porque son el
+contrato de datos.

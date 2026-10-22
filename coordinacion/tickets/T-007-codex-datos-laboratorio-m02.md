@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-21 |
 | Depende de | — (en paralelo con las lecciones 3–6, que escribe Claude) |
 | Fase del plan | 1 — Piloto (F1-05) |
@@ -71,4 +71,19 @@ Las instrucciones del laboratorio para el alumno, la rúbrica y el cuaderno de d
 
 ## Revisión
 
-_(La llena Claude Code.)_
+**Claude Code · 2026-10-21 · Veredicto: aceptado, ticket cerrado, con cuatro correcciones que aplicó Claude.**
+
+**Verificado de forma independiente.** Recalculé los KPI con un script propio (no el de Codex) y coinciden al centavo: pipeline abierto, ponderado, cobertura y vencidas por región y total. Los problemas sembrados están en las filas que indica el README y los códigos de salida se comportan como se documenta (0 pasa, 1 difiere, 2 datos o supuestos inseguros). Sin red ni dependencias.
+
+**Hallazgos y correcciones** (Claude es dueño de `content/`; Codex los revisará con el laboratorio completo):
+
+| ID | Severidad | Hallazgo | Corrección |
+| --- | --- | --- | --- |
+| T7-01 | Alta | `exclude_and_report` excluía la etapa sin probabilidad **sin reportarla**, y la oportunidad sin fecha de cierre desaparecía en silencio. Justo lo que la lección 2 enseña a no hacer | El script imprime una línea `AVISO` por cada exclusión: duplicado resuelto, sin fecha de cierre, etapa sin probabilidad. Nueva prueba |
+| T7-02 | Alta | Solo aceptaba la política de duplicados del fixture (`latest_last_activity`) y, además, las dos políticas razonables daban el mismo total: la decisión «no importaba» | Acepta `latest_last_activity` y `highest_amount`, se detiene si hay duplicados y no se declaró política, y se invirtieron las filas de OPP-1012 para que cada política dé un total distinto (USD 35 000 de diferencia en el Norte). Fixtures regenerados y recalculados de forma independiente. Dos pruebas nuevas |
+| T7-03 | Media | Mensajes al alumno en inglés | Mensajes en español; los identificadores del contrato (`open_pipeline`, `duplicate_policy`) siguen en inglés |
+| T7-04 | Media | En la consola de Windows las tildes salían corruptas («revisi�n») | El script escribe en UTF-8 y las pruebas leen la salida en UTF-8 |
+
+`python test_reconcile.py`: 7/7 (antes 4). `npm test`: 48/48.
+
+**Pregunta abierta de Codex (duplicados):** se presenta al alumno como una decisión que debe preguntar; el check acepta las dos políticas y el README del revisor lo explica.

@@ -4,10 +4,9 @@
 
 ## Siguiente acción
 
-1. **Daniel → Codex:** pasarle T-007 (datos sintéticos y check de reconciliación del laboratorio M02).
-2. **Claude, en paralelo:** lecciones 3 a 6 de M02 con el patrón validado (dos capas), incluido el SVG etiquetado de la especificación (T5-01).
-3. **Después:** banco de examen M02 (36 ítems), instrucciones del laboratorio y esqueleto de la app.
-4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
+1. **Claude:** lecciones 3 a 6 de M02 (dos capas) con el SVG etiquetado de la especificación (T5-01), y las instrucciones del laboratorio sobre los datos de T-007. Al terminar, ticket de revisión para Codex.
+2. **Después:** banco de examen M02 (36 ítems) y esqueleto de la app.
+3. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Tickets
 
@@ -19,20 +18,22 @@
 | [T-004](coordinacion/tickets/T-004-codex-revision-diagnostico-contratos.md) | Codex | Revisión del diagnóstico y de los contratos de datos | cerrado |
 | [T-005](coordinacion/tickets/T-005-codex-sistema-diseno-e-imagenes-piloto.md) | Codex | Sistema de diseño D1 e imágenes del piloto | cerrado |
 | [T-006](coordinacion/tickets/T-006-codex-revision-patron-m02.md) | Codex | Revisión temprana del patrón de M02 (L1 y L2) | cerrado |
-| [T-007](coordinacion/tickets/T-007-codex-datos-laboratorio-m02.md) | Codex | Datos sintéticos y check de reconciliación del laboratorio M02 | abierto |
+| [T-007](coordinacion/tickets/T-007-codex-datos-laboratorio-m02.md) | Codex | Datos sintéticos y check de reconciliación del laboratorio M02 | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
 | Claude | `content/courses/m02/lessons/`, `content/courses/m02/questions/` |
-| Codex (T-007) | `content/courses/m02/practice/data/` |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-21 · Claude Code — revisión de T-007
+Datos y reconciliador de Codex verificados con un cálculo independiente (coinciden al centavo). Cuatro correcciones: las exclusiones ahora se reportan con `AVISO` (antes eran silenciosas), dos políticas de duplicados que dan totales distintos, mensajes en español y salida UTF-8 en Windows. `test_reconcile.py` 7/7; `npm test` 48/48.
 
 ### 2026-10-21 · Claude Code — revisión de T-006
 Los 10 hallazgos de Codex sobre las lecciones 1 y 2 se aplicaron. Lo principal: lecciones en dos capas (D-019), con 6 fichas nuevas y una prueba que impide nombrar productos en el cuerpo; C03 fuera de M02; clave de `m02-l1-c1` con la decisión; fichas con tipo y madurez separados; 3 conceptos erróneos nuevos. Dos pruebas más (competencias del manual, feedback de al menos dos frases). Un carácter invisible había dejado inútil la prueba de productos; se detectó al sembrar una mención a propósito y se corrigió. `npm test` 48/48. Abierto T-007 para Codex.

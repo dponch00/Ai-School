@@ -22,15 +22,18 @@ MONEY_TOLERANCE = Decimal("0.01")
 RATIO_TOLERANCE = Decimal("0.0001")
 
 
+DUPLICATE_POLICIES = ("latest_last_activity", "highest_amount")
+
+
 class ReconciliationError(ValueError):
-    """Input or policy error that makes a reconciliation unsafe."""
+    """Error de datos o de supuestos que hace insegura la reconciliación."""
 
 
 def decimal(value: Any, label: str) -> Decimal:
     try:
         return Decimal(str(value))
     except (InvalidOperation, TypeError) as error:
-        raise ReconciliationError(f"invalid_number: {label}") from error
+        raise ReconciliationError(f"invalid_number: {label} no es un número válido") from error
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -38,7 +41,7 @@ def read_csv(path: Path) -> list[dict[str, str]]:
         with path.open(encoding="utf-8-sig", newline="") as handle:
             return list(csv.DictReader(handle))
     except FileNotFoundError as error:
-        raise ReconciliationError(f"missing_file: {path.name}") from error
+        raise ReconciliationError(f"missing_file: no existe {path.name}") from error
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -46,11 +49,11 @@ def read_json(path: Path) -> dict[str, Any]:
         with path.open(encoding="utf-8") as handle:
             value = json.load(handle)
     except FileNotFoundError as error:
-        raise ReconciliationError(f"missing_file: {path.name}") from error
+        raise ReconciliationError(f"missing_file: no existe {path.name}") from error
     except json.JSONDecodeError as error:
-        raise ReconciliationError(f"invalid_json: {path.name}: {error.msg}") from error
+        raise ReconciliationError(f"invalid_json: {path.name} no es JSON válido ({error.msg})") from error
     if not isinstance(value, dict):
-        raise ReconciliationError(f"invalid_json_object: {path.name}")
+        raise ReconciliationError(f"invalid_json_object: {path.name} debe contener un objeto JSON")
     return value
 
 
@@ -58,20 +61,46 @@ def q4_2026(value: str) -> bool:
     return "2026-10-01" <= value <= "2026-12-31"
 
 
-def latest_rows(rows: list[dict[str, str]], policy: str) -> list[dict[str, str]]:
-    if policy != "latest_last_activity":
-        raise ReconciliationError(
-            "unsupported_duplicate_policy: choose latest_last_activity"
-        )
-    latest: dict[str, dict[str, str]] = {}
+def dedupe_rows(
+    rows: list[dict[str, str]], policy: str | None, notices: list[str]
+) -> list[dict[str, str]]:
+    """Resuelve oportunidades repetidas según la política declarada.
+
+    La política no se supone: si hay duplicados y no se declaró, el cálculo se detiene.
+    """
+    groups: dict[str, list[dict[str, str]]] = {}
     for row in rows:
         opp_id = row["opp_id"]
         if not opp_id:
-            raise ReconciliationError("invalid_opportunity: missing opp_id")
-        prior = latest.get(opp_id)
-        if prior is None or row["last_activity_date"] > prior["last_activity_date"]:
-            latest[opp_id] = row
-    return list(latest.values())
+            raise ReconciliationError("invalid_opportunity: hay una fila sin opp_id")
+        groups.setdefault(opp_id, []).append(row)
+    duplicated = sorted(opp_id for opp_id, group in groups.items() if len(group) > 1)
+    if duplicated and policy is None:
+        raise ReconciliationError(
+            "duplicate_policy_required: hay oportunidades repetidas ("
+            + ", ".join(duplicated)
+            + "). Declara duplicate_policy: "
+            + " o ".join(DUPLICATE_POLICIES)
+        )
+    if policy is not None and policy not in DUPLICATE_POLICIES:
+        raise ReconciliationError(
+            f"unsupported_duplicate_policy: {policy}. Opciones: " + ", ".join(DUPLICATE_POLICIES)
+        )
+    kept: list[dict[str, str]] = []
+    for opp_id, group in groups.items():
+        if len(group) == 1:
+            kept.append(group[0])
+            continue
+        if policy == "latest_last_activity":
+            choice = max(group, key=lambda r: r["last_activity_date"])
+        else:
+            choice = max(group, key=lambda r: decimal(r["amount"], f"amount {opp_id}"))
+        notices.append(
+            f"AVISO duplicado {opp_id}: {len(group)} filas; se conserva la de "
+            f"amount={choice['amount']} y last_activity_date={choice['last_activity_date']} ({policy})"
+        )
+        kept.append(choice)
+    return kept
 
 
 def load_probabilities(data_dir: Path) -> dict[str, Decimal]:
@@ -102,21 +131,24 @@ def load_won(data_dir: Path) -> dict[str, Decimal]:
     }
 
 
-def calculate(data_dir: Path, assumptions: dict[str, Any]) -> list[dict[str, str]]:
+def calculate(
+    data_dir: Path, assumptions: dict[str, Any], notices: list[str] | None = None
+) -> list[dict[str, str]]:
+    notices = [] if notices is None else notices
     currency = assumptions.get("reporting_currency")
     if currency != "USD":
-        raise ReconciliationError("unsupported_reporting_currency: expected USD")
+        raise ReconciliationError("unsupported_reporting_currency: la moneda de reporte debe ser USD")
 
     aliases = assumptions.get("stage_aliases", {})
     if not isinstance(aliases, dict):
-        raise ReconciliationError("invalid_stage_aliases")
+        raise ReconciliationError("invalid_stage_aliases: stage_aliases debe ser un objeto")
     unknown_stage_policy = assumptions.get("unknown_stage_policy")
     if unknown_stage_policy not in (None, "exclude_and_report"):
         raise ReconciliationError(
-            "unsupported_unknown_stage_policy: choose exclude_and_report"
+            "unsupported_unknown_stage_policy: la única opción es exclude_and_report"
         )
     if assumptions.get("period") != "2026-Q4":
-        raise ReconciliationError("unsupported_period: expected 2026-Q4")
+        raise ReconciliationError("unsupported_period: el periodo debe ser 2026-Q4")
 
     probabilities = load_probabilities(data_dir)
     fx_rates = load_fx_rates(data_dir)
@@ -130,30 +162,39 @@ def calculate(data_dir: Path, assumptions: dict[str, Any]) -> list[dict[str, str
         }
         for region in REGIONS
     }
-    rows = latest_rows(
+    rows = dedupe_rows(
         read_csv(data_dir / "opportunities_snapshot_2026-10-19.csv"),
-        assumptions.get("duplicate_policy", ""),
+        assumptions.get("duplicate_policy"),
+        notices,
     )
 
     for row in rows:
         region = row["region"]
         if region not in metrics:
-            raise ReconciliationError(f"unknown_region: {region}")
+            raise ReconciliationError(f"unknown_region: región desconocida {region}")
         stage = aliases.get(row["stage"], row["stage"])
         if stage not in probabilities:
             if unknown_stage_policy == "exclude_and_report":
+                notices.append(
+                    f"AVISO etapa sin probabilidad {row['opp_id']} ({row['stage']}): "
+                    "excluida del pipeline por la política declarada"
+                )
                 continue
             raise ReconciliationError(
-                f"unknown_stage: {row['stage']}; define unknown_stage_policy "
-                "as exclude_and_report or add an approved probability"
+                f"unknown_stage: {row['stage']} ({row['opp_id']}) no tiene probabilidad aprobada. "
+                "Pide la probabilidad a FP&A o declara unknown_stage_policy: exclude_and_report"
             )
         if row["currency"] not in fx_rates:
-            raise ReconciliationError(f"missing_fx_rate: {row['currency']}")
+            raise ReconciliationError(f"missing_fx_rate: no hay tipo de cambio para {row['currency']}")
         amount_usd = decimal(row["amount"], f"amount {row['opp_id']}") * fx_rates[
             row["currency"]
         ]
         is_open = stage not in CLOSED_STAGES
         close_date = row["expected_close_date"]
+        if is_open and not close_date:
+            notices.append(
+                f"AVISO sin fecha de cierre {row['opp_id']}: no cuenta en el pipeline del T4 ni como vencida"
+            )
 
         if is_open and close_date and close_date < row["snapshot_date"]:
             metrics[region]["overdue_count"] += Decimal("1")
@@ -167,7 +208,7 @@ def calculate(data_dir: Path, assumptions: dict[str, Any]) -> list[dict[str, str
         weighted_pipeline = metrics[region]["weighted_pipeline"]
         remaining_quota = quota[region] - won[region]
         if remaining_quota <= 0:
-            raise ReconciliationError(f"invalid_remaining_quota: {region}")
+            raise ReconciliationError(f"invalid_remaining_quota: la cuota restante de {region} no es positiva")
         output.extend(
             (
                 kpi("open_pipeline", region, open_pipeline, "USD"),
@@ -204,7 +245,7 @@ def kpi(metric: str, region: str, value: Decimal, unit: str) -> dict[str, str]:
 
 def tolerance_for(metric: str, requested: Decimal) -> Decimal:
     if requested < 0:
-        raise ReconciliationError("invalid_tolerance")
+        raise ReconciliationError("invalid_tolerance: la tolerancia no puede ser negativa")
     if metric == "coverage_ratio":
         return min(requested, RATIO_TOLERANCE)
     if metric == "overdue_count":
@@ -216,10 +257,10 @@ def compare(
     calculated: list[dict[str, str]], dashboard: dict[str, Any], requested_tolerance: Decimal
 ) -> tuple[list[str], int]:
     if dashboard.get("schema_version") != "1.0":
-        raise ReconciliationError("invalid_kpis_schema_version")
+        raise ReconciliationError("invalid_kpis_schema_version: se esperaba schema_version 1.0")
     entries = dashboard.get("kpis")
     if not isinstance(entries, list):
-        raise ReconciliationError("invalid_kpis: expected a kpis array")
+        raise ReconciliationError("invalid_kpis: falta la lista kpis")
     reported = {
         (entry.get("metric"), entry.get("region")): entry
         for entry in entries
@@ -232,12 +273,12 @@ def compare(
         entry = reported.get(key)
         label = f"{actual['metric']} {actual['region']}"
         if entry is None:
-            lines.append(f"FAIL {label}: missing dashboard value")
+            lines.append(f"FAIL {label}: el dashboard no reporta este KPI")
             failed += 1
             continue
         if entry.get("unit") != actual["unit"]:
             lines.append(
-                f"FAIL {label}: unit dashboard={entry.get('unit')} reconcile={actual['unit']}"
+                f"FAIL {label}: unidad dashboard={entry.get('unit')} esperada={actual['unit']}"
             )
             failed += 1
             continue
@@ -247,12 +288,12 @@ def compare(
         tolerance = tolerance_for(actual["metric"], requested_tolerance)
         if abs(difference) <= tolerance:
             lines.append(
-                f"PASS {label}: dashboard={dashboard_value} reconcile={actual_value}"
+                f"PASS {label}: dashboard={dashboard_value} esperado={actual_value}"
             )
         else:
             lines.append(
-                f"FAIL {label}: dashboard={dashboard_value} reconcile={actual_value} "
-                f"difference={difference} tolerance={tolerance}"
+                f"FAIL {label}: dashboard={dashboard_value} esperado={actual_value} "
+                f"diferencia={difference} tolerancia={tolerance}"
             )
             failed += 1
     return lines, failed
@@ -262,9 +303,10 @@ def run(args: argparse.Namespace) -> int:
     data_dir = Path(args.data_dir)
     assumptions = read_json(Path(args.assumptions))
     dashboard = read_json(Path(args.kpis))
-    calculated = calculate(data_dir, assumptions)
+    notices: list[str] = []
+    calculated = calculate(data_dir, assumptions, notices)
     lines, failed = compare(calculated, dashboard, decimal(args.tolerance, "tolerance"))
-    print("\n".join(lines))
+    print("\n".join(notices + lines))
     return 1 if failed else 0
 
 
@@ -278,6 +320,10 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
 
 
 def main(argv: list[str] | None = None) -> int:
+    # Las tildes se ven bien también en la consola de Windows.
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8")
     try:
         return run(parse_args(sys.argv[1:] if argv is None else argv))
     except ReconciliationError as error:
