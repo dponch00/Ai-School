@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-21 |
 | Depende de | — (puede hacerse junto con T-001) |
 | Fase del plan | 0 → 1 (sistema visual del piloto) |

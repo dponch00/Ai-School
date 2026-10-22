@@ -14,13 +14,13 @@ Salida: especificación ejecutable y criterios de aceptación coherentes.
 | F0-03 | Verificación de stack y hosting → `investigacion/stack-tecnico.md` | Claude (subagente) | — | ✅ |
 | F0-04 | Currículo vs. estado del arte y mapa de competencias candidato → `investigacion/curriculo-estado-del-arte.md` | Claude (subagente) | — | ✅ |
 | F0-05 | Capacidades reales de Codex + revisión independiente del plan (T-001) | Codex | — | ✅ |
-| F0-06 | Tres direcciones visuales (T-002) → Daniel elige | Codex → Daniel | — | 🧪 |
+| F0-06 | Tres direcciones visuales (T-002) → Daniel elige | Codex → Daniel | — | ✅ |
 | F0-07 | Ajustes al currículo y mapa de competencias definitivo → `docs/curriculum.md` | Claude; revisó Codex (T-003) | F0-02, F0-04, F0-05 | ✅ |
 | F0-08 | Estándar de contenido → `docs/content-standard.md` (lección, pregunta, práctica, imagen, fuentes) | Claude; revisó Codex (T-003) | F0-01, F0-02 | ✅ |
 | F0-09 | ✔ `src/domain/` + `docs/contracts.md` — Contratos de datos como esquemas validables (curso, lección, pregunta, práctica, fuente, progreso, perfil, respuesta, reporte, feedback, ajuste, activo). Ítems con ID + versión inmutables, referencia a versión de contenido y política de retiro/reemplazo (R-05) | Claude | F0-03, F0-07 | ✅ |
 | F0-10 | ✔ `content/diagnostic/` — Diagnóstico: 24 preguntas + 2 microtareas, mapa a competencias y formato del reporte | Claude; revisó Codex (T-004) | F0-07, F0-08 | ✅ |
 | F0-11 | Prueba de hosting en origen propio (D-013): crear org gratuita + PWA mínima con service worker, rutas, instalación y offline en Chrome Android y escritorio | Claude + Daniel (prueba en celular) | F0-03, D-006 | ⬜ |
-| F0-12 | Sistema de diseño a partir de la dirección elegida → `docs/design-system.md` | Codex propone; Claude traduce a tokens | F0-06 | ⬜ |
+| F0-12 | Sistema de diseño a partir de la dirección elegida → `docs/design-system.md` | Codex propone; Claude traduce a tokens | F0-06 | 🔄 |
 
 ## Fase 1 — Piloto M02
 
@@ -33,7 +33,7 @@ Salida: un curso completo y funcional que fija el estándar del producto. Las ot
 | F1-03 | Seis lecciones de M02: investigación → borrador → verificación de fuentes → revisión Codex → integración | Claude; revisa Codex | F0-01, F0-08 | ⬜ |
 | F1-04 | Banco M02 (20–24 preguntas con feedback por opción) | Claude; revisa Codex | F1-03 | ⬜ |
 | F1-05 | Laboratorio M02: petición de dashboard → especificación verificable, con rúbrica, check ejecutable de reconciliación y cuaderno de decisiones de transferencia (D-012) | Claude; revisa Codex | F1-03 | ⬜ |
-| F1-06 | Imágenes piloto: imagen principal, portada M02, ilustración de una especificación | Codex; revisa Claude + Daniel | F0-06 | ⬜ |
+| F1-06 | Imágenes piloto: imagen principal, portada M02, ilustración de una especificación | Codex; revisa Claude + Daniel | F0-06 | 🔄 |
 | F1-07 | Persistencia IndexedDB: progreso, respuestas, intentos versionados | Claude | F1-01 | ⬜ |
 | F1-08 | Examen: selección con cobertura, corrección, revisión del intento, modo práctica | Claude | F1-04, F1-07 | ⬜ |
 | F1-09 | Perfil + respuestas individuales + HTML de evaluación (plan §17.10), con vista previa por secciones, exclusión explícita, aviso sobre texto libre y límites de longitud (R-04) | Claude | F1-07 | ⬜ |

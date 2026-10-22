@@ -112,3 +112,9 @@ Una entrada por decisión. Estados: **aceptada**, **propuesta** (espera a Daniel
 - **Estado:** aceptada (hallazgo REV-02 de Codex en T-003) · 2026-10-21
 - **Decisión:** cada manual declara como máximo 6 objetivos evaluados; los objetivos de lección se vinculan a ellos. Banco: 2 familias por objetivo evaluado. Examen: 2 ítems por objetivo evaluado. Detalle en `docs/content-standard.md` §3.3.
 - **Por qué:** con 6–18 objetivos de lección y 2 familias por cada uno, un banco de 12 familias no podía cubrirlos; la matriz no habría sido auditable.
+
+## D-018 · Dirección visual: D1 · Atlas de criterio
+
+- **Estado:** aceptada por Daniel · 2026-10-21
+- **Decisión:** la identidad visual es D1 (collage de papel con rutas e hitos; Source Serif 4, Fraunces e IBM Plex Mono; paleta marfil, azul tinta, ocre y verde azulado). Detalle en `design/direcciones/D1-atlas-de-criterio/README.md`; el sistema completo lo propone Codex en T-005.
+- **Riesgo vigilado:** que diez paisajes se repitan. Cada portada varía terreno, hora y un motivo central propio del manual.
