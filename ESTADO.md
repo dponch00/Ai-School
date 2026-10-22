@@ -4,10 +4,11 @@
 
 ## Siguiente acción
 
-1. **Daniel:** leer [`docs/puerta-f1-13.md`](docs/puerta-f1-13.md), hacer el recorrido completo como alumno (perfil, lecciones, examen, laboratorio, reporte compartido en un chat y retroalimentación registrada), que da el tiempo real de estudio, y decidir la Fase 3.
-2. **Claude (si Daniel lo aprueba):** avanzar la Fase 2 en paralelo (PWA, offline, comprobación diferida, revisiones externas de la práctica).
-3. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
-4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
+1. **Codex:** T-016, revisar el documento de la puerta F1-13.
+2. **Daniel:** leer [`docs/puerta-f1-13.md`](docs/puerta-f1-13.md), hacer el recorrido completo como alumno (perfil, lecciones, examen, laboratorio, reporte compartido en un chat y retroalimentación registrada), que da el tiempo real de estudio, y decidir la Fase 3.
+3. **Claude (si Daniel lo aprueba):** avanzar la Fase 2 en paralelo (PWA, offline, comprobación diferida, revisiones externas de la práctica).
+4. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
+5. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-22)
 
@@ -42,6 +43,7 @@
 | [T-013](coordinacion/tickets/T-013-codex-revision-preguntas-examen.md) | Codex | Revisión de los bancos reescritos, el laboratorio y el examen | cerrado |
 | [T-014](coordinacion/tickets/T-014-codex-revision-expediente.md) | Codex | Revisión del expediente: perfil, entrega, reporte y respaldo | cerrado |
 | [T-015](coordinacion/tickets/T-015-codex-revision-piloto.md) | Codex | Revisión completa del piloto (F1-12), incluida la ruta personal | cerrado |
+| [T-016](coordinacion/tickets/T-016-codex-revision-puerta-f1-13.md) | Codex | Revisión del documento de la puerta F1-13 | abierto |
 
 ## En curso (no tocar estos archivos)
 
