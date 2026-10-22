@@ -531,7 +531,7 @@
         "id": "o3",
         "text": "El modelo, y después se le pide que revise su propia suma antes de publicar",
         "correct": false,
-        "misconceptionId": "m02-mc22",
+        "misconceptionId": "m02-mc10",
         "feedback": "La autorrevisión no es una verificación independiente: puede confirmar el mismo error. La cifra se calcula en código desde el principio."
       }
     ],
@@ -799,7 +799,7 @@
         "id": "o2",
         "text": "Una imagen de cómo debe verse la tarjeta de cobertura, sin datos",
         "correct": false,
-        "misconceptionId": "m02-mc12",
+        "misconceptionId": "m02-mc46",
         "feedback": "Un ejemplo de formato orienta la apariencia, pero no permite comprobar que el cálculo es correcto. En una especificación verificable, el caso de prueba va primero."
       },
       {
@@ -978,7 +978,7 @@
         "id": "o2",
         "text": "Dejas que el agente proponga una definición y la adoptas para no frenar",
         "correct": false,
-        "misconceptionId": "m02-mc08",
+        "misconceptionId": "m02-mc45",
         "feedback": "Si el agente decide, la definición queda invisible y nadie la aprobó. El agente puede proponer opciones, pero elige quien decide."
       },
       {
@@ -1029,7 +1029,7 @@
         "id": "o3",
         "text": "Que el agente de hoy confirme que la entendió bien antes de cerrar",
         "correct": false,
-        "misconceptionId": "m02-mc27",
+        "misconceptionId": "m02-mc47",
         "feedback": "El agente de hoy tiene todo el historial; el de mañana no. Su confirmación no prueba que la especificación se sostenga sola."
       }
     ],

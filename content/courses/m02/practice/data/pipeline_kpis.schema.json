@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pipeline_kpis.schema.json",
+  "title": "pipeline_kpis v1",
+  "description": "Contrato de KPI del dashboard de Altiplano (lección 3 de M02). Lo produce la capa de cálculo y lo leen la vista, el comentario y reconcile.py. Sin minimum ni maximum, para que sirva con cualquier proveedor; las invariantes I1–I4 se comprueban en código.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "as_of_date",
+    "reporting_currency",
+    "kpis",
+    "data_quality_issues",
+    "assumption_ids"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": [
+        "1.0"
+      ]
+    },
+    "as_of_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "reporting_currency": {
+      "type": "string",
+      "enum": [
+        "USD"
+      ]
+    },
+    "kpis": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kpi_id",
+          "region",
+          "value",
+          "unit"
+        ],
+        "properties": {
+          "kpi_id": {
+            "type": "string",
+            "enum": [
+              "open_pipeline",
+              "weighted_pipeline",
+              "coverage_ratio",
+              "overdue_count"
+            ]
+          },
+          "region": {
+            "type": "string",
+            "enum": [
+              "Norte",
+              "Centro",
+              "Sur",
+              "TOTAL"
+            ]
+          },
+          "value": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "USD",
+              "x",
+              "count"
+            ]
+          }
+        }
+      }
+    },
+    "data_quality_issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "opp_id",
+          "issue"
+        ],
+        "properties": {
+          "opp_id": {
+            "type": "string"
+          },
+          "issue": {
+            "type": "string",
+            "enum": [
+              "duplicate_id",
+              "missing_close_date",
+              "unknown_stage"
+            ]
+          }
+        }
+      }
+    },
+    "assumption_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -23,6 +23,8 @@ RATIO_TOLERANCE = Decimal("0.0001")
 
 
 DUPLICATE_POLICIES = ("latest_last_activity", "highest_amount")
+SNAPSHOT_DATE = "2026-10-19"
+ISSUE_TYPES = ("duplicate_id", "missing_close_date", "unknown_stage")
 
 
 class ReconciliationError(ValueError):
@@ -103,6 +105,14 @@ def dedupe_rows(
     return kept
 
 
+def duplicated_ids(rows: list[dict[str, str]]) -> set[str]:
+    seen: set[str] = set()
+    repeated: set[str] = set()
+    for row in rows:
+        (repeated if row["opp_id"] in seen else seen).add(row["opp_id"])
+    return repeated
+
+
 def load_probabilities(data_dir: Path) -> dict[str, Decimal]:
     return {
         row["stage"]: decimal(row["probability"], f"probability {row['stage']}")
@@ -132,9 +142,13 @@ def load_won(data_dir: Path) -> dict[str, Decimal]:
 
 
 def calculate(
-    data_dir: Path, assumptions: dict[str, Any], notices: list[str] | None = None
+    data_dir: Path,
+    assumptions: dict[str, Any],
+    notices: list[str] | None = None,
+    issues: set[tuple[str, str]] | None = None,
 ) -> list[dict[str, str]]:
     notices = [] if notices is None else notices
+    issues = set() if issues is None else issues
     currency = assumptions.get("reporting_currency")
     if currency != "USD":
         raise ReconciliationError("unsupported_reporting_currency: la moneda de reporte debe ser USD")
@@ -162,11 +176,9 @@ def calculate(
         }
         for region in REGIONS
     }
-    rows = dedupe_rows(
-        read_csv(data_dir / "opportunities_snapshot_2026-10-19.csv"),
-        assumptions.get("duplicate_policy"),
-        notices,
-    )
+    raw_rows = read_csv(data_dir / "opportunities_snapshot_2026-10-19.csv")
+    issues.update(("duplicate_id", opp_id) for opp_id in duplicated_ids(raw_rows))
+    rows = dedupe_rows(raw_rows, assumptions.get("duplicate_policy"), notices)
 
     for row in rows:
         region = row["region"]
@@ -174,6 +186,7 @@ def calculate(
             raise ReconciliationError(f"unknown_region: región desconocida {region}")
         stage = aliases.get(row["stage"], row["stage"])
         if stage not in probabilities:
+            issues.add(("unknown_stage", row["opp_id"]))
             if unknown_stage_policy == "exclude_and_report":
                 notices.append(
                     f"AVISO etapa sin probabilidad {row['opp_id']} ({row['stage']}): "
@@ -192,6 +205,7 @@ def calculate(
         is_open = stage not in CLOSED_STAGES
         close_date = row["expected_close_date"]
         if is_open and not close_date:
+            issues.add(("missing_close_date", row["opp_id"]))
             notices.append(
                 f"AVISO sin fecha de cierre {row['opp_id']}: no cuenta en el pipeline del T4 ni como vencida"
             )
@@ -239,8 +253,8 @@ def calculate(
     return output
 
 
-def kpi(metric: str, region: str, value: Decimal, unit: str) -> dict[str, str]:
-    return {"metric": metric, "region": region, "value": str(value), "unit": unit}
+def kpi(kpi_id: str, region: str, value: Decimal, unit: str) -> dict[str, str]:
+    return {"kpi_id": kpi_id, "region": region, "value": str(value), "unit": unit}
 
 
 def tolerance_for(metric: str, requested: Decimal) -> Decimal:
@@ -258,20 +272,32 @@ def compare(
 ) -> tuple[list[str], int]:
     if dashboard.get("schema_version") != "1.0":
         raise ReconciliationError("invalid_kpis_schema_version: se esperaba schema_version 1.0")
+    for field in ("as_of_date", "reporting_currency", "kpis", "data_quality_issues", "assumption_ids"):
+        if field not in dashboard:
+            raise ReconciliationError(f"invalid_kpis: falta el campo {field} del contrato pipeline_kpis v1")
     entries = dashboard.get("kpis")
     if not isinstance(entries, list):
-        raise ReconciliationError("invalid_kpis: falta la lista kpis")
+        raise ReconciliationError("invalid_kpis: kpis debe ser una lista")
+    lines: list[str] = []
+    failed = 0
+    if dashboard.get("as_of_date") != SNAPSHOT_DATE:
+        lines.append(f"FAIL as_of_date: dashboard={dashboard.get('as_of_date')} esperado={SNAPSHOT_DATE}")
+        failed += 1
+    if dashboard.get("reporting_currency") != "USD":
+        lines.append(f"FAIL reporting_currency: dashboard={dashboard.get('reporting_currency')} esperado=USD")
+        failed += 1
+    if not isinstance(dashboard.get("assumption_ids"), list) or not dashboard["assumption_ids"]:
+        lines.append("FAIL assumption_ids: el dashboard no cita los supuestos que usó")
+        failed += 1
     reported = {
-        (entry.get("metric"), entry.get("region")): entry
+        (entry.get("kpi_id"), entry.get("region")): entry
         for entry in entries
         if isinstance(entry, dict)
     }
-    lines: list[str] = []
-    failed = 0
     for actual in calculated:
-        key = (actual["metric"], actual["region"])
+        key = (actual["kpi_id"], actual["region"])
         entry = reported.get(key)
-        label = f"{actual['metric']} {actual['region']}"
+        label = f"{actual['kpi_id']} {actual['region']}"
         if entry is None:
             lines.append(f"FAIL {label}: el dashboard no reporta este KPI")
             failed += 1
@@ -285,7 +311,7 @@ def compare(
         dashboard_value = decimal(entry.get("value"), f"dashboard {label}")
         actual_value = decimal(actual["value"], f"reconcile {label}")
         difference = dashboard_value - actual_value
-        tolerance = tolerance_for(actual["metric"], requested_tolerance)
+        tolerance = tolerance_for(actual["kpi_id"], requested_tolerance)
         if abs(difference) <= tolerance:
             lines.append(
                 f"PASS {label}: dashboard={dashboard_value} esperado={actual_value}"
@@ -299,14 +325,38 @@ def compare(
     return lines, failed
 
 
+def compare_issues(dashboard: dict[str, Any], expected: set[tuple[str, str]]) -> tuple[list[str], int]:
+    """El dashboard debe reportar cada problema de calidad de datos, no ocultarlo."""
+    entries = dashboard.get("data_quality_issues")
+    if not isinstance(entries, list):
+        raise ReconciliationError("invalid_kpis: data_quality_issues debe ser una lista")
+    reported = {(e.get("issue"), e.get("opp_id")) for e in entries if isinstance(e, dict)}
+    lines: list[str] = []
+    failed = 0
+    for issue, opp_id in sorted(expected):
+        if (issue, opp_id) in reported:
+            lines.append(f"PASS calidad {issue} {opp_id}: reportado")
+        else:
+            lines.append(f"FAIL calidad {issue} {opp_id}: el dashboard no lo reporta")
+            failed += 1
+    for issue, opp_id in sorted(reported - expected):
+        if issue not in ISSUE_TYPES:
+            lines.append(f"FAIL calidad {issue} {opp_id}: tipo de problema desconocido")
+            failed += 1
+    return lines, failed
+
+
 def run(args: argparse.Namespace) -> int:
     data_dir = Path(args.data_dir)
     assumptions = read_json(Path(args.assumptions))
     dashboard = read_json(Path(args.kpis))
     notices: list[str] = []
-    calculated = calculate(data_dir, assumptions, notices)
+    issues: set[tuple[str, str]] = set()
+    calculated = calculate(data_dir, assumptions, notices, issues)
     lines, failed = compare(calculated, dashboard, decimal(args.tolerance, "tolerance"))
-    print("\n".join(notices + lines))
+    issue_lines, issue_failed = compare_issues(dashboard, issues)
+    failed += issue_failed
+    print("\n".join(notices + lines + issue_lines))
     return 1 if failed else 0
 
 

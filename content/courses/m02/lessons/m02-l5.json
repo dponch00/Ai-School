@@ -7,19 +7,19 @@
   "objectives": [
     {
       "id": "m02-l5-o1",
-      "statement": "Dada una tarea, decide si conviene planificar y la divide en hitos con su propia prueba y puntos de control humanos.",
+      "statement": "Dada una tarea, la divide en hitos donde cada uno tiene una prueba propia y marca al menos un punto de control humano antes de las decisiones difíciles de revertir.",
       "process": "apply",
       "evaluatedObjectiveId": "m02-eo5"
     },
     {
       "id": "m02-l5-o2",
-      "statement": "Ante correcciones fallidas repetidas, decide reiniciar la sesión con una petición mejorada.",
+      "statement": "Tras dos correcciones fallidas sobre el mismo problema, elige reiniciar con una petición que incorpore lo aprendido en lugar de una tercera corrección.",
       "process": "apply",
       "evaluatedObjectiveId": "m02-eo5"
     },
     {
       "id": "m02-l5-o3",
-      "statement": "Ante un resultado erróneo, identifica si el error nace en la especificación o en el código y corrige donde se originó; decide qué hallazgos de una revisión atender.",
+      "statement": "Ante un resultado erróneo, señala si el error nace en la especificación o en el código, corrige en el origen con un caso de prueba y clasifica los hallazgos de una revisión en obligatorios y opcionales.",
       "process": "evaluate",
       "evaluatedObjectiveId": "m02-eo5"
     }

@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-21 |
 | Depende de | T-006 y T-007 (cerrados) |
 | Fase del plan | 1 — Piloto (F1-03, F1-05) |
@@ -72,4 +72,13 @@ El banco de examen y las instrucciones del laboratorio para el alumno (los escri
 
 ## Revisión
 
-_(La llena Claude Code.)_
+**Claude Code · 2026-10-21 · Veredicto: aceptado, ticket cerrado.** Los 6 hallazgos son válidos y están aplicados. `npm test` 49/49; `test_reconcile.py` 9/9 (antes 7).
+
+| Hallazgo | Aplicación | Comprobación |
+| --- | --- | --- |
+| M02-08-01 Dos contratos de KPI | Un solo contrato **pipeline_kpis v1**, el de L3: `kpi_id`, `as_of_date`, `reporting_currency`, `data_quality_issues`, `assumption_ids`. El reconciliador ahora lo exige completo y comprueba también que el dashboard **reporte cada problema de calidad**. Nuevo `practice/data/pipeline_kpis.schema.json` (sin minimum/maximum). Fixtures regenerados; nuevo fixture de error que omite un problema de calidad. L3 y L6 citan el contrato y el resultado nuevo | 2 pruebas nuevas en `test_reconcile.py` (falta un campo del contrato → código 2; falta un problema de calidad → FAIL) |
+| M02-08-02 Objetivos sin criterio | Los 12 objetivos de L3–L6 incluyen un criterio observable | Revisión de texto |
+| M02-08-03 Conceptos erróneos mal asociados | Nuevos `m02-mc45` (adoptar la propuesta del agente = decidir), `m02-mc46` (ejemplo de formato = verificación), `m02-mc47` (lo entiende el agente actual = autocontenida), y reasignados | Referencias validadas por `npm test` |
+| M02-08-04 | `m02-l2-r2/o3` → `m02-mc10` | Idem |
+| M02-08-05 Duración al límite | Queda como hipótesis [H] que el piloto mide (estándar §9). No se recorta sin datos | — |
+| M02-08-06 Manifiesto sin ciclo de vida | El contrato `Asset` añade `status` (`active` / `replaced`) y `replacedBy`, con validación cruzada. La actualización del manifiesto queda para Codex en el próximo ticket | Typecheck y pruebas |

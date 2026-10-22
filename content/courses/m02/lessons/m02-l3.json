@@ -7,19 +7,19 @@
   "objectives": [
     {
       "id": "m02-l3-o1",
-      "statement": "Dada una tarea, elige ejemplos pertinentes, diversos y con casos borde, y distingue un ejemplo de formato de un caso de prueba.",
+      "statement": "Dada una tarea, elige de 3 a 5 ejemplos que incluyan al menos un caso borde y distingue cuál es de formato y cuál es un caso de prueba con resultado esperado.",
       "process": "apply",
       "evaluatedObjectiveId": "m02-eo3"
     },
     {
       "id": "m02-l3-o2",
-      "statement": "Dada una regla, la expresa como contraejemplo: un caso concreto con su resultado esperado.",
+      "statement": "Dada una regla, la expresa como contraejemplo con una entrada concreta y su resultado esperado, que se pueda comprobar sin interpretación.",
       "process": "apply",
       "evaluatedObjectiveId": "m02-eo3"
     },
     {
       "id": "m02-l3-o3",
-      "statement": "Dada una salida estructurada, explica qué garantiza el esquema y qué invariantes deben comprobarse en código.",
+      "statement": "Dada una salida estructurada que valida contra el esquema, identifica qué garantiza el esquema y escribe al menos una invariante en código que detectaría un valor falso.",
       "process": "analyze",
       "evaluatedObjectiveId": "m02-eo3"
     }

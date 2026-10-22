@@ -433,5 +433,34 @@
       "src-github-speckit-quickstart",
       "src-openai-codex-execplans"
     ]
+  },
+  {
+    "id": "m02-mc45",
+    "courseId": "m02",
+    "description": "Si el agente propone una definición de negocio, adoptarla equivale a haberla decidido.",
+    "whyWrong": "El agente puede proponer opciones, pero una definición que cambia lo que verá quien decide la aprueba el dueño del negocio; adoptarla sin él la deja sin decisión real.",
+    "sourceIds": [
+      "src-anthropic-prompting-fable5",
+      "src-github-speckit-sdd-doc"
+    ]
+  },
+  {
+    "id": "m02-mc46",
+    "courseId": "m02",
+    "description": "Un ejemplo de formato (cómo debe verse una tarjeta) basta para verificar que un cálculo es correcto.",
+    "whyWrong": "Un ejemplo de formato orienta la apariencia; solo un caso de prueba con entrada y resultado esperado permite comprobar el cálculo.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-github-copilot-prompt-eng"
+    ]
+  },
+  {
+    "id": "m02-mc47",
+    "courseId": "m02",
+    "description": "Si el agente que trabajó en la tarea entiende la especificación, la especificación es autocontenida.",
+    "whyWrong": "Ese agente tiene todo el historial; la prueba de una especificación autocontenida es que la ejecute alguien sin ese contexto, en una sesión nueva.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
   }
 ]

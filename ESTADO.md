@@ -4,10 +4,23 @@
 
 ## Siguiente acción
 
-1. **Daniel → Codex:** pasarle T-008 (revisión de las lecciones 3 a 6, el diagrama y el reconciliador corregido).
-2. **Claude, en paralelo:** instrucciones del laboratorio M02 (F1-05) y banco de examen de 36 ítems (F1-04).
-3. **Después:** esqueleto de la app con el diseño D1 (F1-01) para ver M02 en el navegador.
-4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
+1. **Claude:** instrucciones del laboratorio M02 (F1-05) y banco de examen de 36 ítems (F1-04). Después, ticket de revisión para Codex, que incluirá marcar `m02-spec-illustration` como reemplazado en el manifiesto.
+2. **Después:** esqueleto de la app con el diseño D1 (F1-01) para ver M02 en el navegador.
+3. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
+
+## Avance estimado (2026-10-21)
+
+**≈ 16 % de la V1** (rango razonable: 13–20 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+
+| Fase | Peso en la V1 | Avance | Aporta |
+| --- | --: | --: | --: |
+| 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
+| 1 · Piloto M02 | 22 % | 30 % (lecciones e imágenes listas; faltan banco de examen, instrucciones del laboratorio y toda la app) | 6,6 |
+| 2 · Base de app y PWA | 15 % | 5 % (contratos y validación) | 0,8 |
+| 3 · Nueve manuales restantes | 40 % | 3 % (currículo y mapa de competencias) | 1,2 |
+| 4 · Integración y revisión | 10 % | 0 % | 0 |
+| 5 · Entrega | 5 % | 0 % | 0 |
+| **Total** | 100 % | | **≈ 16 %** |
 
 ## Tickets
 
@@ -20,20 +33,22 @@
 | [T-005](coordinacion/tickets/T-005-codex-sistema-diseno-e-imagenes-piloto.md) | Codex | Sistema de diseño D1 e imágenes del piloto | cerrado |
 | [T-006](coordinacion/tickets/T-006-codex-revision-patron-m02.md) | Codex | Revisión temprana del patrón de M02 (L1 y L2) | cerrado |
 | [T-007](coordinacion/tickets/T-007-codex-datos-laboratorio-m02.md) | Codex | Datos sintéticos y check de reconciliación del laboratorio M02 | cerrado |
-| [T-008](coordinacion/tickets/T-008-codex-revision-m02-l3-l6.md) | Codex | Revisión de L3–L6, diagrama y reconciliador | abierto |
+| [T-008](coordinacion/tickets/T-008-codex-revision-m02-l3-l6.md) | Codex | Revisión de L3–L6, diagrama y reconciliador | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
 | Claude | `content/courses/m02/practice/` (instrucciones), `content/courses/m02/questions/exam.json` |
-| Codex (T-008) | `investigacion/codex-revision-m02-l3-l6.md`, `design/asset-manifest.json` |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-21 · Claude Code — revisión de T-008
+Los 6 hallazgos de Codex se aplicaron. El principal: la lección 3 y el reconciliador usaban contratos de KPI distintos; ahora hay uno solo (pipeline_kpis v1, con esquema JSON compartido) y el check también exige que se reporten los problemas de calidad. Objetivos de L3–L6 con criterio observable, 3 conceptos erróneos nuevos (47), ciclo de vida en el contrato `Asset`. `npm test` 49/49; `test_reconcile.py` 9/9. Avance estimado de la V1: ≈ 16 %.
 
 ### 2026-10-21 · Claude Code — lecciones 3 a 6 de M02
 Escritas las lecciones 3 a 6 con el patrón de dos capas: ejemplos y contratos de salida, especificación autocontenida, hitos y ciclos de mejora, criterios de aceptación y evidencia. Diagrama SVG etiquetado de las cinco partes de una especificación (resuelve T5-01), medido a 328 px. 8 fichas nuevas (18), 3 conceptos erróneos nuevos (44) y 24 preguntas nuevas (34 de comprobación y repaso). Las cifras del caso se tomaron del reconciliador. Nueva prueba de activos y figuras. `npm test` 49/49. Abierto T-008.

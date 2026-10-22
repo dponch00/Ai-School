@@ -323,5 +323,15 @@ export const Asset = z.object({
     .optional(),
   dimensions: z.object({ width: z.int().positive(), height: z.int().positive() }),
   reviewStatus: z.enum(['pending', 'approved', 'changes-requested']),
+  /** Ciclo de vida (M02-08-06): un activo reemplazado conserva su registro y apunta a su sucesor. */
+  status: z.enum(['active', 'replaced']).default('active'),
+  replacedBy: z.string().min(3).optional(),
+}).superRefine((a, ctx) => {
+  if (a.status === 'replaced' && !a.replacedBy) {
+    ctx.addIssue({ code: 'custom', path: ['replacedBy'], message: 'un activo reemplazado debe indicar su sucesor' })
+  }
+  if (a.status === 'active' && a.replacedBy) {
+    ctx.addIssue({ code: 'custom', path: ['replacedBy'], message: 'un activo activo no tiene sucesor' })
+  }
 })
 export type Asset = z.infer<typeof Asset>

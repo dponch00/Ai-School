@@ -90,6 +90,25 @@ class ReconcileTest(unittest.TestCase):
         self.assertIn("FAIL open_pipeline Norte", result.stdout)
         self.assertIn("PASS open_pipeline Centro", result.stdout)
 
+    def test_dashboard_must_report_every_quality_issue(self) -> None:
+        result = run_check("kpis_error_missing_issue.json")
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("FAIL calidad unknown_stage OPP-1036", result.stdout)
+        self.assertIn("PASS open_pipeline Norte", result.stdout)
+
+    def test_contract_from_lesson_3_is_required(self) -> None:
+        data = json.loads((EXPECTED / "kpis_correct.json").read_text(encoding="utf-8"))
+        data.pop("data_quality_issues")
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "kpis.json"
+            path.write_text(json.dumps(data), encoding="utf-8")
+            result = subprocess.run(
+                [sys.executable, str(SCRIPT), "--data-dir", str(ROOT), "--kpis", str(path), "--assumptions", str(ASSUMPTIONS)],
+                text=True, encoding="utf-8", capture_output=True, check=False,
+            )
+        self.assertEqual(result.returncode, 2, result.stdout + result.stderr)
+        self.assertIn("falta el campo data_quality_issues", result.stderr)
+
     def test_exclusions_are_reported_not_silent(self) -> None:
         result = run_check("kpis_correct.json")
         self.assertIn("AVISO etapa sin probabilidad OPP-1036", result.stdout)

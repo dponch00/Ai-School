@@ -7,19 +7,19 @@
   "objectives": [
     {
       "id": "m02-l6-o1",
-      "statement": "Dado un requisito, redacta criterios Given/When/Then observables, incluido al menos uno negativo.",
+      "statement": "Dado un requisito, redacta al menos dos escenarios Given/When/Then con pasos observables, uno de ellos negativo, sin estados internos en el Then.",
       "process": "create",
       "evaluatedObjectiveId": "m02-eo6"
     },
     {
       "id": "m02-l6-o2",
-      "statement": "Dado un requisito vago, lo traduce a un criterio que se pueda probar.",
+      "statement": "Dado un requisito vago, lo reescribe como un criterio con una condición que se pueda comprobar (ancho de pantalla, cifra, mensaje visible).",
       "process": "apply",
       "evaluatedObjectiveId": "m02-eo6"
     },
     {
       "id": "m02-l6-o3",
-      "statement": "Dada una entrega, exige evidencia ejecutable (comandos, salidas, reconciliación) y rechaza afirmaciones sin prueba.",
+      "statement": "Dada una entrega, rechaza las afirmaciones sin prueba y pide comando, salida y reconciliación esperado frente a obtenido para cada criterio.",
       "process": "evaluate",
       "evaluatedObjectiveId": "m02-eo6"
     }

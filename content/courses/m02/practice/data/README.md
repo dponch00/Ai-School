@@ -49,8 +49,12 @@ vencidas: su fecha no permite determinar uno de los dos estados.
 ## Ejecutar el check
 
 El reconciliador usa solo la biblioteca estándar de Python 3. El dashboard
-debe escribir su salida con el contrato de kpis_correct.json: una versión de
-esquema 1.0 y una lista de KPI con metric, region, value y unit.
+debe escribir su salida con el contrato **pipeline_kpis v1**, el mismo que
+enseña la lección 3 (`pipeline_kpis.schema.json`): `schema_version`,
+`as_of_date`, `reporting_currency`, `kpis` (con `kpi_id`, `region`, `value` y
+`unit`), `data_quality_issues` y `assumption_ids`. Además de las cifras, el
+check exige que el dashboard reporte cada problema de calidad de datos
+(duplicado, fecha de cierre vacía, etapa sin probabilidad).
 
 En Windows, desde esta carpeta:
 
@@ -72,6 +76,7 @@ un máximo de 0.0001 y los conteos deben coincidir exactamente.
 - expected/kpis_correct.json: salida que pasa con los supuestos de referencia.
 - expected/kpis_error_duplicate.json: salida que cuenta dos veces OPP-1012.
 - expected/kpis_error_eur.json: salida que toma EUR como si fuera USD.
+- expected/kpis_error_missing_issue.json: cifras correctas, pero no reporta la etapa sin probabilidad de OPP-1036.
 - expected/assumptions_reference.json: decisiones explícitas para reproducir
   el fixture.
 

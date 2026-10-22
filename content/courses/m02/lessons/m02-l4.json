@@ -7,19 +7,19 @@
   "objectives": [
     {
       "id": "m02-l4-o1",
-      "statement": "Dado un cambio, redacta una especificación con objetivo, alcance y exclusiones, archivos e interfaces, supuestos y condición de terminado.",
+      "statement": "Dado un cambio, redacta una especificación con las cinco partes (objetivo, alcance y exclusiones, archivos, supuestos y terminado) que se pueda ejecutar en una sesión nueva sin preguntas, salvo las marcadas.",
       "process": "create",
       "evaluatedObjectiveId": "m02-eo4"
     },
     {
       "id": "m02-l4-o2",
-      "statement": "Dada una tarea, decide si conviene que el agente te entreviste y separa las preguntas que solo el negocio puede responder.",
+      "statement": "Dada una tarea con reglas sin definir, decide si conviene la entrevista y separa por escrito las preguntas que solo el negocio puede responder.",
       "process": "evaluate",
       "evaluatedObjectiveId": "m02-eo4"
     },
     {
       "id": "m02-l4-o3",
-      "statement": "Dada una tarea, ajusta el tamaño de la especificación al riesgo, la ambigüedad y el costo del error.",
+      "statement": "Dadas tareas de distinto riesgo, asigna a cada una el tamaño de especificación de la tabla de proporción y justifica la elección por riesgo, ambigüedad o costo del error.",
       "process": "evaluate",
       "evaluatedObjectiveId": "m02-eo4"
     }
