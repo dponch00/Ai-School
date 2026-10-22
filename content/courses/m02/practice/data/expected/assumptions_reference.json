@@ -1,0 +1,9 @@
+{
+  "reporting_currency": "USD",
+  "period": "2026-Q4",
+  "duplicate_policy": "latest_last_activity",
+  "unknown_stage_policy": "exclude_and_report",
+  "stage_aliases": {
+    "Negociacion": "Negociación"
+  }
+}

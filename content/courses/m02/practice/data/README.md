@@ -1,0 +1,76 @@
+# Datos y reconciliación del laboratorio M02
+
+Esta carpeta contiene datos inventados de Altiplano Industrial S.A. para el
+laboratorio de M02. No contiene clientes, personas ni cifras reales. Este
+README es material para quien revisa o prepara el laboratorio: no se muestra
+al alumno antes del paso 1.
+
+## Regla de referencia
+
+La tarjeta del stakeholder fija estos supuestos:
+
+- El periodo es T4 de 2026 (octubre a diciembre) y el año fiscal coincide con
+  el calendario.
+- La moneda de reporte es USD; las tasas de fx_rates.csv corresponden al
+  snapshot del 2026-10-19.
+- Pipeline abierto excluye Ganada y Perdida.
+- Pipeline ponderado aplica stage_probability.csv después de normalizar la
+  etapa Negociacion a Negociación.
+- Cobertura es pipeline abierto T4 dividido por cuota T4 menos ganado T4.
+- Una oportunidad vencida está abierta y tiene cierre esperado anterior al
+  snapshot.
+
+La tarjeta no decide qué hacer con duplicados ni cómo definir “en riesgo”.
+Para que el check pueda ser reproducible, expected/assumptions_reference.json
+elige conservar el registro con actividad más reciente y excluir, reportando,
+la etapa que no tiene probabilidad. Es una convención del fixture, no una
+regla que el alumno deba inferir.
+
+## Problemas sembrados
+
+Las líneas cuentan el encabezado como línea 1.
+
+| Problema | Filas exactas |
+| --- | --- |
+| Duplicado OPP-1012; conservar 2026-10-18 y USD 125000 | 13 y 14 |
+| Cierre esperado vacío (OPP-1021) | 23 |
+| Etapa Negociacion sin tilde (OPP-1027) | 29 |
+| Etapa sin probabilidad En revisión (OPP-1036) | 38 |
+| Montos EUR | 4, 9, 16, 21, 30 y 37 |
+| Oportunidades abiertas vencidas | 5, 10, 24, 27, 34 y 37 |
+
+Una oportunidad sin fecha de cierre no suma al pipeline T4 ni al conteo de
+vencidas: su fecha no permite determinar uno de los dos estados.
+
+## Ejecutar el check
+
+El reconciliador usa solo la biblioteca estándar de Python 3. El dashboard
+debe escribir su salida con el contrato de kpis_correct.json: una versión de
+esquema 1.0 y una lista de KPI con metric, region, value y unit.
+
+En Windows, desde esta carpeta:
+
+    python reconcile.py --data-dir . --kpis expected/kpis_correct.json --assumptions expected/assumptions_reference.json
+    python test_reconcile.py
+
+En macOS o Linux:
+
+    python3 reconcile.py --data-dir . --kpis expected/kpis_correct.json --assumptions expected/assumptions_reference.json
+    python3 test_reconcile.py
+
+El check imprime una línea PASS o FAIL por KPI y termina con código 0 si
+todos coinciden, 1 si el dashboard difiere y 2 si faltan datos o un supuesto
+seguro. La tolerancia monetaria predeterminada es USD 0.01; las razones usan
+un máximo de 0.0001 y los conteos deben coincidir exactamente.
+
+## Fixtures
+
+- expected/kpis_correct.json: salida que pasa con los supuestos de referencia.
+- expected/kpis_error_duplicate.json: salida que cuenta dos veces OPP-1012.
+- expected/kpis_error_eur.json: salida que toma EUR como si fuera USD.
+- expected/assumptions_reference.json: decisiones explícitas para reproducir
+  el fixture.
+
+Si no se declara unknown_stage_policy como exclude_and_report, una etapa sin
+probabilidad detiene el cálculo con un error claro. El script nunca asigna una
+probabilidad inventada.

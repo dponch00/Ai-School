@@ -1,0 +1,7 @@
+stage,probability,policy_owner,effective_date
+Prospección,0.10,FP&A,2026-10-19
+Calificación,0.25,FP&A,2026-10-19
+Propuesta,0.50,FP&A,2026-10-19
+Negociación,0.75,FP&A,2026-10-19
+Ganada,1.00,FP&A,2026-10-19
+Perdida,0.00,FP&A,2026-10-19

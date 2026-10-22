@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-21 |
 | Depende de | — (en paralelo con las lecciones 3–6, que escribe Claude) |
 | Fase del plan | 1 — Piloto (F1-05) |
@@ -63,13 +63,11 @@ Las instrucciones del laboratorio para el alumno, la rúbrica y el cuaderno de d
 
 ## Entrega
 
-_(La llena Codex.)_
-
-- **Qué hice:**
-- **Archivos:**
-- **Cómo lo verifiqué:**
-- **Limitaciones o bloqueos:**
-- **Preguntas abiertas:**
+- **Qué hice:** Creé el snapshot sintético de 40 filas, las tablas de probabilidad, tipos de cambio, cuota y ganado; añadí el reconciliador determinista, cuatro fixtures JSON, README y pruebas unitarias. El check exige los supuestos que cambian cifras, normaliza la etapa sin tilde y falla ante una etapa sin probabilidad salvo exclusión explícita.
+- **Archivos:** content/courses/m02/practice/data/ (CSV, reconcile.py, test_reconcile.py, expected/ y README.md); este ticket.
+- **Cómo lo verifiqué:** Comprobé a mano las filas sembradas y las cifras de referencia. El fixture correcto devuelve 16 coincidencias. Las cuatro pruebas de test_reconcile.py pasan: fixture correcto, duplicado contado dos veces, EUR sin conversión y etapa sin probabilidad. npm test también pasa: 48 de 48.
+- **Limitaciones o bloqueos:** Los alias python y py de WindowsApps no se pueden ejecutar en este entorno. Corrí las mismas pruebas con el intérprete Python 3.14 disponible en C:\Users\Daniel\AppData\Local\Python\bin\python.exe; el README conserva los comandos portables python y python3.
+- **Preguntas abiertas:** La tarjeta del stakeholder deja la política de duplicados deliberadamente sin respuesta. El fixture fija latest_last_activity solo para que la reconciliación sea reproducible; Claude decidirá cómo presentar esa diferencia al alumno.
 
 ## Revisión
 

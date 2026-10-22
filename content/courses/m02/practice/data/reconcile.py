@@ -1,0 +1,289 @@
+"""Reconciliación determinista del laboratorio M02.
+
+No consulta red ni requiere paquetes externos. Los supuestos que cambian una
+cifra se declaran en JSON para que el resultado sea reproducible.
+"""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import json
+import sys
+from datetime import date
+from decimal import Decimal, InvalidOperation
+from pathlib import Path
+from typing import Any
+
+
+REGIONS = ("Norte", "Centro", "Sur")
+CLOSED_STAGES = {"Ganada", "Perdida"}
+MONEY_TOLERANCE = Decimal("0.01")
+RATIO_TOLERANCE = Decimal("0.0001")
+
+
+class ReconciliationError(ValueError):
+    """Input or policy error that makes a reconciliation unsafe."""
+
+
+def decimal(value: Any, label: str) -> Decimal:
+    try:
+        return Decimal(str(value))
+    except (InvalidOperation, TypeError) as error:
+        raise ReconciliationError(f"invalid_number: {label}") from error
+
+
+def read_csv(path: Path) -> list[dict[str, str]]:
+    try:
+        with path.open(encoding="utf-8-sig", newline="") as handle:
+            return list(csv.DictReader(handle))
+    except FileNotFoundError as error:
+        raise ReconciliationError(f"missing_file: {path.name}") from error
+
+
+def read_json(path: Path) -> dict[str, Any]:
+    try:
+        with path.open(encoding="utf-8") as handle:
+            value = json.load(handle)
+    except FileNotFoundError as error:
+        raise ReconciliationError(f"missing_file: {path.name}") from error
+    except json.JSONDecodeError as error:
+        raise ReconciliationError(f"invalid_json: {path.name}: {error.msg}") from error
+    if not isinstance(value, dict):
+        raise ReconciliationError(f"invalid_json_object: {path.name}")
+    return value
+
+
+def q4_2026(value: str) -> bool:
+    return "2026-10-01" <= value <= "2026-12-31"
+
+
+def latest_rows(rows: list[dict[str, str]], policy: str) -> list[dict[str, str]]:
+    if policy != "latest_last_activity":
+        raise ReconciliationError(
+            "unsupported_duplicate_policy: choose latest_last_activity"
+        )
+    latest: dict[str, dict[str, str]] = {}
+    for row in rows:
+        opp_id = row["opp_id"]
+        if not opp_id:
+            raise ReconciliationError("invalid_opportunity: missing opp_id")
+        prior = latest.get(opp_id)
+        if prior is None or row["last_activity_date"] > prior["last_activity_date"]:
+            latest[opp_id] = row
+    return list(latest.values())
+
+
+def load_probabilities(data_dir: Path) -> dict[str, Decimal]:
+    return {
+        row["stage"]: decimal(row["probability"], f"probability {row['stage']}")
+        for row in read_csv(data_dir / "stage_probability.csv")
+    }
+
+
+def load_fx_rates(data_dir: Path) -> dict[str, Decimal]:
+    return {
+        row["currency"]: decimal(row["usd_per_unit"], f"fx {row['currency']}")
+        for row in read_csv(data_dir / "fx_rates.csv")
+    }
+
+
+def load_quota(data_dir: Path) -> dict[str, Decimal]:
+    return {
+        row["region"]: decimal(row["quota_q4_usd"], f"quota {row['region']}")
+        for row in read_csv(data_dir / "quota.csv")
+    }
+
+
+def load_won(data_dir: Path) -> dict[str, Decimal]:
+    return {
+        row["region"]: decimal(row["won_q4_usd"], f"won {row['region']}")
+        for row in read_csv(data_dir / "won_q4.csv")
+    }
+
+
+def calculate(data_dir: Path, assumptions: dict[str, Any]) -> list[dict[str, str]]:
+    currency = assumptions.get("reporting_currency")
+    if currency != "USD":
+        raise ReconciliationError("unsupported_reporting_currency: expected USD")
+
+    aliases = assumptions.get("stage_aliases", {})
+    if not isinstance(aliases, dict):
+        raise ReconciliationError("invalid_stage_aliases")
+    unknown_stage_policy = assumptions.get("unknown_stage_policy")
+    if unknown_stage_policy not in (None, "exclude_and_report"):
+        raise ReconciliationError(
+            "unsupported_unknown_stage_policy: choose exclude_and_report"
+        )
+    if assumptions.get("period") != "2026-Q4":
+        raise ReconciliationError("unsupported_period: expected 2026-Q4")
+
+    probabilities = load_probabilities(data_dir)
+    fx_rates = load_fx_rates(data_dir)
+    quota = load_quota(data_dir)
+    won = load_won(data_dir)
+    metrics = {
+        region: {
+            "open_pipeline": Decimal("0"),
+            "weighted_pipeline": Decimal("0"),
+            "overdue_count": Decimal("0"),
+        }
+        for region in REGIONS
+    }
+    rows = latest_rows(
+        read_csv(data_dir / "opportunities_snapshot_2026-10-19.csv"),
+        assumptions.get("duplicate_policy", ""),
+    )
+
+    for row in rows:
+        region = row["region"]
+        if region not in metrics:
+            raise ReconciliationError(f"unknown_region: {region}")
+        stage = aliases.get(row["stage"], row["stage"])
+        if stage not in probabilities:
+            if unknown_stage_policy == "exclude_and_report":
+                continue
+            raise ReconciliationError(
+                f"unknown_stage: {row['stage']}; define unknown_stage_policy "
+                "as exclude_and_report or add an approved probability"
+            )
+        if row["currency"] not in fx_rates:
+            raise ReconciliationError(f"missing_fx_rate: {row['currency']}")
+        amount_usd = decimal(row["amount"], f"amount {row['opp_id']}") * fx_rates[
+            row["currency"]
+        ]
+        is_open = stage not in CLOSED_STAGES
+        close_date = row["expected_close_date"]
+
+        if is_open and close_date and close_date < row["snapshot_date"]:
+            metrics[region]["overdue_count"] += Decimal("1")
+        if is_open and close_date and q4_2026(close_date):
+            metrics[region]["open_pipeline"] += amount_usd
+            metrics[region]["weighted_pipeline"] += amount_usd * probabilities[stage]
+
+    output: list[dict[str, str]] = []
+    for region in REGIONS:
+        open_pipeline = metrics[region]["open_pipeline"]
+        weighted_pipeline = metrics[region]["weighted_pipeline"]
+        remaining_quota = quota[region] - won[region]
+        if remaining_quota <= 0:
+            raise ReconciliationError(f"invalid_remaining_quota: {region}")
+        output.extend(
+            (
+                kpi("open_pipeline", region, open_pipeline, "USD"),
+                kpi("weighted_pipeline", region, weighted_pipeline, "USD"),
+                kpi(
+                    "coverage_ratio",
+                    region,
+                    open_pipeline / remaining_quota,
+                    "x",
+                ),
+                kpi("overdue_count", region, metrics[region]["overdue_count"], "count"),
+            )
+        )
+
+    totals = {
+        name: sum((metrics[region][name] for region in REGIONS), Decimal("0"))
+        for name in ("open_pipeline", "weighted_pipeline", "overdue_count")
+    }
+    total_remaining = sum((quota[region] - won[region] for region in REGIONS), Decimal("0"))
+    output.extend(
+        (
+            kpi("open_pipeline", "TOTAL", totals["open_pipeline"], "USD"),
+            kpi("weighted_pipeline", "TOTAL", totals["weighted_pipeline"], "USD"),
+            kpi("coverage_ratio", "TOTAL", totals["open_pipeline"] / total_remaining, "x"),
+            kpi("overdue_count", "TOTAL", totals["overdue_count"], "count"),
+        )
+    )
+    return output
+
+
+def kpi(metric: str, region: str, value: Decimal, unit: str) -> dict[str, str]:
+    return {"metric": metric, "region": region, "value": str(value), "unit": unit}
+
+
+def tolerance_for(metric: str, requested: Decimal) -> Decimal:
+    if requested < 0:
+        raise ReconciliationError("invalid_tolerance")
+    if metric == "coverage_ratio":
+        return min(requested, RATIO_TOLERANCE)
+    if metric == "overdue_count":
+        return Decimal("0")
+    return requested
+
+
+def compare(
+    calculated: list[dict[str, str]], dashboard: dict[str, Any], requested_tolerance: Decimal
+) -> tuple[list[str], int]:
+    if dashboard.get("schema_version") != "1.0":
+        raise ReconciliationError("invalid_kpis_schema_version")
+    entries = dashboard.get("kpis")
+    if not isinstance(entries, list):
+        raise ReconciliationError("invalid_kpis: expected a kpis array")
+    reported = {
+        (entry.get("metric"), entry.get("region")): entry
+        for entry in entries
+        if isinstance(entry, dict)
+    }
+    lines: list[str] = []
+    failed = 0
+    for actual in calculated:
+        key = (actual["metric"], actual["region"])
+        entry = reported.get(key)
+        label = f"{actual['metric']} {actual['region']}"
+        if entry is None:
+            lines.append(f"FAIL {label}: missing dashboard value")
+            failed += 1
+            continue
+        if entry.get("unit") != actual["unit"]:
+            lines.append(
+                f"FAIL {label}: unit dashboard={entry.get('unit')} reconcile={actual['unit']}"
+            )
+            failed += 1
+            continue
+        dashboard_value = decimal(entry.get("value"), f"dashboard {label}")
+        actual_value = decimal(actual["value"], f"reconcile {label}")
+        difference = dashboard_value - actual_value
+        tolerance = tolerance_for(actual["metric"], requested_tolerance)
+        if abs(difference) <= tolerance:
+            lines.append(
+                f"PASS {label}: dashboard={dashboard_value} reconcile={actual_value}"
+            )
+        else:
+            lines.append(
+                f"FAIL {label}: dashboard={dashboard_value} reconcile={actual_value} "
+                f"difference={difference} tolerance={tolerance}"
+            )
+            failed += 1
+    return lines, failed
+
+
+def run(args: argparse.Namespace) -> int:
+    data_dir = Path(args.data_dir)
+    assumptions = read_json(Path(args.assumptions))
+    dashboard = read_json(Path(args.kpis))
+    calculated = calculate(data_dir, assumptions)
+    lines, failed = compare(calculated, dashboard, decimal(args.tolerance, "tolerance"))
+    print("\n".join(lines))
+    return 1 if failed else 0
+
+
+def parse_args(argv: list[str]) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Reconciliación de KPI sintéticos M02")
+    parser.add_argument("--data-dir", required=True, help="Carpeta con los CSV")
+    parser.add_argument("--kpis", required=True, help="JSON que produjo el dashboard")
+    parser.add_argument("--assumptions", required=True, help="JSON de supuestos aprobados")
+    parser.add_argument("--tolerance", default="0.01", help="Tolerancia monetaria en USD")
+    return parser.parse_args(argv)
+
+
+def main(argv: list[str] | None = None) -> int:
+    try:
+        return run(parse_args(sys.argv[1:] if argv is None else argv))
+    except ReconciliationError as error:
+        print(f"ERROR {error}", file=sys.stderr)
+        return 2
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

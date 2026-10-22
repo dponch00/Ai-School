@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "kpis": [
+    {"metric": "open_pipeline", "region": "Norte", "value": "1236500.00", "unit": "USD"},
+    {"metric": "weighted_pipeline", "region": "Norte", "value": "550750.0000", "unit": "USD"},
+    {"metric": "coverage_ratio", "region": "Norte", "value": "1.301578947368421052631578947", "unit": "x"},
+    {"metric": "overdue_count", "region": "Norte", "value": "2", "unit": "count"},
+    {"metric": "open_pipeline", "region": "Centro", "value": "1330500.00", "unit": "USD"},
+    {"metric": "weighted_pipeline", "region": "Centro", "value": "707650.0000", "unit": "USD"},
+    {"metric": "coverage_ratio", "region": "Centro", "value": "1.3305", "unit": "x"},
+    {"metric": "overdue_count", "region": "Centro", "value": "2", "unit": "count"},
+    {"metric": "open_pipeline", "region": "Sur", "value": "1240000.00", "unit": "USD"},
+    {"metric": "weighted_pipeline", "region": "Sur", "value": "672675.0000", "unit": "USD"},
+    {"metric": "coverage_ratio", "region": "Sur", "value": "1.377777777777777777777777778", "unit": "x"},
+    {"metric": "overdue_count", "region": "Sur", "value": "2", "unit": "count"},
+    {"metric": "open_pipeline", "region": "TOTAL", "value": "3807000.00", "unit": "USD"},
+    {"metric": "weighted_pipeline", "region": "TOTAL", "value": "1931075.0000", "unit": "USD"},
+    {"metric": "coverage_ratio", "region": "TOTAL", "value": "1.335789473684210526315789474", "unit": "x"},
+    {"metric": "overdue_count", "region": "TOTAL", "value": "6", "unit": "count"}
+  ]
+}
