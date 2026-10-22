@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="AI School">
+  <!-- Ícono provisional (F2-04): forma geométrica con la paleta D1, sin texto. Codex entrega el definitivo en T-018. -->
+  <rect width="512" height="512" rx="112" fill="#172A33"/>
+  <path d="M96 368 L208 208 L280 296 L336 232 L416 368 Z" fill="#F5F0E6"/>
+  <circle cx="352" cy="152" r="44" fill="#A94E2B"/>
+  <path d="M96 368 H416" stroke="#A94E2B" stroke-width="16" stroke-linecap="round"/>
+</svg>

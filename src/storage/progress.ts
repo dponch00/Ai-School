@@ -28,14 +28,15 @@ export async function markLessonVisited(db: LearnerDb, courseId: string, lessonI
 export interface CheckRound {
   courseId: string
   lessonId: string
-  /** `checks` cuenta para el progreso de la lección; `review` es el repaso de lecciones anteriores; `practice`, el modo práctica del curso. */
-  purpose: 'checks' | 'review' | 'practice'
+  /** `checks` cuenta para el progreso de la lección; `review` es el repaso de lecciones anteriores; `practice`, el modo práctica del curso; `errors`, el repaso de errores con confianza alta. */
+  purpose: 'checks' | 'review' | 'practice' | 'errors'
   contentVersion: string
   /** Cuántas preguntas tiene la ronda: al responderlas todas, el intento se envía. */
   size: number
 }
 
-const LABELS = { checks: 'comprobaciones', review: 'repaso', practice: 'práctica' } as const
+// «repaso de errores» debe coincidir con ERROR_REVIEW_PREFIX (domain/review-queue.ts).
+const LABELS = { checks: 'comprobaciones', review: 'repaso', practice: 'práctica', errors: 'repaso de errores' } as const
 export const roundLabel = (r: Pick<CheckRound, 'lessonId' | 'purpose'>) => `${LABELS[r.purpose]} ${r.lessonId}`
 
 /**

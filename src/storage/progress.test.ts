@@ -4,7 +4,8 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { makeQuestion } from '../domain/fixtures.test-utils'
 import { Attempt, Backup, Response, SCHEMA_VERSION, responseIssues } from '../domain/learner'
 import { openDb, type LearnerDb } from './db'
-import { type CheckRound, lessonProgress, markLessonVisited, recordCheckAnswer, scoreRound } from './progress'
+import { type CheckRound, lessonProgress, markLessonVisited, recordCheckAnswer, roundLabel, scoreRound } from './progress'
+import { errorReviewLabel } from '../domain/review-queue'
 
 let db: LearnerDb
 let n = 0
@@ -96,4 +97,9 @@ describe('comprobaciones', () => {
     }
     expect(() => Backup.parse(backup)).not.toThrow()
   })
+
+  it('el repaso de errores se guarda con la etiqueta que lee la cola de repaso', () => {
+    expect(roundLabel({ lessonId: 'm02', purpose: 'errors' })).toBe(errorReviewLabel('m02'))
+  })
 })
+

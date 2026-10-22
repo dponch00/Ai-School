@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router'
+import UpdatePrompt from './UpdatePrompt'
 
 export default function Layout() {
   const { pathname } = useLocation()
@@ -26,6 +27,7 @@ export default function Layout() {
           </nav>
         </div>
       </header>
+      <UpdatePrompt />
       <main id="contenido" tabIndex={-1}>
         <Outlet />
       </main>

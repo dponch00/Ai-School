@@ -4,6 +4,8 @@ import NotFound from './NotFound'
 import { db } from '../storage/db'
 import { courseProgress } from '../storage/progress'
 import { assessmentAttempts } from '../storage/exam'
+import { errorReviewQueue } from '../domain/review-queue'
+import { now } from '../storage/progress'
 import { useLive } from '../storage/useLive'
 
 export default function CourseOverview() {
@@ -14,6 +16,11 @@ export default function CourseOverview() {
   const exams = assessments.filter((a) => a.kind === 'exam')
   const retained = assessments.some((a) => a.kind === 'retention' && a.result?.passed)
   const plan = useLive(() => db.adjustments.toArray(), [], [])
+  const errors = useLive(
+    async () => errorReviewQueue(await db.attempts.where('courseId').equals(course?.id ?? '').toArray(), await db.responses.toArray(), course?.id ?? '', now()),
+    [course?.id],
+    { due: [], upcoming: [], resolved: 0 },
+  )
   if (!course) return <NotFound />
   const cover = covers[course.id]
   const status = (lessonId: string) => {
@@ -83,6 +90,20 @@ export default function CourseOverview() {
                 <span className="lesson-list__order" aria-hidden="true">◆</span>
                 <span className="lesson-list__title">Laboratorio: {course.practice.title}</span>
                 <span className="lesson-list__time">75–90 min</span>
+              </Link>
+            </li>
+          )}
+          {(errors.due.length > 0 || errors.upcoming.length > 0) && (
+            <li>
+              <Link to={`/cursos/${course.id}/repaso`} className="lesson-list__link">
+                <span className="lesson-list__order" aria-hidden="true">↻</span>
+                <span className="lesson-list__title">
+                  Repaso de errores
+                  <span className={`lesson-list__status${errors.due.length > 0 ? ' lesson-list__status--plan' : ''}`}>
+                    {errors.due.length > 0 ? `${errors.due.length} para hoy` : `${errors.upcoming.length} en los próximos días`} · preguntas que fallaste estando muy seguro
+                  </span>
+                </span>
+                <span className="lesson-list__time">5 min</span>
               </Link>
             </li>
           )}
