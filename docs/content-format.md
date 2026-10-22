@@ -35,6 +35,7 @@ content/courses/mNN/
 | `:::aside` | Recuadro **Aparte**: interesante, no evaluable |
 | `::product-card{id="…"}` | Inserta una ficha de `product-cards.json` |
 | `::figure{asset="…"}` | Inserta un diagrama o imagen de `assets.json` del manual, con su texto alternativo |
+| `::::reveal{title="…"}` | Contenido plegado que el alumno abre en un momento indicado (tarjetas del laboratorio) |
 | `:::summary` | Resumen de consulta (bloque 8, siempre después de la comprobación) |
 | `[inferencia]` | Marca una conclusión propia sin fuente que la afirme tal cual |
 

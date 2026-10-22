@@ -462,5 +462,86 @@
     "sourceIds": [
       "src-anthropic-cc-best-practices"
     ]
+  },
+  {
+    "id": "m02-mc48",
+    "courseId": "m02",
+    "description": "Nombrar usuario y periodo basta para un objetivo; la decisión se deduce sola.",
+    "whyWrong": "Sin la decisión no se sabe qué mostrar ni cómo comprobar si el resultado sirve; usuario y periodo son necesarios, pero no suficientes.",
+    "sourceIds": [
+      "src-anthropic-prompting-fable5",
+      "src-anthropic-prompting-bp"
+    ]
+  },
+  {
+    "id": "m02-mc49",
+    "courseId": "m02",
+    "description": "Un cambio de presentación autoriza a modificar los datos de origen.",
+    "whyWrong": "Escribir en sistemas externos o en los datos originales excede un cambio de presentación y requiere confirmación.",
+    "sourceIds": [
+      "src-openai-gpt56-model-guidance",
+      "src-anthropic-prompting-bp"
+    ]
+  },
+  {
+    "id": "m02-mc50",
+    "courseId": "m02",
+    "description": "Si la petición es clara, una acción difícil de revertir no necesita confirmación.",
+    "whyWrong": "Las acciones destructivas o visibles para terceros se confirman antes de ejecutarse, aunque la petición sea clara.",
+    "sourceIds": [
+      "src-openai-gpt56-model-guidance",
+      "src-anthropic-prompting-fable5"
+    ]
+  },
+  {
+    "id": "m02-mc51",
+    "courseId": "m02",
+    "description": "Mantener varias tareas en una misma sesión aprovecha mejor el contexto.",
+    "whyWrong": "Mezclar tareas llena el contexto de ruido y degrada el rendimiento; conviene una sesión por tarea coherente.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-openai-codex-best-practices",
+      "src-github-copilot-prompt-eng"
+    ]
+  },
+  {
+    "id": "m02-mc52",
+    "courseId": "m02",
+    "description": "Es más eficiente dejar que el agente implemente todo y revisar solo el resultado final.",
+    "whyWrong": "Un cambio grande sin hitos verificables es difícil de revisar y revertir; los errores aparecen tarde y mezclados.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-anthropic-building-agents"
+    ]
+  },
+  {
+    "id": "m02-mc53",
+    "courseId": "m02",
+    "description": "Los hitos no necesitan su propia prueba si al final se revisa todo.",
+    "whyWrong": "Sin prueba por hito no se sabe dónde nació un error y se construye encima de él; cada hito se habilita con su verificación.",
+    "sourceIds": [
+      "src-openai-codex-execplans",
+      "src-anthropic-building-agents"
+    ]
+  },
+  {
+    "id": "m02-mc54",
+    "courseId": "m02",
+    "description": "Si hay pruebas automáticas, no hace falta ningún punto de control humano.",
+    "whyWrong": "Las pruebas comprueban lo definido; aprobar supuestos o autorizar acciones visibles para terceros son decisiones que toma una persona.",
+    "sourceIds": [
+      "src-anthropic-building-agents",
+      "src-openai-gpt56-model-guidance"
+    ]
+  },
+  {
+    "id": "m02-mc55",
+    "courseId": "m02",
+    "description": "Un diff que se ve razonable demuestra que el cambio funciona.",
+    "whyWrong": "Leer el diff dice qué cambió, no que el resultado sea correcto; hace falta la salida de una prueba o una comprobación reproducible.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-anthropic-prompting-fable5"
+    ]
   }
 ]

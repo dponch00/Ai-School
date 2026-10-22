@@ -1,0 +1,86 @@
+{
+  "id": "m02-lab",
+  "courseId": "m02",
+  "version": "0.1.0",
+  "title": "De una petición ambigua a una especificación verificable",
+  "evaluatedObjectiveIds": ["m02-eo1", "m02-eo2", "m02-eo3", "m02-eo4", "m02-eo5", "m02-eo6"],
+  "inputs": [
+    "Correo del director financiero ficticio de Altiplano (paso 1)",
+    "Datos sintéticos en practice/data/: snapshot de oportunidades, probabilidades por etapa, tipos de cambio, cuota y ganado del T4",
+    "Tarjeta de respuestas del director, que se abre después del paso 1",
+    "Contrato pipeline_kpis v1 (practice/data/pipeline_kpis.schema.json)",
+    "Cambio del lunes para el cuaderno de decisiones (paso 6)"
+  ],
+  "instructionsPath": "courses/m02/practice/m02-lab.md",
+  "deliverable": "brief.md, criterios.feature y prompt_ejecucion.md, más el cuaderno de decisiones en la app; comparacion.md es opcional.",
+  "evidenceRequired": [
+    "Lista de al menos 10 ambigüedades clasificadas en preguntar, asumir y registrar, o fuera de alcance",
+    "Registro de supuestos con dueño, estado y política, incluidas las dos preguntas sin respuesta del director",
+    "Al menos 5 casos de prueba con valor esperado, 2 de calidad de datos y 1 contraejemplo del comentario",
+    "Al menos 5 escenarios Given/When/Then, uno negativo",
+    "Prompt de ejecución con hitos y su prueba, política de ambigüedad y evidencia exigida",
+    "Cuaderno de decisiones con sus cuatro piezas"
+  ],
+  "rubric": [
+    {
+      "id": "objetivo-alcance",
+      "name": "Objetivo, decisión y alcance",
+      "critical": true,
+      "levels": [
+        { "level": 1, "descriptor": "Objetivo genérico («ver el pipeline»), sin decisión ni periodo, o sin exclusiones." },
+        { "level": 2, "descriptor": "Usuario, decisión y periodo explícitos; el alcance dice qué entra, pero no qué queda fuera o los límites de acción." },
+        { "level": 3, "descriptor": "Usuario, decisión, periodo y umbral; alcance dentro y fuera; límites de acción del agente; la especificación se puede ejecutar en una sesión nueva sin preguntas, salvo las marcadas." }
+      ]
+    },
+    {
+      "id": "definiciones-supuestos",
+      "name": "Definiciones y supuestos",
+      "critical": true,
+      "levels": [
+        { "level": 1, "descriptor": "KPI nombrados sin fórmula; supuestos ausentes o inventados como si fueran hechos." },
+        { "level": 2, "descriptor": "Cada KPI con fórmula, unidad, moneda y fuente; supuestos listados, pero sin dueño, estado o política." },
+        { "level": 3, "descriptor": "Supuestos con dueño, estado y política; las ambigüedades que cambian cifras visibles (duplicados, «en riesgo») se preguntan y la especificación dice qué hacer mientras tanto." }
+      ]
+    },
+    {
+      "id": "casos-contrato",
+      "name": "Casos, contraejemplos y contrato de salida",
+      "critical": false,
+      "levels": [
+        { "level": 1, "descriptor": "Solo el caso feliz, o ejemplos de formato sin resultado esperado." },
+        { "level": 2, "descriptor": "Al menos 5 casos con valor esperado; cita el contrato pipeline_kpis v1." },
+        { "level": 3, "descriptor": "Los casos cubren calidad de datos y el comentario narrativo; los contraejemplos son casos concretos; añade invariantes que se comprueban en código." }
+      ]
+    },
+    {
+      "id": "hitos-prompt",
+      "name": "Hitos y prompt de ejecución",
+      "critical": false,
+      "levels": [
+        { "level": 1, "descriptor": "Una sola instrucción grande, o pide que el agente muestre su razonamiento interno." },
+        { "level": 2, "descriptor": "Hitos ordenados, política de ambigüedad y evidencia exigida en el reporte final." },
+        { "level": 3, "descriptor": "Cada hito con su prueba; punto de control humano antes de calcular; extensión proporcional, sin contradicciones ni frases de relleno." }
+      ]
+    },
+    {
+      "id": "aceptacion-evidencia",
+      "name": "Criterios de aceptación y evidencia",
+      "critical": true,
+      "levels": [
+        { "level": 1, "descriptor": "Criterios no observables («se ve bien») o sobre estados internos." },
+        { "level": 2, "descriptor": "Al menos 5 escenarios Given/When/Then observables." },
+        { "level": 3, "descriptor": "Trazados al objetivo; al menos uno negativo; el terminado incluye un check ejecutable (por ejemplo, la reconciliación) y el reporte final exige comandos y resultados." }
+      ]
+    }
+  ],
+  "anchors": {
+    "achieved": "El brief nombra al comité comercial, la decisión de seguimiento, el T4 2026 y el umbral de USD 100 000; excluye inicio de sesión, correos y forecast. Define los cuatro KPI con fórmula y moneda. Registra «duplicados» y «en riesgo» como preguntas abiertas y dice que, mientras tanto, el agente no calcula el pipeline y propone dos definiciones de riesgo con su efecto. Incluye 6 casos (EUR convertido, duplicado, fecha vacía, etapa sin probabilidad, Perdida que no suma, comentario sin causas inventadas), 5 escenarios con uno negativo y un prompt con cinco hitos, cada uno con su prueba, y el reporte final con la salida de reconcile.py.",
+    "insufficient": "Hacer un dashboard bonito del pipeline por región con los datos de Marta, con gráficas claras y un comentario de IA que explique cómo vamos. Que el agente decida lo que haga falta y que quede listo para el lunes."
+  },
+  "executableCheck": {
+    "description": "Si ejecutas tu prompt con un agente en tu entorno (paso 7), el kpis.json que produzca debe pasar el check de reconciliación con los supuestos que declaraste.",
+    "command": "python practice/data/reconcile.py --data-dir practice/data --kpis kpis.json --assumptions supuestos.json"
+  },
+  "transferNotebook": true,
+  "status": "draft"
+}

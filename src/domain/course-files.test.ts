@@ -3,7 +3,8 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { Asset, Course, Lesson, Misconception, ProductCard, Question, Source } from './content'
+import { Asset, Course, Lesson, Misconception, Practice, ProductCard, Question, Source } from './content'
+import { bankIssues, selectExam } from './scoring'
 
 const root = resolve(import.meta.dirname, '../../content')
 const read = (p: string) => JSON.parse(readFileSync(resolve(root, p), 'utf8'))
@@ -38,6 +39,9 @@ for (const courseDir of readdirSync(resolve(root, 'courses'))) {
     const checksPath = `courses/${courseDir}/questions/checks.json`
     const checks = existsSync(resolve(root, checksPath)) ? Question.array().parse(read(checksPath)) : []
     const checkIds = new Set(checks.map((q) => q.id))
+    const examPath = `courses/${courseDir}/questions/exam.json`
+    const exam = existsSync(resolve(root, examPath)) ? Question.array().parse(read(examPath)) : []
+    const allQuestions = [...checks, ...exam]
     const lessonFiles = readdirSync(resolve(root, `courses/${courseDir}/lessons`)).filter((f) => f.endsWith('.json'))
     const lessons = lessonFiles.map((f) => Lesson.parse(read(`courses/${courseDir}/lessons/${f}`)))
 
@@ -69,7 +73,7 @@ for (const courseDir of readdirSync(resolve(root, 'courses'))) {
     })
 
     it('las preguntas apuntan a anclas, objetivos y conceptos erróneos existentes', () => {
-      for (const q of checks) {
+      for (const q of allQuestions) {
         const [lessonId, anchor] = q.sectionRef.split('#')
         const lesson = lessons.find((l) => l.id === lessonId)
         expect(lesson, `${q.id} → ${q.sectionRef}`).toBeDefined()
@@ -82,20 +86,52 @@ for (const courseDir of readdirSync(resolve(root, 'courses'))) {
     })
 
     it('la longitud no delata la clave: ni siempre la más larga ni siempre la más corta', () => {
-      if (checks.length < 6) return
-      const bias = keyLengthBias(checks)
-      expect(bias.longest / bias.total, `clave más larga en ${bias.longest}/${bias.total}`).toBeLessThanOrEqual(0.5)
-      expect(bias.shortest / bias.total, `clave más corta en ${bias.shortest}/${bias.total}`).toBeLessThanOrEqual(0.5)
+      for (const [name, set] of [['comprobaciones', checks], ['examen', exam]] as const) {
+        if (set.length < 6) continue
+        const bias = keyLengthBias(set)
+        expect(bias.longest / bias.total, `${name}: clave más larga en ${bias.longest}/${bias.total}`).toBeLessThanOrEqual(0.4)
+        expect(bias.shortest / bias.total, `${name}: clave más corta en ${bias.shortest}/${bias.total}`).toBeLessThanOrEqual(0.4)
+      }
+    })
+
+    it('banco de examen: coherente, con cobertura del blueprint y separado de las comprobaciones (D-016, D-017)', () => {
+      if (exam.length === 0) return
+      expect(bankIssues(exam)).toEqual([])
+      for (const q of exam) expect(checkIds.has(q.id), `${q.id} repite un ID de comprobación`).toBe(false)
+      const checkScenarios = new Set(checks.map((q) => q.scenario))
+      for (const q of exam) expect(checkScenarios.has(q.scenario), `${q.id} reutiliza un escenario de comprobación`).toBe(false)
+      for (const eo of course.evaluatedObjectives) {
+        const families = new Set(exam.filter((q) => q.evaluatedObjectiveId === eo.id).map((q) => q.family))
+        expect(families.size, `${eo.id}: familias en el banco`).toBeGreaterThanOrEqual(2)
+      }
+      const variantsByFamily = new Map<string, number>()
+      for (const q of exam) variantsByFamily.set(q.family!, (variantsByFamily.get(q.family!) ?? 0) + 1)
+      for (const [family, n] of variantsByFamily) expect(n, `${family}: variantes`).toBeGreaterThanOrEqual(2)
+      // Se puede armar un examen de 12 con 2 ítems por objetivo evaluado
+      const published = exam.map((q) => ({ ...q, status: 'published' as const }))
+      let seed = 42
+      const rng = () => ((seed = (seed * 1103515245 + 12345) % 2147483648) / 2147483648)
+      const form = selectExam({ bank: published, evaluatedObjectiveIds: course.evaluatedObjectives.map((o) => o.id), itemsPerObjective: 2, rng })
+      expect(form).toHaveLength(course.evaluatedObjectives.length * 2)
+    })
+
+    it('laboratorio: cumple el contrato Practice y cubre objetivos del blueprint', () => {
+      const labPath = `courses/${courseDir}/practice/${course.practiceId}.json`
+      if (!existsSync(resolve(root, labPath))) return
+      const lab = Practice.parse(read(labPath))
+      expect(existsSync(resolve(root, lab.instructionsPath)), lab.instructionsPath).toBe(true)
+      for (const id of lab.evaluatedObjectiveIds) expect(eoIds.has(id), `${lab.id} → ${id}`).toBe(true)
+      expect(lab.rubric.some((c) => c.critical), 'al menos un criterio crítico').toBe(true)
     })
 
     it('las competencias de objetivos y preguntas pertenecen al manual (M02-R-01)', () => {
       const own = new Set(course.competencyIds)
       for (const eo of course.evaluatedObjectives) for (const c of eo.competencyIds) expect(own.has(c), `${eo.id} declara ${c}`).toBe(true)
-      for (const q of checks) for (const c of q.competencyIds) expect(own.has(c), `${q.id} declara ${c}`).toBe(true)
+      for (const q of allQuestions) for (const c of q.competencyIds) expect(own.has(c), `${q.id} declara ${c}`).toBe(true)
     })
 
     it('el feedback de cada opción tiene al menos dos frases (estándar §4.4, M02-R-09)', () => {
-      for (const q of checks)
+      for (const q of allQuestions)
         for (const o of q.options) {
           const sentences = o.feedback.split(/[.!?](?:\s|$)/).filter((x) => x.trim().length > 0)
           expect(sentences.length, `${q.id}/${o.id}`).toBeGreaterThanOrEqual(2)

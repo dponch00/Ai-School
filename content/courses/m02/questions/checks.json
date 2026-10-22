@@ -161,7 +161,7 @@
       },
       {
         "id": "o2",
-        "text": "Cuando el dashboard de cobertura se vea profesional, ordenado y fácil de leer para todos",
+        "text": "Cuando el dashboard de cobertura se vea profesional, ordenado y fácil de leer para todo el comité",
         "correct": false,
         "misconceptionId": "m02-mc25",
         "feedback": "«Profesional» y «fácil» no se pueden comprobar. Un criterio de terminado describe algo observable."
@@ -345,7 +345,7 @@
       },
       {
         "id": "o2",
-        "text": "NUNCA, BAJO NINGUNA CIRCUNSTANCIA, MODIFIQUES NADA DE LO QUE HAY EN LA CARPETA DE DATOS",
+        "text": "NUNCA, BAJO NINGUNA CIRCUNSTANCIA, MODIFIQUES NADA DE LO QUE HAY DENTRO DE LA CARPETA DE DATOS",
         "correct": false,
         "misconceptionId": "m02-mc07",
         "feedback": "El énfasis no explica el motivo ni ofrece una alternativa, así que el agente no sabe qué hacer cuando necesite limpiar datos. Además, en modelos recientes el lenguaje agresivo puede provocar conductas de más."
@@ -983,7 +983,7 @@
       },
       {
         "id": "o3",
-        "text": "Eliges tú una definición razonable y la documentas en la especificación",
+        "text": "Eliges tú una definición razonable y la dejas documentada en la especificación",
         "correct": false,
         "misconceptionId": "m02-mc43",
         "feedback": "Documentarla no la convierte en una decisión del negocio. Si cambia lo que verá el comité, se pregunta."
@@ -1246,7 +1246,7 @@
       },
       {
         "id": "o3",
-        "text": "Descartas la revisión y pides al agente autor que revise su trabajo",
+        "text": "Descartas la revisión y le pides al agente autor que revise su propio trabajo",
         "correct": false,
         "misconceptionId": "m02-mc22",
         "feedback": "La autorrevisión en el mismo contexto detecta menos que un revisor limpio. Los dos hallazgos de requisitos siguen pendientes."
@@ -1290,7 +1290,7 @@
       },
       {
         "id": "o3",
-        "text": "Una revisión de estilo completa antes de pasar al siguiente hito",
+        "text": "Una revisión de estilo completa del código antes de pasar al siguiente hito",
         "correct": false,
         "misconceptionId": "m02-mc23",
         "feedback": "La revisión de estilo no demuestra que el hito funcione. Lo que habilita el siguiente paso es su prueba."
@@ -1461,7 +1461,7 @@
       },
       {
         "id": "o2",
-        "text": "Lo dejas como está: «fácil de usar» es un criterio que todos entienden",
+        "text": "Lo dejas como está: «fácil de usar» es un criterio que todos entienden igual",
         "correct": false,
         "misconceptionId": "m02-mc25",
         "feedback": "Nadie puede comprobar si algo es «fácil». Si no sabes cómo probarlo, el requisito no está claro."
