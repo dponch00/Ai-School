@@ -1,0 +1,58 @@
+{
+  "id": "m02-l3",
+  "courseId": "m02",
+  "version": "0.1.0",
+  "order": 3,
+  "title": "Ejemplos, contraejemplos y contratos de salida",
+  "objectives": [
+    {
+      "id": "m02-l3-o1",
+      "statement": "Dada una tarea, elige ejemplos pertinentes, diversos y con casos borde, y distingue un ejemplo de formato de un caso de prueba.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m02-eo3"
+    },
+    {
+      "id": "m02-l3-o2",
+      "statement": "Dada una regla, la expresa como contraejemplo: un caso concreto con su resultado esperado.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m02-eo3"
+    },
+    {
+      "id": "m02-l3-o3",
+      "statement": "Dada una salida estructurada, explica qué garantiza el esquema y qué invariantes deben comprobarse en código.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m02-eo3"
+    }
+  ],
+  "bodyPath": "courses/m02/lessons/m02-l3.md",
+  "reviewQuestionIds": [
+    "m02-l2-r1",
+    "m02-l2-r2"
+  ],
+  "checkQuestionIds": [
+    "m02-l3-c1",
+    "m02-l3-c2",
+    "m02-l3-c3",
+    "m02-l3-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m02-pc-examples-count",
+    "m02-pc-schema-support"
+  ],
+  "sourceIds": [
+    "src-anthropic-prompting-bp",
+    "src-google-prompting-strategies",
+    "src-openai-gpt56-model-guidance",
+    "src-openai-reasoning-bp",
+    "src-github-copilot-prompt-eng",
+    "src-anthropic-cc-best-practices",
+    "src-anthropic-evals-agents",
+    "src-openai-prompt-engineering",
+    "src-openai-structured-outputs",
+    "src-anthropic-structured-outputs",
+    "src-google-structured-output"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

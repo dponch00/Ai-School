@@ -454,5 +454,1076 @@
       "src-openai-codex-execplans"
     ],
     "status": "draft"
+  },
+  {
+    "id": "m02-l2-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l2",
+    "evaluatedObjectiveId": "m02-eo2",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "En el dashboard faltan dos definiciones: la fecha del tipo de cambio EUR→USD y si los nombres de región se escriben con mayúscula inicial.",
+    "stem": "¿Cuál preguntas antes de avanzar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La fecha del tipo de cambio, porque cambia los montos que verá el comité",
+        "correct": true,
+        "feedback": "Correcta. La fecha del tipo de cambio mueve cifras visibles: se pregunta. Las mayúsculas no cambian ningún total y se deciden y registran."
+      },
+      {
+        "id": "o2",
+        "text": "Las dos, porque cualquier ambigüedad de un dashboard financiero la resuelve el negocio",
+        "correct": false,
+        "misconceptionId": "m02-mc38",
+        "feedback": "Preguntar todo frena el trabajo sin reducir riesgo. El formato de un nombre no mueve ninguna cifra y se puede decidir y registrar."
+      },
+      {
+        "id": "o3",
+        "text": "Ninguna: el agente debe resolverlas por su cuenta y avisar cuando termine",
+        "correct": false,
+        "misconceptionId": "m02-mc08",
+        "feedback": "Si el agente elige la fecha del tipo de cambio, el total cambia sin que nadie lo haya aprobado. Esa decisión se pregunta."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l2#supuestos",
+    "sourceIds": [
+      "src-anthropic-prompting-fable5",
+      "src-openai-codex-execplans"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l2-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l2",
+    "evaluatedObjectiveId": "m02-eo2",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El comentario para el comité debe mencionar el pipeline ponderado del T4.",
+    "stem": "¿Quién produce esa cifra?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Un cálculo en código (SQL o Python), y el modelo solo redacta con esa cifra",
+        "correct": true,
+        "feedback": "Correcta. La cifra sale de un cálculo determinista y verificable. El modelo puede redactar la interpretación, nunca producir el número."
+      },
+      {
+        "id": "o2",
+        "text": "El modelo, al escribir el comentario, a partir de las filas del snapshot",
+        "correct": false,
+        "misconceptionId": "m02-mc10",
+        "feedback": "El modelo puede equivocarse en la aritmética sin avisar. Para cálculos y conteos se usa código, no el razonamiento del modelo."
+      },
+      {
+        "id": "o3",
+        "text": "El modelo, y después se le pide que revise su propia suma antes de publicar",
+        "correct": false,
+        "misconceptionId": "m02-mc22",
+        "feedback": "La autorrevisión no es una verificación independiente: puede confirmar el mismo error. La cifra se calcula en código desde el principio."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l2#calculos",
+    "sourceIds": [
+      "src-google-prompting-strategies",
+      "src-anthropic-prompting-fable5"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l3-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l3",
+    "evaluatedObjectiveId": "m02-eo3",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Vas a darle al agente ejemplos para la tabla de «oportunidades en riesgo» de Altiplano.",
+    "stem": "¿Qué conjunto de ejemplos es mejor?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Tres filas distintas, incluido un monto en EUR y una fecha de cierre vacía",
+        "correct": true,
+        "feedback": "Correcta. Son pocos, diversos y cubren casos borde. Así el agente no copia un rasgo superficial y aprende qué hacer con los casos difíciles."
+      },
+      {
+        "id": "o2",
+        "text": "Diez filas casi iguales del Norte, todas en USD, para que no queden dudas",
+        "correct": false,
+        "misconceptionId": "m02-mc11",
+        "feedback": "Muchos ejemplos parecidos producen sobreajuste: el agente puede aprender que todo es del Norte y en USD. La diversidad importa más que la cantidad."
+      },
+      {
+        "id": "o3",
+        "text": "Una sola fila representativa, porque con un buen ejemplo basta",
+        "correct": false,
+        "misconceptionId": "m02-mc12",
+        "feedback": "Un único ejemplo no cubre los casos borde. Sin un caso en EUR o con fecha vacía, el agente tendrá que adivinar qué hacer con ellos."
+      },
+      {
+        "id": "o4",
+        "text": "Una lista de reglas: no mezcles monedas, no dejes fechas vacías",
+        "correct": false,
+        "misconceptionId": "m02-mc13",
+        "feedback": "Son prohibiciones abstractas, no ejemplos. Un caso concreto con su resultado esperado enseña mejor y se puede comprobar."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l3#ejemplos",
+    "sourceIds": [
+      "src-anthropic-prompting-bp",
+      "src-google-prompting-strategies"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l3-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l3",
+    "evaluatedObjectiveId": "m02-eo3",
+    "competencyIds": [
+      "C02",
+      "C12"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "scenario": "La salida de KPI valida sin errores contra el esquema, pero en el Norte el pipeline ponderado (USD 900 000) supera al pipeline abierto (USD 850 000).",
+    "stem": "¿Qué explica mejor que haya pasado la validación?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El esquema fija la forma; la regla «ponderado ≤ abierto» va en código",
+        "correct": true,
+        "feedback": "Correcta. Los modos estructurados garantizan campos y tipos, no relaciones entre valores. Esa invariante se comprueba en código, después de validar el esquema."
+      },
+      {
+        "id": "o2",
+        "text": "La salida estructurada garantiza los valores, así que el error viene de los datos",
+        "correct": false,
+        "misconceptionId": "m02-mc14",
+        "feedback": "La salida estructurada no garantiza exactitud: los proveedores lo dicen expresamente. El error puede estar en el cálculo y el esquema no lo detecta."
+      },
+      {
+        "id": "o3",
+        "text": "Faltó ponerle mínimos y máximos al esquema; con eso el error no pasaría",
+        "correct": false,
+        "misconceptionId": "m02-mc42",
+        "feedback": "Un valor dentro de rango puede seguir siendo falso, y no todos los proveedores admiten esas restricciones. La relación entre dos valores se comprueba en código."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l3#forma-verdad",
+    "sourceIds": [
+      "src-openai-structured-outputs",
+      "src-anthropic-structured-outputs",
+      "src-google-structured-output"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l3-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l3",
+    "evaluatedObjectiveId": "m02-eo3",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Quieres que el agente no sume las oportunidades cerradas al pipeline abierto.",
+    "stem": "¿Cuál es el contraejemplo más útil para la especificación?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Una oportunidad Perdida de USD 60 000 no cambia el total del pipeline abierto",
+        "correct": true,
+        "feedback": "Correcta. Es un caso concreto con su resultado esperado: el agente puede probarlo y tú puedes ver si pasa."
+      },
+      {
+        "id": "o2",
+        "text": "No incluyas oportunidades cerradas en el cálculo del pipeline abierto",
+        "correct": false,
+        "misconceptionId": "m02-mc13",
+        "feedback": "Es una prohibición abstracta: no dice qué resultado esperar ni cómo comprobarlo. Un contraejemplo útil es un caso con su salida esperada."
+      },
+      {
+        "id": "o3",
+        "text": "Ten mucho cuidado con las etapas al calcular el pipeline del trimestre",
+        "correct": false,
+        "misconceptionId": "m02-mc36",
+        "feedback": "Es una advertencia, no un contraejemplo. No dice qué está mal ni cómo se vería el resultado correcto."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l3#contraejemplos",
+    "sourceIds": [
+      "src-anthropic-evals-agents",
+      "src-anthropic-prompting-bp"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l3-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l3",
+    "evaluatedObjectiveId": "m02-eo3",
+    "competencyIds": [
+      "C02",
+      "C12"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "La API devuelve un JSON que parece válido y tiene todos los campos obligatorios, pero indica que la respuesta se cortó por el límite de tokens.",
+    "stem": "¿Qué haces con esa respuesta?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La tratas como fallida, aunque el JSON parezca válido, y no la usas",
+        "correct": true,
+        "feedback": "Correcta. Una respuesta truncada puede tener valores incompletos aunque la forma parezca bien. Antes de usarla hay que comprobar por qué terminó."
+      },
+      {
+        "id": "o2",
+        "text": "La usas: si el JSON es válido y trae los campos, el corte no importa",
+        "correct": false,
+        "misconceptionId": "m02-mc17",
+        "feedback": "Que el JSON parezca válido no dice si el contenido está completo. Un corte por límite de tokens se trata como fallo."
+      },
+      {
+        "id": "o3",
+        "text": "La usas, porque la salida estructurada garantiza que los valores son correctos",
+        "correct": false,
+        "misconceptionId": "m02-mc14",
+        "feedback": "La salida estructurada garantiza la forma, no los valores. Y una respuesta cortada ni siquiera terminó de producirse."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l3#contrato",
+    "sourceIds": [
+      "src-anthropic-structured-outputs",
+      "src-openai-structured-outputs"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l3-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l3",
+    "evaluatedObjectiveId": "m02-eo3",
+    "competencyIds": [
+      "C02",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Un compañero dice: «Como la salida del agente valida contra el esquema, ya podemos publicar las cifras».",
+    "stem": "¿Qué le respondes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que el esquema solo fija la forma; las cifras se comprueban con invariantes",
+        "correct": true,
+        "feedback": "Correcta. El esquema garantiza campos y tipos. Las reglas de significado, como «la suma de regiones es igual al total», se comprueban aparte."
+      },
+      {
+        "id": "o2",
+        "text": "Que tiene razón: la salida estructurada asegura que los valores son correctos",
+        "correct": false,
+        "misconceptionId": "m02-mc14",
+        "feedback": "Los proveedores dicen expresamente que la salida estructurada no garantiza exactitud. Hay que verificar los valores."
+      },
+      {
+        "id": "o3",
+        "text": "Que tiene razón si el mismo esquema se usó con un proveedor que lo admite",
+        "correct": false,
+        "misconceptionId": "m02-mc16",
+        "feedback": "Cada proveedor admite un subconjunto distinto de JSON Schema, y aun así ninguno garantiza que los valores sean verdaderos. La verificación sigue siendo necesaria."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l3#forma-verdad",
+    "sourceIds": [
+      "src-openai-structured-outputs",
+      "src-anthropic-structured-outputs"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l3-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l3",
+    "evaluatedObjectiveId": "m02-eo3",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Estás terminando una especificación verificable para el cálculo de cobertura.",
+    "stem": "¿Qué tipo de ejemplo aporta más?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Un caso de prueba con datos de entrada y el resultado esperado",
+        "correct": true,
+        "feedback": "Correcta. Un caso de prueba se puede ejecutar y comprobar; un ejemplo de formato solo orienta la apariencia."
+      },
+      {
+        "id": "o2",
+        "text": "Una imagen de cómo debe verse la tarjeta de cobertura, sin datos",
+        "correct": false,
+        "misconceptionId": "m02-mc12",
+        "feedback": "Un ejemplo de formato orienta la apariencia, pero no permite comprobar que el cálculo es correcto. En una especificación verificable, el caso de prueba va primero."
+      },
+      {
+        "id": "o3",
+        "text": "Diez ejemplos de tarjetas con el mismo formato y montos parecidos",
+        "correct": false,
+        "misconceptionId": "m02-mc11",
+        "feedback": "Muchos ejemplos parecidos producen sobreajuste y no prueban nada. Un caso de prueba con su valor esperado aporta más."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l3#casos",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-google-prompting-strategies"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l4-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l4",
+    "evaluatedObjectiveId": "m02-eo4",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "Tu especificación tenía objetivo, archivos y condición de terminado. El agente entregó la vista pedida y, además, un inicio de sesión y un envío de correos.",
+    "stem": "¿Qué le faltó a la especificación?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Las exclusiones: qué queda fuera y qué no puede hacer sin confirmar",
+        "correct": true,
+        "feedback": "Correcta. Lo que la especificación no excluye, el agente puede añadirlo. El alcance va en las dos direcciones."
+      },
+      {
+        "id": "o2",
+        "text": "Más contexto del repositorio, para que el agente entendiera el proyecto",
+        "correct": false,
+        "misconceptionId": "m02-mc06",
+        "feedback": "Más contexto no le dice qué está fuera de alcance. El problema es que nadie excluyó esas funciones."
+      },
+      {
+        "id": "o3",
+        "text": "Énfasis en mayúsculas para que el agente se limitara a lo pedido",
+        "correct": false,
+        "misconceptionId": "m02-mc07",
+        "feedback": "El énfasis no sustituye una lista de exclusiones. El agente necesita saber qué no hacer, no que lo digas más fuerte."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l4#alcance",
+    "sourceIds": [
+      "src-anthropic-prompting-sonnet55",
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l4-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l4",
+    "evaluatedObjectiveId": "m02-eo4",
+    "competencyIds": [
+      "C02",
+      "C07"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "Hay que añadir una vista de «oportunidades en riesgo». Toca varios archivos y en el negocio aún no está definido qué significa «en riesgo».",
+    "stem": "¿Cuándo conviene pedirle al agente que te entreviste antes de implementar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ahora, para sacar las preguntas y llevar al negocio la que solo él decide",
+        "correct": true,
+        "feedback": "Correcta. La entrevista hace visibles las decisiones pendientes y el cambio es amplio. La definición de «en riesgo» la decide el negocio, no el agente."
+      },
+      {
+        "id": "o2",
+        "text": "Siempre, en cualquier tarea, porque especificar más mejora todo resultado",
+        "correct": false,
+        "misconceptionId": "m02-mc24",
+        "feedback": "Especificar tiene un costo; en tareas pequeñas es desproporcionado. Aquí conviene por la ambigüedad y el alcance, no por regla."
+      },
+      {
+        "id": "o3",
+        "text": "Nunca: es mejor escribir un prompt muy largo con todos los detalles posibles",
+        "correct": false,
+        "misconceptionId": "m02-mc04",
+        "feedback": "Un prompt largo no resuelve lo que nadie ha decidido. La definición de riesgo seguiría abierta."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l4#entrevista",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-thoughtworks-sdd-tools",
+      "src-anthropic-prompting-fable5"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l4-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l4",
+    "evaluatedObjectiveId": "m02-eo4",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Hay que corregir una errata en el título de una gráfica. El archivo es conocido y el cambio se revierte fácilmente.",
+    "stem": "¿Qué especificación corresponde?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Una frase con el archivo, el cambio y cómo comprobar que quedó bien",
+        "correct": true,
+        "feedback": "Correcta. El rigor crece con el riesgo y la ambigüedad. Aquí no hay ninguno de los dos: una frase verificable basta."
+      },
+      {
+        "id": "o2",
+        "text": "Una especificación completa con historias de usuario y criterios de aceptación",
+        "correct": false,
+        "misconceptionId": "m02-mc24",
+        "feedback": "Es desproporcionado. Los flujos pesados aplicados a problemas pequeños generan documentos que cuestan más de revisar que el cambio."
+      },
+      {
+        "id": "o3",
+        "text": "Solo «arregla la errata»; el agente encontrará el archivo y el texto correcto",
+        "correct": false,
+        "misconceptionId": "m02-mc01",
+        "feedback": "Sin el texto correcto ni cómo comprobarlo, el agente adivina. Una frase más deja la tarea verificable."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l4#proporcion",
+    "sourceIds": [
+      "src-thoughtworks-sdd-tools",
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l4-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l4",
+    "evaluatedObjectiveId": "m02-eo4",
+    "competencyIds": [
+      "C02",
+      "C07"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "En la entrevista, el agente te pregunta qué significa «en riesgo». No lo sabes y el comité lo verá el lunes.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Registras la pregunta para el negocio y no implementas esa parte todavía",
+        "correct": true,
+        "feedback": "Correcta. Es una definición de negocio que cambia lo que verá el comité. Queda como pregunta abierta y el resto de la especificación avanza."
+      },
+      {
+        "id": "o2",
+        "text": "Dejas que el agente proponga una definición y la adoptas para no frenar",
+        "correct": false,
+        "misconceptionId": "m02-mc08",
+        "feedback": "Si el agente decide, la definición queda invisible y nadie la aprobó. El agente puede proponer opciones, pero elige quien decide."
+      },
+      {
+        "id": "o3",
+        "text": "Eliges tú una definición razonable y la documentas en la especificación",
+        "correct": false,
+        "misconceptionId": "m02-mc43",
+        "feedback": "Documentarla no la convierte en una decisión del negocio. Si cambia lo que verá el comité, se pregunta."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l4#entrevista",
+    "sourceIds": [
+      "src-anthropic-prompting-fable5",
+      "src-github-speckit-sdd-doc"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l4-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l4",
+    "evaluatedObjectiveId": "m02-eo4",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "Mañana un agente, en una sesión nueva y sin el historial de hoy, ejecutará tu especificación.",
+    "stem": "¿Qué comprobación te dice que está lista?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que se pueda ejecutar sin preguntarte nada, salvo las preguntas ya marcadas",
+        "correct": true,
+        "feedback": "Correcta. Esa es la prueba de una especificación autocontenida. Lo que todavía depende de tu memoria debe escribirse o marcarse como pregunta."
+      },
+      {
+        "id": "o2",
+        "text": "Que sea lo bastante larga para cubrir cualquier situación posible",
+        "correct": false,
+        "misconceptionId": "m02-mc04",
+        "feedback": "La longitud no garantiza que se pueda ejecutar. Una especificación breve y completa es mejor que una larga con huecos."
+      },
+      {
+        "id": "o3",
+        "text": "Que el agente de hoy confirme que la entendió bien antes de cerrar",
+        "correct": false,
+        "misconceptionId": "m02-mc27",
+        "feedback": "El agente de hoy tiene todo el historial; el de mañana no. Su confirmación no prueba que la especificación se sostenga sola."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l4#autocontenida",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-openai-gpt56-model-guidance"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l4-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l4",
+    "evaluatedObjectiveId": "m02-eo4",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Una especificación del dashboard dice qué construir, en qué archivos y cómo comprobarlo.",
+    "stem": "¿Qué sección conviene añadir para que el agente no amplíe el trabajo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Fuera de alcance: inicio de sesión, envío de correos y forecast",
+        "correct": true,
+        "feedback": "Correcta. Lo que no se excluye, el agente puede añadirlo. Las exclusiones protegen el alcance."
+      },
+      {
+        "id": "o2",
+        "text": "Una lista con todas las funciones que podrían ser útiles en el futuro",
+        "correct": false,
+        "misconceptionId": "m02-mc03",
+        "feedback": "Listar funciones posibles invita a construirlas. Lo que protege el alcance es decir qué queda fuera."
+      },
+      {
+        "id": "o3",
+        "text": "Una nota que pida al agente añadir lo que considere valioso",
+        "correct": false,
+        "misconceptionId": "m02-mc41",
+        "feedback": "Eso amplía el alcance sin que nadie lo decida. Además, hace más difícil verificar la entrega contra lo que se pidió."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l4#alcance",
+    "sourceIds": [
+      "src-anthropic-prompting-sonnet55"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l5-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l5",
+    "evaluatedObjectiveId": "m02-eo5",
+    "competencyIds": [
+      "C07"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Hay que corregir una errata en el título de la gráfica de cobertura.",
+    "stem": "¿Cómo lo pides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Directo, con el archivo, el texto correcto y cómo comprobarlo, sin plan",
+        "correct": true,
+        "feedback": "Correcta. Si el cambio cabe en una frase, el plan sobra. Lo que no sobra es decir cómo comprobarlo."
+      },
+      {
+        "id": "o2",
+        "text": "Primero un plan detallado con los archivos afectados y los riesgos",
+        "correct": false,
+        "misconceptionId": "m02-mc20",
+        "feedback": "Planificar tiene un costo. Para un cambio de una frase, el plan es más largo que el cambio."
+      },
+      {
+        "id": "o3",
+        "text": "Con una especificación completa y criterios Given/When/Then",
+        "correct": false,
+        "misconceptionId": "m02-mc24",
+        "feedback": "Es desproporcionado para una errata. El rigor crece con el riesgo y la ambigüedad."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l5#planificar",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-thoughtworks-sdd-tools"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l5-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l5",
+    "evaluatedObjectiveId": "m02-eo5",
+    "competencyIds": [
+      "C07"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Le pediste al agente corregir el cálculo de vencidas. Falló, lo corregiste, volvió a fallar en lo mismo y lo corregiste otra vez sin éxito.",
+    "stem": "¿Qué haces ahora?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Limpias el contexto y reescribes la petición con lo que aprendiste",
+        "correct": true,
+        "feedback": "Correcta. Tras dos correcciones fallidas, el historial de intentos estorba. Una petición nueva y mejor suele funcionar mejor que una tercera corrección."
+      },
+      {
+        "id": "o2",
+        "text": "Sigues corrigiendo en la misma sesión hasta que el agente lo entienda",
+        "correct": false,
+        "misconceptionId": "m02-mc21",
+        "feedback": "El agente no aprende de las correcciones dentro de la sesión. Cada intento fallido añade ruido al contexto y lo empeora."
+      },
+      {
+        "id": "o3",
+        "text": "Repites la corrección en mayúsculas para que no la vuelva a ignorar",
+        "correct": false,
+        "misconceptionId": "m02-mc07",
+        "feedback": "El énfasis no resuelve un contexto saturado de intentos fallidos. Hay que empezar limpio."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l5#ciclo",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l5-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l5",
+    "evaluatedObjectiveId": "m02-eo5",
+    "competencyIds": [
+      "C07"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "La cobertura del Norte sale en 1,0x y la reconciliación espera 1,3x. El agente usó la cuota completa del trimestre porque la especificación decía «cobertura» sin definirla.",
+    "stem": "¿Dónde corriges?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En la especificación: la definición y un caso de prueba; luego reejecutas",
+        "correct": true,
+        "feedback": "Correcta. El error nació de un hueco en la especificación. Si solo se corrige el código, el hueco queda para el siguiente agente."
+      },
+      {
+        "id": "o2",
+        "text": "En el código: ajustas la fórmula y sigues con el siguiente hito",
+        "correct": false,
+        "misconceptionId": "m02-mc44",
+        "feedback": "Arregla el síntoma de hoy, pero la especificación sigue sin definir «cobertura». La próxima ejecución puede repetir el error."
+      },
+      {
+        "id": "o3",
+        "text": "Le pides al agente que deduzca cuál es la definición correcta",
+        "correct": false,
+        "misconceptionId": "m02-mc08",
+        "feedback": "La definición es una política de FP&A, no algo que el agente pueda deducir. Si la inventa, el error cambia de forma."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l5#origen",
+    "sourceIds": [
+      "src-github-speckit-quickstart",
+      "src-openai-codex-execplans"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l5-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l5",
+    "evaluatedObjectiveId": "m02-eo5",
+    "competencyIds": [
+      "C07",
+      "C12"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "Un revisor en contexto limpio devolvió nueve hallazgos: dos sobre requisitos que no se cumplen y siete sobre preferencias de estilo.",
+    "stem": "¿Qué haces con ellos?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Atiendes los de requisitos y decides con criterio sobre los de estilo",
+        "correct": true,
+        "feedback": "Correcta. Un revisor al que se le piden fallas casi siempre encuentra alguna. Lo obligatorio es lo que afecta a requisitos y corrección."
+      },
+      {
+        "id": "o2",
+        "text": "Atiendes los nueve, porque un revisor independiente tiene razón",
+        "correct": false,
+        "misconceptionId": "m02-mc23",
+        "feedback": "Perseguir todos los hallazgos lleva a la sobreingeniería. Independiente no significa infalible."
+      },
+      {
+        "id": "o3",
+        "text": "Descartas la revisión y pides al agente autor que revise su trabajo",
+        "correct": false,
+        "misconceptionId": "m02-mc22",
+        "feedback": "La autorrevisión en el mismo contexto detecta menos que un revisor limpio. Los dos hallazgos de requisitos siguen pendientes."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l5#revision",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-anthropic-prompting-fable5"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l5-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l5",
+    "evaluatedObjectiveId": "m02-eo5",
+    "competencyIds": [
+      "C07"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Vas a dividir en hitos la construcción del dashboard de Altiplano.",
+    "stem": "¿Qué debe tener cada hito?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Su propia prueba, para saber si pasó antes de seguir al siguiente",
+        "correct": true,
+        "feedback": "Correcta. Si un hito no pasa su prueba, sabes dónde está el problema y no sigues construyendo encima de él."
+      },
+      {
+        "id": "o2",
+        "text": "Un plan detallado de varias páginas, aunque el hito sea pequeño",
+        "correct": false,
+        "misconceptionId": "m02-mc20",
+        "feedback": "El plan es proporcional a la complejidad. Lo indispensable en cada hito es cómo comprobarlo."
+      },
+      {
+        "id": "o3",
+        "text": "Una revisión de estilo completa antes de pasar al siguiente hito",
+        "correct": false,
+        "misconceptionId": "m02-mc23",
+        "feedback": "La revisión de estilo no demuestra que el hito funcione. Lo que habilita el siguiente paso es su prueba."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l5#hitos",
+    "sourceIds": [
+      "src-openai-codex-execplans",
+      "src-anthropic-building-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l5-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l5",
+    "evaluatedObjectiveId": "m02-eo5",
+    "competencyIds": [
+      "C07"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "En el plan de hitos del dashboard tienes que decidir dónde poner un punto de control humano.",
+    "stem": "¿Dónde aporta más?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Después de fijar los supuestos y antes de calcular nada",
+        "correct": true,
+        "feedback": "Correcta. Si un supuesto está mal, corregirlo antes de que dependan de él el cálculo y la vista cuesta muy poco."
+      },
+      {
+        "id": "o2",
+        "text": "Solo al final, cuando todo está construido y se puede ver completo",
+        "correct": false,
+        "misconceptionId": "m02-mc31",
+        "feedback": "Descubrir al final que un supuesto estaba mal obliga a rehacer varios hitos. El control temprano es más barato."
+      },
+      {
+        "id": "o3",
+        "text": "En ninguno: si cada hito tiene prueba, la revisión humana sobra",
+        "correct": false,
+        "misconceptionId": "m02-mc08",
+        "feedback": "Las pruebas comprueban lo que ya está definido. Aprobar los supuestos es una decisión de negocio que solo una persona puede tomar."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l5#hitos",
+    "sourceIds": [
+      "src-openai-codex-execplans",
+      "src-anthropic-building-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l6-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l6",
+    "evaluatedObjectiveId": "m02-eo6",
+    "competencyIds": [
+      "C02",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Escribes un criterio para el caso de una oportunidad abierta sin fecha de cierre.",
+    "stem": "¿Qué «Then» es observable?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "No suma al pipeline del T4 y aparece en el panel de calidad con su motivo",
+        "correct": true,
+        "feedback": "Correcta. Describe lo que se ve en la pantalla. Se puede comprobar sin conocer la implementación."
+      },
+      {
+        "id": "o2",
+        "text": "Se crea un registro en la tabla interna de calidad de datos de la base",
+        "correct": false,
+        "misconceptionId": "m02-mc26",
+        "feedback": "Es un estado interno: puede existir sin que nadie lo vea. El criterio debe describir algo observable."
+      },
+      {
+        "id": "o3",
+        "text": "El dashboard maneja correctamente las fechas de cierre que faltan",
+        "correct": false,
+        "misconceptionId": "m02-mc25",
+        "feedback": "«Correctamente» no dice qué se debe ver. Un criterio de aceptación nombra el resultado observable."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l6#observables",
+    "sourceIds": [
+      "src-cucumber-gherkin",
+      "src-openai-codex-execplans"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l6-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l6",
+    "evaluatedObjectiveId": "m02-eo6",
+    "competencyIds": [
+      "C02",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El agente cierra la tarea con: «Listo, todas las pruebas pasan».",
+    "stem": "¿Qué le pides antes de aceptar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El comando que ejecutó, su salida y la reconciliación esperado frente a obtenido",
+        "correct": true,
+        "feedback": "Correcta. Eso es evidencia que puedes comprobar. Una afirmación de éxito, por sí sola, no lo es."
+      },
+      {
+        "id": "o2",
+        "text": "Nada: si dice que las pruebas pasan, la tarea está verificada",
+        "correct": false,
+        "misconceptionId": "m02-mc27",
+        "feedback": "Una afirmación no es evidencia. Hay que auditarla contra un resultado real de la sesión."
+      },
+      {
+        "id": "o3",
+        "text": "Que revise su trabajo otra vez y confirme que está seguro",
+        "correct": false,
+        "misconceptionId": "m02-mc22",
+        "feedback": "Otra confirmación del mismo agente sigue siendo una afirmación. Lo que falta es el comando y su resultado."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l6#evidencia",
+    "sourceIds": [
+      "src-anthropic-prompting-fable5",
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l6-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l6",
+    "evaluatedObjectiveId": "m02-eo6",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "advanced",
+    "process": "create",
+    "scenario": "La directora pide que el dashboard sea «fácil de usar en el celular».",
+    "stem": "¿Cómo lo conviertes en un criterio de aceptación?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La cobertura de las tres regiones se ve en la primera pantalla a 360 px",
+        "correct": true,
+        "feedback": "Correcta. Traduce el adjetivo a algo observable y comprobable: un ancho de pantalla y lo que debe verse sin desplazarse."
+      },
+      {
+        "id": "o2",
+        "text": "Lo dejas como está: «fácil de usar» es un criterio que todos entienden",
+        "correct": false,
+        "misconceptionId": "m02-mc25",
+        "feedback": "Nadie puede comprobar si algo es «fácil». Si no sabes cómo probarlo, el requisito no está claro."
+      },
+      {
+        "id": "o3",
+        "text": "Lo omites: el agente sabrá hacer una interfaz cómoda para el celular",
+        "correct": false,
+        "misconceptionId": "m02-mc01",
+        "feedback": "Omitirlo deja la decisión al agente. Y nadie podrá verificar si se cumplió lo que pidió la directora."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l6#testable",
+    "sourceIds": [
+      "src-xp123-invest",
+      "src-dannorth-bdd"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l6-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l6",
+    "evaluatedObjectiveId": "m02-eo6",
+    "competencyIds": [
+      "C12"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "Probaste una vez cada versión de tu prompt de ejecución. La versión B reconcilió los KPI y la A no.",
+    "stem": "¿Puedes concluir que B es mejor?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Todavía no: hacen falta casos fijos y varios ensayos de cada versión",
+        "correct": true,
+        "feedback": "Correcta. Los modelos no son deterministas: un intento puede salir bien por azar. Hacen falta varios ensayos y distinguir acertar alguna vez de acertar siempre."
+      },
+      {
+        "id": "o2",
+        "text": "Sí: B reconcilió y A no, la diferencia es clara",
+        "correct": false,
+        "misconceptionId": "m02-mc28",
+        "feedback": "Un solo intento por versión no permite concluir. La diferencia puede deberse a la variabilidad del modelo."
+      },
+      {
+        "id": "o3",
+        "text": "Sí, si un modelo lee las dos salidas y confirma que B es mejor",
+        "correct": false,
+        "misconceptionId": "m02-mc29",
+        "feedback": "Un juez sin rúbrica ni calibración tiene sesgos y no sustituye a varios ensayos. M09 desarrolla cómo comparar."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l6#comparar",
+    "sourceIds": [
+      "src-anthropic-evals-agents",
+      "src-openai-eval-best-practices"
+    ],
+    "status": "draft"
   }
 ]

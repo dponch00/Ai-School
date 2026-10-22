@@ -8,7 +8,9 @@
 content/courses/mNN/
   course.json            # Course: blueprint con ≤ 6 objetivos evaluados (D-017)
   misconceptions.json    # Catálogo de conceptos erróneos (cantera de distractores)
-  product-cards.json     # Fichas de producto fechadas (D-007)
+  product-cards.json     # Fichas de producto fechadas (D-007, D-019)
+  assets.json            # Diagramas SVG e imágenes del manual (contrato Asset)
+  diagrams/              # SVG hechos con código
   lessons/
     mNN-lK.json          # Lesson: metadatos, objetivos, IDs de preguntas
     mNN-lK.md            # Cuerpo de la lección
@@ -32,6 +34,7 @@ content/courses/mNN/
 | `::check-questions` | Marca dónde se insertan las preguntas de `checkQuestionIds` (bloque 7) |
 | `:::aside` | Recuadro **Aparte**: interesante, no evaluable |
 | `::product-card{id="…"}` | Inserta una ficha de `product-cards.json` |
+| `::figure{asset="…"}` | Inserta un diagrama o imagen de `assets.json` del manual, con su texto alternativo |
 | `:::summary` | Resumen de consulta (bloque 8, siempre después de la comprobación) |
 | `[inferencia]` | Marca una conclusión propia sin fuente que la afirme tal cual |
 

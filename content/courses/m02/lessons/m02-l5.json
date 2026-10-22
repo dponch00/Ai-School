@@ -1,0 +1,53 @@
+{
+  "id": "m02-l5",
+  "courseId": "m02",
+  "version": "0.1.0",
+  "order": 5,
+  "title": "Descomposición en hitos verificables y ciclos de mejora",
+  "objectives": [
+    {
+      "id": "m02-l5-o1",
+      "statement": "Dada una tarea, decide si conviene planificar y la divide en hitos con su propia prueba y puntos de control humanos.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m02-eo5"
+    },
+    {
+      "id": "m02-l5-o2",
+      "statement": "Ante correcciones fallidas repetidas, decide reiniciar la sesión con una petición mejorada.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m02-eo5"
+    },
+    {
+      "id": "m02-l5-o3",
+      "statement": "Ante un resultado erróneo, identifica si el error nace en la especificación o en el código y corrige donde se originó; decide qué hallazgos de una revisión atender.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m02-eo5"
+    }
+  ],
+  "bodyPath": "courses/m02/lessons/m02-l5.md",
+  "reviewQuestionIds": [
+    "m02-l4-r1",
+    "m02-l4-r2"
+  ],
+  "checkQuestionIds": [
+    "m02-l5-c1",
+    "m02-l5-c2",
+    "m02-l5-c3",
+    "m02-l5-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m02-pc-plan-mode",
+    "m02-pc-self-verification"
+  ],
+  "sourceIds": [
+    "src-anthropic-cc-best-practices",
+    "src-openai-codex-best-practices",
+    "src-openai-codex-execplans",
+    "src-anthropic-building-agents",
+    "src-github-speckit-quickstart",
+    "src-anthropic-prompting-fable5"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

@@ -1,0 +1,56 @@
+{
+  "id": "m02-l6",
+  "courseId": "m02",
+  "version": "0.1.0",
+  "order": 6,
+  "title": "Criterios de aceptación y verificación ejecutable",
+  "objectives": [
+    {
+      "id": "m02-l6-o1",
+      "statement": "Dado un requisito, redacta criterios Given/When/Then observables, incluido al menos uno negativo.",
+      "process": "create",
+      "evaluatedObjectiveId": "m02-eo6"
+    },
+    {
+      "id": "m02-l6-o2",
+      "statement": "Dado un requisito vago, lo traduce a un criterio que se pueda probar.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m02-eo6"
+    },
+    {
+      "id": "m02-l6-o3",
+      "statement": "Dada una entrega, exige evidencia ejecutable (comandos, salidas, reconciliación) y rechaza afirmaciones sin prueba.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m02-eo6"
+    }
+  ],
+  "bodyPath": "courses/m02/lessons/m02-l6.md",
+  "reviewQuestionIds": [
+    "m02-l5-r1",
+    "m02-l5-r2"
+  ],
+  "checkQuestionIds": [
+    "m02-l6-c1",
+    "m02-l6-c2",
+    "m02-l6-c3",
+    "m02-l6-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m02-pc-ears",
+    "m02-pc-verification-gates"
+  ],
+  "sourceIds": [
+    "src-anthropic-develop-tests",
+    "src-cucumber-gherkin",
+    "src-openai-codex-execplans",
+    "src-xp123-invest",
+    "src-dannorth-bdd",
+    "src-anthropic-cc-best-practices",
+    "src-openai-codex-prompting",
+    "src-anthropic-prompting-fable5",
+    "src-anthropic-evals-agents"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

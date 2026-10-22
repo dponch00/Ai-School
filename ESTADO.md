@@ -4,9 +4,10 @@
 
 ## Siguiente acción
 
-1. **Claude:** lecciones 3 a 6 de M02 (dos capas) con el SVG etiquetado de la especificación (T5-01), y las instrucciones del laboratorio sobre los datos de T-007. Al terminar, ticket de revisión para Codex.
-2. **Después:** banco de examen M02 (36 ítems) y esqueleto de la app.
-3. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
+1. **Daniel → Codex:** pasarle T-008 (revisión de las lecciones 3 a 6, el diagrama y el reconciliador corregido).
+2. **Claude, en paralelo:** instrucciones del laboratorio M02 (F1-05) y banco de examen de 36 ítems (F1-04).
+3. **Después:** esqueleto de la app con el diseño D1 (F1-01) para ver M02 en el navegador.
+4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Tickets
 
@@ -19,18 +20,23 @@
 | [T-005](coordinacion/tickets/T-005-codex-sistema-diseno-e-imagenes-piloto.md) | Codex | Sistema de diseño D1 e imágenes del piloto | cerrado |
 | [T-006](coordinacion/tickets/T-006-codex-revision-patron-m02.md) | Codex | Revisión temprana del patrón de M02 (L1 y L2) | cerrado |
 | [T-007](coordinacion/tickets/T-007-codex-datos-laboratorio-m02.md) | Codex | Datos sintéticos y check de reconciliación del laboratorio M02 | cerrado |
+| [T-008](coordinacion/tickets/T-008-codex-revision-m02-l3-l6.md) | Codex | Revisión de L3–L6, diagrama y reconciliador | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | `content/courses/m02/lessons/`, `content/courses/m02/questions/` |
+| Claude | `content/courses/m02/practice/` (instrucciones), `content/courses/m02/questions/exam.json` |
+| Codex (T-008) | `investigacion/codex-revision-m02-l3-l6.md`, `design/asset-manifest.json` |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-21 · Claude Code — lecciones 3 a 6 de M02
+Escritas las lecciones 3 a 6 con el patrón de dos capas: ejemplos y contratos de salida, especificación autocontenida, hitos y ciclos de mejora, criterios de aceptación y evidencia. Diagrama SVG etiquetado de las cinco partes de una especificación (resuelve T5-01), medido a 328 px. 8 fichas nuevas (18), 3 conceptos erróneos nuevos (44) y 24 preguntas nuevas (34 de comprobación y repaso). Las cifras del caso se tomaron del reconciliador. Nueva prueba de activos y figuras. `npm test` 49/49. Abierto T-008.
 
 ### 2026-10-21 · Claude Code — revisión de T-007
 Datos y reconciliador de Codex verificados con un cálculo independiente (coinciden al centavo). Cuatro correcciones: las exclusiones ahora se reportan con `AVISO` (antes eran silenciosas), dos políticas de duplicados que dan totales distintos, mensajes en español y salida UTF-8 en Windows. `test_reconcile.py` 7/7; `npm test` 48/48.

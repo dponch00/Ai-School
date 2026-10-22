@@ -3,7 +3,7 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { Course, Lesson, Misconception, ProductCard, Question, Source } from './content'
+import { Asset, Course, Lesson, Misconception, ProductCard, Question, Source } from './content'
 
 const root = resolve(import.meta.dirname, '../../content')
 const read = (p: string) => JSON.parse(readFileSync(resolve(root, p), 'utf8'))
@@ -100,6 +100,21 @@ for (const courseDir of readdirSync(resolve(root, 'courses'))) {
           const sentences = o.feedback.split(/[.!?](?:\s|$)/).filter((x) => x.trim().length > 0)
           expect(sentences.length, `${q.id}/${o.id}`).toBeGreaterThanOrEqual(2)
         }
+    })
+
+    it('los diagramas e imágenes que usan las lecciones existen y cumplen el contrato Asset', () => {
+      const assetsPath = `courses/${courseDir}/assets.json`
+      const assets = existsSync(resolve(root, assetsPath)) ? Asset.array().parse(read(assetsPath)) : []
+      const assetIds = new Set(assets.map((a) => a.id))
+      for (const a of assets) expect(existsSync(resolve(root, '..', a.file)), a.file).toBe(true)
+      for (const l of lessons) {
+        const md = readFileSync(resolve(root, l.bodyPath), 'utf8')
+        for (const [, id] of md.matchAll(/::figure\{asset="([a-z0-9-]+)"\}/g)) {
+          expect(assetIds.has(id), `${l.id} usa el activo ${id}`).toBe(true)
+          expect(l.assetIds, `${l.id} no declara el activo ${id}`).toContain(id)
+        }
+        for (const id of l.assetIds) expect(assetIds.has(id), `${l.id} → ${id}`).toBe(true)
+      }
     })
 
     it('fichas de producto: fuentes existentes', () => {

@@ -402,5 +402,36 @@
     "sourceIds": [
       "src-anthropic-prompting-sonnet55"
     ]
+  },
+  {
+    "id": "m02-mc42",
+    "courseId": "m02",
+    "description": "Las restricciones del esquema (mínimos, máximos, patrones) bastan para garantizar valores correctos.",
+    "whyWrong": "Un valor dentro de rango puede seguir siendo falso, y no todos los proveedores admiten esas restricciones; las reglas de significado se comprueban en código.",
+    "sourceIds": [
+      "src-anthropic-structured-outputs",
+      "src-openai-structured-outputs",
+      "src-google-structured-output"
+    ]
+  },
+  {
+    "id": "m02-mc43",
+    "courseId": "m02",
+    "description": "Si nadie tiene una definición de negocio, cualquier definición razonable sirve mientras se documente.",
+    "whyWrong": "Documentar no convierte una invención en una decisión: si cambia lo que verá quien decide, la definición la aporta el negocio y hasta entonces queda como pregunta abierta.",
+    "sourceIds": [
+      "src-anthropic-prompting-fable5",
+      "src-github-speckit-sdd-doc"
+    ]
+  },
+  {
+    "id": "m02-mc44",
+    "courseId": "m02",
+    "description": "Si el resultado sale mal, basta con corregir el código; la especificación puede quedarse igual.",
+    "whyWrong": "Si el error nació de un hueco en la especificación, el siguiente agente o la siguiente versión volverá a caer; se corrige donde se originó.",
+    "sourceIds": [
+      "src-github-speckit-quickstart",
+      "src-openai-codex-execplans"
+    ]
   }
 ]

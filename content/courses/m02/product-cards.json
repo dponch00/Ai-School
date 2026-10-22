@@ -159,5 +159,140 @@
       "src-openai-gpt56-model-guidance"
     ],
     "nextReview": "2027-01-21"
+  },
+  {
+    "id": "m02-pc-examples-count",
+    "product": "Anthropic · Google · OpenAI (guías de prompting)",
+    "surfaces": [
+      "api"
+    ],
+    "capability": "Las guías no coinciden en cuántos ejemplos usar: la de Gemini recomienda incluir siempre ejemplos (few-shot); la de Anthropic sugiere de 3 a 5, diversos y delimitados; la guía de razonamiento de OpenAI (centrada en o1/o3) dice probar primero sin ejemplos, y la de GPT-5.6 conservarlos solo si codifican un requisito o corrigen una brecha medida.",
+    "kind": "guidance",
+    "verifiedAt": "2026-10-21",
+    "sourceIds": [
+      "src-google-prompting-strategies",
+      "src-anthropic-prompting-bp",
+      "src-openai-reasoning-bp",
+      "src-openai-gpt56-model-guidance"
+    ],
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "m02-pc-schema-support",
+    "product": "Salidas estructuradas · OpenAI, Anthropic y Gemini (API)",
+    "surfaces": [
+      "api"
+    ],
+    "capability": "Cada proveedor admite un subconjunto distinto de JSON Schema. En la API de Claude, minimum, maximum y multipleOf devuelven error 400 (el SDK los mueve a la descripción); OpenAI exige que todos los campos figuren en required y additionalProperties: false; Gemini ignora minLength y maxLength. OpenAI distingue JSON mode (solo JSON válido) de Structured Outputs (además, adherencia al esquema). Antes de usar la respuesta hay que comprobar si terminó por rechazo o por límite de tokens.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-21",
+    "sourceIds": [
+      "src-openai-structured-outputs",
+      "src-anthropic-structured-outputs",
+      "src-google-structured-output"
+    ],
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "m02-pc-agent-interview",
+    "product": "Claude Code · Codex · GitHub Spec Kit",
+    "surfaces": [
+      "cli",
+      "ide",
+      "desktop"
+    ],
+    "capability": "Claude Code sugiere que el agente entreviste al usuario, escriba un SPEC.md y que la implementación se haga en una sesión nueva. Codex ofrece un modo plan con preguntas. En Spec Kit, el paso clarify se ejecuta antes de plan.",
+    "kind": "guidance",
+    "verifiedAt": "2026-10-21",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-openai-codex-best-practices",
+      "src-github-speckit-quickstart"
+    ],
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "m02-pc-sdd-tools",
+    "product": "GitHub Spec Kit · Kiro",
+    "surfaces": [
+      "cli",
+      "ide"
+    ],
+    "capability": "Spec Kit encadena artefactos revisables (constitution, specify, clarify, plan, tasks, implement) y ofrece una ruta corta y otra completa. Kiro separa requirements.md, design.md y tasks.md. Una revisión de Thoughtworks (2025-10-15) documenta flujos pesados para problemas pequeños: en su prueba, una herramienta generó 4 historias y 16 criterios de aceptación para un bug menor.",
+    "kind": "guidance",
+    "verifiedAt": "2026-10-21",
+    "sourceIds": [
+      "src-github-speckit-quickstart",
+      "src-kiro-specs",
+      "src-thoughtworks-sdd-tools"
+    ],
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "m02-pc-plan-mode",
+    "product": "Claude Code · Codex",
+    "surfaces": [
+      "cli",
+      "ide",
+      "desktop"
+    ],
+    "capability": "Claude Code tiene modo plan (Shift+Tab), /clear, /compact y /rewind; su guía recomienda omitir el plan si el cambio cabe en una frase. Codex tiene /plan, /fork, /compact y /review, y recomienda planificar tareas complejas o ambiguas.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-21",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-openai-codex-best-practices"
+    ],
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "m02-pc-self-verification",
+    "product": "Anthropic · OpenAI (modelos recientes, API)",
+    "surfaces": [
+      "api"
+    ],
+    "capability": "Pedir «verifica antes de terminar» depende del modelo: en Claude Opus 5 causa sobreverificación; Claude Sonnet 5.5 a esfuerzo bajo puede dar un cambio por terminado sin ejecutar la comprobación; GPT-6 Astra a veces prueba más de lo necesario. Por eso la verificación se exige como evidencia, no como instrucción genérica.",
+    "kind": "guidance",
+    "verifiedAt": "2026-10-21",
+    "sourceIds": [
+      "src-anthropic-prompting-bp",
+      "src-anthropic-prompting-sonnet55",
+      "src-openai-latest-model"
+    ],
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "m02-pc-ears",
+    "product": "Kiro",
+    "surfaces": [
+      "ide"
+    ],
+    "capability": "Kiro escribe requisitos con el formato EARS (WHEN … THE SYSTEM SHALL …) y lo presenta como inequívoco, comprobable y trazable. Es una alternativa a Given/When/Then.",
+    "kind": "guidance",
+    "verifiedAt": "2026-10-21",
+    "sourceIds": [
+      "src-kiro-requirements-first"
+    ],
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "m02-pc-verification-gates",
+    "product": "Claude Code · Codex",
+    "surfaces": [
+      "cli",
+      "ide",
+      "desktop"
+    ],
+    "capability": "Claude Code permite cerrar el ciclo con compuertas: /goal (un evaluador separado revisa la condición después de cada turno) y Stop hooks deterministas. La guía de prompting de Codex sugiere que el agente informe los comandos ejecutados y sus resultados.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-21",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-openai-codex-prompting"
+    ],
+    "nextReview": "2027-01-21"
   }
 ]
