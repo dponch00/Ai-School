@@ -4,7 +4,7 @@ import Dexie from 'dexie'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import type { Practice } from '../domain/content'
 import { openDb, type LearnerDb } from './db'
-import { getProfile, getSubmission, listReports, saveProfile, saveReport, saveSubmission } from './learner'
+import { addPracticeReview, getProfile, getSubmission, listReports, reviewPrompt, saveProfile, saveReport, saveSubmission } from './learner'
 import { recordCheckAnswer } from './progress'
 import { makeQuestion } from '../domain/fixtures.test-utils'
 
@@ -27,7 +27,7 @@ const practice = {
   instructionsPath: 'x.md',
   deliverable: 'brief, criterios y prompt',
   evidenceRequired: ['brief'],
-  rubric: [{ id: 'r1' }, { id: 'r2' }, { id: 'r3' }],
+  rubric: [1, 2, 3].map((i) => ({ id: `r${i}`, name: `Criterio ${i}`, critical: i === 1, evaluatedObjectiveIds: ['m02-eo1'], levels: [1, 2, 3, 4].map((level) => ({ level, descriptor: `nivel ${level} del criterio ${i}` })) })),
   anchors: { achieved: 'ejemplo logrado', insufficient: 'ejemplo insuficiente' },
   transferNotebook: true,
   status: 'draft',
@@ -63,6 +63,63 @@ describe('entrega de práctica', () => {
   it('una autoevaluación incompleta no cuenta como autoevaluada', async () => {
     const s = await saveSubmission(db, practice, { text: 'x', evidence: [], notebook, selfAssessment: self(['r1']) })
     expect(s.state).toBe('presented')
+  })
+})
+
+describe('revisiones externas de la práctica (F2-02)', () => {
+  const review = (runId: string, levels: (1 | 2 | 3 | 4)[]) => ({
+    runId,
+    reviewer: { declaredName: 'Revisor', type: 'external-assisted' as const },
+    criteria: levels.map((level, i) => ({ criterionId: `r${i + 1}`, evidenceQuote: 'cita', level })),
+  })
+  const ready = () => saveSubmission(db, practice, { text: 'mi brief', evidence: [], notebook, selfAssessment: self(['r1', 'r2', 'r3']) })
+
+  it('sin entrega no se puede registrar una revisión', async () => {
+    await expect(addPracticeReview(db, practice, review('run-0001', [3, 3, 3]))).rejects.toThrow('Primero guarda')
+  })
+
+  it('una entrega solo presentada (sin cuaderno o autoevaluación completa) no admite revisiones', async () => {
+    await saveSubmission(db, practice, { text: 'mi brief', evidence: [], selfAssessment: self(['r1']) })
+    await expect(addPracticeReview(db, practice, review('run-0001', [3, 3, 3]))).rejects.toThrow('autoevaluación')
+  })
+
+  it('una revisión deja la entrega en revisión pendiente; dos de corridas distintas y cercanas, revisada', async () => {
+    await ready()
+    expect((await addPracticeReview(db, practice, review('run-0001', [3, 2, 3]))).state).toBe('review-pending')
+    expect((await addPracticeReview(db, practice, review('run-0002', [2, 2, 4]))).state).toBe('reviewed')
+  })
+
+  it('dos revisiones de la misma corrida no son independientes', async () => {
+    await ready()
+    await addPracticeReview(db, practice, review('run-0001', [3, 3, 3]))
+    expect((await addPracticeReview(db, practice, review('run-0001', [3, 3, 3]))).state).toBe('review-pending')
+  })
+
+  it('una discrepancia de más de un nivel deja la revisión pendiente', async () => {
+    await ready()
+    await addPracticeReview(db, practice, review('run-0001', [4, 3, 3]))
+    expect((await addPracticeReview(db, practice, review('run-0002', [2, 3, 3]))).state).toBe('review-pending')
+  })
+
+  it('con revisiones, el texto revisado ya no se puede cambiar; la autoevaluación sí', async () => {
+    await ready()
+    await addPracticeReview(db, practice, review('run-0001', [3, 3, 3]))
+    await expect(saveSubmission(db, practice, { text: 'otro brief', evidence: [], notebook, selfAssessment: self(['r1', 'r2', 'r3']) })).rejects.toThrow('revisiones externas')
+    const ok = await saveSubmission(db, practice, { text: 'mi brief', evidence: [], notebook, selfAssessment: [{ criterionId: 'r1', level: 3, evidence: 'otra cita' }, ...self(['r2', 'r3'])] })
+    expect(ok.reviews).toHaveLength(1)
+  })
+
+  it('rechaza una revisión que no evalúa todos los criterios', async () => {
+    await ready()
+    await expect(addPracticeReview(db, practice, review('run-0001', [3, 3]))).rejects.toThrow('cada criterio')
+  })
+
+  it('la instrucción para el revisor pide la cita antes del nivel e incluye la rúbrica', () => {
+    const p = reviewPrompt(practice)
+    expect(p).toContain('primero cita textualmente')
+    expect(p).toContain('Criterio 1 (crítico)')
+    expect(p).toContain('4. nivel 4 del criterio 3')
+    expect(p).toContain('nivel del 1 al 4')
   })
 })
 

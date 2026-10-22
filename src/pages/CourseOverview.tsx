@@ -3,14 +3,16 @@ import { covers, getCourse, imageSrcSet } from '../content'
 import NotFound from './NotFound'
 import { db } from '../storage/db'
 import { courseProgress } from '../storage/progress'
-import { examAttempts } from '../storage/exam'
+import { assessmentAttempts } from '../storage/exam'
 import { useLive } from '../storage/useLive'
 
 export default function CourseOverview() {
   const { courseId } = useParams()
   const course = getCourse(courseId)
   const progress = useLive(() => courseProgress(db, course?.id ?? ''), [course?.id], [])
-  const exams = useLive(() => examAttempts(db, course?.id ?? ''), [course?.id], [])
+  const assessments = useLive(() => assessmentAttempts(db, course?.id ?? ''), [course?.id], [])
+  const exams = assessments.filter((a) => a.kind === 'exam')
+  const retained = assessments.some((a) => a.kind === 'retention' && a.result?.passed)
   const plan = useLive(() => db.adjustments.toArray(), [], [])
   if (!course) return <NotFound />
   const cover = covers[course.id]
@@ -26,7 +28,7 @@ export default function CourseOverview() {
   const examStatus = exams.some((a) => a.status === 'in-progress')
     ? 'En curso'
     : passedExam
-      ? `Aprobado · ${passedExam.result!.correct}/${passedExam.result!.total}`
+      ? `Aprobado · ${passedExam.result!.correct}/${passedExam.result!.total}${retained ? ' · retención comprobada' : ''}`
       : lastExam
         ? `No aprobado · ${lastExam.result!.correct}/${lastExam.result!.total}`
         : 'Pendiente'

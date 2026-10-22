@@ -49,8 +49,8 @@ Salida: base funcional y comprobada que permite integrar los cursos restantes (p
 
 | ID | Tarea | Quién | Depende de | Estado |
 | --- | --- | --- | --- | --- |
-| F2-01 | Reglas del examen del estándar §4.3: reintento al día siguiente y tras repasar los apartados de los errores, confianza opcional por pregunta, comprobación de retención a 7 días (6 variantes no vistas, 5/6) | Claude; revisa Codex | F1-08 | 🔄 |
-| F2-02 | Revisiones externas de la práctica: registrar revisiones con corrida, evaluador y evidencia por criterio; estado con `reviewState` (prueba la hipótesis de doble evaluación) | Claude; revisa Codex | F1-09 | ⬜ |
+| F2-01 | Reglas del examen del estándar §4.3: reintento al día siguiente y tras repasar los apartados de los errores, confianza opcional por pregunta, comprobación de retención a 7 días (6 variantes no vistas, 5/6) | Claude; revisa Codex | F1-08 | 🧪 T-017 |
+| F2-02 | Revisiones externas de la práctica: registrar revisiones con corrida, evaluador y evidencia por criterio; estado con `reviewState` (prueba la hipótesis de doble evaluación) | Claude; revisa Codex | F1-09 | 🧪 T-017 |
 | F2-03 | Errores con confianza alta: reaparecen en la sesión siguiente como repaso (R-E-4) | Claude | F2-01 | ⬜ |
 | F2-04 | PWA: manifiesto, service worker (vite-plugin-pwa, `injectManifest`, `registerType: 'prompt'`), instalación, aviso de actualización que no interrumpe un examen en curso | Claude; revisa Codex | — | ⬜ |
 | F2-05 | Offline por curso: contenido de cada curso en su propio paquete y caché, descargado con verificación (deuda de D-020) | Claude | F2-04 | ⬜ |

@@ -273,3 +273,15 @@ main:focus { outline: none; }
    Las citas numeradas dentro del texto quedan como enlaces en línea (excepción de WCAG 2.5.8). */
 .brand { display: inline-flex; align-items: center; min-height: var(--ais-layout-touch-target); }
 .breadcrumb a { display: inline-flex; align-items: center; min-height: var(--ais-layout-touch-target); min-width: var(--ais-layout-touch-target); justify-content: center; }
+
+/* Reglas del examen (F2-01) */
+.exam__pending { list-style: none; padding: 0; }
+.exam__pending li { min-height: var(--ais-layout-touch-target); display: flex; align-items: center; gap: var(--ais-space-2); flex-wrap: wrap; }
+.exam__confidence { display: flex; align-items: center; flex-wrap: wrap; gap: var(--ais-space-2); font-size: var(--ais-font-size-sm); margin-top: calc(-1 * var(--ais-space-2)); }
+.exam__confidence select { font: inherit; min-height: var(--ais-layout-touch-target); padding: 0 var(--ais-space-2); border: 1px solid var(--ais-color-border); border-radius: var(--ais-radius-md); background: var(--ais-color-canvas); color: var(--ais-color-ink); }
+
+/* Revisiones externas de la práctica (F2-02) */
+.table-scroll { overflow-x: auto; margin-bottom: var(--ais-space-4); }
+.review-table { border-collapse: collapse; width: 100%; font-size: var(--ais-font-size-sm); }
+.review-table th, .review-table td { border: 1px solid var(--ais-color-border); padding: var(--ais-space-2); text-align: left; vertical-align: top; }
+.review-table__gap th, .review-table__gap td { background: var(--ais-color-warning-surface); }

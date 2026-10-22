@@ -114,14 +114,14 @@ export interface BuiltReport {
 
 const KIND_SECTION: Record<Attempt['kind'], SectionKey | null> = {
   check: 'checks',
-  retention: 'checks',
+  retention: 'exams',
   practice: 'practiceQuestions',
   exam: 'exams',
   diagnostic: null,
 }
 const KIND_LABEL: Record<Attempt['kind'], string> = {
   check: 'Comprobación',
-  retention: 'Repaso espaciado',
+  retention: 'Comprobación de retención',
   practice: 'Práctica',
   exam: 'Examen',
   diagnostic: 'Diagnóstico',
@@ -437,7 +437,7 @@ ${excluded.length > 0 ? `<ul>${excluded.map((x) => `<li>${e(x)}</li>`).join('')}
       for (const c of byCompetency) h.push(`<tr><td>${e(c.competencyId)} · ${e(ctxName(c.competencyId))}</td><td>${c.correct} de ${c.total}</td><td>${c.firstCorrect} de ${c.firstTotal}</td></tr>`)
       h.push('</table><p class="meta">Una pregunta puede medir más de una competencia. Las cifras son conteos de esta muestra, no niveles.</p>')
     } else h.push('<p>No hay respuestas dentro del alcance.</p>')
-    const exams = attempts.filter((a) => a.kind === 'exam')
+    const exams = attempts.filter((a) => a.kind === 'exam' || a.kind === 'retention')
     if (exams.length > 0) {
       h.push('<h3>Exámenes</h3><ul>')
       for (const a of exams) {
@@ -555,6 +555,7 @@ ${s.notebook ? `<h4>Cuaderno de decisiones</h4><dl><dt>Decisión inicial</dt><dd
 <h4>Evidencias</h4>${s.evidence.length === 0 ? '<p>Sin evidencias registradas.</p>' : `<ul>${s.evidence.map((x) => `<li>${x.includedInReport ? e(x.value) : `${e(x.kind)} pendiente de inspección (no incluido en el reporte)`}</li>`).join('')}</ul>`}
 <h4>Mi autoevaluación (no es una revisión independiente)</h4>
 <table><tr><th>Criterio</th><th>Nivel</th><th>Evidencia que cito</th></tr>${s.selfAssessment.map((a) => `<tr><td>${e(crit.get(a.criterionId)?.name ?? a.criterionId)}${crit.get(a.criterionId)?.critical ? ' (crítico)' : ''}</td><td>${e(String(a.level === 'insufficient-evidence' ? 'evidencia insuficiente' : a.level))}</td><td>${e(a.evidence)}</td></tr>`).join('')}</table>
+${s.reviews.length === 0 ? '<h4>Revisiones externas</h4><p>Sin revisiones externas registradas.</p>' : `<h4>Revisiones externas</h4><table><tr><th>Revisor</th><th>Corrida</th><th>Fecha</th>${p.rubric.map((c) => `<th>${e(c.name)}</th>`).join('')}</tr>${s.reviews.map((r) => `<tr><td>${e(r.reviewer.declaredName)} (${r.reviewer.type === 'human' ? 'persona' : 'herramienta de IA'}${r.reviewer.model ? `, ${e(r.reviewer.model)}` : ''})</td><td>${e(r.runId)}</td><td>${e(day(r.at))}</td>${p.rubric.map((c) => { const x = r.criteria.find((k) => k.criterionId === c.id); return `<td>${x ? e(x.level === 'insufficient-evidence' ? 'evidencia insuficiente' : String(x.level)) : '—'}</td>` }).join('')}</tr>`).join('')}</table><p class="meta">«Revisada» exige dos revisiones de corridas distintas que no discrepen más de un nivel en ningún criterio.</p>`}
 <details><summary>Rúbrica completa</summary>${p.rubric.map((c) => `<p><strong>${e(c.name)}</strong>${c.critical ? ' (crítico)' : ''}</p><ol>${c.levels.map((l) => `<li>${e(l.descriptor)}</li>`).join('')}</ol>`).join('')}</details>
 </div>`
   }

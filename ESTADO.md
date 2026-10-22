@@ -5,23 +5,24 @@
 ## Siguiente acción
 
 1. **Daniel:** hacer el recorrido completo como alumno (perfil, lecciones, examen, laboratorio, reporte compartido en un chat y retroalimentación registrada) y anotar su tiempo en `docs/registro-esfuerzo.md` o pasárselo a Claude. Con eso arranca el Bloque A.
-2. **Claude:** Fase 2 en el orden del backlog, empezando por F2-01 (reglas del examen del estándar §4.3).
-3. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
-4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
+2. **Codex:** T-017, revisión de las reglas del examen y las revisiones externas de la práctica.
+3. **Claude:** siguiente pieza de la Fase 2: F2-03 (errores con confianza alta como repaso) y F2-04 (PWA).
+4. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
+5. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-22)
 
-**≈ 31 % de la V1** (rango razonable: 28–34 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 33 % de la V1** (rango razonable: 30–36 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 95 % (piloto revisado y puerta preparada; faltan el recorrido de Daniel y su decisión) | 20,9 |
-| 2 · Base de app y PWA | 15 % | 12 % (contratos, validación, rutas, IndexedDB con migraciones) | 1,8 |
+| 2 · Base de app y PWA | 15 % | 25 % (contratos, validación, IndexedDB con migraciones, reglas del examen y revisiones externas; faltan PWA, offline, diagnóstico, búsqueda y pruebas de interacción) | 3,8 |
 | 3 · Nueve manuales restantes | 40 % | 3 % (currículo y mapa de competencias) | 1,2 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 31 %** |
+| **Total** | 100 % | | **≈ 33 %** |
 
 ## Tickets
 
@@ -43,18 +44,22 @@
 | [T-014](coordinacion/tickets/T-014-codex-revision-expediente.md) | Codex | Revisión del expediente: perfil, entrega, reporte y respaldo | cerrado |
 | [T-015](coordinacion/tickets/T-015-codex-revision-piloto.md) | Codex | Revisión completa del piloto (F1-12), incluida la ruta personal | cerrado |
 | [T-016](coordinacion/tickets/T-016-codex-revision-puerta-f1-13.md) | Codex | Revisión del documento de la puerta F1-13 | cerrado |
+| [T-017](coordinacion/tickets/T-017-codex-revision-reglas-examen-revisiones.md) | Codex | Revisión de las reglas del examen y las revisiones externas | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | F2-01: `src/storage/exam.ts`, `src/pages/ExamPage.tsx` |
+| Claude | Siguiente: F2-03 y F2-04 (sin tocar `exam.ts` ni `LabSubmission.tsx` hasta la entrega de T-017) |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-22 · Claude Code — decisión de la puerta, reglas del examen y revisiones externas (D-022, F2-01, F2-02)
+Daniel decidió avanzar la Fase 2 ahora, empezar el Bloque A después de su recorrido y mantener 36 ítems de forma provisional (D-022). Al revisar el estándar §4.3 aparecieron tres reglas del examen que la app no cumplía, y ninguna revisión las había señalado: el reintento al día siguiente tras repasar los errores, la confianza en el examen y la comprobación de retención a 7 días. Ya están, junto con las revisiones externas del laboratorio, que permiten probar la doble evaluación. En la prueba en el navegador salieron seis errores reales y quedaron corregidos: revisiones sobre una entrega incompleta, instrucción con un nivel máximo equivocado, casilla de corrida que se arrastraba, estado actualizado con una copia vieja, formulario sin bloqueo al guardar y una lista de repaso que repetía lecciones. `npm test` 123/123, lint y build; 360 px. Abierto T-017. Avance: ≈ 33 %.
 
 ### 2026-10-22 · Claude Code — revisión de T-016 (puerta F1-13)
 Codex verificó la matriz y el mapeo de la rúbrica (correctos) y encontró 3 problemas, que se corrigieron. El alto: el conteo había omitido los 6 hallazgos de contratos de T-004, así que el total real es de 83 hallazgos (24 altos), todos cerrados y con traza. El medio: los tiempos de git son intervalos de reloj con esperas y noches, no esfuerzo. Por eso el criterio 3 de D-011 queda «no cumplido todavía», los 36 ítems pasan a decisión provisional y se crea `docs/registro-esfuerzo.md` para medir desde el Bloque A. La proyección de la Fase 3 queda en 36–45 h, como hipótesis.

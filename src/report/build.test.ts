@@ -208,4 +208,13 @@ describe('reporte de evaluación', () => {
     expect(built.html).toContain('ronda sin terminar')
     expect(built.record.excluded.join(' ')).not.toContain('en curso')
   })
+
+  it('las revisiones externas del laboratorio aparecen con revisor, corrida y niveles (F2-02)', () => {
+    const reviewed = { ...submission, reviews: [{ runId: 'corrida-0001', reviewer: { declaredName: 'Revisor <b>X</b>', type: 'human' as const }, at: '2026-10-21T12:00:00-06:00', criteria: [{ criterionId: 'r1', evidenceQuote: 'cita', level: 2 as const }] }] }
+    const { html } = buildReport(record({ submissions: [reviewed] }), ctx, opts())
+    expect(html).toContain('Revisiones externas')
+    expect(html).toContain('corrida-0001')
+    expect(html).toContain('Revisor &lt;b&gt;X&lt;/b&gt; (persona)')
+  })
 })
+
