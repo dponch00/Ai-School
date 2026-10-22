@@ -22,6 +22,7 @@ export const PROFILE_FIELDS = {
 export type ProfileField = keyof typeof PROFILE_FIELDS
 
 export const SECTIONS = {
+  diagnostic: 'Diagnóstico inicial',
   checks: 'Comprobaciones y repasos de lección',
   practiceQuestions: 'Preguntas de práctica',
   exams: 'Exámenes',
@@ -74,7 +75,10 @@ export interface ReportOptions {
 export interface ReportContext {
   courses: { id: string; title: string; version: string }[]
   competencies: Record<string, { name: string }>
-  practices: Practice[]
+  /** Prácticas de los cursos; las microtareas del diagnóstico llegan con `diagnostic: true`. */
+  practices: (Practice & { diagnostic?: boolean })[]
+  /** Bloques del diagnóstico, para resumir sus respuestas por bloque (D-015). */
+  diagnosticBlocks?: { id: string; name: string }[]
 }
 
 export interface ResponseRow {
@@ -86,6 +90,8 @@ export interface ResponseRow {
   questionVersion: number
   courseId: string | null
   competencyIds: string[]
+  /** Solo en el diagnóstico: su bloque. Sus respuestas se resumen por bloque, no por competencia (D-015). */
+  diagnosticBlock?: string
   sectionRef: string
   scenario: string
   stem: string
@@ -117,7 +123,7 @@ const KIND_SECTION: Record<Attempt['kind'], SectionKey | null> = {
   retention: 'exams',
   practice: 'practiceQuestions',
   exam: 'exams',
-  diagnostic: null,
+  diagnostic: 'diagnostic',
 }
 const KIND_LABEL: Record<Attempt['kind'], string> = {
   check: 'Comprobación',
@@ -177,6 +183,9 @@ export function buildReport(rec: LearnerRecord, ctx: ReportContext, opts: Report
   const { scope, sections } = opts
   const excluded: string[] = []
   const courseOk = (id: string | null | undefined) => scope.kind !== 'course' || id === scope.courseId
+  // El diagnóstico va en su propio alcance (y en el expediente completo); un reporte de curso no lo incluye.
+  const scopeOk = (a: Attempt) =>
+    scope.kind === 'diagnostic' ? a.kind === 'diagnostic' : scope.kind === 'course' ? a.kind !== 'diagnostic' && a.courseId === scope.courseId : true
 
   // ---------- Selección de intentos ----------
   let outOfPeriod = 0
@@ -185,16 +194,16 @@ export function buildReport(rec: LearnerRecord, ctx: ReportContext, opts: Report
   const disabledKinds = new Map<SectionKey, number>()
   // Una ronda de comprobación o práctica sin terminar solo contiene preguntas ya respondidas y enviadas,
   // así que entra rotulada como tal (T015-R03). Un examen en curso tiene borradores: queda fuera.
-  const isOpenRound = (a: Attempt) => a.status === 'in-progress' && a.kind !== 'exam'
+  const isOpenRound = (a: Attempt) => a.status === 'in-progress' && a.kind !== 'exam' && a.kind !== 'diagnostic'
   const stamp = (a: Attempt) => a.submittedAt ?? a.startedAt
   const attempts = rec.attempts
     .filter((a) => {
       if (!(a.status === 'submitted' && a.submittedAt) && !isOpenRound(a)) {
-        if (a.status === 'in-progress' && courseOk(a.courseId)) inProgress++
+        if (a.status === 'in-progress' && scopeOk(a)) inProgress++
         return false
       }
       if (Date.parse(stamp(a)) > Date.parse(opts.generatedAt)) return false
-      if (!courseOk(a.courseId)) {
+      if (!scopeOk(a)) {
         otherCourse++
         return false
       }
@@ -213,9 +222,9 @@ export function buildReport(rec: LearnerRecord, ctx: ReportContext, opts: Report
     .sort((a, b) => Date.parse(stamp(a)) - Date.parse(stamp(b)))
 
   for (const [section, n] of disabledKinds) excluded.push(`${SECTIONS[section]}: ${n} intento(s) que decidiste no incluir`)
-  if (inProgress > 0) excluded.push(`${inProgress} examen(es) en curso, sin enviar`)
+  if (inProgress > 0) excluded.push(`${inProgress} examen(es) o diagnóstico(s) en curso, sin enviar`)
   if (outOfPeriod > 0) excluded.push(`${outOfPeriod} intento(s) fuera del periodo elegido`)
-  if (otherCourse > 0) excluded.push(`${otherCourse} intento(s) de otros cursos`)
+  if (otherCourse > 0) excluded.push(`${otherCourse} intento(s) fuera del alcance elegido (otros cursos o el diagnóstico)`)
 
   // ---------- Filas de respuesta ----------
   const rows: ResponseRow[] = []
@@ -236,6 +245,7 @@ export function buildReport(rec: LearnerRecord, ctx: ReportContext, opts: Report
         questionVersion: q.version,
         courseId: q.courseId ?? a.courseId,
         competencyIds: q.competencyIds,
+        ...(a.kind === 'diagnostic' && q.diagnosticBlock ? { diagnosticBlock: q.diagnosticBlock } : {}),
         sectionRef: q.sectionRef,
         scenario: q.scenario,
         stem: q.stem,
@@ -265,7 +275,8 @@ export function buildReport(rec: LearnerRecord, ctx: ReportContext, opts: Report
   let labsOutOfPeriod = 0
   const submissions = rec.submissions.filter((s) => {
     const p = practices.get(s.practiceId)
-    if (!p || !courseOk(p.courseId) || Date.parse(s.createdAt) > Date.parse(opts.generatedAt)) return false
+    if (!p || Date.parse(s.createdAt) > Date.parse(opts.generatedAt)) return false
+    if (p.diagnostic ? scope.kind === 'course' : scope.kind === 'diagnostic' || !courseOk(p.courseId)) return false
     if (!inPeriod(s.createdAt, scope.from, scope.to)) {
       labsOutOfPeriod++
       return false
@@ -295,6 +306,7 @@ export function buildReport(rec: LearnerRecord, ctx: ReportContext, opts: Report
   // ---------- Resumen por competencia (lo observado) ----------
   const comp = new Map<string, { correct: number; total: number; firstCorrect: number; firstTotal: number }>()
   for (const r of rows) {
+    if (r.diagnosticBlock) continue
     for (const c of r.competencyIds) {
       const x = comp.get(c) ?? { correct: 0, total: 0, firstCorrect: 0, firstTotal: 0 }
       x.total++
@@ -307,6 +319,14 @@ export function buildReport(rec: LearnerRecord, ctx: ReportContext, opts: Report
     }
   }
   const byCompetency = [...comp.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([competencyId, v]) => ({ competencyId, ...v }))
+
+  // Diagnóstico: conteos por bloque, nunca por competencia (D-015).
+  const byBlock = (ctx.diagnosticBlocks ?? [])
+    .map((b) => {
+      const inBlock = rows.filter((r) => r.diagnosticBlock === b.id)
+      return { blockId: b.id, name: b.name, correct: inBlock.filter((r) => r.correct).length, total: inBlock.length }
+    })
+    .filter((b) => b.total > 0)
 
   const questions = opts.questionsForEvaluator.slice(0, MAX_EVALUATOR_QUESTIONS).trim()
   const includedSections = (Object.keys(SECTIONS) as SectionKey[]).filter((k) => sections[k])
@@ -351,7 +371,7 @@ export function buildReport(rec: LearnerRecord, ctx: ReportContext, opts: Report
           priorEvidence: profileIncluded.includes('priorEvidence') ? profile.priorEvidence : undefined,
         }
       : null,
-    summary: { counts: record.counts, byCompetency },
+    summary: { counts: record.counts, byCompetency, diagnosticByBlock: byBlock },
     attempts: attempts.map((a) => ({ id: a.id, kind: a.kind, status: a.status, formLabel: a.formLabel, isFirstAttempt: a.isFirstAttempt, startedAt: a.startedAt, submittedAt: a.submittedAt, contentVersion: a.contentVersion, result: a.result })),
     responses: rows,
     practiceSubmissions: labs,
@@ -436,7 +456,12 @@ ${excluded.length > 0 ? `<ul>${excluded.map((x) => `<li>${e(x)}</li>`).join('')}
       h.push('<table><tr><th>Competencia</th><th>Aciertos</th><th>Solo primeros intentos</th></tr>')
       for (const c of byCompetency) h.push(`<tr><td>${e(c.competencyId)} · ${e(ctxName(c.competencyId))}</td><td>${c.correct} de ${c.total}</td><td>${c.firstCorrect} de ${c.firstTotal}</td></tr>`)
       h.push('</table><p class="meta">Una pregunta puede medir más de una competencia. Las cifras son conteos de esta muestra, no niveles.</p>')
-    } else h.push('<p>No hay respuestas dentro del alcance.</p>')
+    } else if (byBlock.length === 0) h.push('<p>No hay respuestas dentro del alcance.</p>')
+    if (byBlock.length > 0) {
+      h.push('<h3>Diagnóstico por bloque</h3><table><tr><th>Bloque</th><th>Aciertos</th></tr>')
+      for (const b of byBlock) h.push(`<tr><td>${e(b.blockId)} · ${e(b.name)}</td><td>${b.correct} de ${b.total}</td></tr>`)
+      h.push('</table><p class="meta">El diagnóstico da señales por bloque con cuatro preguntas cada uno: no son niveles ni resultados por competencia (D-015).</p>')
+    }
     const exams = attempts.filter((a) => a.kind === 'exam' || a.kind === 'retention')
     if (exams.length > 0) {
       h.push('<h3>Exámenes</h3><ul>')

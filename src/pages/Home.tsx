@@ -31,8 +31,12 @@ export default function Home() {
       <section className="section" aria-labelledby="ruta">
         <h2 id="ruta">Tu ruta</h2>
         <p className="muted">
-          El piloto empieza por M02 porque fija cómo se escriben y verifican todas las tareas que le darás a un agente. El
-          diagnóstico inicial y los demás manuales llegarán después.
+          El piloto empieza por M02 porque fija cómo se escriben y verifican todas las tareas que le darás a un agente. Los
+          demás manuales llegarán después.
+        </p>
+        <p>
+          <Link to="/diagnostico">Haz el diagnóstico inicial</Link> (unos 25 minutos) para saber por dónde te conviene empezar y
+          en qué bloques puedes ir más rápido.
         </p>
         <ol className="route">
           {content.catalog.map((c) => (

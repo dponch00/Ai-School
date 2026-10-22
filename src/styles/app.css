@@ -291,3 +291,14 @@ main:focus { outline: none; }
 .update-prompt p { margin: 0 0 var(--ais-space-2); }
 .update-prompt .actions { margin-top: 0; }
 @media (max-width: 34rem) { .update-prompt { margin-inline: var(--ais-layout-page-gutter); } }
+
+/* Diagnóstico inicial (F2-06) */
+.dx-blocks { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: var(--ais-space-3); }
+.dx-block { border: 1px solid var(--ais-color-border); border-left: 4px solid var(--ais-color-border); border-radius: var(--ais-radius-md); padding: var(--ais-space-3) var(--ais-space-4); background: var(--ais-color-surface); }
+.dx-block h3 { margin: 0 0 var(--ais-space-1); }
+.dx-block__signal { font-weight: 700; margin: 0 0 var(--ais-space-1); }
+.dx-block--likely-strength { border-left-color: var(--ais-color-success); }
+.dx-block--review-recommended { border-left-color: var(--ais-color-warning); }
+.dx-block--incomplete-evidence { border-left-style: dashed; }
+
+.update-prompt--warning { background: var(--ais-color-warning-surface); border-left-color: var(--ais-color-warning); }

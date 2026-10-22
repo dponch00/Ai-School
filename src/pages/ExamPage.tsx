@@ -154,7 +154,7 @@ export default function ExamPage() {
   )
 }
 
-function ExamForm({ attempt, onSubmitted }: { attempt: Attempt; onSubmitted: (id: string) => void }) {
+export function ExamForm({ attempt, onSubmitted }: { attempt: Attempt; onSubmitted: (id: string) => void }) {
   const responses = useResponses(attempt.id)
   const [confirming, setConfirming] = useState(false)
   const [error, setError] = useState<string | null>(null)

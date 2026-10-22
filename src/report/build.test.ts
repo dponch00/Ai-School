@@ -72,7 +72,7 @@ const opts = (over: Partial<ReportOptions> = {}): ReportOptions => ({
   appVersion: '0.1.0',
   scope: { kind: 'course', courseId: 'm02' },
   profileFields: ['alias', 'goals', 'tools', 'constraints'],
-  sections: { checks: true, practiceQuestions: true, exams: true, labs: true, explanations: true },
+  sections: { diagnostic: true, checks: true, practiceQuestions: true, exams: true, labs: true, explanations: true },
   questionsForEvaluator: '¿Mi criterio sobre supuestos es sólido? ' + INJECTION,
   ...over,
 })
@@ -115,12 +115,12 @@ describe('reporte de evaluación', () => {
   })
 
   it('lo excluido se dice explícitamente: secciones, explicaciones, campos del perfil e intentos en curso', () => {
-    const built = buildReport(record(), ctx, opts({ sections: { checks: true, practiceQuestions: true, exams: false, labs: true, explanations: false }, profileFields: ['alias'] }))
+    const built = buildReport(record(), ctx, opts({ sections: { diagnostic: true, checks: true, practiceQuestions: true, exams: false, labs: true, explanations: false }, profileFields: ['alias'] }))
     const ex = built.record.excluded.join(' | ')
     expect(ex).toContain('Exámenes: 1 intento(s)')
     expect(ex).toContain('1 explicación(es)')
     expect(ex).toContain('Contexto profesional')
-    expect(ex).toContain('1 examen(es) en curso')
+    expect(ex).toContain('1 examen(es) o diagnóstico(s) en curso')
     expect(built.html).not.toContain('Porque &lt;/pre&gt;')
     expect(built.html).not.toContain('Finanzas')
   })
@@ -216,6 +216,21 @@ describe('reporte de evaluación', () => {
     expect(html).toContain('Revisiones externas')
     expect(html).toContain('corrida-0001')
     expect(html).toContain('Revisor &lt;b&gt;X&lt;/b&gt; (persona)')
+  })
+
+  it('el diagnóstico va en su propio alcance y se resume por bloque, no por competencia (D-015)', () => {
+    const dq = makeQuestion({ id: 'dx-b2-01', use: 'diagnostic', courseId: undefined, diagnosticBlock: 'B2', competencyIds: ['C02'] })
+    const dx: Attempt = makeAttempt([dq], { id: 'attempt-dx-0001', kind: 'diagnostic', courseId: null, formLabel: 'diagnóstico v0.1.0', result: undefined, submittedAt: '2026-10-21T09:00:00-06:00' })
+    const rec = record({ attempts: [check, exam, dx], responses: [...record().responses, resp(dx.id, dq.id, 'k1')] })
+    const withBlocks = { ...ctx, diagnosticBlocks: [{ id: 'B2', name: 'Especificación' }] }
+    const course = buildReport(rec, withBlocks, opts())
+    expect(course.rows.some((r) => r.diagnosticBlock)).toBe(false)
+    expect(course.record.excluded.join(' ')).toContain('fuera del alcance elegido')
+    const diag = buildReport(rec, withBlocks, opts({ scope: { kind: 'diagnostic' } }))
+    expect(diag.rows).toHaveLength(1)
+    expect(diag.record.byCompetency).toEqual([])
+    expect(diag.html).toContain('Diagnóstico por bloque')
+    expect(diag.html).toContain('B2 · Especificación')
   })
 })
 

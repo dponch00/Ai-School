@@ -18,7 +18,7 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import { unified } from 'unified'
 import { visit } from 'unist-util-visit'
-import { Asset, Competency, Course, Lesson, Misconception, Practice, ProductCard, Question, Source } from '../src/domain/content.ts'
+import { Asset, Competency, Course, DiagnosticForm, Lesson, Microtask, Misconception, Practice, ProductCard, Question, Source } from '../src/domain/content.ts'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const contentDir = resolve(root, 'content')
@@ -239,11 +239,21 @@ for (const courseId of readdirSync(resolve(contentDir, 'courses'))) {
   courses.push({ ...course, lessons, practice })
 }
 
+// ---------- Diagnóstico inicial (F2-06, D-015) ----------
+const diagnosticForm = DiagnosticForm.parse(readJson('diagnostic/form.json'))
+for (const q of Question.array().parse(readJson('diagnostic/items.json'))) questions[q.id] = q
+const microtasks = Microtask.array()
+  .parse(readJson('diagnostic/microtasks.json'))
+  .filter((m) => diagnosticForm.microtaskIds.includes(m.id))
+  .map((m) => ({ ...m, materialBlocks: renderMarkdown(m.material, `diagnostic/${m.id}`).blocks }))
+const diagnostic = { form: diagnosticForm, microtasks }
+
 const out = {
   generatedAt: new Date().toISOString(),
   catalog: catalog.map((c) => ({ ...c, available: courses.some((x: any) => x.id === c.id) })),
   courses,
   competencies,
+  diagnostic,
   questions,
   productCards,
   assets,

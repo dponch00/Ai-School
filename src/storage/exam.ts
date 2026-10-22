@@ -272,6 +272,12 @@ export async function submitExam(db: LearnerDb, attemptId: string, at = now()): 
     const responses = await db.responses.where('attemptId').equals(attemptId).toArray()
     const sent = responses.map((r) => Response.parse({ ...r, status: 'submitted', answeredAt: r.answeredAt ?? at }))
     await db.responses.bulkPut(sent)
+    // El diagnóstico no aprueba ni reprueba (D-015): se envía sin resultado y se lee por bloques.
+    if (attempt.kind === 'diagnostic') {
+      const done = Attempt.parse({ ...attempt, status: 'submitted', submittedAt: at })
+      await db.attempts.put(done)
+      return done
+    }
     const result = scoreAttempt(attempt, sent, rule)
     const next = Attempt.parse({
       ...attempt,

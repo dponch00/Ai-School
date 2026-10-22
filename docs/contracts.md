@@ -32,6 +32,8 @@
 - **Revisiones externas (F2-02, T-017):** solo sobre una entrega autoevaluada. Cada revisión evalúa todos los criterios, con una cita en cada uno y un nivel que exista en la rúbrica. `reviewState` compara la revisión más reciente de las dos últimas corridas distintas. Con revisiones registradas, el texto, el cuaderno y las evidencias de la entrega quedan fijos.
 - **Repaso de errores (F2-03):** un error con confianza alta vuelve al día siguiente; tras un acierto, a los 7 días; dos aciertos seguidos lo sacan de la cola, y un error lo devuelve al día siguiente. Se calcula a partir de los intentos (`domain/review-queue.ts`); las respuestas del repaso se guardan como ronda `repaso de errores <curso>`.
 - **PWA (F2-04):** SW propio (`src/sw/sw.ts`) con precache del shell e imágenes para el celular. La actualización solo ocurre si Daniel la acepta.
+- **Diagnóstico (F2-06, D-015):** es un intento `diagnostic` sin resultado de aprobado y se lee por bloques con `blockResults`. Las microtareas se guardan como entregas (`practiceId` = ID de la microtarea) con autoevaluación; sus criterios críticos afinan la señal y quedan rotulados como autoevaluación. En el reporte, el diagnóstico va en su propio alcance y se resume por bloque, nunca por competencia.
+- **Almacenamiento (F2-09):** `checkStorage` dice si se puede guardar y avisa si no; `requestPersistence` pide al navegador que no borre los datos.
 - **Perfil:** la evidencia previa (programa de Educación, D-009) se guarda aparte de lo declarado y de lo observado en la app.
 
 ## Pendiente para fases siguientes

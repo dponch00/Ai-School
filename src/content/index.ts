@@ -1,6 +1,6 @@
 // Acceso tipado al contenido generado por scripts/build-content.ts.
 import data from '../generated/content.json'
-import type { Asset, Competency, Course, Lesson, Practice, ProductCard, Question } from '../domain/content'
+import type { Asset, Competency, Course, DiagnosticForm, Lesson, Microtask, Practice, ProductCard, Question } from '../domain/content'
 
 export type Block =
   | { type: 'html'; html: string }
@@ -45,11 +45,16 @@ export interface CatalogEntry {
   available: boolean
 }
 
+export interface MicrotaskView extends Microtask {
+  materialBlocks: Block[]
+}
+
 interface ContentData {
   generatedAt: string
   catalog: CatalogEntry[]
   courses: CourseView[]
   competencies: Record<string, Competency>
+  diagnostic: { form: DiagnosticForm; microtasks: MicrotaskView[] }
   questions: Record<string, Question>
   productCards: Record<string, ProductCard>
   assets: Record<string, Asset & { url: string }>

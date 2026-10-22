@@ -14,7 +14,7 @@ const ALL_SECTIONS = Object.fromEntries(Object.keys(SECTIONS).map((k) => [k, tru
 /** Preparar evaluación (plan §17.3): elegir alcance, ver qué se comparte y descargar el HTML. */
 export default function EvaluationPage() {
   const record = useLive(() => loadRecord(db), [], null as LearnerRecord | null)
-  const [kind, setKind] = useState<'course' | 'full'>('course')
+  const [kind, setKind] = useState<'course' | 'full' | 'diagnostic'>('course')
   const [courseId, setCourseId] = useState(content.courses[0]?.id ?? '')
   const [from, setFrom] = useState('')
   const [to, setTo] = useState('')
@@ -31,7 +31,14 @@ export default function EvaluationPage() {
     () => ({
       courses: content.courses.map((c) => ({ id: c.id, title: c.title, version: c.version })),
       competencies: content.competencies ?? {},
-      practices: content.courses.map((c) => c.practice).filter((p): p is NonNullable<typeof p> => p !== null) as Practice[],
+      practices: [
+        ...(content.courses.map((c) => c.practice).filter((p): p is NonNullable<typeof p> => p !== null) as Practice[]),
+        // Las microtareas del diagnóstico se presentan como entregas, marcadas como diagnóstico.
+        ...content.diagnostic.microtasks.map(
+          (m) => ({ id: m.id, courseId: 'm00', version: `${m.version}.0.0`, title: `Microtarea del diagnóstico: ${m.title}`, deliverable: m.task, rubric: m.rubric, diagnostic: true }) as unknown as Practice & { diagnostic: boolean },
+        ),
+      ],
+      diagnosticBlocks: content.diagnostic.form.blocks.map((b) => ({ id: b.id, name: b.name })),
     }),
     [],
   )
@@ -107,7 +114,7 @@ export default function EvaluationPage() {
             </label>
           )}
           <label className="radio"><input type="radio" name="scope" checked={kind === 'full'} onChange={() => setKind('full')} /> Expediente completo disponible</label>
-          <label className="radio radio--disabled"><input type="radio" name="scope" disabled /> Evaluación inicial (llega con el diagnóstico)</label>
+          <label className="radio"><input type="radio" name="scope" checked={kind === 'diagnostic'} onChange={() => setKind('diagnostic')} /> Evaluación inicial (diagnóstico)</label>
           <div className="form-row">
             <label>Desde <input type="date" value={from} onChange={(e) => setFrom(e.target.value)} /></label>
             <label>Hasta <input type="date" value={to} onChange={(e) => setTo(e.target.value)} /></label>
@@ -158,7 +165,15 @@ export default function EvaluationPage() {
               <dt>Fecha de corte</dt><dd>{new Date(stamp).toLocaleString('es')} ({timezone})</dd>
               <dt>Contenido</dt><dd>{built.record.counts.attempts} intentos, {built.record.counts.responses} respuestas, {built.record.counts.practices} entregas de laboratorio</dd>
               <dt>Cobertura</dt>
-              <dd>{built.record.byCompetency.length === 0 ? 'Sin respuestas en este alcance' : built.record.byCompetency.map((c) => `${c.competencyId} (${c.total})`).join(', ')}</dd>
+              <dd>
+                {[
+                  built.record.byCompetency.map((c) => `${c.competencyId} (${c.total})`).join(', '),
+                  (() => {
+                    const blocks = new Set(built.rows.map((r) => r.diagnosticBlock).filter(Boolean))
+                    return blocks.size > 0 ? `diagnóstico en ${blocks.size} bloques` : ''
+                  })(),
+                ].filter(Boolean).join(' · ') || 'Sin respuestas en este alcance'}
+              </dd>
               <dt>Tamaño aproximado</dt><dd>{Math.ceil(new Blob([built.html]).size / 1024)} KB</dd>
             </dl>
             <h3>Lo que queda fuera</h3>

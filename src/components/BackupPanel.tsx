@@ -1,14 +1,25 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { APP_VERSION } from '../app/version'
 import { content } from '../content'
 import type { Backup } from '../domain/learner'
 import { backupFileName, backupSummary, exportBackup, readBackupFile, restoreBackup } from '../storage/backup'
 import { db } from '../storage/db'
+import { checkStorage, requestPersistence, type StorageHealth } from '../storage/health'
 
 /** Exportar e importar el respaldo completo (F1-10). Restaurar pide confirmación porque reemplaza todo. */
 export default function BackupPanel() {
   const [message, setMessage] = useState<string | null>(null)
   const [pending, setPending] = useState<Backup | null>(null)
+  const [health, setHealth] = useState<StorageHealth | null>(null)
+  useEffect(() => {
+    void checkStorage(db).then(setHealth)
+  }, [])
+
+  const persist = async () => {
+    const granted = await requestPersistence()
+    setMessage(granted === null ? 'Este navegador no permite pedirlo.' : granted ? 'Listo: el navegador no borrará tus datos para liberar espacio.' : 'El navegador no lo concedió. Mantén un respaldo reciente.')
+    setHealth(await checkStorage(db))
+  }
 
   const exportNow = async () => {
     try {
@@ -54,6 +65,16 @@ export default function BackupPanel() {
     <section className="form-group" aria-labelledby="respaldo">
       <h2 id="respaldo">Respaldo</h2>
       <p className="muted">Tu expediente vive solo en este navegador. Si borras los datos del sitio o cambias de dispositivo, se pierde, salvo que tengas un respaldo.</p>
+      {health && (
+        <p className="muted">
+          {health.available ? 'Tu progreso se guarda en este navegador' : 'Este navegador no está guardando tu progreso'}
+          {health.usageBytes !== null && health.quotaBytes ? ` · ocupa ${Math.max(1, Math.round(health.usageBytes / 1024))} KB` : ''}
+          {health.persisted === true ? ' · protegido contra el borrado automático.' : health.persisted === false ? ' · el navegador podría borrarlo si le falta espacio.' : '.'}
+        </p>
+      )}
+      {health?.persisted === false && (
+        <button type="button" className="button" onClick={persist}>Pedir que no se borre</button>
+      )}
       <button type="button" className="button" onClick={exportNow}>Exportar respaldo completo</button>
       <label>Restaurar desde un archivo
         <input type="file" accept="application/json,.json" onChange={(e) => pick(e.target.files?.[0])} />
