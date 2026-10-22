@@ -33,6 +33,10 @@
       "id": "objetivo-alcance",
       "name": "Objetivo, decisión y alcance",
       "critical": true,
+      "evaluatedObjectiveIds": [
+        "m02-eo1",
+        "m02-eo4"
+      ],
       "levels": [
         {
           "level": 1,
@@ -52,6 +56,9 @@
       "id": "definiciones-supuestos",
       "name": "Definiciones y supuestos",
       "critical": true,
+      "evaluatedObjectiveIds": [
+        "m02-eo2"
+      ],
       "levels": [
         {
           "level": 1,
@@ -71,6 +78,9 @@
       "id": "casos-contrato",
       "name": "Casos, contraejemplos y contrato de salida",
       "critical": false,
+      "evaluatedObjectiveIds": [
+        "m02-eo3"
+      ],
       "levels": [
         {
           "level": 1,
@@ -90,6 +100,10 @@
       "id": "hitos-prompt",
       "name": "Hitos y prompt de ejecución",
       "critical": false,
+      "evaluatedObjectiveIds": [
+        "m02-eo4",
+        "m02-eo5"
+      ],
       "levels": [
         {
           "level": 1,
@@ -109,6 +123,9 @@
       "id": "aceptacion-evidencia",
       "name": "Criterios de aceptación y evidencia",
       "critical": true,
+      "evaluatedObjectiveIds": [
+        "m02-eo6"
+      ],
       "levels": [
         {
           "level": 1,

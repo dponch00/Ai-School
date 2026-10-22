@@ -163,6 +163,21 @@ for (const courseDir of readdirSync(resolve(root, 'courses'))) {
       expect(existsSync(resolve(root, lab.instructionsPath)), lab.instructionsPath).toBe(true)
       for (const id of lab.evaluatedObjectiveIds) expect(eoIds.has(id), `${lab.id} → ${id}`).toBe(true)
       expect(lab.rubric.some((c) => c.critical), 'al menos un criterio crítico').toBe(true)
+      // Cada criterio dice qué objetivos evalúa, y entre todos cubren los del laboratorio (D-011).
+      const byRubric = new Set(lab.rubric.flatMap((c) => c.evaluatedObjectiveIds))
+      for (const c of lab.rubric) for (const id of c.evaluatedObjectiveIds) expect(lab.evaluatedObjectiveIds, `${c.id} → ${id}`).toContain(id)
+      for (const id of lab.evaluatedObjectiveIds) expect(byRubric.has(id), `ningún criterio de la rúbrica evalúa ${id}`).toBe(true)
+    })
+
+    it('matriz objetivo → lección → actividad → evidencia completa (D-011, puerta F1-13)', () => {
+      const lab = existsSync(resolve(root, `courses/${courseDir}/practice/${course.practiceId}.json`)) ? Practice.parse(read(`courses/${courseDir}/practice/${course.practiceId}.json`)) : null
+      for (const eo of course.evaluatedObjectives) {
+        const lessonObjectives = lessons.flatMap((l) => l.objectives).filter((o) => o.evaluatedObjectiveId === eo.id)
+        expect(lessonObjectives.length, `${eo.id}: sin objetivo de lección`).toBeGreaterThanOrEqual(1)
+        expect(checks.filter((q) => q.evaluatedObjectiveId === eo.id).length, `${eo.id}: menos de 2 comprobaciones`).toBeGreaterThanOrEqual(2)
+        expect(new Set(exam.filter((q) => q.evaluatedObjectiveId === eo.id).map((q) => q.family)).size, `${eo.id}: menos de 2 familias de examen`).toBeGreaterThanOrEqual(2)
+        if (lab) expect(lab.rubric.some((c) => c.evaluatedObjectiveIds.includes(eo.id)), `${eo.id}: ningún criterio del laboratorio lo evalúa`).toBe(true)
+      }
     })
 
     it('las competencias de objetivos y preguntas pertenecen al manual (M02-R-01)', () => {

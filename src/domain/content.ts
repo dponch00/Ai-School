@@ -203,6 +203,9 @@ export const RubricCriterion = z.object({
     .max(4),
 })
 
+/** Criterio de la rúbrica de una práctica: dice qué objetivos del blueprint evalúa (D-011). */
+export const PracticeCriterion = RubricCriterion.extend({ evaluatedObjectiveIds: z.array(Slug).min(1) })
+
 export const Practice = z.object({
   id: Slug,
   courseId: CourseId,
@@ -213,7 +216,7 @@ export const Practice = z.object({
   instructionsPath: z.string().endsWith('.md'),
   deliverable: z.string().min(10),
   evidenceRequired: z.array(z.string().min(3)).min(1),
-  rubric: z.array(RubricCriterion).min(3).max(5),
+  rubric: z.array(PracticeCriterion).min(3).max(5),
   anchors: z.object({ achieved: z.string().min(10), insufficient: z.string().min(10) }),
   /** Check que el alumno ejecuta en su entorno; la app no finge ejecutarlo. */
   executableCheck: z.object({ description: z.string().min(10), command: z.string().optional() }).optional(),

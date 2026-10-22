@@ -40,5 +40,5 @@ Salida: un curso completo y funcional que fija el estándar del producto. Las ot
 | F1-10 | Exportar/importar respaldo con validación | Claude | F1-07 | ✅ |
 | F1-11 | Registrar feedback y aplicar una acción a la ruta personal | Claude | F1-09 | ✅ |
 | F1-12 | Revisión del piloto: contenido (Codex), UX móvil, accesibilidad, fuentes; cerrar hallazgos | Codex + Claude + Daniel | F1-01…F1-11 | 🟡 Codex y Claude cerrados (T-015); falta la prueba de Daniel |
-| F1-13 | **Puerta de calidad del piloto (D-011):** matriz objetivo→evidencia, hallazgos altos cerrados, esfuerzo real medido; decidir alcance de la Fase 3 | Claude + Codex → Daniel decide | F1-12 | ⬜ |
+| F1-13 | **Puerta de calidad del piloto (D-011):** matriz objetivo→evidencia, hallazgos altos cerrados, esfuerzo real medido; decidir alcance de la Fase 3 | Claude + Codex → Daniel decide | F1-12 | 🟡 preparada en `docs/puerta-f1-13.md`; falta el recorrido de Daniel y su decisión |
 | F1-14 | Revisión antes de publicar: buscar secretos, datos reales y referencias personales en todo lo versionado (repo público, D-006) | Claude; revisa Codex | antes de cualquier publicación | ⬜ |
