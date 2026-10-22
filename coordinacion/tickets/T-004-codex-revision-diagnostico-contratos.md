@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-21 |
 | Depende de | T-003 (cerrado) |
 | Fase del plan | 0 — Definición (F0-09, F0-10) |
@@ -67,13 +67,11 @@ Lecciones de M02, diseño visual y la interfaz de la app.
 
 ## Entrega
 
-_(La llena Codex.)_
-
-- **Qué hice:**
-- **Archivos:**
-- **Cómo lo verifiqué:**
-- **Limitaciones o bloqueos:**
-- **Preguntas abiertas:**
+- **Qué hice:** revisión independiente de los 24 ítems, 46 conceptos erróneos, 2 microtareas y contratos de datos; 12 hallazgos (5 altos, 7 medios), con casos reproducibles para los hallazgos técnicos.
+- **Archivos:** `investigacion/codex-revision-diagnostico-contratos.md`; este ticket.
+- **Cómo lo verifiqué:** dos subrevisiones independientes, revisión manual de todos los ítems y microtareas, pruebas T/S en 12 ítems, `npm test` (30/30), `npm run typecheck` y `npm run lint` correctos.
+- **Limitaciones o bloqueos:** no se modificó `content/` ni `src/`; los casos técnicos deben añadirse como pruebas al aplicar las correcciones.
+- **Preguntas abiertas:** fijar los cinco campos de trazabilidad enumerados en el informe antes de implementar el HTML de evaluación.
 
 ## Revisión
 
