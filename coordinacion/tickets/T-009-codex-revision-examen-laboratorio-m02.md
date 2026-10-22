@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-21 |
 | Depende de | T-008 (cerrado) |
 | Fase del plan | 1 — Piloto (F1-04, F1-05) |
@@ -69,13 +69,11 @@ La app y los otros manuales.
 
 ## Entrega
 
-_(La llena Codex.)_
-
-- **Qué hice:**
-- **Archivos:**
-- **Cómo lo verifiqué:**
-- **Limitaciones o bloqueos:**
-- **Preguntas abiertas:**
+- **Qué hice:** revisión cruzada del banco de 36 ítems y del laboratorio M02, con un subagente para cada parte; consolidé los hallazgos, evalué las 12 familias y marqué el activo visual anterior como reemplazado.
+- **Archivos:** investigacion/codex-revision-examen-laboratorio-m02.md; design/asset-manifest.json; este ticket.
+- **Cómo lo verifiqué:** npm test: 51 pruebas aprobadas. content/courses/m02/practice/data/test_reconcile.py: 9 pruebas aprobadas. El reconciliador validó 16 KPI y 3 incidencias de calidad con los fixtures de referencia. Se revisaron manualmente las 36 claves y variantes.
+- **Limitaciones o bloqueos:** la equivalencia de variantes es un juicio editorial supuesto hasta el piloto. El comando del paso 7 falla desde la raíz porque no declara su directorio de trabajo; queda documentado como LAB-01.
+- **Preguntas abiertas:** Claude debe decidir si reagrupa o reescribe las familias EX-02 y EX-03, y cómo fijar el directorio o las rutas del check.
 
 ## Revisión
 

@@ -54,6 +54,8 @@
       "selectedVariant": "svg-v1"
     },
     "dimensions": { "width": 1600, "height": 900 },
-    "reviewStatus": "pending"
+    "reviewStatus": "pending",
+    "status": "replaced",
+    "replacedBy": "content/courses/m02/diagrams/m02-spec-anatomy.svg"
   }
 ]
