@@ -23,7 +23,7 @@
   "evidenceRequired": [
     "Lista de al menos 10 ambigüedades clasificadas en preguntar, asumir y registrar, o fuera de alcance",
     "Registro de supuestos con dueño, estado y política, incluidas las dos preguntas sin respuesta del director",
-    "Al menos 5 casos de prueba con valor esperado, 2 de calidad de datos y 1 contraejemplo del comentario",
+    "Al menos 5 casos de prueba con valor esperado, 2 de calidad de datos y 1 contraejemplo sobre el comentario narrativo",
     "Al menos 5 escenarios Given/When/Then, uno negativo",
     "Prompt de ejecución con hitos y su prueba, política de ambigüedad y evidencia exigida",
     "Cuaderno de decisiones con sus cuatro piezas"
@@ -40,7 +40,7 @@
         },
         {
           "level": 2,
-          "descriptor": "Usuario, decisión y periodo explícitos; el alcance dice qué entra, pero no qué queda fuera o los límites de acción."
+          "descriptor": "Usuario, decisión y periodo explícitos; el alcance dice qué entra, pero no qué queda fuera ni cuáles son los límites de acción."
         },
         {
           "level": 3,
@@ -130,7 +130,7 @@
     "insufficient": "Hacer un dashboard bonito del pipeline por región con los datos de Marta, con gráficas claras y un comentario de IA que explique cómo vamos. Que el agente decida lo que haga falta y que quede listo para el lunes."
   },
   "executableCheck": {
-    "description": "Desde la carpeta del manual (content/courses/m02 o la carpeta donde descargaste los materiales): si ejecutas tu prompt con un agente (paso 7), el kpis.json que produzca debe pasar el check de reconciliación con los supuestos que declaraste.",
+    "description": "Si ejecutas tu prompt con un agente (paso 7), el kpis.json que produzca debe pasar la reconciliación con los supuestos que declaraste. El script se ejecuta desde la carpeta del manual (content/courses/m02, o la carpeta donde descargaste los materiales).",
     "command": "python practice/data/reconcile.py --data-dir practice/data --kpis kpis.json --assumptions supuestos.json"
   },
   "transferNotebook": true,
