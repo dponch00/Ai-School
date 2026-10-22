@@ -4,22 +4,24 @@
 
 ## Siguiente acción
 
-1. **Claude:** esqueleto de la app con el diseño D1 (F1-01) y pipeline de contenido (F1-02), para ver M02 en el navegador.
-2. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
+1. **Daniel:** abrir la app (`npm run dev` → http://localhost:5173) y leer M02. Las lecciones, las comprobaciones y el laboratorio ya se pueden usar; todavía no se guarda nada.
+2. **Daniel → Codex:** pasarle T-011 (revisión de interfaz del lector frente al sistema de diseño).
+3. **Claude, después:** persistencia en IndexedDB (F1-07) y examen (F1-08).
+4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-21)
 
-**≈ 20 % de la V1** (rango razonable: 17–23 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 23 % de la V1** (rango razonable: 20–26 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
-| 1 · Piloto M02 | 22 % | 46 % (contenido completo con revisión cruzada; falta toda la app y la revisión del piloto) | 10,1 |
-| 2 · Base de app y PWA | 15 % | 5 % (contratos y validación) | 0,8 |
+| 1 · Piloto M02 | 22 % | 59 % (contenido completo y revisado; lector, comprobaciones y laboratorio funcionando; faltan persistencia, examen, perfil, reporte y revisión del piloto) | 13,0 |
+| 2 · Base de app y PWA | 15 % | 8 % (contratos, validación, rutas y estructura) | 1,2 |
 | 3 · Nueve manuales restantes | 40 % | 3 % (currículo y mapa de competencias) | 1,2 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 20 %** |
+| **Total** | 100 % | | **≈ 23 %** |
 
 ## Tickets
 
@@ -35,18 +37,23 @@
 | [T-008](coordinacion/tickets/T-008-codex-revision-m02-l3-l6.md) | Codex | Revisión de L3–L6, diagrama y reconciliador | cerrado |
 | [T-009](coordinacion/tickets/T-009-codex-revision-examen-laboratorio-m02.md) | Codex | Revisión del banco de examen y del laboratorio M02 | cerrado |
 | [T-010](coordinacion/tickets/T-010-codex-revision-variantes-nuevas.md) | Codex | Revisión de las 13 variantes nuevas y del laboratorio | cerrado |
+| [T-011](coordinacion/tickets/T-011-codex-revision-interfaz-lector.md) | Codex | Revisión de interfaz del lector frente al sistema D1 | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | `src/` (esqueleto de la app) |
+| Claude | `src/storage/` (persistencia, siguiente) |
+| Codex (T-011) | `investigacion/codex-revision-interfaz-lector.md`, `design/qa/T-011/` |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-21 · Claude Code — primera versión de la app
+Esqueleto de la app (F1-01) y pipeline de contenido (F1-02, D-020). El build valida `content/` y convierte el Markdown en bloques saneados; las variables CSS salen de los tokens de D1. Páginas: inicio, biblioteca (9 cursos «Próximamente» sin relleno), portada de M02, lector con índice adhesivo o desplegable, repasos y comprobaciones con feedback por opción, fichas de producto, diagrama, fuentes y laboratorio con rúbrica. Comprobado en el navegador a 360 × 780 y 1280 × 800: sin desplazamiento horizontal ni errores de consola; índice y citas desplazan sin romper la ruta. Se corrigió en la prueba un estado de opción incorrecta que se veía como «seleccionada». `npm test` 52/52, typecheck, lint y build. Avance: ≈ 23 %.
 
 ### 2026-10-21 · Claude Code — revisión de T-010
 Sin hallazgos: las 13 variantes nuevas, las 12 familias y los cambios del laboratorio pasan la revisión de Codex. Todo el contenido de M02 queda con revisión cruzada.

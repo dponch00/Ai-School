@@ -124,3 +124,10 @@ Una entrada por decisión. Estados: **aceptada**, **propuesta** (espera a Daniel
 - **Estado:** aceptada (recomendación de Codex en T-006) · 2026-10-21 · **concreta D-007**
 - **Decisión:** el cuerpo de una lección enuncia principios duraderos, citados, sin nombrar productos ni proveedores. Todo lo que depende de un producto, un modelo o una versión va en una ficha de producto enlazada desde el segmento. Las fichas distinguen recomendaciones (`guidance`) de capacidades con estado de lanzamiento (`capability` + `maturity`).
 - **Cómo se hace cumplir:** `src/domain/course-files.test.ts` falla si el cuerpo de una lección nombra un producto o proveedor.
+
+## D-020 · Contenido compilado en el build
+
+- **Estado:** aceptada · 2026-10-21 · concreta F1-02
+- **Decisión:** `scripts/build-content.ts` valida todo `content/` contra los contratos y genera `src/generated/content.json` (lecciones ya convertidas a bloques HTML saneados, preguntas, fichas, activos y fuentes) y `src/generated/tokens.css`. Corre antes de `dev`, `build`, `test` y `typecheck`; si algo no cumple el contrato, el build falla. Lo generado no se versiona.
+- **Por qué:** el contenido llega validado y saneado al navegador, sin parsear Markdown en el cliente.
+- **Deuda conocida:** hoy todo el contenido va en el bundle principal (> 500 kB). Con varios cursos, cada curso debe ir en su propio paquete descargable para el modo offline por curso (Fase 2, D-014).

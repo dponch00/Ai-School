@@ -1,0 +1,93 @@
+import { useEffect } from 'react'
+import { Link, useParams, useSearchParams } from 'react-router'
+import { content, getCourse, getLesson } from '../content'
+import LessonBlocks from '../components/LessonBlocks'
+import { scrollToAnchor } from '../components/anchors'
+import QuestionCheck from '../components/QuestionCheck'
+import Toc from '../components/Toc'
+import NotFound from './NotFound'
+
+export default function LessonPage() {
+  const { courseId, lessonId } = useParams()
+  const [params] = useSearchParams()
+  const course = getCourse(courseId)
+  const lesson = course && getLesson(course, lessonId)
+  const target = params.get('seccion')
+
+  useEffect(() => {
+    if (target) requestAnimationFrame(() => scrollToAnchor(target))
+  }, [target, lessonId])
+
+  if (!course || !lesson) return <NotFound />
+  const index = course.lessons.indexOf(lesson)
+  const prev = course.lessons[index - 1]
+  const next = course.lessons[index + 1]
+  const q = (id: string) => content.questions[id]
+
+  return (
+    <div className="page page--reader">
+      <nav className="breadcrumb" aria-label="Ruta de navegación">
+        <Link to="/cursos">Cursos</Link> <span aria-hidden="true">/</span>{' '}
+        <Link to={`/cursos/${course.id}`}>{course.id.toUpperCase()}</Link> <span aria-hidden="true">/</span> Lección {lesson.order}
+      </nav>
+      <div className="reader">
+        <Toc entries={lesson.toc} hasChecks hasSources={lesson.sources.length > 0} />
+        <article className="reader__main" aria-labelledby="lesson-title">
+          <p className="eyebrow">Lección {lesson.order} de {course.lessons.length} · {lesson.estimatedMinutes} min</p>
+          <h1 id="lesson-title">{lesson.title}</h1>
+
+          {lesson.reviewQuestionIds.length > 0 && (
+            <section className="review" aria-labelledby="repaso">
+              <h2 id="repaso" className="review__title">Repaso antes de empezar</h2>
+              <p className="muted">Responde sin mirar la lección anterior. Recordar es parte de aprender.</p>
+              {lesson.reviewQuestionIds.map((id, i) => q(id) && (
+                <QuestionCheck key={id} question={q(id)} courseId={course.id} currentLessonId={lesson.id} label={`Repaso ${i + 1}`} />
+              ))}
+            </section>
+          )}
+
+          <section className="objectives-box" aria-labelledby="objetivos-leccion">
+            <h2 id="objetivos-leccion">En esta lección</h2>
+            <ul>{lesson.objectives.map((o) => <li key={o.id}>{o.statement}</li>)}</ul>
+          </section>
+
+          <LessonBlocks
+            blocks={lesson.blocks}
+            sources={Object.values(content.sources)}
+            checks={
+              <section className="checks" aria-labelledby="comprobacion">
+                <h2 id="comprobacion">Comprueba lo que aprendiste</h2>
+                <p className="muted">Sin volver a leer. Después de responder verás por qué cada opción es o no la mejor.</p>
+                {lesson.checkQuestionIds.map((id, i) => q(id) && (
+                  <QuestionCheck key={id} question={q(id)} courseId={course.id} currentLessonId={lesson.id} label={`Pregunta ${i + 1} de ${lesson.checkQuestionIds.length}`} />
+                ))}
+              </section>
+            }
+          />
+
+          {lesson.sources.length > 0 && (
+            <section className="sources" aria-labelledby="fuentes">
+              <h2 id="fuentes">Fuentes</h2>
+              <ol>
+                {lesson.sources.map((s) => (
+                  <li key={s.id} id={`fuente-${s.n}`}>
+                    <a href={s.url} target="_blank" rel="noreferrer">{s.title}</a>, {s.organization}. Consultada el {s.accessedAt}.
+                  </li>
+                ))}
+              </ol>
+            </section>
+          )}
+
+          <nav className="pager" aria-label="Lecciones">
+            {prev ? <Link to={`/cursos/${course.id}/lecciones/${prev.id}`}>← {prev.title}</Link> : <span />}
+            {next ? (
+              <Link to={`/cursos/${course.id}/lecciones/${next.id}`}>{next.title} →</Link>
+            ) : (
+              course.practice && <Link to={`/cursos/${course.id}/laboratorio`}>Laboratorio →</Link>
+            )}
+          </nav>
+        </article>
+      </div>
+    </div>
+  )
+}

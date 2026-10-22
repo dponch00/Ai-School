@@ -1,0 +1,12 @@
+[
+  { "id": "m01", "title": "Herramientas, modelos y límites de la IA", "centralQuestion": "¿Qué herramienta usaría para esta tarea y cómo comprobaría su resultado?" },
+  { "id": "m02", "title": "Prompting avanzado y especificaciones", "centralQuestion": "¿Cómo convierto una idea ambigua en una tarea ejecutable y verificable?" },
+  { "id": "m03", "title": "Ingeniería de contexto y conocimiento", "centralQuestion": "¿Qué necesita saber el agente para trabajar bien sin saturarse?" },
+  { "id": "m04", "title": "Código, Git y entornos para dirigir agentes", "centralQuestion": "¿Cómo reviso y recupero un cambio que hizo la IA?" },
+  { "id": "m05", "title": "Desarrollo con Codex, Claude Code y Copilot", "centralQuestion": "¿Cómo dirijo una mejora de principio a fin, con el agente bajo control?" },
+  { "id": "m06", "title": "Datos y arquitectura de herramientas analíticas", "centralQuestion": "¿Dónde se ejecuta cada operación y cómo sé que los números son correctos?" },
+  { "id": "m07", "title": "APIs, MCP, conectores e integraciones", "centralQuestion": "¿Quién se conecta a qué, con qué permisos y para qué?" },
+  { "id": "m08", "title": "Agentes, automatización y equipos", "centralQuestion": "¿Qué autonomía aporta valor y qué complejidad introduce?" },
+  { "id": "m09", "title": "Evaluación, confiabilidad y control", "centralQuestion": "¿Qué evidencia demuestra que una versión es mejor y es segura?" },
+  { "id": "m10", "title": "De prototipo a producto: proyecto integrador", "centralQuestion": "¿Qué le falta a una herramienta para ser útil y mantenible?" }
+]
