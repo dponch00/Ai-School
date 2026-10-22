@@ -253,3 +253,14 @@ describe('casos reproducibles de la revisión T-004', () => {
     expect(Question.safeParse(makeQuestion({ sourceIds: [] })).success).toBe(false)
   })
 })
+
+describe('selectExam en un curso piloto', () => {
+  const drafts = makeBank().map((q) => ({ ...q, status: 'draft' as const }))
+  const objectives = [1, 2, 3, 4, 5, 6].map((n) => `m02-eo${n}`)
+  it('sin allowDraft, los borradores no entran al examen', () => {
+    expect(() => selectExam({ bank: drafts, evaluatedObjectiveIds: objectives, itemsPerObjective: 2, rng: seededRng(1) })).toThrow()
+  })
+  it('con allowDraft, el examen se arma con borradores', () => {
+    expect(selectExam({ bank: drafts, evaluatedObjectiveIds: objectives, itemsPerObjective: 2, rng: seededRng(1), allowDraft: true })).toHaveLength(12)
+  })
+})

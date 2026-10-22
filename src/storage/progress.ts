@@ -25,15 +25,15 @@ export async function markLessonVisited(db: LearnerDb, courseId: string, lessonI
 export interface CheckRound {
   courseId: string
   lessonId: string
-  /** `checks` cuenta para el progreso de la lección; `review` es el repaso de lecciones anteriores. */
-  purpose: 'checks' | 'review'
+  /** `checks` cuenta para el progreso de la lección; `review` es el repaso de lecciones anteriores; `practice`, el modo práctica del curso. */
+  purpose: 'checks' | 'review' | 'practice'
   contentVersion: string
   /** Cuántas preguntas tiene la ronda: al responderlas todas, el intento se envía. */
   size: number
 }
 
-export const roundLabel = (r: Pick<CheckRound, 'lessonId' | 'purpose'>) =>
-  `${r.purpose === 'checks' ? 'comprobaciones' : 'repaso'} ${r.lessonId}`
+const LABELS = { checks: 'comprobaciones', review: 'repaso', practice: 'práctica' } as const
+export const roundLabel = (r: Pick<CheckRound, 'lessonId' | 'purpose'>) => `${LABELS[r.purpose]} ${r.lessonId}`
 
 /**
  * Guarda una respuesta de comprobación con la pregunta congelada tal como se mostró.
@@ -56,7 +56,7 @@ export async function recordCheckAnswer(
       const previous = await db.attempts.where('formLabel').equals(formLabel).count()
       attempt = {
         id: newLocalId(),
-        kind: 'check',
+        kind: round.purpose === 'practice' ? 'practice' : 'check',
         courseId: round.courseId,
         contentVersion: round.contentVersion,
         formLabel,

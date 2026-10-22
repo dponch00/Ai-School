@@ -1,7 +1,7 @@
 [
   {
     "id": "m02-l1-c1",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l1",
@@ -12,34 +12,34 @@
     "difficulty": "base",
     "process": "apply",
     "scenario": "La gerente de crédito de Altiplano escribe: «Hazme un reporte de cartera vencida».",
-    "stem": "¿Cuál de estas reescrituras es el mejor objetivo para dárselo a un agente?",
+    "stem": "¿Cuál de estas reescrituras sirve mejor como objetivo para un agente?",
     "options": [
       {
         "id": "o1",
         "text": "Para la reunión de cobranza: elegir a quién llamar primero entre clientes con más de 60 días vencidos",
         "correct": true,
-        "feedback": "Correcta. Nombra a quién sirve (la reunión de cobranza), la decisión que apoya (a quién llamar primero) y el umbral (más de 60 días). Con eso se pueden elegir los datos y comprobar si el resultado sirve."
+        "feedback": "Correcta. Dice para quién es el trabajo (la reunión de cobranza), qué decisión apoya (a quién llamar primero) y qué criterio separa lo importante (más de 60 días). Con eso el agente sabe qué datos usar y tú puedes comprobar si el resultado sirve."
       },
       {
         "id": "o2",
         "text": "Un reporte de cartera vencida completo y moderno, con todas las métricas que se puedan incluir",
         "correct": false,
         "misconceptionId": "m02-mc03",
-        "feedback": "«Todas las métricas posibles» declara ambición, no un objetivo. Sin alcance acotado el agente añadirá cosas que nadie pidió y nada se podrá verificar."
+        "feedback": "«Todas las métricas posibles» suena ambicioso, pero no dice para qué decisión es el reporte ni qué hay que hacer. Cuando el alcance no está acotado, el agente tiende a agregar cosas que nadie pidió y el resultado no se puede revisar."
       },
       {
         "id": "o3",
         "text": "Un reporte hecho en React con tres gráficas de barras y una tabla paginada con todos los clientes",
         "correct": false,
         "misconceptionId": "m02-mc34",
-        "feedback": "Describe el cómo (tecnología y gráficas), no el para qué. Sin saber qué decisión apoya, no sabrás si esas gráficas sirven."
+        "feedback": "Describe el cómo (la tecnología y las gráficas), pero no para quién es ni qué decisión apoya. El cómo se decide después del qué y el para qué; antes no hay forma de saber si esas gráficas sirven."
       },
       {
         "id": "o4",
         "text": "Un reporte de cartera vencida; el modelo es potente y entenderá por sí solo qué se necesita",
         "correct": false,
         "misconceptionId": "m02-mc01",
-        "feedback": "Los proveedores piden explicitar motivación y destinatario. Si un colega sin contexto se confundiría con la petición, el modelo también."
+        "feedback": "Que el modelo sea potente no le da el contexto que solo tú tienes. Imagina que le pasas la frase a un colega competente que no conoce tu trabajo: si tendría que preguntarte para qué es el reporte, al modelo también le falta esa información."
       }
     ],
     "fixedOrder": false,
@@ -52,7 +52,7 @@
   },
   {
     "id": "m02-l1-c2",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l1",
@@ -63,27 +63,27 @@
     "difficulty": "base",
     "process": "analyze",
     "scenario": "Le escribes a un agente de código: «Explícame por qué cayó el pipeline ponderado esta semana».",
-    "stem": "¿Qué entregable es razonable esperar?",
+    "stem": "¿Qué deberías esperar que te entregue?",
     "options": [
       {
         "id": "o2",
         "text": "Un cambio en el cálculo del pipeline ponderado para corregir la caída detectada",
         "correct": false,
         "misconceptionId": "m02-mc35",
-        "feedback": "No pediste cambiar nada. Una petición de explicar lleva a inspeccionar e informar; modificar el cálculo excede lo pedido y podría ocultar la causa."
+        "feedback": "No pediste cambiar nada. «Explícame» pide un diagnóstico, así que el agente debería revisar e informar; si modifica el cálculo, va más allá de lo pedido y además podría ocultar la causa de la caída."
       },
       {
         "id": "o1",
-        "text": "Un informe con las cifras y la evidencia de la caída, sin modificar ningún archivo",
+        "text": "Un informe con las cifras y la explicación de la caída, sin modificar ningún archivo",
         "correct": true,
-        "feedback": "Correcta. «Explícame» pide un diagnóstico: el agente inspecciona e informa. Si después quieres un cambio, lo pides aparte."
+        "feedback": "Correcta. «Explícame» pide un diagnóstico: el agente revisa los datos y te informa, sin tocar el código. Si después quieres un cambio concreto, lo pides en otro encargo."
       },
       {
         "id": "o3",
         "text": "Una gráfica semanal nueva en el dashboard para poder seguir la evolución del pipeline",
         "correct": false,
         "misconceptionId": "m02-mc41",
-        "feedback": "Es un añadido que nadie pidió. Lo que el prompt no fija lo decide el modelo, por eso conviene declarar el tipo de entregable."
+        "feedback": "Es un añadido que nadie pidió y, además, un cambio en la herramienta cuando lo que pediste fue una explicación. Lo que no dejas fijado en la petición lo decide el modelo, por eso conviene decir siempre qué tipo de encargo es."
       }
     ],
     "fixedOrder": false,
@@ -96,7 +96,7 @@
   },
   {
     "id": "m02-l1-c3",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l1",
@@ -114,20 +114,20 @@
         "text": "El agente perdió los permisos de escritura sobre los archivos del proyecto a mitad de la sesión",
         "correct": false,
         "misconceptionId": "m02-mc39",
-        "feedback": "El agente editó archivos en esta misma sesión, así que no es un problema de permisos. La causa está en cómo se formuló la petición."
+        "feedback": "En esta misma sesión el agente ya editó archivos, así que los permisos no son el problema. La causa está en la forma de la pregunta: pediste sugerencias y eso fue lo que recibiste."
       },
       {
         "id": "o3",
         "text": "El modelo no es lo bastante capaz para modificar por su cuenta un cálculo financiero",
         "correct": false,
         "misconceptionId": "m02-mc40",
-        "feedback": "La capacidad no explica que responda con ideas: hizo justo lo que la pregunta pedía. Ajustar la formulación resuelve el problema."
+        "feedback": "La capacidad del modelo no explica la respuesta, porque hizo justo lo que la pregunta pedía. Si quieres que edite el código, basta con pedirle el cambio directamente."
       },
       {
         "id": "o1",
-        "text": "La pregunta pedía sugerencias; para que edite, hay que pedirle el cambio",
+        "text": "Pediste sugerencias y no un cambio; para que edite, hay que pedírselo directamente",
         "correct": true,
-        "feedback": "Correcta. Esa formulación tiende a producir sugerencias, no ediciones. «Cambia el cálculo de cobertura en metrics.py para…» deja claro el entregable."
+        "feedback": "Correcta. Cuando preguntas qué se podría mejorar, lo normal es que el agente conteste con una propuesta en vez de hacer el cambio. «Cambia el cálculo de cobertura en metrics.py para…» deja claro que esperas una edición."
       }
     ],
     "fixedOrder": false,
@@ -139,7 +139,7 @@
   },
   {
     "id": "m02-l1-c4",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l1",
@@ -151,34 +151,34 @@
     "difficulty": "base",
     "process": "apply",
     "scenario": "Pediste corregir el cálculo de cobertura de cuota por región y tienes un archivo de prueba con datos sintéticos.",
-    "stem": "¿Cuál de estas condiciones para dar la tarea por lista es observable?",
+    "stem": "¿Cuál de estas condiciones te permite comprobar que la tarea está lista?",
     "options": [
       {
         "id": "o2",
         "text": "Cuando el dashboard de cobertura se vea profesional, ordenado y fácil de leer para todo el comité",
         "correct": false,
         "misconceptionId": "m02-mc25",
-        "feedback": "«Profesional» y «fácil» no se pueden comprobar. Un criterio para saber que está lista describe algo observable."
+        "feedback": "«Profesional» y «fácil de leer» son opiniones, y dos personas pueden juzgarlas de forma distinta. La condición para dar la tarea por lista tiene que poder comprobarse, como una prueba que pasa o una cifra que cuadra."
       },
       {
         "id": "o3",
         "text": "Cuando el agente confirme por escrito que el cálculo de cobertura ya funciona bien",
         "correct": false,
         "misconceptionId": "m02-mc27",
-        "feedback": "Una afirmación no es evidencia. Hay que exigir el comando ejecutado y su resultado."
+        "feedback": "Que el agente diga que funciona es una afirmación, no una evidencia. Lo que comprueba la tarea es el comando que ejecutó y el resultado que obtuvo, algo que tú también puedes repetir."
       },
       {
         "id": "o4",
         "text": "Cuando se haya creado la nueva tabla de cobertura por región en la base de datos",
         "correct": false,
         "misconceptionId": "m02-mc26",
-        "feedback": "Que exista una tabla es un estado interno; no demuestra que las cifras sean correctas. El criterio debe comprobar una salida observable."
+        "feedback": "Que exista una tabla nueva es un estado interno del sistema y no demuestra que las cifras sean correctas. La condición tiene que mirar el resultado, por ejemplo una prueba que pasa o un total que cuadra."
       },
       {
         "id": "o1",
         "text": "Cuando la prueba de cobertura pase y el total cuadre con una reconciliación independiente",
         "correct": true,
-        "feedback": "Correcta. Las dos condiciones se pueden comprobar con evidencia: la salida de la prueba y una cifra calculada aparte."
+        "feedback": "Correcta. Las dos condiciones se comprueban con evidencia: la salida de la prueba y una cifra calculada por separado sobre los mismos datos. Cualquiera puede repetirlas y llegar al mismo resultado."
       }
     ],
     "fixedOrder": false,
@@ -192,7 +192,7 @@
   },
   {
     "id": "m02-l1-r1",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l1",
@@ -207,23 +207,23 @@
     "options": [
       {
         "id": "o2",
-        "text": "La tecnología del frontend y el tipo de gráfica que conviene para cada región",
+        "text": "La tecnología de la interfaz y el tipo de gráfica que conviene para cada región",
         "correct": false,
         "misconceptionId": "m02-mc34",
-        "feedback": "Eso es el cómo, no el objetivo. Se decide después de saber qué decisión hay que apoyar."
+        "feedback": "Eso es el cómo, y se decide después de saber qué decisión hay que apoyar. Si eliges las gráficas antes, terminas discutiendo la forma sin saber si sirve para algo."
       },
       {
         "id": "o1",
-        "text": "La decisión que tomará el comité y el umbral de lo que es relevante",
+        "text": "La decisión que tomará el comité y el criterio que separa lo importante",
         "correct": true,
-        "feedback": "Correcta. Ya tiene usuario y periodo; sin la decisión y el umbral no se puede elegir qué mostrar ni comprobar si sirve."
+        "feedback": "Correcta. Ya dice quién lo va a usar y qué periodo cubre, pero le faltan la decisión que apoya y el criterio que separa lo importante. Sin ellos no hay forma de elegir qué mostrar ni de comprobar si el resultado sirve."
       },
       {
         "id": "o3",
         "text": "Más métricas por región, para que el dashboard quede completo y no le falte nada",
         "correct": false,
         "misconceptionId": "m02-mc03",
-        "feedback": "Añadir métricas sin una decisión que las justifique hace el dashboard más difícil de verificar y de leer. Primero se fija qué decide el comité; de ahí salen las métricas necesarias."
+        "feedback": "Añadir métricas sin una decisión que las justifique vuelve el dashboard más difícil de leer y de revisar. Primero se fija qué decide el comité, y de ahí salen las métricas que hacen falta."
       }
     ],
     "fixedOrder": false,
@@ -236,7 +236,7 @@
   },
   {
     "id": "m02-l1-r2",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l1",
@@ -248,27 +248,27 @@
     "difficulty": "base",
     "process": "apply",
     "scenario": "Pediste corregir la conversión de EUR a USD en el pipeline. Tienes un caso de prueba de tres filas calculado a mano.",
-    "stem": "¿Con qué criterio darías la tarea por lista?",
+    "stem": "¿Qué condición usarías para decir que la tarea está lista?",
     "options": [
       {
         "id": "o2",
         "text": "El agente informa que todas las pruebas del proyecto pasan después del cambio",
         "correct": false,
         "misconceptionId": "m02-mc27",
-        "feedback": "Es una afirmación del agente, no la evidencia. Pide el comando y su salida."
+        "feedback": "Es lo que dice el agente, no la evidencia de que sea cierto. Antes de aceptarlo, pide el comando que ejecutó y lo que devolvió."
       },
       {
         "id": "o3",
         "text": "La conversión de monedas queda bien hecha y revisada en todo el pipeline",
         "correct": false,
         "misconceptionId": "m02-mc25",
-        "feedback": "«Bien hecha» no dice cómo comprobarlo. Un buen criterio para darla por lista nombra un resultado observable."
+        "feedback": "«Bien hecha y revisada» no dice cómo comprobarlo, así que cada persona puede entender algo distinto. La condición para dar la tarea por lista nombra un resultado que se puede verificar."
       },
       {
         "id": "o1",
         "text": "El total en USD del caso de prueba coincide con el cálculo a mano",
         "correct": true,
-        "feedback": "Correcta. Es observable y reproducible: cualquiera puede correr el caso y comparar."
+        "feedback": "Correcta. Se puede comprobar y repetir, porque cualquiera puede correr el caso de prueba y comparar su total con el cálculo a mano. No depende de lo que diga el agente."
       }
     ],
     "fixedOrder": false,
@@ -281,7 +281,7 @@
   },
   {
     "id": "m02-l2-c1",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l2",
@@ -292,27 +292,27 @@
     "difficulty": "base",
     "process": "analyze",
     "scenario": "Vas a pedirle a un agente que corrija la marca de «vencida» en el dashboard de Altiplano.",
-    "stem": "¿Qué paquete de contexto le das?",
+    "stem": "¿Qué contexto le das?",
     "options": [
       {
         "id": "o1",
         "text": "El archivo del cálculo, la definición acordada de «vencida» y un caso que falla con su resultado esperado",
         "correct": true,
-        "feedback": "Correcta. Es contexto específico: dónde mirar, qué regla aplicar y cómo se ve «arreglado»."
+        "feedback": "Correcta. Es contexto específico: dónde mirar, qué regla aplicar y cómo se ve el resultado cuando está arreglado. Son cosas que el agente no podría averiguar solo o que le costaría mucho encontrar."
       },
       {
         "id": "o2",
         "text": "Todo el repositorio y seis meses de correos del equipo, para que no le falte ningún dato importante",
         "correct": false,
         "misconceptionId": "m02-mc06",
-        "feedback": "El rendimiento se degrada al llenarse el contexto. Si los correos contienen la definición, extráela tú y dásela."
+        "feedback": "Darle todo suele empeorar el resultado, porque el rendimiento del modelo baja a medida que se llena su ventana de contexto. Si la definición de «vencida» está en algún correo, sácala tú y dásela; el resto es ruido."
       },
       {
         "id": "o3",
         "text": "Solo la frase «arregla las vencidas»; el agente puede explorar el repositorio por su cuenta y encontrarlo",
         "correct": false,
         "misconceptionId": "m02-mc01",
-        "feedback": "Puede encontrar el archivo, pero no la definición acordada de «vencida» ni cómo se ve arreglado. Eso solo lo sabes tú."
+        "feedback": "El agente puede encontrar el archivo por su cuenta, pero no la definición acordada de «vencida» ni el caso que hoy sale mal. Esa información solo la tienes tú, y sin ella tendrá que adivinar."
       }
     ],
     "fixedOrder": false,
@@ -324,7 +324,7 @@
   },
   {
     "id": "m02-l2-c2",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l2",
@@ -342,20 +342,20 @@
         "text": "NUNCA, BAJO NINGUNA CIRCUNSTANCIA, MODIFIQUES NADA DE LO QUE HAY DENTRO DE LA CARPETA DE DATOS",
         "correct": false,
         "misconceptionId": "m02-mc07",
-        "feedback": "El énfasis no explica el motivo ni ofrece una alternativa, así que el agente no sabe qué hacer cuando necesite limpiar datos. Además, en modelos recientes el lenguaje agresivo puede provocar conductas de más."
+        "feedback": "Las mayúsculas no explican el motivo ni ofrecen una alternativa, así que el agente no sabe qué hacer si necesita limpiar datos. Además, prohíbe toda la carpeta cuando lo que hay que proteger es data/raw/, y en modelos recientes un tono tan agresivo puede llevar a aplicar la regla en exceso."
       },
       {
         "id": "o1",
         "text": "No modifiques data/raw/, que FP&A audita; si necesitas limpiar datos, escribe en data/clean/",
         "correct": true,
-        "feedback": "Correcta. Dice qué está prohibido, por qué y qué hacer en su lugar. Con el motivo, el agente puede aplicar la regla a casos nuevos."
+        "feedback": "Correcta. Dice qué está prohibido, por qué y qué hacer en cambio. Con el motivo, el agente puede aplicar la regla a situaciones que la regla no menciona."
       },
       {
         "id": "o3",
         "text": "Ten mucho cuidado con los datos del proyecto mientras trabajas en el cambio que te pedí",
         "correct": false,
         "misconceptionId": "m02-mc36",
-        "feedback": "Es una advertencia, no una restricción: no dice qué está prohibido ni qué hacer. El agente no puede comprobar si la cumple."
+        "feedback": "Es una advertencia, no una restricción, porque no dice qué está prohibido ni qué hacer en cambio. El agente no tiene forma de saber si la está cumpliendo."
       }
     ],
     "fixedOrder": false,
@@ -368,7 +368,7 @@
   },
   {
     "id": "m02-l2-c3",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l2",
@@ -379,27 +379,27 @@
     "difficulty": "base",
     "process": "apply",
     "scenario": "Al calcular el pipeline ponderado, el agente encuentra oportunidades en la etapa «Calificación», que no aparece en la tabla de probabilidades de FP&A.",
-    "stem": "¿Qué debería hacer?",
+    "stem": "¿Qué debería hacer el agente?",
     "options": [
       {
         "id": "o2",
         "text": "Usar un 25 %, que es una probabilidad habitual para esa etapa del embudo",
         "correct": false,
         "misconceptionId": "m02-mc08",
-        "feedback": "Un valor «habitual» sigue siendo inventado. Completar un dato de política sin avisar oculta el supuesto."
+        "feedback": "Un valor «habitual» sigue siendo un valor inventado, y esa probabilidad es una política que define FP&A. Si el agente la completa sin avisar, el pipeline ponderado cambia y nadie se entera de que hubo una decisión."
       },
       {
         "id": "o3",
         "text": "Excluir esas oportunidades del total ponderado y seguir calculando con el resto",
         "correct": false,
         "misconceptionId": "m02-mc37",
-        "feedback": "La exclusión cambia el total que verá el comité sin que nadie lo sepa. Toda exclusión se declara y se decide."
+        "feedback": "Excluirlas cambia el total que verá el comité sin que nadie lo sepa. Una exclusión también es una decisión, y lo que cambia una cifra visible se pregunta antes de avanzar."
       },
       {
         "id": "o1",
         "text": "Detenerse y reportarlo, porque esa probabilidad es una política de FP&A",
         "correct": true,
-        "feedback": "Correcta. Asignar un valor cambiaría el pipeline ponderado sin que nadie lo decidiera. Lo que falta se reporta o se pregunta."
+        "feedback": "Correcta. Las probabilidades por etapa las define FP&A, y asignar cualquier valor cambiaría el pipeline ponderado sin que nadie lo hubiera decidido. Lo que falta y cambia una cifra visible se reporta o se pregunta."
       }
     ],
     "fixedOrder": false,
@@ -413,7 +413,7 @@
   },
   {
     "id": "m02-l2-c4",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l2",
@@ -424,27 +424,27 @@
     "difficulty": "advanced",
     "process": "evaluate",
     "scenario": "En el dashboard de Altiplano hay tres ambigüedades: qué hacer con oportunidades duplicadas, si «Negociacion» sin tilde se normaliza, y qué colores usar en las barras.",
-    "stem": "¿Cuál deberías preguntar antes de avanzar?",
+    "stem": "¿Cuál de ellas hay que preguntar antes de avanzar?",
     "options": [
       {
         "id": "o1",
         "text": "Los duplicados, porque según cómo se traten cambia el total que verá el comité",
         "correct": true,
-        "feedback": "Correcta. Cambia una cifra visible y es una decisión de negocio. Las otras dos no mueven ningún total: se deciden y se registran."
+        "feedback": "Correcta. Según qué registro duplicado se conserve, cambia el total que verá el comité, y esa es una decisión de negocio. La etiqueta sin tilde y los colores no mueven ninguna cifra, así que se deciden y se registran con su motivo."
       },
       {
         "id": "o2",
         "text": "Las tres, porque cualquier ambigüedad tiene que resolverla primero el negocio",
         "correct": false,
         "misconceptionId": "m02-mc38",
-        "feedback": "Preguntarlo todo frena el trabajo sin reducir riesgo. Normalizar una etiqueta o elegir colores no cambia cifras: se decide y se registra."
+        "feedback": "Preguntarlo todo frena el trabajo sin reducir el riesgo. Normalizar una etiqueta o elegir colores no cambia ninguna cifra visible, de modo que se decide, se registra y se sigue."
       },
       {
         "id": "o3",
         "text": "Ninguna: el agente debe resolverlas todas por su cuenta y avisar cuando termine",
         "correct": false,
         "misconceptionId": "m02-mc08",
-        "feedback": "Si el agente decide los duplicados por su cuenta, el total cambia sin que nadie lo haya aprobado. Esa sí se pregunta."
+        "feedback": "Si el agente decide por su cuenta qué duplicado conservar, el total cambia sin que nadie lo haya aprobado. Las otras dos puede resolverlas y registrarlas, pero esta se pregunta porque mueve una cifra visible."
       }
     ],
     "fixedOrder": false,
@@ -457,7 +457,7 @@
   },
   {
     "id": "m02-l2-r1",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l2",
@@ -468,27 +468,27 @@
     "difficulty": "base",
     "process": "evaluate",
     "scenario": "En el dashboard faltan dos definiciones: la fecha del tipo de cambio EUR→USD y si los nombres de región se escriben con mayúscula inicial.",
-    "stem": "¿Cuál preguntas antes de avanzar?",
+    "stem": "¿Cuál de las dos hay que preguntar antes de avanzar?",
     "options": [
       {
         "id": "o2",
         "text": "Las dos, porque cualquier ambigüedad de un dashboard financiero la resuelve el negocio",
         "correct": false,
         "misconceptionId": "m02-mc38",
-        "feedback": "Preguntar todo frena el trabajo sin reducir riesgo. El formato de un nombre no mueve ninguna cifra y se puede decidir y registrar."
+        "feedback": "Preguntarlo todo frena el trabajo sin reducir el riesgo. Escribir los nombres de región con mayúscula inicial no mueve ninguna cifra, así que se decide y se registra."
       },
       {
         "id": "o1",
         "text": "La fecha del tipo de cambio, porque cambia los montos que verá el comité",
         "correct": true,
-        "feedback": "Correcta. La fecha del tipo de cambio mueve cifras visibles: se pregunta. Las mayúsculas no cambian ningún total y se deciden y registran."
+        "feedback": "Correcta. La fecha del tipo de cambio mueve los montos en USD que verá el comité, así que se pregunta. Las mayúsculas no cambian ningún total y se deciden y registran."
       },
       {
         "id": "o3",
         "text": "Ninguna: el agente debe resolverlas por su cuenta y avisar cuando termine",
         "correct": false,
         "misconceptionId": "m02-mc08",
-        "feedback": "Si el agente elige la fecha del tipo de cambio, el total cambia sin que nadie lo haya aprobado. Esa decisión se pregunta."
+        "feedback": "Si el agente elige por su cuenta la fecha del tipo de cambio, los montos cambian sin que nadie lo haya aprobado. Las mayúsculas sí puede decidirlas y registrarlas, pero esta definición se pregunta."
       }
     ],
     "fixedOrder": false,
@@ -501,7 +501,7 @@
   },
   {
     "id": "m02-l2-r2",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l2",
@@ -512,27 +512,27 @@
     "difficulty": "base",
     "process": "apply",
     "scenario": "El comentario para el comité debe mencionar el pipeline ponderado del T4.",
-    "stem": "¿Quién produce esa cifra?",
+    "stem": "¿De dónde debe salir esa cifra?",
     "options": [
       {
         "id": "o2",
-        "text": "El modelo, al escribir el comentario, a partir de las filas del snapshot",
+        "text": "Del modelo, al escribir el comentario a partir de las filas del snapshot",
         "correct": false,
         "misconceptionId": "m02-mc10",
-        "feedback": "El modelo puede equivocarse en la aritmética sin avisar. Para cálculos y conteos se usa código, no el razonamiento del modelo."
+        "feedback": "El modelo puede equivocarse en una suma sin dar ninguna señal. Para aritmética, conteos y cálculos se usa código, que da siempre el mismo resultado y se puede revisar."
       },
       {
         "id": "o3",
-        "text": "El modelo, y después se le pide que revise su propia suma antes de publicar",
+        "text": "Del modelo, al que después se le pide revisar su propia suma antes de publicar",
         "correct": false,
         "misconceptionId": "m02-mc10",
-        "feedback": "La autorrevisión no es una verificación independiente: puede confirmar el mismo error. La cifra se calcula en código desde el principio."
+        "feedback": "Revisar su propia suma no es una verificación independiente, porque el modelo puede confirmar el mismo error. La cifra se calcula en código desde el principio."
       },
       {
         "id": "o1",
-        "text": "Un cálculo en código (SQL o Python), y el modelo solo redacta con esa cifra",
+        "text": "De un cálculo en código (SQL o Python); el modelo solo redacta con esa cifra",
         "correct": true,
-        "feedback": "Correcta. La cifra sale de un cálculo determinista y verificable. El modelo puede redactar la interpretación, nunca producir el número."
+        "feedback": "Correcta. La cifra sale de un cálculo que da siempre el mismo resultado y que se puede revisar. El modelo redacta la interpretación con esa cifra, pero no la produce."
       }
     ],
     "fixedOrder": false,
@@ -545,7 +545,7 @@
   },
   {
     "id": "m02-l3-c1",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l3",
@@ -562,28 +562,28 @@
         "id": "o1",
         "text": "Tres filas distintas, incluido un monto en EUR y una fecha de cierre vacía",
         "correct": true,
-        "feedback": "Correcta. Son pocos, diversos y cubren casos borde. Así el agente no copia un rasgo superficial y aprende qué hacer con los casos difíciles."
+        "feedback": "Correcta. Son pocos ejemplos, diversos y con casos borde. Así el agente no copia un rasgo casual de las filas y ve qué hacer con los casos que se salen de lo habitual."
       },
       {
         "id": "o2",
         "text": "Diez filas casi iguales del Norte, todas en USD, para que no queden dudas",
         "correct": false,
         "misconceptionId": "m02-mc11",
-        "feedback": "Muchos ejemplos parecidos producen sobreajuste: el agente puede aprender que todo es del Norte y en USD. La diversidad importa más que la cantidad."
+        "feedback": "Muchos ejemplos parecidos llevan al sobreajuste, y el agente puede concluir que la tabla solo lleva oportunidades del Norte en USD. Importa más que los ejemplos sean diversos que la cantidad."
       },
       {
         "id": "o3",
         "text": "Una sola fila representativa, porque con un buen ejemplo basta",
         "correct": false,
         "misconceptionId": "m02-mc12",
-        "feedback": "Un único ejemplo no cubre los casos borde. Sin un caso en EUR o con fecha vacía, el agente tendrá que adivinar qué hacer con ellos."
+        "feedback": "Una sola fila no cubre los casos borde. Sin un monto en EUR ni una fecha vacía, el agente tendrá que adivinar qué hacer cuando los encuentre."
       },
       {
         "id": "o4",
         "text": "Una lista de reglas: no mezcles monedas, no dejes fechas vacías",
         "correct": false,
         "misconceptionId": "m02-mc13",
-        "feedback": "Son prohibiciones abstractas, no ejemplos. Un caso concreto con su resultado esperado enseña mejor y se puede comprobar."
+        "feedback": "Son prohibiciones abstractas, no ejemplos, y no dicen qué resultado esperar. Una fila concreta con su resultado esperado enseña mejor y además se puede comprobar."
       }
     ],
     "fixedOrder": false,
@@ -596,7 +596,7 @@
   },
   {
     "id": "m02-l3-c2",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l3",
@@ -608,27 +608,27 @@
     "difficulty": "advanced",
     "process": "analyze",
     "scenario": "La salida de KPI valida sin errores contra el esquema, pero en el Norte el pipeline ponderado (USD 900 000) supera al pipeline abierto (USD 850 000).",
-    "stem": "¿Qué explica mejor que haya pasado la validación?",
+    "stem": "¿Por qué pasó la validación?",
     "options": [
       {
         "id": "o2",
         "text": "La salida estructurada garantiza los valores, así que el error viene de los datos",
         "correct": false,
         "misconceptionId": "m02-mc14",
-        "feedback": "La salida estructurada no garantiza exactitud: los proveedores lo dicen expresamente. El error puede estar en el cálculo y el esquema no lo detecta."
+        "feedback": "La salida estructurada no garantiza que los valores sean exactos, y las guías de los proveedores lo advierten expresamente. El error puede estar en el cálculo, y el esquema no tiene forma de detectarlo."
       },
       {
         "id": "o1",
-        "text": "El esquema fija la forma; la regla «ponderado ≤ abierto» va en código",
+        "text": "El esquema fija solo la forma; la regla «ponderado ≤ abierto» va en código",
         "correct": true,
-        "feedback": "Correcta. Los modos estructurados garantizan campos y tipos, no relaciones entre valores. Esa invariante se comprueba en código, después de validar el esquema."
+        "feedback": "Correcta. Los modos de salida estructurada garantizan que la respuesta respeta el esquema, es decir, sus campos y tipos, pero no la relación entre valores. Esa invariante se comprueba en código, después de validar el esquema."
       },
       {
         "id": "o3",
         "text": "Faltó ponerle mínimos y máximos al esquema; con eso el error no pasaría",
         "correct": false,
         "misconceptionId": "m02-mc42",
-        "feedback": "Un valor dentro de rango puede seguir siendo falso, y no todos los proveedores admiten esas restricciones. La relación entre dos valores se comprueba en código."
+        "feedback": "Un número dentro del rango puede seguir siendo falso, y no todos los proveedores admiten esas restricciones. Además, aquí el problema es la relación entre dos valores, y eso se comprueba en código."
       }
     ],
     "fixedOrder": false,
@@ -642,7 +642,7 @@
   },
   {
     "id": "m02-l3-c3",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l3",
@@ -660,20 +660,20 @@
         "text": "No incluyas oportunidades cerradas en el cálculo del pipeline abierto",
         "correct": false,
         "misconceptionId": "m02-mc13",
-        "feedback": "Es una prohibición abstracta: no dice qué resultado esperar ni cómo comprobarlo. Un contraejemplo útil es un caso con su salida esperada."
+        "feedback": "Es una prohibición abstracta, que no dice qué resultado esperar ni cómo comprobar que se cumplió. Un contraejemplo útil es un caso concreto acompañado de su resultado esperado."
       },
       {
         "id": "o3",
-        "text": "Ten mucho cuidado con las etapas al calcular el pipeline del trimestre",
+        "text": "Ten mucho cuidado con las etapas cuando calcules el pipeline abierto del trimestre",
         "correct": false,
         "misconceptionId": "m02-mc36",
-        "feedback": "Es una advertencia, no un contraejemplo. No dice qué está mal ni cómo se vería el resultado correcto."
+        "feedback": "Es una advertencia, no un contraejemplo. No dice qué no debe pasar ni cómo se vería el resultado correcto."
       },
       {
         "id": "o1",
-        "text": "Una oportunidad Perdida de USD 60 000 no cambia el total del pipeline abierto",
+        "text": "Una oportunidad en etapa Perdida de USD 60 000 no cambia el pipeline abierto",
         "correct": true,
-        "feedback": "Correcta. Es un caso concreto con su resultado esperado: el agente puede probarlo y tú puedes ver si pasa."
+        "feedback": "Correcta. Es un caso concreto de lo que no debe pasar, con su resultado esperado. El agente puede probarlo y tú puedes verificarlo sin tener que interpretar nada."
       }
     ],
     "fixedOrder": false,
@@ -686,7 +686,7 @@
   },
   {
     "id": "m02-l3-c4",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l3",
@@ -697,28 +697,28 @@
     ],
     "difficulty": "advanced",
     "process": "evaluate",
-    "scenario": "La API devuelve un JSON que parece válido y tiene todos los campos obligatorios, pero indica que la respuesta se cortó por el límite de tokens.",
+    "scenario": "La API devuelve un JSON que parece válido y trae todos los campos obligatorios, pero la respuesta indica que se cortó por el límite de longitud.",
     "stem": "¿Qué haces con esa respuesta?",
     "options": [
       {
         "id": "o1",
         "text": "La tratas como fallida, aunque el JSON parezca válido, y no la usas",
         "correct": true,
-        "feedback": "Correcta. Una respuesta truncada puede tener valores incompletos aunque la forma parezca bien. Antes de usarla hay que comprobar por qué terminó."
+        "feedback": "Correcta. Una respuesta cortada puede traer valores incompletos aunque la forma parezca correcta. Antes de usar cualquier respuesta hay que comprobar que terminó normalmente."
       },
       {
         "id": "o2",
         "text": "La usas: si el JSON es válido y trae los campos, el corte no importa",
         "correct": false,
         "misconceptionId": "m02-mc17",
-        "feedback": "Que el JSON parezca válido no dice si el contenido está completo. Un corte por límite de tokens se trata como fallo."
+        "feedback": "Que el JSON parezca válido no dice si el contenido está completo, porque el corte pudo dejar valores a medias. Una respuesta que se cortó por el límite de longitud se trata como fallida."
       },
       {
         "id": "o3",
         "text": "La usas, porque la salida estructurada garantiza que los valores son correctos",
         "correct": false,
         "misconceptionId": "m02-mc14",
-        "feedback": "La salida estructurada garantiza la forma, no los valores. Y una respuesta cortada ni siquiera terminó de producirse."
+        "feedback": "La salida estructurada garantiza la forma, no los valores. Además, esta respuesta se cortó antes de terminar, así que puede faltarle información."
       }
     ],
     "fixedOrder": false,
@@ -731,7 +731,7 @@
   },
   {
     "id": "m02-l3-r1",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l3",
@@ -750,20 +750,20 @@
         "text": "Que tiene razón: la salida estructurada asegura que los valores son correctos",
         "correct": false,
         "misconceptionId": "m02-mc14",
-        "feedback": "Los proveedores dicen expresamente que la salida estructurada no garantiza exactitud. Hay que verificar los valores."
+        "feedback": "Las guías de los proveedores advierten expresamente que la salida estructurada no garantiza que los valores sean exactos. Antes de publicar, hay que verificar las cifras con invariantes en código."
       },
       {
         "id": "o1",
         "text": "Que el esquema solo fija la forma; las cifras se comprueban con invariantes",
         "correct": true,
-        "feedback": "Correcta. El esquema garantiza campos y tipos. Las reglas de significado, como «la suma de regiones es igual al total», se comprueban aparte."
+        "feedback": "Correcta. El esquema garantiza campos y tipos. Las reglas de significado, como «la suma de las regiones es igual al total», se comprueban aparte, en código."
       },
       {
         "id": "o3",
         "text": "Que tiene razón si el mismo esquema se usó con un proveedor que lo admite",
         "correct": false,
         "misconceptionId": "m02-mc16",
-        "feedback": "Cada proveedor admite un subconjunto distinto de JSON Schema, y aun así ninguno garantiza que los valores sean verdaderos. La verificación sigue siendo necesaria."
+        "feedback": "No todos los proveedores admiten las mismas partes de un esquema, y aun así ninguno garantiza que los valores sean verdaderos. Que el proveedor acepte el esquema no evita tener que verificar las cifras."
       }
     ],
     "fixedOrder": false,
@@ -776,7 +776,7 @@
   },
   {
     "id": "m02-l3-r2",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l3",
@@ -794,20 +794,20 @@
         "text": "Una imagen de cómo debe verse la tarjeta de cobertura, sin datos",
         "correct": false,
         "misconceptionId": "m02-mc46",
-        "feedback": "Un ejemplo de formato orienta la apariencia, pero no permite comprobar que el cálculo es correcto. En una especificación verificable, el caso de prueba va primero."
+        "feedback": "Un ejemplo de formato orienta la apariencia, pero no permite comprobar que el cálculo es correcto. En una especificación verificable, lo que no puede faltar es un caso de prueba."
       },
       {
         "id": "o3",
         "text": "Diez ejemplos de tarjetas con el mismo formato y montos parecidos",
         "correct": false,
         "misconceptionId": "m02-mc11",
-        "feedback": "Muchos ejemplos parecidos producen sobreajuste y no prueban nada. Un caso de prueba con su valor esperado aporta más."
+        "feedback": "Muchos ejemplos parecidos pueden llevar al sobreajuste y, como son de formato, no comprueban nada. Un caso de prueba con su resultado esperado aporta más."
       },
       {
         "id": "o1",
         "text": "Un caso de prueba con datos de entrada y el resultado esperado",
         "correct": true,
-        "feedback": "Correcta. Un caso de prueba se puede ejecutar y comprobar; un ejemplo de formato solo orienta la apariencia."
+        "feedback": "Correcta. Un caso de prueba se puede ejecutar: el agente lo corre y tú ves si pasa o no. Un ejemplo de formato, en cambio, solo orienta la apariencia."
       }
     ],
     "fixedOrder": false,
@@ -820,7 +820,7 @@
   },
   {
     "id": "m02-l4-c1",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l4",
@@ -837,21 +837,21 @@
         "id": "o1",
         "text": "Las exclusiones: qué queda fuera y qué no puede hacer sin confirmar",
         "correct": true,
-        "feedback": "Correcta. Lo que la especificación no excluye, el agente puede añadirlo. El alcance va en las dos direcciones."
+        "feedback": "Correcta. El alcance va en las dos direcciones, y la especificación decía qué entraba pero no qué quedaba fuera. Lo que no se excluye, el agente puede decidir añadirlo."
       },
       {
         "id": "o2",
         "text": "Más contexto del repositorio, para que el agente entendiera el proyecto",
         "correct": false,
         "misconceptionId": "m02-mc06",
-        "feedback": "Más contexto no le dice qué está fuera de alcance. El problema es que nadie excluyó esas funciones."
+        "feedback": "Más contexto no le dice al agente qué queda fuera del alcance. El problema es que nadie excluyó el inicio de sesión ni el envío de correos."
       },
       {
         "id": "o3",
         "text": "Énfasis en mayúsculas para que el agente se limitara a lo pedido",
         "correct": false,
         "misconceptionId": "m02-mc07",
-        "feedback": "El énfasis no sustituye una lista de exclusiones. El agente necesita saber qué no hacer, no que lo digas más fuerte."
+        "feedback": "Las mayúsculas no sustituyen una lista de exclusiones. El agente necesita saber qué queda fuera, no que se lo digas más fuerte."
       }
     ],
     "fixedOrder": false,
@@ -864,7 +864,7 @@
   },
   {
     "id": "m02-l4-c2",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l4",
@@ -883,20 +883,20 @@
         "text": "Siempre, en cualquier tarea, porque especificar más mejora todo resultado",
         "correct": false,
         "misconceptionId": "m02-mc24",
-        "feedback": "Especificar tiene un costo; en tareas pequeñas es desproporcionado. Aquí conviene por la ambigüedad y el alcance, no por regla."
+        "feedback": "Especificar tiene un costo, y en tareas pequeñas resulta desproporcionado. Aquí conviene por la ambigüedad y el tamaño del cambio, no porque sea una regla para todo."
       },
       {
         "id": "o1",
-        "text": "Ahora, para sacar las preguntas y llevar al negocio la que solo él decide",
+        "text": "Ahora, porque el cambio es amplio y la regla de «en riesgo» no está definida",
         "correct": true,
-        "feedback": "Correcta. La entrevista hace visibles las decisiones pendientes y el cambio es amplio. La definición de «en riesgo» la decide el negocio, no el agente."
+        "feedback": "Correcta. La regla de negocio no está clara y el cambio toca varios archivos, que son justo los casos en que la entrevista conviene. El agente puede hacer la pregunta sobre «en riesgo», pero la respuesta la da el negocio."
       },
       {
         "id": "o3",
         "text": "Nunca: es mejor escribir un prompt muy largo con todos los detalles posibles",
         "correct": false,
         "misconceptionId": "m02-mc04",
-        "feedback": "Un prompt largo no resuelve lo que nadie ha decidido. La definición de riesgo seguiría abierta."
+        "feedback": "Un prompt largo no resuelve lo que nadie ha decidido, y la definición de «en riesgo» seguiría abierta. La entrevista sirve justamente para descubrir esas preguntas antes de implementar."
       }
     ],
     "fixedOrder": false,
@@ -910,7 +910,7 @@
   },
   {
     "id": "m02-l4-c3",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l4",
@@ -921,27 +921,27 @@
     "difficulty": "base",
     "process": "apply",
     "scenario": "Hay que corregir una errata en el título de una gráfica. El archivo es conocido y el cambio se revierte fácilmente.",
-    "stem": "¿Qué especificación corresponde?",
+    "stem": "¿Qué especificación escribes?",
     "options": [
       {
         "id": "o2",
         "text": "Una especificación completa con historias de usuario y criterios de aceptación",
         "correct": false,
         "misconceptionId": "m02-mc24",
-        "feedback": "Es desproporcionado. Los flujos pesados aplicados a problemas pequeños generan documentos que cuestan más de revisar que el cambio."
+        "feedback": "Es desproporcionado para una errata. Los flujos pesados aplicados a problemas pequeños generan documentos más tediosos de revisar que el propio cambio."
       },
       {
         "id": "o3",
         "text": "Solo «arregla la errata»; el agente encontrará el archivo y el texto correcto",
         "correct": false,
         "misconceptionId": "m02-mc01",
-        "feedback": "Sin el texto correcto ni cómo comprobarlo, el agente adivina. Una frase más deja la tarea verificable."
+        "feedback": "Sin el texto correcto ni una forma de comprobarlo, el agente tiene que adivinar. Con una frase más, la tarea queda clara y se puede verificar."
       },
       {
         "id": "o1",
         "text": "Una frase con el archivo, el cambio y cómo comprobar que quedó bien",
         "correct": true,
-        "feedback": "Correcta. El rigor crece con el riesgo y la ambigüedad. Aquí no hay ninguno de los dos: una frase verificable basta."
+        "feedback": "Correcta. El rigor crece con el riesgo y la ambigüedad, y en una errata fácil de revertir no hay ninguno de los dos. Basta una frase que diga qué cambiar, dónde y cómo comprobarlo."
       }
     ],
     "fixedOrder": false,
@@ -954,7 +954,7 @@
   },
   {
     "id": "m02-l4-c4",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l4",
@@ -965,28 +965,28 @@
     ],
     "difficulty": "advanced",
     "process": "evaluate",
-    "scenario": "En la entrevista, el agente te pregunta qué significa «en riesgo». No lo sabes y el comité lo verá el lunes.",
+    "scenario": "En la entrevista, el agente te pregunta qué significa «en riesgo». No lo sabes, y el comité verá el dashboard el lunes.",
     "stem": "¿Qué haces?",
     "options": [
       {
         "id": "o1",
         "text": "Registras la pregunta para el negocio y no implementas esa parte todavía",
         "correct": true,
-        "feedback": "Correcta. Es una definición de negocio que cambia lo que verá el comité. Queda como pregunta abierta y el resto de la especificación avanza."
+        "feedback": "Correcta. Es una definición de negocio que cambia lo que verá el comité, así que queda como pregunta abierta para quien decide. Mientras tanto, el resto de la especificación puede avanzar."
       },
       {
         "id": "o2",
         "text": "Dejas que el agente proponga una definición y la adoptas para no frenar",
         "correct": false,
         "misconceptionId": "m02-mc45",
-        "feedback": "Si el agente decide, la definición queda invisible y nadie la aprobó. El agente puede proponer opciones, pero elige quien decide."
+        "feedback": "Si adoptas la definición del agente, nadie la aprobó y nadie sabe que hubo una decisión. El agente puede proponer opciones y mostrar cómo cambiaría la lista con cada una, pero elige el negocio."
       },
       {
         "id": "o3",
         "text": "Eliges tú una definición razonable y la dejas documentada en la especificación",
         "correct": false,
         "misconceptionId": "m02-mc43",
-        "feedback": "Documentarla no la convierte en una decisión del negocio. Si cambia lo que verá el comité, se pregunta."
+        "feedback": "Documentarla la hace visible, pero no la convierte en una decisión del negocio. Como cambia lo que verá el comité, la pregunta va a quien decide."
       }
     ],
     "fixedOrder": false,
@@ -999,7 +999,7 @@
   },
   {
     "id": "m02-l4-r1",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l4",
@@ -1010,27 +1010,27 @@
     "difficulty": "base",
     "process": "analyze",
     "scenario": "Mañana un agente, en una sesión nueva y sin el historial de hoy, ejecutará tu especificación.",
-    "stem": "¿Qué comprobación te dice que está lista?",
+    "stem": "¿Cómo sabes que la especificación está lista?",
     "options": [
       {
         "id": "o2",
-        "text": "Que sea lo bastante larga para cubrir cualquier situación posible",
+        "text": "Que sea lo bastante larga para cubrir cualquier situación que pueda presentarse",
         "correct": false,
         "misconceptionId": "m02-mc04",
-        "feedback": "La longitud no garantiza que se pueda ejecutar. Una especificación breve y completa es mejor que una larga con huecos."
+        "feedback": "La longitud no garantiza que se pueda ejecutar. Una especificación breve que no deja huecos sirve más que una larga que todavía depende de lo que tú recuerdas."
       },
       {
         "id": "o1",
         "text": "Que se pueda ejecutar sin preguntarte nada, salvo las preguntas ya marcadas",
         "correct": true,
-        "feedback": "Correcta. Esa es la prueba de una especificación autocontenida. Lo que todavía depende de tu memoria debe escribirse o marcarse como pregunta."
+        "feedback": "Correcta. Eso es lo que significa que sea autocontenida: todo lo necesario está escrito en el documento. Lo que todavía depende de tu memoria se escribe o se marca como pregunta abierta."
       },
       {
         "id": "o3",
         "text": "Que el agente de hoy confirme que la entendió bien antes de cerrar",
         "correct": false,
         "misconceptionId": "m02-mc47",
-        "feedback": "El agente de hoy tiene todo el historial; el de mañana no. Su confirmación no prueba que la especificación se sostenga sola."
+        "feedback": "El agente de hoy tiene todo el historial de la conversación y el de mañana no. Que lo entienda el de hoy no prueba que la especificación se sostenga sola."
       }
     ],
     "fixedOrder": false,
@@ -1043,7 +1043,7 @@
   },
   {
     "id": "m02-l4-r2",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l4",
@@ -1061,20 +1061,20 @@
         "text": "Una lista con todas las funciones que podrían ser útiles en el futuro",
         "correct": false,
         "misconceptionId": "m02-mc03",
-        "feedback": "Listar funciones posibles invita a construirlas. Lo que protege el alcance es decir qué queda fuera."
+        "feedback": "Listar funciones posibles invita a construirlas. Lo que protege el alcance es decir explícitamente qué queda fuera."
       },
       {
         "id": "o3",
         "text": "Una nota que pida al agente añadir lo que considere valioso",
         "correct": false,
         "misconceptionId": "m02-mc41",
-        "feedback": "Eso amplía el alcance sin que nadie lo decida. Además, hace más difícil verificar la entrega contra lo que se pidió."
+        "feedback": "Eso amplía el alcance sin que nadie lo decida. Además, hace más difícil comparar la entrega con lo que se pidió."
       },
       {
         "id": "o1",
         "text": "Fuera de alcance: inicio de sesión, envío de correos y forecast",
         "correct": true,
-        "feedback": "Correcta. Lo que no se excluye, el agente puede añadirlo. Las exclusiones protegen el alcance."
+        "feedback": "Correcta. Lo que la especificación no excluye, el agente puede añadirlo. Por eso el alcance lleva también una lista de lo que queda fuera."
       }
     ],
     "fixedOrder": false,
@@ -1086,7 +1086,7 @@
   },
   {
     "id": "m02-l5-c1",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l5",
@@ -1101,23 +1101,23 @@
     "options": [
       {
         "id": "o1",
-        "text": "Directamente, con el archivo, el texto correcto y cómo comprobarlo, sin plan",
+        "text": "Directamente: el archivo, el texto correcto y cómo comprobarlo, sin plan",
         "correct": true,
-        "feedback": "Correcta. Si el cambio cabe en una frase, el plan sobra. Lo que no sobra es decir cómo comprobarlo."
+        "feedback": "Correcta. Si el cambio se puede describir en una frase, el plan sobra. Lo que no sobra es decir cómo vas a comprobar que quedó bien."
       },
       {
         "id": "o2",
-        "text": "Primero un plan detallado con los archivos afectados y los riesgos",
+        "text": "Primero con un plan detallado de los archivos afectados y los riesgos",
         "correct": false,
         "misconceptionId": "m02-mc20",
-        "feedback": "Planificar tiene un costo. Para un cambio de una frase, el plan es más largo que el cambio."
+        "feedback": "Planificar tiene un costo y aquí no compensa, porque el plan ocuparía más que el cambio. El plan conviene cuando el camino no es obvio o el cambio toca varios archivos."
       },
       {
         "id": "o3",
-        "text": "Con una especificación completa y criterios Given/When/Then",
+        "text": "Con una especificación completa y sus criterios Given/When/Then",
         "correct": false,
         "misconceptionId": "m02-mc24",
-        "feedback": "Es desproporcionado para una errata. El rigor crece con el riesgo y la ambigüedad."
+        "feedback": "Es desproporcionado para una errata. El rigor crece con el riesgo y la ambigüedad, y aquí no hay ninguno de los dos."
       }
     ],
     "fixedOrder": false,
@@ -1130,7 +1130,7 @@
   },
   {
     "id": "m02-l5-c2",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l5",
@@ -1148,20 +1148,20 @@
         "text": "Sigues corrigiendo en la misma sesión hasta que el agente lo entienda",
         "correct": false,
         "misconceptionId": "m02-mc21",
-        "feedback": "El agente no aprende de las correcciones dentro de la sesión. Cada intento fallido añade ruido al contexto y lo empeora."
+        "feedback": "Insistir tiene un límite, porque cada intento fallido se queda en el historial de la sesión y estorba más de lo que ayuda. Después de dos correcciones sin éxito, conviene empezar de nuevo."
       },
       {
         "id": "o1",
         "text": "Limpias el contexto y reescribes la petición con lo que aprendiste",
         "correct": true,
-        "feedback": "Correcta. Tras dos correcciones fallidas, el historial de intentos estorba. Una petición nueva y mejor suele funcionar mejor que una tercera corrección."
+        "feedback": "Correcta. Después de dos correcciones fallidas, el historial de intentos equivocados estorba más de lo que ayuda. Una petición nueva, que incorpore lo que aprendiste, suele funcionar mejor que una tercera corrección."
       },
       {
         "id": "o3",
         "text": "Repites la corrección en mayúsculas para que no la vuelva a ignorar",
         "correct": false,
         "misconceptionId": "m02-mc07",
-        "feedback": "El énfasis no resuelve un contexto saturado de intentos fallidos. Hay que empezar limpio."
+        "feedback": "Las mayúsculas no arreglan una sesión llena de intentos fallidos. Lo que ayuda es empezar en limpio, con una petición mejor escrita."
       }
     ],
     "fixedOrder": false,
@@ -1173,7 +1173,7 @@
   },
   {
     "id": "m02-l5-c3",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l5",
@@ -1184,27 +1184,27 @@
     "difficulty": "advanced",
     "process": "evaluate",
     "scenario": "La cobertura del Norte sale en 1,0x y la reconciliación espera 1,3x. El agente usó la cuota completa del trimestre porque la especificación decía «cobertura» sin definirla.",
-    "stem": "¿Dónde corriges?",
+    "stem": "¿Dónde corriges el error?",
     "options": [
       {
         "id": "o2",
-        "text": "En el código: ajustas la fórmula y sigues con el siguiente hito",
+        "text": "En el código: ajustas la fórmula en metrics.py y sigues con el siguiente hito",
         "correct": false,
         "misconceptionId": "m02-mc44",
-        "feedback": "Arregla el síntoma de hoy, pero la especificación sigue sin definir «cobertura». La próxima ejecución puede repetir el error."
+        "feedback": "Arregla el cálculo de hoy, pero la especificación sigue sin definir «cobertura». La próxima vez que alguien la ejecute, el error puede volver."
       },
       {
         "id": "o3",
-        "text": "Le pides al agente que deduzca cuál es la definición correcta",
+        "text": "Le pides al agente que deduzca la definición correcta a partir de los datos",
         "correct": false,
         "misconceptionId": "m02-mc08",
-        "feedback": "La definición es una política de FP&A, no algo que el agente pueda deducir. Si la inventa, el error cambia de forma."
+        "feedback": "La definición de cobertura es una política de FP&A, no algo que el agente pueda deducir. Si la inventa, solo cambias un supuesto oculto por otro."
       },
       {
         "id": "o1",
-        "text": "En la especificación: la definición y un caso de prueba; luego reejecutas",
+        "text": "En la especificación: la definición y un caso de prueba; después vuelves a ejecutar",
         "correct": true,
-        "feedback": "Correcta. El error nació de un hueco en la especificación. Si solo se corrige el código, el hueco queda para el siguiente agente."
+        "feedback": "Correcta. El error nació de un hueco en la especificación, que decía «cobertura» sin definirla. Si solo corriges el código, el hueco sigue ahí para el siguiente agente."
       }
     ],
     "fixedOrder": false,
@@ -1217,7 +1217,7 @@
   },
   {
     "id": "m02-l5-c4",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l5",
@@ -1235,21 +1235,21 @@
         "id": "o1",
         "text": "Atiendes los de requisitos y decides con criterio sobre los de estilo",
         "correct": true,
-        "feedback": "Correcta. Un revisor al que se le piden fallas casi siempre encuentra alguna. Lo obligatorio es lo que afecta a requisitos y corrección."
+        "feedback": "Correcta. Un revisor al que le pides fallas casi siempre encuentra alguna, aunque sea de estilo. Lo que afecta a los requisitos o a que el resultado sea correcto se atiende; sobre lo demás decides tú, sabiendo por qué."
       },
       {
         "id": "o2",
-        "text": "Atiendes los nueve, porque un revisor independiente tiene razón",
+        "text": "Atiendes los nueve, porque un revisor independiente siempre tiene razón",
         "correct": false,
         "misconceptionId": "m02-mc23",
-        "feedback": "Perseguir todos los hallazgos lleva a la sobreingeniería. Independiente no significa infalible."
+        "feedback": "Que el revisor sea independiente no lo hace infalible, y también señala preferencias. Atender cada hallazgo lleva a la sobreingeniería, es decir, a cambiar cosas que no hacía falta tocar."
       },
       {
         "id": "o3",
         "text": "Descartas la revisión y le pides al agente autor que revise su propio trabajo",
         "correct": false,
         "misconceptionId": "m02-mc22",
-        "feedback": "La autorrevisión en el mismo contexto detecta menos que un revisor limpio. Los dos hallazgos de requisitos siguen pendientes."
+        "feedback": "Cuando el agente revisa su propio trabajo en la misma sesión, encuentra menos que un revisor en contexto limpio. Además, los dos hallazgos de requisitos seguirían sin atender."
       }
     ],
     "fixedOrder": false,
@@ -1262,7 +1262,7 @@
   },
   {
     "id": "m02-l5-r1",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l5",
@@ -1280,20 +1280,20 @@
         "text": "Un plan detallado de varias páginas, aunque el hito sea pequeño",
         "correct": false,
         "misconceptionId": "m02-mc20",
-        "feedback": "El plan es proporcional a la complejidad. Lo indispensable en cada hito es cómo comprobarlo."
+        "feedback": "El tamaño del plan depende de la complejidad del trabajo, no es fijo. Lo que no puede faltar en ningún hito es la prueba que demuestra que está bien hecho."
       },
       {
         "id": "o1",
         "text": "Su propia prueba, para saber si pasó antes de seguir al siguiente",
         "correct": true,
-        "feedback": "Correcta. Si un hito no pasa su prueba, sabes dónde está el problema y no sigues construyendo encima de él."
+        "feedback": "Correcta. Si un hito no pasa su prueba, sabes dónde está el problema y no sigues construyendo encima de él. Entre un hito y el siguiente hay una comprobación, y si no pasa, no se avanza."
       },
       {
         "id": "o3",
         "text": "Una revisión de estilo completa del código antes de pasar al siguiente hito",
         "correct": false,
         "misconceptionId": "m02-mc23",
-        "feedback": "La revisión de estilo no demuestra que el hito funcione. Lo que habilita el siguiente paso es su prueba."
+        "feedback": "Una revisión de estilo no demuestra que el hito funcione. Lo que permite pasar al siguiente es que el hito pase su propia prueba."
       }
     ],
     "fixedOrder": false,
@@ -1306,7 +1306,7 @@
   },
   {
     "id": "m02-l5-r2",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l5",
@@ -1317,27 +1317,27 @@
     "difficulty": "base",
     "process": "evaluate",
     "scenario": "En el plan de hitos del dashboard tienes que decidir dónde poner un punto de control humano.",
-    "stem": "¿Dónde aporta más?",
+    "stem": "¿Dónde aporta más ese control?",
     "options": [
       {
         "id": "o2",
         "text": "Solo al final, cuando todo está construido y se puede ver completo",
         "correct": false,
         "misconceptionId": "m02-mc31",
-        "feedback": "Descubrir al final que un supuesto estaba mal obliga a rehacer varios hitos. El control temprano es más barato."
+        "feedback": "Si al final descubres que un supuesto estaba mal, tienes que rehacer varios hitos. Revisar los supuestos al principio cuesta mucho menos."
       },
       {
         "id": "o3",
         "text": "En ninguno: si cada hito tiene prueba, la revisión humana sobra",
         "correct": false,
         "misconceptionId": "m02-mc08",
-        "feedback": "Las pruebas comprueban lo que ya está definido. Aprobar los supuestos es una decisión de negocio que solo una persona puede tomar."
+        "feedback": "Las pruebas comprueban lo que ya está definido, pero no deciden si los supuestos son los correctos. Aprobarlos es una decisión de negocio que toma una persona."
       },
       {
         "id": "o1",
-        "text": "Después de fijar los supuestos y antes de calcular nada",
+        "text": "Después de fijar los supuestos y antes de calcular ninguna cifra",
         "correct": true,
-        "feedback": "Correcta. Si un supuesto está mal, corregirlo antes de que dependan de él el cálculo y la vista cuesta muy poco."
+        "feedback": "Correcta. Si un supuesto está mal, corregirlo antes de que dependan de él el cálculo, la vista y el comentario cuesta muy poco. Descubrirlo al final obliga a rehacer esos hitos."
       }
     ],
     "fixedOrder": false,
@@ -1350,7 +1350,7 @@
   },
   {
     "id": "m02-l6-c1",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l6",
@@ -1362,27 +1362,27 @@
     "difficulty": "base",
     "process": "apply",
     "scenario": "Escribes un criterio para el caso de una oportunidad abierta sin fecha de cierre.",
-    "stem": "¿Qué «Then» es observable?",
+    "stem": "¿Qué «Then» describe algo que se puede observar?",
     "options": [
       {
         "id": "o1",
         "text": "No suma al pipeline del T4 y aparece en el panel de calidad con su motivo",
         "correct": true,
-        "feedback": "Correcta. Describe lo que se ve en la pantalla. Se puede comprobar sin conocer la implementación."
+        "feedback": "Correcta. Describe lo que se ve en la pantalla: el total que no cambia y la fila en el panel de calidad. Se puede comprobar sin saber cómo está construido el sistema."
       },
       {
         "id": "o2",
         "text": "Se crea un registro en la tabla interna de calidad de datos de la base",
         "correct": false,
         "misconceptionId": "m02-mc26",
-        "feedback": "Es un estado interno: puede existir sin que nadie lo vea. El criterio debe describir algo observable."
+        "feedback": "Es un estado interno, porque el registro puede existir sin que nadie lo vea. El Then tiene que describir lo que se observa en la pantalla, en un reporte o en un mensaje."
       },
       {
         "id": "o3",
         "text": "El dashboard maneja correctamente las fechas de cierre que faltan",
         "correct": false,
         "misconceptionId": "m02-mc25",
-        "feedback": "«Correctamente» no dice qué se debe ver. Un criterio de aceptación nombra el resultado observable."
+        "feedback": "«Correctamente» no dice qué se debe ver, así que nadie puede comprobarlo. Un criterio de aceptación nombra el resultado concreto que tiene que aparecer."
       }
     ],
     "fixedOrder": false,
@@ -1395,7 +1395,7 @@
   },
   {
     "id": "m02-l6-c2",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l6",
@@ -1411,23 +1411,23 @@
     "options": [
       {
         "id": "o2",
-        "text": "Nada: si dice que las pruebas pasan, la tarea está verificada",
+        "text": "Nada: si dice que las pruebas pasan, la tarea ya está verificada",
         "correct": false,
         "misconceptionId": "m02-mc27",
-        "feedback": "Una afirmación no es evidencia. Hay que auditarla contra un resultado real de la sesión."
+        "feedback": "«Todas las pruebas pasan» es una afirmación, no una evidencia. Hay que contrastarla con algo que de verdad ocurrió en la sesión, como un comando y su salida."
       },
       {
         "id": "o1",
-        "text": "El comando que ejecutó, su salida y la reconciliación esperado frente a obtenido",
+        "text": "El comando que ejecutó, lo que devolvió y la reconciliación con lo esperado",
         "correct": true,
-        "feedback": "Correcta. Eso es evidencia que puedes comprobar. Una afirmación de éxito, por sí sola, no lo es."
+        "feedback": "Correcta. Con el comando y su salida puedes repetir la prueba y comprobar el resultado por tu cuenta. Una afirmación de éxito, por sí sola, no te da esa posibilidad."
       },
       {
         "id": "o3",
-        "text": "Que revise su trabajo otra vez y confirme que está seguro",
+        "text": "Que revise su trabajo otra vez y confirme que está seguro del resultado",
         "correct": false,
         "misconceptionId": "m02-mc22",
-        "feedback": "Otra confirmación del mismo agente sigue siendo una afirmación. Lo que falta es el comando y su resultado."
+        "feedback": "Otra confirmación del mismo agente sigue siendo una afirmación, no una evidencia. Lo que falta es el comando que ejecutó y lo que devolvió."
       }
     ],
     "fixedOrder": false,
@@ -1440,7 +1440,7 @@
   },
   {
     "id": "m02-l6-c3",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l6",
@@ -1458,20 +1458,20 @@
         "text": "Lo dejas como está: «fácil de usar» es un criterio que todos entienden igual",
         "correct": false,
         "misconceptionId": "m02-mc25",
-        "feedback": "Nadie puede comprobar si algo es «fácil». Si no sabes cómo probarlo, el requisito no está claro."
+        "feedback": "Nadie puede comprobar si algo es «fácil», y dos personas lo entenderán de forma distinta. Cuando no sabes cómo probar un criterio, lo más probable es que el requisito no esté claro."
       },
       {
         "id": "o3",
         "text": "Lo omites: el agente sabrá hacer una interfaz cómoda para el celular",
         "correct": false,
         "misconceptionId": "m02-mc01",
-        "feedback": "Omitirlo deja la decisión al agente. Y nadie podrá verificar si se cumplió lo que pidió la directora."
+        "feedback": "Omitirlo deja la decisión en manos del agente. Además, nadie podrá verificar si se cumplió lo que pidió la directora."
       },
       {
         "id": "o1",
-        "text": "La cobertura de las tres regiones se ve en la primera pantalla a 360 px",
+        "text": "La cobertura de las tres regiones se ve sin desplazarse en un celular de 360 px",
         "correct": true,
-        "feedback": "Correcta. Traduce el adjetivo a algo observable y comprobable: un ancho de pantalla y lo que debe verse sin desplazarse."
+        "feedback": "Correcta. Traduce el adjetivo «fácil» a algo que se puede comprobar: se abre el dashboard en una pantalla de 360 px de ancho y se mira si la cobertura aparece sin desplazarse."
       }
     ],
     "fixedOrder": false,
@@ -1484,7 +1484,7 @@
   },
   {
     "id": "m02-l6-c4",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l6",
@@ -1501,21 +1501,21 @@
         "id": "o1",
         "text": "Todavía no: hacen falta casos fijos y varios ensayos de cada versión",
         "correct": true,
-        "feedback": "Correcta. Los modelos no son deterministas: un intento puede salir bien por azar. Hacen falta varios ensayos y distinguir acertar alguna vez de acertar siempre."
+        "feedback": "Correcta. Los modelos no son deterministas, así que la misma instrucción puede dar resultados distintos cada vez. Para comparar hacen falta varios ensayos sobre un conjunto fijo de casos, distinguiendo entre acertar alguna vez y acertar siempre."
       },
       {
         "id": "o2",
-        "text": "Sí: B reconcilió y A no, la diferencia es clara",
+        "text": "Sí: B reconcilió los KPI y A no, así que la diferencia es clara",
         "correct": false,
         "misconceptionId": "m02-mc28",
-        "feedback": "Un solo intento por versión no permite concluir. La diferencia puede deberse a la variabilidad del modelo."
+        "feedback": "Con un solo intento por versión no se puede concluir, porque la diferencia puede deberse al azar. Un modelo no da siempre el mismo resultado con la misma instrucción."
       },
       {
         "id": "o3",
-        "text": "Sí, si un modelo lee las dos salidas y confirma que B es mejor",
+        "text": "Sí, siempre que otro modelo lea las dos salidas y confirme que B es mejor",
         "correct": false,
         "misconceptionId": "m02-mc29",
-        "feedback": "Un juez sin rúbrica ni calibración tiene sesgos y no sustituye a varios ensayos. M09 desarrolla cómo comparar."
+        "feedback": "Un modelo que juzga sin rúbrica ni calibración tiene sesgos propios y no reemplaza los ensayos repetidos. Cómo comparar versiones con rigor es el tema de M09."
       }
     ],
     "fixedOrder": false,

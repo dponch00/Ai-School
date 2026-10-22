@@ -22,6 +22,8 @@ export interface SelectionInput {
   usedVariantsByFamily?: Record<string, string[]>
   /** Familias falladas en el intento anterior: deben cambiar de variante. */
   failedFamilies?: string[]
+  /** Piloto: un curso aún no publicado arma su examen con ítems en borrador (puerta F1-13). */
+  allowDraft?: boolean
 }
 
 function pick<T>(items: T[], rng: Rng): T {
@@ -68,7 +70,7 @@ export function selectExam(input: SelectionInput): ItemSnapshot[] {
   const { bank, evaluatedObjectiveIds, itemsPerObjective, rng } = input
   const used = input.usedVariantsByFamily ?? {}
   const failed = new Set(input.failedFamilies ?? [])
-  const examItems = bank.filter((q) => q.use === 'exam' && q.status === 'published')
+  const examItems = bank.filter((q) => q.use === 'exam' && (q.status === 'published' || (input.allowDraft === true && q.status === 'draft')))
   const issues = bankIssues(examItems)
   if (issues.length > 0) throw new Error(`Banco incoherente: ${issues.join('; ')}`)
   const snapshots: ItemSnapshot[] = []

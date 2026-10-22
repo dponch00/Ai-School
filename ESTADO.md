@@ -1,26 +1,27 @@
 # Estado del proyecto
 
-**Fase actual:** 1 — Piloto M02 (Fase 0 cerrada salvo la prueba de hosting F0-11) · **Actualizado:** 2026-10-21 por Claude Code
+**Fase actual:** 1 — Piloto M02 (Fase 0 cerrada salvo la prueba de hosting F0-11) · **Actualizado:** 2026-10-22 por Claude Code
 
 ## Siguiente acción
 
-1. **Claude:** pasar el laboratorio y el feedback de las preguntas por el revisor de texto (en curso) y abrir T-013 para que Codex lo revise; en paralelo, persistencia en IndexedDB (F1-07) y examen de 12 preguntas (F1-08).
-2. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
-3. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
+1. **Codex:** T-013, revisión de los bancos reescritos, el laboratorio y el examen en la app.
+2. **Claude:** perfil y HTML de evaluación (F1-09) y respaldo exportable (F1-10).
+3. **Daniel:** hacer el examen en la app; releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
+4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
-## Avance estimado (2026-10-21)
+## Avance estimado (2026-10-22)
 
-**≈ 24 % de la V1** (rango razonable: 21–27 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 27 % de la V1** (rango razonable: 24–30 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
-| 1 · Piloto M02 | 22 % | 64 % (lecciones reescritas y revisadas por Codex; faltan estilo del laboratorio y las preguntas, persistencia, examen, perfil, reporte y revisión del piloto) | 14,1 |
-| 2 · Base de app y PWA | 15 % | 8 % (contratos, validación, rutas y estructura) | 1,2 |
+| 1 · Piloto M02 | 22 % | 74 % (contenido con estilo revisado, progreso guardado, examen y práctica; faltan perfil, reporte de evaluación, respaldo, feedback externo y revisión del piloto) | 16,3 |
+| 2 · Base de app y PWA | 15 % | 12 % (contratos, validación, rutas, IndexedDB con migraciones) | 1,8 |
 | 3 · Nueve manuales restantes | 40 % | 3 % (currículo y mapa de competencias) | 1,2 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 24 %** |
+| **Total** | 100 % | | **≈ 27 %** |
 
 ## Tickets
 
@@ -38,19 +39,23 @@
 | [T-010](coordinacion/tickets/T-010-codex-revision-variantes-nuevas.md) | Codex | Revisión de las 13 variantes nuevas y del laboratorio | cerrado |
 | [T-011](coordinacion/tickets/T-011-codex-revision-interfaz-lector.md) | Codex | Revisión de interfaz del lector frente al sistema D1 | cerrado |
 | [T-012](coordinacion/tickets/T-012-codex-revision-estilo-m02.md) | Codex | Revisión de estilo de las seis lecciones de M02 | cerrado |
+| [T-013](coordinacion/tickets/T-013-codex-revision-preguntas-examen.md) | Codex | Revisión de los bancos reescritos, el laboratorio y el examen | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | `src/storage/` (persistencia, siguiente) |
-| Claude (revisor de texto) | `content/courses/m02/practice/m02-lab.md`, `questions/checks.json`, `questions/exam.json`, `questions/practice.json` |
+| Claude | `src/` (perfil y reporte, F1-09) |
+| Codex (T-013) | Solo `investigacion/codex-revision-preguntas-examen.md`; Claude no toca `content/courses/m02/questions/` ni el laboratorio hasta su entrega |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-22 · Claude Code — progreso guardado, examen y práctica (F1-07, F1-08)
+El progreso se guarda en IndexedDB con Dexie, y cada escritura pasa por su contrato. Una visita a una lección registra la visita, el repaso y las comprobaciones como intentos con la pregunta congelada, y la portada del curso muestra el estado de cada lección. El examen arma 12 preguntas (2 por objetivo), guarda cada respuesta al elegirla, deja retomarlo, registra los cambios como revisiones, avisa si faltan preguntas, congela el resultado con su regla y muestra la revisión por objetivo y por pregunta; el reintento cambia la variante de las familias falladas. Mientras M02 esté en borrador, el examen funciona en modo piloto con aviso. El revisor de texto reescribió el laboratorio y los tres bancos; todas las preguntas subieron de versión (R-05). Comprobado en el navegador (dos intentos, uno con preguntas sin responder; 375 px sin desplazamiento lateral). `npm test` 69/69, lint y build. Abierto T-013. Avance: ≈ 27 %.
 
 ### 2026-10-22 · Claude Code — revisión de T-012
 Los 6 hallazgos de estilo de Codex se aplicaron. Los dos medios eran de alcance: una frase de L1 convertía «respuestas más dirigidas» en «acierta más», y otra de L2 daba por hecho que el archivo de instrucciones se carga en todas las tareas. La guía de estilo y el agente revisor exigen ahora comparar el alcance de cada frase citada. El 2026-10-21 se publicó para Daniel una versión de prueba privada (un solo HTML con M02) para leerla en el celular. `npm test` 54/54.

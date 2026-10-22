@@ -3,12 +3,14 @@ import { covers, getCourse, imageSrcSet } from '../content'
 import NotFound from './NotFound'
 import { db } from '../storage/db'
 import { courseProgress } from '../storage/progress'
+import { examAttempts } from '../storage/exam'
 import { useLive } from '../storage/useLive'
 
 export default function CourseOverview() {
   const { courseId } = useParams()
   const course = getCourse(courseId)
   const progress = useLive(() => courseProgress(db, course?.id ?? ''), [course?.id], [])
+  const exams = useLive(() => examAttempts(db, course?.id ?? ''), [course?.id], [])
   if (!course) return <NotFound />
   const cover = covers[course.id]
   const status = (lessonId: string) => {
@@ -18,6 +20,15 @@ export default function CourseOverview() {
     return null
   }
   const done = course.lessons.filter((l) => status(l.id)?.kind === 'done').length
+  const lastExam = exams.filter((a) => a.status === 'submitted').at(-1)
+  const passedExam = exams.find((a) => a.result?.passed)
+  const examStatus = exams.some((a) => a.status === 'in-progress')
+    ? 'En curso'
+    : passedExam
+      ? `Aprobado · ${passedExam.result!.correct}/${passedExam.result!.total}`
+      : lastExam
+        ? `No aprobado · ${lastExam.result!.correct}/${lastExam.result!.total}`
+        : 'Pendiente'
   return (
     <div className="page">
       <nav className="breadcrumb" aria-label="Ruta de navegación">
@@ -70,10 +81,25 @@ export default function CourseOverview() {
               </Link>
             </li>
           )}
-          <li className="lesson-list__pending">
-            <span className="lesson-list__order" aria-hidden="true">◇</span>
-            <span className="lesson-list__title">Examen de 12 preguntas</span>
-            <span className="lesson-list__time">Próximamente</span>
+          <li>
+            <Link to={`/cursos/${course.id}/practica`} className="lesson-list__link">
+              <span className="lesson-list__order" aria-hidden="true">◇</span>
+              <span className="lesson-list__title">
+                Preguntas de práctica
+                <span className="lesson-list__status">Con el porqué de cada opción al responder; no cuentan para aprobar</span>
+              </span>
+              <span className="lesson-list__time">15 min</span>
+            </Link>
+          </li>
+          <li>
+            <Link to={`/cursos/${course.id}/examen`} className="lesson-list__link">
+              <span className="lesson-list__order" aria-hidden="true">{passedExam ? '✓' : '◆'}</span>
+              <span className="lesson-list__title">
+                Examen de {course.evaluatedObjectives.length * 2} preguntas
+                <span className={`lesson-list__status${passedExam ? ' lesson-list__status--done' : ''}`}>{examStatus}</span>
+              </span>
+              <span className="lesson-list__time">25 min</span>
+            </Link>
           </li>
         </ul>
       </section>

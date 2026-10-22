@@ -216,3 +216,17 @@ main:focus { outline: none; }
 .rubric__levels { margin: 0; padding-left: 0; list-style: none; font-size: 0.95em; }
 .rubric__levels li { margin-bottom: var(--ais-space-1); }
 .badge { font-family: var(--ais-font-mono); font-size: var(--ais-font-size-xs); background: var(--ais-color-accent); color: var(--ais-color-on-accent); border-radius: var(--ais-radius-pill); padding: 0.1em 0.6em; }
+
+/* Examen (F1-08) */
+.exam__intro ul { margin-bottom: var(--ais-space-5); }
+.exam__attempt { width: 100%; font: inherit; text-align: left; cursor: pointer; }
+.exam__progress { position: sticky; top: 0; z-index: 1; margin: 0 0 var(--ais-space-4); padding: var(--ais-space-2) var(--ais-space-3); background: var(--ais-color-canvas); border-bottom: 1px solid var(--ais-color-border); font-size: var(--ais-font-size-sm); }
+.exam__result { border-radius: var(--ais-radius-lg); padding: var(--ais-space-4) var(--ais-space-5); margin-bottom: var(--ais-space-5); border: 2px solid; }
+.exam__result h2 { margin-top: 0; }
+.exam__result--pass { border-color: var(--ais-color-success); background: var(--ais-color-success-surface); }
+.exam__result--fail { border-color: var(--ais-color-warning); background: var(--ais-color-warning-surface); }
+.exam__objectives { padding-left: var(--ais-space-5); }
+.exam__objectives li { margin-bottom: var(--ais-space-2); }
+.exam__objective--zero strong { color: var(--ais-color-danger); }
+.option__label > span[aria-hidden] { flex: none; width: 1.1rem; text-align: center; font-weight: 700; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

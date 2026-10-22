@@ -1,7 +1,7 @@
 [
   {
     "id": "m02-p01",
-    "version": 1,
+    "version": 2,
     "use": "practice",
     "courseId": "m02",
     "evaluatedObjectiveId": "m02-eo1",
@@ -10,7 +10,7 @@
     ],
     "difficulty": "base",
     "process": "analyze",
-    "scenario": "Pides: «Cambia el redondeo de los montos del reporte mensual a dos decimales».",
+    "scenario": "Le pides a un agente: «Cambia el redondeo de los montos del reporte mensual a dos decimales».",
     "stem": "¿Qué debe hacer el agente?",
     "options": [
       {
@@ -18,20 +18,20 @@
         "text": "Cambiar el redondeo y, de paso, reorganizar el formato completo del reporte",
         "correct": false,
         "misconceptionId": "m02-mc41",
-        "feedback": "Reorganizar el formato es un añadido no pedido. Amplía el alcance y hace más difícil revisar el cambio."
+        "feedback": "Reorganizar el formato es un añadido que nadie pidió. Amplía el alcance y hace más difícil revisar el cambio."
       },
       {
         "id": "o2",
-        "text": "Cambiar el redondeo en el reporte, dentro de ese alcance, y mostrarte el diff",
+        "text": "Cambiar solo el redondeo del reporte y mostrarte el diff con lo que modificó",
         "correct": true,
-        "feedback": "Correcta. Es un cambio acotado: el agente edita lo pedido y te muestra qué cambió para que lo revises."
+        "feedback": "Correcta. Es un cambio concreto: el agente modifica lo pedido, en ese punto y en ningún otro, y te muestra qué cambió para que lo revises."
       },
       {
         "id": "o3",
         "text": "Redondear los montos en la base de datos de origen para que todos los reportes coincidan",
         "correct": false,
         "misconceptionId": "m02-mc49",
-        "feedback": "Modificar los datos de origen excede un cambio de presentación y afecta a otros. Una escritura así requiere confirmación."
+        "feedback": "Modificar los datos de origen va mucho más allá de un cambio de presentación y afecta a otros reportes. Una escritura así, además, necesita tu confirmación antes."
       }
     ],
     "fixedOrder": false,
@@ -44,7 +44,7 @@
   },
   {
     "id": "m02-p02",
-    "version": 1,
+    "version": 2,
     "use": "practice",
     "courseId": "m02",
     "evaluatedObjectiveId": "m02-eo1",
@@ -61,20 +61,20 @@
         "text": "Borrarlas de inmediato, porque la petición es clara y está dentro de sus permisos",
         "correct": false,
         "misconceptionId": "m02-mc50",
-        "feedback": "Que la petición sea clara no hace reversible un borrado. Las acciones difíciles de revertir se confirman antes."
+        "feedback": "Que la petición sea clara no hace que un borrado se pueda deshacer. Las acciones difíciles de revertir se confirman antes de hacerlas."
       },
       {
         "id": "o2",
         "text": "Borrarlas y dejar un respaldo local por si después alguien quiere revertirlo",
         "correct": false,
         "misconceptionId": "m02-mc50",
-        "feedback": "El respaldo local no evita el efecto inmediato en otras personas que usan el CRM. La confirmación va antes del borrado, no después."
+        "feedback": "El respaldo local no evita que el borrado afecte enseguida a quienes usan el CRM. La confirmación va antes del borrado, no después."
       },
       {
         "id": "o3",
-        "text": "Mostrarte la lista de duplicados que borraría y esperar tu confirmación",
+        "text": "Mostrarte primero la lista de duplicados que borraría y esperar tu confirmación",
         "correct": true,
-        "feedback": "Correcta. Es una acción destructiva y visible para otros: primero muestra qué haría y después actúa con tu confirmación."
+        "feedback": "Correcta. Es una acción difícil de deshacer y que afecta a otras personas, así que primero muestra qué haría y solo actúa con tu confirmación."
       }
     ],
     "fixedOrder": false,
@@ -87,7 +87,7 @@
   },
   {
     "id": "m02-p03",
-    "version": 1,
+    "version": 2,
     "use": "practice",
     "courseId": "m02",
     "evaluatedObjectiveId": "m02-eo2",
@@ -103,21 +103,21 @@
         "id": "o1",
         "text": "Abres una sesión nueva para el presupuesto, con su propio contexto",
         "correct": true,
-        "feedback": "Correcta. Mezclar tareas llena el contexto de ruido y degrada el rendimiento. Una sesión por tarea coherente funciona mejor."
+        "feedback": "Correcta. Mezclar tareas en una sesión llena el contexto de cosas que no vienen al caso, y el rendimiento baja. Una sesión por tarea bien delimitada funciona mejor."
       },
       {
         "id": "o2",
         "text": "Sigues en la misma sesión para aprovechar todo lo que el agente ya sabe",
         "correct": false,
         "misconceptionId": "m02-mc51",
-        "feedback": "Lo que el agente sabe del dashboard no sirve para el presupuesto y ocupa contexto. Mezclar tareas es un patrón de fallo documentado."
+        "feedback": "Lo que el agente sabe del dashboard no sirve para el presupuesto y ocupa contexto. Mezclar tareas en una misma sesión es un patrón de fallo documentado."
       },
       {
         "id": "o3",
         "text": "Pegas el presupuesto completo y le pides que alterne entre las dos tareas",
         "correct": false,
         "misconceptionId": "m02-mc51",
-        "feedback": "Alternar tareas en un contexto saturado empeora las dos. Cada tarea coherente merece su sesión."
+        "feedback": "Alternar dos tareas en un contexto ya cargado empeora las dos. Cada tarea bien delimitada merece su propia sesión."
       }
     ],
     "fixedOrder": false,
@@ -130,7 +130,7 @@
   },
   {
     "id": "m02-p04",
-    "version": 1,
+    "version": 2,
     "use": "practice",
     "courseId": "m02",
     "evaluatedObjectiveId": "m02-eo2",
@@ -139,7 +139,7 @@
     ],
     "difficulty": "advanced",
     "process": "evaluate",
-    "scenario": "En tu proyecto, todos los cálculos financieros deben ir en Python, nunca en el frontend. Es una regla para cualquier tarea.",
+    "scenario": "En tu proyecto, todos los cálculos financieros deben ir en Python, nunca en la parte que se ve en el navegador (el frontend). Es una regla para cualquier tarea.",
     "stem": "¿Dónde la escribes?",
     "options": [
       {
@@ -147,20 +147,20 @@
         "text": "En cada prompt, para que el agente nunca la olvide",
         "correct": false,
         "misconceptionId": "m02-mc05",
-        "feedback": "Repetir reglas permanentes gasta contexto y abre la puerta a versiones contradictorias. Su lugar es el archivo de instrucciones del repositorio."
+        "feedback": "Repetir reglas permanentes en cada prompt gasta contexto y, tarde o temprano, produce versiones que se contradicen. Su sitio es el archivo de instrucciones del repositorio."
       },
       {
         "id": "o2",
         "text": "Una vez, en el archivo de instrucciones del repositorio",
         "correct": true,
-        "feedback": "Correcta. Las reglas que valen para todo el proyecto van en el archivo de instrucciones, breve y podado. En el prompt van las reglas de la tarea."
+        "feedback": "Correcta. Las reglas que valen para todo el proyecto van en el archivo de instrucciones del repositorio, que conviene mantener breve y sin reglas que ya no aplican. En el prompt van las reglas de cada tarea."
       },
       {
         "id": "o3",
         "text": "En cada prompt, en mayúsculas y al principio del texto de la petición",
         "correct": false,
         "misconceptionId": "m02-mc07",
-        "feedback": "El énfasis no reemplaza el lugar correcto. Si todo va en mayúsculas, nada destaca."
+        "feedback": "El énfasis no reemplaza poner la regla en el lugar correcto. Además, si todo va en mayúsculas, nada destaca."
       }
     ],
     "fixedOrder": false,
@@ -173,7 +173,7 @@
   },
   {
     "id": "m02-p05",
-    "version": 1,
+    "version": 2,
     "use": "practice",
     "courseId": "m02",
     "evaluatedObjectiveId": "m02-eo2",
@@ -187,23 +187,23 @@
     "options": [
       {
         "id": "o1",
-        "text": "NUNCA, POR NINGÚN MOTIVO, TOQUES NADA QUE ESTÉ DENTRO DE LA CARPETA DE REPORTES",
+        "text": "NUNCA, POR NINGÚN MOTIVO, TOQUES NADA QUE ESTÉ DENTRO DE LA CARPETA DE REPORTES DEL PROYECTO",
         "correct": false,
         "misconceptionId": "m02-mc07",
-        "feedback": "El énfasis no explica el motivo ni ofrece alternativa. Además, prohíbe toda la carpeta, no solo lo publicado."
+        "feedback": "Las mayúsculas no explican el motivo ni ofrecen una alternativa. Además, prohíben toda la carpeta, no solo los reportes publicados."
       },
       {
         "id": "o2",
-        "text": "Ten mucho cuidado con los reportes del comité cuando hagas cambios",
+        "text": "Ten mucho cuidado con los reportes del comité cada vez que hagas cambios en la carpeta",
         "correct": false,
         "misconceptionId": "m02-mc36",
-        "feedback": "Es una advertencia, no una restricción. No dice qué está prohibido ni qué hacer en su lugar."
+        "feedback": "Es una advertencia, no una restricción. No dice qué está prohibido, por qué, ni qué hacer en cambio."
       },
       {
         "id": "o3",
-        "text": "No modifiques reportes/publicados/: el comité ya los vio. Escribe versiones nuevas en reportes/borradores/",
+        "text": "No toques reportes/publicados/ (el comité ya los vio); las versiones nuevas van en reportes/borradores/",
         "correct": true,
-        "feedback": "Correcta. Dice qué está prohibido, por qué y qué hacer en su lugar. Con el motivo, el agente puede aplicar la regla a casos nuevos."
+        "feedback": "Correcta. Dice qué está prohibido, por qué y qué hacer en cambio. Con el motivo, el agente puede aplicar la regla a casos que no anticipaste."
       }
     ],
     "fixedOrder": false,
@@ -216,7 +216,7 @@
   },
   {
     "id": "m02-p06",
-    "version": 1,
+    "version": 2,
     "use": "practice",
     "courseId": "m02",
     "evaluatedObjectiveId": "m02-eo3",
@@ -226,7 +226,7 @@
     ],
     "difficulty": "base",
     "process": "evaluate",
-    "scenario": "La API indica que el modelo rechazó la petición, pero el cuerpo de la respuesta trae un JSON con todos los campos, algunos vacíos, que valida contra el esquema.",
+    "scenario": "La API indica que el modelo se negó a responder, pero la respuesta trae un JSON que valida contra el esquema, con todos los campos y algunos vacíos.",
     "stem": "¿Qué haces con esa respuesta?",
     "options": [
       {
@@ -234,20 +234,20 @@
         "text": "La usas, porque el JSON es válido y trae todos los campos del esquema",
         "correct": false,
         "misconceptionId": "m02-mc17",
-        "feedback": "Que el JSON parezca válido no dice que la respuesta se completó. Antes de usarla hay que comprobar por qué terminó."
+        "feedback": "Que el JSON parezca válido no dice que la respuesta haya terminado bien. Antes de usarla hay que comprobar por qué terminó."
       },
       {
         "id": "o2",
         "text": "La usas, porque la salida estructurada garantiza que los valores son correctos",
         "correct": false,
         "misconceptionId": "m02-mc14",
-        "feedback": "La salida estructurada garantiza la forma, no los valores. Y una respuesta rechazada no tiene contenido fiable."
+        "feedback": "La salida estructurada garantiza la forma, no los valores. Y una respuesta en la que el modelo se negó no tiene contenido fiable."
       },
       {
         "id": "o3",
-        "text": "La tratas como fallida y revisas por qué se rechazó, sin usar sus valores",
+        "text": "La tratas como fallida y revisas por qué se negó, sin usar sus valores",
         "correct": true,
-        "feedback": "Correcta. Un rechazo o un corte pueden producir un JSON con forma válida y contenido vacío. Se comprueba el motivo de término antes de usarla."
+        "feedback": "Correcta. Una negativa o una respuesta cortada por el límite de longitud pueden producir un JSON con forma válida y contenido vacío. Por eso se comprueba cómo terminó la respuesta antes de usarla."
       }
     ],
     "fixedOrder": false,
@@ -260,7 +260,7 @@
   },
   {
     "id": "m02-p07",
-    "version": 1,
+    "version": 2,
     "use": "practice",
     "courseId": "m02",
     "evaluatedObjectiveId": "m02-eo3",
@@ -275,23 +275,23 @@
     "options": [
       {
         "id": "o1",
-        "text": "Quitas «maximum» del esquema y compruebas el rango en código",
+        "text": "Quitas «maximum» del esquema y compruebas el rango en tu código",
         "correct": true,
-        "feedback": "Correcta. Cada proveedor admite un subconjunto distinto de JSON Schema. Las reglas de valor viven en código, con cualquier proveedor."
+        "feedback": "Correcta. Cada proveedor admite solo una parte de JSON Schema, y no siempre la misma. Las reglas sobre los valores se comprueban en código, que funciona igual con cualquier proveedor."
       },
       {
         "id": "o2",
         "text": "Mantienes el mismo esquema: debería funcionar igual con cualquier proveedor",
         "correct": false,
         "misconceptionId": "m02-mc16",
-        "feedback": "Los proveedores no admiten las mismas palabras clave de JSON Schema. Mantenerlo solo garantiza que la petición siga fallando."
+        "feedback": "Los proveedores no admiten las mismas palabras clave de JSON Schema. Si mantienes el esquema, la petición seguirá fallando."
       },
       {
         "id": "o3",
         "text": "Agregas más restricciones al esquema para compensar la que no se admite",
         "correct": false,
         "misconceptionId": "m02-mc42",
-        "feedback": "Las restricciones del esquema no garantizan valores correctos, y cada una puede no ser compatible. La comprobación de rango va en código."
+        "feedback": "Las restricciones del esquema no garantizan valores correctos, y cada una puede no ser compatible con el proveedor nuevo. La comprobación del rango va en código."
       }
     ],
     "fixedOrder": false,
@@ -305,7 +305,7 @@
   },
   {
     "id": "m02-p08",
-    "version": 1,
+    "version": 2,
     "use": "practice",
     "courseId": "m02",
     "evaluatedObjectiveId": "m02-eo3",
@@ -319,23 +319,23 @@
     "options": [
       {
         "id": "o1",
-        "text": "Cuatro tickets distintos, uno por categoría, incluido uno ambiguo con su categoría correcta",
+        "text": "Un ticket por categoría, uno de ellos ambiguo, cada uno con su categoría correcta",
         "correct": true,
-        "feedback": "Correcta. Son pocos, diversos y cubren un caso borde. Así el modelo no copia un rasgo superficial y aprende qué hacer con los casos difíciles."
+        "feedback": "Correcta. Son pocos, variados e incluyen un caso borde. Así el modelo no copia un rasgo superficial y ve qué hacer con un ticket difícil."
       },
       {
         "id": "o2",
         "text": "Doce tickets casi iguales de la categoría más frecuente, para que no se equivoque",
         "correct": false,
         "misconceptionId": "m02-mc11",
-        "feedback": "Muchos ejemplos parecidos producen sobreajuste. El modelo puede aprender que casi todo es de esa categoría."
+        "feedback": "Muchos ejemplos casi iguales producen sobreajuste: el modelo copia rasgos que no importan. Aquí podría concluir que casi todo es de esa categoría."
       },
       {
         "id": "o3",
         "text": "Un solo ticket bien escrito, porque un ejemplo representativo es suficiente",
         "correct": false,
         "misconceptionId": "m02-mc12",
-        "feedback": "Un único ejemplo no cubre los casos borde ni las otras categorías. El modelo tendrá que adivinar con los tickets ambiguos."
+        "feedback": "Un solo ejemplo no cubre las otras categorías ni los casos borde. Con los tickets ambiguos, el modelo tendría que adivinar."
       }
     ],
     "fixedOrder": false,
@@ -348,7 +348,7 @@
   },
   {
     "id": "m02-p09",
-    "version": 1,
+    "version": 2,
     "use": "practice",
     "courseId": "m02",
     "evaluatedObjectiveId": "m02-eo4",
@@ -365,20 +365,20 @@
         "text": "Una especificación completa con historias de usuario y criterios Given/When/Then",
         "correct": false,
         "misconceptionId": "m02-mc24",
-        "feedback": "Es desproporcionado. Los flujos pesados para cambios pequeños generan documentos más costosos que el cambio."
+        "feedback": "Es desproporcionado. Un proceso pesado para un cambio pequeño produce documentos que cuestan más de revisar que el propio cambio."
       },
       {
         "id": "o2",
         "text": "Solo «cambia la etiqueta»; el agente sabrá dónde y cómo hacerlo",
         "correct": false,
         "misconceptionId": "m02-mc01",
-        "feedback": "Sin la vista ni el texto exacto, el agente adivina. Una frase más deja la tarea verificable."
+        "feedback": "Sin la vista ni el texto exacto, el agente tiene que adivinar. Con una frase más, la tarea queda clara y se puede comprobar."
       },
       {
         "id": "o3",
         "text": "Una frase con la vista, el texto nuevo y cómo comprobar el cambio",
         "correct": true,
-        "feedback": "Correcta. El rigor crece con el riesgo y la ambigüedad, y aquí no hay ninguno de los dos."
+        "feedback": "Correcta. El rigor crece con el riesgo y la ambigüedad, y aquí no hay ninguno de los dos. Basta decir qué, dónde y cómo comprobarlo."
       }
     ],
     "fixedOrder": false,
@@ -391,7 +391,7 @@
   },
   {
     "id": "m02-p10",
-    "version": 1,
+    "version": 2,
     "use": "practice",
     "courseId": "m02",
     "evaluatedObjectiveId": "m02-eo5",
@@ -407,7 +407,7 @@
         "id": "o1",
         "text": "Antes del envío al director, porque no se puede deshacer",
         "correct": true,
-        "feedback": "Correcta. El envío es visible para un tercero e irreversible. Una persona lo autoriza después de ver el PDF."
+        "feedback": "Correcta. El envío lo ve un tercero y no se puede deshacer. Una persona lo autoriza después de ver el PDF."
       },
       {
         "id": "o2",
@@ -421,7 +421,7 @@
         "text": "En ninguno: con pruebas automáticas en cada paso es suficiente",
         "correct": false,
         "misconceptionId": "m02-mc54",
-        "feedback": "Las pruebas comprueban lo definido. Autorizar un envío a un tercero es una decisión que toma una persona."
+        "feedback": "Las pruebas comprueban lo que se definió de antemano. Autorizar un envío a un tercero es una decisión que toma una persona."
       }
     ],
     "fixedOrder": false,
@@ -434,7 +434,7 @@
   },
   {
     "id": "m02-p11",
-    "version": 1,
+    "version": 2,
     "use": "practice",
     "courseId": "m02",
     "evaluatedObjectiveId": "m02-eo5",
@@ -451,20 +451,20 @@
         "text": "Lo corriges una tercera vez, con más detalle sobre el error que comete",
         "correct": false,
         "misconceptionId": "m02-mc21",
-        "feedback": "Tras dos correcciones fallidas, el historial de intentos estorba. Una tercera corrección en el mismo contexto suele fallar igual."
+        "feedback": "Después de dos correcciones fallidas, el historial de intentos estorba más de lo que ayuda. Una tercera corrección en la misma sesión rara vez sale mejor."
       },
       {
         "id": "o2",
         "text": "Repites la instrucción en mayúsculas para que no la ignore",
         "correct": false,
         "misconceptionId": "m02-mc07",
-        "feedback": "El énfasis no resuelve un contexto saturado de intentos fallidos. Hay que empezar limpio."
+        "feedback": "El énfasis no arregla una conversación llena de intentos fallidos. Lo que ayuda es empezar una sesión limpia."
       },
       {
         "id": "o3",
-        "text": "Limpias el contexto y reescribes la petición con lo aprendido",
+        "text": "Empiezas una sesión limpia y reescribes la petición con lo aprendido",
         "correct": true,
-        "feedback": "Correcta. Una petición nueva que incorpore lo aprendido suele funcionar mejor que seguir corrigiendo sobre un historial confuso."
+        "feedback": "Correcta. Una petición nueva que incorpore lo aprendido suele funcionar mejor que seguir corrigiendo sobre un historial lleno de intentos fallidos."
       }
     ],
     "fixedOrder": false,
@@ -476,7 +476,7 @@
   },
   {
     "id": "m02-p12",
-    "version": 1,
+    "version": 2,
     "use": "practice",
     "courseId": "m02",
     "evaluatedObjectiveId": "m02-eo5",
@@ -486,28 +486,28 @@
     ],
     "difficulty": "advanced",
     "process": "evaluate",
-    "scenario": "Una revisión en contexto limpio devuelve seis hallazgos: uno dice que la cobertura usa la cuota anual en vez de la trimestral; cinco proponen nombres de variables distintos.",
+    "scenario": "Un revisor en contexto limpio (otra sesión, que no vio cómo se hizo el trabajo) devuelve seis hallazgos: uno dice que la cobertura usa la cuota anual en vez de la trimestral; los otros cinco proponen cambiar nombres de variables.",
     "stem": "¿Qué haces?",
     "options": [
       {
         "id": "o1",
-        "text": "Corriges la cobertura y decides con criterio sobre los nombres",
+        "text": "Corriges la cobertura y decides tú qué hacer con los nombres",
         "correct": true,
-        "feedback": "Correcta. Lo obligatorio es lo que afecta a requisitos y corrección. Un revisor al que se le piden fallas casi siempre encuentra alguna."
+        "feedback": "Correcta. Lo que afecta a los requisitos o a que el resultado sea correcto se atiende; sobre lo demás decides tú. Un revisor al que le pides fallas casi siempre encuentra alguna."
       },
       {
         "id": "o2",
         "text": "Atiendes los seis, porque el revisor es independiente",
         "correct": false,
         "misconceptionId": "m02-mc23",
-        "feedback": "Independiente no significa infalible. Perseguir todos los hallazgos lleva a la sobreingeniería."
+        "feedback": "Que el revisor sea independiente no lo hace infalible. Atender todos los hallazgos, incluso los de estilo, complica el trabajo sin necesidad."
       },
       {
         "id": "o3",
         "text": "Descartas la revisión y pides al agente autor que revise su trabajo",
         "correct": false,
         "misconceptionId": "m02-mc22",
-        "feedback": "La autorrevisión en el mismo contexto detecta menos. Y el error de la cobertura sigue sin corregirse."
+        "feedback": "Un agente que revisa su propio trabajo en la misma sesión encuentra poco. Además, el error de la cobertura seguiría sin corregirse."
       }
     ],
     "fixedOrder": false,
@@ -520,7 +520,7 @@
   },
   {
     "id": "m02-p13",
-    "version": 1,
+    "version": 2,
     "use": "practice",
     "courseId": "m02",
     "evaluatedObjectiveId": "m02-eo6",
@@ -534,23 +534,23 @@
     "options": [
       {
         "id": "o1",
-        "text": "B es mejor: ganó tres a dos",
+        "text": "Que B es mejor, porque acertó los tres casos y A solo dos",
         "correct": false,
         "misconceptionId": "m02-mc28",
-        "feedback": "Tres casos sencillos probados una vez no permiten concluir. La diferencia puede deberse a la variabilidad del modelo."
+        "feedback": "Tres casos sencillos probados una sola vez no permiten concluir nada. La diferencia puede deberse a la variabilidad del modelo."
       },
       {
         "id": "o2",
-        "text": "Hace falta un juez LLM que decida una vez cuál es mejor",
+        "text": "Que hace falta otro modelo que haga de juez y decida una vez cuál es mejor",
         "correct": false,
         "misconceptionId": "m02-mc29",
-        "feedback": "Un juez sin rúbrica ni calibración tiene sesgos. No sustituye a varios ensayos sobre casos fijos."
+        "feedback": "Un modelo usado como juez, sin una rúbrica ni un contraste con el juicio de personas, tiene sus propios sesgos. No sustituye a varios ensayos sobre un conjunto fijo de casos."
       },
       {
         "id": "o3",
-        "text": "Aún no: faltan casos fijos con casos borde y varios ensayos por versión",
+        "text": "Que aún no se puede concluir: faltan casos borde y varios ensayos por versión",
         "correct": true,
-        "feedback": "Correcta. Los modelos no son deterministas. Hacen falta casos representativos, incluidos los difíciles, y varios ensayos."
+        "feedback": "Correcta. Los modelos no son deterministas: el mismo prompt puede dar resultados distintos cada vez. Para comparar hacen falta un conjunto fijo de casos, incluidos los difíciles, y varios ensayos de cada versión."
       }
     ],
     "fixedOrder": false,
