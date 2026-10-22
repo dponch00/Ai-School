@@ -61,6 +61,12 @@ describe('content/diagnostic', () => {
     for (const m of misconceptions) for (const id of m.sourceIds) expect(sources.has(id), `${m.id} → ${id}`).toBe(true)
   })
 
+  it('la posición de la clave está repartida (ninguna posición > 50 %)', () => {
+    const counts = new Map<number, number>()
+    for (const q of items) counts.set(q.options.findIndex((o) => o.correct), (counts.get(q.options.findIndex((o) => o.correct)) ?? 0) + 1)
+    for (const [pos, n] of counts) expect(n / items.length, `clave en la posición ${pos + 1} en ${n}/${items.length}`).toBeLessThanOrEqual(0.5)
+  })
+
   it('cada microtarea tiene al menos un criterio crítico', () => {
     for (const m of microtasks) expect(m.rubric.some((c) => c.critical), m.id).toBe(true)
   })

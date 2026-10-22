@@ -96,6 +96,18 @@ for (const courseDir of readdirSync(resolve(root, 'courses'))) {
       }
     })
 
+    it('la posición de la clave está repartida en cada banco (ninguna posición > 50 %)', () => {
+      for (const [name, set] of [['comprobaciones', checks], ['examen', exam], ['práctica', practiceItems]] as const) {
+        if (set.length < 6) continue
+        const counts = new Map<number, number>()
+        for (const q of set) {
+          const i = q.options.findIndex((o) => o.correct)
+          counts.set(i, (counts.get(i) ?? 0) + 1)
+        }
+        for (const [pos, n] of counts) expect(n / set.length, `${name}: clave en la posición ${pos + 1} en ${n}/${set.length}`).toBeLessThanOrEqual(0.5)
+      }
+    })
+
     it('banco de examen: coherente, con cobertura del blueprint y separado de las comprobaciones (D-016, D-017)', () => {
       if (exam.length === 0) return
       expect(bankIssues(exam)).toEqual([])

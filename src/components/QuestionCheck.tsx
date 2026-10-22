@@ -10,11 +10,22 @@ interface Props {
   label: string
 }
 
+function shuffle<T>(items: readonly T[]): T[] {
+  const out = [...items]
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[out[i], out[j]] = [out[j], out[i]]
+  }
+  return out
+}
+
 /**
  * Comprobación de lección: feedback inmediato por opción (estándar §4.1).
  * Todavía no guarda la respuesta; la persistencia llega en F1-07.
  */
 export default function QuestionCheck({ question, courseId, currentLessonId, label }: Props) {
+  // Orden aleatorio salvo fixedOrder (estándar §4.4): se fija al montar para no reordenar al responder.
+  const [options] = useState(() => (question.fixedOrder ? question.options : shuffle(question.options)))
   const [selected, setSelected] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState(false)
@@ -37,7 +48,7 @@ export default function QuestionCheck({ question, courseId, currentLessonId, lab
       <p id={`${groupId}-scenario`} className="question__scenario">{question.scenario}</p>
       <p id={`${groupId}-stem`} className="question__stem">{question.stem}</p>
       <div className="question__options">
-        {question.options.map((o) => {
+        {options.map((o) => {
           const state = submitted ? (o.correct ? 'correct' : o.id === selected ? 'wrong' : 'other') : 'open'
           return (
             <div key={o.id} className={`option option--${state}`}>
