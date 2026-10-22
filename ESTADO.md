@@ -4,23 +4,24 @@
 
 ## Siguiente acción
 
-1. **Claude:** preparar la puerta de calidad F1-13 (matriz objetivo→evidencia, hallazgos, esfuerzo y opciones para la Fase 3).
-3. **Daniel:** hacer el recorrido completo en la app (perfil, lecciones, examen, laboratorio y reporte) y compartir el reporte en un chat para probar el ciclo; releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
+1. **Daniel:** leer [`docs/puerta-f1-13.md`](docs/puerta-f1-13.md), hacer el recorrido completo como alumno (perfil, lecciones, examen, laboratorio, reporte compartido en un chat y retroalimentación registrada), que da el tiempo real de estudio, y decidir la Fase 3.
+2. **Claude (si Daniel lo aprueba):** avanzar la Fase 2 en paralelo (PWA, offline, comprobación diferida, revisiones externas de la práctica).
+3. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-22)
 
-**≈ 30 % de la V1** (rango razonable: 27–33 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 31 % de la V1** (rango razonable: 28–34 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
-| 1 · Piloto M02 | 22 % | 90 % (las 11 funciones del piloto hechas; faltan la revisión completa del piloto y su puerta de calidad) | 19,8 |
+| 1 · Piloto M02 | 22 % | 95 % (piloto revisado y puerta preparada; faltan el recorrido de Daniel y su decisión) | 20,9 |
 | 2 · Base de app y PWA | 15 % | 12 % (contratos, validación, rutas, IndexedDB con migraciones) | 1,8 |
 | 3 · Nueve manuales restantes | 40 % | 3 % (currículo y mapa de competencias) | 1,2 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 30 %** |
+| **Total** | 100 % | | **≈ 31 %** |
 
 ## Tickets
 
@@ -46,13 +47,16 @@
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | `docs/puerta-f1-13.md` (preparación de la puerta) |
+| — | Nada en curso: se espera la decisión de Daniel sobre la puerta F1-13 |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-22 · Claude Code — puerta F1-13 preparada
+`docs/puerta-f1-13.md` reúne la evidencia de D-011. La matriz objetivo → evidencia está completa, y se cerró el único hueco: los criterios de la rúbrica ahora dicen qué objetivo evalúan, y una prueba lo exige. La revisión independiente suma 77 hallazgos (21 altos), todos cerrados. El esfuerzo de producción está medido por el historial; el banco de 36 ítems costó alrededor de 1 h, así que se recomienda mantenerlo. Falta el tiempo real de estudio, que da el recorrido de Daniel. Dos hipótesis no se pueden probar sin piezas de la app que no existen (comprobación diferida y revisiones externas de la práctica): se proponen para la Fase 2. `npm test` 110/110. Avance: ≈ 31 %.
 
 ### 2026-10-22 · Claude Code — revisión de T-015 (piloto completo)
 Codex hizo el recorrido de §17.10 con dos reportes, revisó las 15 rutas a 360 px y con teclado, y llenó la tabla de §17.9: 10 criterios cumplidos y 1 parcial. Los 4 hallazgos se aplicaron con su prueba. El alto: un bloque de recomendaciones con referencias que no cuadran ya no puede crear propuestas, y el almacenamiento lo revalida antes de escribir. Además, la huella de la retroalimentación incluye el reporte y el evaluador, una ronda sin terminar entra en el reporte rotulada como tal, y la marca y las migas tienen 44 px. Con esto, la tabla de §17.9 queda completa. `npm test` 109/109.
