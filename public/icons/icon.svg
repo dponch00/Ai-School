@@ -1,7 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="AI School">
-  <!-- Ícono provisional (F2-04): forma geométrica con la paleta D1, sin texto. Codex entrega el definitivo en T-018. -->
-  <rect width="512" height="512" rx="112" fill="#172A33"/>
-  <path d="M96 368 L208 208 L280 296 L336 232 L416 368 Z" fill="#F5F0E6"/>
-  <circle cx="352" cy="152" r="44" fill="#A94E2B"/>
-  <path d="M96 368 H416" stroke="#A94E2B" stroke-width="16" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- AI School · Atlas de criterio. El motivo deja al menos 68 px de fondo para el recorte maskable. -->
+  <rect width="512" height="512" fill="#172A33"/>
+  <path d="M118 346C118 270 150 182 232 122c47-34 110-33 166-14v254c-53 36-127 38-186 9-34-17-65-29-94-25Z" fill="#FFFDF7"/>
+  <path d="M118 346c29-4 60 8 94 25 59 29 133 27 186-9v38c-57 39-133 41-195 10-31-15-59-27-85-22Z" fill="#DCECF5"/>
+  <path d="M148 344c45-50 59-119 108-142 37-17 57 17 71 44 18 35 39 48 68 22" fill="none" stroke="#006E74" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/>
+  <circle cx="396" cy="260" r="48" fill="#A94E2B"/>
+  <circle cx="396" cy="260" r="17" fill="#FFFDF7"/>
+  <path d="m256 202 18 36 40 6-29 29 7 40-36-19-36 19 7-40-29-29 40-6Z" fill="#172A33" opacity=".16"/>
+  <path d="M150 388c23-2 44 7 67 18 58 29 127 27 181-8" fill="none" stroke="#172A33" stroke-linecap="round" stroke-width="8" opacity=".18"/>
 </svg>

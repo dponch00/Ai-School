@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-22 |
 | Depende de | T-017 (cerrado) |
 | Fase del plan | 2 — Base de app y PWA |
@@ -63,4 +63,9 @@ No edites `src/`, `content/`, `vite.config.ts` ni `index.html`.
 
 ## Entrega
 
-_(Codex)_
+Entregado el 2026-10-22.
+
+- Ícono definitivo D1 en `public/icons/`: SVG maestro, PNG de 192 y 512, PNG maskable de 512 y Apple Touch de 180. Las cinco entradas quedaron registradas en `design/asset-manifest.json`. El motivo deja al menos 68 px de fondo por lado para el recorte maskable; inspeccioné `design/qa/T-018/icon-48-light-dark.png` a tamaño original y conserva ruta, papel e hito a 48 px sobre marfil e tinta.
+- Revisión documentada en `investigacion/codex-revision-repaso-pwa.md`. F2-03 coincide con R-E-4/R-E-5, incluida la instantánea, el origen más reciente, 1 día, 7 días, racha y sesión fijada. La PWA cargó y recargó sin servidor, mostró una lección y la portada de M02 desde caché, y su aviso de actualización permitió diferir por teclado una versión nueva con un examen activo y una respuesta preservada. Se comprobó repaso y examen a 360 px.
+- Hallazgo para Claude: `[T018-01]` alta. `vite.config.ts` y `index.html` aún solo enlazan el SVG; deben registrar los PNG 192/512, maskable y Apple Touch para que las variantes entregadas participen en la instalación real. La automatización no expone el control nativo de instalar una PWA; queda esa comprobación manual en Chrome Android y escritorio después de integrar el hallazgo.
+- Verificación final: `npm test` (10 archivos, 136 pruebas aprobadas) y `npm run build` correctos; precache de 16 entradas, 1,289.00 KiB. Permanece la advertencia existente de bundle JS mayor de 500 kB.

@@ -57,5 +57,72 @@
     "reviewStatus": "pending",
     "status": "replaced",
     "replacedBy": "content/courses/m02/diagrams/m02-spec-anatomy.svg"
+  },
+  {
+    "id": "app-icon-master",
+    "courseId": null,
+    "file": "public/icons/icon.svg",
+    "function": "orientation",
+    "pedagogicalQuestion": "¿Qué rasgo visual identifica una ruta de aprendizaje que se orienta con evidencia?",
+    "whyNotTextOrSvg": "El SVG codificado conserva el motivo de ruta y punto de decisión sin incorporar texto en el icono.",
+    "alt": "Icono de AI School: una ruta verde azulado atraviesa una forma de papel y llega a un hito ocre.",
+    "generation": {
+      "prompt": "SVG codificado con ruta curva, superficie de papel y un hito; paleta Atlas de criterio; sin texto, logos ni personas.",
+      "tool": "SVG manual",
+      "modelReported": "no aplica",
+      "modelDocumented": "no aplica",
+      "generatedAt": "2026-10-22",
+      "selectedVariant": "t018-icon-v1"
+    },
+    "dimensions": { "width": 512, "height": 512 },
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "app-icon-192",
+    "courseId": null,
+    "file": "public/icons/icon-192.png",
+    "function": "orientation",
+    "pedagogicalQuestion": "¿Qué rasgo visual identifica una ruta de aprendizaje que se orienta con evidencia?",
+    "whyNotTextOrSvg": "Es la exportación PNG de instalación del SVG maestro.",
+    "alt": "Versión PNG de 192 píxeles del icono de AI School.",
+    "generation": { "prompt": "Exportación raster del SVG maestro.", "tool": "System.Drawing", "modelReported": "no aplica", "modelDocumented": "no aplica", "generatedAt": "2026-10-22", "selectedVariant": "t018-icon-192" },
+    "dimensions": { "width": 192, "height": 192 },
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "app-icon-512",
+    "courseId": null,
+    "file": "public/icons/icon-512.png",
+    "function": "orientation",
+    "pedagogicalQuestion": "¿Qué rasgo visual identifica una ruta de aprendizaje que se orienta con evidencia?",
+    "whyNotTextOrSvg": "Es la exportación PNG de instalación del SVG maestro.",
+    "alt": "Versión PNG de 512 píxeles del icono de AI School.",
+    "generation": { "prompt": "Exportación raster del SVG maestro.", "tool": "System.Drawing", "modelReported": "no aplica", "modelDocumented": "no aplica", "generatedAt": "2026-10-22", "selectedVariant": "t018-icon-512" },
+    "dimensions": { "width": 512, "height": 512 },
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "app-icon-maskable-512",
+    "courseId": null,
+    "file": "public/icons/icon-maskable-512.png",
+    "function": "orientation",
+    "pedagogicalQuestion": "¿Qué rasgo visual identifica una ruta de aprendizaje que se orienta con evidencia?",
+    "whyNotTextOrSvg": "La exportación conserva al menos 68 px de fondo alrededor del motivo para el recorte maskable.",
+    "alt": "Versión PNG maskable de 512 píxeles del icono de AI School.",
+    "generation": { "prompt": "Exportación raster maskable del SVG maestro con zona segura central.", "tool": "System.Drawing", "modelReported": "no aplica", "modelDocumented": "no aplica", "generatedAt": "2026-10-22", "selectedVariant": "t018-icon-maskable-512" },
+    "dimensions": { "width": 512, "height": 512 },
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "app-icon-apple-touch",
+    "courseId": null,
+    "file": "public/icons/apple-touch-icon.png",
+    "function": "orientation",
+    "pedagogicalQuestion": "¿Qué rasgo visual identifica una ruta de aprendizaje que se orienta con evidencia?",
+    "whyNotTextOrSvg": "Es la exportación PNG de inicio para dispositivos Apple del SVG maestro.",
+    "alt": "Versión Apple Touch de 180 píxeles del icono de AI School.",
+    "generation": { "prompt": "Exportación raster Apple Touch del SVG maestro.", "tool": "System.Drawing", "modelReported": "no aplica", "modelDocumented": "no aplica", "generatedAt": "2026-10-22", "selectedVariant": "t018-icon-apple-touch" },
+    "dimensions": { "width": 180, "height": 180 },
+    "reviewStatus": "approved"
   }
 ]
