@@ -104,13 +104,13 @@ Marta envía el snapshot del 2026-10-26 (`practice/data/opportunities_snapshot_2
 Con esa información, completa las cuatro piezas del cuaderno:
 
 1. **Decisión inicial:** lo que habías escrito antes de abrir la tarjeta.
-2. **Contraejemplo:** qué pasaría si un agente ejecutara tu especificación, tal como está, con el snapshot nuevo. Compruébalo corriendo el script de reconciliación sobre ese snapshot dos veces, primero sin declarar en `supuestos.json` qué hacer con las etapas sin probabilidad y después declarándolo, y anota qué cifras cambian en cada caso:
+2. **Contraejemplo:** qué pasaría si un agente ejecutara tu especificación, tal como está, con el snapshot nuevo. Compruébalo corriendo el script de reconciliación sobre ese snapshot dos veces. La primera, sin declarar en `supuestos.json` qué hacer con las etapas sin probabilidad: el script se detiene antes de calcular y te dice por qué, así que anota ese mensaje. La segunda, después de agregar `"unknown_stage_policy": "exclude_and_report"` a `supuestos.json`: anota qué oportunidades excluye y qué aviso emite.
 
    ```bash
    python practice/data/reconcile.py --data-dir practice/data --snapshot opportunities_snapshot_2026-10-26.csv --kpis practice/data/expected/kpis_correct.json --assumptions supuestos.json
    ```
 
-   Los KPI de ejemplo corresponden al snapshot del 19, así que el script va a marcar diferencias en las cifras. Lo que te interesa aquí es qué hace con la etapa nueva.
+   En la segunda corrida el script también va a marcar diferencias en las cifras, porque los KPI de ejemplo corresponden al snapshot del 19 y no al del 26. Esas diferencias son esperadas. Lo que te interesa es cómo trata la etapa nueva: si la especificación no decía nada, el cálculo se detiene; si lo decía, la etapa queda fuera y reportada.
 3. **Decisión revisada:** qué cambias en la especificación, si cambias algo, y por qué.
 4. **Evidencia:** el dato, el caso o la regla que te hizo cambiar de criterio o, si no cambiaste nada, lo que demuestra que tu especificación ya cubría el caso.
 

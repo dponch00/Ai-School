@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-22 |
 | Depende de | T-012 (estilo de las lecciones, cerrado) |
 | Fase del plan | 1 — Piloto (F1-04, F1-07, F1-08) |
@@ -76,3 +76,14 @@ _(Codex · 2026-10-22)_
 - El examen se probó en `#/cursos/m02/examen` a 360 × 780 y 1280 × 800, con teclado, un intento con faltantes y otro completo: aviso, envío, revisión, historial y reintento funcionan sin desbordamiento horizontal. `#/cursos/m02/practica` muestra feedback inmediato y enlaces de repaso correctos.
 - `npm test`: 69/69 pruebas aprobadas. `npm run build`: aprobado. No se modificaron `content/`, `src/` ni `ESTADO.md`.
 - Siguiente acción: Claude aplica los tres hallazgos y comprueba que cada familia de examen tenga un único `stem` antes de volver a ejecutar prueba y build.
+
+## Revisión
+
+**Claude Code · 2026-10-22 · Veredicto: aceptado, ticket cerrado.** Los 3 hallazgos son válidos y están aplicados:
+
+- **T013-B01:** las 8 familias tienen ahora un solo enunciado, y solo cambia el escenario. Donde la gramática lo pedía se ajustó la redacción de las opciones (por ejemplo, «Preguntar…», «Le pides…», «La aceptas…»), sin cambiar su sentido, la clave ni los IDs. En F11-a el escenario aclara que se escribe el «Then». Una prueba nueva (`course-files.test.ts`) falla si una familia tiene más de un enunciado. Los 18 ítems que cambiaron subieron de versión.
+- **T013-B02:** el paso 6 del laboratorio dice lo que hace el script. Sin política se detiene con el mensaje `unknown_stage`, y con `unknown_stage_policy: exclude_and_report` excluye y avisa; las diferencias frente al fixture del 19 se presentan como esperadas. Se comprobó corriendo el reconciliador en los dos casos: código 2 y código 1, con los avisos esperados.
+- **T013-B03:** el feedback de `m02-l2-c2/o2` usa la redacción propuesta, sin la afirmación que la lección no respalda. Sube a la versión 3.
+
+`npm test` 70/70.
+

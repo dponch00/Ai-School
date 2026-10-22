@@ -324,7 +324,7 @@
   },
   {
     "id": "m02-l2-c2",
-    "version": 2,
+    "version": 3,
     "use": "check",
     "courseId": "m02",
     "lessonId": "m02-l2",
@@ -342,7 +342,7 @@
         "text": "NUNCA, BAJO NINGUNA CIRCUNSTANCIA, MODIFIQUES NADA DE LO QUE HAY DENTRO DE LA CARPETA DE DATOS",
         "correct": false,
         "misconceptionId": "m02-mc07",
-        "feedback": "Las mayúsculas no explican el motivo ni ofrecen una alternativa, así que el agente no sabe qué hacer si necesita limpiar datos. Además, prohíbe toda la carpeta cuando lo que hay que proteger es data/raw/, y en modelos recientes un tono tan agresivo puede llevar a aplicar la regla en exceso."
+        "feedback": "Las mayúsculas no explican el motivo ni ofrecen una alternativa, así que el agente no sabe qué hacer si necesita limpiar datos. Además, prohíbe toda la carpeta cuando lo que hay que proteger es `data/raw/`."
       },
       {
         "id": "o1",

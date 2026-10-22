@@ -131,6 +131,12 @@ for (const courseDir of readdirSync(resolve(root, 'courses'))) {
       expect(form).toHaveLength(course.evaluatedObjectives.length * 2)
     })
 
+    it('cada familia del examen usa un solo enunciado; solo cambia el escenario (T-013)', () => {
+      const stems = new Map<string, Set<string>>()
+      for (const q of exam) stems.set(q.family!, (stems.get(q.family!) ?? new Set()).add(q.stem))
+      for (const [family, set] of stems) expect([...set], `${family}: enunciados distintos`).toHaveLength(1)
+    })
+
     it('banco de práctica separado del examen (estándar §4.1) y familias del examen documentadas (T-009)', () => {
       const ids = allQuestions.map((q) => q.id)
       expect(new Set(ids).size, 'IDs repetidos entre comprobaciones, examen y práctica').toBe(ids.length)
