@@ -56,6 +56,7 @@ Primero la situación concreta (un correo, una cifra, un error) y después el pr
 
 - Una lección tiene **como máximo dos fichas de producto**, colocadas al final del apartado al que pertenecen, nunca en mitad de una explicación. Si hay más detalles de producto, se agrupan en una sola ficha.
 - Las citas se mantienen, pero no se acumulan: una por afirmación importante, al final de la frase.
+- Al reescribir una frase con cita, conserva también su alcance. Compara el antes y el después: una mejora de contexto, claridad o formato no se convierte en una afirmación de exactitud, causalidad o garantía sin volver a la fuente (hallazgo ST-01 de T-012).
 - La marca `[inferencia]` se mantiene en el texto fuente para la trazabilidad; la app la muestra de forma discreta.
 
 ### 2.7 Coherencia y verdad
