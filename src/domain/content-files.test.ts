@@ -1,11 +1,12 @@
-// Valida los archivos de content/ contra los contratos y las reglas del estándar que se pueden automatizar.
+// Valida los archivos de content/ y design/ contra los contratos y las reglas del estándar que se pueden automatizar.
 // Las reglas de juicio (plausibilidad, ausencia de pistas semánticas) quedan para la revisión de Codex.
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { DiagnosticForm, Microtask, Misconception, Question, Source } from './content'
+import { Asset, DiagnosticForm, Microtask, Misconception, Question, Source } from './content'
 
-const read = (p: string) => JSON.parse(readFileSync(resolve(import.meta.dirname, '../../content', p), 'utf8'))
+const root = resolve(import.meta.dirname, '../..')
+const read = (p: string) => JSON.parse(readFileSync(resolve(root, 'content', p), 'utf8'))
 
 describe('content/diagnostic', () => {
   const items = Question.array().parse(read('diagnostic/items.json'))
@@ -62,5 +63,15 @@ describe('content/diagnostic', () => {
 
   it('cada microtarea tiene al menos un criterio crítico', () => {
     for (const m of microtasks) expect(m.rubric.some((c) => c.critical), m.id).toBe(true)
+  })
+})
+
+describe('design/asset-manifest.json', () => {
+  const raw = JSON.parse(readFileSync(resolve(root, 'design/asset-manifest.json'), 'utf8'))
+  const list: unknown[] = Array.isArray(raw) ? raw : raw.assets
+
+  it('cada activo cumple el contrato Asset y su archivo existe', () => {
+    const assets = Asset.array().parse(list)
+    for (const a of assets) expect(existsSync(resolve(root, a.file)), a.file).toBe(true)
   })
 })

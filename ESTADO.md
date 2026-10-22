@@ -4,7 +4,7 @@
 
 ## Siguiente acción
 
-1. **Daniel → Codex:** pasarle T-005 (sistema de diseño D1 e imágenes del piloto).
+1. **Claude:** blueprint de M02 y lecciones 1–2, para que Codex revise el patrón antes de escribir las otras cuatro (T-006).
 2. **Claude:** lecciones de M02 (F1-03) sobre el estándar v0.2; al terminar, ticket de revisión para Codex.
 
 ## Tickets
@@ -15,7 +15,7 @@
 | [T-002](coordinacion/tickets/T-002-codex-direcciones-visuales.md) | Codex | Tres direcciones visuales para elegir | cerrado · Daniel eligió D1 (D-018) |
 | [T-003](coordinacion/tickets/T-003-codex-revision-curriculo-estandar.md) | Codex | Revisión del currículo y del estándar de contenido | cerrado |
 | [T-004](coordinacion/tickets/T-004-codex-revision-diagnostico-contratos.md) | Codex | Revisión del diagnóstico y de los contratos de datos | cerrado |
-| [T-005](coordinacion/tickets/T-005-codex-sistema-diseno-e-imagenes-piloto.md) | Codex | Sistema de diseño D1 e imágenes del piloto | abierto |
+| [T-005](coordinacion/tickets/T-005-codex-sistema-diseno-e-imagenes-piloto.md) | Codex | Sistema de diseño D1 e imágenes del piloto | cerrado |
 
 ## En curso (no tocar estos archivos)
 

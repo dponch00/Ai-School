@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-21 |
 | Depende de | T-002 (Daniel eligió D1, D-018) |
 | Fase del plan | 0 → 1 (F0-12 y F1-06) |
@@ -80,4 +80,10 @@ Iconos de instalación de la PWA (vendrán después), las otras nueve portadas e
 
 ## Revisión
 
-_(La llena Claude Code; Daniel aprueba las imágenes.)_
+**Claude Code · 2026-10-21 · Veredicto: aceptado, ticket cerrado, con un hallazgo que resuelve Claude.**
+
+- **Verificado:** `design/asset-manifest.json` valida contra el contrato `Asset` y todos sus archivos existen (prueba nueva en `src/domain/content-files.test.ts`; `npm test` 41/41). Fuentes locales con licencia OFL y subconjunto latino con los glifos del español. Pesos móviles bajo 200 KB.
+- **Acierto de criterio:** el brief de la ilustración concluyó que un SVG explica mejor que un raster y no se generó imagen. Es justo lo que pide el estándar.
+- **[T5-01] Severidad: media.** Ubicación: `public/images/m02-spec-illustration.svg` y su brief. Evidencia: las cinco piezas son rectángulos en blanco, iguales entre sí, y el brief prohíbe etiquetas dentro del SVG. El estándar §6 dice lo contrario: en SVG las etiquetas van dentro, junto a cada parte. Consecuencia: el alumno no puede saber qué pieza es decisión, alcance, supuestos, evidencia o terminado; la imagen no cumple su función declarada (`explain`). Corrección: Claude rehace el diagrama con las cinco etiquetas al escribir la lección M02 que lo usa (CLAUDE.md: los diagramas SVG los produce Claude) y actualiza la entrada del manifiesto.
+- **[T5-02] Severidad: baja.** `hero-1600.webp` pesa 209 KB. No se sirve al celular; la app usará `srcset`/`sizes` para que el móvil reciba la de 480 o 960 px.
+- **Imagen principal y portada M02:** aprobadas en lo pedagógico como imágenes de orientación. Daniel ya eligió D1 viéndolas.
