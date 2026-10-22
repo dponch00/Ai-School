@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router'
 import { content, getCourse } from '../content'
 import LessonBlocks from '../components/LessonBlocks'
 import Toc from '../components/Toc'
+import LabSubmission from '../components/LabSubmission'
 import NotFound from './NotFound'
 
 const LEVEL = ['', 'Inicial', 'Adecuado', 'Sólido', 'Destacado']
@@ -18,14 +19,10 @@ export default function LabPage() {
         <Link to={`/cursos/${course.id}`}>{course.id.toUpperCase()}</Link> <span aria-hidden="true">/</span> Laboratorio
       </nav>
       <div className="reader">
-        <Toc entries={[...lab.toc, { id: 'rubrica', text: 'Rúbrica' }]} />
+        <Toc entries={[...lab.toc, { id: 'rubrica', text: 'Rúbrica' }, { id: 'entrega', text: 'Tu entrega' }]} />
         <article className="reader__main" aria-labelledby="lab-title">
           <p className="eyebrow">Laboratorio de {course.id.toUpperCase()}</p>
           <h1 id="lab-title">{lab.title}</h1>
-          <div className="notice notice--info">
-            <p className="notice__title">Todavía sin entrega en la app</p>
-            <p>Puedes hacer el laboratorio con estas instrucciones. Registrar la entrega, la autoevaluación y el cuaderno de decisiones llega en la siguiente fase del piloto.</p>
-          </div>
           <LessonBlocks blocks={lab.blocks} sources={Object.values(content.sources)} />
           <section className="section" aria-labelledby="rubrica">
             <h2 id="rubrica">Rúbrica</h2>
@@ -49,6 +46,7 @@ export default function LabPage() {
               <p>{lab.anchors.insufficient}</p>
             </details>
           </section>
+          <LabSubmission practice={lab} />
         </article>
       </div>
     </div>

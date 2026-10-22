@@ -2,7 +2,7 @@
 import 'fake-indexeddb/auto'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { makeQuestion } from '../domain/fixtures.test-utils'
-import { Attempt, Backup, Response, responseIssues } from '../domain/learner'
+import { Attempt, Backup, Response, SCHEMA_VERSION, responseIssues } from '../domain/learner'
 import { openDb, type LearnerDb } from './db'
 import { type CheckRound, lessonProgress, markLessonVisited, recordCheckAnswer, scoreRound } from './progress'
 
@@ -58,10 +58,10 @@ describe('comprobaciones', () => {
   })
 
   it('una segunda ronda es un intento nuevo que no es el primero, y checksCompletedAt no cambia', async () => {
-    const first = await recordCheckAnswer(db, round, null, q1, shown, 'k1', '2026-10-22T10:00:00.000Z')
-    await recordCheckAnswer(db, round, first, q2, shown, 'k1', '2026-10-22T10:01:00.000Z')
-    const second = await recordCheckAnswer(db, round, null, q1, shown, 'd2', '2026-10-24T10:00:00.000Z')
-    await recordCheckAnswer(db, round, second, q2, shown, 'k1', '2026-10-24T10:01:00.000Z')
+    const first = await recordCheckAnswer(db, round, null, q1, shown, 'k1', {}, '2026-10-22T10:00:00.000Z')
+    await recordCheckAnswer(db, round, first, q2, shown, 'k1', {}, '2026-10-22T10:01:00.000Z')
+    const second = await recordCheckAnswer(db, round, null, q1, shown, 'd2', {}, '2026-10-24T10:00:00.000Z')
+    await recordCheckAnswer(db, round, second, q2, shown, 'k1', {}, '2026-10-24T10:01:00.000Z')
     expect(second).not.toBe(first)
     expect((await db.attempts.get(second))?.isFirstAttempt).toBe(false)
     const p = await lessonProgress(db, 'm02', 'm02-l1')
@@ -80,7 +80,7 @@ describe('comprobaciones', () => {
     const id = await recordCheckAnswer(db, round, null, q1, shown, 'd1')
     await recordCheckAnswer(db, round, id, q2, shown, 'k1')
     const backup = {
-      schemaVersion: 1,
+      schemaVersion: SCHEMA_VERSION,
       exportedAt: new Date().toISOString(),
       appVersion: '0.1.0',
       contentVersions: { m02: '0.1.0' },

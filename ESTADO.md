@@ -4,23 +4,24 @@
 
 ## Siguiente acción
 
-1. **Claude:** perfil y HTML de evaluación (F1-09) y respaldo exportable (F1-10).
-2. **Daniel:** hacer el examen en la app; releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
-3. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
+1. **Codex:** T-014, revisión del expediente (perfil, entrega del laboratorio, reporte de evaluación y respaldo).
+2. **Claude:** registrar feedback y ruta personal (F1-11); después, la revisión del piloto (F1-12).
+3. **Daniel:** hacer el recorrido completo en la app (perfil, lecciones, examen, laboratorio y reporte) y compartir el reporte en un chat para probar el ciclo; releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
+4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-22)
 
-**≈ 27 % de la V1** (rango razonable: 24–30 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 29 % de la V1** (rango razonable: 26–32 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
-| 1 · Piloto M02 | 22 % | 74 % (contenido con estilo revisado, progreso guardado, examen y práctica; faltan perfil, reporte de evaluación, respaldo, feedback externo y revisión del piloto) | 16,3 |
+| 1 · Piloto M02 | 22 % | 84 % (contenido revisado, progreso, examen, perfil, entrega del laboratorio, reporte de evaluación y respaldo; faltan feedback externo con ruta personal, revisión del piloto y su puerta) | 18,5 |
 | 2 · Base de app y PWA | 15 % | 12 % (contratos, validación, rutas, IndexedDB con migraciones) | 1,8 |
 | 3 · Nueve manuales restantes | 40 % | 3 % (currículo y mapa de competencias) | 1,2 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 27 %** |
+| **Total** | 100 % | | **≈ 29 %** |
 
 ## Tickets
 
@@ -39,18 +40,22 @@
 | [T-011](coordinacion/tickets/T-011-codex-revision-interfaz-lector.md) | Codex | Revisión de interfaz del lector frente al sistema D1 | cerrado |
 | [T-012](coordinacion/tickets/T-012-codex-revision-estilo-m02.md) | Codex | Revisión de estilo de las seis lecciones de M02 | cerrado |
 | [T-013](coordinacion/tickets/T-013-codex-revision-preguntas-examen.md) | Codex | Revisión de los bancos reescritos, el laboratorio y el examen | cerrado |
+| [T-014](coordinacion/tickets/T-014-codex-revision-expediente.md) | Codex | Revisión del expediente: perfil, entrega, reporte y respaldo | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | `src/` (perfil y reporte, F1-09) |
+| Claude | `src/` (feedback y ruta personal, F1-11) |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-22 · Claude Code — expediente: perfil, entrega, reporte y respaldo (F1-09, F1-10)
+El ciclo de §17 funciona en la app, salvo registrar el feedback. Hay un perfil declarado con límites y un aviso de datos reales, y una explicación opcional antes de comprobar (el porqué, la confianza y la ayuda declarada). La entrega del laboratorio incluye cuaderno, evidencias y autoevaluación, y su estado lo calcula la regla. El reporte de evaluación se arma eligiendo alcance, actividades y campos del perfil; tiene vista previa aislada, lista de lo excluido y tamaño, se descarga como HTML autocontenido con las 11 secciones y CSP sin scripts, y se puede copiar en Markdown. El respaldo exporta y restaura con confirmación. Esquema v2 (tabla de reportes) con prueba de migración. Las competencias C01–C13 pasaron a `content/competencies.json`. En la prueba en el navegador apareció un error real: la versión de la app no era semántica y rompía la exportación; quedó corregido y con una prueba que lo vigila. `npm test` 94/94, lint y build; se probó el recorrido de §17.10, también a 375 px. Abierto T-014. Avance: ≈ 29 %.
 
 ### 2026-10-22 · Claude Code — revisión de T-013
 Los 3 hallazgos de Codex se aplicaron. El principal: 8 de las 12 familias del examen tenían enunciados distintos entre variantes, y eso le quita limpieza a un reintento. Ahora cada familia tiene un solo enunciado y una prueba lo vigila. El paso 6 del laboratorio prometía comparar cifras en una corrida que el script detiene antes de calcular; ahora describe lo que pasa, y se comprobó corriendo el reconciliador. Un feedback de L2 afirmaba algo que su lección no respalda. `npm test` 70/70.

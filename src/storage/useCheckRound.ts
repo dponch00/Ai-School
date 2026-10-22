@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react'
 import type { Question } from '../domain/content'
 import { db } from './db'
-import { type CheckRound, recordCheckAnswer } from './progress'
+import { type AnswerNotes, type CheckRound, recordCheckAnswer } from './progress'
 
 /**
  * Registra las respuestas de una ronda durante una visita. Cada visita empieza una ronda nueva,
@@ -17,10 +17,10 @@ export function useCheckRound(round: CheckRound) {
   }, [courseId, lessonId, purpose])
 
   return useCallback(
-    (question: Question, shownOptionIds: string[], selectedOptionId: string) => {
+    (question: Question, shownOptionIds: string[], selectedOptionId: string, notes: AnswerNotes = {}) => {
       // En serie: dos respuestas rápidas no deben crear dos intentos.
       queue.current = queue.current
-        .then(() => recordCheckAnswer(db, { courseId, lessonId, purpose, contentVersion, size }, attemptId.current, question, shownOptionIds, selectedOptionId))
+        .then(() => recordCheckAnswer(db, { courseId, lessonId, purpose, contentVersion, size }, attemptId.current, question, shownOptionIds, selectedOptionId, notes))
         .then((id) => {
           attemptId.current = id
         })

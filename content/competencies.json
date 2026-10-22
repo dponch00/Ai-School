@@ -17,7 +17,7 @@
     "name": "Especificación ejecutable",
     "definition": "Convierte una intención ambigua en una especificación autocontenida con alcance, exclusiones, criterios de aceptación y una verificación de extremo a extremo.",
     "behaviors": [
-      "Reescribe una petición vaga añadiendo lo que queda fuera y una condición de «terminado» que se puede comprobar.",
+      "Reescribe una petición vaga añadiendo lo que queda fuera y una forma comprobable de saber cuándo está listo.",
       "Detecta criterios de aceptación que no se pueden verificar.",
       "Decide cuándo conviene pedir al agente que le haga preguntas antes de planificar."
     ],

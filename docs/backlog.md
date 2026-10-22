@@ -36,8 +36,8 @@ Salida: un curso completo y funcional que fija el estándar del producto. Las ot
 | F1-06 | Imágenes piloto: imagen principal, portada M02, ilustración de una especificación | Codex; revisa Claude + Daniel | F0-06 | ✅ (T5-01 resuelto: `content/courses/m02/diagrams/m02-spec-anatomy.svg`) |
 | F1-07 | Persistencia IndexedDB: progreso, respuestas, intentos versionados | Claude | F1-01 | ✅ |
 | F1-08 | Examen: selección con cobertura, corrección, revisión del intento, modo práctica | Claude | F1-04, F1-07 | ✅ |
-| F1-09 | Perfil + respuestas individuales + HTML de evaluación (plan §17.10), con vista previa por secciones, exclusión explícita, aviso sobre texto libre y límites de longitud (R-04) | Claude | F1-07 | ⬜ |
-| F1-10 | Exportar/importar respaldo con validación | Claude | F1-07 | ⬜ |
+| F1-09 | Perfil + respuestas individuales + HTML de evaluación (plan §17.10), con vista previa por secciones, exclusión explícita, aviso sobre texto libre y límites de longitud (R-04) | Claude | F1-07 | ✅ |
+| F1-10 | Exportar/importar respaldo con validación | Claude | F1-07 | ✅ |
 | F1-11 | Registrar feedback y aplicar una acción a la ruta personal | Claude | F1-09 | ⬜ |
 | F1-12 | Revisión del piloto: contenido (Codex), UX móvil, accesibilidad, fuentes; cerrar hallazgos | Codex + Claude + Daniel | F1-01…F1-11 | ⬜ |
 | F1-13 | **Puerta de calidad del piloto (D-011):** matriz objetivo→evidencia, hallazgos altos cerrados, esfuerzo real medido; decidir alcance de la Fase 3 | Claude + Codex → Daniel decide | F1-12 | ⬜ |

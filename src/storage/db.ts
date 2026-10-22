@@ -14,6 +14,7 @@ import {
   type PlanAdjustment,
   type PracticeSubmission,
   type Profile,
+  type ReportRecord,
   type Response,
 } from '../domain/learner'
 
@@ -40,13 +41,14 @@ export type LearnerDb = Dexie & {
   notes: EntityTable<Note, 'id'>
   bookmarks: EntityTable<Bookmark, 'id'>
   lessonProgress: EntityTable<LessonProgress, 'key'>
+  reports: EntityTable<ReportRecord, 'id'>
 }
 
 export const DB_NAME = 'ai-school'
 
 export function openDb(name = DB_NAME): LearnerDb {
   const db = new Dexie(name) as LearnerDb
-  db.version(SCHEMA_VERSION).stores({
+  db.version(1).stores({
     profile: 'localId',
     attempts: 'id, formLabel, courseId, kind, status',
     responses: 'id, attemptId, questionId',
@@ -57,6 +59,8 @@ export function openDb(name = DB_NAME): LearnerDb {
     bookmarks: 'id, targetId',
     lessonProgress: 'key, courseId',
   })
+  // v2 (F1-09): reportes de evaluación. Las tablas anteriores no cambian, así que no hace falta upgrade().
+  db.version(SCHEMA_VERSION).stores({ reports: 'id, createdAt' })
   return db
 }
 

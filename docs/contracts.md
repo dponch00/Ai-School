@@ -8,6 +8,7 @@
 | `src/domain/learner.ts` | Datos del alumno: perfil (declarado + evidencia previa), intento con instantáneas congeladas, respuesta con primera selección y revisiones, entrega de práctica con cuaderno y revisiones, feedback externo, ajuste de la ruta y respaldo completo |
 | `src/domain/scoring.ts` | Selección del examen (2 familias por objetivo, variante nueva para familias falladas), corrección con la clave congelada y señales del diagnóstico por bloque |
 | `src/domain/domain.test.ts` | Pruebas de las reglas anteriores (`npm test`) |
+| `src/report/build.ts` | Reporte de evaluación (F1-09): HTML autocontenido con las 11 secciones de plan §17.4, Markdown equivalente y JSON pasivo. Función pura; escapa todo el texto del alumno |
 | `src/storage/` | IndexedDB con Dexie (F1-07): tablas por contrato, progreso por lección, rondas de comprobación guardadas como intentos `check` con la pregunta congelada. Migraciones: cada cambio sube `SCHEMA_VERSION` y añade un `.version(n).upgrade()` en `db.ts` |
 
 ## Invariantes que el código hace cumplir
@@ -23,6 +24,8 @@
 - **Diagnóstico:** señales por bloque (fortaleza probable / repaso recomendado / sin señal clara) con reglas asimétricas; nunca niveles ni porcentajes (D-015). Sin 4 ítems del mismo bloque (2 de base y 2 avanzados) el resultado es "evidencia incompleta" (CTR-04).
 - **Práctica (CTR-02, CTR-05):** sigue "presentada" hasta tener el cuaderno (si la práctica lo exige) y la autoevaluación de todos los criterios. "Revisada" exige dos revisiones de corridas distintas que evalúen exactamente los criterios de la rúbrica, sin discrepancias de más de un nivel; si no, "revisión pendiente" (R-H-8 [H]). "Evidencia insuficiente" es un nivel válido.
 - **Persistencia (F1-07):** toda escritura pasa por su contrato Zod. Cada visita a una lección abre rondas nuevas (comprobaciones y repaso); una lección cuenta como completada cuando se responden todas sus comprobaciones, y guarda la primera fecha y el último resultado. Si IndexedDB no está disponible, la app funciona sin guardar.
+- **Reporte (F1-09, R-04):** solo entra lo enviado hasta la fecha de corte y dentro del alcance. Todo lo que queda fuera (secciones, explicaciones, campos del perfil, intentos en curso, otro periodo u otro curso) se lista en el propio reporte. Una evidencia marcada como «no incluir» no viaja en ninguna parte, tampoco en el JSON. El HTML no tiene scripts y lleva una CSP `default-src 'none'`. La app guarda un `ReportRecord` (alcance y resumen) para la sección «Evolución» del siguiente reporte.
+- **Respaldo (F1-10):** JSON validado con `Backup`. Al restaurar se reemplaza todo en una transacción; los respaldos de la v1 se migran, los de un esquema más nuevo se rechazan, y el límite es de 20 MB.
 - **Perfil:** la evidencia previa (programa de Educación, D-009) se guarda aparte de lo declarado y de lo observado en la app.
 
 ## Pendiente para fases siguientes

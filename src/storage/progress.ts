@@ -4,6 +4,9 @@
  */
 import type { Question } from '../domain/content'
 import { Attempt, LessonProgress, Response, finalSelection } from '../domain/learner'
+
+/** Lo que el alumno añade por su cuenta antes de comprobar (plan §17.2). Todo opcional. */
+export type AnswerNotes = Pick<Response, 'explanation' | 'confidence' | 'declaredHelp'>
 import type { LearnerDb } from './db'
 
 export const now = () => new Date().toISOString()
@@ -47,6 +50,7 @@ export async function recordCheckAnswer(
   question: Question,
   shownOptionIds: string[],
   selectedOptionId: string,
+  notes: AnswerNotes = {},
   at = now(),
 ): Promise<string> {
   return db.transaction('rw', [db.attempts, db.responses, db.lessonProgress], async () => {
@@ -83,6 +87,7 @@ export async function recordCheckAnswer(
         feedbackSeenBeforeAnswer: false,
         status: 'submitted',
         answeredAt: at,
+        ...Object.fromEntries(Object.entries(notes).filter(([, v]) => v !== undefined && v !== '')),
       }),
     )
 

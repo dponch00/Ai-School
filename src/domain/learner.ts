@@ -8,7 +8,8 @@
 import { z } from 'zod'
 import { CompetencyId, CourseId, IsoDate, Question, SemVer, Slug } from './content'
 
-export const SCHEMA_VERSION = 1
+/** 2: tabla de reportes de evaluación (F1-09). */
+export const SCHEMA_VERSION = 2
 
 const Timestamp = z.iso.datetime({ offset: true })
 const LocalId = z.string().regex(/^[a-z0-9-]{8,64}$/)
@@ -293,6 +294,32 @@ export const LessonProgress = z.object({
 })
 export type LessonProgress = z.infer<typeof LessonProgress>
 
+// ---------- Reportes de evaluación (plan §17.3–17.4) ----------
+
+/**
+ * Lo que queda en la app de cada reporte generado: no el HTML, sino su alcance y su resumen,
+ * para que el siguiente reporte pueda compararse con este (sección «Evolución»).
+ */
+export const ReportRecord = z.object({
+  id: LocalId,
+  createdAt: Timestamp,
+  /** Fecha de corte: solo entra lo respondido hasta aquí. */
+  cutoffAt: Timestamp,
+  scope: z.object({
+    kind: z.enum(['diagnostic', 'course', 'full']),
+    courseId: CourseId.optional(),
+    from: IsoDate.optional(),
+    to: IsoDate.optional(),
+  }),
+  fileName: z.string().max(120),
+  includedSections: z.array(z.string().max(64)),
+  /** Lo que Daniel dejó fuera, en palabras: se repite en el reporte (nunca se recorta en silencio). */
+  excluded: z.array(z.string().max(200)),
+  counts: z.object({ attempts: z.int().min(0), responses: z.int().min(0), practices: z.int().min(0) }),
+  byCompetency: z.array(z.object({ competencyId: CompetencyId, correct: z.int().min(0), total: z.int().min(0) })),
+})
+export type ReportRecord = z.infer<typeof ReportRecord>
+
 // ---------- Respaldo completo (plan §9) ----------
 
 export const Backup = z.object({
@@ -300,7 +327,8 @@ export const Backup = z.object({
   exportedAt: Timestamp,
   appVersion: SemVer,
   contentVersions: z.record(z.string(), SemVer),
-  profile: Profile,
+  /** null si todavía no se creó el perfil: el progreso se respalda igual. */
+  profile: Profile.nullable(),
   attempts: z.array(Attempt),
   responses: z.array(Response),
   practiceSubmissions: z.array(PracticeSubmission),
@@ -309,5 +337,6 @@ export const Backup = z.object({
   notes: z.array(z.object({ id: LocalId, targetId: z.string().max(64), text: z.string().max(10000), updatedAt: Timestamp })),
   bookmarks: z.array(z.object({ id: LocalId, targetId: z.string().max(64), createdAt: Timestamp })),
   lessonProgress: z.array(LessonProgress).default([]),
+  reports: z.array(ReportRecord).default([]),
 })
 export type Backup = z.infer<typeof Backup>
