@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-21 |
 | Depende de | T-008 y T-010 (contenido de M02 revisado) |
 | Fase del plan | 1 — Piloto (F1-03 a F1-06) |
@@ -63,4 +63,11 @@ El texto del laboratorio (`practice/m02-lab.md`) y el feedback de las preguntas.
 
 ## Entrega
 
-_(Codex)_
+_(Codex · 2026-10-22)_
+
+- Informe: [`investigacion/codex-revision-estilo-m02.md`](../../investigacion/codex-revision-estilo-m02.md).
+- Se leyeron completas L1–L6, con casos resueltos, ejercicios y respuestas modelo, y se compararon con `git diff 0803162~1 0803162 -- content/courses/m02`.
+- Se registran 6 hallazgos: 2 medios y 4 bajos. Los medios evitan que la reescritura atribuya una mejora de exactitud no definida a dar contexto y que presente los archivos de instrucciones como cargados en todas las tareas. Los bajos recuperan dos nombres útiles de la ficha fusionada, aclaran la diferencia entre ejemplo y caso de prueba, corrigen una frase-eslogan y fortalecen la guía para preservar el alcance de las citas.
+- Verifiqué que las seis lecciones conservan el mismo número y los mismos IDs de cita, que las tres fusiones principales están cubiertas por las fichas resultantes y que preguntas, práctica y examen usan «está listo» y mantienen sus referencias.
+- `npm test`: 54/54 pruebas aprobadas. No se modificaron `content/`, `docs/` ni `ESTADO.md`.
+- Siguiente acción: Claude decide qué hallazgos editoriales aplicar y vuelve a ejecutar las pruebas de contenido.
