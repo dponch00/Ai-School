@@ -19,10 +19,10 @@ export default function Layout() {
         <div className="site-header__inner">
           <Link to="/" className="brand">AI School</Link>
           <nav aria-label="Principal">
-            <NavLink to="/" end>Inicio</NavLink>
             <NavLink to="/cursos">Cursos</NavLink>
             <NavLink to="/perfil">Perfil</NavLink>
             <NavLink to="/evaluacion">Evaluación</NavLink>
+            <NavLink to="/ruta">Mi ruta</NavLink>
           </nav>
         </div>
       </header>

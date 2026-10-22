@@ -4,23 +4,24 @@
 
 ## Siguiente acción
 
-1. **Claude:** registrar feedback y ruta personal (F1-11); después, la revisión del piloto (F1-12).
-2. **Daniel:** hacer el recorrido completo en la app (perfil, lecciones, examen, laboratorio y reporte) y compartir el reporte en un chat para probar el ciclo; releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
-3. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
+1. **Codex:** T-015, revisión completa del piloto (F1-12), incluida la ruta personal.
+2. **Claude:** aplicar los hallazgos de T-015 y preparar la puerta de calidad F1-13 (matriz objetivo→evidencia, esfuerzo real, decisión sobre la Fase 3).
+3. **Daniel:** hacer el recorrido completo en la app (perfil, lecciones, examen, laboratorio y reporte) y compartir el reporte en un chat para probar el ciclo; releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
+4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-22)
 
-**≈ 29 % de la V1** (rango razonable: 26–32 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 30 % de la V1** (rango razonable: 27–33 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
-| 1 · Piloto M02 | 22 % | 84 % (contenido revisado, progreso, examen, perfil, entrega del laboratorio, reporte de evaluación y respaldo; faltan feedback externo con ruta personal, revisión del piloto y su puerta) | 18,5 |
+| 1 · Piloto M02 | 22 % | 90 % (las 11 funciones del piloto hechas; faltan la revisión completa del piloto y su puerta de calidad) | 19,8 |
 | 2 · Base de app y PWA | 15 % | 12 % (contratos, validación, rutas, IndexedDB con migraciones) | 1,8 |
 | 3 · Nueve manuales restantes | 40 % | 3 % (currículo y mapa de competencias) | 1,2 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 29 %** |
+| **Total** | 100 % | | **≈ 30 %** |
 
 ## Tickets
 
@@ -40,18 +41,22 @@
 | [T-012](coordinacion/tickets/T-012-codex-revision-estilo-m02.md) | Codex | Revisión de estilo de las seis lecciones de M02 | cerrado |
 | [T-013](coordinacion/tickets/T-013-codex-revision-preguntas-examen.md) | Codex | Revisión de los bancos reescritos, el laboratorio y el examen | cerrado |
 | [T-014](coordinacion/tickets/T-014-codex-revision-expediente.md) | Codex | Revisión del expediente: perfil, entrega, reporte y respaldo | cerrado |
+| [T-015](coordinacion/tickets/T-015-codex-revision-piloto.md) | Codex | Revisión completa del piloto (F1-12), incluida la ruta personal | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | `src/` (feedback y ruta personal, F1-11) |
+| Claude | Preparación de F1-13 (sin tocar `src/` ni `content/` hasta la entrega de T-015) |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-22 · Claude Code — retroalimentación y ruta personal (F1-11)
+El ciclo de §17 queda cerrado en la app. «Mi ruta» registra la retroalimentación de un evaluador ligada al reporte que evaluó, con el texto completo, de forma idempotente y sin tocar respuestas ni puntuaciones. Si trae el bloque estructurado opcional, la app lo valida, muestra las discrepancias y crea propuestas que Daniel acepta, pospone o descarta, con historial y la opción de deshacer. También admite ajustes manuales que no cambian el currículo oficial. En la portada del curso se ven los repasos aceptados. La navegación pasa a Cursos, Perfil, Evaluación y Mi ruta. Se probó el ciclo completo en el navegador, también a 360 px. `npm test` 105/105, lint y build. Abierto T-015 (revisión completa del piloto, F1-12). Avance: ≈ 30 %.
 
 ### 2026-10-22 · Claude Code — revisión de T-014
 Los 5 hallazgos de Codex se aplicaron, cada uno con su prueba. Los dos altos eran de privacidad: una entrega de laboratorio fuera del periodo se colaba en el reporte, y el Markdown copiado no neutralizaba el texto libre (un alias podía abrir un título o colar HTML al pegarlo). También se corrigieron estos puntos: el historial de otros cursos en un reporte de curso, la lectura completa de un respaldo enorme antes de rechazarlo y la navegación que desbordaba a 360 px. `npm test` 99/99.

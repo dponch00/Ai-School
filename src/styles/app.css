@@ -261,3 +261,10 @@ main:focus { outline: none; }
   .site-header nav { flex-wrap: wrap; gap: 0; width: 100%; justify-content: space-between; }
   .site-header nav a { padding-inline: var(--ais-space-2); }
 }
+
+/* Mi ruta (F1-11) */
+.adjustment { border-top: 1px dashed var(--ais-color-border); padding-top: var(--ais-space-3); margin-top: var(--ais-space-3); }
+.adjustment__meta { font-size: var(--ais-font-size-sm); color: var(--ais-color-muted); margin-bottom: var(--ais-space-1); }
+.adjustment__change { font-weight: 600; margin-bottom: var(--ais-space-2); }
+.lesson-list__status--plan { color: var(--ais-color-accent); }
+.button:disabled { opacity: 0.55; cursor: not-allowed; }

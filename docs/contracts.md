@@ -9,6 +9,7 @@
 | `src/domain/scoring.ts` | Selección del examen (2 familias por objetivo, variante nueva para familias falladas), corrección con la clave congelada y señales del diagnóstico por bloque |
 | `src/domain/domain.test.ts` | Pruebas de las reglas anteriores (`npm test`) |
 | `src/report/build.ts` | Reporte de evaluación (F1-09): HTML autocontenido con las 11 secciones de plan §17.4, Markdown equivalente y JSON pasivo. Función pura; escapa todo el texto del alumno |
+| `src/domain/feedback.ts` | Bloque estructurado opcional de retroalimentación (plan §17.6): esquema, lectura sin ejecutar nada, plantilla para el evaluador y discrepancias de referencias |
 | `src/storage/` | IndexedDB con Dexie (F1-07): tablas por contrato, progreso por lección, rondas de comprobación guardadas como intentos `check` con la pregunta congelada. Migraciones: cada cambio sube `SCHEMA_VERSION` y añade un `.version(n).upgrade()` en `db.ts` |
 
 ## Invariantes que el código hace cumplir
@@ -26,6 +27,7 @@
 - **Persistencia (F1-07):** toda escritura pasa por su contrato Zod. Cada visita a una lección abre rondas nuevas (comprobaciones y repaso); una lección cuenta como completada cuando se responden todas sus comprobaciones, y guarda la primera fecha y el último resultado. Si IndexedDB no está disponible, la app funciona sin guardar.
 - **Reporte (F1-09, R-04):** solo entra lo enviado hasta la fecha de corte y dentro del alcance. Todo lo que queda fuera (secciones, explicaciones, campos del perfil, intentos en curso, otro periodo u otro curso) se lista en el propio reporte. Una evidencia marcada como «no incluir» no viaja en ninguna parte, tampoco en el JSON. El HTML no tiene scripts y lleva una CSP `default-src 'none'`. La app guarda un `ReportRecord` (alcance y resumen) para la sección «Evolución» del siguiente reporte.
 - **Respaldo (F1-10):** JSON validado con `Backup`. Al restaurar se reemplaza todo en una transacción; los respaldos de la v1 se migran, los de un esquema más nuevo se rechazan, y el límite es de 20 MB.
+- **Retroalimentación y ruta (F1-11):** el registro es idempotente por un hash SHA-256 del texto y nunca toca respuestas ni puntuaciones. Las recomendaciones de un bloque válido entran como propuestas y solo se aplican si Daniel las acepta. Cada cambio de estado queda en el historial y se puede deshacer. Un bloque inválido conserva el texto y no aplica nada.
 - **Perfil:** la evidencia previa (programa de Educación, D-009) se guarda aparte de lo declarado y de lo observado en la app.
 
 ## Pendiente para fases siguientes

@@ -11,6 +11,7 @@ export default function CourseOverview() {
   const course = getCourse(courseId)
   const progress = useLive(() => courseProgress(db, course?.id ?? ''), [course?.id], [])
   const exams = useLive(() => examAttempts(db, course?.id ?? ''), [course?.id], [])
+  const plan = useLive(() => db.adjustments.toArray(), [], [])
   if (!course) return <NotFound />
   const cover = covers[course.id]
   const status = (lessonId: string) => {
@@ -53,6 +54,7 @@ export default function CourseOverview() {
         <ol className="lesson-list">
           {course.lessons.map((l) => {
             const s = status(l.id)
+            const inPlan = plan.some((a) => a.kind === 'review-lesson' && (a.state === 'accepted' || a.state === 'in-progress') && a.targetIds.includes(l.id))
             return (
               <li key={l.id}>
                 <Link to={`/cursos/${course.id}/lecciones/${l.id}`} className="lesson-list__link">
@@ -60,6 +62,7 @@ export default function CourseOverview() {
                   <span className="lesson-list__title">
                     {l.title}
                     {s && <span className={`lesson-list__status lesson-list__status--${s.kind}`}>{s.label}</span>}
+                    {inPlan && <span className="lesson-list__status lesson-list__status--plan">En tu ruta: repasar</span>}
                   </span>
                   <span className="lesson-list__time">{l.estimatedMinutes} min</span>
                 </Link>

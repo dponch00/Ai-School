@@ -12,6 +12,7 @@ import ExamPage from './pages/ExamPage.tsx'
 import PracticePage from './pages/PracticePage.tsx'
 import ProfilePage from './pages/ProfilePage.tsx'
 import EvaluationPage from './pages/EvaluationPage.tsx'
+import RoutePage from './pages/RoutePage.tsx'
 import NotFound from './pages/NotFound.tsx'
 
 // Hash routing (D-014): funciona en hosting estático sin reescrituras y offline con un solo index.html.
@@ -28,6 +29,7 @@ const router = createHashRouter([
       { path: 'cursos/:courseId/practica', element: <PracticePage /> },
       { path: 'perfil', element: <ProfilePage /> },
       { path: 'evaluacion', element: <EvaluationPage /> },
+      { path: 'ruta', element: <RoutePage /> },
       { path: '*', element: <NotFound /> },
     ],
   },
