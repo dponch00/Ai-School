@@ -1,11 +1,13 @@
 # Estado del proyecto
 
-**Fase actual:** 0 — Definición · **Actualizado:** 2026-10-21 por Claude Code
+**Fase actual:** 1 — Piloto M02 (Fase 0 cerrada salvo la prueba de hosting F0-11) · **Actualizado:** 2026-10-21 por Claude Code
 
 ## Siguiente acción
 
-1. **Claude:** blueprint de M02 y lecciones 1–2, para que Codex revise el patrón antes de escribir las otras cuatro (T-006).
-2. **Claude:** lecciones de M02 (F1-03) sobre el estándar v0.2; al terminar, ticket de revisión para Codex.
+1. **Daniel → Codex:** pasarle T-006 (revisión temprana del patrón de M02 con las lecciones 1 y 2).
+2. **Claude, mientras tanto:** esqueleto de la app con el sistema D1 (F1-01, en local) y pipeline de contenido (F1-02).
+3. **Después de T-006:** aplicar los hallazgos y escribir las lecciones 3 a 6 con el patrón ya validado.
+4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Tickets
 
@@ -16,18 +18,23 @@
 | [T-003](coordinacion/tickets/T-003-codex-revision-curriculo-estandar.md) | Codex | Revisión del currículo y del estándar de contenido | cerrado |
 | [T-004](coordinacion/tickets/T-004-codex-revision-diagnostico-contratos.md) | Codex | Revisión del diagnóstico y de los contratos de datos | cerrado |
 | [T-005](coordinacion/tickets/T-005-codex-sistema-diseno-e-imagenes-piloto.md) | Codex | Sistema de diseño D1 e imágenes del piloto | cerrado |
+| [T-006](coordinacion/tickets/T-006-codex-revision-patron-m02.md) | Codex | Revisión temprana del patrón de M02 (L1 y L2) | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | `content/courses/m02/` (lecciones de M02) |
+| Claude | `src/` (esqueleto de la app) |
+| Codex (T-006) | `investigacion/codex-revision-patron-m02.md` |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-21 · Claude Code — T-005 y primeras lecciones de M02
+T-005 cerrado: sistema de diseño D1 aceptado, manifiesto de imágenes validado por prueba; queda T5-01 (Claude etiqueta el SVG de la especificación). M02: blueprint de 6 objetivos evaluados, 38 conceptos erróneos, 4 fichas de producto, lecciones 1 y 2 completas con su comprobación y repaso (10 preguntas), y 36 fuentes de la investigación importadas a `content/sources.json` (63 en total). Nueva prueba `course-files.test.ts`: referencias cruzadas, anclas, citas y sesgo de longitud de la clave (detectó dos veces el sesgo y se corrigió). `npm test` 46/46.
 
 ### 2026-10-21 · Claude Code — revisión de T-004
 Los 12 hallazgos de Codex se aplicaron: fuentes en todo el diagnóstico (`content/sources.json`), claves corregidas en dx-b3-02, dx-b2-02 y dx-b2-04, proceso de dx-b3-04, microtarea 1 coherente, y seis correcciones de contratos con sus casos reproducibles como pruebas. `npm test` 40/40. El diagnóstico queda listo para el piloto (F0-10). Los arreglos de SW de Python GO y MKompact se publicaron desde su propia sesión.

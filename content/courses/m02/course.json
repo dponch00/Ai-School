@@ -1,0 +1,21 @@
+{
+  "id": "m02",
+  "version": "0.1.0",
+  "title": "Prompting avanzado y especificaciones",
+  "centralQuestion": "¿Cómo convierto una idea ambigua en una tarea ejecutable y verificable?",
+  "competencyIds": ["C02", "C07", "C12"],
+  "evaluatedObjectives": [
+    { "id": "m02-eo1", "statement": "Dada una petición ambigua, reescribe su objetivo indicando usuario, decisión que apoya, periodo y tipo de entregable, sin añadir detalles de implementación.", "competencyIds": ["C02"] },
+    { "id": "m02-eo2", "statement": "Dado un caso con información incompleta, separa el contexto pertinente del ruido, declara restricciones con su motivo y registra cada supuesto con dueño, estado y si se pregunta o se decide.", "competencyIds": ["C02", "C03"] },
+    { "id": "m02-eo3", "statement": "Dada una tarea con salida estructurada, elige ejemplos y contraejemplos útiles y define un contrato de salida, distinguiendo lo que el esquema garantiza (forma) de lo que hay que verificar (valores).", "competencyIds": ["C02", "C12"] },
+    { "id": "m02-eo4", "statement": "Dado un cambio en una herramienta analítica, redacta una especificación autocontenida con alcance, exclusiones, archivos o interfaces y política de ambigüedad, y decide si conviene que el agente te entreviste antes.", "competencyIds": ["C02", "C07"] },
+    { "id": "m02-eo5", "statement": "Dada una especificación, la descompone en hitos con su propia prueba y decide cuándo planificar, cuándo reiniciar la sesión y qué hallazgos de una revisión atender.", "competencyIds": ["C07"] },
+    { "id": "m02-eo6", "statement": "Dada una entrega de un agente, redacta criterios de aceptación observables y exige la evidencia ejecutable que demuestra cada uno, rechazando afirmaciones sin prueba.", "competencyIds": ["C02", "C12"] }
+  ],
+  "lessonIds": ["m02-l1", "m02-l2", "m02-l3", "m02-l4", "m02-l5", "m02-l6"],
+  "practiceId": "m02-lab",
+  "estimatedMinutes": 240,
+  "volatility": "medium",
+  "reviewCadence": "annual",
+  "status": "draft"
+}

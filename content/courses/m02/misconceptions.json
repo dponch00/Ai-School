@@ -1,0 +1,378 @@
+[
+  {
+    "id": "m02-mc01",
+    "courseId": "m02",
+    "description": "Si el modelo es potente, entenderá la intención; no hace falta decir para quién ni para qué.",
+    "whyWrong": "Los proveedores piden explicitar motivación y destinatario; la prueba del colega muestra que la ambigüedad confunde.",
+    "sourceIds": [
+      "src-anthropic-prompting-bp",
+      "src-anthropic-prompting-fable5"
+    ]
+  },
+  {
+    "id": "m02-mc02",
+    "courseId": "m02",
+    "description": "Pedir '¿puedes sugerir mejoras?' hará que el agente las implemente.",
+    "whyWrong": "Anthropic documenta que esa formulación tiende a producir sugerencias; para que actúe hay que pedirlo de forma directa.",
+    "sourceIds": [
+      "src-anthropic-prompting-bp"
+    ]
+  },
+  {
+    "id": "m02-mc03",
+    "courseId": "m02",
+    "description": "Pedir 'tantas funciones como sea posible' es buena práctica en un dashboard financiero.",
+    "whyWrong": "Ese ejemplo ilustra cómo declarar ambición; sin alcance acotado, algunos modelos añaden extras no pedidos. [inferencia] Choca con la verificabilidad.",
+    "sourceIds": [
+      "src-anthropic-prompting-bp",
+      "src-anthropic-prompting-sonnet55"
+    ]
+  },
+  {
+    "id": "m02-mc04",
+    "courseId": "m02",
+    "description": "Un prompt más largo y detallado siempre rinde más.",
+    "whyWrong": "GPT-5.6: prompts más ligeros mejoraron los scores entre un 10 y un 15 % en evals internas (resultado orientativo). Un CLAUDE.md inflado hace que se ignoren reglas. Anthropic lista la sobreingeniería del prompt como error.",
+    "sourceIds": [
+      "src-openai-gpt56-model-guidance",
+      "src-anthropic-cc-best-practices",
+      "src-anthropic-blog-prompting"
+    ]
+  },
+  {
+    "id": "m02-mc05",
+    "courseId": "m02",
+    "description": "Las reglas permanentes del proyecto deben repetirse en cada prompt.",
+    "whyWrong": "Codex lista esto como error común: van en AGENTS.md o en una skill. GPT-5.6 pide enunciar cada regla una sola vez.",
+    "sourceIds": [
+      "src-openai-codex-best-practices",
+      "src-openai-gpt56-model-guidance"
+    ]
+  },
+  {
+    "id": "m02-mc06",
+    "courseId": "m02",
+    "description": "Cuanto más contexto (todo el repo, todos los documentos), mejor.",
+    "whyWrong": "El rendimiento se degrada al llenarse el contexto; \"kitchen sink\" e \"infinite exploration\" figuran como patrones de fallo.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m02-mc07",
+    "courseId": "m02",
+    "description": "Poner IMPORTANT o CRITICAL en muchas líneas asegura el cumplimiento.",
+    "whyWrong": "Si todo lleva énfasis, nada destaca; en modelos Claude recientes el lenguaje agresivo provoca sobreuso.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-anthropic-prompting-bp"
+    ]
+  },
+  {
+    "id": "m02-mc08",
+    "courseId": "m02",
+    "description": "Si falta un dato, el agente debe completarlo con un supuesto razonable sin avisar.",
+    "whyWrong": "Lo documentado es permitir \"no lo sé\", marcar `[NEEDS CLARIFICATION]`, registrar las decisiones o decir qué ambigüedades llevan a preguntar.",
+    "sourceIds": [
+      "src-anthropic-reduce-hallucinations",
+      "src-github-speckit-sdd-doc",
+      "src-openai-codex-execplans",
+      "src-openai-gpt56-model-guidance"
+    ]
+  },
+  {
+    "id": "m02-mc09",
+    "courseId": "m02",
+    "description": "Las instrucciones contradictorias se resuelven solas: el modelo elige la más sensata.",
+    "whyWrong": "Dañan más a los modelos precisos porque gastan razonamiento en reconciliarlas; GPT-6 Astra es sensible a conflictos entre skills y AGENTS.md.",
+    "sourceIds": [
+      "src-openai-gpt5-prompting-guide",
+      "src-openai-latest-model"
+    ]
+  },
+  {
+    "id": "m02-mc10",
+    "courseId": "m02",
+    "description": "El modelo puede hacer los cálculos del dashboard dentro de su respuesta.",
+    "whyWrong": "Google recomienda ejecución de código para aritmética y conteos; plan.md separa el cálculo determinista de la narrativa.",
+    "sourceIds": [
+      "src-google-prompting-strategies"
+    ]
+  },
+  {
+    "id": "m02-mc11",
+    "courseId": "m02",
+    "description": "Más ejemplos siempre es mejor.",
+    "whyWrong": "Demasiados ejemplos producen sobreajuste (Gemini); GPT-5.6 los mantiene solo si corrigen una brecha medida; la guía de razonamiento de OpenAI dice probar primero sin ejemplos.",
+    "sourceIds": [
+      "src-google-prompting-strategies",
+      "src-openai-gpt56-model-guidance",
+      "src-openai-reasoning-bp"
+    ]
+  },
+  {
+    "id": "m02-mc12",
+    "courseId": "m02",
+    "description": "Un único ejemplo representativo cubre todos los casos.",
+    "whyWrong": "Los ejemplos deben ser diversos e incluir casos borde; los conjuntos de evaluación deben estar balanceados.",
+    "sourceIds": [
+      "src-anthropic-prompting-bp",
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m02-mc13",
+    "courseId": "m02",
+    "description": "Los contraejemplos se expresan mejor como una lista de 'no hagas X'.",
+    "whyWrong": "Para el formato conviene decir qué hacer. [inferencia] Un contraejemplo útil es un caso concreto con su salida esperada.",
+    "sourceIds": [
+      "src-anthropic-prompting-bp",
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m02-mc14",
+    "courseId": "m02",
+    "description": "Con Structured Outputs los números del JSON son correctos.",
+    "whyWrong": "Los tres proveedores garantizan la forma, no la exactitud, y piden validar los valores.",
+    "sourceIds": [
+      "src-openai-structured-outputs",
+      "src-anthropic-structured-outputs",
+      "src-google-structured-output"
+    ]
+  },
+  {
+    "id": "m02-mc15",
+    "courseId": "m02",
+    "description": "JSON mode y Structured Outputs son lo mismo.",
+    "whyWrong": "JSON mode solo garantiza JSON válido; Structured Outputs garantiza además la adherencia al schema.",
+    "sourceIds": [
+      "src-openai-structured-outputs"
+    ]
+  },
+  {
+    "id": "m02-mc16",
+    "courseId": "m02",
+    "description": "Un mismo JSON Schema funciona igual con todos los proveedores.",
+    "whyWrong": "Claude API rechaza `minimum`/`maximum`; OpenAI exige todos los campos en `required`; Gemini ignora `minLength`; el orden de las claves difiere.",
+    "sourceIds": [
+      "src-anthropic-structured-outputs",
+      "src-openai-structured-outputs",
+      "src-google-structured-output"
+    ]
+  },
+  {
+    "id": "m02-mc17",
+    "courseId": "m02",
+    "description": "Si la respuesta parece JSON válido, se puede usar sin revisar por qué terminó.",
+    "whyWrong": "Un refusal o un truncamiento pueden romper el schema; Anthropic pide tratar `max_tokens` como fallo aunque el JSON parezca válido.",
+    "sourceIds": [
+      "src-anthropic-structured-outputs",
+      "src-anthropic-prompting-sonnet55",
+      "src-openai-structured-outputs"
+    ]
+  },
+  {
+    "id": "m02-mc18",
+    "courseId": "m02",
+    "description": "Un campo `reasoning` en el JSON mejora la calidad y es inocuo.",
+    "whyWrong": "En modelos Claude recientes puede disparar `reasoning_extraction`; Anthropic recomienda pedir una explicación breve.",
+    "sourceIds": [
+      "src-anthropic-structured-outputs",
+      "src-anthropic-refusals"
+    ]
+  },
+  {
+    "id": "m02-mc19",
+    "courseId": "m02",
+    "description": "En Claude, la forma de forzar el formato es el prefill ('Aquí está el JSON:').",
+    "whyWrong": "Desde Claude 4.6 el prefill del último turno devuelve error 400; la alternativa es structured outputs.",
+    "sourceIds": [
+      "src-anthropic-prompting-bp"
+    ]
+  },
+  {
+    "id": "m02-mc20",
+    "courseId": "m02",
+    "description": "Planificar antes de cualquier cambio siempre es la mejor práctica.",
+    "whyWrong": "Planificar tiene un costo; si el diff cabe en una frase, Claude Code recomienda omitir el plan.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m02-mc21",
+    "courseId": "m02",
+    "description": "Si el agente falla, hay que seguir corrigiéndolo en la misma sesión hasta que acierte.",
+    "whyWrong": "Tras dos correcciones fallidas, Claude Code recomienda limpiar el contexto y reescribir el prompt.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m02-mc22",
+    "courseId": "m02",
+    "description": "Que el mismo agente revise su trabajo equivale a una revisión independiente.",
+    "whyWrong": "Los verificadores en contexto fresco superan a la autocrítica; Claude Code propone el patrón escritor/revisor.",
+    "sourceIds": [
+      "src-anthropic-prompting-fable5",
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m02-mc23",
+    "courseId": "m02",
+    "description": "Hay que atender todos los hallazgos del revisor.",
+    "whyWrong": "Un revisor al que se le piden fallas casi siempre encuentra alguna; perseguirlas todas lleva a la sobreingeniería.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m02-mc24",
+    "courseId": "m02",
+    "description": "El spec-driven development siempre mejora el resultado, sea cual sea el tamaño de la tarea.",
+    "whyWrong": "En tareas pequeñas resulta costoso y verboso, y los agentes no siempre siguen la spec.",
+    "sourceIds": [
+      "src-thoughtworks-sdd-tools"
+    ]
+  },
+  {
+    "id": "m02-mc25",
+    "courseId": "m02",
+    "description": "'Que se vea bien y funcione' es un criterio de aceptación.",
+    "whyWrong": "No es observable ni comprobable; Gherkin pide resultados observables e INVEST, historias testables.",
+    "sourceIds": [
+      "src-cucumber-gherkin",
+      "src-xp123-invest"
+    ]
+  },
+  {
+    "id": "m02-mc26",
+    "courseId": "m02",
+    "description": "Verificar un estado interno (tabla creada, estructura agregada) demuestra la aceptación.",
+    "whyWrong": "Then debe comprobar una salida observable; el ExecPlan excluye los atributos internos.",
+    "sourceIds": [
+      "src-cucumber-gherkin",
+      "src-openai-codex-execplans"
+    ]
+  },
+  {
+    "id": "m02-mc27",
+    "courseId": "m02",
+    "description": "Si el agente dice 'todos los tests pasan', está verificado.",
+    "whyWrong": "Hay que exigir evidencia (comando y resultado) y auditar las afirmaciones; a esfuerzo bajo, Sonnet 5.5 puede omitir la comprobación.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-anthropic-prompting-fable5",
+      "src-anthropic-prompting-sonnet55"
+    ]
+  },
+  {
+    "id": "m02-mc28",
+    "courseId": "m02",
+    "description": "Si un prompt ganó en una prueba, es mejor.",
+    "whyWrong": "Los modelos no son deterministas: hacen falta varios ensayos (pass@k, pass^k) y casos representativos.",
+    "sourceIds": [
+      "src-anthropic-evals-agents",
+      "src-openai-eval-best-practices"
+    ]
+  },
+  {
+    "id": "m02-mc29",
+    "courseId": "m02",
+    "description": "Un juez LLM es objetivo y no necesita calibración.",
+    "whyWrong": "Tiene sesgos de posición y verbosidad; hay que calibrarlo contra humanos.",
+    "sourceIds": [
+      "src-openai-eval-best-practices",
+      "src-arxiv-llm-judge",
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m02-mc30",
+    "courseId": "m02",
+    "description": "Reducir los tokens de un prompt es una mejora en sí misma.",
+    "whyWrong": "Solo cuenta si la salida sigue pasando las evals.",
+    "sourceIds": [
+      "src-openai-gpt56-model-guidance"
+    ]
+  },
+  {
+    "id": "m02-mc31",
+    "courseId": "m02",
+    "description": "Una técnica que funcionó con un modelo funciona igual con el siguiente.",
+    "whyWrong": "Anthropic pide volver a comprobarla; en Opus 5, las instrucciones de verificación heredadas causan sobreverificación.",
+    "sourceIds": [
+      "src-anthropic-prompting-bp"
+    ]
+  },
+  {
+    "id": "m02-mc32",
+    "courseId": "m02",
+    "description": "'Piensa paso a paso y muéstrame tu razonamiento' mejora cualquier modelo.",
+    "whyWrong": "Ver §4: con modelos de razonamiento es innecesario o perjudicial (OpenAI) y en Claude reciente puede rechazarse.",
+    "sourceIds": [
+      "src-openai-reasoning-bp",
+      "src-anthropic-refusals"
+    ]
+  },
+  {
+    "id": "m02-mc33",
+    "courseId": "m02",
+    "description": "El razonamiento visible del modelo muestra fielmente por qué decidió.",
+    "whyWrong": "En el estudio de Anthropic, los modelos mencionaron la pista que usaron solo en una minoría de casos (≈25 % y ≈39 %).",
+    "sourceIds": [
+      "src-anthropic-cot-faithfulness"
+    ]
+  },
+  {
+    "id": "m02-mc34",
+    "courseId": "m02",
+    "description": "Describir la interfaz o la tecnología equivale a definir el objetivo.",
+    "whyWrong": "El objetivo fija el qué y el para qué; el cómo (stack, gráficas) va en el plan técnico. Mezclarlos lleva a discutir la forma antes de saber qué decisión se apoya.",
+    "sourceIds": [
+      "src-github-speckit-quickstart",
+      "src-github-speckit-sdd-doc"
+    ]
+  },
+  {
+    "id": "m02-mc35",
+    "courseId": "m02",
+    "description": "Cualquier petición a un agente de código implica modificar código.",
+    "whyWrong": "Las peticiones de explicar, revisar o diagnosticar llevan a inspeccionar e informar; solo las de cambiar o construir permiten editar.",
+    "sourceIds": [
+      "src-openai-gpt56-model-guidance",
+      "src-anthropic-prompting-fable5"
+    ]
+  },
+  {
+    "id": "m02-mc36",
+    "courseId": "m02",
+    "description": "Una advertencia general («ten cuidado con los datos») funciona como restricción.",
+    "whyWrong": "No dice qué está prohibido, por qué ni qué hacer en su lugar; una restricción concreta y con motivo se aplica mejor a situaciones nuevas.",
+    "sourceIds": [
+      "src-anthropic-prompting-bp"
+    ]
+  },
+  {
+    "id": "m02-mc37",
+    "courseId": "m02",
+    "description": "Excluir en silencio los datos que no encajan es una simplificación aceptable.",
+    "whyWrong": "Una exclusión silenciosa cambia cifras sin que nadie lo decida; lo que necesita aclaración se marca o se registra como decisión.",
+    "sourceIds": [
+      "src-github-speckit-sdd-doc",
+      "src-openai-codex-execplans"
+    ]
+  },
+  {
+    "id": "m02-mc38",
+    "courseId": "m02",
+    "description": "Toda ambigüedad debe preguntarse antes de avanzar.",
+    "whyWrong": "Preguntarlo todo frena el trabajo; las guías piden detenerse ante lo irreversible o lo que solo el usuario puede aportar. Política del curso [inferencia]: se pregunta lo que cambia cifras visibles, alcance o algo irreversible; lo demás se decide y registra.",
+    "sourceIds": [
+      "src-anthropic-prompting-fable5",
+      "src-openai-codex-execplans"
+    ]
+  }
+]

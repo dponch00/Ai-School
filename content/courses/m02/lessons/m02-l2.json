@@ -1,0 +1,60 @@
+{
+  "id": "m02-l2",
+  "courseId": "m02",
+  "version": "0.1.0",
+  "order": 2,
+  "title": "Contexto pertinente, restricciones y supuestos",
+  "objectives": [
+    {
+      "id": "m02-l2-o1",
+      "statement": "Dado un caso y varios materiales, elige el contexto que el agente necesita y descarta el que solo añade ruido.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m02-eo2"
+    },
+    {
+      "id": "m02-l2-o2",
+      "statement": "Dada una prohibición vaga, la reescribe con lo que está prohibido, su motivo y la alternativa permitida.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m02-eo2"
+    },
+    {
+      "id": "m02-l2-o3",
+      "statement": "Dadas varias ambigüedades, registra cada supuesto con dueño y estado, y decide si se pregunta o se decide según su efecto en cifras, alcance o reversibilidad.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m02-eo2"
+    }
+  ],
+  "bodyPath": "courses/m02/lessons/m02-l2.md",
+  "reviewQuestionIds": [
+    "m02-l1-r1",
+    "m02-l1-r2"
+  ],
+  "checkQuestionIds": [
+    "m02-l2-c1",
+    "m02-l2-c2",
+    "m02-l2-c3",
+    "m02-l2-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m02-pc-instruction-files",
+    "m02-pc-emphasis-claude"
+  ],
+  "sourceIds": [
+    "src-anthropic-cc-best-practices",
+    "src-openai-codex-best-practices",
+    "src-github-copilot-prompt-eng",
+    "src-anthropic-prompting-bp",
+    "src-openai-gpt5-prompting-guide",
+    "src-openai-gpt56-model-guidance",
+    "src-anthropic-reduce-hallucinations",
+    "src-github-speckit-sdd-doc",
+    "src-openai-codex-execplans",
+    "src-github-speckit-quickstart",
+    "src-anthropic-prompting-fable5",
+    "src-google-prompting-strategies",
+    "src-openai-prompt-engineering"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

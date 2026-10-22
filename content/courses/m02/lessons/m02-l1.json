@@ -1,0 +1,52 @@
+{
+  "id": "m02-l1",
+  "courseId": "m02",
+  "version": "0.1.0",
+  "order": 1,
+  "title": "Objetivo, usuario y resultado esperado",
+  "objectives": [
+    {
+      "id": "m02-l1-o1",
+      "statement": "Dada una petición vaga, reescribe el objetivo en una o dos frases nombrando usuario, decisión, periodo y umbral.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m02-eo1"
+    },
+    {
+      "id": "m02-l1-o2",
+      "statement": "Dada una petición, identifica si pide un diagnóstico, un cambio acotado o una acción que requiere confirmación, y lo declara.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m02-eo1"
+    },
+    {
+      "id": "m02-l1-o3",
+      "statement": "Dado un objetivo, escribe una condición de terminado que se pueda comprobar con evidencia.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m02-eo6"
+    }
+  ],
+  "bodyPath": "courses/m02/lessons/m02-l1.md",
+  "reviewQuestionIds": [],
+  "checkQuestionIds": [
+    "m02-l1-c1",
+    "m02-l1-c2",
+    "m02-l1-c3",
+    "m02-l1-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m02-pc-autonomy-levels",
+    "m02-pc-codex-task-shape"
+  ],
+  "sourceIds": [
+    "src-anthropic-prompting-bp",
+    "src-anthropic-prompting-fable5",
+    "src-github-speckit-quickstart",
+    "src-github-speckit-sdd-doc",
+    "src-anthropic-prompting-sonnet55",
+    "src-openai-gpt56-model-guidance",
+    "src-openai-codex-best-practices",
+    "src-github-copilot-agent-bp"
+  ],
+  "estimatedMinutes": 22,
+  "status": "draft"
+}

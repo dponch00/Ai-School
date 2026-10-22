@@ -30,7 +30,7 @@ Salida: un curso completo y funcional que fija el estándar del producto. Las ot
 | --- | --- | --- | --- | --- |
 | F1-01 | Esqueleto de la app (Vite + React + TS), rutas, layout de lector, tokens del sistema visual | Claude | F0-09, F0-11, F0-12 | ⬜ |
 | F1-02 | Pipeline de contenido: Markdown + JSON validados en build (`scripts/validate-content`) | Claude | F0-09 | ⬜ |
-| F1-03 | Seis lecciones de M02: investigación → borrador → verificación de fuentes → revisión Codex → integración | Claude; revisa Codex | F0-01, F0-08 | ⬜ |
+| F1-03 | Seis lecciones de M02: investigación → borrador → verificación de fuentes → revisión Codex → integración | Claude; revisa Codex (T-006 para L1–L2) | F0-01, F0-08 | 🔄 L1–L2 escritas |
 | F1-04 | Banco M02 (20–24 preguntas con feedback por opción) | Claude; revisa Codex | F1-03 | ⬜ |
 | F1-05 | Laboratorio M02: petición de dashboard → especificación verificable, con rúbrica, check ejecutable de reconciliación y cuaderno de decisiones de transferencia (D-012) | Claude; revisa Codex | F1-03 | ⬜ |
 | F1-06 | Imágenes piloto: imagen principal, portada M02, ilustración de una especificación | Codex; revisa Claude + Daniel | F0-06 | ✅ (T5-01 pendiente: Claude etiqueta el SVG) |

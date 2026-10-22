@@ -361,5 +361,595 @@
     "kind": "primary",
     "volatility": "low",
     "nextReview": "2027-10-21"
+  },
+  {
+    "id": "src-anthropic-cc-headless",
+    "title": "Run Claude Code programmatically",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/headless",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "`claude -p`, `--output-format json`, `--json-schema` → `structured_output`",
+      "`format` no se impone",
+      "comprobar que el campo exista"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "src-anthropic-prompting-overview",
+    "title": "Prompt engineering overview",
+    "organization": "Anthropic",
+    "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Requisitos previos (criterios de éxito, tests empíricos, primer borrador)",
+      "no todo se arregla con prompting",
+      "el tutorial interactivo se escribió para Claude 3"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-21"
+  },
+  {
+    "id": "src-anthropic-prompting-fable5",
+    "title": "Prompting Claude Fable 5",
+    "organization": "Anthropic",
+    "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Dar el motivo y no solo la petición",
+      "seguimiento de instrucciones fuerte",
+      "delimitar el alcance",
+      "auditar afirmaciones de progreso",
+      "verificadores en contexto fresco",
+      "skills antiguas demasiado prescriptivas",
+      "no pedir que reproduzca su razonamiento"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "src-anthropic-prompting-sonnet55",
+    "title": "Prompting Claude Sonnet 5.5",
+    "organization": "Anthropic",
+    "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5-5",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Añadidos no pedidos",
+      "párrafo para limitar el alcance",
+      "JSON en tareas de cálculo (\"think first\", `max_tokens` = fallo)",
+      "verificación omitida a esfuerzo bajo",
+      "`reasoning_extraction`"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "src-anthropic-refusals",
+    "title": "Refusals and fallback",
+    "organization": "Anthropic",
+    "url": "https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Categoría `reasoning_extraction`",
+      "ejemplos de prompts que la disparan",
+      "sin fallback para esa categoría",
+      "alternativas (explicación breve, evidencia, resumen de acciones, thinking resumido)"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "src-anthropic-thinking",
+    "title": "Thinking",
+    "organization": "Anthropic",
+    "url": "https://platform.claude.com/docs/en/build-with-claude/thinking",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Los bloques de thinking son resúmenes, nunca el CoT en bruto",
+      "`display` omitted / summarized / updates",
+      "valores por defecto según el modelo"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "src-anthropic-evals-agents",
+    "title": "Demystifying evals for AI agents (2026-01-09)",
+    "organization": "Anthropic",
+    "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Tarea, ensayo, calificador, transcripción y resultado",
+      "tipos de calificador",
+      "evals de capacidad frente a regresión",
+      "pass@k frente a pass^k",
+      "20–50 tareas",
+      "solución de referencia",
+      "conjuntos balanceados",
+      "leer transcripciones",
+      "calificar resultados, no rutas",
+      "\"Unknown\""
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-21"
+  },
+  {
+    "id": "src-anthropic-cot-faithfulness",
+    "title": "Reasoning models don't always say what they think (2025-04-03)",
+    "organization": "Anthropic",
+    "url": "https://www.anthropic.com/research/reasoning-models-dont-say-think",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "CoT no fiel (≈25 % Claude 3.7 Sonnet, ≈39 % DeepSeek R1)",
+      "el monitoreo del CoT no permite descartar conductas indebidas"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-21"
+  },
+  {
+    "id": "src-anthropic-blog-prompting",
+    "title": "Best practices for prompt engineering (2025-11-10)",
+    "organization": "Anthropic",
+    "url": "https://claude.com/blog/best-practices-for-prompt-engineering",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Errores comunes (sobreingeniería, todas las técnicas a la vez, técnicas obsoletas)",
+      "role prompting intenso menos necesario",
+      "menciona prefill y CoT, hoy restringidos"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-21"
+  },
+  {
+    "id": "src-openai-codex-prompting",
+    "title": "Prompting (Codex)",
+    "organization": "OpenAI",
+    "url": "https://learn.chatgpt.com/docs/prompting (redirigida desde developers.openai.com/codex/prompting)",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Contenido de un buen prompt (comportamiento, reproducción, restricciones, verificación)",
+      "reproducir antes de corregir",
+      "informar comandos y resultados",
+      "superficies IDE, CLI, cloud, app y GitHub"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "src-openai-codex-noninteractive",
+    "title": "Non-interactive mode (Codex)",
+    "organization": "OpenAI",
+    "url": "https://learn.chatgpt.com/docs/non-interactive-mode (redirigida desde developers.openai.com/codex/noninteractive)",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "`codex exec --output-schema`, `-o`, `--json`"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "src-openai-codex-execplans",
+    "title": "Using PLANS.md for multi-hour problem solving (archivada)",
+    "organization": "OpenAI",
+    "url": "https://developers.openai.com/cookbook/articles/codex_exec_plans",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "ExecPlan autocontenido",
+      "secciones vivas (Progress, Decision Log…)",
+      "hitos con prueba",
+      "aceptación como comportamiento observable",
+      "resolver la ambigüedad y registrarla",
+      "idempotencia"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-21"
+  },
+  {
+    "id": "src-openai-prompt-engineering",
+    "title": "Prompt engineering",
+    "organization": "OpenAI",
+    "url": "https://developers.openai.com/api/docs/guides/prompt-engineering",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Prioridad developer > user",
+      "Markdown/XML",
+      "identidad → instrucciones → ejemplos → contexto (el orden varía por modelo)",
+      "few-shot diverso",
+      "reasoning \"senior\" frente a GPT \"junior\"",
+      "fijar snapshots",
+      "prompts en código",
+      "`v1/prompts` cierra el 2026-11-30"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2026-12-01"
+  },
+  {
+    "id": "src-openai-prompt-guidance-gpt6",
+    "title": "Prompt guidance (familia GPT-6)",
+    "organization": "OpenAI",
+    "url": "https://developers.openai.com/api/docs/guides/prompt-guidance",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "GPT-6 Astra: iniciativa, aclaraciones, sensibilidad a skills/AGENTS.md, testing calibrado al cambio"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "src-openai-latest-model",
+    "title": "Using GPT-6",
+    "organization": "OpenAI",
+    "url": "https://developers.openai.com/api/docs/guides/latest-model",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "GPT-6 Astra / 6.1 Sol / 6 Luna",
+      "Astra pide más aclaraciones, es sensible a conflictos entre skills y AGENTS.md y prueba de más",
+      "migración (quitar temperature/top_p)"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "src-openai-gpt56-model-guidance",
+    "title": "Model guidance (GPT-5.6)",
+    "organization": "OpenAI",
+    "url": "https://developers.openai.com/api/docs/guides/latest-model?model=gpt-5.6 (contenido equivalente en https://developers.openai.com/api/docs/guides/prompt-guidance?model=gpt-5.6, también consultada)",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Prompts centrados en el resultado",
+      "prompts más ligeros (+10–15 % en scores, −41–66 % de tokens, orientativo)",
+      "ablación con las mismas evals",
+      "autonomía en tres niveles",
+      "enunciar cada regla una vez",
+      "decir qué ambigüedades llevan a preguntar",
+      "condiciones de parada",
+      "menor costo solo si pasa las evals"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "src-openai-reasoning-bp",
+    "title": "Reasoning best practices",
+    "organization": "OpenAI",
+    "url": "https://developers.openai.com/api/docs/guides/reasoning-best-practices",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Prompts simples y directos",
+      "evitar prompts de CoT",
+      "zero-shot primero",
+      "ejemplos alineados",
+      "meta y criterios claros. Contenido centrado en o1/o3/GPT-4o"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-21"
+  },
+  {
+    "id": "src-openai-reasoning",
+    "title": "Reasoning models",
+    "organization": "OpenAI",
+    "url": "https://developers.openai.com/api/docs/guides/reasoning",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Tokens de razonamiento no visibles",
+      "razonamiento en bruto no expuesto",
+      "resúmenes opcionales",
+      "reasoning items cifrados",
+      "niveles de esfuerzo"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "src-openai-evals-guide",
+    "title": "Evals (guía)",
+    "organization": "OpenAI",
+    "url": "https://developers.openai.com/api/docs/guides/evals",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Evals en solo lectura el 2026-10-31 y cierre el 2026-11-30",
+      "Datasets como alternativa",
+      "flujo básico (`data_source_config`, `testing_criteria`, runs)"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2026-12-01"
+  },
+  {
+    "id": "src-openai-gpt5-prompting-guide",
+    "title": "GPT-5 prompting guide (archivada)",
+    "organization": "OpenAI",
+    "url": "https://developers.openai.com/cookbook/examples/gpt-5/gpt-5_prompting_guide",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Las instrucciones contradictorias dañan más (ejemplo de agenda médica)",
+      "control de la \"eagerness\"",
+      "metaprompting"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-21"
+  },
+  {
+    "id": "src-google-prompting-strategies",
+    "title": "Prompt design strategies (pág. act. 2026-10-13)",
+    "organization": "Google",
+    "url": "https://ai.google.dev/gemini-api/docs/prompting-strategies",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Instrucciones claras",
+      "restricciones",
+      "formato",
+      "\"always include few-shot\"",
+      "sobreajuste",
+      "formato consistente",
+      "contexto",
+      "dividir / encadenar / agregar",
+      "ejecución de código para aritmética",
+      "Gemini 3 (delimitador único, términos ambiguos, documentos primero, pensamiento interno)",
+      "temperatura en Gemini 4 y 3.6+",
+      "plantilla agéntica"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "src-google-structured-output",
+    "title": "Structured outputs (pág. act. 2026-10-21)",
+    "organization": "Google",
+    "url": "https://ai.google.dev/gemini-api/docs/structured-output",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "`response_format` y schema",
+      "keywords admitidas e ignoradas",
+      "validez sintáctica frente a semántica",
+      "validar en la aplicación",
+      "límites",
+      "herramientas en preview (Gemini 3)"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "src-google-thinking",
+    "title": "Gemini thinking (pág. act. 2026-10-14)",
+    "organization": "Google",
+    "url": "https://ai.google.dev/gemini-api/docs/thinking",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Pensamientos en bruto no devueltos",
+      "resúmenes opcionales",
+      "`thinking_level`",
+      "firmas de pensamiento"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "src-github-speckit-repo",
+    "title": "github/spec-kit (README)",
+    "organization": "GitHub",
+    "url": "https://github.com/github/spec-kit",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Qué es Spec Kit",
+      "procesos (SDD, bug, assess)",
+      "comandos con guion",
+      "instalación",
+      "`/speckit-converge`"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "src-github-speckit-sdd-doc",
+    "title": "Spec-Driven Development (spec-driven.md)",
+    "organization": "GitHub",
+    "url": "https://github.com/github/spec-kit/blob/main/spec-driven.md",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Especificación como artefacto primario",
+      "plantillas que restringen al LLM",
+      "`[NEEDS CLARIFICATION]`",
+      "checklists",
+      "test-first",
+      "anti-especulación",
+      "constitution"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-21"
+  },
+  {
+    "id": "src-github-speckit-docs",
+    "title": "Spec Kit docs (pág. act. 2026-09-28)",
+    "organization": "GitHub",
+    "url": "https://github.github.io/spec-kit/",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Fases Specify → Plan → Tasks → Implement → Converge",
+      "fecha de actualización"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "src-github-speckit-quickstart",
+    "title": "Spec Kit quickstart",
+    "organization": "GitHub",
+    "url": "https://github.github.io/spec-kit/quickstart.html",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Pasos constitution… converge",
+      "clarify antes de plan",
+      "checklist como prueba de requisitos",
+      "analyze de solo lectura",
+      "corregir en el origen",
+      "especificación frente a plan",
+      "ruta corta y completa"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "src-github-copilot-prompt-eng",
+    "title": "Prompt engineering for GitHub Copilot",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/copilot/concepts/prompting/prompt-engineering",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "De lo general a lo específico",
+      "peso del principio y el final",
+      "ejemplos y tests primero",
+      "dividir tareas",
+      "evitar ambigüedad",
+      "contexto por superficie (IDE, CLI, cloud agent)",
+      "historial relevante"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-21"
+  },
+  {
+    "id": "src-github-copilot-agent-bp",
+    "title": "Best practices for using GitHub Copilot to work on tasks",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/copilot/how-tos/agents/copilot-coding-agent/best-practices-for-using-copilot-to-work-on-tasks",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Issue como prompt",
+      "descripción, criterios de aceptación y archivos",
+      "tareas adecuadas e inadecuadas",
+      "archivos de instrucciones (incluye AGENTS.md / CLAUDE.md / GEMINI.md)"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "src-cucumber-gherkin",
+    "title": "Gherkin Reference",
+    "organization": "Cucumber",
+    "url": "https://cucumber.io/docs/gherkin/reference/",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Given / When / Then",
+      "Then observable, no estado interno",
+      "3–5 pasos",
+      "Background breve",
+      "localización con `# language:`"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-21"
+  },
+  {
+    "id": "src-xp123-invest",
+    "title": "INVEST in Good Stories, and SMART Tasks (2003-08-17)",
+    "organization": "XP123 (Bill Wake)",
+    "url": "https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Criterios INVEST (Valuable, Testable…)",
+      "SMART para tareas"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-21"
+  },
+  {
+    "id": "src-dannorth-bdd",
+    "title": "Introducing BDD (2006-09-20; Better Software, marzo de 2006)",
+    "organization": "Dan North",
+    "url": "https://dannorth.net/blog/introducing-bdd/",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Plantilla de historia rol / capacidad / beneficio",
+      "escenarios Given / When / Then",
+      "criterios de aceptación ejecutables"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-21"
+  },
+  {
+    "id": "src-kiro-specs",
+    "title": "Specs (Kiro) (pág. act. 2026-10-15)",
+    "organization": "Kiro (AWS)",
+    "url": "https://kiro.dev/docs/specs/",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "`requirements.md` / `design.md` / `tasks.md`",
+      "variantes de spec"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "src-kiro-requirements-first",
+    "title": "Requirements-First (Kiro) (pág. act. 2026-09-25)",
+    "organization": "Kiro (AWS)",
+    "url": "https://kiro.dev/docs/specs/feature-specs/requirements-first/",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Formato EARS (WHEN … THE SYSTEM SHALL …) y beneficios declarados"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "src-thoughtworks-sdd-tools",
+    "title": "Understanding Spec-Driven-Development: Kiro, spec-kit, and Tessl (2025-10-15)",
+    "organization": "Thoughtworks / martinfowler.com (B. Böckeler)",
+    "url": "https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Niveles spec-first / anchored / as-source",
+      "críticas (costo en tareas pequeñas, carga de revisión, agentes que no siguen la spec, falsa sensación de control)",
+      "Kiro: 16 criterios para un bug pequeño"
+    ],
+    "kind": "secondary",
+    "volatility": "medium",
+    "nextReview": "2027-04-21"
+  },
+  {
+    "id": "src-arxiv-cot",
+    "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models (2022)",
+    "organization": "Wei et al. (Google)",
+    "url": "https://arxiv.org/abs/2201.11903",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Origen del CoT por prompting en modelos grandes (contexto histórico)"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-21"
   }
 ]

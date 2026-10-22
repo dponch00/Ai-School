@@ -1,0 +1,42 @@
+[
+  {
+    "id": "m02-pc-autonomy-levels",
+    "product": "OpenAI · modelos GPT-5.6 (API)",
+    "surfaces": ["api"],
+    "capability": "La guía del modelo propone tres niveles según la petición: explicar, revisar, diagnosticar o planificar lleva a inspeccionar e informar; cambiar, construir o corregir permite ediciones locales dentro del alcance; escrituras externas, acciones destructivas o ampliaciones de alcance requieren confirmación.",
+    "maturity": "guidance",
+    "verifiedAt": "2026-10-21",
+    "sourceIds": ["src-openai-gpt56-model-guidance"],
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "m02-pc-codex-task-shape",
+    "product": "OpenAI Codex",
+    "surfaces": ["cli", "ide", "desktop"],
+    "capability": "La guía de buenas prácticas propone estructurar cada tarea en cuatro bloques (Goal, Context, Constraints, Done when). Es un valor por defecto recomendado, no un formato obligatorio: la misma guía indica que Codex maneja prompts imperfectos.",
+    "maturity": "guidance",
+    "verifiedAt": "2026-10-21",
+    "sourceIds": ["src-openai-codex-best-practices"],
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "m02-pc-instruction-files",
+    "product": "Claude Code · Codex · GitHub Copilot",
+    "surfaces": ["cli", "ide", "desktop", "cloud"],
+    "capability": "Cada herramienta lee sus propios archivos de instrucciones permanentes: Claude Code usa CLAUDE.md (y /context muestra qué se cargó); Codex usa AGENTS.md en varios niveles, donde prevalece el más cercano; Copilot usa .github/copilot-instructions.md y también reconoce AGENTS.md. Las reglas de precedencia cambian por producto y versión; el detalle está en M03.",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-21",
+    "sourceIds": ["src-anthropic-cc-best-practices", "src-openai-codex-best-practices", "src-github-copilot-agent-bp"],
+    "nextReview": "2027-01-21"
+  },
+  {
+    "id": "m02-pc-emphasis-claude",
+    "product": "Anthropic · modelos Claude recientes (API y Claude Code)",
+    "surfaces": ["api", "cli"],
+    "capability": "La guía de prompting advierte que el lenguaje agresivo (CRITICAL, MUST en mayúsculas), que antes compensaba que el modelo usara poco una herramienta, ahora puede provocar el efecto contrario: que la use de más. Claude Code sugiere reservar el énfasis para la línea concreta que el agente se salta.",
+    "maturity": "guidance",
+    "verifiedAt": "2026-10-21",
+    "sourceIds": ["src-anthropic-prompting-bp", "src-anthropic-cc-best-practices"],
+    "nextReview": "2027-01-21"
+  }
+]

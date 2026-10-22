@@ -274,9 +274,10 @@ export type Source = z.infer<typeof Source>
 export const ProductCard = z.object({
   id: Slug,
   product: z.string().min(2),
-  surface: z.enum(['chat', 'api', 'cli', 'ide', 'desktop', 'web', 'cloud', 'mobile']),
+  surfaces: z.array(z.enum(['chat', 'api', 'cli', 'ide', 'desktop', 'web', 'cloud', 'mobile'])).min(1),
   capability: z.string().min(5),
-  maturity: z.enum(['ga', 'beta', 'preview', 'deprecated']),
+  /** 'guidance' = recomendación documentada del proveedor, no una función con estado de lanzamiento. */
+  maturity: z.enum(['ga', 'beta', 'preview', 'deprecated', 'guidance']),
   verifiedAt: IsoDate,
   sourceIds: z.array(SourceId).min(1),
   nextReview: IsoDate,

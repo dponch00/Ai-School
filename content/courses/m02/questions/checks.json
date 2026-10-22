@@ -1,0 +1,459 @@
+[
+  {
+    "id": "m02-l1-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l1",
+    "evaluatedObjectiveId": "m02-eo1",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "La gerente de crédito de Altiplano escribe: «Hazme un reporte de cartera vencida».",
+    "stem": "¿Cuál de estas reescrituras es el mejor objetivo para dárselo a un agente?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Para la reunión de cobranza: clientes con más de 60 días de saldo vencido al cierre de octubre",
+        "correct": true,
+        "feedback": "Correcta. Nombra a quién sirve (la reunión de cobranza), el periodo (cierre de octubre) y el umbral (más de 60 días). Con eso se pueden elegir datos y comprobar el resultado."
+      },
+      {
+        "id": "o2",
+        "text": "Un reporte de cartera vencida completo, moderno y con todas las métricas que se puedan incluir",
+        "correct": false,
+        "misconceptionId": "m02-mc03",
+        "feedback": "«Todas las métricas posibles» declara ambición, no un objetivo. Sin alcance acotado el agente añadirá cosas que nadie pidió y nada se podrá verificar."
+      },
+      {
+        "id": "o3",
+        "text": "Un reporte hecho en React con tres gráficas de barras y una tabla paginada con todos los clientes",
+        "correct": false,
+        "misconceptionId": "m02-mc34",
+        "feedback": "Describe el cómo (tecnología y gráficas), no el para qué. Sin saber qué decisión apoya, no sabrás si esas gráficas sirven."
+      },
+      {
+        "id": "o4",
+        "text": "Un reporte de cartera vencida; el modelo es potente y entenderá por sí solo qué se necesita",
+        "correct": false,
+        "misconceptionId": "m02-mc01",
+        "feedback": "Los proveedores piden explicitar motivación y destinatario. Si un colega sin contexto se confundiría con la petición, el modelo también."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l1#anatomia",
+    "sourceIds": [
+      "src-anthropic-prompting-bp",
+      "src-github-speckit-sdd-doc"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l1-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l1",
+    "evaluatedObjectiveId": "m02-eo1",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "Le escribes a un agente de código: «Explícame por qué cayó el pipeline ponderado esta semana».",
+    "stem": "¿Qué entregable es razonable esperar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Un informe con las cifras y la evidencia de la caída, sin modificar ningún archivo",
+        "correct": true,
+        "feedback": "Correcta. «Explícame» pide un diagnóstico: el agente inspecciona e informa. Si después quieres un cambio, lo pides aparte."
+      },
+      {
+        "id": "o2",
+        "text": "Un cambio en el cálculo del pipeline ponderado para corregir la caída detectada",
+        "correct": false,
+        "misconceptionId": "m02-mc35",
+        "feedback": "No pediste cambiar nada. Una petición de explicar lleva a inspeccionar e informar; modificar el cálculo excede lo pedido y podría ocultar la causa."
+      },
+      {
+        "id": "o3",
+        "text": "Una gráfica semanal nueva en el dashboard para poder seguir la evolución del pipeline",
+        "correct": false,
+        "misconceptionId": "m02-mc03",
+        "feedback": "Es un añadido que nadie pidió. Lo que el prompt no fija lo decide el modelo, por eso conviene declarar el tipo de entregable."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l1#entregable",
+    "sourceIds": [
+      "src-openai-gpt56-model-guidance",
+      "src-anthropic-prompting-sonnet55"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l1-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l1",
+    "evaluatedObjectiveId": "m02-eo1",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "scenario": "En la misma sesión, el agente ya editó varios archivos del proyecto. Ahora le escribes: «¿Puedes sugerir mejoras al cálculo de cobertura?». Responde con una lista de ideas y no toca el código.",
+    "stem": "¿Cuál es la explicación más probable?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La pregunta pedía sugerencias; para que edite, hay que pedirle el cambio",
+        "correct": true,
+        "feedback": "Correcta. Esa formulación tiende a producir sugerencias, no ediciones. «Cambia el cálculo de cobertura en metrics.py para…» deja claro el entregable."
+      },
+      {
+        "id": "o2",
+        "text": "El agente perdió los permisos de escritura sobre los archivos del proyecto a mitad de la sesión",
+        "correct": false,
+        "misconceptionId": "m02-mc01",
+        "feedback": "El agente editó archivos en esta misma sesión, así que no es un problema de permisos. La causa está en cómo se formuló la petición."
+      },
+      {
+        "id": "o3",
+        "text": "El modelo no es lo bastante capaz para modificar por su cuenta un cálculo financiero",
+        "correct": false,
+        "misconceptionId": "m02-mc01",
+        "feedback": "La capacidad no explica que responda con ideas: hizo justo lo que la pregunta pedía. Ajustar la formulación resuelve el problema."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l1#entregable",
+    "sourceIds": [
+      "src-anthropic-prompting-bp"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l1-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l1",
+    "evaluatedObjectiveId": "m02-eo6",
+    "competencyIds": [
+      "C02",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Pediste corregir el cálculo de cobertura de cuota por región y tienes un archivo de prueba con datos sintéticos.",
+    "stem": "¿Qué condición de terminado es observable?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Cuando la prueba de cobertura pase y el total cuadre con una reconciliación independiente",
+        "correct": true,
+        "feedback": "Correcta. Las dos condiciones se pueden comprobar con evidencia: la salida de la prueba y una cifra calculada aparte."
+      },
+      {
+        "id": "o2",
+        "text": "Cuando el dashboard de cobertura se vea profesional, ordenado y fácil de leer para todos",
+        "correct": false,
+        "misconceptionId": "m02-mc25",
+        "feedback": "«Profesional» y «fácil» no se pueden comprobar. Un criterio de terminado describe algo observable."
+      },
+      {
+        "id": "o3",
+        "text": "Cuando el agente confirme por escrito que el cálculo de cobertura ya funciona bien",
+        "correct": false,
+        "misconceptionId": "m02-mc27",
+        "feedback": "Una afirmación no es evidencia. Hay que exigir el comando ejecutado y su resultado."
+      },
+      {
+        "id": "o4",
+        "text": "Cuando se haya creado la nueva tabla de cobertura por región en la base de datos",
+        "correct": false,
+        "misconceptionId": "m02-mc26",
+        "feedback": "Que exista una tabla es un estado interno; no demuestra que las cifras sean correctas. El criterio debe comprobar una salida observable."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l1#terminado",
+    "sourceIds": [
+      "src-openai-codex-best-practices",
+      "src-cucumber-gherkin",
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l1-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l1",
+    "evaluatedObjectiveId": "m02-eo1",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "Un compañero propone este objetivo: «Mostrar el pipeline del T4 por región para el comité comercial».",
+    "stem": "¿Qué le falta para ser un objetivo útil?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La decisión que tomará el comité y el umbral de lo que es relevante",
+        "correct": true,
+        "feedback": "Correcta. Ya tiene usuario y periodo; sin la decisión y el umbral no se puede elegir qué mostrar ni comprobar si sirve."
+      },
+      {
+        "id": "o2",
+        "text": "La tecnología del frontend y el tipo de gráfica que conviene para cada región",
+        "correct": false,
+        "misconceptionId": "m02-mc34",
+        "feedback": "Eso es el cómo, no el objetivo. Se decide después de saber qué decisión hay que apoyar."
+      },
+      {
+        "id": "o3",
+        "text": "Más métricas por región, para que el dashboard quede completo y no le falte nada",
+        "correct": false,
+        "misconceptionId": "m02-mc03",
+        "feedback": "Añadir métricas sin una decisión que las justifique hace el dashboard más difícil de verificar y de leer."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l1#anatomia",
+    "sourceIds": [
+      "src-anthropic-prompting-fable5",
+      "src-github-speckit-sdd-doc"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l1-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l1",
+    "evaluatedObjectiveId": "m02-eo6",
+    "competencyIds": [
+      "C02",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Pediste corregir la conversión de EUR a USD en el pipeline. Tienes un caso de prueba de tres filas calculado a mano.",
+    "stem": "¿Qué condición de terminado elegirías?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El total en USD del caso de prueba coincide con el cálculo a mano",
+        "correct": true,
+        "feedback": "Correcta. Es observable y reproducible: cualquiera puede correr el caso y comparar."
+      },
+      {
+        "id": "o2",
+        "text": "El agente informa que todas las pruebas del proyecto pasan después del cambio",
+        "correct": false,
+        "misconceptionId": "m02-mc27",
+        "feedback": "Es una afirmación del agente, no la evidencia. Pide el comando y su salida."
+      },
+      {
+        "id": "o3",
+        "text": "La conversión de monedas queda bien hecha y revisada en todo el pipeline",
+        "correct": false,
+        "misconceptionId": "m02-mc25",
+        "feedback": "«Bien hecha» no dice cómo comprobarlo. Un criterio de terminado nombra una salida observable."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l1#terminado",
+    "sourceIds": [
+      "src-openai-codex-best-practices",
+      "src-cucumber-gherkin"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l2-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l2",
+    "evaluatedObjectiveId": "m02-eo2",
+    "competencyIds": [
+      "C02",
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "Vas a pedirle a un agente que corrija la marca de «vencida» en el dashboard de Altiplano.",
+    "stem": "¿Qué paquete de contexto le das?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El archivo del cálculo, la definición acordada de «vencida» y un caso que falla con su resultado esperado",
+        "correct": true,
+        "feedback": "Correcta. Es contexto específico: dónde mirar, qué regla aplicar y cómo se ve «arreglado»."
+      },
+      {
+        "id": "o2",
+        "text": "Todo el repositorio y seis meses de correos del equipo, para que no le falte ningún dato importante",
+        "correct": false,
+        "misconceptionId": "m02-mc06",
+        "feedback": "El rendimiento se degrada al llenarse el contexto. Si los correos contienen la definición, extráela tú y dásela."
+      },
+      {
+        "id": "o3",
+        "text": "Solo la frase «arregla las vencidas»; el agente puede explorar el repositorio por su cuenta y encontrarlo",
+        "correct": false,
+        "misconceptionId": "m02-mc01",
+        "feedback": "Puede encontrar el archivo, pero no la definición acordada de «vencida» ni cómo se ve arreglado. Eso solo lo sabes tú."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l2#contexto",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l2-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l2",
+    "evaluatedObjectiveId": "m02-eo2",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Quieres que el agente no toque los snapshots originales que FP&A audita, guardados en data/raw/.",
+    "stem": "¿Qué instrucción funcionará mejor en situaciones que no anticipaste?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "No modifiques data/raw/, que FP&A audita; si necesitas limpiar datos, escribe en data/clean/",
+        "correct": true,
+        "feedback": "Correcta. Dice qué está prohibido, por qué y qué hacer en su lugar. Con el motivo, el agente puede aplicar la regla a casos nuevos."
+      },
+      {
+        "id": "o2",
+        "text": "NUNCA, BAJO NINGUNA CIRCUNSTANCIA, MODIFIQUES NADA DE LO QUE HAY EN LA CARPETA DE DATOS",
+        "correct": false,
+        "misconceptionId": "m02-mc07",
+        "feedback": "El énfasis no explica el motivo ni ofrece alternativa, y en modelos recientes el lenguaje agresivo puede provocar conductas de más."
+      },
+      {
+        "id": "o3",
+        "text": "Ten mucho cuidado con los datos del proyecto mientras trabajas en el cambio que te pedí",
+        "correct": false,
+        "misconceptionId": "m02-mc36",
+        "feedback": "Es una advertencia, no una restricción: no dice qué está prohibido ni qué hacer. El agente no puede comprobar si la cumple."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l2#restricciones",
+    "sourceIds": [
+      "src-anthropic-prompting-bp",
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l2-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l2",
+    "evaluatedObjectiveId": "m02-eo2",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Al calcular el pipeline ponderado, el agente encuentra oportunidades en la etapa «Calificación», que no aparece en la tabla de probabilidades de FP&A.",
+    "stem": "¿Qué debería hacer?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Detenerse y reportarlo, porque esa probabilidad es una política de FP&A",
+        "correct": true,
+        "feedback": "Correcta. Asignar un valor cambiaría el pipeline ponderado sin que nadie lo decidiera. Lo que falta se reporta o se pregunta."
+      },
+      {
+        "id": "o2",
+        "text": "Usar un 25 %, que es una probabilidad habitual para esa etapa del embudo",
+        "correct": false,
+        "misconceptionId": "m02-mc08",
+        "feedback": "Un valor «habitual» sigue siendo inventado. Completar un dato de política sin avisar oculta el supuesto."
+      },
+      {
+        "id": "o3",
+        "text": "Excluir esas oportunidades del total ponderado y seguir calculando con el resto",
+        "correct": false,
+        "misconceptionId": "m02-mc37",
+        "feedback": "La exclusión cambia el total que verá el comité sin que nadie lo sepa. Toda exclusión se declara y se decide."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l2#supuestos",
+    "sourceIds": [
+      "src-anthropic-reduce-hallucinations",
+      "src-github-speckit-sdd-doc",
+      "src-openai-codex-execplans"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-l2-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m02",
+    "lessonId": "m02-l2",
+    "evaluatedObjectiveId": "m02-eo2",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "En el dashboard de Altiplano hay tres ambigüedades: qué hacer con oportunidades duplicadas, si «Negociacion» sin tilde se normaliza, y qué colores usar en las barras.",
+    "stem": "¿Cuál deberías preguntar antes de avanzar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Los duplicados, porque según cómo se traten cambia el total que verá el comité",
+        "correct": true,
+        "feedback": "Correcta. Cambia una cifra visible y es una decisión de negocio. Las otras dos no mueven ningún total: se deciden y se registran."
+      },
+      {
+        "id": "o2",
+        "text": "Las tres, porque cualquier ambigüedad tiene que resolverla primero el negocio",
+        "correct": false,
+        "misconceptionId": "m02-mc38",
+        "feedback": "Preguntarlo todo frena el trabajo sin reducir riesgo. Normalizar una etiqueta o elegir colores no cambia cifras: se decide y se registra."
+      },
+      {
+        "id": "o3",
+        "text": "Ninguna: el agente debe resolverlas todas por su cuenta y avisar cuando termine",
+        "correct": false,
+        "misconceptionId": "m02-mc08",
+        "feedback": "Si el agente decide los duplicados por su cuenta, el total cambia sin que nadie lo haya aprobado. Esa sí se pregunta."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l2#supuestos",
+    "sourceIds": [
+      "src-anthropic-prompting-fable5",
+      "src-openai-codex-execplans"
+    ],
+    "status": "draft"
+  }
+]
