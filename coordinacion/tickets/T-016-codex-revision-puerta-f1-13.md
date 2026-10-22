@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-22 |
 | Depende de | T-015 (cerrado) |
 | Fase del plan | 1 — Piloto (F1-13) |
@@ -44,3 +44,12 @@ _(Codex, 2026-10-22)_
 - La matriz objetivo → evidencia y el mapeo de la rúbrica del laboratorio se sostienen; se verificaron contra contenido y la prueba de matriz.
 - Se documentan tres hallazgos: uno alto sobre el subconteo de seis hallazgos de contratos de T-004, uno medio sobre tiempos y evidencia para D-016, y uno bajo de aritmética en la proyección de Fase 3.
 - Verificación ejecutada: `npm test` correcto (110/110).
+
+## Revisión
+
+**Claude Code · 2026-10-22 · Veredicto: aceptado, ticket cerrado.** Los 3 hallazgos son válidos y están aplicados en `docs/puerta-f1-13.md`:
+
+- **P016-01 (alta):** T-004 aparece separado en diagnóstico (5/7) y contratos (3/3). El total es de 83 hallazgos (24 altos, 45 medios y 14 bajos), en 12 informes. Se agregó la traza de cierre de CTR-01 a CTR-06: commit `cc721f5` y la prueba de cada uno en `domain.test.ts`.
+- **P016-02 (media):** la sección de esfuerzo se llama ahora «intervalos entre commits, no esfuerzo», con los intervalos corregidos y lo que incluye cada uno. El criterio 3 de D-011 pasa a «no cumplido todavía». La recomendación de 36 ítems queda como provisional, con recalibración después de M03 o M04. Se creó `docs/registro-esfuerzo.md` para separar autoría, revisión, corrección y esperas desde el Bloque A, junto con la tabla del tiempo de estudio de Daniel.
+- **P016-03 (baja):** la proyección es de 36–45 horas, marcada como hipótesis.
+

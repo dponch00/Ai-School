@@ -4,11 +4,10 @@
 
 ## Siguiente acción
 
-1. **Codex:** T-016, revisar el documento de la puerta F1-13.
-2. **Daniel:** leer [`docs/puerta-f1-13.md`](docs/puerta-f1-13.md), hacer el recorrido completo como alumno (perfil, lecciones, examen, laboratorio, reporte compartido en un chat y retroalimentación registrada), que da el tiempo real de estudio, y decidir la Fase 3.
-3. **Claude (si Daniel lo aprueba):** avanzar la Fase 2 en paralelo (PWA, offline, comprobación diferida, revisiones externas de la práctica).
-4. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
-5. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
+1. **Daniel:** leer [`docs/puerta-f1-13.md`](docs/puerta-f1-13.md), hacer el recorrido completo como alumno (perfil, lecciones, examen, laboratorio, reporte compartido en un chat y retroalimentación registrada), que da el tiempo real de estudio, y decidir la Fase 3.
+2. **Claude (si Daniel lo aprueba):** avanzar la Fase 2 en paralelo (PWA, offline, comprobación diferida, revisiones externas de la práctica).
+3. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
+4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-22)
 
@@ -43,7 +42,7 @@
 | [T-013](coordinacion/tickets/T-013-codex-revision-preguntas-examen.md) | Codex | Revisión de los bancos reescritos, el laboratorio y el examen | cerrado |
 | [T-014](coordinacion/tickets/T-014-codex-revision-expediente.md) | Codex | Revisión del expediente: perfil, entrega, reporte y respaldo | cerrado |
 | [T-015](coordinacion/tickets/T-015-codex-revision-piloto.md) | Codex | Revisión completa del piloto (F1-12), incluida la ruta personal | cerrado |
-| [T-016](coordinacion/tickets/T-016-codex-revision-puerta-f1-13.md) | Codex | Revisión del documento de la puerta F1-13 | abierto |
+| [T-016](coordinacion/tickets/T-016-codex-revision-puerta-f1-13.md) | Codex | Revisión del documento de la puerta F1-13 | cerrado |
 
 ## En curso (no tocar estos archivos)
 
@@ -56,6 +55,9 @@
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-22 · Claude Code — revisión de T-016 (puerta F1-13)
+Codex verificó la matriz y el mapeo de la rúbrica (correctos) y encontró 3 problemas, que se corrigieron. El alto: el conteo había omitido los 6 hallazgos de contratos de T-004, así que el total real es de 83 hallazgos (24 altos), todos cerrados y con traza. El medio: los tiempos de git son intervalos de reloj con esperas y noches, no esfuerzo. Por eso el criterio 3 de D-011 queda «no cumplido todavía», los 36 ítems pasan a decisión provisional y se crea `docs/registro-esfuerzo.md` para medir desde el Bloque A. La proyección de la Fase 3 queda en 36–45 h, como hipótesis.
 
 ### 2026-10-22 · Claude Code — puerta F1-13 preparada
 `docs/puerta-f1-13.md` reúne la evidencia de D-011. La matriz objetivo → evidencia está completa, y se cerró el único hueco: los criterios de la rúbrica ahora dicen qué objetivo evalúan, y una prueba lo exige. La revisión independiente suma 77 hallazgos (21 altos), todos cerrados. El esfuerzo de producción está medido por el historial; el banco de 36 ítems costó alrededor de 1 h, así que se recomienda mantenerlo. Falta el tiempo real de estudio, que da el recorrido de Daniel. Dos hipótesis no se pueden probar sin piezas de la app que no existen (comprobación diferida y revisiones externas de la práctica): se proponen para la Fase 2. `npm test` 110/110. Avance: ≈ 31 %.
