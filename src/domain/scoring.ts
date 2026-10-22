@@ -6,7 +6,7 @@
  */
 import type { Question } from './content'
 import type { Attempt, ItemSnapshot, Response } from './learner'
-import { finalSelection } from './learner'
+import { finalSelection, responseIssues } from './learner'
 
 export type Rng = () => number
 
@@ -38,6 +38,28 @@ function shuffle<T>(items: T[], rng: Rng): T[] {
 }
 
 /**
+ * Problemas estructurales de un banco de examen (CTR-03): cada familia pertenece a un
+ * solo objetivo evaluado y no repite variantes. Vacío si el banco es coherente.
+ */
+export function bankIssues(bank: Question[]): string[] {
+  const issues: string[] = []
+  const objectiveByFamily = new Map<string, Set<string>>()
+  const variantKeys = new Set<string>()
+  for (const q of bank.filter((x) => x.use === 'exam')) {
+    const set = objectiveByFamily.get(q.family!) ?? new Set<string>()
+    set.add(q.evaluatedObjectiveId!)
+    objectiveByFamily.set(q.family!, set)
+    const key = `${q.family}/${q.variant}`
+    if (variantKeys.has(key)) issues.push(`la variante ${key} está repetida`)
+    variantKeys.add(key)
+  }
+  for (const [family, objectives] of objectiveByFamily) {
+    if (objectives.size > 1) issues.push(`la familia ${family} aparece en varios objetivos: ${[...objectives].join(', ')}`)
+  }
+  return issues
+}
+
+/**
  * Elige `itemsPerObjective` familias por objetivo y una variante por familia.
  * Las familias falladas cambian de variante; si no queda ninguna nueva, se lanza un error
  * en vez de repetir en silencio (la equivalencia de variantes es supuesta, ver §4.2).
@@ -47,6 +69,8 @@ export function selectExam(input: SelectionInput): ItemSnapshot[] {
   const used = input.usedVariantsByFamily ?? {}
   const failed = new Set(input.failedFamilies ?? [])
   const examItems = bank.filter((q) => q.use === 'exam' && q.status === 'published')
+  const issues = bankIssues(examItems)
+  if (issues.length > 0) throw new Error(`Banco incoherente: ${issues.join('; ')}`)
   const snapshots: ItemSnapshot[] = []
 
   for (const objectiveId of evaluatedObjectiveIds) {
@@ -55,7 +79,7 @@ export function selectExam(input: SelectionInput): ItemSnapshot[] {
       throw new Error(`El objetivo ${objectiveId} tiene ${families.length} familias publicadas; se necesitan ${itemsPerObjective}`)
     }
     for (const family of shuffle(families, rng).slice(0, itemsPerObjective)) {
-      const variants = examItems.filter((q) => q.family === family)
+      const variants = examItems.filter((q) => q.family === family && q.evaluatedObjectiveId === objectiveId)
       const unseen = variants.filter((q) => !(used[family] ?? []).includes(q.variant!))
       let pool = variants
       if (failed.has(family)) {
@@ -69,6 +93,8 @@ export function selectExam(input: SelectionInput): ItemSnapshot[] {
       snapshots.push({ question, shownOptionIds: question.fixedOrder ? ids : shuffle(ids, rng) })
     }
   }
+  const families = snapshots.map((s) => s.question.family)
+  if (new Set(families).size !== families.length) throw new Error('El examen seleccionado repite una familia')
   return shuffle(snapshots, rng)
 }
 
@@ -103,6 +129,8 @@ export const DEFAULT_PASS_RULE: PassRule = { minCorrect: 10, requireEachObjectiv
  * Puntúa contra la instantánea guardada en el intento, nunca contra el banco actual.
  */
 export function scoreAttempt(attempt: Attempt, responses: Response[], rule: PassRule = DEFAULT_PASS_RULE): ExamResult {
+  const issues = responseIssues(attempt, responses)
+  if (issues.length > 0) throw new Error(`Datos del intento inconsistentes: ${issues.join('; ')}`)
   const byQuestion = new Map(responses.filter((r) => r.attemptId === attempt.id).map((r) => [r.questionId, r]))
   const objectives = new Map<string, ObjectiveResult>()
   const unanswered: string[] = []
@@ -135,7 +163,7 @@ export function scoreAttempt(attempt: Attempt, responses: Response[], rule: Pass
 
 // ---------- Señales del diagnóstico (curriculum.md §2.1) ----------
 
-export type BlockSignal = 'likely-strength' | 'review-recommended' | 'no-clear-signal'
+export type BlockSignal = 'likely-strength' | 'review-recommended' | 'no-clear-signal' | 'incomplete-evidence'
 
 export interface BlockEvidence {
   item: Question
@@ -147,6 +175,13 @@ export interface BlockEvidence {
  * "fortaleza" exige más condiciones porque con 4 ítems se equivoca con más frecuencia.
  */
 export function diagnosticBlockSignal(evidence: BlockEvidence[], microtaskCriticalOk?: boolean): BlockSignal {
+  // CTR-04: sin 4 ítems del mismo bloque (2 de base y 2 avanzados) no hay señal, solo evidencia incompleta.
+  const blocks = new Set(evidence.map((e) => e.item.diagnosticBlock))
+  const baseCount = evidence.filter((e) => e.item.difficulty === 'base').length
+  const ids = new Set(evidence.map((e) => e.item.id))
+  if (evidence.length !== 4 || ids.size !== 4 || blocks.size !== 1 || blocks.has(undefined) || baseCount !== 2) {
+    return 'incomplete-evidence'
+  }
   const rows = evidence.map(({ item, response }) => {
     const key = item.options.find((o) => o.correct)!.id
     const selected = response && response.status === 'submitted' ? finalSelection(response) : null

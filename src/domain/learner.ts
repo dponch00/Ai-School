@@ -66,6 +66,20 @@ export const Attempt = z
     submittedAt: Timestamp.optional(),
     status: z.enum(['in-progress', 'submitted', 'abandoned']),
     items: z.array(ItemSnapshot).min(1),
+    /**
+     * Resultado calculado al enviar, congelado con la regla aplicada (CTR-06).
+     * Obligatorio en exámenes y comprobaciones de retención enviados.
+     */
+    result: z
+      .object({
+        correct: z.int().min(0),
+        total: z.int().min(1),
+        passed: z.boolean(),
+        reasons: z.array(z.string()),
+        rule: z.object({ minCorrect: z.int().min(0), requireEachObjective: z.boolean() }),
+        computedAt: Timestamp,
+      })
+      .optional(),
   })
   .superRefine((a, ctx) => {
     a.items.forEach((it, i) => {
@@ -78,10 +92,18 @@ export const Attempt = z
     if (a.status === 'submitted' && !a.submittedAt) {
       ctx.addIssue({ code: 'custom', path: ['submittedAt'], message: 'un intento enviado necesita submittedAt' })
     }
+    if (a.status === 'submitted' && (a.kind === 'exam' || a.kind === 'retention') && !a.result) {
+      ctx.addIssue({ code: 'custom', path: ['result'], message: 'un examen enviado guarda su resultado y la regla aplicada' })
+    }
+    const ids = a.items.map((it) => it.question.id)
+    if (new Set(ids).size !== ids.length) {
+      ctx.addIssue({ code: 'custom', path: ['items'], message: 'una pregunta aparece dos veces en el intento' })
+    }
   })
 export type Attempt = z.infer<typeof Attempt>
 
-export const Response = z.object({
+export const Response = z
+  .object({
   id: LocalId,
   attemptId: LocalId,
   questionId: Slug,
@@ -97,7 +119,12 @@ export const Response = z.object({
   feedbackSeenBeforeAnswer: z.boolean(),
   status: z.enum(['draft', 'submitted', 'abandoned']),
   answeredAt: Timestamp.optional(),
-})
+  })
+  .superRefine((r, ctx) => {
+    if (r.status !== 'draft' && !r.answeredAt) {
+      ctx.addIssue({ code: 'custom', path: ['answeredAt'], message: 'una respuesta enviada o abandonada necesita fecha' })
+    }
+  })
 export type Response = z.infer<typeof Response>
 
 /** Selección final: la última revisión o, si no hay, la primera. */
@@ -105,11 +132,40 @@ export function finalSelection(r: Response): string | null {
   return r.revisions.length > 0 ? r.revisions[r.revisions.length - 1].selectedOptionId : r.firstSelectedOptionId
 }
 
+/**
+ * Comprueba que las respuestas de un intento correspondan a sus instantáneas (CTR-01):
+ * una respuesta por pregunta, misma versión, y toda selección dentro de las opciones mostradas.
+ * Devuelve la lista de problemas; vacía si todo cuadra.
+ */
+export function responseIssues(attempt: Attempt, responses: Response[]): string[] {
+  const issues: string[] = []
+  const snapshots = new Map(attempt.items.map((it) => [it.question.id, it]))
+  const seen = new Set<string>()
+  for (const r of responses.filter((x) => x.attemptId === attempt.id)) {
+    const snap = snapshots.get(r.questionId)
+    if (!snap) {
+      issues.push(`la respuesta ${r.id} es de una pregunta que no está en el intento (${r.questionId})`)
+      continue
+    }
+    if (seen.has(r.questionId)) issues.push(`hay más de una respuesta para ${r.questionId}`)
+    seen.add(r.questionId)
+    if (r.questionVersion !== snap.question.version) {
+      issues.push(`${r.questionId}: la respuesta es de la versión ${r.questionVersion} y el intento mostró la ${snap.question.version}`)
+    }
+    const shown = new Set(snap.shownOptionIds)
+    const selections = [r.firstSelectedOptionId, ...r.revisions.map((v) => v.selectedOptionId)].filter((s): s is string => s !== null)
+    for (const s of selections) if (!shown.has(s)) issues.push(`${r.questionId}: la opción ${s} no se mostró en el intento`)
+  }
+  return issues
+}
+
 // ---------- Prácticas (content-standard §5) ----------
 
 const CriterionLevel = z.union([z.int().min(1).max(4), z.literal('insufficient-evidence')])
 
 export const PracticeReview = z.object({
+  /** Identifica la corrida; dos revisiones con el mismo runId no son independientes (CTR-02). */
+  runId: z.string().min(4).max(64),
   reviewer: z.object({
     declaredName: z.string().max(120),
     type: z.enum(['external-assisted', 'human']),
@@ -151,17 +207,38 @@ export const PracticeSubmission = z.object({
 })
 export type PracticeSubmission = z.infer<typeof PracticeSubmission>
 
+/** Lo que el estado necesita saber de la práctica, en la versión que se entregó. */
+export interface PracticeRequirements {
+  criterionIds: string[]
+  transferNotebook: boolean
+}
+
+function coversExactly(criteria: { criterionId: string }[], required: string[]): boolean {
+  const ids = criteria.map((c) => c.criterionId)
+  return new Set(ids).size === ids.length && ids.length === required.length && required.every((id) => ids.includes(id))
+}
+
 /**
- * Estado de una práctica tras las revisiones externas (content-standard §5.1, R-H-8 [H]):
- * hacen falta dos evaluaciones sin discrepancias de más de un nivel en ningún criterio.
+ * Estado de una práctica (content-standard §5 y §5.1):
+ * - presentada: falta el cuaderno (si la práctica lo exige) o la autoevaluación de todos los criterios;
+ * - autoevaluada: completa, sin revisiones externas;
+ * - revisión pendiente: menos de dos revisiones independientes válidas, o discrepan;
+ * - revisada: las dos últimas revisiones, de corridas distintas, evalúan exactamente los criterios
+ *   de la rúbrica y no discrepan más de un nivel en ninguno (R-H-8 [H]).
  */
-export function reviewState(sub: Pick<PracticeSubmission, 'selfAssessment' | 'reviews'>): PracticeSubmission['state'] {
-  if (sub.reviews.length === 0) return sub.selfAssessment.length > 0 ? 'self-assessed' : 'presented'
-  if (sub.reviews.length < 2) return 'review-pending'
-  const [a, b] = sub.reviews.slice(-2)
+export function reviewState(
+  sub: Pick<PracticeSubmission, 'selfAssessment' | 'reviews' | 'notebook'>,
+  practice: PracticeRequirements,
+): PracticeSubmission['state'] {
+  if (practice.transferNotebook && !sub.notebook) return 'presented'
+  if (!coversExactly(sub.selfAssessment, practice.criterionIds)) return 'presented'
+  if (sub.reviews.length === 0) return 'self-assessed'
+  const valid = sub.reviews.filter((r) => coversExactly(r.criteria, practice.criterionIds))
+  if (valid.length < 2) return 'review-pending'
+  const [a, b] = valid.slice(-2)
+  if (a.runId === b.runId) return 'review-pending'
   for (const ca of a.criteria) {
-    const cb = b.criteria.find((c) => c.criterionId === ca.criterionId)
-    if (!cb) return 'review-pending'
+    const cb = b.criteria.find((c) => c.criterionId === ca.criterionId)!
     if (ca.level === 'insufficient-evidence' || cb.level === 'insufficient-evidence') {
       if (ca.level !== cb.level) return 'review-pending'
       continue

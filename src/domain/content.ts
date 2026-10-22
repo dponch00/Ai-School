@@ -109,7 +109,8 @@ export const Misconception = z.object({
   courseId: CourseId.nullable(),
   description: z.string().min(10),
   whyWrong: z.string().min(10),
-  sourceIds: z.array(SourceId),
+  /** Toda afirmación del catálogo es trazable (DX-01). */
+  sourceIds: z.array(SourceId).min(1),
 })
 export type Misconception = z.infer<typeof Misconception>
 
@@ -151,7 +152,8 @@ export const Question = z
     fixedOrder: z.boolean().default(false),
     /** Apartado que justifica la respuesta (plan §11). */
     sectionRef: z.string().min(1),
-    sourceIds: z.array(SourceId),
+    /** La clave y el feedback se apoyan en al menos una fuente registrada (DX-01). */
+    sourceIds: z.array(SourceId).min(1),
     status: PublicationStatus,
     publishedAt: IsoDate.optional(),
     replacedBy: z.object({ id: Slug, version: z.int().min(1) }).optional(),

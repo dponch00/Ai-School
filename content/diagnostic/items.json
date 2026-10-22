@@ -36,7 +36,10 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m01-l1",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-anthropic-cc-llms-index",
+      "src-openai-codex-docs"
+    ],
     "status": "draft"
   },
   {
@@ -76,7 +79,9 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m01-l4",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-anthropic-reduce-hallucinations"
+    ],
     "status": "draft"
   },
   {
@@ -123,7 +128,10 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m01-l5",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-anthropic-building-agents",
+      "src-anthropic-develop-tests"
+    ],
     "status": "draft"
   },
   {
@@ -163,7 +171,10 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m01-l5",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-anthropic-cc-security",
+      "src-openai-codex-security"
+    ],
     "status": "draft"
   },
   {
@@ -210,7 +221,10 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m02-l1",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-openai-codex-best-practices",
+      "src-anthropic-cc-best-practices"
+    ],
     "status": "draft"
   },
   {
@@ -229,13 +243,13 @@
     "options": [
       {
         "id": "o1",
-        "text": "El tipo de cambio, su fecha y su fuente, como supuesto validado con FP&A",
+        "text": "Una pregunta abierta para FP&A: tipo de cambio, fecha y fuente, antes de calcular",
         "correct": true,
-        "feedback": "Correcta. La conversión es una política de negocio. Declararla como supuesto, con fecha y fuente, permite validarla y verificar los totales."
+        "feedback": "Correcta. La conversión es una política de negocio que nadie ha definido. Registrarla como pregunta abierta, y no calcular hasta que FP&A la confirme, evita que un supuesto invisible cambie el total."
       },
       {
         "id": "o2",
-        "text": "Que el agente elija el tipo de cambio más razonable según el mercado",
+        "text": "Que el agente elija el tipo de cambio más razonable según el mercado del día",
         "correct": false,
         "misconceptionId": "dx-mc11",
         "feedback": "El agente no conoce la política de FP&A. Si elige él, el supuesto queda oculto y el total cambia sin que nadie lo haya decidido."
@@ -250,7 +264,10 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m02-l2",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-anthropic-prompting-bp",
+      "src-openai-codex-best-practices"
+    ],
     "status": "draft"
   },
   {
@@ -297,7 +314,10 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m02-l3",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-openai-structured-outputs",
+      "src-anthropic-structured-outputs"
+    ],
     "status": "draft"
   },
   {
@@ -324,9 +344,9 @@
       },
       {
         "id": "o2",
-        "text": "Pedirle que te entreviste y deje una spec con las preguntas abiertas",
+        "text": "Llevar al negocio las preguntas abiertas y, ya resueltas, pedir la spec al agente",
         "correct": true,
-        "feedback": "Correcta. La entrevista saca a la luz las decisiones pendientes; la spec las deja escritas para validarlas con el negocio. Solo después conviene implementar."
+        "feedback": "Correcta. Qué significa «en riesgo» es una decisión de negocio: el agente puede ayudarte a formular las preguntas o entrevistarte, pero no decidirla. Con la definición resuelta, la spec ya se puede escribir y verificar."
       },
       {
         "id": "o3",
@@ -338,7 +358,10 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m02-l4",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-github-spec-kit"
+    ],
     "status": "draft"
   },
   {
@@ -378,7 +401,10 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m03-l1",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-anthropic-eng-context"
+    ],
     "status": "draft"
   },
   {
@@ -398,20 +424,20 @@
     "options": [
       {
         "id": "o1",
-        "text": "En el archivo de instrucciones del agente, destacada en negritas al inicio",
+        "text": "En el archivo de instrucciones del agente, destacada en negritas y al inicio",
         "correct": false,
         "misconceptionId": "dx-mc20",
         "feedback": "Las instrucciones orientan al agente, pero no lo obligan. Una regla que no puede fallar necesita un control que la haga cumplir."
       },
       {
         "id": "o2",
-        "text": "En un control que bloquee la acción, como .gitignore o una regla de permisos",
+        "text": "Un control que rechace secretos en el commit o en el push, con .gitignore de apoyo",
         "correct": true,
-        "feedback": "Correcta. Un control determinista funciona aunque el agente lo olvide. La instrucción puede acompañarlo, pero no sustituirlo."
+        "feedback": "Correcta. Un hook de pre-commit o la protección de push del servidor bloquean el envío aunque el agente lo olvide; la del servidor es la más difícil de saltar. .gitignore ayuda, pero no afecta a archivos ya rastreados ni impide forzarlos."
       },
       {
         "id": "o3",
-        "text": "En una skill que el agente active cada vez que vaya a hacer un commit",
+        "text": "En una skill que el agente active cada vez que vaya a preparar un commit",
         "correct": false,
         "misconceptionId": "dx-mc21",
         "feedback": "Una skill se carga bajo demanda y puede no activarse. Una regla permanente va en una capa que siempre aplica."
@@ -419,7 +445,12 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m03-l3",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-git-gitignore",
+      "src-git-githooks",
+      "src-github-push-protection",
+      "src-anthropic-cc-features"
+    ],
     "status": "draft"
   },
   {
@@ -466,7 +497,10 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m03-l2",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-anthropic-cc-memory",
+      "src-openai-codex-agentsmd"
+    ],
     "status": "draft"
   },
   {
@@ -479,7 +513,7 @@
     ],
     "diagnosticBlock": "B3",
     "difficulty": "advanced",
-    "process": "create",
+    "process": "evaluate",
     "scenario": "Mañana otro agente, en otra herramienta, continuará una mejora que hoy dejaste a medias. Llevas tres horas de sesión con muchas decisiones y pruebas.",
     "stem": "¿Qué le dejas para que continúe bien?",
     "options": [
@@ -506,7 +540,10 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m03-l5",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-anthropic-eng-context",
+      "src-anthropic-cc-memory"
+    ],
     "status": "draft"
   },
   {
@@ -547,7 +584,9 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m05-l3",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
     "status": "draft"
   },
   {
@@ -587,7 +626,9 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m04-l4",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
     "status": "draft"
   },
   {
@@ -627,7 +668,9 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m04-l6",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
     "status": "draft"
   },
   {
@@ -674,7 +717,10 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m05-l2",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-openai-codex-best-practices"
+    ],
     "status": "draft"
   },
   {
@@ -714,7 +760,9 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m06-l5",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-anthropic-reduce-hallucinations"
+    ],
     "status": "draft"
   },
   {
@@ -755,7 +803,9 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m07-l2",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-vite-env"
+    ],
     "status": "draft"
   },
   {
@@ -795,7 +845,9 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m06-l3",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-databricks-perf"
+    ],
     "status": "draft"
   },
   {
@@ -835,7 +887,10 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m07-l6",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-anthropic-cc-routines",
+      "src-owasp-llm01"
+    ],
     "status": "draft"
   },
   {
@@ -875,7 +930,9 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m08-l1",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ],
     "status": "draft"
   },
   {
@@ -915,7 +972,9 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m09-l5",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-owasp-llm01"
+    ],
     "status": "draft"
   },
   {
@@ -955,7 +1014,11 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m09-l3",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-anthropic-eng-evals",
+      "src-openai-eval-best-practices",
+      "src-arxiv-llm-judge"
+    ],
     "status": "draft"
   },
   {
@@ -996,7 +1059,9 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m09-l1",
-    "sourceIds": [],
+    "sourceIds": [
+      "src-anthropic-eng-evals"
+    ],
     "status": "draft"
   }
 ]

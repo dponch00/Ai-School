@@ -3,7 +3,7 @@
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { DiagnosticForm, Microtask, Misconception, Question } from './content'
+import { DiagnosticForm, Microtask, Misconception, Question, Source } from './content'
 
 const read = (p: string) => JSON.parse(readFileSync(resolve(import.meta.dirname, '../../content', p), 'utf8'))
 
@@ -52,6 +52,12 @@ describe('content/diagnostic', () => {
       })
       .filter((r) => r.key > r.other * 1.15)
     expect(offenders).toEqual([])
+  })
+
+  it('toda fuente citada existe en content/sources.json (DX-01)', () => {
+    const sources = new Set(Source.array().parse(read('sources.json')).map((x) => x.id))
+    for (const q of items) for (const id of q.sourceIds) expect(sources.has(id), `${q.id} → ${id}`).toBe(true)
+    for (const m of misconceptions) for (const id of m.sourceIds) expect(sources.has(id), `${m.id} → ${id}`).toBe(true)
   })
 
   it('cada microtarea tiene al menos un criterio crítico', () => {

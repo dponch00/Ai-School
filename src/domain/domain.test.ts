@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { Course, Question } from './content'
-import { Attempt, finalSelection, reviewState, type PracticeReview } from './learner'
-import { diagnosticBlockSignal, scoreAttempt, selectExam } from './scoring'
+import { Attempt, finalSelection, Response, reviewState, type PracticeReview } from './learner'
+import { bankIssues, diagnosticBlockSignal, scoreAttempt, selectExam } from './scoring'
 import { answer, makeAttempt, makeBank, makeQuestion, seededRng } from './fixtures.test-utils'
 
 describe('Question', () => {
@@ -174,22 +174,82 @@ describe('diagnosticBlockSignal', () => {
   })
 })
 
-describe('reviewState (R-H-8)', () => {
-  const review = (levels: Array<number | 'insufficient-evidence'>): PracticeReview => ({
+describe('reviewState (R-H-8, CTR-02, CTR-05)', () => {
+  const practice = { criterionIds: ['c1', 'c2'], transferNotebook: true }
+  const notebook = { initialDecision: 'a', counterexample: 'b', revisedDecision: 'c', evidenceForChange: 'd' }
+  const self = [{ criterionId: 'c1', level: 3 as const, evidence: 'cita' }, { criterionId: 'c2', level: 2 as const, evidence: 'cita' }]
+  let run = 0
+  const review = (levels: Array<number | 'insufficient-evidence'>, runId = `run-${++run}`): PracticeReview => ({
+    runId,
     reviewer: { declaredName: 'evaluador', type: 'external-assisted' },
     at: '2026-10-21T12:00:00-06:00',
     criteria: levels.map((level, i) => ({ criterionId: `c${i + 1}`, evidenceQuote: 'cita', level })),
   })
+  const state = (reviews: PracticeReview[], over: object = {}) => reviewState({ selfAssessment: self, notebook, reviews, ...over }, practice)
 
   it('queda pendiente con una sola revisión', () => {
-    expect(reviewState({ selfAssessment: [], reviews: [review([3, 3])] })).toBe('review-pending')
+    expect(state([review([3, 3])])).toBe('review-pending')
   })
 
-  it('se da por revisada si dos evaluaciones difieren como mucho un nivel', () => {
-    expect(reviewState({ selfAssessment: [], reviews: [review([3, 2]), review([2, 3])] })).toBe('reviewed')
+  it('se da por revisada si dos corridas distintas difieren como mucho un nivel', () => {
+    expect(state([review([3, 2]), review([2, 3])])).toBe('reviewed')
   })
 
   it('queda pendiente si un criterio difiere más de un nivel', () => {
-    expect(reviewState({ selfAssessment: [], reviews: [review([4, 2]), review([2, 2])] })).toBe('review-pending')
+    expect(state([review([4, 2]), review([2, 2])])).toBe('review-pending')
+  })
+
+  it('caso de Codex: un criterio evaluado una sola vez no cuenta como doble evaluación', () => {
+    expect(state([review([3]), review([3, 1])])).toBe('review-pending')
+  })
+
+  it('caso de Codex: dos copias de la misma corrida no son independientes', () => {
+    expect(state([review([3, 3], 'run-x'), review([3, 3], 'run-x')])).toBe('review-pending')
+  })
+
+  it('caso de Codex: sin autoevaluación completa o sin cuaderno sigue presentada', () => {
+    expect(state([review([3, 3]), review([3, 3])], { selfAssessment: [] })).toBe('presented')
+    expect(state([review([3, 3]), review([3, 3])], { notebook: undefined })).toBe('presented')
+  })
+})
+
+describe('casos reproducibles de la revisión T-004', () => {
+  it('CTR-01: respuestas duplicadas invalidan el intento en vez de depender del orden', () => {
+    const q = makeQuestion()
+    const attempt = makeAttempt([q])
+    const dup = [answer(attempt.id, q, 'k1', { id: 'resp-aaaa1' }), answer(attempt.id, q, 'd1', { id: 'resp-aaaa2' })]
+    expect(() => scoreAttempt(attempt, dup)).toThrow(/más de una respuesta/)
+  })
+
+  it('CTR-01: una opción que no se mostró invalida el intento', () => {
+    const q = makeQuestion()
+    const attempt = makeAttempt([q])
+    expect(() => scoreAttempt(attempt, [answer(attempt.id, q, 'zz')])).toThrow(/no se mostró/)
+  })
+
+  it('CTR-03: una familia repartida entre dos objetivos se rechaza', () => {
+    const bank = [
+      makeQuestion({ id: 'q-a', family: 'm02-f', variant: 'a', evaluatedObjectiveId: 'm02-eo1' }),
+      makeQuestion({ id: 'q-b', family: 'm02-f', variant: 'b', evaluatedObjectiveId: 'm02-eo2' }),
+    ]
+    expect(bankIssues(bank).join(' ')).toContain('varios objetivos')
+    expect(() => selectExam({ bank, evaluatedObjectiveIds: ['m02-eo1', 'm02-eo2'], itemsPerObjective: 1, rng: seededRng(2) })).toThrow(/incoherente/)
+  })
+
+  it('CTR-04: tres ítems no dan señal, sino evidencia incompleta', () => {
+    const items = (['base', 'advanced', 'advanced'] as const).map((difficulty, i) =>
+      makeQuestion({ id: `dx-${i}`, use: 'diagnostic', courseId: null, diagnosticBlock: 'B2', difficulty }),
+    )
+    expect(diagnosticBlockSignal(items.map((item) => ({ item, response: answer('attempt-dx', item, 'k1') })))).toBe('incomplete-evidence')
+  })
+
+  it('CTR-06: una respuesta enviada sin fecha y un examen enviado sin resultado se rechazan', () => {
+    const q = makeQuestion()
+    expect(Response.safeParse(answer('attempt-0001', q, 'k1', { answeredAt: undefined })).success).toBe(false)
+    expect(Attempt.safeParse(makeAttempt([q], { result: undefined })).success).toBe(false)
+  })
+
+  it('DX-01: preguntas y conceptos erróneos sin fuente se rechazan', () => {
+    expect(Question.safeParse(makeQuestion({ sourceIds: [] })).success).toBe(false)
   })
 })

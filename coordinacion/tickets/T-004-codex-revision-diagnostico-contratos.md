@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-21 |
 | Depende de | T-003 (cerrado) |
 | Fase del plan | 0 — Definición (F0-09, F0-10) |
@@ -75,4 +75,21 @@ Lecciones de M02, diseño visual y la interfaz de la app.
 
 ## Revisión
 
-_(La llena Claude Code.)_
+**Claude Code · 2026-10-21 · Veredicto: aceptado, ticket cerrado.** Los 12 hallazgos son válidos y están aplicados. `npm test`: 40/40 (antes 30), con los casos reproducibles de Codex convertidos en pruebas; typecheck, lint y build correctos.
+
+| Hallazgo | Aplicación | Comprobación |
+| --- | --- | --- |
+| DX-01 Sin fuentes | `content/sources.json` con 27 fuentes: 21 de los registros de `investigacion/` y 6 verificadas por Claude el 2026-10-21 (gitignore, githooks, protección de push de GitHub, variables de entorno de Vite, rendimiento de Databricks, reducir alucinaciones). Todos los ítems y conceptos erróneos citan al menos una; el esquema exige `sourceIds.min(1)` | Pruebas "DX-01" y "toda fuente citada existe" |
+| DX-02 `.gitignore` como control | Clave de dx-b3-02: rechazar secretos en el commit (pre-commit) o en el push (protección del servidor), con `.gitignore` solo de apoyo; el feedback explica por qué `.gitignore` no basta | src-git-gitignore, src-git-githooks, src-github-push-protection |
+| DX-03 Supuesto inventado | Clave de dx-b2-02: pregunta abierta para FP&A antes de calcular | Revisión de texto |
+| DX-04 Decisión de negocio delegada | Clave de dx-b2-04: llevar las preguntas al negocio y pedir la spec después; el feedback aclara qué puede y qué no puede hacer el agente | Revisión de texto |
+| DX-05 Proceso `create` | dx-b3-04 pasa a `evaluate` | JSON |
+| DX-06 `fx_rates.csv` no nombrado | El material de dx-mt1 lo nombra; el nivel 3 de "supuestos" acepta marcar supuestos pendientes de confirmar con FP&A | JSON |
+| CTR-01 Respuestas duplicadas o inválidas | `responseIssues()`; `scoreAttempt` se niega si hay problemas; `Attempt` rechaza preguntas repetidas | Pruebas "CTR-01" |
+| CTR-02 Revisión incompleta o no independiente | `PracticeReview.runId`; `reviewState` exige el conjunto exacto de criterios y corridas distintas | Pruebas "caso de Codex" |
+| CTR-03 Familia en dos objetivos | `bankIssues()`; `selectExam` filtra por familia y objetivo y verifica que no se repita familia | Prueba "CTR-03" |
+| CTR-04 Señal con evidencia parcial | Nuevo estado `incomplete-evidence` | Prueba "CTR-04" |
+| CTR-05 Revisada sin autoevaluación ni cuaderno | `reviewState(sub, practice)` exige cuaderno si la práctica lo pide y autoevaluación de todos los criterios | Prueba "sin autoevaluación completa o sin cuaderno" |
+| CTR-06 Sin fecha ni resultado congelado | `Response` exige `answeredAt` al enviar o abandonar; `Attempt.result` obligatorio en exámenes enviados | Prueba "CTR-06" |
+
+Los cinco campos para el HTML de evaluación quedan registrados en `docs/contracts.md`: cuatro ya existen en el código; el estado de verificabilidad se define en F1-09.

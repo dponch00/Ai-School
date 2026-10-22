@@ -11,16 +11,20 @@
 
 ## Invariantes que el código hace cumplir
 
+- **Fuentes (DX-01):** toda pregunta y todo concepto erróneo cita al menos una fuente que existe en `content/sources.json`.
 - **Pregunta:** exactamente una opción correcta; IDs de opción únicos y estables; cada distractor con `misconceptionId`; escenario + enunciado ≤ 120 palabras [H]; ítems de examen con curso, objetivo evaluado, familia y variante; ítems de diagnóstico con bloque.
 - **Versionado (R-05):** un ítem publicado no se edita; un cambio sube `version`. Los intentos guardan la pregunta completa tal como se mostró, y la corrección usa esa instantánea, nunca el banco actual.
-- **Respuesta:** la primera selección nunca se borra; las siguientes son revisiones. Un borrador cuenta como "sin respuesta", no como error elegido. La ayuda externa solo existe como declaración del alumno.
+- **Respuesta:** la primera selección nunca se borra; las siguientes son revisiones. Un borrador cuenta como "sin respuesta", no como error elegido. Enviada o abandonada exige fecha. La ayuda externa solo existe como declaración del alumno.
+- **Consistencia intento ↔ respuestas (CTR-01):** una respuesta por pregunta, de la misma versión que la instantánea, y solo con opciones que se mostraron. Si algo no cuadra, la corrección se niega en vez de dar un resultado que dependa del orden.
+- **Resultado congelado (CTR-06):** un examen enviado guarda su resultado, los motivos y la regla aplicada.
+- **Banco (CTR-03):** cada familia pertenece a un solo objetivo evaluado y no repite variantes; el examen nunca repite familia.
 - **Examen:** aprobado con 10/12 y ningún objetivo evaluado con todos sus ítems fallados. Una familia fallada cambia de variante; si no quedan variantes nuevas, se avisa en vez de repetir en silencio.
-- **Diagnóstico:** señales por bloque (fortaleza probable / repaso recomendado / sin señal clara) con reglas asimétricas; nunca niveles ni porcentajes (D-015).
-- **Práctica:** "revisada" exige dos evaluaciones sin discrepancias de más de un nivel por criterio; si no, "revisión pendiente" (R-H-8 [H]). "Evidencia insuficiente" es un nivel válido.
+- **Diagnóstico:** señales por bloque (fortaleza probable / repaso recomendado / sin señal clara) con reglas asimétricas; nunca niveles ni porcentajes (D-015). Sin 4 ítems del mismo bloque (2 de base y 2 avanzados) el resultado es "evidencia incompleta" (CTR-04).
+- **Práctica (CTR-02, CTR-05):** sigue "presentada" hasta tener el cuaderno (si la práctica lo exige) y la autoevaluación de todos los criterios. "Revisada" exige dos revisiones de corridas distintas que evalúen exactamente los criterios de la rúbrica, sin discrepancias de más de un nivel; si no, "revisión pendiente" (R-H-8 [H]). "Evidencia insuficiente" es un nivel válido.
 - **Perfil:** la evidencia previa (programa de Educación, D-009) se guarda aparte de lo declarado y de lo observado en la app.
 
 ## Pendiente para fases siguientes
 
-- Esquema del reporte de evaluación HTML y de su JSON pasivo (F1-09).
+- Esquema del reporte de evaluación HTML y de su JSON pasivo (F1-09). Debe incluir los cinco campos de trazabilidad de la revisión T-004: corrida, evaluador o modelo y evidencia por criterio (ya en `PracticeReview`); resultado histórico y regla (ya en `Attempt.result`); vínculo de cada respuesta con su instantánea (ya en `responseIssues`); estado de verificabilidad (definición histórica disponible, evidencia externa pendiente, datos excluidos), aún por definir; y "evidencia incompleta" del diagnóstico, separada de las señales (ya en `diagnosticBlockSignal`).
 - Migraciones de IndexedDB con Dexie (F1-07), usando `SCHEMA_VERSION`.
 - Validación de archivos de `content/` en el build (F1-02).

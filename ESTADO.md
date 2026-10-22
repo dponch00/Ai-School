@@ -5,9 +5,7 @@
 ## Siguiente acción
 
 1. **Daniel:** elegir la dirección visual en `design/direcciones/comparativa.html` (Codex y Claude recomiendan D1, Atlas de criterio). Desbloquea el sistema de diseño (F0-12) y las imágenes piloto (F1-06).
-2. **Daniel → Codex:** pasarle T-004 (revisión del diagnóstico y de los contratos).
-3. **Claude:** mientras tanto, empezar las lecciones de M02 (F1-03) sobre el estándar v0.2.
-4. **Pendiente de visto bueno de Daniel:** publicar (push) los arreglos de service worker de Python GO (`2035dc1`) y MKompact (`bc61108`).
+2. **Claude:** lecciones de M02 (F1-03) sobre el estándar v0.2; al terminar, ticket de revisión para Codex.
 
 ## Tickets
 
@@ -16,13 +14,12 @@
 | [T-001](coordinacion/tickets/T-001-codex-arranque-y-revision.md) | Codex | Capacidades reales y revisión independiente del plan | cerrado |
 | [T-002](coordinacion/tickets/T-002-codex-direcciones-visuales.md) | Codex | Tres direcciones visuales para elegir | revisado · espera elección de Daniel |
 | [T-003](coordinacion/tickets/T-003-codex-revision-curriculo-estandar.md) | Codex | Revisión del currículo y del estándar de contenido | cerrado |
-| [T-004](coordinacion/tickets/T-004-codex-revision-diagnostico-contratos.md) | Codex | Revisión del diagnóstico y de los contratos de datos | abierto |
+| [T-004](coordinacion/tickets/T-004-codex-revision-diagnostico-contratos.md) | Codex | Revisión del diagnóstico y de los contratos de datos | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-004, al empezar) | `investigacion/codex-revision-diagnostico-contratos.md` |
 | Claude | `content/courses/m02/` (lecciones de M02) |
 
 ## Decisiones recientes
@@ -30,6 +27,9 @@
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-21 · Claude Code — revisión de T-004
+Los 12 hallazgos de Codex se aplicaron: fuentes en todo el diagnóstico (`content/sources.json`), claves corregidas en dx-b3-02, dx-b2-02 y dx-b2-04, proceso de dx-b3-04, microtarea 1 coherente, y seis correcciones de contratos con sus casos reproducibles como pruebas. `npm test` 40/40. El diagnóstico queda listo para el piloto (F0-10). Los arreglos de SW de Python GO y MKompact se publicaron desde su propia sesión.
 
 ### 2026-10-21 · Claude Code — T-003, contratos y diagnóstico
 T-003 cerrado: los 12 hallazgos de Codex se aplicaron (currículo y estándar v0.2; D-015 diagnóstico por bloques, D-016 36 ítems en M02 como experimento, D-017 *blueprint* de máximo 6 objetivos evaluados). Creado el proyecto base (Vite 8 + React 19 + TS 6) y los contratos de datos en `src/domain/` con Zod (F0-09). Escrito el diagnóstico en `content/diagnostic/` (F0-10): 24 ítems, 46 conceptos erróneos y 2 microtareas. La validación automática detectó claves más largas que los distractores en 15 ítems y se corrigieron. `npm test`: 30/30; build y lint sin errores. Python GO y MKompact: arreglo de cachés con commit, sin push.

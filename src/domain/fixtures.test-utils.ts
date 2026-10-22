@@ -23,7 +23,7 @@ export function makeQuestion(over: Partial<Question> = {}): Question {
     ],
     fixedOrder: false,
     sectionRef: 'm02-l2#supuestos',
-    sourceIds: [],
+    sourceIds: ['src-test-fixture'],
     status: 'published',
     publishedAt: '2026-10-21',
     ...over,
@@ -56,6 +56,7 @@ export function makeAttempt(questions: Question[], over: Partial<Attempt> = {}):
     startedAt: '2026-10-21T10:00:00-06:00',
     submittedAt: '2026-10-21T10:25:00-06:00',
     status: 'submitted',
+    result: { correct: 0, total: questions.length, passed: false, reasons: [], rule: { minCorrect: 10, requireEachObjective: true }, computedAt: '2026-10-21T10:25:00-06:00' },
     items: questions.map((question) => ({ question, shownOptionIds: question.options.map((o) => o.id) })),
     ...over,
   }
