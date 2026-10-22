@@ -5,23 +5,24 @@
 ## Siguiente acción
 
 1. **Daniel:** hacer el recorrido completo como alumno (perfil, lecciones, examen, laboratorio, reporte compartido en un chat y retroalimentación registrada) y anotar su tiempo en `docs/registro-esfuerzo.md` o pasárselo a Claude. Con eso arranca el Bloque A.
-2. **Claude:** F2-06 (diagnóstico inicial) y F2-09 (manejo de errores de almacenamiento).
-3. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
-4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
+2. **Codex:** T-019, revisión del diagnóstico inicial y del manejo del almacenamiento.
+3. **Claude:** F2-07 (búsqueda, glosario, notas y marcadores) y F2-08 (pruebas de interacción y accesibilidad).
+4. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
+5. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-22)
 
-**≈ 35 % de la V1** (rango razonable: 32–38 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 37 % de la V1** (rango razonable: 34–40 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 95 % (piloto revisado y puerta preparada; faltan el recorrido de Daniel y su decisión) | 20,9 |
-| 2 · Base de app y PWA | 15 % | 38 % (IndexedDB con migraciones, reglas del examen, revisiones externas, repaso de errores y PWA instalable sin conexión; faltan offline por curso, diagnóstico, búsqueda, manejo de errores y pruebas de interacción) | 5,7 |
+| 2 · Base de app y PWA | 15 % | 52 % (persistencia, reglas del examen, revisiones externas, repaso de errores, PWA con ícono, diagnóstico inicial y manejo del almacenamiento; faltan offline por curso, búsqueda y glosario, pruebas de interacción y hosting) | 7,8 |
 | 3 · Nueve manuales restantes | 40 % | 3 % (currículo y mapa de competencias) | 1,2 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 35 %** |
+| **Total** | 100 % | | **≈ 37 %** |
 
 ## Tickets
 
@@ -45,18 +46,22 @@
 | [T-016](coordinacion/tickets/T-016-codex-revision-puerta-f1-13.md) | Codex | Revisión del documento de la puerta F1-13 | cerrado |
 | [T-017](coordinacion/tickets/T-017-codex-revision-reglas-examen-revisiones.md) | Codex | Revisión de las reglas del examen y las revisiones externas | cerrado |
 | [T-018](coordinacion/tickets/T-018-codex-repaso-errores-pwa-icono.md) | Codex | Ícono de la app y revisión del repaso de errores y la PWA | cerrado |
+| [T-019](coordinacion/tickets/T-019-codex-revision-diagnostico-almacenamiento.md) | Codex | Revisión del diagnóstico inicial y del manejo del almacenamiento | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | F2-06 y F2-09 |
+| Claude | F2-07 y F2-08 (sin tocar `diagnostic.ts`, `DiagnosticPage.tsx` ni `health.ts` hasta la entrega de T-019) |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-22 · Claude Code — diagnóstico inicial y almacenamiento (F2-06, F2-09)
+El diagnóstico ya funciona en `#/diagnostico`: 24 preguntas por bloque, sin aprobado, con señales por bloque, conteos, errores cometidos con seguridad y una recomendación que nombra los manuales del bloque. Las dos microtareas son opcionales; su autoevaluación afina la señal y queda rotulada como tal. El reporte tiene el alcance «diagnóstico» y lo resume por bloque, nunca por competencia (D-015). Si el navegador no deja guardar, un aviso global lo dice; en el perfil se ven el uso y se puede pedir almacenamiento persistente. `npm test` 143/143, lint y build. Abierto T-019. Avance: ≈ 37 %.
 
 ### 2026-10-22 · Claude Code — revisión de T-018
 Codex entregó el ícono definitivo D1: SVG maestro, PNG de 192 y 512, *maskable* y Apple Touch. Se aceptó y se integró en el manifiesto, el `index.html` y el precache, sin duplicados. Su revisión del repaso de errores y de la PWA no encontró más problemas; incluyó una recarga sin servidor y aplazar una actualización con un examen activo. La instalación real en Chrome Android y escritorio queda para la prueba de hosting.
