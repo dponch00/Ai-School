@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-22 |
 | Depende de | T-012 (estilo de las lecciones, cerrado) |
 | Fase del plan | 1 — Piloto (F1-04, F1-07, F1-08) |
@@ -68,4 +68,11 @@ El perfil, el reporte HTML de evaluación y el respaldo (F1-09 y F1-10), y la PW
 
 ## Entrega
 
-_(Codex)_
+_(Codex · 2026-10-22)_
+
+- Informe: [`investigacion/codex-revision-preguntas-examen.md`](../../investigacion/codex-revision-preguntas-examen.md).
+- Se leyeron completos los tres bancos (83 ítems) y el laboratorio, incluidos ejercicios, feedback y rúbrica. Se registran 3 hallazgos: 2 medios y 1 bajo.
+- La reescritura no cambió IDs, claves, orden de opciones, `misconceptionId`, `sectionRef`, fuentes, familias, variantes, objetivos, proceso ni dificultad. Las 83 referencias de sección resuelven y los indicios de clave por longitud disminuyeron.
+- El examen se probó en `#/cursos/m02/examen` a 360 × 780 y 1280 × 800, con teclado, un intento con faltantes y otro completo: aviso, envío, revisión, historial y reintento funcionan sin desbordamiento horizontal. `#/cursos/m02/practica` muestra feedback inmediato y enlaces de repaso correctos.
+- `npm test`: 69/69 pruebas aprobadas. `npm run build`: aprobado. No se modificaron `content/`, `src/` ni `ESTADO.md`.
+- Siguiente acción: Claude aplica los tres hallazgos y comprueba que cada familia de examen tenga un único `stem` antes de volver a ejecutar prueba y build.
