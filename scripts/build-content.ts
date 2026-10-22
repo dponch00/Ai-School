@@ -113,6 +113,34 @@ const sanitizeSchema = {
   },
 }
 
+const LANG: Record<string, string> = { bash: 'Terminal', json: 'JSON', gherkin: 'Gherkin', python: 'Python', sql: 'SQL', ts: 'TypeScript' }
+
+/** UI-02 (T-011): cada <pre> se envuelve con etiqueta de lenguaje, foco con teclado y botón Copiar. */
+function rehypeCodeBlocks() {
+  return (tree: HastRoot) => {
+    visit(tree, 'element', (node: Element, index, parent: any) => {
+      if (node.tagName !== 'pre' || !parent || typeof index !== 'number') return
+      const code = node.children.find((c): c is Element => c.type === 'element' && c.tagName === 'code')
+      const cls = ((code?.properties?.className as string[] | undefined) ?? []).find((c) => c.startsWith('language-'))
+      const lang = cls ? cls.slice('language-'.length) : ''
+      const label = LANG[lang] ?? (lang ? lang.toUpperCase() : 'Código')
+      node.properties = { ...node.properties, tabIndex: 0, ariaLabel: `Bloque de código: ${label}. Usa las flechas para desplazarte.` }
+      parent.children[index] = {
+        type: 'element', tagName: 'div', properties: { className: ['code-block'] },
+        children: [
+          { type: 'element', tagName: 'div', properties: { className: ['code-block__bar'] }, children: [
+            { type: 'element', tagName: 'span', properties: { className: ['code-block__lang'] }, children: [{ type: 'text', value: label }] },
+            { type: 'element', tagName: 'button', properties: { type: 'button', className: ['code-block__copy'], dataCopy: '' }, children: [{ type: 'text', value: 'Copiar' }] },
+          ] },
+          node,
+          { type: 'element', tagName: 'p', properties: { className: ['code-block__status'], role: 'status' }, children: [] },
+        ],
+      }
+      return index + 1
+    })
+  }
+}
+
 function renderMarkdown(md: string, file: string): Rendered {
   const state = { citations: [] as string[], toc: [] as { id: string; text: string }[], file }
   const processor = unified()
@@ -122,6 +150,7 @@ function renderMarkdown(md: string, file: string): Rendered {
     .use(lessonPlugin(state))
     .use(remarkRehype)
     .use(rehypeSanitize, sanitizeSchema as any)
+    .use(rehypeCodeBlocks)
   const hast = processor.runSync(processor.parse(md)) as HastRoot
   const blocks: Block[] = []
   let buffer: ElementContent[] = []

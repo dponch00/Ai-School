@@ -9,7 +9,25 @@ export function scrollToAnchor(id: string) {
   el.focus({ preventScroll: true })
 }
 
+async function copyCode(button: HTMLElement) {
+  const block = button.closest('.code-block')
+  const pre = block?.querySelector('pre')
+  const status = block?.querySelector('.code-block__status')
+  if (!pre || !status) return
+  try {
+    await navigator.clipboard.writeText(pre.innerText)
+    status.textContent = 'Copiado'
+  } catch {
+    status.textContent = 'No se pudo copiar; selecciona el texto'
+  }
+}
+
 export function handleAnchorClick(e: MouseEvent) {
+  const copy = (e.target as HTMLElement).closest('[data-copy]')
+  if (copy) {
+    void copyCode(copy as HTMLElement)
+    return
+  }
   const a = (e.target as HTMLElement).closest('a')
   const href = a?.getAttribute('href') ?? ''
   if (a && href.startsWith('#') && !href.startsWith('#/')) {

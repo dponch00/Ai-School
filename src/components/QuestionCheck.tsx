@@ -32,10 +32,10 @@ export default function QuestionCheck({ question, courseId, currentLessonId, lab
   }
 
   return (
-    <fieldset className="question" aria-describedby={`${groupId}-scenario`}>
+    <fieldset className="question" aria-describedby={`${groupId}-scenario ${groupId}-stem`}>
       <legend className="question__label">{label}</legend>
       <p id={`${groupId}-scenario`} className="question__scenario">{question.scenario}</p>
-      <p className="question__stem">{question.stem}</p>
+      <p id={`${groupId}-stem`} className="question__stem">{question.stem}</p>
       <div className="question__options">
         {question.options.map((o) => {
           const state = submitted ? (o.correct ? 'correct' : o.id === selected ? 'wrong' : 'other') : 'open'

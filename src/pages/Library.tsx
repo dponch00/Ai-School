@@ -5,7 +5,8 @@ export default function Library() {
   return (
     <div className="page">
       <h1>Cursos</h1>
-      <p className="lead">Diez manuales. Por ahora está disponible el piloto, M02; los demás se publican cuando estén completos y revisados.</p>
+      <p className="lead">Diez manuales. Los demás se publican cuando estén completos y revisados.</p>
+      <p className="available-now">Disponible ahora: <a href="#/cursos/m02">M02 · Prompting avanzado y especificaciones</a></p>
       <ul className="course-grid">
         {content.catalog.map((c) => {
           const course = getCourse(c.id)

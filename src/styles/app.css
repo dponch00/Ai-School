@@ -62,6 +62,11 @@ main:focus { outline: none; }
 .hero { display: grid; gap: var(--ais-space-5); margin-bottom: var(--ais-space-7); }
 .hero__image { border-radius: var(--ais-radius-lg); box-shadow: var(--ais-shadow-paper); aspect-ratio: 16 / 9; object-fit: cover; width: 100%; }
 .hero__text h1 { margin-top: 0; }
+@media (min-width: 960px) {
+  /* UI-01 (T-011): propósito y siguiente acción dentro del primer pliegue en escritorio */
+  .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); align-items: center; gap: var(--ais-space-7); }
+  .hero__text { order: -1; }
+}
 .route { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--ais-space-2); }
 .route__item { display: grid; grid-template-columns: 3rem 1fr; align-items: baseline; gap: var(--ais-space-1) var(--ais-space-3); padding: var(--ais-space-3) var(--ais-space-4); background: var(--ais-color-surface); border: 1px solid var(--ais-color-disabled-surface); border-radius: var(--ais-radius-md); color: var(--ais-color-muted); }
 .route__item--available { border-color: var(--ais-color-accent); color: var(--ais-color-ink); }
@@ -69,6 +74,7 @@ main:focus { outline: none; }
 .route__status { grid-column: 2; font-size: var(--ais-font-size-sm); }
 
 /* ---------- Biblioteca ---------- */
+.available-now { font-weight: 600; margin-bottom: var(--ais-space-5); }
 .course-grid { list-style: none; padding: 0; display: grid; gap: var(--ais-space-4); }
 @media (min-width: 700px) { .course-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1100px) { .course-grid { grid-template-columns: repeat(3, 1fr); } }
@@ -103,7 +109,7 @@ main:focus { outline: none; }
 }
 .toc { font-size: var(--ais-font-size-sm); }
 .toc__list { list-style: none; padding: 0; margin: 0; }
-.toc__list a { display: block; padding: var(--ais-space-2) var(--ais-space-3); color: var(--ais-color-ink); text-decoration: none; border-left: 3px solid transparent; }
+.toc__list a { display: flex; align-items: center; min-height: var(--ais-layout-touch-target); padding: var(--ais-space-2) var(--ais-space-3); color: var(--ais-color-ink); text-decoration: none; border-left: 3px solid transparent; }
 .toc__list a:hover { border-left-color: var(--ais-color-accent); }
 .toc__mobile { background: var(--ais-color-surface); border: 1px solid var(--ais-color-border); border-radius: var(--ais-radius-md); }
 .toc__mobile summary { min-height: var(--ais-layout-touch-target); display: flex; align-items: center; padding-inline: var(--ais-space-4); cursor: pointer; font-weight: 600; }
@@ -125,7 +131,17 @@ main:focus { outline: none; }
 .prose table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; margin-block: var(--ais-space-4); font-size: 0.92em; }
 .prose th, .prose td { border: 1px solid var(--ais-color-disabled-surface); padding: var(--ais-space-2) var(--ais-space-3); text-align: left; vertical-align: top; }
 .prose th { background: var(--ais-color-surface); }
-.prose pre { background: var(--ais-color-ink); color: #F5F0E6; padding: var(--ais-space-4); border-radius: var(--ais-radius-md); overflow-x: auto; line-height: var(--ais-line-height-code); }
+.code-block { margin-block: var(--ais-space-4); border-radius: var(--ais-radius-md); overflow: hidden; background: var(--ais-color-ink); }
+.code-block__bar { display: flex; align-items: center; justify-content: space-between; gap: var(--ais-space-2); padding-left: var(--ais-space-4); background: #0F1E25; color: #F5F0E6; font-family: var(--ais-font-mono); font-size: var(--ais-font-size-xs); }
+.code-block__copy { min-height: var(--ais-layout-touch-target); min-width: var(--ais-layout-touch-target); padding-inline: var(--ais-space-4); border: 0; background: transparent; color: #F5F0E6; font: inherit; font-weight: 600; cursor: pointer; }
+.code-block__copy:hover { text-decoration: underline; }
+.code-block__status { margin: 0; padding: 0 var(--ais-space-4); color: #F5F0E6; font-size: var(--ais-font-size-xs); }
+.code-block__status:not(:empty) { padding-bottom: var(--ais-space-2); }
+/* El degradado del borde derecho indica que hay más código al desplazar (se oculta al llegar al final). */
+.prose pre { margin: 0; color: #F5F0E6; padding: var(--ais-space-4); overflow-x: auto; line-height: var(--ais-line-height-code);
+  background: linear-gradient(to left, var(--ais-color-ink) 30%, transparent) right center / 2.5rem 100% no-repeat local,
+              linear-gradient(to left, rgba(245, 240, 230, 0.35), transparent) right center / 1rem 100% no-repeat scroll,
+              var(--ais-color-ink); }
 .prose :not(pre) > code { background: var(--ais-color-disabled-surface); padding: 0.05em 0.3em; border-radius: var(--ais-radius-sm); overflow-wrap: anywhere; }
 .cite { font-size: 0.7em; line-height: 0; }
 .cite a { text-decoration: none; padding-inline: 0.1em; }

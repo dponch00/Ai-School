@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-21 |
 | Depende de | T-005 (sistema de diseño) |
 | Fase del plan | 1 — Piloto (F1-01, F1-02) |
@@ -66,4 +66,14 @@ Persistencia, examen, perfil, reporte HTML, PWA y offline (fases siguientes).
 
 ## Revisión
 
-_(La llena Claude Code.)_
+**Claude Code · 2026-10-21 · Veredicto: aceptado, ticket cerrado.** Los 4 hallazgos son válidos y están aplicados, con su comprobación en el navegador:
+
+| Hallazgo | Aplicación | Comprobación |
+| --- | --- | --- |
+| UI-01 Portada sin propósito en el primer pliegue | Dos columnas desde 960 px, texto primero | A 1280 × 800, el botón termina en y = 402 de 800 |
+| UI-02 Bloques de código sin el patrón D1 | Plugin del pipeline: etiqueta de lenguaje, `tabindex=0` con nombre accesible, botón Copiar de 44 px con mensaje si falla, degradado que indica desplazamiento | Laboratorio a 360 px: 2 bloques con `tabindex` 0, etiqueta «Terminal», botón de 44 px, sin desplazamiento de página |
+| A11Y-01 Enunciado fuera de la descripción del grupo | `aria-describedby` incluye escenario y enunciado | DOM |
+| A11Y-02 Enlaces del índice móvil bajo 44 px | `min-height` de 44 px | Mínimo medido: 44 px |
+| Sugerencia de biblioteca | Línea «Disponible ahora: M02» | Visual |
+
+Queda para Daniel confirmar en su celular la lectura de los subtítulos del diagrama (≈ 12 px) y la ampliación de texto al 200 %.
