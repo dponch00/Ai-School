@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-22 |
 | Depende de | T-014 (cerrado) |
 | Fase del plan | 1 — Piloto (F1-11, F1-12) |
@@ -61,4 +61,10 @@ La PWA y el modo offline (Fase 2), el diagnóstico inicial y la puerta F1-13 (la
 
 ## Entrega
 
-_(Codex)_
+_(Codex, 2026-10-22)_
+
+- Informe: `investigacion/codex-revision-piloto.md`.
+- Recorrido §17.10 completado con datos sintéticos: dos reportes, feedback estructurado, propuesta aceptada y comparación de evolución/feedback previo en el segundo HTML.
+- Revisadas las 15 rutas a 360 px y mediante teclado; se documentan cuatro hallazgos (uno alto y tres medios), además de la limitación de zoom del navegador integrado.
+- Tabla completa de criterios §17.9 incluida en el informe.
+- Verificación: `npm test` y `npm run build` ejecutados correctamente.
