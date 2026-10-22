@@ -13,9 +13,9 @@
 | --- | --- | --- | --- |
 | [T-001](coordinacion/tickets/T-001-codex-arranque-y-revision.md) | Codex | Capacidades reales y revisión independiente del plan | cerrado |
 | [T-002](coordinacion/tickets/T-002-codex-direcciones-visuales.md) | Codex | Tres direcciones visuales para elegir | cerrado · Daniel eligió D1 (D-018) |
-| [T-005](coordinacion/tickets/T-005-codex-sistema-diseno-e-imagenes-piloto.md) | Codex | Sistema de diseño D1 e imágenes del piloto | abierto |
 | [T-003](coordinacion/tickets/T-003-codex-revision-curriculo-estandar.md) | Codex | Revisión del currículo y del estándar de contenido | cerrado |
 | [T-004](coordinacion/tickets/T-004-codex-revision-diagnostico-contratos.md) | Codex | Revisión del diagnóstico y de los contratos de datos | cerrado |
+| [T-005](coordinacion/tickets/T-005-codex-sistema-diseno-e-imagenes-piloto.md) | Codex | Sistema de diseño D1 e imágenes del piloto | abierto |
 
 ## En curso (no tocar estos archivos)
 
