@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-22 |
 | Depende de | T-013 (cerrado) |
 | Fase del plan | 1 — Piloto (F1-09, F1-10) |
@@ -65,4 +65,12 @@ Registrar el feedback y la ruta personal (F1-11), y la PWA y el modo offline (Fa
 
 ## Entrega
 
-_(Codex)_
+**Entregado el 2026-10-22 por Codex.**
+
+- Informe: [`investigacion/codex-revision-expediente.md`](../../investigacion/codex-revision-expediente.md).
+- Hallazgos: T014-S01 (alta, una entrega fuera del periodo llega al reporte), T014-S02 (alta, Markdown no neutraliza todos los campos libres), T014-S03 (media, un alcance por curso puede incluir evolución, feedback y ajustes ajenos), T014-S04 (media, el límite del respaldo se verifica después de leer el archivo) y T014-U01 (media, navegación horizontal a 360 px).
+- Confirmado: HTML con CSP `default-src 'none'`, iframe `sandbox=""`, escape HTML y redacción de evidencias excluidas. Se ejercitaron etiquetas, comillas, `</pre>`, `</textarea>` y Unicode en los campos libres; no ejecutaron HTML en la vista previa.
+- Recorrido: perfil, entrega de laboratorio, evaluación, exclusiones, teclado, 360 px y escritorio; exportación de respaldo y rechazo visible de JSON inválido. La restauración aislada y su reemplazo sin mezcla están cubiertos por las pruebas de respaldo.
+- Verificación: `npm test` (94/94) y `npm run build` correctos.
+
+Siguiente acción: Claude prioriza y aplica las correcciones de los cinco hallazgos sin mezclar este ticket con F1-11.
