@@ -49,7 +49,7 @@ Trece competencias. Las conductas observables se miden con escenarios de decisi�
 | C12 | Evaluación basada en evidencia | Construye casos repetibles, elige graders, compara versiones y concluye solo lo que la evidencia sostiene | M09; M02, M05 | 9 |
 | C13 | Producto mantenible | Define alcance útil, documenta, cierra hallazgos y planifica el mantenimiento de dependencias volátiles | M10; M03, M09 | 10 |
 
-Conductas observables de cada competencia: `investigacion/curriculo-estado-del-arte.md` §3. Pasarán a `content/competencies.json` en F0-09.
+Las 13 competencias, con su definición, dos o tres conductas observables, manuales y bloque del diagnóstico, están en `content/competencies.json` (F0-09), redactadas a partir de esta tabla y de `investigacion/curriculo-estado-del-arte.md` §3.
 
 ### 2.1 Bloques del diagnóstico
 

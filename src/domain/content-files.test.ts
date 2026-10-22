@@ -1,9 +1,9 @@
 // Valida los archivos de content/ y design/ contra los contratos y las reglas del estándar que se pueden automatizar.
 // Las reglas de juicio (plausibilidad, ausencia de pistas semánticas) quedan para la revisión de Codex.
-import { existsSync, readFileSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { Asset, DiagnosticForm, Microtask, Misconception, Question, Source } from './content'
+import { Asset, Competency, Course, DiagnosticForm, Microtask, Misconception, Question, Source } from './content'
 
 const root = resolve(import.meta.dirname, '../..')
 const read = (p: string) => JSON.parse(readFileSync(resolve(root, 'content', p), 'utf8'))
@@ -69,6 +69,51 @@ describe('content/diagnostic', () => {
 
   it('cada microtarea tiene al menos un criterio crítico', () => {
     for (const m of microtasks) expect(m.rubric.some((c) => c.critical), m.id).toBe(true)
+  })
+})
+
+describe('content/competencies.json', () => {
+  const competencies = Competency.array().parse(read('competencies.json'))
+  const byId = new Map(competencies.map((c) => [c.id, c]))
+  const form = DiagnosticForm.parse(read('diagnostic/form.json'))
+
+  it('hay exactamente 13 competencias, C01–C13, sin repetir', () => {
+    const expected = Array.from({ length: 13 }, (_, i) => `C${String(i + 1).padStart(2, '0')}`)
+    expect(competencies.map((c) => c.id).sort()).toEqual(expected)
+  })
+
+  it('el manual principal no se repite entre los de apoyo', () => {
+    for (const c of competencies) expect(c.supportCourses.includes(c.primaryCourse), c.id).toBe(false)
+  })
+
+  it('toda competencia citada en cursos, preguntas y diagnóstico existe', () => {
+    const refs: [string, string[]][] = []
+    for (const courseId of readdirSync(resolve(root, 'content/courses'))) {
+      const base = `courses/${courseId}`
+      const course = Course.parse(read(`${base}/course.json`))
+      refs.push([course.id, course.competencyIds])
+      for (const o of course.evaluatedObjectives) refs.push([o.id, o.competencyIds])
+      const qDir = resolve(root, 'content', base, 'questions')
+      if (!existsSync(qDir)) continue
+      for (const file of readdirSync(qDir).filter((f) => f.endsWith('.json') && f !== 'families.json'))
+        for (const q of Question.array().parse(read(`${base}/questions/${file}`))) refs.push([q.id, q.competencyIds])
+    }
+    for (const q of Question.array().parse(read('diagnostic/items.json'))) refs.push([q.id, q.competencyIds])
+    for (const m of Microtask.array().parse(read('diagnostic/microtasks.json'))) refs.push([m.id, m.competencyIds])
+    for (const b of form.blocks) refs.push([b.id, b.competencyIds])
+    expect(refs.length).toBeGreaterThan(0)
+    for (const [owner, ids] of refs) for (const id of ids) expect(byId.has(id), `${owner} → ${id}`).toBe(true)
+  })
+
+  it('el diagnosticBlock coincide con el bloque que la usa en el diagnóstico (C13 no se diagnostica)', () => {
+    const blockOf = new Map<string, string>()
+    for (const b of form.blocks)
+      for (const id of b.competencyIds) {
+        expect(blockOf.has(id), `${id} aparece en dos bloques`).toBe(false)
+        blockOf.set(id, b.id)
+      }
+    for (const c of competencies) expect(c.diagnosticBlock, c.id).toBe(blockOf.get(c.id) ?? null)
+    expect(byId.get('C13')?.diagnosticBlock).toBeNull()
   })
 })
 

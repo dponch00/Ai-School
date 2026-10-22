@@ -18,7 +18,7 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import { unified } from 'unified'
 import { visit } from 'unist-util-visit'
-import { Asset, Course, Lesson, Misconception, Practice, ProductCard, Question, Source } from '../src/domain/content.ts'
+import { Asset, Competency, Course, Lesson, Misconception, Practice, ProductCard, Question, Source } from '../src/domain/content.ts'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const contentDir = resolve(root, 'content')
@@ -189,6 +189,7 @@ function renderMarkdown(md: string, file: string): Rendered {
 
 const sources = new Map(Source.array().parse(readJson('sources.json')).map((s) => [s.id, s]))
 const catalog: { id: string; title: string; centralQuestion: string }[] = readJson('catalog.json')
+const competencies = Object.fromEntries(Competency.array().parse(readJson('competencies.json')).map((c) => [c.id, c]))
 const questions: Record<string, unknown> = {}
 const productCards: Record<string, unknown> = {}
 const assets: Record<string, unknown> = {}
@@ -242,6 +243,7 @@ const out = {
   generatedAt: new Date().toISOString(),
   catalog: catalog.map((c) => ({ ...c, available: courses.some((x: any) => x.id === c.id) })),
   courses,
+  competencies,
   questions,
   productCards,
   assets,

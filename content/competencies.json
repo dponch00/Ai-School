@@ -1,0 +1,171 @@
+[
+  {
+    "id": "C01",
+    "name": "Selección de herramienta, superficie y modelo",
+    "definition": "Elige producto, superficie (chat, CLI, IDE, nube), modelo y esfuerzo según la tarea, los datos, el costo y la posibilidad de verificar el resultado.",
+    "behaviors": [
+      "Ante un caso con datos sensibles, decide entre ejecutar en local o en la nube y justifica la elección.",
+      "Distingue cuándo una capacidad hay que comprobarla en el producto y el entorno concretos antes de darla por hecha.",
+      "Reconoce un diseño que dispara el consumo (tareas en paralelo, imágenes, esfuerzo máximo) y propone una alternativa que basta."
+    ],
+    "primaryCourse": "m01",
+    "supportCourses": ["m05", "m08"],
+    "diagnosticBlock": "B1"
+  },
+  {
+    "id": "C02",
+    "name": "Especificación ejecutable",
+    "definition": "Convierte una intención ambigua en una especificación autocontenida con alcance, exclusiones, criterios de aceptación y una verificación de extremo a extremo.",
+    "behaviors": [
+      "Reescribe una petición vaga añadiendo lo que queda fuera y una condición de «terminado» que se puede comprobar.",
+      "Detecta criterios de aceptación que no se pueden verificar.",
+      "Decide cuándo conviene pedir al agente que le haga preguntas antes de planificar."
+    ],
+    "primaryCourse": "m02",
+    "supportCourses": ["m10"],
+    "diagnosticBlock": "B2"
+  },
+  {
+    "id": "C03",
+    "name": "Gestión del contexto",
+    "definition": "Decide qué entra al contexto, cuándo limpiarlo o compactarlo, cuándo aislar trabajo en un subagente y cuándo recuperar información justo cuando hace falta.",
+    "behaviors": [
+      "Ante señales de deriva en una sesión larga, elige entre empezar de cero con un mejor prompt, compactar con indicaciones o delegar en un subagente, y explica por qué.",
+      "Recorta un archivo de instrucciones quitando lo que el agente puede deducir del código.",
+      "Prepara el contexto mínimo que otro agente necesita para hacer una tarea."
+    ],
+    "primaryCourse": "m03",
+    "supportCourses": ["m05", "m08"],
+    "diagnosticBlock": "B3"
+  },
+  {
+    "id": "C04",
+    "name": "Configuración portable del agente",
+    "definition": "Mantiene instrucciones, reglas y skills coherentes entre herramientas y decide qué va en cada capa.",
+    "behaviors": [
+      "Clasifica reglas según deban cargarse siempre, ir en una skill que se usa bajo demanda o convertirse en un control determinista.",
+      "Detecta un conflicto de precedencia, como un CLAUDE.md que impide que se lea AGENTS.md.",
+      "Escribe la descripción de una skill para que se active en los casos que corresponden y no en los demás."
+    ],
+    "primaryCourse": "m03",
+    "supportCourses": ["m05", "m10"],
+    "diagnosticBlock": "B3"
+  },
+  {
+    "id": "C05",
+    "name": "Revisión de cambios",
+    "definition": "Lee un diff, identifica riesgos y cambios fuera de alcance, y exige la evidencia que falta antes de aceptarlo.",
+    "behaviors": [
+      "Encuentra un defecto introducido a propósito en un diff pequeño.",
+      "Señala los archivos modificados que quedan fuera del alcance pedido.",
+      "Rechaza un «ya funciona» que no viene con la salida de las pruebas y pide esa evidencia concreta."
+    ],
+    "primaryCourse": "m04",
+    "supportCourses": ["m05", "m09"],
+    "diagnosticBlock": "B4"
+  },
+  {
+    "id": "C06",
+    "name": "Control de versiones y recuperación",
+    "definition": "Usa Git (commits, ramas, worktrees) para aislar experimentos y recuperar versiones anteriores.",
+    "behaviors": [
+      "Elige entre una rama y un worktree para un cambio arriesgado o que se hará en paralelo.",
+      "Recupera una versión anterior después de un cambio defectuoso.",
+      "Distingue un punto de restauración (checkpoint) de la herramienta de un commit de Git."
+    ],
+    "primaryCourse": "m04",
+    "supportCourses": ["m05", "m08"],
+    "diagnosticBlock": "B4"
+  },
+  {
+    "id": "C07",
+    "name": "Dirección del ciclo con agentes",
+    "definition": "Conduce el ciclo explorar, planear, implementar y verificar con un alcance acotado y corrigiendo pronto.",
+    "behaviors": [
+      "Decide cuándo vale la pena usar el modo plan y cuándo no.",
+      "Exige una comprobación que se pueda ejecutar antes de dar algo por hecho.",
+      "Reconoce que conviene reiniciar la sesión cuando las correcciones se repiten sin avanzar."
+    ],
+    "primaryCourse": "m05",
+    "supportCourses": ["m02", "m03"],
+    "diagnosticBlock": "B4"
+  },
+  {
+    "id": "C08",
+    "name": "Arquitectura y trazabilidad de datos",
+    "definition": "Ubica cada operación (motor de datos, código, interfaz o IA) y separa el cálculo determinista de la interpretación generativa.",
+    "behaviors": [
+      "Decide qué se agrega con SQL en el servidor y qué se descarga.",
+      "Identifica una cifra que no debe calcular el modelo de lenguaje.",
+      "Diseña una conciliación capaz de detectar una diferencia introducida a propósito."
+    ],
+    "primaryCourse": "m06",
+    "supportCourses": ["m07", "m09"],
+    "diagnosticBlock": "B5"
+  },
+  {
+    "id": "C09",
+    "name": "Integraciones con mínimo privilegio",
+    "definition": "Elige entre CLI, API y MCP, y define permisos, dónde viven los secretos, el manejo de errores y la idempotencia.",
+    "behaviors": [
+      "Elige la vía de integración y justifica su costo en contexto y su seguridad.",
+      "Reduce los permisos de un conector a lo que necesita una tarea que corre sin supervisión.",
+      "Diseña la simulación y el manejo de errores antes de conectar el servicio real."
+    ],
+    "primaryCourse": "m07",
+    "supportCourses": ["m06", "m09"],
+    "diagnosticBlock": "B5"
+  },
+  {
+    "id": "C10",
+    "name": "Diseño de autonomía",
+    "definition": "Justifica cuándo usar un flujo fijo, un agente, subagentes, ejecución en la nube o programada, con condiciones de término, entregables y costo.",
+    "behaviors": [
+      "Ante una propuesta con varios agentes, elige la solución más simple que basta.",
+      "Redacta una delegación con entregable, criterio de aceptación y condición de término.",
+      "Ajusta la verificación según cuánto tiempo trabajará el agente sin supervisión."
+    ],
+    "primaryCourse": "m08",
+    "supportCourses": ["m05", "m09"],
+    "diagnosticBlock": "B6"
+  },
+  {
+    "id": "C11",
+    "name": "Seguridad y guardrails",
+    "definition": "Identifica contenido no confiable, elige permisos, sandbox y acceso a red, y convierte las reglas críticas en controles deterministas.",
+    "behaviors": [
+      "En un flujo, señala qué documento o página puede inyectar instrucciones y qué acción podría provocar.",
+      "Elige permisos y acceso a red según el escenario: exploración o tarea que escribe.",
+      "Propone cambiar una instrucción del tipo «nunca hagas X» por un control que la bloquee."
+    ],
+    "primaryCourse": "m09",
+    "supportCourses": ["m05", "m07"],
+    "diagnosticBlock": "B6"
+  },
+  {
+    "id": "C12",
+    "name": "Evaluación basada en evidencia",
+    "definition": "Construye casos repetibles, elige evaluadores (graders), compara versiones y concluye solo lo que la evidencia sostiene.",
+    "behaviors": [
+      "Arma un conjunto pequeño de casos normales, límite y adversariales.",
+      "Decide si el caso exige acertar siempre (pass^k) o basta con acertar alguna vez (pass@k).",
+      "Distingue en una transcripción un error del agente de un error del evaluador."
+    ],
+    "primaryCourse": "m09",
+    "supportCourses": ["m02", "m05"],
+    "diagnosticBlock": "B6"
+  },
+  {
+    "id": "C13",
+    "name": "Producto mantenible",
+    "definition": "Define un alcance útil, documenta, cierra hallazgos y planifica el mantenimiento de las dependencias que cambian con frecuencia.",
+    "behaviors": [
+      "Recorta un alcance hasta dejar una versión que ya se puede usar.",
+      "Escribe instrucciones de ejecución y recuperación que otra persona u otro agente puede seguir.",
+      "Propone un calendario de revisión para instrucciones, skills, modelos y conectores."
+    ],
+    "primaryCourse": "m10",
+    "supportCourses": ["m03", "m09"],
+    "diagnosticBlock": null
+  }
+]

@@ -1,6 +1,6 @@
 // Acceso tipado al contenido generado por scripts/build-content.ts.
 import data from '../generated/content.json'
-import type { Asset, Course, Lesson, Practice, ProductCard, Question } from '../domain/content'
+import type { Asset, Competency, Course, Lesson, Practice, ProductCard, Question } from '../domain/content'
 
 export type Block =
   | { type: 'html'; html: string }
@@ -49,6 +49,7 @@ interface ContentData {
   generatedAt: string
   catalog: CatalogEntry[]
   courses: CourseView[]
+  competencies: Record<string, Competency>
   questions: Record<string, Question>
   productCards: Record<string, ProductCard>
   assets: Record<string, Asset & { url: string }>
