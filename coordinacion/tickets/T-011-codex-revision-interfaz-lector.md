@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-21 |
 | Depende de | T-005 (sistema de diseño) |
 | Fase del plan | 1 — Piloto (F1-01, F1-02) |
@@ -58,13 +58,11 @@ Persistencia, examen, perfil, reporte HTML, PWA y offline (fases siguientes).
 
 ## Entrega
 
-_(La llena Codex.)_
-
-- **Qué hice:**
-- **Archivos:**
-- **Cómo lo verifiqué:**
-- **Limitaciones o bloqueos:**
-- **Preguntas abiertas:**
+- **Qué hice:** revisión independiente de las diez rutas de la app contra D1, con subagentes separados para diseño visual y accesibilidad/teclado; consolidé cuatro hallazgos.
+- **Archivos:** investigacion/codex-revision-interfaz-lector.md; este ticket.
+- **Cómo lo verifiqué:** Chrome local a 360 × 780 y 1280 × 800; todas las rutas, flujo de teclado, consola, npm test (52 aprobadas) y npm run build (aprobado).
+- **Limitaciones o bloqueos:** el zoom de navegador al 200 % no pudo automatizarse de manera fiable; se comprobó el reflujo a 360 px y se deja la verificación manual del dispositivo como seguimiento.
+- **Preguntas abiertas:** Claude debe resolver los cuatro hallazgos y Daniel debe confirmar la lectura del subtítulo del diagrama y el texto ampliado en su dispositivo.
 
 ## Revisión
 
