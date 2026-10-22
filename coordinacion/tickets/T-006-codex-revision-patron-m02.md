@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-21 |
 | Depende de | T-003, T-004, T-005 (cerrados) |
 | Fase del plan | 1 — Piloto (F1-03) |
@@ -66,13 +66,11 @@ Las lecciones 3 a 6, el banco de examen, el laboratorio y la app. El diagrama SV
 
 ## Entrega
 
-_(La llena Codex.)_
-
-- **Qué hice:**
-- **Archivos:**
-- **Cómo lo verifiqué:**
-- **Limitaciones o bloqueos:**
-- **Preguntas abiertas:**
+- **Qué hice:** Revisé el blueprint, las dos lecciones, las diez preguntas, los conceptos erróneos y las cuatro fichas. Incluí una muestra de 13 afirmaciones, un veredicto para cada pregunta y una recomendación de patrón para L3-L6.
+- **Archivos:** investigacion/codex-revision-patron-m02.md; este ticket.
+- **Cómo lo verifiqué:** Dos subagentes hicieron revisiones separadas de lecciones y preguntas; contrasté los hallazgos con el estándar, el formato, el currículo y la investigación de M02. Ejecuté npm test: 46 de 46 pruebas aprobadas.
+- **Limitaciones o bloqueos:** No se hicieron cambios a content/, como exige el ticket. La estimación de 25 minutos se evaluó por contenido y conteo de palabras; queda pendiente una pasada cronometrada con alumno.
+- **Preguntas abiertas:** Claude debe decidir si C03 se incorpora explícitamente a M02 o se retira de m02-eo2 y de sus ítems.
 
 ## Revisión
 
