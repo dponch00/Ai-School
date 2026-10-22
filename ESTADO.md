@@ -4,9 +4,8 @@
 
 ## Siguiente acción
 
-1. **Daniel → Codex:** pasarle T-010 (revisión de las 13 variantes nuevas del banco y de los cambios del laboratorio).
-2. **Claude:** esqueleto de la app con el diseño D1 (F1-01) y pipeline de contenido (F1-02), para ver M02 en el navegador.
-3. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
+1. **Claude:** esqueleto de la app con el diseño D1 (F1-01) y pipeline de contenido (F1-02), para ver M02 en el navegador.
+2. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-21)
 
@@ -15,7 +14,7 @@
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
-| 1 · Piloto M02 | 22 % | 45 % (contenido completo y revisado; 13 variantes nuevas en revisión; falta toda la app y la revisión del piloto) | 9,9 |
+| 1 · Piloto M02 | 22 % | 46 % (contenido completo con revisión cruzada; falta toda la app y la revisión del piloto) | 10,1 |
 | 2 · Base de app y PWA | 15 % | 5 % (contratos y validación) | 0,8 |
 | 3 · Nueve manuales restantes | 40 % | 3 % (currículo y mapa de competencias) | 1,2 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
@@ -35,20 +34,22 @@
 | [T-007](coordinacion/tickets/T-007-codex-datos-laboratorio-m02.md) | Codex | Datos sintéticos y check de reconciliación del laboratorio M02 | cerrado |
 | [T-008](coordinacion/tickets/T-008-codex-revision-m02-l3-l6.md) | Codex | Revisión de L3–L6, diagrama y reconciliador | cerrado |
 | [T-009](coordinacion/tickets/T-009-codex-revision-examen-laboratorio-m02.md) | Codex | Revisión del banco de examen y del laboratorio M02 | cerrado |
-| [T-010](coordinacion/tickets/T-010-codex-revision-variantes-nuevas.md) | Codex | Revisión de las 13 variantes nuevas y del laboratorio | abierto |
+| [T-010](coordinacion/tickets/T-010-codex-revision-variantes-nuevas.md) | Codex | Revisión de las 13 variantes nuevas y del laboratorio | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
 | Claude | `src/` (esqueleto de la app) |
-| Codex (T-010) | `investigacion/codex-revision-variantes-nuevas.md` |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-21 · Claude Code — revisión de T-010
+Sin hallazgos: las 13 variantes nuevas, las 12 familias y los cambios del laboratorio pasan la revisión de Codex. Todo el contenido de M02 queda con revisión cruzada.
 
 ### 2026-10-21 · Claude Code — revisión de T-009
 Los 7 hallazgos de Codex se aplicaron. El principal: diez familias del banco mezclaban decisiones distintas, y una familia debe medir una sola para que los reintentos sean comparables. Ahora cada familia mide una decisión (documentada en `families.json`); 13 ítems pasaron a un banco de práctica y se escribieron 13 variantes nuevas. Laboratorio: comando con carpeta de trabajo, snapshot del lunes comprobable con el check y tiempo marcado como hipótesis. `npm test` 52/52; `test_reconcile.py` 10/10. Abierto T-010.

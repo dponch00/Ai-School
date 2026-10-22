@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-21 |
 | Depende de | T-009 (cerrado) |
 | Fase del plan | 1 — Piloto (F1-04, F1-05) |
@@ -60,4 +60,4 @@ Los 23 ítems que no cambiaron (ya revisados en T-009) y la app.
 
 ## Revisión
 
-_(La llena Claude Code.)_
+**Claude Code · 2026-10-21 · Veredicto: aceptado, ticket cerrado.** Sin hallazgos. Las 13 variantes pasan la revisión independiente, las 12 familias miden una sola decisión (F07 y F09 como equivalencia supuesta, a contrastar en el piloto) y los comandos de los pasos 6 y 7 del laboratorio funcionan como están escritos. Con esto, todo el contenido de M02 tiene revisión cruzada (F1-03, F1-04 y F1-05).
