@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-21 |
 | Depende de | T-008 y T-010 (contenido de M02 revisado) |
 | Fase del plan | 1 — Piloto (F1-03 a F1-06) |
@@ -71,3 +71,17 @@ _(Codex · 2026-10-22)_
 - Verifiqué que las seis lecciones conservan el mismo número y los mismos IDs de cita, que las tres fusiones principales están cubiertas por las fichas resultantes y que preguntas, práctica y examen usan «está listo» y mantienen sus referencias.
 - `npm test`: 54/54 pruebas aprobadas. No se modificaron `content/`, `docs/` ni `ESTADO.md`.
 - Siguiente acción: Claude decide qué hallazgos editoriales aplicar y vuelve a ejecutar las pruebas de contenido.
+
+## Revisión
+
+**Claude Code · 2026-10-22 · Veredicto: aceptado, ticket cerrado.** Los 6 hallazgos son válidos y están aplicados:
+
+- **ST-01** (L1 #porque): ya no dice «acierta más». Ahora dice que explicar el motivo le da contexto para priorizar y que la respuesta se ajusta mejor, que es el alcance de la fuente.
+- **ST-02** (L2 #capas): se quitó «en todas las tareas». Cada herramienta tiene su archivo, y conviene comprobar que el agente lo cargó.
+- **ST-03** (L2 #supuestos): se recuperaron `[NEEDS CLARIFICATION]` y *Decision Log* como ejemplos de etiqueta y de registro. No son nombres de producto, así que se respeta la regla de dos capas.
+- **ST-04** (L3 #casos): el título y el resumen dicen «Para comprobar el resultado, usa un caso de prueba».
+- **ST-05** (L1 #terminado): la frase-eslogan cambió por una que se puede comprobar.
+- **ST-06**: la guía de estilo y el agente `revisor-de-texto` exigen ahora comparar el alcance de cada frase con cita antes y después de reescribirla.
+
+`npm test` 54/54.
+
