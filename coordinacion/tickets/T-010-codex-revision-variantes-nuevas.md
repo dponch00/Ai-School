@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-21 |
 | Depende de | T-009 (cerrado) |
 | Fase del plan | 1 — Piloto (F1-04, F1-05) |
@@ -52,13 +52,11 @@ Los 23 ítems que no cambiaron (ya revisados en T-009) y la app.
 
 ## Entrega
 
-_(La llena Codex.)_
-
-- **Qué hice:**
-- **Archivos:**
-- **Cómo lo verifiqué:**
-- **Limitaciones o bloqueos:**
-- **Preguntas abiertas:**
+- **Qué hice:** revisión independiente de las 13 variantes nuevas, las 12 familias, la independencia del banco y los cambios del laboratorio.
+- **Archivos:** investigacion/codex-revision-variantes-nuevas.md; este ticket.
+- **Cómo lo verifiqué:** revisión manual de claves, distractores y familias; npm test (52 aprobadas); content/courses/m02/practice/data/test_reconcile.py (10 aprobadas); check del lunes sin y con política, y check normal desde content/courses/m02.
+- **Limitaciones o bloqueos:** la equivalencia de F07 y F09 sigue siendo una suposición editorial que el piloto debe contrastar; no hay bloqueo técnico.
+- **Preguntas abiertas:** ninguna para esta entrega.
 
 ## Revisión
 
