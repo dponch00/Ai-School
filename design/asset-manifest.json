@@ -1,0 +1,59 @@
+[
+  {
+    "id": "hero",
+    "courseId": null,
+    "file": "design/images/masters/hero.png",
+    "function": "orientation",
+    "pedagogicalQuestion": "¿Qué actitud propone la academia ante una ruta de aprendizaje?",
+    "whyNotTextOrSvg": "La escena editorial aporta orientación e identidad; no explica una relación técnica.",
+    "alt": "Ruta clara de papel recorre montañas azules y colinas ocres hacia un horizonte iluminado.",
+    "generation": {
+      "prompt": "Editorial paper-cut landscape: a single route made from layered paper sheets with abstract waypoints leading to an open horizon; warm ivory, ink blue, muted ochre and dusty teal; no text, logos or people.",
+      "tool": "image_gen.imagegen",
+      "modelReported": "no expuesto",
+      "modelDocumented": "gpt-image-2; documentación oficial registrada el 2026-10-21",
+      "generatedAt": "2026-10-21",
+      "selectedVariant": "T-002-D1-hero"
+    },
+    "dimensions": { "width": 1672, "height": 941 },
+    "reviewStatus": "pending"
+  },
+  {
+    "id": "m02-cover",
+    "courseId": "m02",
+    "file": "design/images/masters/m02-cover.png",
+    "function": "orientation",
+    "pedagogicalQuestion": "¿Cómo cambia visualmente una petición vaga cuando se delimitan sus decisiones y evidencias?",
+    "whyNotTextOrSvg": "La portada expresa una metáfora editorial; los elementos exactos se explican con el SVG y el texto adyacente.",
+    "alt": "Senderos brumosos entre montañas se aclaran hacia una ruta de papel iluminada con hitos vacíos.",
+    "generation": {
+      "prompt": "Editorial paper-cut landscape: misty branching paths on the left resolve into one clear route with blank paper markers on the right; warm ivory, ink blue, muted ochre and dusty teal; no text, logos or people.",
+      "tool": "image_gen.imagegen",
+      "modelReported": "no expuesto",
+      "modelDocumented": "gpt-image-2; documentación oficial registrada el 2026-10-21",
+      "generatedAt": "2026-10-21",
+      "selectedVariant": "T-002-D1-M02"
+    },
+    "dimensions": { "width": 1672, "height": 941 },
+    "reviewStatus": "pending"
+  },
+  {
+    "id": "m02-spec-illustration",
+    "courseId": "m02",
+    "file": "design/images/masters/m02-spec-illustration.svg",
+    "function": "explain",
+    "pedagogicalQuestion": "¿Qué transforma una petición vaga en una tarea que un agente puede ejecutar y una persona puede verificar?",
+    "whyNotTextOrSvg": "SVG codificado conserva relaciones estables y accesibles; un raster generado podría inventar detalles o texto.",
+    "alt": "Formas de papel irregulares se organizan en cinco piezas conectadas y una ruta que termina en una marca de verificación.",
+    "generation": {
+      "prompt": "SVG codificado: formas irregulares se organizan en cinco piezas conectadas y una ruta verificable; sin texto.",
+      "tool": "SVG manual",
+      "modelReported": "no aplica",
+      "modelDocumented": "no aplica",
+      "generatedAt": "2026-10-21",
+      "selectedVariant": "svg-v1"
+    },
+    "dimensions": { "width": 1600, "height": 900 },
+    "reviewStatus": "pending"
+  }
+]

@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-21 |
 | Depende de | T-002 (Daniel eligió D1, D-018) |
 | Fase del plan | 0 → 1 (F0-12 y F1-06) |
@@ -71,14 +71,12 @@ Iconos de instalación de la PWA (vendrán después), las otras nueve portadas e
 
 ## Entrega
 
-_(La llena Codex.)_
-
-- **Qué hice:**
-- **Archivos:**
-- **Cómo lo verifiqué (contrastes, pesos, 360 px):**
-- **Herramientas/modelos usados (tal como los reporta el entorno):**
-- **Limitaciones o bloqueos:**
-- **Preguntas abiertas:**
+- **Qué hice:** completé primero el sistema D1: tokens, contrastes, fuentes locales, componentes, reglas de portada M01–M10 y decisión de modo oscuro. Después entregué los tres activos piloto: hero y portada M02 reutilizan las variantes D1 generadas en T-002; la explicación de especificación es SVG porque su brief concluye que una relación exacta no debe generarse como raster.
+- **Archivos:** `docs/design-system.md`, `design/tokens.json`, `public/fonts/`, los tres briefs en `design/image-briefs/`, masters en `design/images/masters/`, seis WebP y el SVG en `public/images/`, y `design/asset-manifest.json`.
+- **Cómo lo verifiqué (contrastes, pesos, 360 px):** pares de color calculados y documentados (texto ≥4.5:1; controles ≥3:1); inspección visual de los dos WebP de 480 px; hero 1600/960/480: 209,590 / 81,154 / 18,076 bytes, M02 1600/960/480: 277,782 / 104,180 / 21,260 bytes. Los dos archivos móviles quedan bajo 200 KB. `npm test` 40/40 y `npm run build` correctos. El manifiesto tiene los campos requeridos del contrato `Asset` y masters presentes; SVG sin nodos `<text>`. No se hizo una prueba de interfaz a 360 px: los componentes todavía no están implementados; el comportamiento a 360 px quedó especificado para Claude.
+- **Herramientas/modelos usados (tal como los reporta el entorno):** hero y M02: `image_gen.imagegen`, generado en T-002; `modelReported: "no expuesto"`, `modelDocumented: "gpt-image-2"` según el registro de investigación. El activo de especificación es SVG manual, sin modelo de imagen. Las fuentes WOFF2 y licencias OFL se descargaron de Google Fonts y sus repositorios oficiales.
+- **Limitaciones o bloqueos:** las variantes en `design/images/raw/T-005/` están ignoradas por Git conforme al protocolo. La revisión pedagógica final de los tres activos queda pendiente de Claude y la aprobación estética queda pendiente de Daniel. Modo oscuro queda fuera de V1 hasta una tabla de contraste y pruebas específicas.
+- **Preguntas abiertas:** Claude debe integrar `tokens.json`, aplicar los componentes a la app y hacer la comprobación real a 360 px con texto ampliado; debe colocar el texto explicativo adyacente al SVG de M02.
 
 ## Revisión
 

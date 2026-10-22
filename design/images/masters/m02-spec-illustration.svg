@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">De petición ambigua a especificación verificable</title>
+  <desc id="desc">Formas irregulares de papel se organizan en cinco piezas conectadas y una ruta que termina en una marca de verificación.</desc>
+  <rect width="1600" height="900" fill="#F5F0E6"/>
+  <path d="M0 617C185 490 251 672 400 578S654 435 786 553S1027 566 1193 469S1447 444 1600 349V900H0Z" fill="#DCECF5"/>
+  <path d="M0 695C173 615 294 708 416 651S625 573 756 654S987 755 1132 645S1420 605 1600 670V900H0Z" fill="#D7E5DF"/>
+  <path d="M154 380c39-126 194-147 259-50 53 79-7 177-99 173-72-3-93 63-162 6-39-33-28-96 2-129Z" fill="#778984" opacity=".52"/>
+  <path d="M430 193c75-78 208-43 234 58 23 89-51 158-136 128-70-24-136 31-171-42-21-44 33-104 73-144Z" fill="#A94E2B" opacity=".55"/>
+  <path d="M634 422c-66-74-20-187 79-200 87-11 154 69 110 147-35 62 12 129-67 153-47 14-89-59-122-100Z" fill="#285A7A" opacity=".6"/>
+  <path d="M164 512c109-25 201-20 279 9" fill="none" stroke="#172A33" stroke-width="14" stroke-linecap="round" stroke-dasharray="2 34" opacity=".45"/>
+  <path d="M478 528C603 465 704 465 818 529S1048 595 1171 498S1351 384 1498 386" fill="none" stroke="#172A33" stroke-width="22" stroke-linecap="round"/>
+  <path d="M478 528C603 465 704 465 818 529S1048 595 1171 498S1351 384 1498 386" fill="none" stroke="#FFFDF7" stroke-width="10" stroke-linecap="round"/>
+  <g fill="#FFFDF7" stroke="#0E5B65" stroke-width="8">
+    <path d="M744 390h126l24 24v126l-24 24H744l-24-24V414Z"/>
+    <path d="M905 325h126l24 24v126l-24 24H905l-24-24V349Z"/>
+    <path d="M1066 390h126l24 24v126l-24 24h-126l-24-24V414Z"/>
+    <path d="M1227 325h126l24 24v126l-24 24h-126l-24-24V349Z"/>
+    <path d="M1388 390h96l24 24v126l-24 24h-96l-24-24V414Z"/>
+  </g>
+  <circle cx="1498" cy="386" r="61" fill="#23694D"/>
+  <path d="m1469 386 19 20 37-46" fill="none" stroke="#FFFDF7" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
