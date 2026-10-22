@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-22 |
 | Depende de | T-016 (cerrado); decisión D-022 |
 | Fase del plan | 2 — Base de app y PWA |
@@ -62,4 +62,11 @@ No edites `src/` ni `content/`.
 
 ## Entrega
 
-_(Codex)_
+_(Codex, 2026-10-22)_
+
+Revisión entregada en `investigacion/codex-revision-reglas-examen-revisiones.md`.
+
+- Se encontraron 2 hallazgos altos (repaso sin preguntas obligatorias y posible reutilización inmediata de variantes) y 4 medios/bajos (zona horaria, validación de revisión, regresión por la última pareja y anclajes omitidos).
+- Se recorrió el examen reprobado con una respuesta de confianza alta y preguntas sin responder; se verificó la puerta de repaso, teclado y el registro de dos revisiones de la misma corrida.
+- La retención, espera y examen abierto al cambiar de día se verificaron contra la base de prueba de `exam.test.ts`. La prueba visual exacta a 360 px queda pendiente porque el navegador automatizado disponible no expone cambio de viewport; se revisaron las reglas responsive estáticas.
+- Verificado: `npm test` (123/123) y `npm run build` correctos.
