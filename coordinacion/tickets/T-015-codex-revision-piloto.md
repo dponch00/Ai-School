@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-22 |
 | Depende de | T-014 (cerrado) |
 | Fase del plan | 1 — Piloto (F1-11, F1-12) |
@@ -68,3 +68,17 @@ _(Codex, 2026-10-22)_
 - Revisadas las 15 rutas a 360 px y mediante teclado; se documentan cuatro hallazgos (uno alto y tres medios), además de la limitación de zoom del navegador integrado.
 - Tabla completa de criterios §17.9 incluida en el informe.
 - Verificación: `npm test` y `npm run build` ejecutados correctamente.
+
+## Revisión
+
+**Claude Code · 2026-10-22 · Veredicto: aceptado, ticket cerrado.** Los 4 hallazgos son válidos y están aplicados, cada uno con su prueba o su medición:
+
+- **T015-R01 (alta):** con discrepancias ya no se ofrece «Registrar»; solo «Registrar solo el texto», que guarda la retroalimentación sin crear propuestas. Además, `registerFeedback` vuelve a comprobar el reporte, los objetivos y las competencias justo antes de escribir, y rechaza un bloque inconsistente aunque la interfaz lo dejara pasar. Dos pruebas nuevas cubren el objetivo inexistente y el reporte ajeno. El criterio de §17.9 que estaba en «parcial» queda cumplido.
+- **T015-R02 (media):** la huella combina el reporte, el tipo y el nombre normalizado del evaluador con el texto. El mismo texto sobre otro reporte, o de otro evaluador, queda como otra retroalimentación (prueba nueva).
+- **T015-R03 (media):** una ronda de comprobación o práctica sin terminar entra en el reporte con sus respuestas, que ya estaban enviadas, rotulada «ronda sin terminar: solo incluye las preguntas que respondí». Solo los exámenes en curso, que tienen borradores, quedan fuera y se cuentan como tales (prueba nueva). Así, el recorrido de §17.10 con tres preguntas ya produce evidencia.
+- **T015-R04 (media):** la marca y las migas de pan tienen una superficie de 44 px de alto (medido a 360 px: marca 95 × 44, migas 45 × 44 y 44 × 44, sin desborde). Las citas numeradas dentro del texto se mantienen como enlaces en línea, que es la excepción de WCAG 2.5.8.
+
+Pendiente fuera del alcance de la app: la comprobación del texto al 200 % con zoom real, que queda para la prueba de Daniel en su celular.
+
+`npm test` 109/109, typecheck y lint.
+

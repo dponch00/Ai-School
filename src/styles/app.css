@@ -268,3 +268,8 @@ main:focus { outline: none; }
 .adjustment__change { font-weight: 600; margin-bottom: var(--ais-space-2); }
 .lesson-list__status--plan { color: var(--ais-color-accent); }
 .button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+/* Objetivos táctiles (T015-R04): la marca y las migas de pan llegan a 44 px de alto sin cambiar su aspecto.
+   Las citas numeradas dentro del texto quedan como enlaces en línea (excepción de WCAG 2.5.8). */
+.brand { display: inline-flex; align-items: center; min-height: var(--ais-layout-touch-target); }
+.breadcrumb a { display: inline-flex; align-items: center; min-height: var(--ais-layout-touch-target); min-width: var(--ais-layout-touch-target); justify-content: center; }

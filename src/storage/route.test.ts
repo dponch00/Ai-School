@@ -17,6 +17,7 @@ afterEach(async () => {
 })
 
 const reviewer = { declaredName: 'Evaluador de prueba', reviewType: 'external-assisted' as const }
+const known = { reportIds: new Set(['rep-000000000001', 'rep-000000000002']), targetIds: new Set(['m02-l2']), competencyIds: new Set(['C02']) }
 const structured = (reportId: string, targets = ['m02-l2']) => `Mi evaluación en texto.
 
 \`\`\`json
@@ -59,7 +60,7 @@ describe('registro y ruta', () => {
     const before = JSON.stringify(await db.responses.toArray())
     const text = structured('rep-000000000001')
     const p = parseFeedback(text)
-    const r = await registerFeedback(db, { sourceReportId: 'rep-000000000001', reviewer, fullText: text, structured: p.kind === 'structured' ? p.data : undefined })
+    const r = await registerFeedback(db, { sourceReportId: 'rep-000000000001', reviewer, fullText: text, structured: p.kind === 'structured' ? p.data : undefined }, known)
     expect(r).toMatchObject({ created: true, proposals: 1 })
     const [adj] = await db.adjustments.toArray()
     expect(adj).toMatchObject({ origin: 'recommendation', state: 'proposed', kind: 'review-lesson', targetIds: ['m02-l2'], feedbackId: r.feedback.id })
@@ -70,8 +71,8 @@ describe('registro y ruta', () => {
     const text = structured('rep-000000000001')
     const p = parseFeedback(text)
     const data = p.kind === 'structured' ? p.data : undefined
-    await registerFeedback(db, { sourceReportId: 'rep-000000000001', reviewer, fullText: text, structured: data })
-    const again = await registerFeedback(db, { sourceReportId: 'rep-000000000001', reviewer, fullText: text + '\n', structured: data })
+    await registerFeedback(db, { sourceReportId: 'rep-000000000001', reviewer, fullText: text, structured: data }, known)
+    const again = await registerFeedback(db, { sourceReportId: 'rep-000000000001', reviewer, fullText: text + '\n', structured: data }, known)
     expect(again.created).toBe(false)
     expect(await db.feedback.count()).toBe(1)
     expect(await db.adjustments.count()).toBe(1)
@@ -86,5 +87,33 @@ describe('registro y ruta', () => {
     const back = await revertAdjustment(db, a.id)
     expect(back.state).toBe('in-progress')
     expect(back.history).toHaveLength(4)
+  })
+
+  it('no registra un bloque con referencias que no cuadran; el texto solo sí se puede guardar (T015-R01)', async () => {
+    const text = structured('rep-000000000001', ['m02-l99'])
+    const p = parseFeedback(text)
+    if (p.kind !== 'structured') throw new Error('debía ser válido')
+    await expect(registerFeedback(db, { sourceReportId: 'rep-000000000001', reviewer, fullText: text, structured: p.data }, known)).rejects.toThrow('no cuadran')
+    expect(await db.feedback.count()).toBe(0)
+    expect(await db.adjustments.count()).toBe(0)
+    const textOnly = await registerFeedback(db, { sourceReportId: 'rep-000000000001', reviewer, fullText: text }, known)
+    expect(textOnly).toMatchObject({ created: true, proposals: 0 })
+  })
+
+  it('un bloque que dice evaluar otro reporte no se registra contra el elegido (T015-R01)', async () => {
+    const text = structured('rep-000000000002')
+    const p = parseFeedback(text)
+    if (p.kind !== 'structured') throw new Error('debía ser válido')
+    await expect(registerFeedback(db, { sourceReportId: 'rep-000000000001', reviewer, fullText: text, structured: p.data }, known)).rejects.toThrow()
+  })
+
+  it('el mismo texto sobre otro reporte, o de otro evaluador, es otra retroalimentación (T015-R02)', async () => {
+    const text = 'Repasa los supuestos.'
+    await registerFeedback(db, { sourceReportId: 'rep-000000000001', reviewer, fullText: text }, known)
+    const otherReport = await registerFeedback(db, { sourceReportId: 'rep-000000000002', reviewer, fullText: text }, known)
+    const otherReviewer = await registerFeedback(db, { sourceReportId: 'rep-000000000001', reviewer: { declaredName: 'Otra persona', reviewType: 'human' }, fullText: text }, known)
+    expect(otherReport.created).toBe(true)
+    expect(otherReviewer.created).toBe(true)
+    expect(await db.feedback.count()).toBe(3)
   })
 })

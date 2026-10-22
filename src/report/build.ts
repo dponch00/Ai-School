@@ -183,18 +183,22 @@ export function buildReport(rec: LearnerRecord, ctx: ReportContext, opts: Report
   let inProgress = 0
   let otherCourse = 0
   const disabledKinds = new Map<SectionKey, number>()
+  // Una ronda de comprobación o práctica sin terminar solo contiene preguntas ya respondidas y enviadas,
+  // así que entra rotulada como tal (T015-R03). Un examen en curso tiene borradores: queda fuera.
+  const isOpenRound = (a: Attempt) => a.status === 'in-progress' && a.kind !== 'exam'
+  const stamp = (a: Attempt) => a.submittedAt ?? a.startedAt
   const attempts = rec.attempts
     .filter((a) => {
-      if (a.status !== 'submitted' || !a.submittedAt) {
+      if (!(a.status === 'submitted' && a.submittedAt) && !isOpenRound(a)) {
         if (a.status === 'in-progress' && courseOk(a.courseId)) inProgress++
         return false
       }
-      if (a.submittedAt > opts.generatedAt) return false
+      if (stamp(a) > opts.generatedAt) return false
       if (!courseOk(a.courseId)) {
         otherCourse++
         return false
       }
-      if (!inPeriod(a.submittedAt, scope.from, scope.to)) {
+      if (!inPeriod(stamp(a), scope.from, scope.to)) {
         outOfPeriod++
         return false
       }
@@ -206,10 +210,10 @@ export function buildReport(rec: LearnerRecord, ctx: ReportContext, opts: Report
       }
       return true
     })
-    .sort((a, b) => a.submittedAt!.localeCompare(b.submittedAt!))
+    .sort((a, b) => stamp(a).localeCompare(stamp(b)))
 
   for (const [section, n] of disabledKinds) excluded.push(`${SECTIONS[section]}: ${n} intento(s) que decidiste no incluir`)
-  if (inProgress > 0) excluded.push(`${inProgress} intento(s) en curso, sin enviar`)
+  if (inProgress > 0) excluded.push(`${inProgress} examen(es) en curso, sin enviar`)
   if (outOfPeriod > 0) excluded.push(`${outOfPeriod} intento(s) fuera del periodo elegido`)
   if (otherCourse > 0) excluded.push(`${otherCourse} intento(s) de otros cursos`)
 
@@ -348,7 +352,7 @@ export function buildReport(rec: LearnerRecord, ctx: ReportContext, opts: Report
         }
       : null,
     summary: { counts: record.counts, byCompetency },
-    attempts: attempts.map((a) => ({ id: a.id, kind: a.kind, formLabel: a.formLabel, isFirstAttempt: a.isFirstAttempt, startedAt: a.startedAt, submittedAt: a.submittedAt, contentVersion: a.contentVersion, result: a.result })),
+    attempts: attempts.map((a) => ({ id: a.id, kind: a.kind, status: a.status, formLabel: a.formLabel, isFirstAttempt: a.isFirstAttempt, startedAt: a.startedAt, submittedAt: a.submittedAt, contentVersion: a.contentVersion, result: a.result })),
     responses: rows,
     practiceSubmissions: labs,
     previousReports: previous,
@@ -449,7 +453,7 @@ ${excluded.length > 0 ? `<ul>${excluded.map((x) => `<li>${e(x)}</li>`).join('')}
 <p>Cada respuesta muestra la versión de la pregunta que vi, las opciones en el orden en que aparecieron y la clave de esa versión.</p>`)
     for (const a of attempts) {
       const aRows = rows.filter((r) => r.attemptId === a.id)
-      h.push(`<h3>${e(KIND_LABEL[a.kind])} · ${e(a.formLabel)}</h3><p class="meta">Intento ${e(a.id)} · ${a.isFirstAttempt ? 'primer intento' : 'reintento'} · enviado ${e(a.submittedAt!)}</p>`)
+      h.push(`<h3>${e(KIND_LABEL[a.kind])} · ${e(a.formLabel)}</h3><p class="meta">Intento ${e(a.id)} · ${a.isFirstAttempt ? 'primer intento' : 'reintento'} · ${a.submittedAt ? `enviado ${e(a.submittedAt)}` : `ronda sin terminar, iniciada ${e(a.startedAt)}: solo incluye las preguntas que respondí`}</p>`)
       for (const r of aRows) h.push(responseHtml(r))
     }
     if (attempts.length === 0) h.push('<p>Sin respuestas en este alcance.</p>')

@@ -2,14 +2,18 @@
  * Retroalimentación externa y ruta personal (plan §17.6–17.7, F1-11).
  * Registrar feedback nunca toca respuestas ni puntuaciones; aplicar una recomendación es una acción explícita.
  */
-import { RECOMMENDATION_KIND, type FeedbackImport } from '../domain/feedback'
+import { RECOMMENDATION_KIND, feedbackDiscrepancies, type FeedbackImport } from '../domain/feedback'
 import { ExternalFeedback, PlanAdjustment } from '../domain/learner'
 import type { LearnerDb } from './db'
 import { newLocalId, now } from './progress'
 
-/** Huella del texto: registrar dos veces el mismo feedback no lo duplica (§17.6, idempotente). */
-export async function textHash(text: string): Promise<string> {
-  const bytes = new TextEncoder().encode(text.replace(/\r\n/g, '\n').trim())
+/**
+ * Huella de una retroalimentación: el mismo texto del mismo evaluador sobre el mismo reporte no se duplica
+ * (§17.6, idempotente). El mismo texto sobre otro reporte, o de otro evaluador, es otra relación (T015-R02).
+ */
+export async function feedbackHash(text: string, sourceReportId: string, reviewer: ExternalFeedback['reviewer']): Promise<string> {
+  const key = [sourceReportId, reviewer.reviewType, reviewer.declaredName.trim().toLowerCase(), text.replace(/\r\n/g, '\n').trim()].join('\n')
+  const bytes = new TextEncoder().encode(key)
   const digest = await crypto.subtle.digest('SHA-256', bytes)
   return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join('')
 }
@@ -23,8 +27,20 @@ export interface FeedbackInput {
   structured?: FeedbackImport
 }
 
-export async function registerFeedback(db: LearnerDb, input: FeedbackInput): Promise<{ feedback: ExternalFeedback; created: boolean; proposals: number }> {
-  const hash = await textHash(input.fullText)
+/** Lo que existe en la app, para volver a comprobar las referencias justo antes de escribir (T015-R01). */
+export interface KnownRefs {
+  reportIds: Set<string>
+  targetIds: Set<string>
+  competencyIds: Set<string>
+}
+
+export async function registerFeedback(db: LearnerDb, input: FeedbackInput, known: KnownRefs): Promise<{ feedback: ExternalFeedback; created: boolean; proposals: number }> {
+  if (!known.reportIds.has(input.sourceReportId)) throw new Error('El reporte elegido no existe en esta app.')
+  if (input.structured) {
+    const problems = feedbackDiscrepancies(input.structured, known, input.sourceReportId)
+    if (problems.length > 0) throw new Error(`El bloque de recomendaciones tiene referencias que no cuadran: ${problems.join(' ')}`)
+  }
+  const hash = await feedbackHash(input.fullText, input.sourceReportId, input.reviewer)
   return db.transaction('rw', [db.feedback, db.adjustments], async () => {
     const existing = await db.feedback.where('textHash').equals(hash).first()
     if (existing) return { feedback: existing, created: false, proposals: 0 }

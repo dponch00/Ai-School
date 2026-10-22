@@ -4,8 +4,7 @@
 
 ## Siguiente acción
 
-1. **Codex:** T-015, revisión completa del piloto (F1-12), incluida la ruta personal.
-2. **Claude:** aplicar los hallazgos de T-015 y preparar la puerta de calidad F1-13 (matriz objetivo→evidencia, esfuerzo real, decisión sobre la Fase 3).
+1. **Claude:** preparar la puerta de calidad F1-13 (matriz objetivo→evidencia, hallazgos, esfuerzo y opciones para la Fase 3).
 3. **Daniel:** hacer el recorrido completo en la app (perfil, lecciones, examen, laboratorio y reporte) y compartir el reporte en un chat para probar el ciclo; releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
@@ -41,19 +40,22 @@
 | [T-012](coordinacion/tickets/T-012-codex-revision-estilo-m02.md) | Codex | Revisión de estilo de las seis lecciones de M02 | cerrado |
 | [T-013](coordinacion/tickets/T-013-codex-revision-preguntas-examen.md) | Codex | Revisión de los bancos reescritos, el laboratorio y el examen | cerrado |
 | [T-014](coordinacion/tickets/T-014-codex-revision-expediente.md) | Codex | Revisión del expediente: perfil, entrega, reporte y respaldo | cerrado |
-| [T-015](coordinacion/tickets/T-015-codex-revision-piloto.md) | Codex | Revisión completa del piloto (F1-12), incluida la ruta personal | abierto |
+| [T-015](coordinacion/tickets/T-015-codex-revision-piloto.md) | Codex | Revisión completa del piloto (F1-12), incluida la ruta personal | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | Preparación de F1-13 (sin tocar `src/` ni `content/` hasta la entrega de T-015) |
+| Claude | `docs/puerta-f1-13.md` (preparación de la puerta) |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-22 · Claude Code — revisión de T-015 (piloto completo)
+Codex hizo el recorrido de §17.10 con dos reportes, revisó las 15 rutas a 360 px y con teclado, y llenó la tabla de §17.9: 10 criterios cumplidos y 1 parcial. Los 4 hallazgos se aplicaron con su prueba. El alto: un bloque de recomendaciones con referencias que no cuadran ya no puede crear propuestas, y el almacenamiento lo revalida antes de escribir. Además, la huella de la retroalimentación incluye el reporte y el evaluador, una ronda sin terminar entra en el reporte rotulada como tal, y la marca y las migas tienen 44 px. Con esto, la tabla de §17.9 queda completa. `npm test` 109/109.
 
 ### 2026-10-22 · Claude Code — retroalimentación y ruta personal (F1-11)
 El ciclo de §17 queda cerrado en la app. «Mi ruta» registra la retroalimentación de un evaluador ligada al reporte que evaluó, con el texto completo, de forma idempotente y sin tocar respuestas ni puntuaciones. Si trae el bloque estructurado opcional, la app lo valida, muestra las discrepancias y crea propuestas que Daniel acepta, pospone o descarta, con historial y la opción de deshacer. También admite ajustes manuales que no cambian el currículo oficial. En la portada del curso se ven los repasos aceptados. La navegación pasa a Cursos, Perfil, Evaluación y Mi ruta. Se probó el ciclo completo en el navegador, también a 360 px. `npm test` 105/105, lint y build. Abierto T-015 (revisión completa del piloto, F1-12). Avance: ≈ 30 %.

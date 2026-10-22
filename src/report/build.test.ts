@@ -119,7 +119,7 @@ describe('reporte de evaluación', () => {
     expect(ex).toContain('Exámenes: 1 intento(s)')
     expect(ex).toContain('1 explicación(es)')
     expect(ex).toContain('Contexto profesional')
-    expect(ex).toContain('1 intento(s) en curso')
+    expect(ex).toContain('1 examen(es) en curso')
     expect(built.html).not.toContain('Porque &lt;/pre&gt;')
     expect(built.html).not.toContain('Finanzas')
   })
@@ -198,5 +198,14 @@ describe('reporte de evaluación', () => {
     expect(ex).toContain('2 ajuste(s)')
     expect(buildReport(rec, ctx, opts({ includeUntracedAdjustments: true })).html).toContain('cambio adj-libre-001')
     expect(buildReport(rec, ctx, opts({ scope: { kind: 'full' } })).html).toContain('rep-otro-curso-1')
+  })
+
+  it('una ronda de comprobaciones sin terminar entra con sus respuestas, rotulada como tal (T015-R03)', () => {
+    const partial: Attempt = makeAttempt([q1], { id: 'attempt-partial-1', kind: 'check', formLabel: 'comprobaciones m02-l3', status: 'in-progress', submittedAt: undefined, result: undefined, startedAt: '2026-10-22T08:00:00-06:00' })
+    const built = buildReport(record({ attempts: [partial], responses: [resp(partial.id, q1.id, 'k1')] }), ctx, opts())
+    expect(built.record.counts).toMatchObject({ attempts: 1, responses: 1 })
+    expect(built.rows[0].correct).toBe(true)
+    expect(built.html).toContain('ronda sin terminar')
+    expect(built.record.excluded.join(' ')).not.toContain('en curso')
   })
 })

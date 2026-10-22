@@ -76,14 +76,14 @@ function FeedbackForm({ record }: { record: LearnerRecord }) {
       ? feedbackDiscrepancies(parsed.data, { reportIds: new Set(record.reports.map((r) => r.id)), targetIds: known.ids, competencyIds: new Set(Object.keys(content.competencies ?? {})) }, reportId)
       : []
 
-  const save = async () => {
+  const save = async (textOnly = false) => {
     try {
       const r = await registerFeedback(db, {
         sourceReportId: reportId,
         reviewer: { declaredName: name.trim(), reviewType: type },
         fullText: text,
-        structured: parsed?.kind === 'structured' ? parsed.data : undefined,
-      })
+        structured: !textOnly && parsed?.kind === 'structured' ? parsed.data : undefined,
+      }, { reportIds: new Set(record.reports.map((r) => r.id)), targetIds: known.ids, competencyIds: new Set(Object.keys(content.competencies ?? {})) })
       setMessage(
         r.created
           ? `Registrada.${r.proposals > 0 ? ` Se crearon ${r.proposals} propuesta(s) en tu ruta; revísalas abajo.` : ''} Tus respuestas y calificaciones no cambian.`
@@ -132,14 +132,19 @@ function FeedbackForm({ record }: { record: LearnerRecord }) {
               <p>Trae {parsed.data.observations.length} observación(es) y {parsed.data.recommendations.length} recomendación(es), que entrarán como propuestas.</p>
               {discrepancies.length > 0 && (
                 <>
-                  <p className="notice__title">Revisa esto antes de registrar</p>
+                  <p className="notice__title">No se pueden aplicar estas recomendaciones</p>
                   <ul>{discrepancies.map((d) => <li key={d}>{d}</li>)}</ul>
+                  <p>Pide al evaluador que corrija el bloque, o guarda solo el texto: quedará registrado sin crear propuestas.</p>
                 </>
               )}
             </>
           )}
           <div className="actions">
-            <button type="button" className="button button--primary" onClick={save}>Registrar</button>
+            {discrepancies.length === 0 ? (
+              <button type="button" className="button button--primary" onClick={() => save()}>Registrar</button>
+            ) : (
+              <button type="button" className="button" onClick={() => save(true)}>Registrar solo el texto</button>
+            )}
             <button type="button" className="button" onClick={() => setParsed(null)}>Volver a editar</button>
           </div>
         </div>
