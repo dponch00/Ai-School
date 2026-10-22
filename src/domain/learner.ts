@@ -276,6 +276,23 @@ export const PlanAdjustment = z.object({
 })
 export type PlanAdjustment = z.infer<typeof PlanAdjustment>
 
+// ---------- Progreso de lectura ----------
+
+/** Progreso por lección: lo observado en la app, no lo declarado. */
+export const LessonProgress = z.object({
+  /** `<curso>/<lección>` */
+  key: z.string().regex(/^[a-z0-9-]+\/[a-z0-9-]+$/),
+  courseId: CourseId,
+  lessonId: Slug,
+  firstVisitedAt: Timestamp,
+  lastVisitedAt: Timestamp,
+  /** Primera vez que se respondieron todas las comprobaciones de la lección. */
+  checksCompletedAt: Timestamp.optional(),
+  /** Resultado de la última ronda completa de comprobaciones. */
+  lastCheck: z.object({ correct: z.int().min(0), total: z.int().min(1), at: Timestamp }).optional(),
+})
+export type LessonProgress = z.infer<typeof LessonProgress>
+
 // ---------- Respaldo completo (plan §9) ----------
 
 export const Backup = z.object({
@@ -291,5 +308,6 @@ export const Backup = z.object({
   adjustments: z.array(PlanAdjustment),
   notes: z.array(z.object({ id: LocalId, targetId: z.string().max(64), text: z.string().max(10000), updatedAt: Timestamp })),
   bookmarks: z.array(z.object({ id: LocalId, targetId: z.string().max(64), createdAt: Timestamp })),
+  lessonProgress: z.array(LessonProgress).default([]),
 })
 export type Backup = z.infer<typeof Backup>

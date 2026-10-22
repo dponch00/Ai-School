@@ -8,6 +8,7 @@
 | `src/domain/learner.ts` | Datos del alumno: perfil (declarado + evidencia previa), intento con instantáneas congeladas, respuesta con primera selección y revisiones, entrega de práctica con cuaderno y revisiones, feedback externo, ajuste de la ruta y respaldo completo |
 | `src/domain/scoring.ts` | Selección del examen (2 familias por objetivo, variante nueva para familias falladas), corrección con la clave congelada y señales del diagnóstico por bloque |
 | `src/domain/domain.test.ts` | Pruebas de las reglas anteriores (`npm test`) |
+| `src/storage/` | IndexedDB con Dexie (F1-07): tablas por contrato, progreso por lección, rondas de comprobación guardadas como intentos `check` con la pregunta congelada. Migraciones: cada cambio sube `SCHEMA_VERSION` y añade un `.version(n).upgrade()` en `db.ts` |
 
 ## Invariantes que el código hace cumplir
 
@@ -21,10 +22,10 @@
 - **Examen:** aprobado con 10/12 y ningún objetivo evaluado con todos sus ítems fallados. Una familia fallada cambia de variante; si no quedan variantes nuevas, se avisa en vez de repetir en silencio.
 - **Diagnóstico:** señales por bloque (fortaleza probable / repaso recomendado / sin señal clara) con reglas asimétricas; nunca niveles ni porcentajes (D-015). Sin 4 ítems del mismo bloque (2 de base y 2 avanzados) el resultado es "evidencia incompleta" (CTR-04).
 - **Práctica (CTR-02, CTR-05):** sigue "presentada" hasta tener el cuaderno (si la práctica lo exige) y la autoevaluación de todos los criterios. "Revisada" exige dos revisiones de corridas distintas que evalúen exactamente los criterios de la rúbrica, sin discrepancias de más de un nivel; si no, "revisión pendiente" (R-H-8 [H]). "Evidencia insuficiente" es un nivel válido.
+- **Persistencia (F1-07):** toda escritura pasa por su contrato Zod. Cada visita a una lección abre rondas nuevas (comprobaciones y repaso); una lección cuenta como completada cuando se responden todas sus comprobaciones, y guarda la primera fecha y el último resultado. Si IndexedDB no está disponible, la app funciona sin guardar.
 - **Perfil:** la evidencia previa (programa de Educación, D-009) se guarda aparte de lo declarado y de lo observado en la app.
 
 ## Pendiente para fases siguientes
 
 - Esquema del reporte de evaluación HTML y de su JSON pasivo (F1-09). Debe incluir los cinco campos de trazabilidad de la revisión T-004: corrida, evaluador o modelo y evidencia por criterio (ya en `PracticeReview`); resultado histórico y regla (ya en `Attempt.result`); vínculo de cada respuesta con su instantánea (ya en `responseIssues`); estado de verificabilidad (definición histórica disponible, evidencia externa pendiente, datos excluidos), aún por definir; y "evidencia incompleta" del diagnóstico, separada de las señales (ya en `diagnosticBlockSignal`).
-- Migraciones de IndexedDB con Dexie (F1-07), usando `SCHEMA_VERSION`.
 - Validación de archivos de `content/` en el build (F1-02).

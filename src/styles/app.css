@@ -100,6 +100,9 @@ main:focus { outline: none; }
 .lesson-list__link:hover { border-color: var(--ais-color-accent); }
 .lesson-list__order { font-family: var(--ais-font-display); font-weight: 700; color: var(--ais-color-accent); text-align: center; }
 .lesson-list__time { font-size: var(--ais-font-size-sm); color: var(--ais-color-muted); white-space: nowrap; }
+.lesson-list__status { display: block; margin-top: 2px; font-size: var(--ais-font-size-sm); color: var(--ais-color-muted); }
+.lesson-list__status--done { color: var(--ais-color-success); }
+.checks__last { font-size: var(--ais-font-size-sm); color: var(--ais-color-muted); border-left: 3px solid var(--ais-color-border); padding-left: var(--ais-space-3); }
 
 /* ---------- Lector ---------- */
 .reader { display: grid; gap: var(--ais-space-5); }

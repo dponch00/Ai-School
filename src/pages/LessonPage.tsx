@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router'
 import { content, getCourse, getLesson } from '../content'
 import LessonBlocks from '../components/LessonBlocks'
@@ -6,6 +6,12 @@ import { scrollToAnchor } from '../components/anchors'
 import QuestionCheck from '../components/QuestionCheck'
 import Toc from '../components/Toc'
 import NotFound from './NotFound'
+import { db } from '../storage/db'
+import { lessonProgress, markLessonVisited } from '../storage/progress'
+import { useCheckRound } from '../storage/useCheckRound'
+import { useLive } from '../storage/useLive'
+
+const shortDate = (iso: string) => new Date(iso).toLocaleDateString('es', { day: 'numeric', month: 'short' })
 
 export default function LessonPage() {
   const { courseId, lessonId } = useParams()
@@ -13,6 +19,16 @@ export default function LessonPage() {
   const course = getCourse(courseId)
   const lesson = course && getLesson(course, lessonId)
   const target = params.get('seccion')
+  const ids = { courseId: course?.id ?? '', lessonId: lesson?.id ?? '', contentVersion: course?.version ?? '0.0.0' }
+  const recordCheck = useCheckRound({ ...ids, purpose: 'checks', size: lesson?.checkQuestionIds.length ?? 0 })
+  const recordReview = useCheckRound({ ...ids, purpose: 'review', size: lesson?.reviewQuestionIds.length ?? 0 })
+  // Marca el inicio de la visita para distinguir la ronda anterior de la que se acaba de responder.
+  const [visitStart] = useState(() => new Date().toISOString())
+  const progress = useLive(() => lessonProgress(db, ids.courseId, ids.lessonId), [ids.courseId, ids.lessonId], undefined)
+
+  useEffect(() => {
+    if (ids.lessonId) markLessonVisited(db, ids.courseId, ids.lessonId).catch((e) => console.warn('No se pudo guardar la visita', e))
+  }, [ids.courseId, ids.lessonId])
 
   useEffect(() => {
     if (target) requestAnimationFrame(() => scrollToAnchor(target))
@@ -41,7 +57,7 @@ export default function LessonPage() {
               <h2 id="repaso" className="review__title">Repaso antes de empezar</h2>
               <p className="muted">Responde sin mirar la lección anterior. Recordar es parte de aprender.</p>
               {lesson.reviewQuestionIds.map((id, i) => q(id) && (
-                <QuestionCheck key={id} question={q(id)} courseId={course.id} currentLessonId={lesson.id} label={`Repaso ${i + 1}`} />
+                <QuestionCheck key={id} question={q(id)} courseId={course.id} currentLessonId={lesson.id} label={`Repaso ${i + 1}`} onAnswer={recordReview} />
               ))}
             </section>
           )}
@@ -58,8 +74,15 @@ export default function LessonPage() {
               <section className="checks" aria-labelledby="comprobacion">
                 <h2 id="comprobacion">Comprueba lo que aprendiste</h2>
                 <p className="muted">Sin volver a leer. Después de responder verás por qué cada opción es o no la mejor.</p>
+                {progress?.lastCheck && (
+                  <p className="checks__last" role="status">
+                    {progress.lastCheck.at < visitStart
+                      ? `La última vez acertaste ${progress.lastCheck.correct} de ${progress.lastCheck.total} (${shortDate(progress.lastCheck.at)}). Las opciones cambian de orden en cada visita.`
+                      : `Guardado: acertaste ${progress.lastCheck.correct} de ${progress.lastCheck.total}. La lección cuenta como completada.`}
+                  </p>
+                )}
                 {lesson.checkQuestionIds.map((id, i) => q(id) && (
-                  <QuestionCheck key={id} question={q(id)} courseId={course.id} currentLessonId={lesson.id} label={`Pregunta ${i + 1} de ${lesson.checkQuestionIds.length}`} />
+                  <QuestionCheck key={id} question={q(id)} courseId={course.id} currentLessonId={lesson.id} label={`Pregunta ${i + 1} de ${lesson.checkQuestionIds.length}`} onAnswer={recordCheck} />
                 ))}
               </section>
             }

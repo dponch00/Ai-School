@@ -34,7 +34,7 @@ Salida: un curso completo y funcional que fija el estándar del producto. Las ot
 | F1-04 | Banco M02: 36 ítems (12 familias × 3 variantes, D-016) con feedback por opción | Claude; revisa Codex (T-009) | F1-03 | ✅ |
 | F1-05 | Laboratorio M02: petición de dashboard → especificación verificable, con rúbrica, check ejecutable de reconciliación y cuaderno de decisiones de transferencia (D-012) | Claude; revisa Codex | F1-03 | ✅ |
 | F1-06 | Imágenes piloto: imagen principal, portada M02, ilustración de una especificación | Codex; revisa Claude + Daniel | F0-06 | ✅ (T5-01 resuelto: `content/courses/m02/diagrams/m02-spec-anatomy.svg`) |
-| F1-07 | Persistencia IndexedDB: progreso, respuestas, intentos versionados | Claude | F1-01 | ⬜ |
+| F1-07 | Persistencia IndexedDB: progreso, respuestas, intentos versionados | Claude | F1-01 | ✅ |
 | F1-08 | Examen: selección con cobertura, corrección, revisión del intento, modo práctica | Claude | F1-04, F1-07 | ⬜ |
 | F1-09 | Perfil + respuestas individuales + HTML de evaluación (plan §17.10), con vista previa por secciones, exclusión explícita, aviso sobre texto libre y límites de longitud (R-04) | Claude | F1-07 | ⬜ |
 | F1-10 | Exportar/importar respaldo con validación | Claude | F1-07 | ⬜ |

@@ -8,6 +8,8 @@ interface Props {
   /** Lección que se está leyendo: si el apartado es de esta lección, se desplaza en vez de navegar. */
   currentLessonId?: string
   label: string
+  /** Se llama una vez, al comprobar, con el orden de opciones que vio el alumno. */
+  onAnswer?: (question: Question, shownOptionIds: string[], selectedOptionId: string) => void
 }
 
 function shuffle<T>(items: readonly T[]): T[] {
@@ -21,9 +23,9 @@ function shuffle<T>(items: readonly T[]): T[] {
 
 /**
  * Comprobación de lección: feedback inmediato por opción (estándar §4.1).
- * Todavía no guarda la respuesta; la persistencia llega en F1-07.
+ * La respuesta se guarda a través de `onAnswer` (F1-07).
  */
-export default function QuestionCheck({ question, courseId, currentLessonId, label }: Props) {
+export default function QuestionCheck({ question, courseId, currentLessonId, label, onAnswer }: Props) {
   // Orden aleatorio salvo fixedOrder (estándar §4.4): se fija al montar para no reordenar al responder.
   const [options] = useState(() => (question.fixedOrder ? question.options : shuffle(question.options)))
   const [selected, setSelected] = useState<string | null>(null)
@@ -40,6 +42,7 @@ export default function QuestionCheck({ question, courseId, currentLessonId, lab
     }
     setError(false)
     setSubmitted(true)
+    onAnswer?.(question, options.map((o) => o.id), selected)
   }
 
   return (

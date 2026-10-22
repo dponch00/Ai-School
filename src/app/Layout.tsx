@@ -28,7 +28,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <footer className="site-footer">
-        <p>Datos sintéticos de una empresa ficticia. Versión piloto en construcción: aún no guarda tu progreso.</p>
+        <p>Datos sintéticos de una empresa ficticia. Versión piloto en construcción. Tu progreso se guarda solo en este navegador.</p>
       </footer>
     </>
   )
