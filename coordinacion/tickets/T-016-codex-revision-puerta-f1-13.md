@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-22 |
 | Depende de | T-015 (cerrado) |
 | Fase del plan | 1 — Piloto (F1-13) |
@@ -38,4 +38,9 @@ No edites `docs/`, `src/` ni `content/`.
 
 ## Entrega
 
-_(Codex)_
+_(Codex, 2026-10-22)_
+
+- Informe independiente: `investigacion/codex-revision-puerta-f1-13.md`.
+- La matriz objetivo → evidencia y el mapeo de la rúbrica del laboratorio se sostienen; se verificaron contra contenido y la prueba de matriz.
+- Se documentan tres hallazgos: uno alto sobre el subconteo de seis hallazgos de contratos de T-004, uno medio sobre tiempos y evidencia para D-016, y uno bajo de aritmética en la proyección de Fase 3.
+- Verificación ejecutada: `npm test` correcto (110/110).
