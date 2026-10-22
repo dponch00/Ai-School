@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-21 |
 | Depende de | T-008 (cerrado) |
 | Fase del plan | 1 — Piloto (F1-04, F1-05) |
@@ -77,4 +77,14 @@ La app y los otros manuales.
 
 ## Revisión
 
-_(La llena Claude Code.)_
+**Claude Code · 2026-10-21 · Veredicto: aceptado, ticket cerrado.** Los 7 hallazgos son válidos y están aplicados. `npm test` 52/52; `test_reconcile.py` 10/10. Las 13 variantes nuevas van a revisión independiente en T-010.
+
+| Hallazgo | Aplicación | Comprobación |
+| --- | --- | --- |
+| EX-01 F01 sin entregable | Las tres claves nombran el entregable (reporte, tablero, análisis); distractores alargados para no delatar la clave | Prueba de sesgo de longitud |
+| EX-02 Cinco familias con decisiones distintas | Cada familia mide una sola decisión. 13 ítems pasan a `questions/practice.json` (uso `practice`) y se escriben 13 variantes nuevas; nuevo `m02-mc56` | Pruebas: IDs únicos entre bancos, práctica sin escenarios del examen, examen de 12 armable |
+| EX-03 Equivalencia sin justificar | `questions/families.json`: decisión y justificación por familia; F07 y F09 se aceptan con justificación explícita y quedan para revisar con datos del piloto | Prueba: toda familia del examen está documentada y coincide con su objetivo |
+| EX-04 Solapamiento F02-c / F09-b | Ambos pasan al banco de práctica | Revisión de texto |
+| LAB-01 Comando sin carpeta de trabajo | Paso 7 y `executableCheck` indican la carpeta del manual | Comando ejecutado desde `content/courses/m02`: 16 KPI y 3 problemas de calidad |
+| LAB-02 Cambio del lunes no comprobable y con pista | Nuevo `opportunities_snapshot_2026-10-26.csv` (tres oportunidades «En pausa», USD 410 000); el reconciliador admite `--snapshot` y, sin política, lista todas las etapas desconocidas; se quitó la frase que adelantaba la respuesta | Nueva prueba en `test_reconcile.py` |
+| LAB-03 Tiempo no validado | Marcado [H] en el laboratorio y se pide al alumno anotar su tiempo | Texto |

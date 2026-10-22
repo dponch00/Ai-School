@@ -17,20 +17,20 @@
     "options": [
       {
         "id": "o1",
-        "text": "Para el comité del jueves: decidir si se usa la línea de crédito, con el saldo semanal de noviembre",
+        "text": "Para el comité del jueves: un reporte del saldo semanal de noviembre, para decidir si se usa la línea de crédito",
         "correct": true,
-        "feedback": "Correcta. Nombra a quién sirve, la decisión que apoya y el periodo. Con eso se pueden elegir los datos y comprobar si el reporte sirve."
+        "feedback": "Correcta. Nombra a quién sirve, el entregable (un reporte), el periodo y la decisión que apoya. Con eso se pueden elegir los datos y comprobar si sirve."
       },
       {
         "id": "o2",
-        "text": "Un reporte de flujo de caja completo, con todas las métricas y gráficas que se puedan incluir",
+        "text": "Un reporte de flujo de caja completo, con todas las métricas, indicadores y gráficas que se puedan incluir",
         "correct": false,
         "misconceptionId": "m02-mc03",
         "feedback": "Pedir todo lo posible declara ambición, no un objetivo. Sin alcance acotado el agente añadirá cosas que nadie pidió y nada se podrá verificar."
       },
       {
         "id": "o3",
-        "text": "Un reporte en una hoja de cálculo con macros, tres pestañas y gráficas de líneas para cada una de las cuentas",
+        "text": "Un reporte en una hoja de cálculo con macros, tres pestañas y gráficas de líneas para cada una de las cuentas bancarias",
         "correct": false,
         "misconceptionId": "m02-mc34",
         "feedback": "Describe el cómo, no el para qué. Sin saber qué decisión apoya, no sabrás si esas pestañas y gráficas sirven."
@@ -62,20 +62,20 @@
     "options": [
       {
         "id": "o1",
-        "text": "Un tablero de inventario moderno y completo, con todos los indicadores posibles por producto",
+        "text": "Un tablero de inventario moderno y completo, con todos los indicadores posibles por producto, almacén y proveedor",
         "correct": false,
         "misconceptionId": "m02-mc03",
         "feedback": "«Todos los indicadores» no dice cuáles importan ni para qué. Un objetivo acotado permite elegir y verificar."
       },
       {
         "id": "o2",
-        "text": "Para la gerente de compras: decidir qué reabastecer esta semana, con productos bajo dos semanas de cobertura",
+        "text": "Para la gerente de compras: un tablero de productos bajo dos semanas de cobertura, para decidir qué reabastecer esta semana",
         "correct": true,
-        "feedback": "Correcta. Tiene usuaria, decisión, periodo y un umbral concreto (dos semanas de cobertura). Así se sabe qué mostrar y cómo comprobarlo."
+        "feedback": "Correcta. Tiene usuaria, entregable (un tablero), umbral, periodo y la decisión. Así se sabe qué mostrar y cómo comprobarlo."
       },
       {
         "id": "o3",
-        "text": "Un tablero de inventario; el modelo es potente y sabrá qué necesita ver la gerente de compras",
+        "text": "Un tablero de inventario; el modelo es potente y sabrá por sí solo qué necesita ver la gerente de compras cada semana",
         "correct": false,
         "misconceptionId": "m02-mc01",
         "feedback": "Si una persona sin contexto se confundiría con la petición, el modelo también. Lo que no se fija, el modelo lo decide por su cuenta."
@@ -107,23 +107,23 @@
     "options": [
       {
         "id": "o1",
-        "text": "Para la directora de RR. HH., con los datos de rotación del último año, desglosados por área y por antigüedad",
+        "text": "Para la directora de RR. HH., con los datos de rotación del último año, desglosados por área, por antigüedad y por puesto",
         "correct": false,
         "misconceptionId": "m02-mc48",
         "feedback": "Tiene usuaria y periodo, pero no la decisión. Sin ella no se sabe si importa el área, la antigüedad o el costo, ni cómo comprobar que el resultado sirve."
       },
       {
         "id": "o2",
-        "text": "Un análisis profundo de la rotación con aprendizaje automático y todos los factores disponibles",
+        "text": "Un análisis profundo de la rotación con aprendizaje automático y todos los factores disponibles en los datos de RR. HH.",
         "correct": false,
         "misconceptionId": "m02-mc03",
         "feedback": "Más técnica y más factores no reemplazan una decisión. El análisis crecería sin un criterio para saber cuándo está terminado."
       },
       {
         "id": "o3",
-        "text": "Para la directora: decidir en qué dos áreas actuar este trimestre, comparando la rotación con su meta anual",
+        "text": "Para la directora: un análisis que compare la rotación con la meta anual, para decidir en qué dos áreas actuar este trimestre",
         "correct": true,
-        "feedback": "Correcta. Además de usuaria y periodo, nombra la decisión y el criterio de comparación (la meta anual). Eso define qué mostrar y cómo comprobarlo."
+        "feedback": "Correcta. Además de usuaria y periodo, nombra el entregable (un análisis), la decisión y el criterio de comparación. Eso define qué mostrar y cómo comprobarlo."
       }
     ],
     "fixedOrder": false,
@@ -191,35 +191,35 @@
     "process": "analyze",
     "family": "m02-f02",
     "variant": "b",
-    "scenario": "Pides: «Cambia el redondeo de los montos del reporte mensual a dos decimales».",
-    "stem": "¿Qué debe hacer el agente?",
+    "scenario": "Le escribes a un agente de código: «Explícame por qué subió la cartera vencida en octubre».",
+    "stem": "¿Qué entregable corresponde?",
     "options": [
       {
         "id": "o1",
-        "text": "Cambiar el redondeo y, de paso, reorganizar el formato completo del reporte",
+        "text": "Un ajuste en el cálculo de mora para que la cartera vencida de octubre vuelva a su nivel",
         "correct": false,
-        "misconceptionId": "m02-mc41",
-        "feedback": "Reorganizar el formato es un añadido no pedido. Amplía el alcance y hace más difícil revisar el cambio."
+        "misconceptionId": "m02-mc35",
+        "feedback": "No pediste cambiar nada. Ajustar el cálculo podría esconder la causa real del aumento."
       },
       {
         "id": "o2",
-        "text": "Cambiar el redondeo en el reporte, dentro de ese alcance, y mostrarte el diff",
-        "correct": true,
-        "feedback": "Correcta. Es un cambio acotado: el agente edita lo pedido y te muestra qué cambió para que lo revises."
+        "text": "El diagnóstico y, además, un tablero nuevo de alertas de mora para los próximos meses",
+        "correct": false,
+        "misconceptionId": "m02-mc41",
+        "feedback": "El tablero de alertas es un añadido que nadie pidió. Amplía el alcance sin que nadie lo decida."
       },
       {
         "id": "o3",
-        "text": "Redondear los montos en la base de datos de origen para que todos los reportes coincidan",
-        "correct": false,
-        "misconceptionId": "m02-mc49",
-        "feedback": "Modificar los datos de origen excede un cambio de presentación y afecta a otros. Una escritura así requiere confirmación."
+        "text": "Un informe con las causas del aumento y sus cifras, sin modificar archivos",
+        "correct": true,
+        "feedback": "Correcta. «Explícame» pide un diagnóstico: el agente inspecciona e informa. Si después quieres un cambio, lo pides aparte."
       }
     ],
     "fixedOrder": false,
     "sectionRef": "m02-l1#entregable",
     "sourceIds": [
       "src-openai-gpt56-model-guidance",
-      "src-anthropic-prompting-bp"
+      "src-anthropic-prompting-sonnet55"
     ],
     "status": "draft"
   },
@@ -233,38 +233,38 @@
       "C02"
     ],
     "difficulty": "advanced",
-    "process": "evaluate",
+    "process": "analyze",
     "family": "m02-f02",
     "variant": "c",
-    "scenario": "Pides: «Elimina del CRM las oportunidades duplicadas». El agente tiene permisos de escritura en el CRM.",
-    "stem": "¿Cómo debería actuar?",
+    "scenario": "Pides: «Analiza qué cambió entre la versión 3 y la 4 del cálculo de comisiones; el equipo quiere entender por qué los pagos subieron».",
+    "stem": "¿Qué debería entregar el agente?",
     "options": [
       {
         "id": "o1",
-        "text": "Borrarlas de inmediato, porque la petición es clara y está dentro de sus permisos",
-        "correct": false,
-        "misconceptionId": "m02-mc50",
-        "feedback": "Que la petición sea clara no hace reversible un borrado. Las acciones difíciles de revertir se confirman antes."
+        "text": "Un informe que compare las dos versiones y muestre qué cambio explica el aumento, sin tocar el cálculo",
+        "correct": true,
+        "feedback": "Correcta. Es un análisis: el entregable es una explicación con evidencia. Decidir si se revierte o se corrige viene después."
       },
       {
         "id": "o2",
-        "text": "Borrarlas y dejar un respaldo local por si después alguien quiere revertirlo",
+        "text": "La versión 3 restaurada, porque daba pagos menores y el equipo se quejó del aumento",
         "correct": false,
-        "misconceptionId": "m02-mc50",
-        "feedback": "El respaldo local no evita el efecto inmediato en otras personas que usan el CRM. La confirmación va antes del borrado, no después."
+        "misconceptionId": "m02-mc35",
+        "feedback": "Nadie pidió revertir. Restaurar la versión anterior cambia los pagos sin entender por qué subieron."
       },
       {
         "id": "o3",
-        "text": "Mostrarte la lista de duplicados que borraría y esperar tu confirmación",
-        "correct": true,
-        "feedback": "Correcta. Es una acción destructiva y visible para otros: primero muestra qué haría y después actúa con tu confirmación."
+        "text": "El análisis y un rediseño completo del cálculo de comisiones para que no vuelva a pasar",
+        "correct": false,
+        "misconceptionId": "m02-mc41",
+        "feedback": "El rediseño es un añadido no pedido y de gran alcance. Primero hay que entender el cambio."
       }
     ],
     "fixedOrder": false,
     "sectionRef": "m02-l1#entregable",
     "sourceIds": [
       "src-openai-gpt56-model-guidance",
-      "src-anthropic-prompting-fable5"
+      "src-anthropic-prompting-sonnet55"
     ],
     "status": "draft"
   },
@@ -322,38 +322,37 @@
       "C02"
     ],
     "difficulty": "base",
-    "process": "apply",
+    "process": "analyze",
     "family": "m02-f03",
     "variant": "b",
-    "scenario": "Llevas una sesión larga corrigiendo el dashboard. Ahora quieres que un agente analice un archivo de presupuesto que no tiene relación con ese trabajo.",
-    "stem": "¿Qué haces?",
+    "scenario": "Vas a pedir que un agente corrija el total del reporte de gastos, que sale un centavo distinto del de contabilidad.",
+    "stem": "¿Qué contexto le das?",
     "options": [
       {
         "id": "o1",
-        "text": "Abres una sesión nueva para el presupuesto, con su propio contexto",
+        "text": "El archivo del cálculo, la regla de redondeo de contabilidad y un caso que falla con su resultado",
         "correct": true,
-        "feedback": "Correcta. Mezclar tareas llena el contexto de ruido y degrada el rendimiento. Una sesión por tarea coherente funciona mejor."
+        "feedback": "Correcta. Es contexto específico: dónde mirar, qué regla aplicar y cómo se ve arreglado."
       },
       {
         "id": "o2",
-        "text": "Sigues en la misma sesión para aprovechar todo lo que el agente ya sabe",
+        "text": "El sistema contable completo y sus manuales, para que el agente entienda todo el contexto",
         "correct": false,
-        "misconceptionId": "m02-mc51",
-        "feedback": "Lo que el agente sabe del dashboard no sirve para el presupuesto y ocupa contexto. Mezclar tareas es un patrón de fallo documentado."
+        "misconceptionId": "m02-mc06",
+        "feedback": "El rendimiento se degrada al llenarse el contexto. Si el manual tiene la regla de redondeo, extráela y dásela."
       },
       {
         "id": "o3",
-        "text": "Pegas el presupuesto completo y le pides que alterne entre las dos tareas",
+        "text": "Solo «arregla el centavo»; el agente puede encontrar por su cuenta dónde está el problema",
         "correct": false,
-        "misconceptionId": "m02-mc51",
-        "feedback": "Alternar tareas en un contexto saturado empeora las dos. Cada tarea coherente merece su sesión."
+        "misconceptionId": "m02-mc01",
+        "feedback": "Puede encontrar el archivo, pero no la regla de redondeo que usa contabilidad. Eso solo lo sabes tú."
       }
     ],
     "fixedOrder": false,
     "sectionRef": "m02-l2#contexto",
     "sourceIds": [
-      "src-anthropic-cc-best-practices",
-      "src-openai-codex-best-practices"
+      "src-anthropic-cc-best-practices"
     ],
     "status": "draft"
   },
@@ -367,37 +366,36 @@
       "C02"
     ],
     "difficulty": "advanced",
-    "process": "evaluate",
+    "process": "analyze",
     "family": "m02-f03",
     "variant": "c",
-    "scenario": "En tu proyecto, todos los cálculos financieros deben ir en Python, nunca en el frontend. Es una regla para cualquier tarea.",
-    "stem": "¿Dónde la escribes?",
+    "scenario": "Un agente debe agregar la columna «días sin actividad» a la lista de riesgo, siguiendo el estilo de las columnas que ya existen.",
+    "stem": "¿Qué contexto le das?",
     "options": [
       {
         "id": "o1",
-        "text": "En cada prompt, para que el agente nunca la olvide",
+        "text": "Todas las vistas del proyecto y el historial completo de cambios, para que conozca el estilo",
         "correct": false,
-        "misconceptionId": "m02-mc05",
-        "feedback": "Repetir reglas permanentes gasta contexto y abre la puerta a versiones contradictorias. Su lugar es el archivo de instrucciones del repositorio."
+        "misconceptionId": "m02-mc06",
+        "feedback": "Más archivos no le dicen cuál es el patrón ni cómo se calcula la columna. El contexto específico rinde más."
       },
       {
         "id": "o2",
-        "text": "Una vez, en el archivo de instrucciones del repositorio",
+        "text": "El archivo de la vista, una columna existente como patrón y cómo se calculan los días",
         "correct": true,
-        "feedback": "Correcta. Las reglas que valen para todo el proyecto van en el archivo de instrucciones, breve y podado. En el prompt van las reglas de la tarea."
+        "feedback": "Correcta. Le dice dónde trabajar, qué imitar y la definición exacta (de la última actividad a la fecha del snapshot)."
       },
       {
         "id": "o3",
-        "text": "En cada prompt, en mayúsculas y al principio del texto de la petición",
+        "text": "Solo «agrega días sin actividad»; el agente puede deducir el cálculo y el estilo por su cuenta",
         "correct": false,
-        "misconceptionId": "m02-mc07",
-        "feedback": "El énfasis no reemplaza el lugar correcto. Si todo va en mayúsculas, nada destaca."
+        "misconceptionId": "m02-mc01",
+        "feedback": "El estilo quizá lo deduzca, pero no desde qué fecha se cuentan los días. Esa definición la tienes que dar tú."
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m02-l2#capas",
+    "sectionRef": "m02-l2#contexto",
     "sourceIds": [
-      "src-openai-codex-best-practices",
       "src-anthropic-cc-best-practices"
     ],
     "status": "draft"
@@ -502,38 +500,38 @@
       "C02"
     ],
     "difficulty": "advanced",
-    "process": "create",
+    "process": "evaluate",
     "family": "m02-f04",
     "variant": "c",
-    "scenario": "Quieres que el agente nunca sobrescriba los reportes que ya vio el comité, guardados en reportes/publicados/.",
-    "stem": "¿Qué instrucción funcionará mejor en casos que no anticipaste?",
+    "scenario": "En el reporte de comisiones quedan dos definiciones pendientes: si la comisión se calcula sobre lo facturado o lo cobrado, y el orden de las columnas.",
+    "stem": "¿Cuál preguntas antes de avanzar?",
     "options": [
       {
         "id": "o1",
-        "text": "NUNCA, POR NINGÚN MOTIVO, TOQUES NADA QUE ESTÉ DENTRO DE LA CARPETA DE REPORTES",
+        "text": "Las dos, porque en un reporte que afecta pagos toda duda la resuelve el negocio",
         "correct": false,
-        "misconceptionId": "m02-mc07",
-        "feedback": "El énfasis no explica el motivo ni ofrece alternativa. Además, prohíbe toda la carpeta, no solo lo publicado."
+        "misconceptionId": "m02-mc38",
+        "feedback": "Preguntar todo frena el trabajo sin reducir riesgo. El orden de las columnas no cambia ningún pago."
       },
       {
         "id": "o2",
-        "text": "Ten mucho cuidado con los reportes del comité cuando hagas cambios",
+        "text": "Ninguna: el agente debe resolverlas con criterio y avisar al terminar",
         "correct": false,
-        "misconceptionId": "m02-mc36",
-        "feedback": "Es una advertencia, no una restricción. No dice qué está prohibido ni qué hacer en su lugar."
+        "misconceptionId": "m02-mc08",
+        "feedback": "Si el agente elige la base de cálculo, los pagos cambian sin que nadie lo haya aprobado. Esa decisión se pregunta."
       },
       {
         "id": "o3",
-        "text": "No modifiques reportes/publicados/: el comité ya los vio. Escribe versiones nuevas en reportes/borradores/",
+        "text": "Si es sobre lo facturado o lo cobrado, porque cambia lo que se paga",
         "correct": true,
-        "feedback": "Correcta. Dice qué está prohibido, por qué y qué hacer en su lugar. Con el motivo, el agente puede aplicar la regla a casos nuevos."
+        "feedback": "Correcta. La base de cálculo mueve los pagos: se pregunta. El orden de las columnas se decide y se registra."
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m02-l2#restricciones",
+    "sectionRef": "m02-l2#supuestos",
     "sourceIds": [
-      "src-anthropic-prompting-bp",
-      "src-anthropic-cc-best-practices"
+      "src-anthropic-prompting-fable5",
+      "src-openai-codex-execplans"
     ],
     "status": "draft"
   },
@@ -594,38 +592,38 @@
       "C12"
     ],
     "difficulty": "base",
-    "process": "evaluate",
+    "process": "analyze",
     "family": "m02-f05",
     "variant": "b",
-    "scenario": "La API indica que el modelo rechazó la petición, pero el cuerpo de la respuesta trae un JSON con todos los campos, algunos vacíos, que valida contra el esquema.",
-    "stem": "¿Qué haces con esa respuesta?",
+    "scenario": "Un modelo extrae de facturas en PDF el subtotal, el impuesto y el total. El JSON valida contra el esquema, pero en una factura el subtotal más el impuesto no da el total.",
+    "stem": "¿Qué falta?",
     "options": [
       {
         "id": "o1",
-        "text": "La usas, porque el JSON es válido y trae todos los campos del esquema",
-        "correct": false,
-        "misconceptionId": "m02-mc17",
-        "feedback": "Que el JSON parezca válido no dice que la respuesta se completó. Antes de usarla hay que comprobar por qué terminó."
+        "text": "Una invariante en código: subtotal más impuesto igual al total, con tolerancia",
+        "correct": true,
+        "feedback": "Correcta. El esquema garantiza campos y tipos; la relación entre los tres valores se comprueba en código."
       },
       {
         "id": "o2",
-        "text": "La usas, porque la salida estructurada garantiza que los valores son correctos",
+        "text": "Nada: si el JSON valida contra el esquema, los montos extraídos son correctos",
         "correct": false,
         "misconceptionId": "m02-mc14",
-        "feedback": "La salida estructurada garantiza la forma, no los valores. Y una respuesta rechazada no tiene contenido fiable."
+        "feedback": "El esquema no garantiza que los valores sean verdaderos. Una suma que no cuadra pasa la validación."
       },
       {
         "id": "o3",
-        "text": "La tratas como fallida y revisas por qué se rechazó, sin usar sus valores",
-        "correct": true,
-        "feedback": "Correcta. Un rechazo o un corte pueden producir un JSON con forma válida y contenido vacío. Se comprueba el motivo de término antes de usarla."
+        "text": "Agregar mínimos y máximos a los tres campos del esquema para que no puedan fallar",
+        "correct": false,
+        "misconceptionId": "m02-mc42",
+        "feedback": "Un rango no detecta que la suma no cuadra. Además, no todos los proveedores admiten esas restricciones."
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m02-l3#contrato",
+    "sectionRef": "m02-l3#forma-verdad",
     "sourceIds": [
-      "src-anthropic-structured-outputs",
-      "src-openai-structured-outputs"
+      "src-openai-structured-outputs",
+      "src-anthropic-structured-outputs"
     ],
     "status": "draft"
   },
@@ -643,36 +641,35 @@
     "process": "evaluate",
     "family": "m02-f05",
     "variant": "c",
-    "scenario": "Tu esquema de KPI usa «maximum» para que la cobertura no supere 10. Al cambiar de proveedor, la API rechaza el esquema por ese campo.",
-    "stem": "¿Qué haces?",
+    "scenario": "Un modelo devuelve la conciliación bancaria en JSON. Valida contra el esquema, pero el saldo final no es igual al saldo inicial más los movimientos.",
+    "stem": "¿Cómo evitas que esto llegue al reporte?",
     "options": [
       {
         "id": "o1",
-        "text": "Quitas «maximum» del esquema y compruebas el rango en código",
-        "correct": true,
-        "feedback": "Correcta. Cada proveedor admite un subconjunto distinto de JSON Schema. Las reglas de valor viven en código, con cualquier proveedor."
+        "text": "Pidiendo al modelo que revise su propio JSON antes de entregarlo",
+        "correct": false,
+        "misconceptionId": "m02-mc22",
+        "feedback": "La autorrevisión no es independiente: puede confirmar el mismo error. La regla se comprueba fuera del modelo."
       },
       {
         "id": "o2",
-        "text": "Mantienes el mismo esquema: debería funcionar igual con cualquier proveedor",
-        "correct": false,
-        "misconceptionId": "m02-mc16",
-        "feedback": "Los proveedores no admiten las mismas palabras clave de JSON Schema. Mantenerlo solo garantiza que la petición siga fallando."
+        "text": "Comprobando en código que saldo inicial más movimientos sea igual al saldo final",
+        "correct": true,
+        "feedback": "Correcta. Es una invariante de significado que el esquema no puede expresar. En código se comprueba siempre."
       },
       {
         "id": "o3",
-        "text": "Agregas más restricciones al esquema para compensar la que no se admite",
+        "text": "Agregando al esquema restricciones de rango para los saldos y los movimientos",
         "correct": false,
         "misconceptionId": "m02-mc42",
-        "feedback": "Las restricciones del esquema no garantizan valores correctos, y cada una puede no ser compatible. La comprobación de rango va en código."
+        "feedback": "Un saldo dentro de rango puede seguir siendo falso. La relación entre los valores se comprueba en código."
       }
     ],
     "fixedOrder": false,
     "sectionRef": "m02-l3#forma-verdad",
     "sourceIds": [
-      "src-anthropic-structured-outputs",
       "src-openai-structured-outputs",
-      "src-google-structured-output"
+      "src-anthropic-structured-outputs"
     ],
     "status": "draft"
   },
@@ -689,35 +686,35 @@
     "process": "apply",
     "family": "m02-f06",
     "variant": "a",
-    "scenario": "Un modelo clasificará tickets de soporte de facturación en cuatro categorías. Vas a darle ejemplos.",
-    "stem": "¿Qué conjunto eliges?",
+    "scenario": "La regla es que las notas de crédito restan del total facturado.",
+    "stem": "¿Qué es lo más útil para la especificación?",
     "options": [
       {
         "id": "o1",
-        "text": "Cuatro tickets distintos, uno por categoría, incluido uno ambiguo con su categoría correcta",
-        "correct": true,
-        "feedback": "Correcta. Son pocos, diversos y cubren un caso borde. Así el modelo no copia un rasgo superficial y aprende qué hacer con los casos difíciles."
+        "text": "Resta las notas de crédito del total facturado del mes",
+        "correct": false,
+        "misconceptionId": "m02-mc13",
+        "feedback": "Es una regla abstracta. No dice qué resultado esperar en un caso concreto ni cómo comprobarlo."
       },
       {
         "id": "o2",
-        "text": "Doce tickets casi iguales de la categoría más frecuente, para que no se equivoque",
+        "text": "Una captura de cómo se ve la columna de notas de crédito",
         "correct": false,
-        "misconceptionId": "m02-mc11",
-        "feedback": "Muchos ejemplos parecidos producen sobreajuste. El modelo puede aprender que casi todo es de esa categoría."
+        "misconceptionId": "m02-mc46",
+        "feedback": "Muestra la apariencia, no permite comprobar el cálculo. Le falta una entrada y su resultado esperado."
       },
       {
         "id": "o3",
-        "text": "Un solo ticket bien escrito, porque un ejemplo representativo es suficiente",
-        "correct": false,
-        "misconceptionId": "m02-mc12",
-        "feedback": "Un único ejemplo no cubre los casos borde ni las otras categorías. El modelo tendrá que adivinar con los tickets ambiguos."
+        "text": "Una nota de crédito de USD 500 sobre USD 2 000 deja el total en USD 1 500",
+        "correct": true,
+        "feedback": "Correcta. Es un caso concreto con entrada y resultado esperado. El agente puede probarlo y tú puedes ver si pasa."
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m02-l3#ejemplos",
+    "sectionRef": "m02-l3#contraejemplos",
     "sourceIds": [
-      "src-anthropic-prompting-bp",
-      "src-google-prompting-strategies"
+      "src-anthropic-evals-agents",
+      "src-anthropic-cc-best-practices"
     ],
     "status": "draft"
   },
@@ -953,41 +950,42 @@
     "courseId": "m02",
     "evaluatedObjectiveId": "m02-eo4",
     "competencyIds": [
-      "C02"
+      "C02",
+      "C07"
     ],
     "difficulty": "base",
-    "process": "apply",
+    "process": "evaluate",
     "family": "m02-f08",
     "variant": "a",
-    "scenario": "Hay que cambiar la etiqueta «Monto» por «Monto (USD)» en una sola vista del dashboard.",
-    "stem": "¿Qué especificación corresponde?",
+    "scenario": "Al especificar un reporte de cobranza, el agente pregunta qué es una «cuenta incobrable». Nadie lo ha definido y el reporte lo usará el área de crédito.",
+    "stem": "¿Qué haces?",
     "options": [
       {
         "id": "o1",
-        "text": "Una especificación completa con historias de usuario y criterios Given/When/Then",
-        "correct": false,
-        "misconceptionId": "m02-mc24",
-        "feedback": "Es desproporcionado. Los flujos pesados para cambios pequeños generan documentos más costosos que el cambio."
+        "text": "Llevas la pregunta al área de crédito y no implementas esa parte todavía",
+        "correct": true,
+        "feedback": "Correcta. Es una definición de negocio que cambia lo que verá crédito. Queda como pregunta abierta y el resto avanza."
       },
       {
         "id": "o2",
-        "text": "Solo «cambia la etiqueta»; el agente sabrá dónde y cómo hacerlo",
+        "text": "Defines tú «más de 180 días vencida» y lo dejas documentado en la especificación",
         "correct": false,
-        "misconceptionId": "m02-mc01",
-        "feedback": "Sin la vista ni el texto exacto, el agente adivina. Una frase más deja la tarea verificable."
+        "misconceptionId": "m02-mc43",
+        "feedback": "Documentarla no la convierte en una decisión del área de crédito. Si cambia lo que verán, se pregunta."
       },
       {
         "id": "o3",
-        "text": "Una frase con la vista, el texto nuevo y cómo comprobar el cambio",
-        "correct": true,
-        "feedback": "Correcta. El rigor crece con el riesgo y la ambigüedad, y aquí no hay ninguno de los dos."
+        "text": "Aceptas la definición que proponga el agente para no detener la especificación",
+        "correct": false,
+        "misconceptionId": "m02-mc45",
+        "feedback": "Adoptar la propuesta del agente no equivale a que el negocio la haya decidido. Puede proponer opciones, pero elige crédito."
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m02-l4#proporcion",
+    "sectionRef": "m02-l4#entrevista",
     "sourceIds": [
-      "src-thoughtworks-sdd-tools",
-      "src-anthropic-cc-best-practices"
+      "src-anthropic-prompting-fable5",
+      "src-github-speckit-sdd-doc"
     ],
     "status": "draft"
   },
@@ -1138,38 +1136,38 @@
       "C07"
     ],
     "difficulty": "base",
-    "process": "evaluate",
+    "process": "apply",
     "family": "m02-f09",
     "variant": "b",
-    "scenario": "Un flujo automatizado leerá gastos, los clasificará, calculará totales, generará un PDF y lo enviará al director financiero.",
-    "stem": "¿Dónde pones un punto de control humano?",
+    "scenario": "Hay que agregar el KPI «ticket promedio». Requiere cambiar el cálculo, el contrato de datos y la vista principal.",
+    "stem": "¿Cómo lo diriges?",
     "options": [
       {
         "id": "o1",
-        "text": "Antes del envío al director, porque no se puede deshacer",
-        "correct": true,
-        "feedback": "Correcta. El envío es visible para un tercero e irreversible. Una persona lo autoriza después de ver el PDF."
+        "text": "Pides que lo haga todo de una vez y revisas el resultado completo al final",
+        "correct": false,
+        "misconceptionId": "m02-mc52",
+        "feedback": "Un cambio que toca tres partes sin hitos es difícil de revisar y revertir. Los errores aparecen tarde y mezclados."
       },
       {
         "id": "o2",
-        "text": "Al final, revisando el PDF que ya recibió el director",
-        "correct": false,
-        "misconceptionId": "m02-mc52",
-        "feedback": "Revisar después del envío no evita que el director reciba un error. El control va antes de la acción irreversible."
+        "text": "Pides un plan con hitos, cada uno con su prueba, antes de implementar",
+        "correct": true,
+        "feedback": "Correcta. Toca cálculo, contrato y vista: un plan con hitos verificables permite detectar errores pronto y saber dónde están."
       },
       {
         "id": "o3",
-        "text": "En ninguno: con pruebas automáticas en cada paso es suficiente",
+        "text": "Pides un plan con hitos, pero sin pruebas intermedias para terminar antes",
         "correct": false,
-        "misconceptionId": "m02-mc54",
-        "feedback": "Las pruebas comprueban lo definido. Autorizar un envío a un tercero es una decisión que toma una persona."
+        "misconceptionId": "m02-mc53",
+        "feedback": "Sin prueba por hito no sabes dónde nació un error. La prueba es lo que habilita el siguiente paso."
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m02-l5#hitos",
+    "sectionRef": "m02-l5#planificar",
     "sourceIds": [
-      "src-anthropic-building-agents",
-      "src-openai-gpt56-model-guidance"
+      "src-anthropic-cc-best-practices",
+      "src-openai-codex-execplans"
     ],
     "status": "draft"
   },
@@ -1228,37 +1226,38 @@
       "C07"
     ],
     "difficulty": "base",
-    "process": "apply",
+    "process": "evaluate",
     "family": "m02-f10",
     "variant": "a",
-    "scenario": "El agente no logra corregir la conversión de monedas. Lo corregiste dos veces en la misma sesión y sigue fallando en lo mismo.",
-    "stem": "¿Qué haces ahora?",
+    "scenario": "El conteo de «clientes activos» sale el doble de lo esperado. El agente contó cada sucursal como un cliente; la especificación decía «clientes» sin aclarar ese caso.",
+    "stem": "¿Dónde corriges?",
     "options": [
       {
         "id": "o1",
-        "text": "Lo corriges una tercera vez, con más detalle sobre el error que comete",
+        "text": "En el código: agrupas por cliente y sigues con el resto del trabajo",
         "correct": false,
-        "misconceptionId": "m02-mc21",
-        "feedback": "Tras dos correcciones fallidas, el historial de intentos estorba. Una tercera corrección en el mismo contexto suele fallar igual."
+        "misconceptionId": "m02-mc44",
+        "feedback": "Arreglas el síntoma de hoy, pero la especificación sigue ambigua. La próxima ejecución puede repetir el error."
       },
       {
         "id": "o2",
-        "text": "Repites la instrucción en mayúsculas para que no la ignore",
-        "correct": false,
-        "misconceptionId": "m02-mc07",
-        "feedback": "El énfasis no resuelve un contexto saturado de intentos fallidos. Hay que empezar limpio."
+        "text": "En la especificación: defines «cliente» y añades un caso de prueba; luego reejecutas",
+        "correct": true,
+        "feedback": "Correcta. El error nació de un hueco en la especificación. Si solo se corrige el código, el hueco queda para el siguiente agente."
       },
       {
         "id": "o3",
-        "text": "Limpias el contexto y reescribes la petición con lo aprendido",
-        "correct": true,
-        "feedback": "Correcta. Una petición nueva que incorpore lo aprendido suele funcionar mejor que seguir corrigiendo sobre un historial confuso."
+        "text": "Le pides al agente que deduzca si un cliente con sucursales cuenta una vez",
+        "correct": false,
+        "misconceptionId": "m02-mc08",
+        "feedback": "Es una definición de negocio, no algo deducible. Si el agente la elige, queda invisible."
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m02-l5#ciclo",
+    "sectionRef": "m02-l5#origen",
     "sourceIds": [
-      "src-anthropic-cc-best-practices"
+      "src-github-speckit-quickstart",
+      "src-openai-codex-execplans"
     ],
     "status": "draft"
   },
@@ -1314,41 +1313,40 @@
     "courseId": "m02",
     "evaluatedObjectiveId": "m02-eo5",
     "competencyIds": [
-      "C07",
-      "C12"
+      "C07"
     ],
     "difficulty": "advanced",
     "process": "evaluate",
     "family": "m02-f10",
     "variant": "c",
-    "scenario": "Una revisión en contexto limpio devuelve seis hallazgos: uno dice que la cobertura usa la cuota anual en vez de la trimestral; cinco proponen nombres de variables distintos.",
+    "scenario": "Tras dos ajustes al código, el porcentaje de «cobranza a tiempo» sigue sin coincidir con el de finanzas. La especificación no dice si «a tiempo» incluye días de gracia.",
     "stem": "¿Qué haces?",
     "options": [
       {
         "id": "o1",
-        "text": "Corriges la cobertura y decides con criterio sobre los nombres",
-        "correct": true,
-        "feedback": "Correcta. Lo obligatorio es lo que afecta a requisitos y corrección. Un revisor al que se le piden fallas casi siempre encuentra alguna."
+        "text": "Pides al agente probar ambas definiciones y quedarte con la que coincida con finanzas",
+        "correct": false,
+        "misconceptionId": "m02-mc56",
+        "feedback": "La coincidencia puede ser casual y oculta la decisión. La definición la confirma finanzas; después se comprueba la cifra."
       },
       {
         "id": "o2",
-        "text": "Atiendes los seis, porque el revisor es independiente",
+        "text": "Sigues ajustando el código hasta que el porcentaje coincida con el de finanzas",
         "correct": false,
-        "misconceptionId": "m02-mc23",
-        "feedback": "Independiente no significa infalible. Perseguir todos los hallazgos lleva a la sobreingeniería."
+        "misconceptionId": "m02-mc44",
+        "feedback": "El problema no está en el código, sino en una definición que falta. Ajustar hasta que coincida esconde el hueco."
       },
       {
         "id": "o3",
-        "text": "Descartas la revisión y pides al agente autor que revise su trabajo",
-        "correct": false,
-        "misconceptionId": "m02-mc22",
-        "feedback": "La autorrevisión en el mismo contexto detecta menos. Y el error de la cobertura sigue sin corregirse."
+        "text": "Aclaras la definición con finanzas y la añades a la especificación con un caso de prueba",
+        "correct": true,
+        "feedback": "Correcta. El error nace de la especificación. Con la definición confirmada y un caso de prueba, el siguiente cálculo es comprobable."
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m02-l5#revision",
+    "sectionRef": "m02-l5#origen",
     "sourceIds": [
-      "src-anthropic-cc-best-practices",
+      "src-github-speckit-quickstart",
       "src-anthropic-prompting-fable5"
     ],
     "status": "draft"
@@ -1589,41 +1587,42 @@
     "courseId": "m02",
     "evaluatedObjectiveId": "m02-eo6",
     "competencyIds": [
+      "C02",
       "C12"
     ],
     "difficulty": "advanced",
     "process": "evaluate",
     "family": "m02-f12",
     "variant": "c",
-    "scenario": "Comparaste dos prompts con tres casos sencillos, una vez cada uno. La versión B acertó los tres y la A, dos.",
-    "stem": "¿Qué concluyes?",
+    "scenario": "El reporte final dice «Reconciliación correcta: 16 de 16 KPI». No incluye el comando ni la salida, y en la sesión no aparece ninguna ejecución del check.",
+    "stem": "¿Qué haces?",
     "options": [
       {
         "id": "o1",
-        "text": "B es mejor: ganó tres a dos",
+        "text": "Lo aceptas: cita un resultado preciso y ese nivel de detalle indica que lo ejecutó",
         "correct": false,
-        "misconceptionId": "m02-mc28",
-        "feedback": "Tres casos sencillos probados una vez no permiten concluir. La diferencia puede deberse a la variabilidad del modelo."
+        "misconceptionId": "m02-mc27",
+        "feedback": "Un resultado citado sigue siendo una afirmación. Si la sesión no muestra la ejecución, no hay evidencia."
       },
       {
         "id": "o2",
-        "text": "Hace falta un juez LLM que decida una vez cuál es mejor",
-        "correct": false,
-        "misconceptionId": "m02-mc29",
-        "feedback": "Un juez sin rúbrica ni calibración tiene sesgos. No sustituye a varios ensayos sobre casos fijos."
+        "text": "Pides el comando y su salida, y lo compruebas contra lo que muestra la sesión",
+        "correct": true,
+        "feedback": "Correcta. Cada afirmación de progreso se audita contra un resultado real de la sesión. Sin ejecución visible, el check no está demostrado."
       },
       {
         "id": "o3",
-        "text": "Aún no: faltan casos fijos con casos borde y varios ensayos por versión",
-        "correct": true,
-        "feedback": "Correcta. Los modelos no son deterministas. Hacen falta casos representativos, incluidos los difíciles, y varios ensayos."
+        "text": "Lo aceptas si el diff del cálculo se ve ordenado y razonable",
+        "correct": false,
+        "misconceptionId": "m02-mc55",
+        "feedback": "Un diff razonable dice qué cambió, no que el resultado sea correcto. Hace falta la salida del check."
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m02-l6#comparar",
+    "sectionRef": "m02-l6#evidencia",
     "sourceIds": [
-      "src-anthropic-evals-agents",
-      "src-openai-eval-best-practices"
+      "src-anthropic-prompting-fable5",
+      "src-anthropic-cc-best-practices"
     ],
     "status": "draft"
   }

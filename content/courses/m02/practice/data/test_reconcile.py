@@ -62,7 +62,7 @@ class ReconcileTest(unittest.TestCase):
             path.write_text(json.dumps(assumptions), encoding="utf-8")
             result = run_check("kpis_correct.json", path)
         self.assertEqual(result.returncode, 2, result.stdout + result.stderr)
-        self.assertIn("ERROR unknown_stage: En revisión (OPP-1036)", result.stderr)
+        self.assertIn("En revisión (OPP-1036)", result.stderr)
 
     def _run_with(self, **changes: object) -> subprocess.CompletedProcess[str]:
         assumptions = json.loads(ASSUMPTIONS.read_text(encoding="utf-8"))
@@ -108,6 +108,21 @@ class ReconcileTest(unittest.TestCase):
             )
         self.assertEqual(result.returncode, 2, result.stdout + result.stderr)
         self.assertIn("falta el campo data_quality_issues", result.stderr)
+
+    def test_monday_snapshot_stops_or_reports_the_new_stage(self) -> None:
+        monday = ["--snapshot", "opportunities_snapshot_2026-10-26.csv"]
+        base = [sys.executable, str(SCRIPT), "--data-dir", str(ROOT), "--kpis", str(EXPECTED / "kpis_correct.json")]
+        assumptions = json.loads(ASSUMPTIONS.read_text(encoding="utf-8"))
+        with tempfile.TemporaryDirectory() as temporary:
+            strict = Path(temporary) / "strict.json"
+            strict.write_text(json.dumps({k: v for k, v in assumptions.items() if k != "unknown_stage_policy"}), encoding="utf-8")
+            stopped = subprocess.run(base + ["--assumptions", str(strict)] + monday, text=True, encoding="utf-8", capture_output=True, check=False)
+            reported = subprocess.run(base + ["--assumptions", str(ASSUMPTIONS)] + monday, text=True, encoding="utf-8", capture_output=True, check=False)
+        self.assertEqual(stopped.returncode, 2, stopped.stdout + stopped.stderr)
+        self.assertIn("En pausa (OPP-1040)", stopped.stderr)
+        self.assertIn("En revisión (OPP-1036)", stopped.stderr)
+        self.assertIn("AVISO etapa sin probabilidad OPP-1040 (En pausa)", reported.stdout)
+        self.assertIn("FAIL as_of_date", reported.stdout)  # los KPI del 19 no sirven para el 26
 
     def test_exclusions_are_reported_not_silent(self) -> None:
         result = run_check("kpis_correct.json")

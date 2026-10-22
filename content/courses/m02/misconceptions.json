@@ -543,5 +543,15 @@
       "src-anthropic-cc-best-practices",
       "src-anthropic-prompting-fable5"
     ]
+  },
+  {
+    "id": "m02-mc56",
+    "courseId": "m02",
+    "description": "Elegir la definición que hace coincidir la cifra con la esperada resuelve la ambigüedad.",
+    "whyWrong": "La coincidencia puede ser casual y oculta una decisión de negocio; la definición la confirma su dueño y después se comprueba la cifra.",
+    "sourceIds": [
+      "src-anthropic-prompting-fable5",
+      "src-github-speckit-sdd-doc"
+    ]
   }
 ]

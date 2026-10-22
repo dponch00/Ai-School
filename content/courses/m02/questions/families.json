@@ -1,0 +1,74 @@
+[
+  {
+    "family": "m02-f01",
+    "evaluatedObjectiveId": "m02-eo1",
+    "decision": "Elegir el objetivo que nombra usuario, entregable, periodo y decisión",
+    "equivalence": "Las tres variantes piden elegir el mejor objetivo entre opciones con los mismos tipos de error: ambición sin alcance, el cómo en lugar del para qué y falta de decisión o de contexto. Cambia el dominio (tesorería, compras, RR. HH.); la variante c es más difícil porque el distractor principal tiene usuario y periodo."
+  },
+  {
+    "family": "m02-f02",
+    "evaluatedObjectiveId": "m02-eo1",
+    "decision": "Reconocer que una petición de explicar o revisar es un diagnóstico: se informa, no se modifica",
+    "equivalence": "Las tres piden el entregable ante una petición de diagnóstico; los distractores son siempre modificar y añadir algo no pedido. La variante c compara versiones, lo que exige separar entender de revertir."
+  },
+  {
+    "family": "m02-f03",
+    "evaluatedObjectiveId": "m02-eo2",
+    "decision": "Elegir el paquete de contexto específico para una corrección",
+    "equivalence": "Las tres piden elegir entre contexto específico, contexto excesivo y contexto ausente para una corrección acotada. La variante c añade un patrón de estilo que imitar."
+  },
+  {
+    "family": "m02-f04",
+    "evaluatedObjectiveId": "m02-eo2",
+    "decision": "Ante una ambigüedad o un dato faltante que cambia cifras, preguntar o reportar en lugar de inventar o excluir",
+    "equivalence": "Las variantes a y c piden elegir qué ambigüedad se pregunta; la b, qué hacer con un dato de política que falta. La decisión es la misma: lo que cambia cifras visibles no se inventa ni se resuelve en silencio. Los distractores son preguntar todo, decidir en silencio y excluir."
+  },
+  {
+    "family": "m02-f05",
+    "evaluatedObjectiveId": "m02-eo3",
+    "decision": "Detectar que una salida válida contra el esquema puede tener valores falsos y exigir una invariante en código",
+    "equivalence": "Las tres presentan una salida que valida y una relación entre valores que no se cumple; la clave es siempre una invariante en código. Cambia la relación (suma de gastos, factura, conciliación)."
+  },
+  {
+    "family": "m02-f06",
+    "evaluatedObjectiveId": "m02-eo3",
+    "decision": "Elegir un caso concreto con su resultado esperado frente a una regla abstracta o un ejemplo de formato",
+    "equivalence": "Las tres piden el elemento verificable para la especificación; la clave siempre es un caso con entrada y resultado esperado, y los distractores, una prohibición, una advertencia o un formato."
+  },
+  {
+    "family": "m02-f07",
+    "evaluatedObjectiveId": "m02-eo4",
+    "decision": "Diagnosticar, a partir del síntoma de una entrega, qué parte de la especificación faltó",
+    "equivalence": "La decisión es la misma, ir del síntoma a la parte ausente, aunque la respuesta correcta sea distinta en cada variante (terminado, archivos, supuestos). Se acepta como equivalente porque las tres exigen el mismo modelo de las cinco partes y tienen distractores del mismo tipo (más contexto, más énfasis, prompt más largo). Equivalencia supuesta, a revisar con datos del piloto."
+  },
+  {
+    "family": "m02-f08",
+    "evaluatedObjectiveId": "m02-eo4",
+    "decision": "Una definición de negocio pendiente la decide su dueño, no el agente ni quien especifica",
+    "equivalence": "Las tres plantean una definición de negocio sin dueño durante la especificación; la clave es siempre llevarla al dueño y no implementarla, y los distractores, definirla uno mismo o adoptar la propuesta del agente."
+  },
+  {
+    "family": "m02-f09",
+    "evaluatedObjectiveId": "m02-eo5",
+    "decision": "Decidir si un cambio merece plan con hitos verificables o una petición directa",
+    "equivalence": "Las tres piden la forma de dirigir un cambio según su alcance. Las variantes a y b son cambios amplios (plan con hitos y prueba); la c es trivial (petición directa). La decisión es la misma; varía el lado de la regla. Equivalencia supuesta, a revisar con datos del piloto."
+  },
+  {
+    "family": "m02-f10",
+    "evaluatedObjectiveId": "m02-eo5",
+    "decision": "Si el error nace de un hueco en la especificación, corregir la especificación con una definición y un caso de prueba",
+    "equivalence": "Las tres presentan una cifra errónea causada por una definición ausente; la clave es corregir la especificación. La variante c es más difícil porque añade la tentación de ajustar hasta que la cifra coincida."
+  },
+  {
+    "family": "m02-f11",
+    "evaluatedObjectiveId": "m02-eo6",
+    "decision": "Redactar o elegir un criterio de aceptación observable y comprobable",
+    "equivalence": "Las tres piden el criterio observable frente a uno vago y uno sobre un estado interno u omitido."
+  },
+  {
+    "family": "m02-f12",
+    "evaluatedObjectiveId": "m02-eo6",
+    "decision": "Rechazar una afirmación de éxito sin evidencia y pedir el comando y su salida",
+    "equivalence": "Las tres presentan un cierre del agente sin evidencia ejecutable; la clave es siempre pedir comando y salida. La variante c es más difícil porque la afirmación es precisa."
+  }
+]

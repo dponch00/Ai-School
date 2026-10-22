@@ -4,7 +4,7 @@
 Vas a convertir una petición real de tan mala calidad como las que llegan un viernes en una especificación que **cualquier agente pueda ejecutar y cualquier persona pueda verificar**. Al final, un cambio inesperado pondrá a prueba si tu especificación aguanta.
 :::
 
-**Tiempo estimado:** de 75 a 90 minutos, en dos o tres sesiones. **Datos:** sintéticos, de la empresa ficticia Altiplano Industrial S.A. Ninguna cifra es real.
+**Tiempo estimado [H]:** de 75 a 90 minutos, en dos o tres sesiones. Es una hipótesis: anota cuánto tardas, porque con ese dato se ajusta. **Datos:** sintéticos, de la empresa ficticia Altiplano Industrial S.A. Ninguna cifra es real.
 
 ## Lo que entregas {#entregables}
 
@@ -100,21 +100,25 @@ Primero escribe en el cuaderno tu **decisión inicial**: qué dice tu especifica
 Después abre el cambio:
 
 ::::reveal{title="Lunes, 8:15"}
-Marta envía el snapshot del 2026-10-26. Trae una etapa nueva, **«En pausa»**, con tres oportunidades del Centro que suman USD 410 000. FP&A todavía no le ha asignado probabilidad.
+Marta envía el snapshot del 2026-10-26 (`practice/data/opportunities_snapshot_2026-10-26.csv`). Trae una etapa nueva, **«En pausa»**, con tres oportunidades del Centro. FP&A todavía no le ha asignado probabilidad.
 ::::
 
 Completa el cuaderno:
 
 1. **Decisión inicial:** lo que habías escrito.
-2. **Contraejemplo:** qué pasaría con tu especificación tal como está, cifra por cifra, si un agente la ejecutara con el snapshot nuevo.
+2. **Contraejemplo:** qué pasaría con tu especificación tal como está si un agente la ejecutara con el snapshot nuevo. Compruébalo con el check sobre ese snapshot, primero sin declarar qué hacer con etapas sin probabilidad y después declarándolo, y anota qué cifras cambian en cada caso:
+
+   ```bash
+   python practice/data/reconcile.py --data-dir practice/data --snapshot opportunities_snapshot_2026-10-26.csv --kpis practice/data/expected/kpis_correct.json --assumptions supuestos.json
+   ```
+
+   Los KPI de ejemplo son los del 19, así que el check marcará diferencias: lo que importa es qué hace con la etapa nueva.
 3. **Decisión revisada:** qué cambias en la especificación (si cambias algo) y por qué.
 4. **Evidencia:** qué dato, caso o regla te hizo cambiar de criterio, o por qué tu especificación ya cubría el caso.
 
-Si tu especificación ya decía «detente y reporta», el cuaderno lo demuestra: también eso es evidencia.
-
 ## Paso 7 · Opcional: ejecútalo con un agente {#paso-7}
 
-En tu propio entorno, ejecuta dos versiones con un agente de código: **A**, la petición original del director, y **B**, tu prompt de ejecución. Si el costo lo permite, haz al menos 3 ensayos por versión. Después comprueba cada resultado con el check:
+En tu propio entorno, ejecuta dos versiones con un agente de código: **A**, la petición original del director, y **B**, tu prompt de ejecución. Si el costo lo permite, haz al menos 3 ensayos por versión. Después comprueba cada resultado con el check, **desde la carpeta del manual** (`content/courses/m02` en el repositorio, o la carpeta donde descargaste los materiales del laboratorio):
 
 ```bash
 python practice/data/reconcile.py --data-dir practice/data --kpis kpis.json --assumptions supuestos.json

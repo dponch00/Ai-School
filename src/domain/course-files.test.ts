@@ -41,7 +41,9 @@ for (const courseDir of readdirSync(resolve(root, 'courses'))) {
     const checkIds = new Set(checks.map((q) => q.id))
     const examPath = `courses/${courseDir}/questions/exam.json`
     const exam = existsSync(resolve(root, examPath)) ? Question.array().parse(read(examPath)) : []
-    const allQuestions = [...checks, ...exam]
+    const practicePath = `courses/${courseDir}/questions/practice.json`
+    const practiceItems = existsSync(resolve(root, practicePath)) ? Question.array().parse(read(practicePath)) : []
+    const allQuestions = [...checks, ...exam, ...practiceItems]
     const lessonFiles = readdirSync(resolve(root, `courses/${courseDir}/lessons`)).filter((f) => f.endsWith('.json'))
     const lessons = lessonFiles.map((f) => Lesson.parse(read(`courses/${courseDir}/lessons/${f}`)))
 
@@ -113,6 +115,25 @@ for (const courseDir of readdirSync(resolve(root, 'courses'))) {
       const rng = () => ((seed = (seed * 1103515245 + 12345) % 2147483648) / 2147483648)
       const form = selectExam({ bank: published, evaluatedObjectiveIds: course.evaluatedObjectives.map((o) => o.id), itemsPerObjective: 2, rng })
       expect(form).toHaveLength(course.evaluatedObjectives.length * 2)
+    })
+
+    it('banco de práctica separado del examen (estándar §4.1) y familias del examen documentadas (T-009)', () => {
+      const ids = allQuestions.map((q) => q.id)
+      expect(new Set(ids).size, 'IDs repetidos entre comprobaciones, examen y práctica').toBe(ids.length)
+      for (const q of practiceItems) expect(q.use, q.id).toBe('practice')
+      const examScenarios = new Set(exam.map((q) => q.scenario))
+      for (const q of practiceItems) expect(examScenarios.has(q.scenario), `${q.id} comparte escenario con el examen`).toBe(false)
+      const famPath = `courses/${courseDir}/questions/families.json`
+      if (exam.length === 0) return
+      expect(existsSync(resolve(root, famPath)), 'falta families.json').toBe(true)
+      const families: { family: string; evaluatedObjectiveId: string; decision: string; equivalence: string }[] = read(famPath)
+      const byId = new Map(families.map((f) => [f.family, f]))
+      for (const q of exam) {
+        const f = byId.get(q.family!)
+        expect(f, `${q.family} sin decisión documentada`).toBeDefined()
+        expect(f!.evaluatedObjectiveId, `${q.id}: objetivo distinto del de su familia`).toBe(q.evaluatedObjectiveId)
+        expect(f!.decision.length + f!.equivalence.length, q.family).toBeGreaterThan(40)
+      }
     })
 
     it('laboratorio: cumple el contrato Practice y cubre objetivos del blueprint', () => {

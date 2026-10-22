@@ -4,23 +4,23 @@
 
 ## Siguiente acción
 
-1. **Daniel → Codex:** pasarle T-009 (revisión del banco de examen y del laboratorio de M02, y actualización del manifiesto).
-2. **Claude, en paralelo:** esqueleto de la app con el diseño D1 (F1-01) y pipeline de contenido (F1-02), para ver M02 en el navegador.
+1. **Daniel → Codex:** pasarle T-010 (revisión de las 13 variantes nuevas del banco y de los cambios del laboratorio).
+2. **Claude:** esqueleto de la app con el diseño D1 (F1-01) y pipeline de contenido (F1-02), para ver M02 en el navegador.
 3. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-21)
 
-**≈ 19 % de la V1** (rango razonable: 16–23 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 20 % de la V1** (rango razonable: 17–23 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
-| 1 · Piloto M02 | 22 % | 42 % (contenido completo: lecciones, banco de 36 ítems, laboratorio e imágenes; falta toda la app y la revisión del piloto) | 9,2 |
+| 1 · Piloto M02 | 22 % | 45 % (contenido completo y revisado; 13 variantes nuevas en revisión; falta toda la app y la revisión del piloto) | 9,9 |
 | 2 · Base de app y PWA | 15 % | 5 % (contratos y validación) | 0,8 |
 | 3 · Nueve manuales restantes | 40 % | 3 % (currículo y mapa de competencias) | 1,2 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 19 %** |
+| **Total** | 100 % | | **≈ 20 %** |
 
 ## Tickets
 
@@ -34,20 +34,24 @@
 | [T-006](coordinacion/tickets/T-006-codex-revision-patron-m02.md) | Codex | Revisión temprana del patrón de M02 (L1 y L2) | cerrado |
 | [T-007](coordinacion/tickets/T-007-codex-datos-laboratorio-m02.md) | Codex | Datos sintéticos y check de reconciliación del laboratorio M02 | cerrado |
 | [T-008](coordinacion/tickets/T-008-codex-revision-m02-l3-l6.md) | Codex | Revisión de L3–L6, diagrama y reconciliador | cerrado |
-| [T-009](coordinacion/tickets/T-009-codex-revision-examen-laboratorio-m02.md) | Codex | Revisión del banco de examen y del laboratorio M02 | abierto |
+| [T-009](coordinacion/tickets/T-009-codex-revision-examen-laboratorio-m02.md) | Codex | Revisión del banco de examen y del laboratorio M02 | cerrado |
+| [T-010](coordinacion/tickets/T-010-codex-revision-variantes-nuevas.md) | Codex | Revisión de las 13 variantes nuevas y del laboratorio | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
 | Claude | `src/` (esqueleto de la app) |
-| Codex (T-009) | `investigacion/codex-revision-examen-laboratorio-m02.md`, `design/asset-manifest.json` |
+| Codex (T-010) | `investigacion/codex-revision-variantes-nuevas.md` |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-21 · Claude Code — revisión de T-009
+Los 7 hallazgos de Codex se aplicaron. El principal: diez familias del banco mezclaban decisiones distintas, y una familia debe medir una sola para que los reintentos sean comparables. Ahora cada familia mide una decisión (documentada en `families.json`); 13 ítems pasaron a un banco de práctica y se escribieron 13 variantes nuevas. Laboratorio: comando con carpeta de trabajo, snapshot del lunes comprobable con el check y tiempo marcado como hipótesis. `npm test` 52/52; `test_reconcile.py` 10/10. Abierto T-010.
 
 ### 2026-10-21 · Claude Code — banco de examen y laboratorio de M02
 Contenido de M02 completo. Banco de examen de 36 ítems (12 familias × 3 variantes, escenarios distintos de las comprobaciones, clave repartida 12/12/12 entre posiciones) y 8 conceptos erróneos nuevos (55). Laboratorio en 7 pasos con dos tarjetas que se revelan, rúbrica de 5 criterios (3 críticos) y cuaderno de decisiones con el cambio del lunes. Pruebas nuevas: banco coherente y con cobertura del blueprint, examen de 12 armable, laboratorio según el contrato `Practice`; el umbral de sesgo de longitud baja a 40 % y obligó a rebalancear 14 ítems. `npm test` 51/51. Avance estimado: ≈ 19 %.

@@ -76,6 +76,7 @@ un máximo de 0.0001 y los conteos deben coincidir exactamente.
 - expected/kpis_correct.json: salida que pasa con los supuestos de referencia.
 - expected/kpis_error_duplicate.json: salida que cuenta dos veces OPP-1012.
 - expected/kpis_error_eur.json: salida que toma EUR como si fuera USD.
+- opportunities_snapshot_2026-10-26.csv: el snapshot del lunes del cuaderno de decisiones (paso 6). Es el del 19 más tres oportunidades del Centro en la etapa «En pausa» (OPP-1040 a OPP-1042, USD 410 000), sin probabilidad. Se usa con `--snapshot opportunities_snapshot_2026-10-26.csv`; sin política para etapas desconocidas, el check se detiene y lista todas.
 - expected/kpis_error_missing_issue.json: cifras correctas, pero no reporta la etapa sin probabilidad de OPP-1036.
 - expected/assumptions_reference.json: decisiones explícitas para reproducir
   el fixture.

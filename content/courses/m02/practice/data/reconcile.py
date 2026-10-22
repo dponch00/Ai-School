@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import re
 import sys
 from datetime import date
 from decimal import Decimal, InvalidOperation
@@ -23,7 +24,7 @@ RATIO_TOLERANCE = Decimal("0.0001")
 
 
 DUPLICATE_POLICIES = ("latest_last_activity", "highest_amount")
-SNAPSHOT_DATE = "2026-10-19"
+DEFAULT_SNAPSHOT = "opportunities_snapshot_2026-10-19.csv"
 ISSUE_TYPES = ("duplicate_id", "missing_close_date", "unknown_stage")
 
 
@@ -146,6 +147,7 @@ def calculate(
     assumptions: dict[str, Any],
     notices: list[str] | None = None,
     issues: set[tuple[str, str]] | None = None,
+    snapshot: str = DEFAULT_SNAPSHOT,
 ) -> list[dict[str, str]]:
     notices = [] if notices is None else notices
     issues = set() if issues is None else issues
@@ -176,10 +178,11 @@ def calculate(
         }
         for region in REGIONS
     }
-    raw_rows = read_csv(data_dir / "opportunities_snapshot_2026-10-19.csv")
+    raw_rows = read_csv(data_dir / snapshot)
     issues.update(("duplicate_id", opp_id) for opp_id in duplicated_ids(raw_rows))
     rows = dedupe_rows(raw_rows, assumptions.get("duplicate_policy"), notices)
 
+    unknown: list[str] = []
     for row in rows:
         region = row["region"]
         if region not in metrics:
@@ -193,10 +196,8 @@ def calculate(
                     "excluida del pipeline por la política declarada"
                 )
                 continue
-            raise ReconciliationError(
-                f"unknown_stage: {row['stage']} ({row['opp_id']}) no tiene probabilidad aprobada. "
-                "Pide la probabilidad a FP&A o declara unknown_stage_policy: exclude_and_report"
-            )
+            unknown.append(f"{row['stage']} ({row['opp_id']})")
+            continue
         if row["currency"] not in fx_rates:
             raise ReconciliationError(f"missing_fx_rate: no hay tipo de cambio para {row['currency']}")
         amount_usd = decimal(row["amount"], f"amount {row['opp_id']}") * fx_rates[
@@ -216,6 +217,12 @@ def calculate(
             metrics[region]["open_pipeline"] += amount_usd
             metrics[region]["weighted_pipeline"] += amount_usd * probabilities[stage]
 
+    if unknown:
+        # Se listan todas de una vez para que el alumno vea el alcance completo del problema.
+        raise ReconciliationError(
+            "unknown_stage: sin probabilidad aprobada: " + ", ".join(unknown)
+            + ". Pide la probabilidad a FP&A o declara unknown_stage_policy: exclude_and_report"
+        )
     output: list[dict[str, str]] = []
     for region in REGIONS:
         open_pipeline = metrics[region]["open_pipeline"]
@@ -267,8 +274,18 @@ def tolerance_for(metric: str, requested: Decimal) -> Decimal:
     return requested
 
 
+def snapshot_date(snapshot: str) -> str:
+    match = re.search(r"(\d{4}-\d{2}-\d{2})", snapshot)
+    if not match:
+        raise ReconciliationError(f"invalid_snapshot: el nombre {snapshot} no contiene una fecha AAAA-MM-DD")
+    return match.group(1)
+
+
 def compare(
-    calculated: list[dict[str, str]], dashboard: dict[str, Any], requested_tolerance: Decimal
+    calculated: list[dict[str, str]],
+    dashboard: dict[str, Any],
+    requested_tolerance: Decimal,
+    as_of: str = "2026-10-19",
 ) -> tuple[list[str], int]:
     if dashboard.get("schema_version") != "1.0":
         raise ReconciliationError("invalid_kpis_schema_version: se esperaba schema_version 1.0")
@@ -280,8 +297,8 @@ def compare(
         raise ReconciliationError("invalid_kpis: kpis debe ser una lista")
     lines: list[str] = []
     failed = 0
-    if dashboard.get("as_of_date") != SNAPSHOT_DATE:
-        lines.append(f"FAIL as_of_date: dashboard={dashboard.get('as_of_date')} esperado={SNAPSHOT_DATE}")
+    if dashboard.get("as_of_date") != as_of:
+        lines.append(f"FAIL as_of_date: dashboard={dashboard.get('as_of_date')} esperado={as_of}")
         failed += 1
     if dashboard.get("reporting_currency") != "USD":
         lines.append(f"FAIL reporting_currency: dashboard={dashboard.get('reporting_currency')} esperado=USD")
@@ -352,8 +369,8 @@ def run(args: argparse.Namespace) -> int:
     dashboard = read_json(Path(args.kpis))
     notices: list[str] = []
     issues: set[tuple[str, str]] = set()
-    calculated = calculate(data_dir, assumptions, notices, issues)
-    lines, failed = compare(calculated, dashboard, decimal(args.tolerance, "tolerance"))
+    calculated = calculate(data_dir, assumptions, notices, issues, args.snapshot)
+    lines, failed = compare(calculated, dashboard, decimal(args.tolerance, "tolerance"), snapshot_date(args.snapshot))
     issue_lines, issue_failed = compare_issues(dashboard, issues)
     failed += issue_failed
     print("\n".join(notices + lines + issue_lines))
@@ -366,6 +383,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--kpis", required=True, help="JSON que produjo el dashboard")
     parser.add_argument("--assumptions", required=True, help="JSON de supuestos aprobados")
     parser.add_argument("--tolerance", default="0.01", help="Tolerancia monetaria en USD")
+    parser.add_argument("--snapshot", default=DEFAULT_SNAPSHOT, help="Archivo del snapshot dentro de --data-dir")
     return parser.parse_args(argv)
 
 
