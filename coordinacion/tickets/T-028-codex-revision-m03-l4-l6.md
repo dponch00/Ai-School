@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-23 |
 | Depende de | T-027 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -54,7 +54,10 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`.
 
 ## Entrega
 
-_(Codex)_
+- Informe: investigacion/codex-revision-m03-l4-l6.md.
+- Hallazgo: T028-01 (media), pista de longitud en seis claves.
+- Verificación: npm test (134/134).
+- Estado: entregado.
 
 ## Revisión
 
