@@ -231,6 +231,22 @@ describe('reporte de evaluación', () => {
     expect(diag.record.byCompetency).toEqual([])
     expect(diag.html).toContain('Diagnóstico por bloque')
     expect(diag.html).toContain('B2 · Especificación')
+    // T019-01: instrucción y Markdown propios del diagnóstico
+    expect(diag.html).not.toContain('Evalúa mis competencias por separado')
+    expect(diag.html).toContain('No infieras ni certifiques dominio')
+    expect(diag.markdown).toContain('## Diagnóstico por bloque')
+    expect(diag.markdown).not.toContain('Resumen por competencia')
+    expect(diag.markdown).not.toContain('Evalúa mis competencias')
+  })
+
+  it('una microtarea del diagnóstico no se presenta como laboratorio (T019-04)', () => {
+    const micro = { id: 'dx-mt1', courseId: 'm00', version: '1.0.0', title: 'Microtarea del diagnóstico: Mejorar una instrucción', deliverable: 'una especificación breve', rubric: practice.rubric, diagnostic: true } as unknown as typeof practice & { diagnostic: boolean }
+    const sub = { ...submission, id: 'submission-micro-1', practiceId: 'dx-mt1', practiceVersion: '1.0.0', evidence: [] }
+    const built = buildReport(record({ submissions: [sub] }), { ...ctx, practices: [practice, micro] }, opts({ scope: { kind: 'diagnostic' } }))
+    expect(built.submissions).toEqual({ labs: 0, microtasks: 1 })
+    expect(built.html).toContain('No es un laboratorio de curso')
+    expect(built.markdown).toContain('## Microtareas del diagnóstico')
+    expect(built.markdown).not.toContain('## Laboratorios')
   })
 })
 

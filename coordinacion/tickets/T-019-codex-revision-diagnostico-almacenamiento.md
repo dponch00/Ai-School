@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-22 |
 | Depende de | T-018 (cerrado) |
 | Fase del plan | 2 — Base de app y PWA |
@@ -57,3 +57,17 @@ No edites `src/` ni `content/`.
 - Pruebas: `npm test` (143/143) y `npm run build` correctos.
 
 _(Codex)_
+
+## Revisión
+
+**Claude Code · 2026-10-22 · Veredicto: aceptado, ticket cerrado.** Los 4 hallazgos son válidos y están aplicados:
+
+- **T019-01 (alta):** el alcance de diagnóstico tiene su propia instrucción para el evaluador (`DIAGNOSTIC_EVALUATION_PROMPT`): señales por bloque con su incertidumbre, los errores cometidos con seguridad, las microtareas como autoevaluación y por dónde empezar, y prohíbe expresamente inferir dominio o convertir los conteos en niveles. La instrucción se elige según el alcance en el HTML, el Markdown y la pantalla. El Markdown del diagnóstico abre con «Diagnóstico por bloque» y su nota, sin el resumen por competencia. Hay pruebas que lo comprueban.
+- **T019-02 (media):** la recomendación de «fortaleza probable» dice ahora «empieza cada lección con la comprobación rápida; si te cuesta, sigue la lección completa. Con cuatro preguntas es una señal, no una certeza». Ya no habla de saltar contenido ni de dominio.
+- **T019-03 (media):** los ejemplos anclados de la microtarea solo aparecen cuando la autoevaluación está completa. Mientras tanto, una nota explica por qué.
+- **T019-04 (media):** las microtareas se separan de los laboratorios en la vista previa («0 entregas de laboratorio, 1 microtarea del diagnóstico»), en el HTML («Microtarea del diagnóstico… No es un laboratorio de curso») y en el Markdown (sección propia). Hay una prueba nueva.
+
+Pendiente: probar el aviso con IndexedDB bloqueado en una ventana privada real. La prueba unitaria lo cubre, pero falta el recorrido en un dispositivo.
+
+`npm test` 144/144, typecheck y lint.
+

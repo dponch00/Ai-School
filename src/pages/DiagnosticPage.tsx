@@ -12,7 +12,7 @@ import { ExamForm } from './ExamPage'
 type Level = PracticeSubmission['selfAssessment'][number]['level']
 
 const SIGNAL: Record<BlockSignal, { label: string; advice: (manuals: string) => string }> = {
-  'likely-strength': { label: 'Fortaleza probable', advice: (m) => `En ${m} puedes avanzar más rápido: usa la comprobación rápida al inicio de cada lección y salta lo que ya dominas.` },
+  'likely-strength': { label: 'Fortaleza probable', advice: (m) => `En ${m}, empieza cada lección con la comprobación rápida; si te cuesta, sigue la lección completa. Con cuatro preguntas es una señal, no una certeza.` },
   'review-recommended': { label: 'Conviene repasar', advice: (m) => `Dale prioridad a ${m} y lee sus lecciones completas.` },
   'no-clear-signal': { label: 'Sin señal clara', advice: (m) => `Sigue ${m} en el orden normal; las comprobaciones de cada lección afinarán la señal.` },
   'incomplete-evidence': { label: 'Evidencia incompleta', advice: () => 'No respondiste las cuatro preguntas del bloque, así que no hay señal. Puedes repetir el diagnóstico cuando quieras.' },
@@ -191,7 +191,8 @@ function MicrotaskForm({ task, stored }: { task: MicrotaskView; stored?: Practic
       </fieldset>
       <button type="button" className="button button--primary" disabled={!first.trim() || !answer.trim()} onClick={save}>Guardar microtarea</button>
       {status && <p role="status">{status}</p>}
-      {stored && (
+      {stored && stored.state === 'presented' && <p className="muted">Los ejemplos de respuesta se muestran cuando completes la autoevaluación de cada criterio, para que no condicionen tu juicio.</p>}
+      {stored && stored.state !== 'presented' && (
         <details className="model-answer">
           <summary>Ver ejemplos de respuesta lograda e insuficiente</summary>
           <p><strong>Lograda:</strong> {task.anchors.achieved}</p>

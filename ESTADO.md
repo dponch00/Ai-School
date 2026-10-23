@@ -5,10 +5,9 @@
 ## Siguiente acción
 
 1. **Daniel:** hacer el recorrido completo como alumno (perfil, lecciones, examen, laboratorio, reporte compartido en un chat y retroalimentación registrada) y anotar su tiempo en `docs/registro-esfuerzo.md` o pasárselo a Claude. Con eso arranca el Bloque A.
-2. **Codex:** T-019, revisión del diagnóstico inicial y del manejo del almacenamiento.
-3. **Claude:** F2-07 (búsqueda, glosario, notas y marcadores) y F2-08 (pruebas de interacción y accesibilidad).
-4. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
-5. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
+2. **Claude:** F2-07 (búsqueda, glosario, notas y marcadores) y F2-08 (pruebas de interacción y accesibilidad).
+3. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
+4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-22)
 
@@ -46,19 +45,22 @@
 | [T-016](coordinacion/tickets/T-016-codex-revision-puerta-f1-13.md) | Codex | Revisión del documento de la puerta F1-13 | cerrado |
 | [T-017](coordinacion/tickets/T-017-codex-revision-reglas-examen-revisiones.md) | Codex | Revisión de las reglas del examen y las revisiones externas | cerrado |
 | [T-018](coordinacion/tickets/T-018-codex-repaso-errores-pwa-icono.md) | Codex | Ícono de la app y revisión del repaso de errores y la PWA | cerrado |
-| [T-019](coordinacion/tickets/T-019-codex-revision-diagnostico-almacenamiento.md) | Codex | Revisión del diagnóstico inicial y del manejo del almacenamiento | abierto |
+| [T-019](coordinacion/tickets/T-019-codex-revision-diagnostico-almacenamiento.md) | Codex | Revisión del diagnóstico inicial y del manejo del almacenamiento | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | F2-07 y F2-08 (sin tocar `diagnostic.ts`, `DiagnosticPage.tsx` ni `health.ts` hasta la entrega de T-019) |
+| Claude | F2-08 y F2-07 |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-22 · Claude Code — revisión de T-019
+Los 4 hallazgos de Codex se aplicaron. El alto: con el alcance de diagnóstico, la instrucción para el evaluador le pedía evaluar competencias y el Markdown abría con un resumen por competencia, lo que contradice D-015. Ahora el diagnóstico tiene su propia instrucción y su resumen por bloque. También se corrigieron estos puntos: la recomendación de «fortaleza probable» ya no habla de saltar lo que se domina; los ejemplos de la microtarea esperan a la autoevaluación completa, y las microtareas ya no se presentan como laboratorios. `npm test` 144/144.
 
 ### 2026-10-22 · Claude Code — diagnóstico inicial y almacenamiento (F2-06, F2-09)
 El diagnóstico ya funciona en `#/diagnostico`: 24 preguntas por bloque, sin aprobado, con señales por bloque, conteos, errores cometidos con seguridad y una recomendación que nombra los manuales del bloque. Las dos microtareas son opcionales; su autoevaluación afina la señal y queda rotulada como tal. El reporte tiene el alcance «diagnóstico» y lo resume por bloque, nunca por competencia (D-015). Si el navegador no deja guardar, un aviso global lo dice; en el perfil se ven el uso y se puede pedir almacenamiento persistente. `npm test` 143/143, lint y build. Abierto T-019. Avance: ≈ 37 %.

@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { APP_VERSION } from '../app/version'
 import { content } from '../content'
 import type { Practice } from '../domain/content'
-import { EVALUATION_PROMPT, MAX_EVALUATOR_QUESTIONS, PROFILE_FIELDS, SECTIONS, buildReport, type ProfileField, type SectionKey } from '../report/build'
+import { MAX_EVALUATOR_QUESTIONS, evaluationPromptFor, PROFILE_FIELDS, SECTIONS, buildReport, type ProfileField, type SectionKey } from '../report/build'
 import { db } from '../storage/db'
 import { loadRecord, saveReport, type LearnerRecord } from '../storage/learner'
 import { newLocalId, now } from '../storage/progress'
@@ -163,7 +163,7 @@ export default function EvaluationPage() {
             <h2 id="vista-previa">Vista previa</h2>
             <dl className="preview__facts">
               <dt>Fecha de corte</dt><dd>{new Date(stamp).toLocaleString('es')} ({timezone})</dd>
-              <dt>Contenido</dt><dd>{built.record.counts.attempts} intentos, {built.record.counts.responses} respuestas, {built.record.counts.practices} entregas de laboratorio</dd>
+              <dt>Contenido</dt><dd>{built.record.counts.attempts} intentos, {built.record.counts.responses} respuestas, {built.submissions.labs} entregas de laboratorio{built.submissions.microtasks > 0 ? `, ${built.submissions.microtasks} microtareas del diagnóstico` : ''}</dd>
               <dt>Cobertura</dt>
               <dd>
                 {[
@@ -194,8 +194,8 @@ export default function EvaluationPage() {
         <section className="section" aria-labelledby="instruccion">
           <h2 id="instruccion">Instrucción para el chat</h2>
           <p className="muted">Pégala junto con el archivo. El evaluador no recuerda reportes anteriores: cada uno trae lo necesario para entenderse solo.</p>
-          <pre className="prompt-block">{EVALUATION_PROMPT}</pre>
-          <button type="button" className="button" onClick={() => copy(EVALUATION_PROMPT, 'Instrucción')}>Copiar instrucción</button>
+          <pre className="prompt-block">{evaluationPromptFor(kind)}</pre>
+          <button type="button" className="button" onClick={() => copy(evaluationPromptFor(kind), 'Instrucción')}>Copiar instrucción</button>
         </section>
       </article>
     </div>
