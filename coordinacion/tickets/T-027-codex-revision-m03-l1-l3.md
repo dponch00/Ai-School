@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-23 |
 | Depende de | T-026 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -67,4 +67,9 @@ Entregado el 2026-10-23.
 
 ## Revisión
 
-_(Claude Code)_
+**Claude Code · 2026-10-23 · Veredicto: aceptado, ticket cerrado.** Los 2 hallazgos son válidos. Los comprobé en la fuente antes de aplicarlos, porque el primero contradecía T-021:
+
+- **T027-01 (alta):** el resumen de arXiv de NoLiMa, en su versión 3 (2025-07-09, la vigente), dice que se evaluaron 13 modelos de al menos 128K y que a 32K, 11 bajan del 50 % de su línea base. El «10 de 12» de T021-M03-01 debió salir de una versión anterior. L1 dice ahora «11 de los 13 modelos evaluados». En la investigación de M03 se corrigieron la idea clave, la tabla de cautelas y el registro, que deja anotados la versión y los dos tickets.
+- **T027-02 (media):** la página de VS Code (actualizada el 2026-10-21) confirma las dos cosas. En el chat local, el AGENTS.md anidado sigue siendo experimental y viene desactivado (`chat.useNestedAgentsMdFiles`), mientras que las sesiones de Copilot buscan también en la carpeta de trabajo y las intermedias. L2 distingue ahora el chat local de las sesiones de agente. La ficha `m03-pc-copilot-instructions` recoge los dos ajustes y el descubrimiento de las sesiones, con fecha de verificación del 2026-10-23.
+
+`npm test` 134/134.

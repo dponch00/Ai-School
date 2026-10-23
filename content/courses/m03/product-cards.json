@@ -45,16 +45,16 @@
       "ide",
       "cloud"
     ],
-    "capability": "En GitHub.com, Copilot usa .github/copilot-instructions.md, AGENTS.md en cualquier carpeta (gana el más cercano) y, como alternativa, un solo CLAUDE.md o GEMINI.md en la raíz; entrega todas las capas que aplican con prioridad personal > repositorio > organización, y las reglas por ruta (*.instructions.md con applyTo) valen en el agente en la nube y la revisión de código. La lista References de cada respuesta muestra qué instrucciones usó. En el chat de VS Code las capas son aditivas y «no hay orden general de precedencia»; lee AGENTS.md en la raíz (los anidados requieren un ajuste experimental) y CLAUDE.md con chat.useClaudeMdFile. La revisión de código lee las instrucciones de la rama con los cambios, no de la rama base.",
+    "capability": "En GitHub.com, Copilot usa .github/copilot-instructions.md, AGENTS.md en cualquier carpeta (gana el más cercano) y, como alternativa, un solo CLAUDE.md o GEMINI.md en la raíz; entrega todas las capas que aplican con prioridad personal > repositorio > organización, y las reglas por ruta (*.instructions.md con applyTo) valen en el agente en la nube y la revisión de código. La lista References de cada respuesta muestra qué instrucciones usó. En VS Code las capas son aditivas y «no hay orden general de precedencia». En el chat local, chat.useAgentsMdFile (activo por defecto) carga el AGENTS.md de la raíz; los anidados requieren además chat.useNestedAgentsMdFiles, experimental y desactivado por defecto; CLAUDE.md se activa con chat.useClaudeMdFile. Las sesiones de Copilot, en cambio, descubren instrucciones en la raíz del repositorio, en la carpeta de trabajo de la sesión y en las carpetas intermedias. La revisión de código lee las instrucciones de la rama con los cambios, no de la rama base.",
     "kind": "capability",
     "maturity": "ga",
-    "verifiedAt": "2026-10-22",
+    "verifiedAt": "2026-10-23",
     "sourceIds": [
       "src-github-copilot-instructions",
       "src-github-instructions-support",
       "src-microsoft-vscode-instructions"
     ],
-    "nextReview": "2027-01-22"
+    "nextReview": "2027-01-23"
   },
   {
     "id": "m03-pc-layer-costs",
