@@ -1,6 +1,6 @@
 import { useId, useState } from 'react'
 import { Link, useParams } from 'react-router'
-import { content, getCourse } from '../content'
+import { getCourse, useCoursePackage } from '../content'
 import type { Attempt, ItemSnapshot, Response } from '../domain/learner'
 import { finalSelection } from '../domain/learner'
 import { db } from '../storage/db'
@@ -31,6 +31,7 @@ function useResponses(attemptId: string | undefined): Response[] {
 export default function ExamPage() {
   const { courseId } = useParams()
   const course = getCourse(courseId)
+  const { pkg, error: pkgError } = useCoursePackage(course?.id)
   const id = course?.id ?? ''
   const attempts = useLive(() => assessmentAttempts(db, id), [id], null as Attempt[] | null)
   const gate = useLive(() => retryGate(db, id), [id], null as Awaited<ReturnType<typeof retryGate>> | null)
@@ -39,7 +40,7 @@ export default function ExamPage() {
   const [error, setError] = useState<string | null>(null)
 
   if (!course) return <NotFound />
-  const bank = Object.values(content.questions).filter((q) => q.use === 'exam' && q.courseId === course.id)
+  const bank = pkg ? Object.values(pkg.questions).filter((q) => q.use === 'exam' && q.courseId === course.id) : []
   const examCourse: ExamCourse = { id: course.id, version: course.version, evaluatedObjectiveIds: course.evaluatedObjectives.map((o) => o.id), pilot: course.status !== 'published' }
   const open = attempts?.find((a) => a.status === 'in-progress')
   const submitted = (attempts ?? []).filter((a) => a.status === 'submitted')
@@ -49,6 +50,11 @@ export default function ExamPage() {
 
   const run = async (fn: () => Promise<unknown>) => {
     setError(null)
+    // Las preguntas viajan en el paquete del curso (F2-05): sin él no se puede armar un examen nuevo.
+    if (!pkg) {
+      setError(pkgError ?? 'Cargando las preguntas del curso…')
+      return
+    }
     try {
       await fn()
     } catch (e) {
@@ -83,8 +89,8 @@ export default function ExamPage() {
                 <li>Si no apruebas, el reintento se habilita al día siguiente y después de repasar las lecciones de las preguntas que fallaste, respondiendo otra vez sus comprobaciones. Cada pregunta del reintento es una variante que no has visto.</li>
               </ul>
 
-              {gate.reason === 'first' && <button type="button" className="button button--primary" onClick={() => run(() => startExam(db, examCourse, bank))}>Empezar el examen</button>}
-              {gate.reason === 'ok' && <button type="button" className="button button--primary" onClick={() => run(() => startExam(db, examCourse, bank))}>Hacer el reintento</button>}
+              {gate.reason === 'first' && <button type="button" className="button button--primary" disabled={!pkg} onClick={() => run(() => startExam(db, examCourse, bank))}>{pkg ? 'Empezar el examen' : 'Cargando las preguntas…'}</button>}
+              {gate.reason === 'ok' && <button type="button" className="button button--primary" disabled={!pkg} onClick={() => run(() => startExam(db, examCourse, bank))}>Hacer el reintento</button>}
               {(gate.reason === 'review' || gate.reason === 'wait') && (
                 <div className="notice notice--info">
                   <p className="notice__title">Antes del reintento</p>
@@ -104,6 +110,7 @@ export default function ExamPage() {
               )}
               {gate.reason === 'passed' && <p className="notice notice--info">Ya aprobaste el examen. El siguiente paso es la comprobación de retención.</p>}
               {error && <p className="question__error" role="alert">{error}</p>}
+              {!error && pkgError && <p className="question__error" role="alert">{pkgError}</p>}
             </section>
 
             {retention.state !== 'not-passed' && (
@@ -118,7 +125,7 @@ export default function ExamPage() {
                   </p>
                 )}
                 {retention.state === 'available' ? (
-                  <button type="button" className="button button--primary" onClick={() => run(() => startRetention(db, examCourse, bank))}>Empezar la comprobación</button>
+                  <button type="button" className="button button--primary" disabled={!pkg} onClick={() => run(() => startRetention(db, examCourse, bank))}>Empezar la comprobación</button>
                 ) : (
                   <p className="muted">Disponible desde el {dateTime(retention.availableAt!)}.</p>
                 )}

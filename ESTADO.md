@@ -5,23 +5,23 @@
 ## Siguiente acción
 
 1. **Daniel:** hacer el recorrido completo como alumno (perfil, lecciones, examen, laboratorio, reporte compartido en un chat y retroalimentación registrada) y anotar su tiempo en `docs/registro-esfuerzo.md` o pasárselo a Claude. Con eso arranca el Bloque A.
-2. **Claude:** F2-05 (offline por curso) cuando haya un segundo manual, y la investigación con fuentes del Bloque A en cuanto Daniel pase su recorrido.
+2. **Claude:** investigación con fuentes de M01, M03 y M04 (D-023, en curso con subagentes) y su revisión cruzada con Codex. No se escriben lecciones del Bloque A hasta el recorrido de Daniel.
 3. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-22)
 
-**≈ 40 % de la V1** (rango razonable: 37–43 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 41 % de la V1** (rango razonable: 38–44 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 95 % (piloto revisado y puerta preparada; faltan el recorrido de Daniel y su decisión) | 20,9 |
-| 2 · Base de app y PWA | 15 % | 70 % (todo lo anterior más búsqueda, glosario, notas y marcadores; faltan offline por curso y hosting) | 10,5 |
+| 2 · Base de app y PWA | 15 % | 80 % (incluye offline por curso; faltan el hosting y la instalación real en dispositivos) | 12,0 |
 | 3 · Nueve manuales restantes | 40 % | 3 % (currículo y mapa de competencias) | 1,2 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 40 %** |
+| **Total** | 100 % | | **≈ 41 %** |
 
 ## Tickets
 
@@ -52,13 +52,16 @@
 
 | Quién | Archivos |
 | --- | --- |
-| — | Nada en curso de Claude hasta la entrega de T-020 y el recorrido de Daniel |
+| Claude (subagentes) | `investigacion/M01-*.md`, `investigacion/M03-*.md`, `investigacion/M04-*.md` |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-22 · Claude Code — offline por curso (F2-05) y arranque de la investigación del Bloque A (D-023)
+Daniel pidió adelantar todo lo posible mientras él no puede probar (D-023). Cada curso va ahora en su propio paquete, con verificación de integridad, que el SW guarda al abrirlo o al descargarlo desde la portada (botón «Descargar para usar sin conexión»). El paquete principal conserva solo el índice de los cursos. Las pruebas sacaron dos carreras reales y quedaron corregidas: el SW guarda en segundo plano, así que la descarga espera a que termine, y el botón del examen aparecía antes de que cargaran las preguntas, así que ahora espera. La versión del celular lleva el paquete incrustado. Tres subagentes investigan M01, M03 y M04 con fuentes. `npm test` 158/158 y `npm run e2e` 46/46, estable en dos corridas. Avance: ≈ 41 %.
 
 ### 2026-10-22 · Claude Code — revisión de T-020
 Codex confirmó que las 22 definiciones del glosario son fieles a sus lecciones. Sus 4 hallazgos se aplicaron: la búsqueda tolera ahora una letra de más o dos letras cambiadas de lugar; se agregaron «Reconciliación», «Ambigüedad» y «Prompt» (25 términos); una prueba E2E garantiza que las notas privadas no salen en ningún formato del reporte pero sí en el respaldo, y otra recorre la búsqueda hasta el glosario y de ahí al apartado. `npm test` 154/154 y `npm run e2e` 46/46.

@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router'
-import { covers, getCourse, imageSrcSet } from '../content'
+import { covers, downloadCourse, getCourse, imageSrcSet, isCourseOffline } from '../content'
+import { useEffect, useState } from 'react'
 import NotFound from './NotFound'
 import { db } from '../storage/db'
 import { courseProgress } from '../storage/progress'
@@ -49,6 +50,7 @@ export default function CourseOverview() {
       )}
       <h1>{course.title}</h1>
       <p className="lead">{course.centralQuestion}</p>
+      <OfflineToggle courseId={course.id} bytes={course.package.bytes} />
 
       <section className="section" aria-labelledby="objetivos">
         <h2 id="objetivos">Al terminar podrás</h2>
@@ -132,3 +134,43 @@ export default function CourseOverview() {
     </div>
   )
 }
+
+/** Descargar el curso para usarlo sin conexión (F2-05): el paquete queda en la caché del SW. */
+function OfflineToggle({ courseId, bytes }: { courseId: string; bytes: number }) {
+  const [state, setState] = useState<'checking' | 'online' | 'offline' | 'loading' | 'error'>('checking')
+  const [message, setMessage] = useState<string | null>(null)
+  useEffect(() => {
+    let alive = true
+    void isCourseOffline(courseId).then((ok) => alive && setState(ok ? 'offline' : 'online'))
+    return () => {
+      alive = false
+    }
+  }, [courseId])
+  const download = async () => {
+    setState('loading')
+    try {
+      const ok = await downloadCourse(courseId)
+      setState(ok ? 'offline' : 'online')
+      setMessage(ok ? null : 'Se cargó, pero este navegador no lo guardó para usarlo sin conexión (la app instalada sí lo hace).')
+    } catch (e) {
+      setState('error')
+      setMessage(e instanceof Error ? e.message : String(e))
+    }
+  }
+  if (state === 'checking') return null
+  return (
+    <p className="offline-toggle" role="status">
+      {state === 'offline' ? (
+        <>✓ Disponible sin conexión en este dispositivo.</>
+      ) : (
+        <>
+          <button type="button" className="button" onClick={download} disabled={state === 'loading'}>
+            {state === 'loading' ? 'Descargando…' : `Descargar para usar sin conexión (${Math.round(bytes / 1024)} KB)`}
+          </button>
+          {message && <span className="muted"> {message}</span>}
+        </>
+      )}
+    </p>
+  )
+}
+

@@ -327,3 +327,6 @@ main:focus { outline: none; }
 .note-item { border-top: 1px dashed var(--ais-color-border); padding-top: var(--ais-space-3); }
 .note-item__text { white-space: pre-wrap; }
 .site-footer__links a { display: inline-flex; align-items: center; min-height: var(--ais-layout-touch-target); }
+
+/* Offline por curso (F2-05) */
+.offline-toggle { margin: 0 0 var(--ais-space-4); }

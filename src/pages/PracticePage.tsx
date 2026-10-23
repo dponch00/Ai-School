@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router'
-import { content, getCourse } from '../content'
+import { getCourse, useCoursePackage } from '../content'
 import QuestionCheck from '../components/QuestionCheck'
 import { useCheckRound } from '../storage/useCheckRound'
 import NotFound from './NotFound'
@@ -8,7 +8,8 @@ import NotFound from './NotFound'
 export default function PracticePage() {
   const { courseId } = useParams()
   const course = getCourse(courseId)
-  const questions = course ? Object.values(content.questions).filter((q) => q.use === 'practice' && q.courseId === course.id) : []
+  const { pkg, error: pkgError } = useCoursePackage(course?.id)
+  const questions = course && pkg ? Object.values(pkg.questions).filter((q) => q.use === 'practice' && q.courseId === course.id) : []
   const record = useCheckRound({ courseId: course?.id ?? '', lessonId: course?.id ?? 'x', purpose: 'practice', contentVersion: course?.version ?? '0.0.0', size: questions.length })
   if (!course) return <NotFound />
 
@@ -23,6 +24,7 @@ export default function PracticePage() {
         <p className="lead">
           {questions.length} preguntas que no aparecen en el examen. Aquí ves el porqué de cada opción en cuanto respondes, así que sirven para entrenar antes del examen. No cuentan para aprobar.
         </p>
+        {!pkg && <p className="notice notice--info" role="status">{pkgError ?? 'Cargando las preguntas…'}</p>}
         {questions.map((q, i) => (
           <QuestionCheck key={q.id} question={q} courseId={course.id} label={`Práctica ${i + 1} de ${questions.length}`} onAnswer={record} />
         ))}

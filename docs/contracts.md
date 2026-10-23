@@ -36,6 +36,7 @@
 - **Diagnóstico (F2-06, D-015):** es un intento `diagnostic` sin resultado de aprobado y se lee por bloques con `blockResults`. Las microtareas se guardan como entregas (`practiceId` = ID de la microtarea) con autoevaluación; sus criterios críticos afinan la señal y quedan rotulados como autoevaluación. En el reporte, el diagnóstico va en su propio alcance y se resume por bloque, nunca por competencia.
 - **Almacenamiento (F2-09):** `checkStorage` dice si se puede guardar y avisa si no; `requestPersistence` pide al navegador que no borre los datos.
 - **Glosario y búsqueda (F2-07):** `GlossaryTerm` (`content/glossary.json`) enlaza a apartados que deben existir, y el build lo comprueba. Los documentos de búsqueda se arman en el build (uno por apartado y por término). La búsqueda indexa la raíz con y sin tilde. Las notas y los marcadores son por lección, privados, no entran en los reportes y viajan en el respaldo.
+- **Paquetes por curso (F2-05):** el build escribe `public/courses/<curso>.<hash>.json` (lecciones renderizadas, instrucciones del laboratorio, preguntas, fichas y activos), y el índice del curso guarda su URL, su integridad `sha384` y su tamaño. `loadCourse` lo pide con SRI, comprueba curso y versión, y lo carga una sola vez. El SW lo guarda en la caché `ais-courses` (CacheFirst), y el botón de la portada lo descarga y espera a que quede guardado.
 - **Perfil:** la evidencia previa (programa de Educación, D-009) se guarda aparte de lo declarado y de lo observado en la app.
 
 ## Pendiente para fases siguientes

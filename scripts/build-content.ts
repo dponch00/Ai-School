@@ -5,7 +5,8 @@
  * Se ejecuta con `node scripts/build-content.ts` (Node 24 elimina los tipos al vuelo)
  * y corre antes de `dev`, `build` y `test`. Si algo no cumple el contrato, el build falla.
  */
-import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { createHash } from 'node:crypto'
+import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { Element, ElementContent, Root as HastRoot } from 'hast'
@@ -204,6 +205,8 @@ const questions: Record<string, unknown> = {}
 const productCards: Record<string, unknown> = {}
 const assets: Record<string, unknown> = {}
 const courses: unknown[] = []
+/** Lo pesado de cada curso (preguntas, fichas, activos) va en su propio paquete (F2-05). */
+const coursePieces = new Map<string, { questions: Record<string, unknown>; productCards: Record<string, unknown>; assets: Record<string, unknown> }>()
 mkdirSync(resolve(root, 'public/generated'), { recursive: true })
 
 const cite = (ids: string[]) =>
@@ -217,18 +220,20 @@ for (const courseId of readdirSync(resolve(contentDir, 'courses'))) {
   const base = `courses/${courseId}`
   const course = Course.parse(readJson(`${base}/course.json`))
   Misconception.array().parse(readJson(`${base}/misconceptions.json`))
+  const pieces = { questions: {} as Record<string, unknown>, productCards: {} as Record<string, unknown>, assets: {} as Record<string, unknown> }
+  coursePieces.set(course.id, pieces)
   for (const file of ['checks', 'exam', 'practice']) {
     const p = `${base}/questions/${file}.json`
-    if (existsSync(resolve(contentDir, p))) for (const q of Question.array().parse(readJson(p))) questions[q.id] = q
+    if (existsSync(resolve(contentDir, p))) for (const q of Question.array().parse(readJson(p))) questions[q.id] = pieces.questions[q.id] = q
   }
   if (existsSync(resolve(contentDir, `${base}/product-cards.json`)))
-    for (const c of ProductCard.array().parse(readJson(`${base}/product-cards.json`))) productCards[c.id] = c
+    for (const c of ProductCard.array().parse(readJson(`${base}/product-cards.json`))) productCards[c.id] = pieces.productCards[c.id] = c
   if (existsSync(resolve(contentDir, `${base}/assets.json`)))
     for (const a of Asset.array().parse(readJson(`${base}/assets.json`))) {
       const target = `generated/${courseId}/${a.file.split('/').pop()}`
       mkdirSync(resolve(root, 'public/generated', courseId), { recursive: true })
       copyFileSync(resolve(root, a.file), resolve(root, 'public', target))
-      assets[a.id] = { ...a, url: target }
+      assets[a.id] = pieces.assets[a.id] = { ...a, url: target }
     }
 
   const lessons = course.lessonIds
@@ -292,17 +297,46 @@ const microtasks = Microtask.array()
   .map((m) => ({ ...m, materialBlocks: renderMarkdown(m.material, `diagnostic/${m.id}`).blocks }))
 const diagnostic = { form: diagnosticForm, microtasks }
 
+// ---------- Paquetes por curso (F2-05) ----------
+// El paquete principal lleva el índice de cada curso (lecciones, objetivos, rúbrica); lo pesado va en
+// public/courses/<curso>.<hash>.json, con verificación de integridad (SRI) y caché propia en el SW.
+const coursesDir = resolve(root, 'public/courses')
+rmSync(coursesDir, { recursive: true, force: true })
+mkdirSync(coursesDir, { recursive: true })
+const outlines = (courses as any[]).map((c) => {
+  const pieces = coursePieces.get(c.id)!
+  const pkg = {
+    id: c.id,
+    version: c.version,
+    lessons: Object.fromEntries(c.lessons.map((l: any) => [l.id, { blocks: l.blocks, sources: l.sources }])),
+    practiceBlocks: c.practice ? c.practice.blocks : null,
+    questions: pieces.questions,
+    productCards: pieces.productCards,
+    assets: pieces.assets,
+  }
+  const body = JSON.stringify(pkg)
+  const name = `${c.id}.${createHash('sha256').update(body).digest('hex').slice(0, 10)}.json`
+  writeFileSync(resolve(coursesDir, name), body)
+  const integrity = `sha384-${createHash('sha384').update(body).digest('base64')}`
+  return {
+    ...c,
+    lessons: c.lessons.map(({ blocks: _b, sources: _s, ...l }: any) => l),
+    practice: c.practice ? (({ blocks: _b, ...p }: any) => p)(c.practice) : null,
+    package: { url: `/courses/${name}`, integrity, bytes: Buffer.byteLength(body) },
+  }
+})
+const diagnosticQuestions = Object.fromEntries(Object.entries(questions).filter(([id]) => id.startsWith('dx-')))
+
 const out = {
   generatedAt: new Date().toISOString(),
   catalog: catalog.map((c) => ({ ...c, available: courses.some((x: any) => x.id === c.id) })),
-  courses,
+  courses: outlines,
   competencies,
   diagnostic,
   glossary,
   searchDocs,
-  questions,
-  productCards,
-  assets,
+  // Solo las del diagnóstico: las de cada curso viajan en su paquete.
+  questions: diagnosticQuestions,
   // Datos mínimos de cada fuente para las fichas de producto (que citan fuentes fuera de la lección).
   sources: Object.fromEntries([...sources.values()].map((s) => [s.id, { id: s.id, title: s.title, organization: s.organization, url: s.url }])),
 }

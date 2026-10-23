@@ -130,7 +130,7 @@ Una entrada por decisión. Estados: **aceptada**, **propuesta** (espera a Daniel
 - **Estado:** aceptada · 2026-10-21 · concreta F1-02
 - **Decisión:** `scripts/build-content.ts` valida todo `content/` contra los contratos y genera `src/generated/content.json` (lecciones ya convertidas a bloques HTML saneados, preguntas, fichas, activos y fuentes) y `src/generated/tokens.css`. Corre antes de `dev`, `build`, `test` y `typecheck`; si algo no cumple el contrato, el build falla. Lo generado no se versiona.
 - **Por qué:** el contenido llega validado y saneado al navegador, sin parsear Markdown en el cliente.
-- **Deuda conocida:** hoy todo el contenido va en el bundle principal (> 500 kB). Con varios cursos, cada curso debe ir en su propio paquete descargable para el modo offline por curso (Fase 2, D-014).
+- **Deuda conocida (resuelta en F2-05, 2026-10-22):** el contenido de cada curso va en su propio paquete (`public/courses/<curso>.<hash>.json`, con SRI) y se descarga para el modo offline por curso. El paquete principal conserva el índice de los cursos, el diagnóstico, el glosario y el índice de búsqueda; su tamaño restante se debe sobre todo a las librerías.
 
 ## D-021 · Guía de estilo y agente revisor de texto
 

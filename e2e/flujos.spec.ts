@@ -4,6 +4,8 @@ import { expect, test } from '@playwright/test'
 test('una comprobación se responde con teclado y la lección queda completada tras recargar', async ({ page }) => {
   await page.goto('/#/cursos/m02/lecciones/m02-l1')
   const preguntas = page.locator('section.checks fieldset.question')
+  // El cuerpo de la lección llega en el paquete del curso (F2-05): se espera a que aparezca.
+  await expect(preguntas.first()).toBeVisible()
   const total = await preguntas.count()
   expect(total).toBeGreaterThan(0)
   for (let i = 0; i < total; i++) {
@@ -21,6 +23,7 @@ test('una comprobación se responde con teclado y la lección queda completada t
 test('el examen se retoma donde quedó después de recargar', async ({ page }) => {
   await page.goto('/#/cursos/m02/examen')
   await page.getByRole('button', { name: 'Empezar el examen' }).click()
+  await expect(page.locator('fieldset.question').first()).toBeVisible()
   await page.locator('fieldset.question').first().locator('input[type=radio]').first().check()
   await expect(page.locator('.exam__progress')).toContainText('Respondidas 1 de 12')
   await page.reload()
@@ -35,6 +38,10 @@ test('sin conexión, la app y una lección cargan desde la caché del service wo
   // La primera visita instala el SW; la segunda ya queda controlada por él.
   await page.reload()
   await expect.poll(() => page.evaluate(() => !!navigator.serviceWorker.controller)).toBe(true)
+  // F2-05: el curso se descarga para usarlo sin conexión desde su portada.
+  await page.goto('/#/cursos/m02')
+  await page.getByRole('button', { name: /Descargar para usar sin conexión/ }).click()
+  await expect(page.getByText('Disponible sin conexión en este dispositivo')).toBeVisible()
   await context.setOffline(true)
   await page.goto('/#/cursos/m02/lecciones/m02-l2')
   await expect(page.locator('main h1')).toContainText('Contexto pertinente')

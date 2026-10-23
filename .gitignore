@@ -24,3 +24,4 @@ desktop.ini
 # Generado por scripts/build-content.ts
 src/generated/
 public/generated/
+public/courses/
