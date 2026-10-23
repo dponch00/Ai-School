@@ -1,12 +1,12 @@
 # Estado del proyecto
 
-**Fase actual:** 2 — Base de app y PWA (D-022). Piloto M02 cerrado salvo el recorrido de Daniel; el Bloque A empieza después. · **Actualizado:** 2026-10-22 por Claude Code
+**Fase actual:** 2 → 3. App simplificada a opción múltiple (D-024); el Bloque A empieza ya. · **Actualizado:** 2026-10-22 por Claude Code
 
 ## Siguiente acción
 
-1. **Daniel:** hacer el recorrido completo como alumno (perfil, lecciones, examen, laboratorio, reporte compartido en un chat y retroalimentación registrada) y anotar su tiempo en `docs/registro-esfuerzo.md` o pasárselo a Claude. Con eso arranca el Bloque A.
-2. **Codex:** sin ticket abierto. Lo que queda por adelantar (lecciones y preguntas del Bloque A) depende del recorrido de Daniel (D-023).
-3. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
+1. **Codex:** T-023, revisión del laboratorio de M02 como caso de opción múltiple y de la app simplificada (D-024).
+2. **Claude:** empezar a escribir M01, ya con el criterio de D-024: todo de opción múltiple y laboratorio como caso. El recorrido de Daniel ya no bloquea el Bloque A.
+3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-22)
@@ -16,8 +16,8 @@
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
-| 1 · Piloto M02 | 22 % | 95 % (piloto revisado y puerta preparada; faltan el recorrido de Daniel y su decisión) | 20,9 |
-| 2 · Base de app y PWA | 15 % | 85 % (offline por curso y carga diferida; faltan el hosting y la instalación real en dispositivos) | 12,8 |
+| 1 · Piloto M02 | 22 % | 95 % (laboratorio convertido en caso de opción múltiple; falta la revisión de Codex, T-023) | 20,9 |
+| 2 · Base de app y PWA | 15 % | 88 % (simplificada a opción múltiple con D-024; faltan el hosting y la instalación real en dispositivos) | 13,2 |
 | 3 · Nueve manuales restantes | 40 % | 9 % (currículo, competencias e investigación de M01, M03 y M04 revisada por Codex) | 3,6 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
@@ -49,18 +49,30 @@
 | [T-020](coordinacion/tickets/T-020-codex-revision-glosario-busqueda-e2e.md) | Codex | Revisión del glosario, la búsqueda, las notas y las pruebas E2E | cerrado |
 | [T-021](coordinacion/tickets/T-021-codex-revision-investigacion-bloque-a.md) | Codex | Revisión cruzada de la investigación del Bloque A (M01, M03, M04) | cerrado |
 | [T-022](coordinacion/tickets/T-022-codex-revision-como-funciona.md) | Codex | Revisión de «Cómo funciona» y de la versión de prueba en un solo archivo | cerrado |
+| [T-023](coordinacion/tickets/T-023-codex-d024-opcion-multiple.md) | Codex | D-024: laboratorio como caso de opción múltiple y app simplificada | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| — | — |
+| Codex (T-023) | `investigacion/codex-revision-d024.md`, `design/**`, `docs/design-system.md` |
 
 ## Decisiones recientes
 
-Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
+**D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-23 · Claude Code — D-024: todo de opción múltiple
+Daniel pidió dejar de llenar cosas y solo aprender. Cambios:
+- **Fuera de la app:** perfil, evaluación con reporte, Mi ruta, la entrega del laboratorio (evidencias, cuaderno, autoevaluación y revisiones), las microtareas del diagnóstico y los campos de explicación de cada pregunta.
+- **Laboratorio de M02:** ahora es un caso en seis pasos con 12 preguntas de opción múltiple, dos por objetivo. Se agregó el tipo de pregunta `lab` y la marca `::lab-questions`.
+- **Validaciones:** el build y las pruebas comprueban que cada paso tenga preguntas, que cubran los seis objetivos, que no repitan escenarios y que la longitud no delate la clave. La primera versión la delataba en 9 de 12 y se corrigió.
+- **App:** la confianza es una casilla «Estoy muy seguro» y el respaldo tiene pantalla propia.
+- **Documentación:** estándar §5, currículo, contratos, `AGENTS.md` y avisos en las tres bases del Bloque A.
+- **Datos:** las tablas antiguas siguen en IndexedDB y en el respaldo.
+
+Abierto T-023. `npm test` 106/106 y `npm run e2e` 46/46. Avance: ≈ 45 %.
 
 ### 2026-10-22 · Claude Code — revisión de T-022
 «Cómo funciona» ya no presenta la evaluación externa como requisito: completar un curso pide lecciones, laboratorio autoevaluado y examen aprobado, y la revisión externa deja la entrega «Revisada». El repaso de errores se explica con su regla real. En la versión de prueba, las descargas del reporte y del respaldo esperan la respuesta del visor. Si Daniel rechaza la confirmación o la vista no lo permite, la app lo dice y no da el reporte por descargado. `npm test` 158/158 y `npm run e2e` 48/48. Avance: ≈ 45 %.

@@ -55,14 +55,16 @@ Las 13 competencias, con su definición, dos o tres conductas observables, manua
 
 Con 24 preguntas no se pueden distinguir 13 competencias (2 ítems por competencia no dan precisión). El diagnóstico informa por **6 bloques de 4 ítems** (2 de base + 2 de juicio avanzado), con conteos e incertidumbre explícita, nunca con porcentajes ni niveles (`investigacion/pedagogia-evaluacion.md` §4). Esto reemplaza el «reporte por competencia» de `plan.md` §5 (D-015). Las 13 competencias siguen siendo el mapa del currículo; el diagnóstico no certifica ninguna.
 
-| Bloque | Competencias | Manuales | Microtarea |
-| --- | --- | --- | --- |
-| B1 Herramientas y límites | C01 | M01 | — |
-| B2 Especificación | C02 | M02 | Mejorar una instrucción |
-| B3 Contexto y configuración | C03, C04 | M03 | — |
-| B4 Código, Git y dirección de agentes | C05, C06, C07 | M04, M05 | Revisar un cambio |
-| B5 Datos e integraciones | C08, C09 | M06, M07 | — |
-| B6 Autonomía, seguridad y evaluación | C10, C11, C12 | M08, M09 | — |
+| Bloque | Competencias | Manuales |
+| --- | --- | --- |
+| B1 Herramientas y límites | C01 | M01 |
+| B2 Especificación | C02 | M02 |
+| B3 Contexto y configuración | C03, C04 | M03 |
+| B4 Código, Git y dirección de agentes | C05, C06, C07 | M04, M05 |
+| B5 Datos e integraciones | C08, C09 | M06, M07 |
+| B6 Autonomía, seguridad y evaluación | C10, C11, C12 | M08, M09 |
+
+Desde D-024 el diagnóstico no tiene microtareas: son las 24 preguntas de opción múltiple.
 
 C13 (M10) no se diagnostica: es el resultado de las demás.
 
@@ -70,7 +72,9 @@ C13 (M10) no se diagnostica: es el resultado de las demás.
 
 ## 3. Los diez manuales
 
-Cada manual: pregunta central, 6 lecciones, práctica con entregable, competencias, volatilidad y frecuencia de revisión. Las lecciones siguen el patrón de `docs/content-standard.md`.
+Cada manual: pregunta central, 6 lecciones, práctica, competencias, volatilidad y frecuencia de revisión. Las lecciones siguen el patrón de `docs/content-standard.md`.
+
+> **D-024 (2026-10-23):** cada «Práctica» es un caso por pasos con preguntas de opción múltiple (`docs/content-standard.md` §5). Lo que abajo figura como «Entregable» describe lo que el caso trabaja y lo que el alumno puede construir si lo prueba en su entorno; no se entrega ni se califica en la app.
 
 ### M01 — Herramientas, modelos y límites de la IA
 
