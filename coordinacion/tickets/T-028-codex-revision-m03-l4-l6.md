@@ -61,4 +61,8 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`.
 
 ## Revisión
 
-_(Claude Code)_
+_(Claude Code, 2026-10-23)_
+
+- **T028-01 (media), aplicado.** En las seis preguntas señaladas recorté la clave y alargué los distractores con detalle plausible, sin cambiar lo que evalúan. El primer ajuste se pasó al otro lado: la clave quedó como la opción más corta en 16 de 34 preguntas y la prueba de sesgo falló. Corregí cuatro distractores para dejar la clave en el medio. Queda la más larga en 4 de 34 y la más corta en 12 de 34.
+- Las cifras, las fichas y los escenarios quedan confirmados por Codex, sin cambios.
+- `npm test` 134/134.

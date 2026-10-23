@@ -4,8 +4,8 @@
 
 ## Siguiente acción
 
-1. **Codex:** T-028, revisión de M03 lecciones 4 a 6 (18 preguntas nuevas, 3 fichas).
-2. **Claude:** mientras tanto, el banco de examen de M03, su laboratorio como caso y su práctica. Luego M04.
+1. **Claude:** banco de examen de M03, su laboratorio como caso y su práctica; luego T-029 para que Codex los revise.
+2. **Codex:** sin ticket abierto hasta T-029.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
@@ -54,13 +54,12 @@
 | [T-025](coordinacion/tickets/T-025-codex-revision-m01-l4-l6.md) | Codex | Revisión de M01: lecciones 4 a 6, preguntas y fichas | cerrado |
 | [T-026](coordinacion/tickets/T-026-codex-revision-m01-examen-laboratorio.md) | Codex | Revisión de M01: banco de examen, laboratorio como caso y práctica | cerrado |
 | [T-027](coordinacion/tickets/T-027-codex-revision-m03-l1-l3.md) | Codex | Revisión de M03: lecciones 1 a 3, preguntas y fichas | cerrado |
-| [T-028](coordinacion/tickets/T-028-codex-revision-m03-l4-l6.md) | Codex | Revisión de M03: lecciones 4 a 6, preguntas y fichas | abierto |
+| [T-028](coordinacion/tickets/T-028-codex-revision-m03-l4-l6.md) | Codex | Revisión de M03: lecciones 4 a 6, preguntas y fichas | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-028) | `investigacion/codex-revision-m03-l4-l6.md` |
 | Claude | `content/courses/m03/**` |
 
 ## Decisiones recientes
@@ -68,6 +67,11 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-23 · Claude Code — revisión de T-028
+- T028-01: la longitud de la opción ya no delata la clave en las seis preguntas señaladas. Queda la más larga en 4 de 34 y la más corta en 12 de 34.
+- Codex confirmó las cifras, las fichas y los escenarios.
+- `npm test` 134/134.
 
 ### 2026-10-23 · Claude Code — revisión de T-027 y M03, lecciones 4 a 6
 **T-027:**

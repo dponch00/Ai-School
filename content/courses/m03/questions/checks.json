@@ -957,20 +957,20 @@
     "options": [
       {
         "id": "o1",
-        "text": "Revisas todos sus archivos, sobre todo lo que trae de la página externa, antes de instalarla",
+        "text": "Revisas todos sus archivos, sobre todo la parte que lee la página externa",
         "correct": true,
         "feedback": "Correcta. Una skill trae instrucciones y código, y las que leen contenido externo son las más riesgosas. Se audita como cualquier software."
       },
       {
         "id": "o2",
-        "text": "La instalas sin más: si es tan popular, alguien ya la habría revisado",
+        "text": "La instalas sin más: un repositorio tan popular ya habrá pasado muchas revisiones ajenas",
         "correct": false,
         "feedback": "La popularidad no garantiza nada. Una skill puede dirigir al agente a acciones ajenas a su propósito.",
         "misconceptionId": "m03-mc28"
       },
       {
         "id": "o3",
-        "text": "La instalas y la desactivas si notas algo raro durante el uso",
+        "text": "La instalas y la usas con cuidado, para desactivarla si notas algo raro",
         "correct": false,
         "feedback": "Si la skill hace algo dañino, puede que no lo notes hasta que ya pasó. La revisión va antes de instalarla.",
         "misconceptionId": "m03-mc28"
@@ -1001,21 +1001,21 @@
     "options": [
       {
         "id": "o1",
-        "text": "Todo su contenido, desde el inicio de la sesión",
+        "text": "Todo su contenido, cargado completo desde el inicio de la sesión",
         "correct": false,
         "feedback": "Las skills se cargan por niveles. El cuerpo entra solo cuando una se activa.",
         "misconceptionId": "m03-mc41"
       },
       {
         "id": "o2",
-        "text": "Nada: una skill no ocupa contexto hasta que se usa",
+        "text": "Nada: una skill no ocupa ningún contexto hasta el momento en que se usa",
         "correct": false,
         "feedback": "Su nombre y su descripción están desde el inicio. El agente los necesita para decidir cuándo activarla.",
         "misconceptionId": "m03-mc42"
       },
       {
         "id": "o3",
-        "text": "Su nombre y su descripción, unas decenas de tokens cada una",
+        "text": "Su nombre y su descripción, unas decenas de tokens",
         "correct": true,
         "feedback": "Correcta. Eso es lo que el agente necesita para decidir. El cuerpo y los recursos entran solo al usarlas."
       }
@@ -1045,20 +1045,20 @@
     "options": [
       {
         "id": "o1",
-        "text": "Que cada herramienta busca las skills en carpetas distintas; hay que ponerla donde la segunda busca",
+        "text": "Cada herramienta busca las skills en carpetas distintas; hay que moverla",
         "correct": true,
         "feedback": "Correcta. El formato es común, pero la instalación no. Lo que viaja es la carpeta de la skill; dónde se pone depende de cada herramienta."
       },
       {
         "id": "o2",
-        "text": "Que es un error de la segunda: una skill instalada para una herramienta debería funcionar en todas",
+        "text": "Es un error de la segunda: una skill instalada para una herramienta debería funcionar en todas",
         "correct": false,
         "feedback": "Las rutas de búsqueda difieren entre herramientas. No es un error, es cómo funciona cada una.",
         "misconceptionId": "m03-mc26"
       },
       {
         "id": "o3",
-        "text": "Que cada herramienta usa un formato propio, así que hay que reescribir la skill",
+        "text": "Cada herramienta usa un formato propio, así que hay que reescribirla",
         "correct": false,
         "feedback": "El formato es abierto y común. No hace falta reescribirla, sino instalarla donde corresponde.",
         "misconceptionId": "m03-mc43"
@@ -1136,21 +1136,21 @@
     "options": [
       {
         "id": "o1",
-        "text": "El relato completo de la sesión, para que no le falte ningún detalle",
+        "text": "El relato completo de la sesión, para que no falte detalle",
         "correct": false,
         "feedback": "El relato completo llena el contexto de quien retoma con lo que no necesita. Lo útil es más corto y más preciso.",
         "misconceptionId": "m03-mc32"
       },
       {
         "id": "o2",
-        "text": "El historial del chat pegado tal cual, que es el registro más fiel",
+        "text": "El historial del chat pegado tal cual, que es el registro más fiel de todo",
         "correct": false,
         "feedback": "El historial no es un registro: mezcla intentos, dudas y decisiones sin separar. Quien retoma necesita lo que queda vigente.",
         "misconceptionId": "m03-mc31"
       },
       {
         "id": "o3",
-        "text": "El estado, las decisiones, el siguiente paso, cómo verificar y lo que se descartó",
+        "text": "Estado, decisiones, siguiente paso, cómo verificar y lo descartado",
         "correct": true,
         "feedback": "Correcta. Con eso, quien retoma sabe dónde está, por qué, qué sigue, cómo comprobarlo y qué no repetir."
       }
@@ -1357,21 +1357,21 @@
     "options": [
       {
         "id": "o1",
-        "text": "Los 200 contratos completos, para que no se le escape ninguno",
+        "text": "Los 200 contratos completos desde el inicio, para que no se le escape ninguno",
         "correct": false,
         "feedback": "Doscientos contratos al inicio saturan el contexto, y la información se aprovecha peor. Conviene traer cada uno cuando haga falta.",
         "misconceptionId": "m03-mc35"
       },
       {
         "id": "o2",
-        "text": "Nada: que busque solo cuando lo necesite, sin ninguna indicación",
+        "text": "Nada: que busque por su cuenta cuando lo necesite, sin ninguna indicación previa",
         "correct": false,
         "feedback": "Recuperar bajo demanda necesita buena guía. Sin saber dónde están ni cómo se nombran, el agente explora a ciegas.",
         "misconceptionId": "m03-mc46"
       },
       {
         "id": "o3",
-        "text": "Dónde están y cómo se nombran, para que abra cada contrato cuando una pregunta lo pida",
+        "text": "Dónde están y cómo se nombran, para que abra el que haga falta",
         "correct": true,
         "feedback": "Correcta. Es el esquema mixto: lo poco que siempre hace falta, de antemano, y el resto justo a tiempo."
       }
@@ -1445,21 +1445,21 @@
     "options": [
       {
         "id": "o1",
-        "text": "Que tiene razón: si trabaja sobre documentos recuperados, ya no hay invenciones",
+        "text": "Que tiene razón: si trabaja sobre documentos recuperados, ya no hay invenciones posibles",
         "correct": false,
         "feedback": "Las herramientas que trabajan sobre documentos recuperados siguen inventando en una parte de los casos. Recuperar reduce el problema, no lo elimina.",
         "misconceptionId": "m03-mc36"
       },
       {
         "id": "o2",
-        "text": "Que tiene razón, siempre que cada respuesta traiga citas a los contratos",
+        "text": "Que tiene razón, siempre que cada respuesta cite los contratos",
         "correct": false,
         "feedback": "Las citas pueden apuntar a pasajes reales que no sostienen la afirmación. Hay que revisarlas.",
         "misconceptionId": "m03-mc34"
       },
       {
         "id": "o3",
-        "text": "Que puede seguir inventando, aunque menos, así que sus afirmaciones y citas se revisan",
+        "text": "Que puede seguir inventando, aunque menos; afirmaciones y citas se revisan",
         "correct": true,
         "feedback": "Correcta. Un estudio encontró herramientas legales con recuperación que inventaban entre el 17 % y el 33 % de las veces. Es menos que un chat general, pero no es cero."
       }
