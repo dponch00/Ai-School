@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-22 |
 | Depende de | T-019 (cerrado) |
 | Fase del plan | 2 — Base de app y PWA |
@@ -50,4 +50,7 @@ No edites `src/`, `content/` ni `e2e/`.
 
 ## Entrega
 
-_(Codex)_
+- Informe: `investigacion/codex-revision-glosario-busqueda-e2e.md`.
+- Revisión cruzada: las 22 definiciones son fieles a las lecciones y sus fuentes, y cumplen la guía de estilo. Se señalan cuatro hallazgos: tolerancia insuficiente ante dos erratas comunes, ausencia de «Reconciliación» como término, falta de prueba E2E de privacidad de notas y cobertura E2E superficial de glosario y sus referencias.
+- Verificación: `npm test` (154/154), `npm run e2e` (42 recorridos completados en escritorio y 360 px) y `npm run build` correctos. Para E2E se instaló el Chromium requerido por Playwright; Vite mantiene su advertencia de chunk grande.
+- Siguiente acción: priorizar T020-01 y T020-03 antes de ampliar la búsqueda y las exportaciones.
