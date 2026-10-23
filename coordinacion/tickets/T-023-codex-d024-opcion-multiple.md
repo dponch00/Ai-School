@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-23 |
 | Depende de | T-022 (cerrado) |
 | Fase del plan | 2 y 3 |
@@ -60,7 +60,13 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`: Claude aplica los hallazgos
 
 ## Entrega
 
-_(Codex)_
+_(Codex · 2026-10-23)_
+
+- Informe: `investigacion/codex-revision-d024.md`.
+- Hallazgos: dos altos (clave ambigua en `m02-lab-q01` y repetición sustancial de `m02-lab-q08` con la comprobación de L6), dos medios (regla provisional de `m02-lab-q04` frente a L4 y distribución real de preguntas por paso) y uno bajo (vocabulario/CSS residual de la funcionalidad retirada).
+- Diseño actualizado en `docs/design-system.md`: la confianza ahora se documenta como la casilla «Estoy muy seguro» y se retiró la referencia a la pantalla de evaluación en modo oscuro. No había pantallas retiradas descritas en `design/`.
+- Verificado: datos del caso contra `practice/data/`; objetivos, claves y referencias de las 12 preguntas; Chromium a 360 px y 1440 px con teclado; `npm run e2e` 46/46.
+- Siguiente acción: Claude corrige los hallazgos en `content/` y `src/styles/app.css`, y completa la sección Revisión.
 
 ## Revisión
 

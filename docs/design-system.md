@@ -83,8 +83,8 @@ Todos los controles se operan por teclado, muestran foco visible de 3 px `focus`
 
 ### Selector de confianza
 
-- **Normal:** control de tres opciones explícitas: Baja, Media, Alta, más «Omitir». Explica que se registra antes de ver el resultado.
-- **Foco / error / 360 px:** grupo con `legend`; cada opción conserva 44 px y foco visible. Si el intento exige respuesta primero, el error se escribe, no se expresa con color. En móvil las cuatro opciones se apilan a una columna.
+- **Normal:** casilla opcional «Estoy muy seguro», disponible antes de comprobar una respuesta. Explica que, si se falla, la pregunta vuelve en el repaso de errores; si queda desmarcada, no modifica ese repaso.
+- **Foco / error / 360 px:** la etiqueta completa de la casilla conserva 44 px y foco visible. La casilla no sustituye la respuesta: si falta elegir una opción, el error se escribe, no se expresa con color. En móvil envuelve el texto sin cortar la explicación.
 
 ### Tarjeta de curso
 
@@ -117,7 +117,7 @@ Familia constante: horizonte bajo, papel de algodón, tinta azul, ocre y verde a
 
 ## 6. Modo oscuro
 
-No se implementa en V1. La paleta de papel depende de contraste, textura y jerarquía que requieren prueba específica en lector, evaluación y fichas de producto. Antes de añadirlo se crea una tabla nueva de contrastes, se verifica a 360 px y se prueba con texto aumentado y preferencias de contraste.
+No se implementa en V1. La paleta de papel depende de contraste, textura y jerarquía que requieren prueba específica en lector, laboratorio y fichas de producto. Antes de añadirlo se crea una tabla nueva de contrastes, se verifica a 360 px y se prueba con texto aumentado y preferencias de contraste.
 
 ## 7. Lista de implementación
 
