@@ -5,23 +5,23 @@
 ## Siguiente acción
 
 1. **Daniel:** hacer el recorrido completo como alumno (perfil, lecciones, examen, laboratorio, reporte compartido en un chat y retroalimentación registrada) y anotar su tiempo en `docs/registro-esfuerzo.md` o pasárselo a Claude. Con eso arranca el Bloque A.
-2. **Codex:** T-021, revisión cruzada de la investigación de M01, M03 y M04. Después, Claude aplica los hallazgos. No se escriben lecciones del Bloque A hasta el recorrido de Daniel (D-023).
+2. **Codex:** T-022, revisión de la página «Cómo funciona» y de la versión de prueba en un solo archivo. La investigación del Bloque A ya está revisada (T-021); las lecciones se escriben después del recorrido de Daniel (D-023).
 3. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-22)
 
-**≈ 44 % de la V1** (rango razonable: 41–47 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 45 % de la V1** (rango razonable: 42–48 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 95 % (piloto revisado y puerta preparada; faltan el recorrido de Daniel y su decisión) | 20,9 |
 | 2 · Base de app y PWA | 15 % | 85 % (offline por curso y carga diferida; faltan el hosting y la instalación real en dispositivos) | 12,8 |
-| 3 · Nueve manuales restantes | 40 % | 7 % (currículo, competencias e investigación de M01, M03 y M04 sin revisar) | 2,8 |
+| 3 · Nueve manuales restantes | 40 % | 9 % (currículo, competencias e investigación de M01, M03 y M04 revisada por Codex) | 3,6 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 44 %** |
+| **Total** | 100 % | | **≈ 45 %** |
 
 ## Tickets
 
@@ -47,19 +47,33 @@
 | [T-018](coordinacion/tickets/T-018-codex-repaso-errores-pwa-icono.md) | Codex | Ícono de la app y revisión del repaso de errores y la PWA | cerrado |
 | [T-019](coordinacion/tickets/T-019-codex-revision-diagnostico-almacenamiento.md) | Codex | Revisión del diagnóstico inicial y del manejo del almacenamiento | cerrado |
 | [T-020](coordinacion/tickets/T-020-codex-revision-glosario-busqueda-e2e.md) | Codex | Revisión del glosario, la búsqueda, las notas y las pruebas E2E | cerrado |
-| [T-021](coordinacion/tickets/T-021-codex-revision-investigacion-bloque-a.md) | Codex | Revisión cruzada de la investigación del Bloque A (M01, M03, M04) | abierto |
+| [T-021](coordinacion/tickets/T-021-codex-revision-investigacion-bloque-a.md) | Codex | Revisión cruzada de la investigación del Bloque A (M01, M03, M04) | cerrado |
+| [T-022](coordinacion/tickets/T-022-codex-revision-como-funciona.md) | Codex | Revisión de «Cómo funciona» y de la versión de prueba en un solo archivo | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-021) | `investigacion/codex-revision-bloque-a.md` (los tres archivos de investigación quedan solo para lectura hasta la revisión) |
+| Codex (T-022) | `investigacion/codex-revision-como-funciona.md` |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-22 · Claude Code — revisión de T-021 y página «Cómo funciona»
+Se aplicaron los cuatro hallazgos de Codex sobre la investigación del Bloque A:
+- NoLiMa quedó en 10 de 12 modelos.
+- La carga de instrucciones se describe por producto, sin una regla común inventada.
+- M03 y M04 excluyen los escenarios del diagnóstico. M04 excluye además `dx-b3-02` en L3.
+- M01 L2 y M04 L4 tienen un presupuesto de 25 minutos con recortes decididos.
+
+Daniel se perdió usando la app, así que la guía de uso pasó a la app como `#/como-funciona`, enlazada desde la portada y el pie. Explica la ruta de un curso, qué cuenta para aprobar y que las respuestas de texto las evalúa un chat externo a partir del reporte.
+
+En la versión de prueba publicada, el visor de claude.ai bloqueaba la descarga del reporte y del respaldo. Ahora pasan por la capacidad `downloads`, que pide confirmación, y el script quedó en `scripts/build-single.py`. Para Daniel hay además una guía privada con el estado y un flyer: https://claude.ai/artifact/BsQ4z5XdfcWJ5rBvwHWpXd.
+
+Abierto T-022. `npm test` 158/158 y `npm run e2e` 48/48. Avance: ≈ 45 %.
 
 ### 2026-10-22 · Claude Code — investigación del Bloque A y carga diferida
 Los tres subagentes entregaron la investigación de M01 (56 fuentes), M03 (45) y M04 (54). Cada una trae seis objetivos evaluables, conceptos erróneos con fuente, fichas de producto fechadas, «qué no enseñar», un laboratorio con rúbrica y sus huecos declarados. Claude las leyó completas y abrió T-021 para la revisión cruzada de Codex. Antes de usarlas falta verificar por muestreo las fuentes más volátiles y recalcular las cifras de los laboratorios. En la app, las pantallas que no se usan para leer y el índice de búsqueda se cargan al abrirlos, y el paquete principal bajó de 869 kB a 451 kB. Para la versión de prueba hay un build de un solo archivo; la versión publicada se actualizó. `npm test` 158/158 y `npm run e2e` 46/46. Avance: ≈ 44 %.
