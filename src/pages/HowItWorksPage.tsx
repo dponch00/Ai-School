@@ -37,7 +37,7 @@ export default function HowItWorksPage() {
           <li>
             <h3>Practica y repasa tus errores <span className="how__tag">práctica</span></h3>
             <p className="how__where">Portada del curso · Práctica y examen</p>
-            <p>Las preguntas de práctica no cuentan para aprobar. El repaso de errores te vuelve a mostrar, al día siguiente y a la semana, lo que fallaste estando seguro, hasta que lo aciertas dos veces seguidas.</p>
+            <p>Las preguntas de práctica no cuentan para aprobar. Lo que fallaste estando seguro vuelve al día siguiente; si lo aciertas, vuelve siete días después, y con esos dos aciertos seguidos sale del repaso. Si lo vuelves a fallar, regresa al día siguiente.</p>
           </li>
           <li>
             <h3>Haz el laboratorio <span className="how__tag how__tag--counts">cuenta</span></h3>
@@ -55,11 +55,16 @@ export default function HowItWorksPage() {
             </p>
           </li>
           <li>
-            <h3>Pide la evaluación y regístrala <span className="how__tag how__tag--counts">cuenta</span></h3>
+            <h3>Pide la evaluación y regístrala <span className="how__tag">profundiza</span></h3>
             <p className="how__where"><Link to="/evaluacion">Evaluación</Link> y <Link to="/ruta">Mi ruta</Link></p>
-            <p>Así se califican tus respuestas de texto. Se explica en la sección siguiente.</p>
+            <p>No hace falta para completar el curso: sirve para que alguien revise tu entrega y para ajustar tu ruta. Se explica en la sección siguiente.</p>
           </li>
         </ol>
+        <div className="notice notice--info">
+          <p className="notice__title">Qué hace falta para cada cosa</p>
+          <p><strong>Para completar un curso:</strong> leer las lecciones, entregar el laboratorio con tu autoevaluación y aprobar el examen.</p>
+          <p><strong>Para que tu entrega quede como «Revisada»:</strong> además, dos revisiones externas de corridas distintas que no difieran en más de un nivel en ningún criterio.</p>
+        </div>
 
         <h2 id="texto">¿Quién califica las respuestas de texto?</h2>
         <p>

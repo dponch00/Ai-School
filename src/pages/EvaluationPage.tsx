@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
+import { notSavedMessage, saveFile } from '../app/download'
 import { APP_VERSION } from '../app/version'
 import { content } from '../content'
 import type { Practice } from '../domain/content'
@@ -64,15 +65,11 @@ export default function EvaluationPage() {
 
   const download = async () => {
     if (!built) return
-    const blob = new Blob([built.html], { type: 'text/html;charset=utf-8' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = built.record.fileName
-    document.body.appendChild(a)
-    a.click()
-    a.remove()
-    setTimeout(() => URL.revokeObjectURL(url), 1000)
+    const outcome = await saveFile(built.record.fileName, new Blob([built.html], { type: 'text/html;charset=utf-8' }))
+    if (outcome !== 'saved') {
+      setMessage(notSavedMessage(outcome))
+      return
+    }
     try {
       await saveReport(db, built.record)
       setMessage(`Descargado ${built.record.fileName}. La app guardó su resumen para comparar con el próximo reporte.`)

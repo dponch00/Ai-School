@@ -5,7 +5,7 @@
 ## Siguiente acción
 
 1. **Daniel:** hacer el recorrido completo como alumno (perfil, lecciones, examen, laboratorio, reporte compartido en un chat y retroalimentación registrada) y anotar su tiempo en `docs/registro-esfuerzo.md` o pasárselo a Claude. Con eso arranca el Bloque A.
-2. **Codex:** T-022, revisión de la página «Cómo funciona» y de la versión de prueba en un solo archivo. La investigación del Bloque A ya está revisada (T-021); las lecciones se escriben después del recorrido de Daniel (D-023).
+2. **Codex:** sin ticket abierto. Lo que queda por adelantar (lecciones y preguntas del Bloque A) depende del recorrido de Daniel (D-023).
 3. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
@@ -48,19 +48,22 @@
 | [T-019](coordinacion/tickets/T-019-codex-revision-diagnostico-almacenamiento.md) | Codex | Revisión del diagnóstico inicial y del manejo del almacenamiento | cerrado |
 | [T-020](coordinacion/tickets/T-020-codex-revision-glosario-busqueda-e2e.md) | Codex | Revisión del glosario, la búsqueda, las notas y las pruebas E2E | cerrado |
 | [T-021](coordinacion/tickets/T-021-codex-revision-investigacion-bloque-a.md) | Codex | Revisión cruzada de la investigación del Bloque A (M01, M03, M04) | cerrado |
-| [T-022](coordinacion/tickets/T-022-codex-revision-como-funciona.md) | Codex | Revisión de «Cómo funciona» y de la versión de prueba en un solo archivo | abierto |
+| [T-022](coordinacion/tickets/T-022-codex-revision-como-funciona.md) | Codex | Revisión de «Cómo funciona» y de la versión de prueba en un solo archivo | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-022) | `investigacion/codex-revision-como-funciona.md` |
+| — | — |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-22 · Claude Code — revisión de T-022
+«Cómo funciona» ya no presenta la evaluación externa como requisito: completar un curso pide lecciones, laboratorio autoevaluado y examen aprobado, y la revisión externa deja la entrega «Revisada». El repaso de errores se explica con su regla real. En la versión de prueba, las descargas del reporte y del respaldo esperan la respuesta del visor. Si Daniel rechaza la confirmación o la vista no lo permite, la app lo dice y no da el reporte por descargado. `npm test` 158/158 y `npm run e2e` 48/48. Avance: ≈ 45 %.
 
 ### 2026-10-22 · Claude Code — revisión de T-021 y página «Cómo funciona»
 Se aplicaron los cuatro hallazgos de Codex sobre la investigación del Bloque A:

@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-22 |
 | Depende de | T-021 (cerrado) |
 | Fase del plan | 2 — Base de app y PWA |
@@ -51,4 +51,10 @@ Revisión entregada en `investigacion/codex-revision-como-funciona.md`.
 
 ## Revisión
 
-_(Claude Code)_
+**Claude Code · 2026-10-22 · Veredicto: aceptado, ticket cerrado.** Los 3 hallazgos son válidos y están aplicados:
+
+- **T022-01 (alta):** el paso de la evaluación externa ya no dice «cuenta», dice «profundiza». La página explica que no hace falta para completar el curso. Un recuadro separa «Para completar un curso» (lecciones, laboratorio con autoevaluación y examen aprobado, `plan.md`) de «Para que tu entrega quede como Revisada» (dos revisiones de corridas distintas sin más de un nivel de diferencia). La guía privada de Daniel quedó con el mismo cambio.
+- **T022-02 (media):** el repaso de errores se explica como lo hace `review-queue.ts`: vuelve al día siguiente; si se acierta, vuelve a los siete días; dos aciertos seguidos lo sacan; un fallo lo regresa al día siguiente.
+- **T022-03 (alta):** se quitó el gancho global sobre `createObjectURL` y `click`. La app guarda el reporte y el respaldo con `saveFile` (`src/app/download.ts`), que espera el resultado. La versión de prueba define `window.__aisSaveFile`, que responde `saved`, `declined` o `unavailable` y atrapa también el rechazo de `claude.use`. Si el archivo no se guardó, la pantalla dice por qué y el reporte no queda registrado como descargado. Fuera del visor se usa el enlace normal, igual que antes.
+
+`npm test` 158/158 y `npm run e2e` 48/48, con la descarga del respaldo cubierta por la prueba de privacidad de notas. La confirmación real del visor de claude.ai no se puede automatizar desde aquí.

@@ -58,20 +58,13 @@ course_shim = """
 # <a download>; se pasan por la capacidad `downloads`, que pide confirmación al usuario.
 download_shim = """
 (() => {
-  const blobs = new Map();
-  const create = URL.createObjectURL.bind(URL);
-  URL.createObjectURL = (obj) => { const u = create(obj); if (obj instanceof Blob) blobs.set(u, obj); return u; };
-  const click = HTMLAnchorElement.prototype.click;
-  HTMLAnchorElement.prototype.click = function () {
-    const blob = this.download && blobs.get(this.href);
-    if (!blob || !window.claude || !window.claude.use) return click.call(this);
-    const filename = this.download;
-    window.claude.use('downloads').then((d) => {
-      if (!d) return click.call(this);
-      return d.save({ filename, data: blob }).catch((e) => {
-        if (e && e.code !== 'declined') console.warn('No se pudo guardar el archivo:', e.code);
-      });
-    });
+  // La app llama a esta función (src/app/download.ts) solo para el reporte y el respaldo, y espera el resultado.
+  window.__aisSaveFile = async (filename, blob) => {
+    let d = null;
+    try { d = window.claude && window.claude.use ? await window.claude.use('downloads') : null; } catch (e) { d = null; }
+    if (!d) return 'unavailable';
+    try { await d.save({ filename, data: blob }); return 'saved'; }
+    catch (e) { return e && e.code === 'declined' ? 'declined' : 'unavailable'; }
   };
 })();
 """

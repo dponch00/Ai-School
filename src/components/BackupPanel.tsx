@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { notSavedMessage, saveFile } from '../app/download'
 import { APP_VERSION } from '../app/version'
 import { content } from '../content'
 import type { Backup } from '../domain/learner'
@@ -24,15 +25,9 @@ export default function BackupPanel() {
   const exportNow = async () => {
     try {
       const b = await exportBackup(db, APP_VERSION, Object.fromEntries(content.courses.map((c) => [c.id, c.version])))
-      const url = URL.createObjectURL(new Blob([JSON.stringify(b, null, 2)], { type: 'application/json' }))
-      const a = document.createElement('a')
-      a.href = url
-      a.download = backupFileName(b.exportedAt)
-      document.body.appendChild(a)
-      a.click()
-      a.remove()
-      setTimeout(() => URL.revokeObjectURL(url), 1000)
-      setMessage(`Respaldo descargado: ${a.download}. Guárdalo fuera del navegador.`)
+      const filename = backupFileName(b.exportedAt)
+      const outcome = await saveFile(filename, new Blob([JSON.stringify(b, null, 2)], { type: 'application/json' }))
+      setMessage(outcome === 'saved' ? `Respaldo descargado: ${filename}. Guárdalo fuera del navegador.` : notSavedMessage(outcome))
     } catch (e) {
       setMessage(`No se pudo exportar: ${e instanceof Error ? e.message : String(e)}`)
     }
