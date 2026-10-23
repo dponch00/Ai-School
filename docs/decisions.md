@@ -146,3 +146,8 @@ Una entrada por decisión. Estados: **aceptada**, **propuesta** (espera a Daniel
 - **Por qué:** la puerta cumple la matriz y la revisión independiente, pero el criterio de esfuerzo sigue pendiente. El recorrido de Daniel es la única fuente del tiempo real de estudio y de la validación con el lector real.
 - **Primero en la Fase 2:** las reglas del examen del estándar §4.3 que faltaban en la app (reintento al día siguiente y tras repasar los errores, confianza en el examen y comprobación de retención a 7 días). Con ellas, el recorrido de Daniel ya produce los datos de las hipótesis.
 
+## D-023 · Mientras Daniel no hace su recorrido, se adelanta la investigación del Bloque A
+
+- **Estado:** aceptada por Daniel · 2026-10-22 · **concreta** D-022
+- **Decisión:** Daniel hará su recorrido como alumno más adelante. Mientras tanto, Claude adelanta todo lo que pueda solo: la investigación con fuentes de M01, M03 y M04 (revisada por Codex) y la infraestructura que no depende de él, como el offline por curso (F2-05). No se escriben lecciones ni preguntas del Bloque A hasta tener su tiempo de estudio y sus notas, para que lo que se aprenda de su recorrido entre en la redacción.
+
