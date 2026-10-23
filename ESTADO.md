@@ -5,23 +5,24 @@
 ## Siguiente acción
 
 1. **Daniel:** hacer el recorrido completo como alumno (perfil, lecciones, examen, laboratorio, reporte compartido en un chat y retroalimentación registrada) y anotar su tiempo en `docs/registro-esfuerzo.md` o pasárselo a Claude. Con eso arranca el Bloque A.
-2. **Claude:** F2-07 (búsqueda, glosario, notas y marcadores).
-3. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
-4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
+2. **Codex:** T-020, revisión del glosario, la búsqueda, las notas y las pruebas E2E.
+3. **Claude:** aplicar T-020. Después, F2-05 (offline por curso) cuando haya un segundo manual, y la investigación con fuentes del Bloque A en cuanto Daniel pase su recorrido.
+4. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
+5. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-22)
 
-**≈ 38 % de la V1** (rango razonable: 35–41 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 40 % de la V1** (rango razonable: 37–43 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 95 % (piloto revisado y puerta preparada; faltan el recorrido de Daniel y su decisión) | 20,9 |
-| 2 · Base de app y PWA | 15 % | 60 % (persistencia, reglas del examen, revisiones externas, repaso de errores, PWA con ícono, diagnóstico, almacenamiento y pruebas E2E con accesibilidad; faltan offline por curso, búsqueda y glosario, y hosting) | 9,0 |
+| 2 · Base de app y PWA | 15 % | 70 % (todo lo anterior más búsqueda, glosario, notas y marcadores; faltan offline por curso y hosting) | 10,5 |
 | 3 · Nueve manuales restantes | 40 % | 3 % (currículo y mapa de competencias) | 1,2 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 38 %** |
+| **Total** | 100 % | | **≈ 40 %** |
 
 ## Tickets
 
@@ -46,18 +47,22 @@
 | [T-017](coordinacion/tickets/T-017-codex-revision-reglas-examen-revisiones.md) | Codex | Revisión de las reglas del examen y las revisiones externas | cerrado |
 | [T-018](coordinacion/tickets/T-018-codex-repaso-errores-pwa-icono.md) | Codex | Ícono de la app y revisión del repaso de errores y la PWA | cerrado |
 | [T-019](coordinacion/tickets/T-019-codex-revision-diagnostico-almacenamiento.md) | Codex | Revisión del diagnóstico inicial y del manejo del almacenamiento | cerrado |
+| [T-020](coordinacion/tickets/T-020-codex-revision-glosario-busqueda-e2e.md) | Codex | Revisión del glosario, la búsqueda, las notas y las pruebas E2E | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | F2-07 |
+| — | Nada en curso de Claude hasta la entrega de T-020 y el recorrido de Daniel |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-22 · Claude Code — búsqueda, glosario, notas y marcadores (F2-07)
+Glosario de M02 con 22 términos, cada uno con enlace a sus apartados, que el build valida. Búsqueda sin conexión con MiniSearch y el *stemmer* español (D-014); indexa raíces con y sin tilde y lleva directo al apartado. Notas y marcadores por lección, privados, en «Mis notas» y en el respaldo. Enlace «Buscar» en la cabecera y accesos en el pie. Las pruebas E2E crecieron a 16 rutas y 5 flujos. `npm test` 154/154 y `npm run e2e` 42/42. Abierto T-020. Avance: ≈ 40 %.
 
 ### 2026-10-22 · Claude Code — pruebas E2E y de accesibilidad (F2-08)
 Playwright 1.64 y axe 4.14 (D-014) corren contra el build real con su SW (`npm run e2e`): 13 rutas a 360 px y en escritorio, sin violaciones WCAG 2.2 A/AA ni desborde horizontal. También cubren una comprobación con teclado y su persistencia, un examen retomado tras recargar y el modo sin conexión con el diagrama. En la primera corrida salieron dos problemas reales y quedaron corregidos: una tabla ancha que no se podía alcanzar con el teclado en el celular (ahora las tablas son enfocables) y el radio del examen, que se desmarcaba un instante al hacer clic (ahora la selección se muestra al instante). 32/32 en E2E y 144/144 en `npm test`.
