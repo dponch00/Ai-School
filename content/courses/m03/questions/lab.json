@@ -1,0 +1,531 @@
+[
+  {
+    "id": "m03-lab-q01",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m03",
+    "labStep": "paso-1",
+    "evaluatedObjectiveId": "m03-eo3",
+    "competencyIds": [
+      "C04",
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Pieza 4 del inventario: el agente no puede modificar los topes de gasto aprobados del archivo caps.csv, sin excepción.",
+    "stem": "¿Dónde va esa regla?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En la instrucción permanente, con «nunca» en mayúsculas y al principio del archivo, para que se vea",
+        "correct": false,
+        "feedback": "Escrita en las instrucciones, la regla es una petición que el agente intenta seguir. Si tiene que cumplirse sin excepción, hace falta un control determinista.",
+        "misconceptionId": "m03-mc08"
+      },
+      {
+        "id": "o2",
+        "text": "En un permiso o un hook que bloquee la escritura de caps.csv, con una línea sobre el motivo",
+        "correct": true,
+        "feedback": "Correcta. Un control determinista no depende de que el modelo obedezca. La línea con el motivo le explica al agente por qué no puede escribir ahí."
+      },
+      {
+        "id": "o3",
+        "text": "En la skill de consolidación, que es la que trabaja con esos archivos",
+        "correct": false,
+        "feedback": "Una skill es texto que el agente lee, y solo cuando se activa. Una prohibición sin excepciones necesita un control que no dependa de eso.",
+        "misconceptionId": "m03-mc11"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l3#cuatro-preguntas",
+    "sourceIds": [
+      "src-anthropic-cc-features",
+      "src-anthropic-cc-memory"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-lab-q02",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m03",
+    "labStep": "paso-1",
+    "evaluatedObjectiveId": "m03-eo3",
+    "competencyIds": [
+      "C04",
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Piezas 3 y 5 del inventario: el procedimiento de consolidación de once pasos, que se usa una vez por semana, y la lista de responsables por región, que cambia casi todos los meses.",
+    "stem": "¿Qué conviene hacer con ellas?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Las dos en la instrucción permanente, para que el agente las tenga siempre a mano",
+        "correct": false,
+        "feedback": "La instrucción permanente se paga en cada petición. Un procedimiento ocasional y una lista que cambia cada mes la alargan sin necesidad.",
+        "misconceptionId": "m03-mc10"
+      },
+      {
+        "id": "o2",
+        "text": "Las dos en skills, porque ninguna de las dos hace falta en cada sesión",
+        "correct": false,
+        "feedback": "El procedimiento sí va en una skill, pero la lista cambia cada mes y dentro de una skill se desactualizaría igual. Para la lista basta con decir dónde se mantiene.",
+        "misconceptionId": "m03-mc54"
+      },
+      {
+        "id": "o3",
+        "text": "El procedimiento en una skill, y para la lista, solo una referencia al archivo donde se mantiene",
+        "correct": true,
+        "feedback": "Correcta. Un procedimiento de varios pasos que se usa a veces va en una skill. Lo que cambia a menudo se consulta en su archivo, y la instrucción solo dice dónde está."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l3#cuatro-preguntas",
+    "sourceIds": [
+      "src-anthropic-cc-features",
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-lab-q03",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m03",
+    "labStep": "paso-2",
+    "evaluatedObjectiveId": "m03-eo2",
+    "competencyIds": [
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "En la computadora del compañero, el agente ignora todas las reglas del AGENTS.md de la raíz, incluido make consolidate.",
+    "stem": "¿Qué compruebas primero?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Qué archivos de instrucciones cargó la herramienta del compañero",
+        "correct": true,
+        "feedback": "Correcta. Casi todas las herramientas muestran qué instrucciones cargaron. Si el AGENTS.md no aparece, el agente nunca vio sus reglas."
+      },
+      {
+        "id": "o2",
+        "text": "Si el modelo de su herramienta sigue peor las instrucciones que el de la analista",
+        "correct": false,
+        "feedback": "Antes de culpar al modelo hay que saber si vio el archivo. Que ignore todas las reglas a la vez apunta a un problema de carga.",
+        "misconceptionId": "m03-mc52"
+      },
+      {
+        "id": "o3",
+        "text": "Nada, porque todas las herramientas leen AGENTS.md igual; basta con repetirle las reglas en el chat",
+        "correct": false,
+        "feedback": "Cada herramienta lee AGENTS.md con condiciones distintas. Repetir las reglas en el chat no arregla el problema de carga, y lo dicho en el chat se puede perder al compactar y no llega a la sesión siguiente.",
+        "misconceptionId": "m03-mc05"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l2#verificar-carga",
+    "sourceIds": [
+      "src-anthropic-cc-memory",
+      "src-openai-codex-agentsmd",
+      "src-github-copilot-instructions"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-lab-q04",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m03",
+    "labStep": "paso-2",
+    "evaluatedObjectiveId": "m03-eo2",
+    "competencyIds": [
+      "C04"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "La comprobación muestra que la herramienta del compañero solo carga su propio archivo de instrucciones, el que dice «montos en USD sin redondear».",
+    "stem": "¿Cuál es la corrección mínima?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Copiar en ese archivo todas las reglas del AGENTS.md, incluida la de miles de USD",
+        "correct": false,
+        "feedback": "Las reglas quedarían escritas dos veces y volverían a separarse en el próximo cambio. Además, la regla vieja de montos seguiría contradiciendo a la nueva.",
+        "misconceptionId": "m03-mc20"
+      },
+      {
+        "id": "o2",
+        "text": "Escribir en ese archivo «lee también el AGENTS.md» y dejar la regla de montos como está",
+        "correct": false,
+        "feedback": "Mencionar un archivo no es importarlo, porque la lectura queda a criterio del agente. Además, la contradicción sobre los montos seguiría ahí.",
+        "misconceptionId": "m03-mc07"
+      },
+      {
+        "id": "o3",
+        "text": "Quitar de ese archivo la regla de montos y hacer que importe el AGENTS.md",
+        "correct": true,
+        "feedback": "Correcta. La importación carga el AGENTS.md siempre, y al quitar la regla vieja desaparece la contradicción. Después conviene volver a mirar qué archivos cargó la herramienta."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l2#compartido",
+    "sourceIds": [
+      "src-anthropic-cc-memory"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-lab-q05",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m03",
+    "labStep": "paso-3",
+    "evaluatedObjectiveId": "m03-eo4",
+    "competencyIds": [
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "La analista tiene que reemplazar la descripción «Skill de presupuesto».",
+    "stem": "¿Qué descripción conviene?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "«Skill de presupuesto de Altiplano: contiene todo lo necesario para cualquier tarea del ciclo de presupuesto 2027.»",
+        "correct": false,
+        "feedback": "Es tan amplia que el agente no sabe cuándo usarla, o la usa de más. Tiene que decir qué hace y en qué situaciones.",
+        "misconceptionId": "m03-mc24"
+      },
+      {
+        "id": "o2",
+        "text": "«Consolida los presupuestos regionales en el total y explica cada ajuste. Úsala al consolidar, juntar o cuadrar regiones; no para pronósticos.»",
+        "correct": true,
+        "feedback": "Correcta. Dice qué hace, cuándo usarla con las palabras de quien la pide y cuándo no. Eso es lo que el agente compara con la tarea."
+      },
+      {
+        "id": "o3",
+        "text": "«Lee las plantillas de regions/ con openpyxl, suma por centro de costo y escribe el resultado en consolidated.xlsx.»",
+        "correct": false,
+        "feedback": "Describe cómo está hecha, no cuándo usarla. El agente la elige según lo que pide el usuario, y nadie pide «usa openpyxl».",
+        "misconceptionId": "m03-mc38"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l4#descripcion",
+    "sourceIds": [
+      "src-agentskills-descriptions",
+      "src-agentskills-spec"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-lab-q06",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m03",
+    "labStep": "paso-3",
+    "evaluatedObjectiveId": "m03-eo4",
+    "competencyIds": [
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Para probar la skill, la analista busca consultas que no deberían activarla.",
+    "stem": "¿Cuál es la más valiosa?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "«¿Qué tiempo hará mañana en Lima?»",
+        "correct": false,
+        "feedback": "Una consulta sin relación casi nunca activa nada, así que prueba poco. Las más valiosas comparten palabras con la skill y piden otra cosa.",
+        "misconceptionId": "m03-mc39"
+      },
+      {
+        "id": "o2",
+        "text": "«Junta las plantillas de las cuatro regiones en el total de la empresa»",
+        "correct": false,
+        "feedback": "Esta consulta pide justamente consolidar, solo que con otras palabras: debería activar la skill. Un casi acierto comparte palabras, pero pide otra tarea.",
+        "misconceptionId": "m03-mc40"
+      },
+      {
+        "id": "o3",
+        "text": "«Haz un pronóstico del gasto del primer trimestre de 2027 por región»",
+        "correct": true,
+        "feedback": "Correcta. Comparte palabras con la skill, como gasto y región, pero pide un pronóstico, que la descripción excluye. Es un casi acierto."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l4#probar",
+    "sourceIds": [
+      "src-agentskills-descriptions"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-lab-q07",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m03",
+    "labStep": "paso-4",
+    "evaluatedObjectiveId": "m03-eo1",
+    "competencyIds": [
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Después de la segunda corrección, el agente vuelve a sumar en USD montos que estaban en miles de USD.",
+    "stem": "¿Qué movimiento conviene?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Abrir una sesión nueva con el encargo replanteado, la regla de unidades y un caso de prueba",
+        "correct": true,
+        "feedback": "Correcta. Después de dos correcciones fallidas, el contexto está contaminado. Una sesión nueva con un encargo mejor suele rendir más."
+      },
+      {
+        "id": "o2",
+        "text": "Repetir la regla de unidades en el mismo chat, con más énfasis y un ejemplo de cómo debe sumar",
+        "correct": false,
+        "feedback": "El énfasis solo agrega texto a un contexto lleno de intentos fallidos. Lo que pide este síntoma es limpiar y replantear el encargo.",
+        "misconceptionId": "m03-mc04"
+      },
+      {
+        "id": "o3",
+        "text": "Compactar la conversación para que el resumen conserve las dos correcciones",
+        "correct": false,
+        "feedback": "El resumen arrastra la misma confusión que está fallando. Cuando el historial está contaminado, conviene empezar limpio.",
+        "misconceptionId": "m03-mc02"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l1#movimientos",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-lab-q08",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m03",
+    "labStep": "paso-4",
+    "evaluatedObjectiveId": "m03-eo1",
+    "competencyIds": [
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "La analista necesita saber cuáles de las 80 plantillas históricas usan el formato antiguo, sin perder la sesión en la que ajusta la consolidación.",
+    "stem": "¿Cómo lo resuelve?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Pidiéndole al agente de la sesión principal que abra las 80 plantillas una por una",
+        "correct": false,
+        "feedback": "Las 80 plantillas llenarían la sesión principal con material que no se vuelve a consultar. Una exploración tan amplia conviene hacerla aparte.",
+        "misconceptionId": "m03-mc17"
+      },
+      {
+        "id": "o2",
+        "text": "Encargándole la revisión a un subagente que le devuelva la lista de plantillas antiguas",
+        "correct": true,
+        "feedback": "Correcta. El subagente trabaja en su propio contexto y devuelve un resumen. La sesión principal sigue limpia para los ajustes."
+      },
+      {
+        "id": "o3",
+        "text": "Pegando las 80 plantillas al inicio de una sesión nueva, para que el agente las tenga todas",
+        "correct": false,
+        "feedback": "Cargar todo al empezar satura el contexto desde el primer paso. Un subagente revisa las plantillas y devuelve solo la lista.",
+        "misconceptionId": "m03-mc35"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l1#movimientos",
+    "sourceIds": [
+      "src-anthropic-eng-context",
+      "src-anthropic-cc-subagents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-lab-q09",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m03",
+    "labStep": "paso-5",
+    "evaluatedObjectiveId": "m03-eo6",
+    "competencyIds": [
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "La analista va a pedirle al agente una explicación de la subida de marketing del Sur.",
+    "stem": "¿Qué carga al empezar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El glosario, las 80 plantillas, todas las actas y la salida del cálculo, para que no le falte nada",
+        "correct": false,
+        "feedback": "Cargar todo llena el contexto y degrada la respuesta. Las plantillas y las actas se traen cuando la pregunta las pide.",
+        "misconceptionId": "m03-mc35"
+      },
+      {
+        "id": "o2",
+        "text": "Nada; que el agente encuentre por su cuenta lo que necesite en el repositorio",
+        "correct": false,
+        "feedback": "Sin indicaciones, la búsqueda es más lenta y falla más. Indicarle unas rutas cuesta pocos tokens y lo orienta.",
+        "misconceptionId": "m03-mc46"
+      },
+      {
+        "id": "o3",
+        "text": "El glosario de partidas y dónde están las plantillas, las actas y la salida del cálculo",
+        "correct": true,
+        "feedback": "Correcta. Se carga de antemano lo poco que siempre hace falta, el glosario, y el resto se trae cuando se necesita. Las rutas guían esa búsqueda."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l6#justo-a-tiempo",
+    "sourceIds": [
+      "src-anthropic-eng-context",
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-lab-q10",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m03",
+    "labStep": "paso-5",
+    "evaluatedObjectiveId": "m03-eo6",
+    "competencyIds": [
+      "C03"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "El agente responde: «Marketing del Sur sube un 18 % por la campaña de lanzamiento aprobada [cita: acta del 12 de septiembre] y por la inflación de medios [cita: glosario de partidas]». El glosario solo define qué entra en la partida de medios.",
+    "stem": "¿Qué hace la analista con esa respuesta?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Revisa la cita del acta, marca lo de la inflación como no respaldado y comprueba el 18 % en el cálculo",
+        "correct": true,
+        "feedback": "Correcta. Cada cita se revisa contra lo que acompaña, y la del glosario no sostiene la inflación. La cifra se comprueba contra la salida de make consolidate, no contra una cita."
+      },
+      {
+        "id": "o2",
+        "text": "La acepta, porque las dos citas apuntan a documentos reales del repositorio y el porcentaje parece razonable",
+        "correct": false,
+        "feedback": "Que el documento exista no prueba que diga lo afirmado. El glosario define la partida, pero no dice nada de inflación.",
+        "misconceptionId": "m03-mc34"
+      },
+      {
+        "id": "o3",
+        "text": "La descarta entera, porque una de las citas no respalda su frase",
+        "correct": false,
+        "feedback": "Una cita que falla invalida esa afirmación, no las demás. La campaña se comprueba en el acta por separado.",
+        "misconceptionId": "m03-mc47"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l6#citas",
+    "sourceIds": [
+      "src-arxiv-verifiability",
+      "src-anthropic-citations"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-lab-q11",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m03",
+    "labStep": "paso-6",
+    "evaluatedObjectiveId": "m03-eo5",
+    "competencyIds": [
+      "C03",
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "La decisión de Contraloría de repartir los gastos compartidos por número de empleados, tomada después de discutir otras opciones.",
+    "stem": "¿Dónde la deja la analista?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En la memoria automática de su herramienta, que la recordará en las próximas sesiones de trabajo del equipo",
+        "correct": false,
+        "feedback": "El compañero usa otra herramienta y no ve esa memoria. Además, la memoria no guarda el porqué de forma que otros lo encuentren.",
+        "misconceptionId": "m03-mc44"
+      },
+      {
+        "id": "o2",
+        "text": "En el registro de decisiones con su contexto, y la regla que resulta, en las instrucciones del repositorio",
+        "correct": true,
+        "feedback": "Correcta. El registro guarda el porqué, y la regla pasa a un archivo del repositorio que también carga la herramienta del compañero. Así sabe qué hacer y por qué."
+      },
+      {
+        "id": "o3",
+        "text": "Solo en el traspaso de este viernes, que el compañero leerá el lunes",
+        "correct": false,
+        "feedback": "El traspaso es del momento y lo reemplaza el siguiente. Una decisión que va a seguir valiendo necesita un lugar permanente.",
+        "misconceptionId": "m03-mc60"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l5#registro",
+    "sourceIds": [
+      "src-nygard-adr"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-lab-q12",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m03",
+    "labStep": "paso-6",
+    "evaluatedObjectiveId": "m03-eo5",
+    "competencyIds": [
+      "C03",
+      "C04"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "La analista compara tres borradores de traspaso para el compañero de Tesorería.",
+    "stem": "¿Cuál de estos traspasos sirve mejor?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "«Lunes: empecé por el Norte; el martes el agente propuso cambiar la plantilla, lo discutimos y después pasamos al Sur…» (tres páginas)",
+        "correct": false,
+        "feedback": "Un relato completo llena el contexto de quien lo lee con detalles que no necesita. Lo que necesita es lo esencial, en pocas líneas.",
+        "misconceptionId": "m03-mc32"
+      },
+      {
+        "id": "o2",
+        "text": "«3 de 4 regiones consolidadas. Sigue: Centro, hoy con 4 000 USD de diferencia. Verificar: make consolidate. Descartado: repartir por ventas.»",
+        "correct": true,
+        "feedback": "Correcta. Trae el estado, el siguiente paso, cómo verificar y lo descartado. El compañero puede comprobar el estado antes de tocar nada."
+      },
+      {
+        "id": "o3",
+        "text": "«Casi listo, falta una región. Sigue con lo que quede y, si los números no cierran, revisa las plantillas que te parezcan raras.»",
+        "correct": false,
+        "feedback": "No dice qué región falta ni cómo verificar antes de seguir. Quien retoma no sabría si lo que encuentra está bien.",
+        "misconceptionId": "m03-mc33"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l5#traspaso",
+    "sourceIds": [
+      "src-anthropic-eng-harnesses",
+      "src-anthropic-eng-context"
+    ],
+    "status": "draft"
+  }
+]

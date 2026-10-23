@@ -23,7 +23,9 @@ const RUTAS = [
   ['examen M01', '/#/cursos/m01/examen'],
   ['M01 lección 3', '/#/cursos/m01/lecciones/m01-l3'],
   ['M01 lección 5 (fichas de precios)', '/#/cursos/m01/lecciones/m01-l5'],
-  ['portada M03 (en preparación)', '/#/cursos/m03'],
+  ['portada M03', '/#/cursos/m03'],
+  ['laboratorio M03', '/#/cursos/m03/laboratorio'],
+  ['examen M03', '/#/cursos/m03/examen'],
   ['M03 lección 2', '/#/cursos/m03/lecciones/m03-l2'],
   ['M03 lección 4', '/#/cursos/m03/lecciones/m03-l4'],
 ] as const

@@ -455,5 +455,176 @@
     "sourceIds": [
       "src-arxiv-verifiability"
     ]
+  },
+  {
+    "id": "m03-mc48",
+    "courseId": "m03",
+    "description": "Si es la misma herramienta y el mismo repositorio, el agente recuerda lo de la sesión anterior.",
+    "whyWrong": "Cada sesión empieza sin recordar la anterior; lo que pasa de una a otra llega solo por archivos escritos o por la memoria automática, y esta no es un registro del trabajo.",
+    "sourceIds": [
+      "src-anthropic-eng-harnesses",
+      "src-anthropic-cc-memory"
+    ]
+  },
+  {
+    "id": "m03-mc49",
+    "courseId": "m03",
+    "description": "Una sola sesión muy larga conserva mejor el trabajo que varias sesiones cortas.",
+    "whyWrong": "El contexto se satura y termina compactado, y lo dicho en el chat se resume; lo que tiene que durar se deja escrito en archivos que el agente vuelve a leer.",
+    "sourceIds": [
+      "src-anthropic-eng-context",
+      "src-anthropic-cc-context-window"
+    ]
+  },
+  {
+    "id": "m03-mc50",
+    "courseId": "m03",
+    "description": "El largo de la entrada solo afecta el costo, no la calidad de la respuesta.",
+    "whyWrong": "Varios estudios muestran que el rendimiento baja al alargar la entrada, incluso cuando el modelo encuentra bien el dato.",
+    "sourceIds": [
+      "src-arxiv-context-length",
+      "src-chroma-context-rot"
+    ]
+  },
+  {
+    "id": "m03-mc51",
+    "courseId": "m03",
+    "description": "Si un modelo encuentra un dato escondido en un texto largo, aprovecha bien todo ese texto.",
+    "whyWrong": "Encontrar un dato suelto es la tarea más fácil; con tareas más exigentes, o cuando la pregunta y el dato no comparten palabras, el rendimiento cae mucho antes del límite anunciado.",
+    "sourceIds": [
+      "src-arxiv-ruler",
+      "src-arxiv-nolima"
+    ]
+  },
+  {
+    "id": "m03-mc52",
+    "courseId": "m03",
+    "description": "Si el agente no sigue una instrucción escrita, el problema es el modelo.",
+    "whyWrong": "Antes hay que comprobar si la instrucción se cargó, si llegó completa y si otra la contradice; casi todas las herramientas muestran qué archivos cargaron.",
+    "sourceIds": [
+      "src-anthropic-cc-memory",
+      "src-openai-codex-agentsmd"
+    ]
+  },
+  {
+    "id": "m03-mc53",
+    "courseId": "m03",
+    "description": "AGENTS.md tiene campos obligatorios que, si faltan, impiden que se lea.",
+    "whyWrong": "AGENTS.md es Markdown sin campos obligatorios; que una herramienta lo lea depende de sus propias condiciones de carga.",
+    "sourceIds": [
+      "src-agentsmd-site"
+    ]
+  },
+  {
+    "id": "m03-mc54",
+    "courseId": "m03",
+    "description": "Conviene mover a skills todo lo posible para ahorrar contexto.",
+    "whyWrong": "Las skills ahorran en lo que se usa a veces; lo que hace falta en cada sesión, como un comando que el agente no adivina, va en la instrucción permanente.",
+    "sourceIds": [
+      "src-anthropic-cc-features",
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m03-mc55",
+    "courseId": "m03",
+    "description": "Lo que no está escrito en las instrucciones se puede ir pidiendo en el chat sin perder nada.",
+    "whyWrong": "Lo dicho en el chat se resume al compactar y no llega a la sesión siguiente; lo que se necesita siempre se escribe en el archivo de instrucciones.",
+    "sourceIds": [
+      "src-anthropic-cc-memory",
+      "src-anthropic-cc-context-window"
+    ]
+  },
+  {
+    "id": "m03-mc56",
+    "courseId": "m03",
+    "description": "Una corrida por consulta basta para saber si una skill se activa bien.",
+    "whyWrong": "La conducta del agente no es determinista; cada consulta se corre varias veces y el resultado se compara con un umbral fijado de antemano.",
+    "sourceIds": [
+      "src-agentskills-descriptions"
+    ]
+  },
+  {
+    "id": "m03-mc57",
+    "courseId": "m03",
+    "description": "Una skill bien escrita se activa en todas las corridas de todas las consultas que le corresponden.",
+    "whyWrong": "La activación varía entre corridas; lo razonable es fijar antes una tasa de activación que cuente como éxito.",
+    "sourceIds": [
+      "src-agentskills-descriptions"
+    ]
+  },
+  {
+    "id": "m03-mc58",
+    "courseId": "m03",
+    "description": "Para validar una skill basta con comprobar que se activa cuando corresponde.",
+    "whyWrong": "Una skill que se activa de más ensucia sesiones que no la necesitan; la mitad de la prueba son consultas que no deberían activarla, sobre todo casi aciertos que comparten palabras con la skill pero piden otra cosa.",
+    "sourceIds": [
+      "src-agentskills-descriptions"
+    ]
+  },
+  {
+    "id": "m03-mc59",
+    "courseId": "m03",
+    "description": "El registro de decisiones es el lugar para el estado del trabajo del día.",
+    "whyWrong": "El registro guarda decisiones con su contexto y sus consecuencias; el estado y el siguiente paso son de hoy y van en el traspaso.",
+    "sourceIds": [
+      "src-nygard-adr"
+    ]
+  },
+  {
+    "id": "m03-mc60",
+    "courseId": "m03",
+    "description": "El documento de traspaso sirve para dejar reglas permanentes.",
+    "whyWrong": "El traspaso describe el estado de un momento y lo reemplaza el siguiente; una regla permanente va donde se carga en cada sesión.",
+    "sourceIds": [
+      "src-openai-codex-memories",
+      "src-anthropic-eng-harnesses"
+    ]
+  },
+  {
+    "id": "m03-mc61",
+    "courseId": "m03",
+    "description": "Recuperar justo a tiempo siempre conviene más que cargar algo de antemano.",
+    "whyWrong": "Recuperar en el momento es más lento y necesita indicaciones; lo poco que hace falta siempre conviene cargarlo de antemano y traer el resto cuando se necesite, en un esquema mixto.",
+    "sourceIds": [
+      "src-anthropic-eng-context"
+    ]
+  },
+  {
+    "id": "m03-mc62",
+    "courseId": "m03",
+    "description": "Comprobar una cita es comprobar que el pasaje citado existe.",
+    "whyWrong": "Que el pasaje exista no prueba que sostenga la afirmación; hay que leerlo y ver si dice lo que la respuesta afirma.",
+    "sourceIds": [
+      "src-anthropic-citations",
+      "src-arxiv-verifiability"
+    ]
+  },
+  {
+    "id": "m03-mc63",
+    "courseId": "m03",
+    "description": "Si el agente repite la misma cifra al recalcularla, la cifra es correcta.",
+    "whyWrong": "Dos respuestas del mismo agente pueden coincidir y estar mal las dos; las cifras se comprueban contra el cálculo determinista del proyecto.",
+    "sourceIds": [
+      "src-anthropic-reduce-hallucinations"
+    ]
+  },
+  {
+    "id": "m03-mc64",
+    "courseId": "m03",
+    "description": "El nombre de una skill es libre, mientras la descripción sea buena.",
+    "whyWrong": "La especificación fija el nombre: hasta 64 caracteres, solo con letras minúsculas, dígitos y guiones, y debe coincidir con la carpeta.",
+    "sourceIds": [
+      "src-agentskills-spec"
+    ]
+  },
+  {
+    "id": "m03-mc65",
+    "courseId": "m03",
+    "description": "Cuando una decisión se revierte, su entrada se borra o se reescribe en el registro.",
+    "whyWrong": "La entrada original se conserva marcada como reemplazada y la nueva decisión lleva otro número; los números no se reutilizan.",
+    "sourceIds": [
+      "src-nygard-adr"
+    ]
   }
 ]

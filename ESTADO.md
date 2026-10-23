@@ -1,27 +1,27 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 completo en piloto; M03 en preparación (6 de 6 lecciones; faltan examen y laboratorio). · **Actualizado:** 2026-10-22 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 completo y revisado; M03 completo, en revisión de Codex (T-029). · **Actualizado:** 2026-10-23 por Claude Code
 
 ## Siguiente acción
 
-1. **Claude:** banco de examen de M03, su laboratorio como caso y su práctica; luego T-029 para que Codex los revise.
-2. **Codex:** sin ticket abierto hasta T-029.
+1. **Codex:** T-029, revisión del banco de examen, el laboratorio y la práctica de M03.
+2. **Claude:** mientras tanto, M04 (investigación ya lista): blueprint y lecciones 1 a 3.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
-## Avance estimado (2026-10-22)
+## Avance estimado (2026-10-23)
 
-**≈ 52 % de la V1** (rango razonable: 49–55 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 53 % de la V1** (rango razonable: 50–56 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 88 % (simplificada a opción múltiple con D-024; faltan el hosting y la instalación real en dispositivos) | 13,2 |
-| 3 · Nueve manuales restantes | 40 % | 23 % (M01 completo y revisado; M03 con sus 6 lecciones, sin examen ni laboratorio; investigación de M04 lista) | 9,2 |
+| 3 · Nueve manuales restantes | 40 % | 26 % (M01 completo y revisado; M03 completo, falta su revisión cruzada; investigación de M04 lista) | 10,4 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 52 %** |
+| **Total** | 100 % | | **≈ 53 %** |
 
 ## Tickets
 
@@ -55,18 +55,42 @@
 | [T-026](coordinacion/tickets/T-026-codex-revision-m01-examen-laboratorio.md) | Codex | Revisión de M01: banco de examen, laboratorio como caso y práctica | cerrado |
 | [T-027](coordinacion/tickets/T-027-codex-revision-m03-l1-l3.md) | Codex | Revisión de M03: lecciones 1 a 3, preguntas y fichas | cerrado |
 | [T-028](coordinacion/tickets/T-028-codex-revision-m03-l4-l6.md) | Codex | Revisión de M03: lecciones 4 a 6, preguntas y fichas | cerrado |
+| [T-029](coordinacion/tickets/T-029-codex-revision-m03-examen-laboratorio.md) | Codex | Revisión de M03: banco de examen, laboratorio como caso y práctica | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | `content/courses/m03/**` |
+| Codex (T-029) | `investigacion/codex-revision-m03-examen-laboratorio.md`, `design/qa/T-029/**` |
+| Claude | `content/courses/m04/**` |
 
 ## Decisiones recientes
 
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-23 · Claude Code — M03 completo
+**Banco de examen:** 14 familias de una sola decisión, con 3 variantes cada una (42 ítems) y un enunciado por familia.
+
+**Laboratorio como caso:** «El repositorio del presupuesto 2027», con 6 pasos y 12 preguntas.
+
+**Práctica y conceptos erróneos:**
+- 12 preguntas de práctica;
+- 18 conceptos erróneos nuevos, de `m03-mc48` a `m03-mc65`.
+
+**Equilibrio de longitudes:**
+
+| Banco | Clave más larga | Clave más corta |
+| --- | --- | --- |
+| Examen | 13 de 42 | 9 de 42 |
+| Laboratorio | 3 de 12 | 2 de 12 |
+
+Lo revisó el revisor de texto. De sus dudas se aplicaron dos:
+- `m03-f11-c` usa ahora una convención del equipo en lugar de una prohibición sin excepciones, que pediría un control determinista;
+- en `m03-lab-q11`, la regla va a las instrucciones del repositorio, porque no consta que la herramienta del compañero cargue la skill.
+
+M03 aparece como disponible. Abierto T-029. `npm test` 134/134 y e2e 66/66, con las rutas del laboratorio y el examen de M03. Avance: ≈ 53 %.
 
 ### 2026-10-23 · Claude Code — revisión de T-028
 - T028-01: la longitud de la opción ya no delata la clave en las seis preguntas señaladas. Queda la más larga en 4 de 34 y la más corta en 12 de 34.

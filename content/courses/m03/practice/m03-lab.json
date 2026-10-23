@@ -1,0 +1,31 @@
+{
+  "id": "m03-lab",
+  "courseId": "m03",
+  "version": "0.1.0",
+  "title": "El repositorio del presupuesto 2027",
+  "evaluatedObjectiveIds": [
+    "m03-eo1",
+    "m03-eo2",
+    "m03-eo3",
+    "m03-eo4",
+    "m03-eo5",
+    "m03-eo6"
+  ],
+  "instructionsPath": "courses/m03/practice/m03-lab.md",
+  "estimatedMinutes": 30,
+  "questionIds": [
+    "m03-lab-q01",
+    "m03-lab-q02",
+    "m03-lab-q03",
+    "m03-lab-q04",
+    "m03-lab-q05",
+    "m03-lab-q06",
+    "m03-lab-q07",
+    "m03-lab-q08",
+    "m03-lab-q09",
+    "m03-lab-q10",
+    "m03-lab-q11",
+    "m03-lab-q12"
+  ],
+  "status": "draft"
+}

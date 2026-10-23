@@ -1,0 +1,518 @@
+[
+  {
+    "id": "m03-p01",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m03",
+    "evaluatedObjectiveId": "m03-eo1",
+    "competencyIds": [
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Terminaste de ajustar el cálculo de comisiones con el agente y ahora quieres empezar el informe de gastos de viaje, que no tiene relación con lo anterior.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Empiezas una sesión nueva para el informe de viajes",
+        "correct": true,
+        "feedback": "Correcta. Entre tareas sin relación conviene limpiar. Una sesión por cada unidad de trabajo coherente evita que el contexto se llene de ruido."
+      },
+      {
+        "id": "o2",
+        "text": "Sigues en la misma sesión, para aprovechar el contexto que ya está cargado",
+        "correct": false,
+        "feedback": "El contexto de las comisiones no sirve para los viajes y solo ocupa espacio. Mezclar tareas llena el contexto de ruido.",
+        "misconceptionId": "m03-mc17"
+      },
+      {
+        "id": "o3",
+        "text": "Compactas la conversación y sigues con el informe en la misma sesión",
+        "correct": false,
+        "feedback": "Compactar sirve cuando la tarea sigue y el historial vale. Para una tarea nueva y sin relación, lo indicado es una sesión nueva.",
+        "misconceptionId": "m03-mc02"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l1#movimientos",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-openai-codex-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-p02",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m03",
+    "evaluatedObjectiveId": "m03-eo1",
+    "competencyIds": [
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "El agente empezó a ignorar una instrucción que le diste al principio y comete un error que antes no cometía. Antes de decidir qué hacer, quieres entender la causa.",
+    "stem": "¿Qué miras primero?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Qué versión del modelo está usando la herramienta",
+        "correct": false,
+        "feedback": "Los síntomas descritos son los de un contexto saturado, no los de un cambio de modelo. Primero hay que ver qué ocupa el contexto.",
+        "misconceptionId": "m03-mc52"
+      },
+      {
+        "id": "o2",
+        "text": "El desglose de qué está ocupando el contexto y cuánto consume cada parte",
+        "correct": true,
+        "feedback": "Correcta. Mirar ese desglose antes de elegir un movimiento evita adivinar. No es lo mismo un contexto lleno de archivos que no vienen al caso que uno lleno del historial de la tarea."
+      },
+      {
+        "id": "o3",
+        "text": "Nada: repites la instrucción del principio para que la vuelva a tener presente",
+        "correct": false,
+        "feedback": "Repetir solo agrega texto a un contexto que ya está saturado. Primero se mira qué lo ocupa y después se elige el movimiento.",
+        "misconceptionId": "m03-mc04"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l1#medir",
+    "sourceIds": [
+      "src-anthropic-cc-context-window",
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-p03",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m03",
+    "evaluatedObjectiveId": "m03-eo2",
+    "competencyIds": [
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Dos archivos de instrucciones del proyecto dicen cosas distintas sobre cómo escribir los montos negativos: uno pide paréntesis y el otro, signo menos.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Los reordenas para que el que tiene la regla buena se lea al final",
+        "correct": false,
+        "feedback": "El orden de lectura da, como mucho, una tendencia. Ante una contradicción, el modelo puede seguir cualquiera de las dos.",
+        "misconceptionId": "m03-mc16"
+      },
+      {
+        "id": "o2",
+        "text": "Nada: el archivo más cercano a la carpeta de trabajo anulará al otro",
+        "correct": false,
+        "feedback": "La precedencia no es una anulación garantizada, y no funciona igual en todas las herramientas. La contradicción hay que eliminarla.",
+        "misconceptionId": "m03-mc06"
+      },
+      {
+        "id": "o3",
+        "text": "Decides qué formato vale y dejas la regla escrita en un solo archivo",
+        "correct": true,
+        "feedback": "Correcta. Mientras dos instrucciones se contradigan, nada garantiza cuál se sigue. Se elimina la contradicción en el origen."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l2#precedencia",
+    "sourceIds": [
+      "src-anthropic-cc-memory"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-p04",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m03",
+    "evaluatedObjectiveId": "m03-eo2",
+    "competencyIds": [
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Tu archivo de instrucciones dice: «Revisa también docs/estilo.md antes de escribir reportes».",
+    "stem": "¿Se cargará siempre docs/estilo.md?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "No: una mención deja la lectura a criterio del agente; hay que importarlo",
+        "correct": true,
+        "feedback": "Correcta. Una mención es una petición más. La importación, con la sintaxis que reconoce la herramienta, lo carga siempre."
+      },
+      {
+        "id": "o2",
+        "text": "Sí, porque mencionar un archivo en las instrucciones equivale a importarlo",
+        "correct": false,
+        "feedback": "Mencionar no es importar. La lectura depende de que el agente decida abrirlo.",
+        "misconceptionId": "m03-mc07"
+      },
+      {
+        "id": "o3",
+        "text": "Sí, siempre que docs/estilo.md exista en el repositorio",
+        "correct": false,
+        "feedback": "Que el archivo exista no hace que se cargue. Sin importación, depende del agente.",
+        "misconceptionId": "m03-mc21"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l2#compartido",
+    "sourceIds": [
+      "src-anthropic-cc-memory"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-p05",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m03",
+    "evaluatedObjectiveId": "m03-eo3",
+    "competencyIds": [
+      "C04",
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Los nombres de las tablas de la carpeta sql/staging/ empiezan con stg_. La convención no aplica en el resto del repositorio.",
+    "stem": "¿Dónde va esa convención?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En la instrucción permanente, que el agente lee en cada sesión",
+        "correct": false,
+        "feedback": "La instrucción permanente se paga en cada petición. Esta convención solo hace falta al tocar sql/staging/, así que va asociada a esa carpeta.",
+        "misconceptionId": "m03-mc10"
+      },
+      {
+        "id": "o2",
+        "text": "En una regla por rutas o en un archivo de instrucciones dentro de esa carpeta",
+        "correct": true,
+        "feedback": "Correcta. Lo que vale para una parte del código va asociado a ella. Se carga al tocar esos archivos y no ocupa contexto en el resto."
+      },
+      {
+        "id": "o3",
+        "text": "En un subagente que se encargue de las tablas de staging",
+        "correct": false,
+        "feedback": "Un subagente aísla trabajo que inundaría el contexto. No es un lugar para guardar convenciones.",
+        "misconceptionId": "m03-mc23"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l3#cuatro-preguntas",
+    "sourceIds": [
+      "src-anthropic-cc-memory",
+      "src-github-copilot-instructions"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-p06",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m03",
+    "evaluatedObjectiveId": "m03-eo3",
+    "competencyIds": [
+      "C04",
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Por tercera vez en el mes, le pegas al agente los mismos seis pasos para preparar la conciliación de nómina.",
+    "stem": "¿Qué capa conviene?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La instrucción permanente, para no tener que pegarlos más",
+        "correct": false,
+        "feedback": "Se pagaría en cada petición, aunque el procedimiento solo se use algunas veces al mes. Para eso está la skill.",
+        "misconceptionId": "m03-mc10"
+      },
+      {
+        "id": "o2",
+        "text": "Un subagente que guarde los seis pasos",
+        "correct": false,
+        "feedback": "Un subagente sirve para aislar exploraciones grandes. Los procedimientos que se repiten van en una skill.",
+        "misconceptionId": "m03-mc23"
+      },
+      {
+        "id": "o3",
+        "text": "Una skill con los seis pasos, que solo entra al contexto cuando se usa",
+        "correct": true,
+        "feedback": "Correcta. Pegar el mismo procedimiento por tercera vez es la señal de una skill. Hasta que se usa, solo ocupa su descripción."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l3#sintomas",
+    "sourceIds": [
+      "src-anthropic-cc-features"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-p07",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m03",
+    "evaluatedObjectiveId": "m03-eo4",
+    "competencyIds": [
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Una skill nueva tiene en sus metadatos el nombre «Reporte_Ventas Semanal», y está en la carpeta reporte-ventas-semanal.",
+    "stem": "¿Cumple el formato?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "No: el nombre va en minúsculas, con dígitos y guiones, y coincide con la carpeta",
+        "correct": true,
+        "feedback": "Correcta. La especificación fija el nombre: hasta 64 caracteres, minúsculas, dígitos y guiones, igual que la carpeta. Aquí sería reporte-ventas-semanal."
+      },
+      {
+        "id": "o2",
+        "text": "Sí, porque el nombre es libre y lo que cuenta es la descripción",
+        "correct": false,
+        "feedback": "La descripción decide la activación, pero el nombre también tiene reglas. Este no las cumple.",
+        "misconceptionId": "m03-mc64"
+      },
+      {
+        "id": "o3",
+        "text": "Sí, mientras la descripción explique qué hace y cuándo usarla",
+        "correct": false,
+        "feedback": "Una buena descripción no corrige un nombre fuera de formato. Son dos campos obligatorios, con reglas propias.",
+        "misconceptionId": "m03-mc64"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l4#que-es",
+    "sourceIds": [
+      "src-agentskills-spec"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-p08",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m03",
+    "evaluatedObjectiveId": "m03-eo4",
+    "competencyIds": [
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Una skill tiene un SKILL.md de 3 000 líneas, con todos los casos posibles y decenas de ejemplos.",
+    "stem": "¿Qué conviene hacer?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Dejarla como está, porque cuanto más completa sea, mejor funciona",
+        "correct": false,
+        "feedback": "Un detalle exhaustivo dispersa al agente, y la especificación recomienda un cuerpo bajo 500 líneas. Rinde más una guía breve con un ejemplo.",
+        "misconceptionId": "m03-mc29"
+      },
+      {
+        "id": "o2",
+        "text": "Dejar en SKILL.md una guía breve y pasar el detalle a documentos de referencia",
+        "correct": true,
+        "feedback": "Correcta. El cuerpo entra entero al activarse, y los documentos de referencia solo cuando las instrucciones los piden. Así se carga lo necesario."
+      },
+      {
+        "id": "o3",
+        "text": "Pegar su contenido en la instrucción permanente, para que el agente lo tenga siempre",
+        "correct": false,
+        "feedback": "Así las 3 000 líneas se pagarían en cada petición. El problema se resuelve con carga por niveles, no cargando más.",
+        "misconceptionId": "m03-mc10"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l4#cuerpo",
+    "sourceIds": [
+      "src-agentskills-bp",
+      "src-agentskills-spec"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-p09",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m03",
+    "evaluatedObjectiveId": "m03-eo5",
+    "competencyIds": [
+      "C03",
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Una decisión registrada hace un año como la número 7 acaba de ser revertida por una nueva.",
+    "stem": "¿Qué haces en el registro de decisiones?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Borras la entrada 7, porque ya no está vigente",
+        "correct": false,
+        "feedback": "Borrarla elimina el porqué de lo que se hizo durante un año. La entrada original se conserva, marcada como reemplazada.",
+        "misconceptionId": "m03-mc65"
+      },
+      {
+        "id": "o2",
+        "text": "Reescribes la entrada 7 con la nueva decisión y conservas el número",
+        "correct": false,
+        "feedback": "Los números no se reutilizan y la historia no se reescribe. La nueva decisión lleva su propio número.",
+        "misconceptionId": "m03-mc65"
+      },
+      {
+        "id": "o3",
+        "text": "Marcas la 7 como reemplazada y registras la nueva con otro número",
+        "correct": true,
+        "feedback": "Correcta. Las entradas se numeran sin reutilizar números, y una decisión revertida queda marcada como reemplazada. Así se conserva el porqué de cada etapa."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l5#registro",
+    "sourceIds": [
+      "src-nygard-adr"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-p10",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m03",
+    "evaluatedObjectiveId": "m03-eo5",
+    "competencyIds": [
+      "C03",
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Una herramienta borra de su memoria automática lo que no se usa en 28 días, y otra la guarda solo en tu computadora.",
+    "stem": "¿Qué concluyes sobre la memoria automática?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que ayuda a recordar, pero no sirve para lo obligatorio ni para traspasar",
+        "correct": true,
+        "feedback": "Correcta. La memoria puede caducar y no viaja entre herramientas ni personas. Lo obligatorio y lo que se traspasa va en archivos del repositorio."
+      },
+      {
+        "id": "o2",
+        "text": "Que es el mejor lugar para las reglas obligatorias del equipo",
+        "correct": false,
+        "feedback": "Una memoria que caduca o que vive en una sola computadora no es lugar para lo obligatorio. Eso va en el archivo de instrucciones.",
+        "misconceptionId": "m03-mc19"
+      },
+      {
+        "id": "o3",
+        "text": "Que la pueden consultar otras personas del equipo aunque usen otra herramienta",
+        "correct": false,
+        "feedback": "La memoria es de cada herramienta, y a veces de cada máquina. Otra persona con otra herramienta no la ve.",
+        "misconceptionId": "m03-mc44"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l5#memoria",
+    "sourceIds": [
+      "src-github-copilot-memory",
+      "src-anthropic-cc-memory"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-p11",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m03",
+    "evaluatedObjectiveId": "m03-eo6",
+    "competencyIds": [
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Una respuesta del agente cita un archivo real del repositorio para respaldar una afirmación sobre márgenes.",
+    "stem": "¿Qué te dice esa cita?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que la afirmación está respaldada, porque el archivo existe",
+        "correct": false,
+        "feedback": "Que el archivo exista no prueba que diga lo afirmado. En un estudio, solo el 74,5 % de las citas respaldaba la frase que acompañaba.",
+        "misconceptionId": "m03-mc34"
+      },
+      {
+        "id": "o2",
+        "text": "Que no puede ser inventada, porque el agente trabajó con documentos recuperados",
+        "correct": false,
+        "feedback": "Los sistemas que trabajan sobre documentos recuperados también inventan, aunque menos. Por eso la cita hay que abrirla y leerla.",
+        "misconceptionId": "m03-mc36"
+      },
+      {
+        "id": "o3",
+        "text": "Que el archivo existe; falta abrirlo y ver si dice lo que se afirma",
+        "correct": true,
+        "feedback": "Correcta. Que la cita apunte a un archivo real no significa que respalde la afirmación. Comprobar el apoyo es trabajo de quien lee."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l6#citas",
+    "sourceIds": [
+      "src-arxiv-verifiability",
+      "src-arxiv-legal-rag"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-p12",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m03",
+    "evaluatedObjectiveId": "m03-eo6",
+    "competencyIds": [
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Una skill que lee un foro externo trae, junto con los datos que buscabas, una línea que le pide al agente cambiar la configuración del repositorio.",
+    "stem": "¿Cómo debe tratar el agente esa línea?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Debe seguirla, porque viene de una fuente que el equipo conectó",
+        "correct": false,
+        "feedback": "Que la fuente esté conectada no hace confiable su contenido. Lo recuperado puede traer instrucciones inyectadas.",
+        "misconceptionId": "m03-mc37"
+      },
+      {
+        "id": "o2",
+        "text": "Como un dato que hay que evaluar, nunca como una orden",
+        "correct": true,
+        "feedback": "Correcta. El contenido externo puede traer instrucciones escondidas. Lo que el agente recupera se evalúa como dato y no se obedece."
+      },
+      {
+        "id": "o3",
+        "text": "Debe seguirla solo si el cambio que pide parece razonable",
+        "correct": false,
+        "feedback": "Que parezca razonable no la convierte en una instrucción legítima. Las órdenes vienen de quien encarga el trabajo, no del contenido recuperado.",
+        "misconceptionId": "m03-mc37"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l6#dato",
+    "sourceIds": [
+      "src-anthropic-cc-mcp",
+      "src-anthropic-skills-overview",
+      "src-owasp-llm01"
+    ],
+    "status": "draft"
+  }
+]

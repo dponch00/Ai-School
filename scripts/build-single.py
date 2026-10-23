@@ -84,7 +84,7 @@ shim = """
 """ % json.dumps(assets)
 
 banner = ('<div style="background:#2b3a55;color:#fff;font:14px/1.4 system-ui,sans-serif;padding:8px 16px;text-align:center">'
-          'Versión de prueba · M01 y M02 completos, M03 en preparación · 23 oct 2026 · el progreso se guarda solo en este navegador</div>')
+          'Versión de prueba · M01, M02 y M03 · 23 oct 2026 · el progreso se guarda solo en este navegador</div>')
 
 out = f"""<!doctype html>
 <html lang="es">

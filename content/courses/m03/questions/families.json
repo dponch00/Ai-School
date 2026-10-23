@@ -1,0 +1,86 @@
+[
+  {
+    "family": "m03-f01",
+    "evaluatedObjectiveId": "m03-eo1",
+    "decision": "Elegir el movimiento de contexto (limpiar, compactar con foco o aislar en un subagente) que corresponde al síntoma de la sesión",
+    "equivalence": "Las tres variantes describen una sesión con un síntoma distinto y piden el movimiento. Cambia el síntoma: dos correcciones fallidas (a, limpiar), una exploración amplia a mitad de otra tarea (b, subagente) y una sesión larga con historial valioso y un consejo de empezar de cero (c, más difícil porque el distractor suena prudente)."
+  },
+  {
+    "family": "m03-f02",
+    "evaluatedObjectiveId": "m03-eo1",
+    "decision": "Persistir fuera del contexto lo que tiene que durar, en lugar de dejarlo en el chat",
+    "equivalence": "Las tres variantes presentan algo que tiene que sobrevivir a una compactación o a varias sesiones y piden cómo asegurarlo. Cambia lo que debe durar: una regla acordada antes de una compactación (a), el avance de una migración de tres días (b) y una indicación ya perdida que un compañero quiere repetir con énfasis (c, más difícil porque el distractor ataca el síntoma)."
+  },
+  {
+    "family": "m03-f03",
+    "evaluatedObjectiveId": "m03-eo1",
+    "decision": "Reconocer que la ventana que se aprovecha es menor que la anunciada y que un contexto enfocado rinde más",
+    "equivalence": "Las tres variantes presentan a alguien que propone dar más contexto del necesario y piden la respuesta. Cambia el argumento: una ventana anunciada de un millón de tokens (a), un historial completo para una pregunta puntual (b) y una prueba de búsqueda de un dato presentada como prueba de todo (c, más difícil porque la evidencia parece sólida)."
+  },
+  {
+    "family": "m03-f04",
+    "evaluatedObjectiveId": "m03-eo2",
+    "decision": "Eliminar en el origen una contradicción o una duplicación entre archivos de instrucciones, dejando la regla en un solo lugar",
+    "equivalence": "Las tres variantes presentan dos archivos de instrucciones que no coinciden y piden la corrección. Cambia el origen del choque: dos AGENTS.md con reglas opuestas (a), una regla copiada en dos archivos que quedó desactualizada en uno (b) y una propuesta de reordenar archivos para que gane el correcto (c, más difícil porque la propuesta usa la precedencia)."
+  },
+  {
+    "family": "m03-f05",
+    "evaluatedObjectiveId": "m03-eo2",
+    "decision": "Comprobar qué archivos de instrucciones cargó la herramienta antes de buscar otra causa",
+    "equivalence": "Las tres variantes presentan un agente que no sigue reglas escritas y piden la primera comprobación. Cambia la pista: un AGENTS.md nuevo en una carpeta (a), el mismo AGENTS.md que funciona con una herramienta y no con otra (b) y un compañero que culpa al modelo justo después de crear un archivo personal (c, más difícil porque hay que conectar el archivo personal con la carga)."
+  },
+  {
+    "family": "m03-f06",
+    "evaluatedObjectiveId": "m03-eo2",
+    "decision": "Predecir qué instrucciones cargará la herramienta a partir de su forma de leer los archivos",
+    "equivalence": "Las tres variantes describen una configuración de archivos y una regla de carga, y piden la consecuencia. Cambia el mecanismo: mencionar un archivo en lugar de importarlo (a), un chat local que solo lee la raíz sin un ajuste (b) y una herramienta que deja de agregar archivos al llegar a su tope (c, más difícil porque hay que deducir cuál queda fuera)."
+  },
+  {
+    "family": "m03-f07",
+    "evaluatedObjectiveId": "m03-eo3",
+    "decision": "Elegir la capa de una pieza del proyecto según su frecuencia de uso, su alcance y su necesidad de garantía",
+    "equivalence": "Las tres variantes presentan una pieza del proyecto y piden su capa. Cambia la pieza: una prohibición sin excepciones (a, control determinista), una convención de una sola carpeta (b, regla por rutas) y un comando que se necesita en casi todas las sesiones y que alguien quiere pasar a una skill (c, más difícil porque el argumento del ahorro suena razonable)."
+  },
+  {
+    "family": "m03-f08",
+    "evaluatedObjectiveId": "m03-eo3",
+    "decision": "Decidir si una línea se queda en la instrucción permanente aplicando la prueba de poda",
+    "equivalence": "Las tres variantes presentan una línea de la instrucción permanente y piden qué hacer con ella. Cambia la línea: una obviedad (a, se quita), un dato que cambia cada mes (b, se reemplaza por una referencia) y un comando que alguien quiere quitar porque «el agente ya sabe» (c, más difícil porque se conserva)."
+  },
+  {
+    "family": "m03-f09",
+    "evaluatedObjectiveId": "m03-eo4",
+    "decision": "Elegir la descripción de skill que dice qué hace y cuándo usarla, con las palabras de quien la pide, y que la separa de tareas vecinas",
+    "equivalence": "Las tres variantes piden elegir entre tres descripciones para una skill. Cambia la falla de partida: una skill nueva sin descripción (a), una descripción tan amplia que se activa en todo (b) y dos skills con descripciones casi iguales que el agente confunde (c, más difícil porque un distractor repite palabras clave)."
+  },
+  {
+    "family": "m03-f10",
+    "evaluatedObjectiveId": "m03-eo4",
+    "decision": "Interpretar el resultado de una prueba de activación de una skill según el protocolo: consultas realistas, varias corridas, umbral previo y casi aciertos",
+    "equivalence": "Las tres variantes presentan el resultado de una prueba de activación y piden la conclusión. Cambia el defecto de la prueba: una consulta trivial que no activó la skill (a), una sola corrida por consulta (b) y una prueba sin consultas que no deberían activarla (c, más difícil porque el resultado parece perfecto)."
+  },
+  {
+    "family": "m03-f11",
+    "evaluatedObjectiveId": "m03-eo5",
+    "decision": "Decidir dónde va cada cosa que tiene que cruzar de una sesión a otra: la decisión con su porqué, el estado del día o la regla obligatoria",
+    "equivalence": "Las tres variantes presentan algo que tiene que sobrevivir a la sesión y piden dónde dejarlo. Cambia la naturaleza de lo que se deja: una decisión con sus motivos (a, registro de decisiones), un fallo pendiente al terminar el día (b, traspaso) y una regla obligatoria que la memoria automática ya guardó (c, más difícil porque la memoria parece suficiente)."
+  },
+  {
+    "family": "m03-f12",
+    "evaluatedObjectiveId": "m03-eo5",
+    "decision": "Elegir el documento de traspaso con el que otra persona u otro agente puede retomar el trabajo",
+    "equivalence": "Las tres variantes piden elegir entre tres borradores de traspaso. Cambia lo que falla en los distractores: un relato completo o un enlace al chat (a), la memoria de una herramienta o un resumen vago (b) y dos borradores casi completos a los que les falta la verificación o lo descartado (c, más difícil porque los tres se parecen)."
+  },
+  {
+    "family": "m03-f13",
+    "evaluatedObjectiveId": "m03-eo6",
+    "decision": "Decidir qué se carga de antemano y qué se recupera justo a tiempo",
+    "equivalence": "Las tres variantes describen preguntas que exigen documentos del proyecto y piden qué cargar al empezar. Cambia el material: muchas facturas organizadas en carpetas (a, referencias ligeras), una pregunta con una fuente precisa (b, señalar la fuente) y un glosario breve que se usa siempre junto a cientos de actas (c, más difícil porque pide el esquema mixto)."
+  },
+  {
+    "family": "m03-f14",
+    "evaluatedObjectiveId": "m03-eo6",
+    "decision": "Revisar si cada cita sostiene la afirmación que acompaña, y comprobar las cifras contra el cálculo del proyecto",
+    "equivalence": "Las tres variantes presentan una respuesta con citas y piden qué hacer con ella. Cambia lo que hay que ver: una cita a un documento real que no dice lo afirmado (a), citas nativas que garantizan el pasaje (b) y una cifra citada a su fila de origen (c, más difícil porque la cita es correcta y aun así no basta)."
+  }
+]
