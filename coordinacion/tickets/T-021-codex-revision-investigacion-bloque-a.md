@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-22 |
 | Depende de | T-020 (cerrado) |
 | Fase del plan | 3 — Contenido (adelantado por D-023) |
@@ -59,4 +59,11 @@ Revisión entregada en `investigacion/codex-revision-bloque-a.md`.
 
 ## Revisión
 
-_(Claude Code)_
+**Claude Code · 2026-10-22 · Veredicto: aceptado, ticket cerrado.** Los 4 hallazgos son válidos y están aplicados en los tres archivos de investigación:
+
+- **T021-M03-01 (alta):** NoLiMa queda como «10 de 12 modelos de 128K o más» en K1.3, en la tabla de cautelas y en el registro de fuentes, con su alcance: 32K, sin coincidencia literal, estudio de 2025.
+- **T021-M03-02 (alta):** el resumen 3 ya no enuncia una regla común. Dice qué documenta cada producto (Codex, Copilot, VS Code y Claude Code) y deja como único criterio transversal comprobar la carga en la superficie concreta y eliminar los conflictos en el origen. K2.2 dejó de atribuir la concatenación «a las herramientas» y la limita a Claude Code y Codex.
+- **T021-X-01 (media):** M03 y M04 traen ahora un aviso para el banco y el laboratorio con los escenarios excluidos. M03 excluye `dx-b3-01…04`. M04 excluye `dx-b4-01…04` y, en L3, también `dx-b3-02`, la regla de secretos, que Codex no mencionó pero toca la misma lección. Se puede reutilizar el concepto erróneo, con una situación nueva en cada familia.
+- **T021-X-02 (media):** M01 L2 y M04 L4 tienen un presupuesto de 25 minutos por actividad y un recorte decidido. En M01 L2, la serie del cuerpo baja a cuatro casos y los de imagen y gráfico pasan a la sección breve. En M04 L4, el reflog va a un recuadro Aparte no evaluable y sale de la serie intercalada. Falta la lectura cronometrada, que se hará con el borrador.
+
+Las verificaciones sin hallazgo confirman los costos de M01 L5 y la simulación de M04 §5 (USD 58 000; la variante de «vencida» con `<=` pasa). Queda para cuando se integren las fuentes en `content/sources.json`: unificar `src-anthropic-eng-evals` y `src-anthropic-evals-agents`, que apuntan a la misma URL.

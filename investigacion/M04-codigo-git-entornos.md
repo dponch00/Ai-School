@@ -10,6 +10,7 @@
   - **Ficha** = afirmación que depende de un producto o una versión. Según D-019 va en una ficha de producto fechada, nunca en el cuerpo de la lección. En este documento se marca con «Ficha candidata» y fecha de verificación.
   - Citas textuales: como máximo una por fuente y de menos de 15 palabras.
 - **Datos:** todos los ejemplos usan el caso ficticio Altiplano Industrial S.A. (M02 §2.0) y los archivos sintéticos de `content/courses/m02/practice/data/`. Ninguna cifra es real. Los tokens o claves de los ejemplos son marcadores evidentes (`TOKEN_FICTICIO_…`), nunca valores con forma de credencial real.
+- **Aviso para el banco y el laboratorio (T021-X-01):** los ítems del diagnóstico `dx-b4-01` a `dx-b4-04` ya están expuestos (qué pedir antes de aceptar, cómo recuperar la versión buena, qué importa en una revisión con cambios fuera de alcance y cómo dirigir un plan incremental). Tampoco se reutiliza en L3 el escenario de `dx-b3-02` (la regla de que ningún archivo de secretos se suba nunca). Se puede reutilizar el concepto erróneo, con una situación nueva de Altiplano en cada familia (estándar §4.1).
 - **Alumno:** profesional de finanzas que dirige agentes de código. No se forma a un programador: se forma a alguien capaz de leer, ubicar, aislar, recuperar y decidir si acepta un cambio (`docs/curriculum.md`, M04, «Alcance»).
 
 ---
@@ -210,6 +211,8 @@ Caso resuelto: el agente subió `.env` en un commit. Decisión correcta, en orde
 ### Lección 4 — Git: diffs, commits, ramas, worktrees y recuperación; un checkpoint no es un commit
 
 **Objetivo de lección (→ M04-OE4):** Dado un escenario, elige y aplica la operación de Git o el checkpoint adecuados y deja evidencia verificable de la recuperación.
+
+**Presupuesto de tiempo (T021-X-02) [inferencia; se valida con una lectura cronometrada antes de cerrar el borrador]:** repaso 3 min · diff y commit 5 · rama y worktree 5 · `restore` frente a `revert` 5 · checkpoint frente a commit 3 · serie intercalada de 5 casos 4 · total 25. **Recorte decidido:** el reflog va en un recuadro Aparte, no evaluable en esta lección, y el caso 6 de la serie («hice `reset --hard` por error») sale de la serie. M04-CE21 queda como concepto del Aparte. `reset --hard` sigue en «enseñar con cautela» (§4).
 
 **Ideas clave (capa duradera)**
 
@@ -496,5 +499,5 @@ Total: 54 fuentes (46 nuevas y 8 reutilizadas). Todas primarias salvo src-12fact
 9. **Versiones exactas.** La documentación de Git y de Python consultada es la «actual» de cada sitio; no anoté número de versión de Git ni de Python. Las afirmaciones usadas son estables desde hace años (por ejemplo, `git restore` y `git switch` existen desde Git 2.23 según Pro Git), pero no comprobé cambios en la versión más reciente.
 10. **Fechas de página.** Las páginas de Codex, GitHub y Claude Code no muestran fecha de actualización (solo la de VS Code: 2026-10-21). No puedo fechar cuándo entró en vigor cada capacidad.
 11. **Cifras del laboratorio.** Las calculé ejecutando copias modificadas de `reconcile.py` en un directorio temporal, no un `pipeline_kpis.py` real (que aún no existe). Cuando se construya el repositorio del laboratorio hay que volver a obtenerlas y fijarlas en sus fixtures.
-12. **Tiempo de las lecciones.** L4 concentra muchas ideas (diff, ramas, worktrees, tres formas de deshacer, reflog, checkpoint). [inferencia] Puede superar los 25 minutos; la puerta F1-13 dirá si conviene partirla o mover el reflog a un Aparte.
+12. **Tiempo de las lecciones.** L4 concentra muchas ideas (diff, ramas, worktrees, tres formas de deshacer, reflog, checkpoint). [inferencia] Puede superar los 25 minutos. Resuelto por T021-X-02: presupuesto por actividad en L4 y reflog movido a un Aparte; falta la lectura cronometrada.
 13. **Afirmación de JOIN que multiplica filas** y comparación de fechas como texto: son razonamientos propios marcados como [inferencia]; no busqué una fuente primaria específica.

@@ -135,6 +135,8 @@ Seis objetivos evaluados, todos de C01 (competencia principal). Cada uno aliment
 
 **Nota de diseño [inferencia].** Esta es la lección con más riesgo de pasarse de 25 minutos. Conviene que el cuerpo enseñe las cuatro preguntas (I2.1) y la serie de seis pedidos, y que el detalle por producto quede en una sola ficha agrupada (guía de estilo §2.6: máximo dos fichas por lección).
 
+**Presupuesto de tiempo (T021-X-02) [inferencia; se valida con una lectura cronometrada antes de cerrar el borrador]:** repaso 3 min · las cuatro preguntas 6 · conversación, investigación, documentos y código (I2.2–I2.6) 8 · serie intercalada 5 · imagen y audio 2 · comprobación 1 · total 25. **Recorte decidido:** la serie del cuerpo usa cuatro casos (1, 2, 3 y 4 de la lista); los casos 5 y 6, de imagen y gráfico, pasan a la sección breve de imagen y audio como un único contraste. El detalle de cada producto va solo en la ficha agrupada.
+
 ---
 
 ### Lección 3 — Tokens, contexto, información actual y acceso real a herramientas (introducción)
