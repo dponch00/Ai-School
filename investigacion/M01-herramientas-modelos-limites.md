@@ -13,6 +13,9 @@
 - **Datos:** todo ejemplo usa el caso sintético Altiplano Industrial S.A. (`investigacion/M02-prompting-especificaciones.md` §2.0). Ninguna cifra de negocio de este documento es real.
 - **Aviso para el banco:** los ítems del diagnóstico `dx-b1-01` a `dx-b1-04` ya están expuestos (chat web frente a agente de terminal; respuesta segura sin búsqueda; 400 comentarios con configuración máxima; CSV confidencial). El banco de M01 no debe reutilizar esos escenarios (estándar §4.1). Sí puede reutilizar sus conceptos erróneos (`dx-mc01` a `dx-mc07`).
 
+
+> **D-024 (2026-10-23):** toda evaluación es de opción múltiple. Los objetivos con verbo de producción se reformulan como decisiones evaluables por escenario, y el laboratorio propuesto aquí se convierte en un caso por pasos con preguntas, sin entregable ni rúbrica. Lo demás de esta base sigue vigente.
+
 ---
 
 ## 1. Resumen ejecutivo

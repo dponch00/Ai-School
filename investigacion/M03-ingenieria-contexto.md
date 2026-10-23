@@ -14,6 +14,9 @@
 - **Datos:** todos los ejemplos usan la empresa ficticia Altiplano Industrial S.A. (M02 §2.0). Ninguna cifra ni nombre es real.
 - **Aviso para el banco y el laboratorio (T021-X-01):** los ítems del diagnóstico `dx-b3-01` a `dx-b3-04` ya están expuestos (sesión larga que empieza a ignorar correcciones, dónde implementar una regla sobre secretos que no puede fallar, dos archivos de instrucciones en conflicto y qué dejar para que otro agente continúe). El banco y el laboratorio de M03 no reutilizan esos escenarios: pueden reutilizar el concepto erróneo, pero cada familia necesita una situación nueva de Altiplano (estándar §4.1).
 
+
+> **D-024 (2026-10-23):** toda evaluación es de opción múltiple. Los objetivos con verbo de producción se reformulan como decisiones evaluables por escenario, y el laboratorio propuesto aquí se convierte en un caso por pasos con preguntas, sin entregable ni rúbrica. Lo demás de esta base sigue vigente.
+
 ---
 
 ## 1. Resumen ejecutivo

@@ -1,0 +1,620 @@
+[
+  {
+    "id": "m02-lab-q01",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m02",
+    "labStep": "paso-1",
+    "evaluatedObjectiveId": "m02-eo2",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "En el correo de R. Ibáñez encuentras varias dudas: el color de las barras, dónde va el comentario de IA, qué cuenta como «pipeline» y qué es «lo importante».",
+    "stem": "¿Cuál de estas dudas tienes que preguntarle antes de avanzar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El color de las barras por región, porque el director podría tener una preferencia",
+        "correct": false,
+        "misconceptionId": "m02-mc38",
+        "feedback": "El color no cambia ninguna cifra ni el alcance. Esa duda la decides tú, la anotas con su motivo y sigues. Preguntar todo frena el trabajo sin mejorar el resultado."
+      },
+      {
+        "id": "o2",
+        "text": "Qué es «lo importante»: un modelo capaz lo deducirá del resto del correo",
+        "correct": false,
+        "misconceptionId": "m02-mc01",
+        "feedback": "Ningún modelo puede deducir qué decisión tiene que tomar el comité si nadie lo dice. Es contexto que solo tiene el director, y la duda se resuelve preguntando para qué es el dashboard."
+      },
+      {
+        "id": "o3",
+        "text": "Qué cuenta como «pipeline»: solo lo abierto o también lo ganado, y si va ponderado",
+        "correct": true,
+        "feedback": "Correcta. La respuesta cambia directamente el total que verá el comité, y una cifra visible no se adivina. Según la política del curso, lo que cambia una cifra, el alcance o algo irreversible se pregunta antes de avanzar."
+      },
+      {
+        "id": "o4",
+        "text": "Si el comentario va arriba o abajo de los gráficos, para no rehacer la página",
+        "correct": false,
+        "misconceptionId": "m02-mc38",
+        "feedback": "La posición del comentario no cambia cifras ni alcance, y moverlo después cuesta poco. Se decide, se registra y se sigue. Reserva las preguntas para lo que cambia lo que el comité va a leer como dato."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l2#supuestos",
+    "sourceIds": [
+      "src-github-speckit-quickstart",
+      "src-anthropic-prompting-fable5"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-lab-q02",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m02",
+    "labStep": "paso-1",
+    "evaluatedObjectiveId": "m02-eo2",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "scenario": "Al abrir el snapshot ves que OPP-1012 aparece dos veces: USD 125 000 con actividad del 9 de octubre y USD 90 000 con actividad del 18. El correo no dice nada de duplicados.",
+    "stem": "¿Qué haces con esta duda?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Borras los dos registros para que el total no quede inflado",
+        "correct": false,
+        "misconceptionId": "m02-mc37",
+        "feedback": "Quitar filas que no encajan, sin decirlo, cambia el total y nadie se entera. Además pierdes una oportunidad real. Los datos problemáticos se muestran en un panel de calidad, no desaparecen."
+      },
+      {
+        "id": "o2",
+        "text": "La clasificas como pregunta: el total cambia en USD 35 000 según qué registro quede",
+        "correct": true,
+        "feedback": "Correcta. Conservar el registro más reciente o el de mayor monto da cifras distintas, así que es una decisión de negocio y se pregunta. Mientras llega la respuesta, el supuesto queda en el registro con su dueño y su estado."
+      },
+      {
+        "id": "o3",
+        "text": "Le pides al agente que lo resuelva con el criterio que le parezca más razonable",
+        "correct": false,
+        "misconceptionId": "m02-mc08",
+        "feedback": "Si el agente elige solo, el supuesto queda oculto dentro del código y el comité verá una cifra que nadie decidió. Lo que cambia un número visible no se delega en silencio."
+      },
+      {
+        "id": "o4",
+        "text": "Te quedas con el de USD 125 000: mostrar más pipeline es la opción más prudente",
+        "correct": false,
+        "misconceptionId": "m02-mc56",
+        "feedback": "Elegir la regla por la cifra que produce no resuelve la duda: la esconde. Que el pipeline se vea más grande no lo hace más correcto. La regla la decide quien es dueño del dato."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l2#supuestos",
+    "sourceIds": [
+      "src-github-speckit-sdd-doc",
+      "src-openai-codex-execplans"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-lab-q03",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m02",
+    "labStep": "paso-2",
+    "evaluatedObjectiveId": "m02-eo1",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Ya tienes las respuestas del director: el dashboard es para el comité comercial, que decide en qué oportunidades enfocar el seguimiento de la semana; el periodo es el T4 de 2026 y la moneda, USD.",
+    "stem": "¿Qué objetivo pones en el brief?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Para el comité comercial: decidir dónde enfocar el seguimiento, con el pipeline del T4 2026 en USD",
+        "correct": true,
+        "feedback": "Correcta. Dice para quién es, qué decisión apoya, el periodo y la moneda. Con eso el agente sabe qué priorizar y tú puedes juzgar si el resultado sirve para esa decisión."
+      },
+      {
+        "id": "o2",
+        "text": "Una página HTML estática y adaptable con gráficos por región y un comentario de IA de 120 palabras",
+        "correct": false,
+        "misconceptionId": "m02-mc34",
+        "feedback": "Describe cómo se verá la página, pero no para qué decisión existe. La tecnología y los gráficos se eligen después de saber qué tiene que decidir el comité."
+      },
+      {
+        "id": "o3",
+        "text": "Dashboard del pipeline para el comité comercial, cuarto trimestre de 2026",
+        "correct": false,
+        "misconceptionId": "m02-mc48",
+        "feedback": "Tiene usuario y periodo, pero no la decisión. Sin ella no hay forma de saber qué oportunidades destacar ni qué cifra importa más. La decisión no se deduce sola."
+      },
+      {
+        "id": "o4",
+        "text": "Un dashboard completo del pipeline con todas las métricas que puedan ser útiles al comité",
+        "correct": false,
+        "misconceptionId": "m02-mc03",
+        "feedback": "«Todas las métricas útiles» no acota nada. El agente agregará lo que se le ocurra y el resultado no se podrá revisar contra un objetivo. Un dashboard financiero mejora cuando muestra menos y mejor elegido."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l1#anatomia",
+    "sourceIds": [
+      "src-anthropic-prompting-bp",
+      "src-github-speckit-sdd-doc"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-lab-q04",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m02",
+    "labStep": "paso-2",
+    "evaluatedObjectiveId": "m02-eo4",
+    "competencyIds": [
+      "C02",
+      "C07"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "El director no sabe qué significa «en riesgo» y la primera versión es para el lunes. El panel de las 10 oportunidades en mayor riesgo depende de esa definición.",
+    "stem": "¿Qué dejas en el registro de supuestos?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Defines «en riesgo» como «sin actividad en 14 días», lo documentas y das el supuesto por cerrado",
+        "correct": false,
+        "misconceptionId": "m02-mc43",
+        "feedback": "Documentar una definición no la convierte en decisión del negocio. Si la das por cerrada, el comité leerá el panel como si el director la hubiera aprobado. El supuesto sigue abierto hasta que su dueño responda."
+      },
+      {
+        "id": "o2",
+        "text": "Usas la definición que propone el agente, porque ya la aplicó en otros dashboards",
+        "correct": false,
+        "misconceptionId": "m02-mc45",
+        "feedback": "Que el agente proponga una definición no significa que alguien la haya decidido. Puede servir como borrador, pero el dueño de la definición sigue siendo el director."
+      },
+      {
+        "id": "o3",
+        "text": "Dejas que el agente elija una regla razonable al programar, sin anotarla",
+        "correct": false,
+        "misconceptionId": "m02-mc08",
+        "feedback": "Una regla elegida en silencio queda escondida en el código. Nadie sabrá que el panel depende de ella, y si el director tenía otra idea, el error pasará sin que nadie lo vea."
+      },
+      {
+        "id": "o4",
+        "text": "Dueño: R. Ibáñez; estado: abierto; mientras tanto, una regla provisional visible en pantalla",
+        "correct": true,
+        "feedback": "Correcta. La pregunta sigue en manos de quien puede decidirla, y la especificación dice qué hacer mientras tanto. Como la regla provisional se ve en pantalla, nadie la confunde con una definición aprobada."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l2#supuestos",
+    "sourceIds": [
+      "src-anthropic-reduce-hallucinations",
+      "src-openai-codex-execplans"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-lab-q05",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m02",
+    "labStep": "paso-3",
+    "evaluatedObjectiveId": "m02-eo1",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El correo pedía un dashboard «que se vea bien y muestre cómo vamos». En el brief tienes que decir qué se entrega y cuándo está terminado.",
+    "stem": "¿Qué escribes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Una página que se vea bien y funcione en cualquier dispositivo, lista cuando el director la apruebe",
+        "correct": false,
+        "misconceptionId": "m02-mc25",
+        "feedback": "«Que se vea bien y funcione» no se puede comprobar: cada quien lo juzga distinto. Tampoco dice qué tiene que mostrar. Un criterio de terminado se tiene que poder verificar antes de enseñarlo."
+      },
+      {
+        "id": "o2",
+        "text": "Una página HTML estática, lista cuando muestre los cuatro KPI por región y pase la reconciliación",
+        "correct": true,
+        "feedback": "Correcta. Nombra el tipo de entregable y una condición de terminado que cualquiera puede comprobar: qué debe aparecer y qué check tiene que pasar. Así sabes cuándo parar y cuándo falta algo."
+      },
+      {
+        "id": "o3",
+        "text": "Un dashboard con tantas vistas y filtros como sea posible, para que el comité explore a su gusto",
+        "correct": false,
+        "misconceptionId": "m02-mc03",
+        "feedback": "Más vistas no ayudan a decidir mejor y alargan el trabajo. El director pidió una primera versión sin navegación de detalle. El alcance se acota a lo que la decisión necesita."
+      },
+      {
+        "id": "o4",
+        "text": "Una página con lo que el agente considere útil, porque conoce bien los dashboards financieros",
+        "correct": false,
+        "misconceptionId": "m02-mc41",
+        "feedback": "Lo que el agente agregue por su cuenta, nadie lo pidió ni lo va a revisar. El entregable lo define quien encarga el trabajo, no quien lo ejecuta."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l1#terminado",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-openai-codex-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-lab-q06",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m02",
+    "labStep": "paso-3",
+    "evaluatedObjectiveId": "m02-eo3",
+    "competencyIds": [
+      "C02",
+      "C12"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "El brief cita el contrato pipeline_kpis v1. El agente entrega un kpis.json que valida sin errores contra el esquema.",
+    "stem": "¿Qué te garantiza esa validación?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que las cifras son correctas, porque el esquema no deja pasar un JSON mal construido",
+        "correct": false,
+        "misconceptionId": "m02-mc14",
+        "feedback": "El esquema revisa la forma, no el cálculo. Un JSON perfecto puede traer un pipeline que cuenta dos veces OPP-1012. Las cifras se comprueban contra los datos, con el script de reconciliación."
+      },
+      {
+        "id": "o2",
+        "text": "Que los valores están bien, siempre que el esquema tenga mínimos y máximos para cada KPI",
+        "correct": false,
+        "misconceptionId": "m02-mc42",
+        "feedback": "Un mínimo y un máximo solo descartan valores absurdos. Una cobertura de 1,2 en lugar de 1,4 cae dentro del rango y sigue estando mal. Los límites no reemplazan la reconciliación."
+      },
+      {
+        "id": "o3",
+        "text": "Que tiene los campos y tipos acordados; las cifras se comprueban con la reconciliación",
+        "correct": true,
+        "feedback": "Correcta. El contrato garantiza la forma: qué campos hay, de qué tipo y con qué nombres. Que los valores sean ciertos es otra comprobación, que se hace contra los datos."
+      },
+      {
+        "id": "o4",
+        "text": "Que el cálculo es correcto, porque la salida coincide con el ejemplo de formato del brief",
+        "correct": false,
+        "misconceptionId": "m02-mc46",
+        "feedback": "Un ejemplo de formato enseña cómo se ve la salida, no si los números salen de los datos. Dos archivos pueden verse idénticos y tener cifras distintas."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l3#forma-verdad",
+    "sourceIds": [
+      "src-openai-structured-outputs",
+      "src-anthropic-structured-outputs"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-lab-q07",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m02",
+    "labStep": "paso-3",
+    "evaluatedObjectiveId": "m02-eo3",
+    "competencyIds": [
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "En los casos de prueba del brief te falta un contraejemplo para el comentario de IA, que debe basarse solo en cifras calculadas.",
+    "stem": "¿Cuál agregas?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Una lista de reglas: no inventes, no exageres, no uses adjetivos y no hables de causas externas",
+        "correct": false,
+        "misconceptionId": "m02-mc13",
+        "feedback": "Una lista de prohibiciones le dice al modelo qué evitar, pero no le muestra cómo se ve el error. Un contraejemplo concreto, con el motivo, se entiende mejor y además te sirve para revisar."
+      },
+      {
+        "id": "o2",
+        "text": "Un único comentario modelo, bien escrito, que sirva de referencia para cualquier semana",
+        "correct": false,
+        "misconceptionId": "m02-mc12",
+        "feedback": "Un buen ejemplo ayuda, pero no es un contraejemplo y no cubre el error que quieres prevenir. El modelo puede copiar su forma y aun así inventar una causa."
+      },
+      {
+        "id": "o3",
+        "text": "Veinte comentarios de semanas anteriores, porque cuantos más ejemplos tenga, mejor escribirá",
+        "correct": false,
+        "misconceptionId": "m02-mc11",
+        "feedback": "Muchos ejemplos parecidos no enseñan dónde está el límite y pueden contener las mismas causas inventadas. Pocos casos bien elegidos, incluido uno que muestre el error, rinden más."
+      },
+      {
+        "id": "o4",
+        "text": "«Creció por la recuperación minera», marcado como inaceptable porque ninguna cifra lo respalda",
+        "correct": true,
+        "feedback": "Correcta. Es un caso concreto del error que más preocupa: una causa que suena bien y no está en los datos. Con el motivo escrito, el agente entiende el límite y tú tienes un caso para revisar el resultado."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l3#contraejemplos",
+    "sourceIds": [
+      "src-anthropic-prompting-bp",
+      "src-anthropic-evals-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-lab-q08",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m02",
+    "labStep": "paso-4",
+    "evaluatedObjectiveId": "m02-eo6",
+    "competencyIds": [
+      "C02",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "OPP-1021 está abierta pero no tiene fecha de cierre esperada. Escribes su escenario: «Given el snapshot del 19, When se calcula el pipeline del T4, Then…».",
+    "stem": "¿Cómo completas el Then?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "…OPP-1021 no suma al pipeline del T4 y aparece en el panel de calidad como «fecha de cierre vacía»",
+        "correct": true,
+        "feedback": "Correcta. Describe algo que se ve en la página: la cifra no la incluye y el panel la muestra con su motivo. Cualquiera puede comprobarlo sin abrir el código."
+      },
+      {
+        "id": "o2",
+        "text": "…el sistema guarda OPP-1021 en una tabla interna de oportunidades excluidas",
+        "correct": false,
+        "misconceptionId": "m02-mc26",
+        "feedback": "Una tabla interna es un estado del sistema que el comité no ve. Que exista no demuestra que la cifra esté bien ni que alguien se entere del problema. El Then describe lo que se observa."
+      },
+      {
+        "id": "o3",
+        "text": "…el dashboard sigue viéndose bien y funcionando aunque falten algunos datos",
+        "correct": false,
+        "misconceptionId": "m02-mc25",
+        "feedback": "«Verse bien y funcionar» no dice qué tendría que pasar con OPP-1021. Dos personas pueden mirar la misma página y no ponerse de acuerdo sobre si cumple."
+      },
+      {
+        "id": "o4",
+        "text": "…el agente confirma en su reporte que los casos de datos incompletos están cubiertos",
+        "correct": false,
+        "misconceptionId": "m02-mc27",
+        "feedback": "La confirmación del agente es una afirmación, no una observación. El escenario tiene que describir lo que tú verías en la página, y el reporte tiene que traer la evidencia."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l6#observables",
+    "sourceIds": [
+      "src-cucumber-gherkin",
+      "src-openai-codex-execplans"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-lab-q09",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m02",
+    "labStep": "paso-5",
+    "evaluatedObjectiveId": "m02-eo6",
+    "competencyIds": [
+      "C02",
+      "C12"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "Estás cerrando el prompt de ejecución y falta decir qué debe traer el reporte final del agente.",
+    "stem": "¿Qué le pides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que piense paso a paso y te muestre todo su razonamiento, para que puedas seguir cómo decidió",
+        "correct": false,
+        "misconceptionId": "m02-mc32",
+        "feedback": "Un razonamiento largo no demuestra que el resultado esté bien, y no siempre refleja cómo decidió el modelo. Lo que puedes revisar son decisiones, supuestos y salidas de comandos."
+      },
+      {
+        "id": "o2",
+        "text": "Que confirme al final que todos los tests pasan y que el dashboard está listo para el comité",
+        "correct": false,
+        "misconceptionId": "m02-mc27",
+        "feedback": "«Todos los tests pasan» es una frase, no una prueba. Sin el comando y lo que devolvió, no sabes qué se ejecutó ni sobre qué datos."
+      },
+      {
+        "id": "o3",
+        "text": "Archivos cambiados, comandos con su salida, resultado de la reconciliación y supuestos usados",
+        "correct": true,
+        "feedback": "Correcta. Con eso puedes comprobar cada criterio sin repetir el trabajo: qué cambió, qué se ejecutó, qué salió y en qué supuestos se apoya. Lo que no traiga evidencia queda como pendiente."
+      },
+      {
+        "id": "o4",
+        "text": "Una captura de la página terminada, porque si el diff y la página se ven bien, el cambio funciona",
+        "correct": false,
+        "misconceptionId": "m02-mc55",
+        "feedback": "Una página puede verse impecable con cifras equivocadas. La captura sirve para revisar la presentación, pero no reemplaza la reconciliación de los números."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l6#evidencia",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-anthropic-prompting-fable5"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-lab-q10",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m02",
+    "labStep": "paso-5",
+    "evaluatedObjectiveId": "m02-eo5",
+    "competencyIds": [
+      "C07",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Divides el trabajo del agente en hitos: leer y normalizar los datos, calcular los KPI y construir la página.",
+    "stem": "¿Cómo queda mejor el plan?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Cada hito con su prueba, y tú apruebas los supuestos antes de que se calcule nada",
+        "correct": true,
+        "feedback": "Correcta. Si algo falla, sabes en qué hito está el problema, y el punto de control llega antes de que los supuestos se conviertan en cifras. Revisar al final obliga a buscar el error en todo a la vez."
+      },
+      {
+        "id": "o2",
+        "text": "Los tres hitos seguidos, sin pruebas intermedias, y una revisión completa al final",
+        "correct": false,
+        "misconceptionId": "m02-mc53",
+        "feedback": "Si la cifra final no cuadra, no sabrás si falló la lectura, el cálculo o la vista. Una prueba por hito localiza el problema cuando todavía es barato corregirlo."
+      },
+      {
+        "id": "o3",
+        "text": "Que el agente haga todo de una vez y tú revises solo la página terminada",
+        "correct": false,
+        "misconceptionId": "m02-mc52",
+        "feedback": "Parece más rápido, pero cualquier error de los primeros pasos llega escondido al final. Además pierdes el momento de aprobar los supuestos antes de que afecten las cifras."
+      },
+      {
+        "id": "o4",
+        "text": "Cada hito con su prueba automática; con eso no hace falta ningún control tuyo",
+        "correct": false,
+        "misconceptionId": "m02-mc54",
+        "feedback": "Las pruebas comprueban lo que alguien escribió en ellas. Decidir si los supuestos son los correctos es un juicio de negocio, y ese punto de control sigue siendo tuyo."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l5#hitos",
+    "sourceIds": [
+      "src-openai-codex-execplans",
+      "src-anthropic-building-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-lab-q11",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m02",
+    "labStep": "paso-5",
+    "evaluatedObjectiveId": "m02-eo4",
+    "competencyIds": [
+      "C02",
+      "C07"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "Al revisar los datos, el agente podría querer «arreglar» la etapa Negociacion sin tilde o las fechas vacías directamente en los CSV.",
+    "stem": "¿Qué límite de acción pones en el prompt?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "«Ten mucho cuidado con los datos de origen y no hagas nada que pueda dañarlos»",
+        "correct": false,
+        "misconceptionId": "m02-mc36",
+        "feedback": "Una advertencia general no dice qué está permitido y qué no. El agente puede «tener cuidado» y aun así corregir los CSV. Un límite útil nombra la acción concreta."
+      },
+      {
+        "id": "o2",
+        "text": "Que corrija los CSV si con eso la página queda mejor, porque es parte de preparar el dashboard",
+        "correct": false,
+        "misconceptionId": "m02-mc49",
+        "feedback": "Un encargo de presentación no autoriza a cambiar los datos de origen. Si los CSV cambian, nadie puede reconciliar las cifras con lo que entregó el CRM."
+      },
+      {
+        "id": "o3",
+        "text": "Que decida por sí mismo qué cambios conviene hacer en los datos, porque la petición ya es clara",
+        "correct": false,
+        "misconceptionId": "m02-mc50",
+        "feedback": "Que el encargo sea claro no vuelve reversible una edición de los datos. Lo que cuesta deshacer, o cambia la fuente de verdad, necesita tu confirmación."
+      },
+      {
+        "id": "o4",
+        "text": "No modificar nada en practice/data: los problemas se normalizan en el cálculo y se reportan",
+        "correct": true,
+        "feedback": "Correcta. Nombra lo que no se toca y qué hacer en su lugar. Los datos de origen siguen siendo la referencia, y cada problema queda visible en el panel de calidad."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l4#alcance",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-anthropic-prompting-sonnet55"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m02-lab-q12",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m02",
+    "labStep": "paso-6",
+    "evaluatedObjectiveId": "m02-eo5",
+    "competencyIds": [
+      "C07",
+      "C12"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "Con el snapshot del lunes, el script de reconciliación se detiene: la etapa «En pausa» no tiene probabilidad y tu especificación no dice qué hacer en ese caso.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Corriges solo el código para que ignore la etapa; la especificación puede quedarse como está",
+        "correct": false,
+        "misconceptionId": "m02-mc44",
+        "feedback": "El código queda arreglado, pero la especificación conserva el hueco. El próximo agente, o la próxima versión, volverá a tropezar con él. El error se corrige donde nació."
+      },
+      {
+        "id": "o2",
+        "text": "Agregas a la especificación qué hacer con etapas sin probabilidad y vuelves a correr el check",
+        "correct": true,
+        "feedback": "Correcta. El problema nació en la especificación, así que se corrige ahí: por ejemplo, excluir esas oportunidades y reportarlas en el panel de calidad. Después, el código y el check siguen esa regla."
+      },
+      {
+        "id": "o3",
+        "text": "Le pides al agente que quite esas tres oportunidades sin avisar, para que el check pase",
+        "correct": false,
+        "misconceptionId": "m02-mc37",
+        "feedback": "Hacer pasar el check escondiendo datos es justo lo que el check intenta impedir. Son USD 410 000 que el comité no vería y de los que nadie sabría."
+      },
+      {
+        "id": "o4",
+        "text": "Asignas a «En pausa» la probabilidad que deja la cobertura igual que la semana pasada",
+        "correct": false,
+        "misconceptionId": "m02-mc56",
+        "feedback": "Elegir el valor que hace cuadrar la cifra no es decidir: es acomodar el resultado. La probabilidad de una etapa la asigna FP&A, y mientras no lo haga, la regla tiene que ser explícita."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m02-l5#origen",
+    "sourceIds": [
+      "src-github-speckit-quickstart"
+    ],
+    "status": "draft"
+  }
+]

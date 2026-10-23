@@ -1,15 +1,12 @@
 import { useState } from 'react'
-import LessonBlocks from '../components/LessonBlocks'
-import { content, type MicrotaskView } from '../content'
-import type { Attempt, PracticeSubmission, Response } from '../domain/learner'
+import { content } from '../content'
+import type { Attempt, Response } from '../domain/learner'
 import { finalSelection } from '../domain/learner'
 import type { BlockSignal } from '../domain/scoring'
 import { db } from '../storage/db'
-import { blockResults, diagnosticAttempts, getMicrotask, saveMicrotask, splitMicrotaskText, startDiagnostic, type BlockResult } from '../storage/diagnostic'
+import { blockResults, diagnosticAttempts, startDiagnostic, type BlockResult } from '../storage/diagnostic'
 import { useLive } from '../storage/useLive'
 import { ExamForm } from './ExamPage'
-
-type Level = PracticeSubmission['selfAssessment'][number]['level']
 
 const SIGNAL: Record<BlockSignal, { label: string; advice: (manuals: string) => string }> = {
   'likely-strength': { label: 'Fortaleza probable', advice: (m) => `En ${m}, empieza cada lección con la comprobación rápida; si te cuesta, sigue la lección completa. Con cuatro preguntas es una señal, no una certeza.` },
@@ -23,7 +20,7 @@ const manualsOf = (competencyIds: string[]) =>
 
 /** Diagnóstico inicial (F2-06, D-015): señales por bloque, nunca niveles ni porcentajes. */
 export default function DiagnosticPage() {
-  const { form, microtasks } = content.diagnostic
+  const { form } = content.diagnostic
   const attempts = useLive(() => diagnosticAttempts(db), [], null as Attempt[] | null)
   const [error, setError] = useState<string | null>(null)
   if (!attempts) return null
@@ -52,13 +49,13 @@ export default function DiagnosticPage() {
           <>
             <p className="lead">{form.purpose}</p>
             <ul>
-              <li>Unos 25 minutos, más dos microtareas opcionales de 10 minutos.</li>
+              <li>Unos 25 minutos, todo de opción múltiple.</li>
               <li>El resultado es una señal por bloque (fortaleza probable, conviene repasar o sin señal clara), con los conteos a la vista. No es una calificación.</li>
               <li>Puedes repetirlo cuando quieras; cada lección y cada examen lo van corrigiendo.</li>
             </ul>
             <button type="button" className="button button--primary" onClick={begin}>{last ? 'Repetir el diagnóstico' : 'Empezar el diagnóstico'}</button>
             {error && <p className="question__error" role="alert">{error}</p>}
-            {last && <Results attempt={last} microtasks={microtasks} />}
+            {last && <Results attempt={last} />}
           </>
         )}
       </article>
@@ -66,18 +63,15 @@ export default function DiagnosticPage() {
   )
 }
 
-function Results({ attempt, microtasks }: { attempt: Attempt; microtasks: MicrotaskView[] }) {
+function Results({ attempt }: { attempt: Attempt }) {
   const { form } = content.diagnostic
   const data = useLive(
-    async () => ({
-      responses: await db.responses.where('attemptId').equals(attempt.id).toArray(),
-      subs: await Promise.all(microtasks.map((m) => getMicrotask(db, m.id))),
-    }),
+    async () => ({ responses: await db.responses.where('attemptId').equals(attempt.id).toArray() }),
     [attempt.id],
-    null as { responses: Response[]; subs: (PracticeSubmission | undefined)[] } | null,
+    null as { responses: Response[] } | null,
   )
   if (!data) return null
-  const results = blockResults(form, attempt, data.responses, microtasks.map((task, i) => ({ task, submission: data.subs[i] })))
+  const results = blockResults(form, attempt, data.responses)
 
   return (
     <>
@@ -87,12 +81,6 @@ function Results({ attempt, microtasks }: { attempt: Attempt; microtasks: Microt
         <div className="dx-blocks">
           {results.map((r) => <BlockCard key={r.blockId} r={r} />)}
         </div>
-      </section>
-
-      <section className="section" aria-labelledby="microtareas">
-        <h2 id="microtareas">Microtareas (opcionales)</h2>
-        <p className="muted">Dos tareas cortas de escribir. Tu autoevaluación de sus criterios críticos afina la señal de su bloque; queda marcada como autoevaluación, no como revisión.</p>
-        {microtasks.map((m, i) => <MicrotaskForm key={m.id} task={m} stored={data.subs[i]} />)}
       </section>
 
       <details className="model-answer">
@@ -128,77 +116,7 @@ function BlockCard({ r }: { r: BlockResult }) {
         {r.correct} de {r.total} correctas (base {r.baseCorrect} de 2, avanzadas {r.advancedCorrect} de 2)
         {r.highConfidenceErrors > 0 ? ` · ${r.highConfidenceErrors} ${r.highConfidenceErrors === 1 ? 'error' : 'errores'} con mucha seguridad` : ''}
       </p>
-      {r.microtask && (
-        <p className="muted">
-          Microtarea «{r.microtask.title}»: {r.microtask.criticalOk === undefined ? 'sin hacer' : r.microtask.criticalOk ? 'criterios críticos cumplidos según tu autoevaluación' : 'algún criterio crítico sin cumplir según tu autoevaluación'}.
-        </p>
-      )}
       <p>{s.advice(manuals)}</p>
     </div>
-  )
-}
-
-function MicrotaskForm({ task, stored }: { task: MicrotaskView; stored?: PracticeSubmission }) {
-  const initial = stored ? splitMicrotaskText(stored.text) : { firstAnswer: '', taskAnswer: '' }
-  const [first, setFirst] = useState(initial.firstAnswer)
-  const [answer, setAnswer] = useState(initial.taskAnswer)
-  const [self, setSelf] = useState<Record<string, { level: Level | ''; evidence: string }>>(
-    () => Object.fromEntries((stored?.selfAssessment ?? []).map((s) => [s.criterionId, { level: s.level, evidence: s.evidence }])),
-  )
-  const [status, setStatus] = useState<string | null>(null)
-
-  const save = async () => {
-    try {
-      const saved = await saveMicrotask(db, task, {
-        firstAnswer: first,
-        taskAnswer: answer,
-        selfAssessment: task.rubric
-          .filter((c) => self[c.id]?.level && self[c.id]?.evidence.trim())
-          .map((c) => ({ criterionId: c.id, level: self[c.id].level as Level, evidence: self[c.id].evidence })),
-      })
-      setStatus(saved.state === 'presented' ? 'Guardada. Para que afine la señal, autoevalúa cada criterio con nivel y evidencia.' : 'Guardada y autoevaluada: la señal de su bloque ya la tiene en cuenta.')
-    } catch (e) {
-      setStatus(`No se pudo guardar: ${e instanceof Error ? e.message : String(e)}`)
-    }
-  }
-
-  return (
-    <details className="model-answer form-page" open={!stored}>
-      <summary>{task.title} · {task.estimatedMinutes} min</summary>
-      <LessonBlocks blocks={task.materialBlocks} sources={[]} />
-      <label>{task.firstQuestion}
-        <textarea rows={3} maxLength={4000} value={first} onChange={(e) => setFirst(e.target.value)} />
-      </label>
-      <label>{task.task}
-        <textarea rows={8} maxLength={12000} value={answer} onChange={(e) => setAnswer(e.target.value)} />
-      </label>
-      <fieldset className="form-group">
-        <legend>Autoevaluación</legend>
-        <p className="muted">Primero cita la parte de tu respuesta que lo demuestra; después elige el nivel.</p>
-        {task.rubric.map((c) => (
-          <div key={c.id} className="self-row">
-            <p><strong>{c.name}</strong>{c.critical && <span className="badge">Crítico</span>}</p>
-            <label>Evidencia <textarea rows={2} maxLength={2000} value={self[c.id]?.evidence ?? ''} onChange={(e) => { const evidence = e.target.value; setSelf((p) => ({ ...p, [c.id]: { level: p[c.id]?.level ?? '', evidence } })) }} /></label>
-            <label>Nivel
-              <select value={String(self[c.id]?.level ?? '')} onChange={(e) => { const v = e.target.value; setSelf((p) => ({ ...p, [c.id]: { evidence: p[c.id]?.evidence ?? '', level: v === '' ? '' : v === 'insufficient-evidence' ? 'insufficient-evidence' : (Number(v) as Level) } })) }}>
-                <option value="">Sin elegir</option>
-                {c.levels.map((l) => <option key={l.level} value={l.level}>{l.level} · {l.descriptor}</option>)}
-                <option value="insufficient-evidence">Evidencia insuficiente</option>
-              </select>
-            </label>
-          </div>
-        ))}
-      </fieldset>
-      <button type="button" className="button button--primary" disabled={!first.trim() || !answer.trim()} onClick={save}>Guardar microtarea</button>
-      {status && <p role="status">{status}</p>}
-      {stored && stored.state === 'presented' && <p className="muted">Los ejemplos de respuesta se muestran cuando completes la autoevaluación de cada criterio, para que no condicionen tu juicio.</p>}
-      {stored && stored.state !== 'presented' && (
-        <details className="model-answer">
-          <summary>Ver ejemplos de respuesta lograda e insuficiente</summary>
-          <p><strong>Lograda:</strong> {task.anchors.achieved}</p>
-          <p><strong>Insuficiente:</strong> {task.anchors.insufficient}</p>
-        </details>
-      )}
-    </details>
   )
 }

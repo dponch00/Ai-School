@@ -116,7 +116,8 @@ export type Misconception = z.infer<typeof Misconception>
 
 // ---------- Pregunta (ítem versionado) ----------
 
-export const QuestionUse = z.enum(['check', 'practice', 'exam', 'diagnostic'])
+/** `lab`: pregunta del caso práctico del laboratorio, que se muestra en su paso (D-024). */
+export const QuestionUse = z.enum(['check', 'practice', 'exam', 'diagnostic', 'lab'])
 
 export const QuestionOption = z.object({
   /** Estable entre versiones y reordenamientos; la respuesta se guarda por este ID. */
@@ -137,6 +138,8 @@ export const Question = z
     use: QuestionUse,
     courseId: CourseId.nullable(),
     lessonId: Slug.optional(),
+    /** Paso del laboratorio (ancla de su instructivo) donde se muestra; obligatorio en `lab`. */
+    labStep: Slug.optional(),
     evaluatedObjectiveId: Slug.optional(),
     competencyIds: z.array(CompetencyId).min(1),
     diagnosticBlock: BlockId.optional(),
@@ -181,6 +184,11 @@ export const Question = z
         if (!q[key]) ctx.addIssue({ code: 'custom', path: [key], message: `obligatorio en ítems de examen` })
       }
     }
+    if (q.use === 'lab') {
+      for (const key of ['courseId', 'evaluatedObjectiveId', 'labStep'] as const) {
+        if (!q[key]) ctx.addIssue({ code: 'custom', path: [key], message: `obligatorio en preguntas de laboratorio` })
+      }
+    }
     if (q.use === 'diagnostic' && !q.diagnosticBlock) {
       ctx.addIssue({ code: 'custom', path: ['diagnosticBlock'], message: 'obligatorio en ítems de diagnóstico' })
     }
@@ -192,43 +200,26 @@ export type Question = z.infer<typeof Question>
 
 // ---------- Práctica / laboratorio ----------
 
-export const RubricCriterion = z.object({
-  id: Slug,
-  name: z.string().min(3),
-  /** Los críticos no se compensan con otros criterios (R-F-3). */
-  critical: z.boolean(),
-  levels: z
-    .array(z.object({ level: z.int().min(1).max(4), descriptor: z.string().min(10) }))
-    .min(3)
-    .max(4),
-})
-
-/** Criterio de la rúbrica de una práctica: dice qué objetivos del blueprint evalúa (D-011). */
-export const PracticeCriterion = RubricCriterion.extend({ evaluatedObjectiveIds: z.array(Slug).min(1) })
-
+/**
+ * Laboratorio como caso práctico (D-024): un instructivo por pasos y preguntas de opción múltiple en cada
+ * paso. No hay entrega, rúbrica ni autoevaluación; cuenta como hecho al responder todas sus preguntas.
+ */
 export const Practice = z.object({
   id: Slug,
   courseId: CourseId,
   version: SemVer,
   title: z.string().min(3),
   evaluatedObjectiveIds: z.array(Slug).min(1),
-  inputs: z.array(z.string().min(3)).min(1),
   instructionsPath: z.string().endsWith('.md'),
-  deliverable: z.string().min(10),
-  evidenceRequired: z.array(z.string().min(3)).min(1),
-  rubric: z.array(PracticeCriterion).min(3).max(5),
-  anchors: z.object({ achieved: z.string().min(10), insufficient: z.string().min(10) }),
-  /** Check que el alumno ejecuta en su entorno; la app no finge ejecutarlo. */
+  estimatedMinutes: z.int().positive().max(60),
+  /** Preguntas `lab` en el orden en que aparecen; cada una indica su paso con `labStep`. */
+  questionIds: z.array(Slug).min(6),
+  /** Check opcional que el alumno puede ejecutar en su entorno; la app no finge ejecutarlo. */
   executableCheck: z.object({ description: z.string().min(10), command: z.string().optional() }).optional(),
-  /** Cuaderno de decisiones de transferencia (D-012). */
-  transferNotebook: z.boolean(),
   status: PublicationStatus,
 })
 export type Practice = z.infer<typeof Practice>
 
-// ---------- Diagnóstico (D-015) ----------
-
-/** Microtarea del diagnóstico: muestra producción, no solo reconocimiento. */
 // ---------- Glosario (F2-07) ----------
 
 /** Término del glosario: parafrasea su lección y enlaza a los apartados donde se explica. */
@@ -243,30 +234,15 @@ export const GlossaryTerm = z.object({
 })
 export type GlossaryTerm = z.infer<typeof GlossaryTerm>
 
-export const Microtask = z.object({
-  id: Slug,
-  version: z.int().min(1),
-  diagnosticBlock: BlockId,
-  competencyIds: z.array(CompetencyId).min(1),
-  title: z.string().min(3),
-  /** Material que recibe el alumno (Markdown; puede incluir un diff). */
-  material: z.string().min(20),
-  /** Pregunta rápida antes de la tarea completa: "¿qué revisarías primero y por qué?". */
-  firstQuestion: z.string().endsWith('?'),
-  task: z.string().min(20),
-  estimatedMinutes: z.int().positive().max(15),
-  rubric: z.array(RubricCriterion).min(3).max(4),
-  anchors: z.object({ achieved: z.string().min(10), insufficient: z.string().min(10) }),
-})
-export type Microtask = z.infer<typeof Microtask>
+
+// ---------- Diagnóstico (D-015) ----------
 
 export const DiagnosticForm = z.object({
   id: Slug,
   version: SemVer,
-  /** Se declara en la pantalla de inicio y en el reporte (pedagogia-evaluacion §4.1). */
+  /** Se declara en la pantalla de inicio del diagnóstico (pedagogia-evaluacion §4.1). */
   purpose: z.string().min(20),
   itemIds: z.array(Slug).length(24),
-  microtaskIds: z.array(Slug).length(2),
   blocks: z
     .array(z.object({ id: BlockId, name: z.string().min(3), competencyIds: z.array(CompetencyId).min(1) }))
     .length(6),

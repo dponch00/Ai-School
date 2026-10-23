@@ -180,7 +180,7 @@ export interface BlockEvidence {
  * Reglas asimétricas de investigacion/pedagogia-evaluacion.md §4.5 [inferencia]:
  * "fortaleza" exige más condiciones porque con 4 ítems se equivoca con más frecuencia.
  */
-export function diagnosticBlockSignal(evidence: BlockEvidence[], microtaskCriticalOk?: boolean): BlockSignal {
+export function diagnosticBlockSignal(evidence: BlockEvidence[]): BlockSignal {
   // CTR-04: sin 4 ítems del mismo bloque (2 de base y 2 avanzados) no hay señal, solo evidencia incompleta.
   const blocks = new Set(evidence.map((e) => e.item.diagnosticBlock))
   const baseCount = evidence.filter((e) => e.item.difficulty === 'base').length
@@ -208,7 +208,6 @@ export function diagnosticBlockSignal(evidence: BlockEvidence[], microtaskCritic
     correct >= 3 &&
     advanced.length > 0 &&
     advanced.every((r) => r.ok) &&
-    highConfidenceErrors.length === 0 &&
-    microtaskCriticalOk !== false
+    highConfidenceErrors.length === 0
   return strength ? 'likely-strength' : 'no-clear-signal'
 }

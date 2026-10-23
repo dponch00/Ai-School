@@ -19,7 +19,7 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import { unified } from 'unified'
 import { visit } from 'unist-util-visit'
-import { Asset, Competency, Course, DiagnosticForm, GlossaryTerm, Lesson, Microtask, Misconception, Practice, ProductCard, Question, Source } from '../src/domain/content.ts'
+import { Asset, Competency, Course, DiagnosticForm, GlossaryTerm, Lesson, Misconception, Practice, ProductCard, Question, Source } from '../src/domain/content.ts'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const contentDir = resolve(root, 'content')
@@ -32,6 +32,7 @@ type Block =
   | { type: 'product-card'; id: string }
   | { type: 'figure'; id: string }
   | { type: 'check-questions' }
+  | { type: 'lab-questions'; id: string }
 
 interface Rendered {
   blocks: Block[]
@@ -50,7 +51,7 @@ const CONTAINERS: Record<string, { tag: string; className: string; label?: strin
   summary: { tag: 'section', className: 'lesson-summary', label: 'Resumen' },
   reveal: { tag: 'details', className: 'reveal' },
 }
-const LEAVES = new Set(['product-card', 'figure', 'check-questions'])
+const LEAVES = new Set(['product-card', 'figure', 'check-questions', 'lab-questions'])
 
 function lessonPlugin(state: { citations: string[]; toc: { id: string; text: string }[]; file: string }) {
   return () => (tree: MdastRoot) => {
@@ -82,7 +83,7 @@ function lessonPlugin(state: { citations: string[]; toc: { id: string; text: str
       }
       if (node.type === 'leafDirective') {
         if (!LEAVES.has(node.name)) throw new Error(`${state.file}: directiva desconocida «::${node.name}»`)
-        const id = node.attributes?.id ?? node.attributes?.asset ?? ''
+        const id = node.attributes?.id ?? node.attributes?.asset ?? node.attributes?.step ?? ''
         node.data = { hName: 'div', hProperties: { dataBlock: node.name, dataId: id } }
         node.children = []
       }
@@ -190,6 +191,7 @@ function renderMarkdown(md: string, file: string): Rendered {
     flush()
     const id = String((child as Element).properties?.dataId ?? '')
     if (block === 'check-questions') blocks.push({ type: 'check-questions' })
+    else if (block === 'lab-questions') blocks.push({ type: 'lab-questions', id })
     else blocks.push({ type: block as 'product-card' | 'figure', id })
   }
   flush()
@@ -222,7 +224,7 @@ for (const courseId of readdirSync(resolve(contentDir, 'courses'))) {
   Misconception.array().parse(readJson(`${base}/misconceptions.json`))
   const pieces = { questions: {} as Record<string, unknown>, productCards: {} as Record<string, unknown>, assets: {} as Record<string, unknown> }
   coursePieces.set(course.id, pieces)
-  for (const file of ['checks', 'exam', 'practice']) {
+  for (const file of ['checks', 'exam', 'practice', 'lab']) {
     const p = `${base}/questions/${file}.json`
     if (existsSync(resolve(contentDir, p))) for (const q of Question.array().parse(readJson(p))) questions[q.id] = pieces.questions[q.id] = q
   }
@@ -249,6 +251,16 @@ for (const courseId of readdirSync(resolve(contentDir, 'courses'))) {
   if (existsSync(resolve(contentDir, labPath))) {
     const lab = Practice.parse(readJson(labPath))
     const rendered = renderMarkdown(readFileSync(resolve(contentDir, lab.instructionsPath), 'utf8'), lab.instructionsPath)
+    // Caso práctico (D-024): cada pregunta existe, es de laboratorio y su paso tiene una marca ::lab-questions.
+    const steps = new Set(rendered.blocks.flatMap((b) => (b.type === 'lab-questions' ? [b.id] : [])))
+    for (const id of lab.questionIds) {
+      const q = pieces.questions[id] as { use: string; labStep?: string } | undefined
+      if (!q || q.use !== 'lab') throw new Error(`${labPath}: ${id} no es una pregunta de laboratorio`)
+      if (!steps.has(q.labStep!)) throw new Error(`${labPath}: ${id} apunta al paso «${q.labStep}», que no tiene marca ::lab-questions`)
+    }
+    for (const step of steps)
+      if (!lab.questionIds.some((id) => (pieces.questions[id] as { labStep?: string }).labStep === step))
+        throw new Error(`${labPath}: el paso «${step}» no tiene preguntas`)
     practice = { ...lab, toc: rendered.toc, blocks: rendered.blocks }
   }
   courses.push({ ...course, lessons, practice })
@@ -291,11 +303,7 @@ for (const g of glossary) searchDocs.push({ id: g.id, kind: 'glossary', courseId
 // ---------- Diagnóstico inicial (F2-06, D-015) ----------
 const diagnosticForm = DiagnosticForm.parse(readJson('diagnostic/form.json'))
 for (const q of Question.array().parse(readJson('diagnostic/items.json'))) questions[q.id] = q
-const microtasks = Microtask.array()
-  .parse(readJson('diagnostic/microtasks.json'))
-  .filter((m) => diagnosticForm.microtaskIds.includes(m.id))
-  .map((m) => ({ ...m, materialBlocks: renderMarkdown(m.material, `diagnostic/${m.id}`).blocks }))
-const diagnostic = { form: diagnosticForm, microtasks }
+const diagnostic = { form: diagnosticForm }
 
 // ---------- Paquetes por curso (F2-05) ----------
 // El paquete principal lleva el índice de cada curso (lecciones, objetivos, rúbrica); lo pesado va en

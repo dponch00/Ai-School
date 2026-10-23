@@ -28,7 +28,7 @@ function Form({ lessonId, note, marked }: { lessonId: string; note?: Note; marke
       <button type="button" className="button" aria-pressed={marked} onClick={() => void toggleBookmark(db, lessonId)}>
         {marked ? '★ Lección marcada' : '☆ Marcar esta lección'}
       </button>
-      <label>Nota sobre esta lección <small>(solo para ti; no entra en los reportes. {text.length} de {MAX_NOTE.toLocaleString('es')})</small>
+      <label>Nota sobre esta lección <small>(solo para ti. {text.length} de {MAX_NOTE.toLocaleString('es')})</small>
         <textarea rows={4} maxLength={MAX_NOTE} value={text} onChange={(e) => setText(e.target.value)} onBlur={save} />
       </label>
       <button type="button" className="button" onClick={save}>Guardar nota</button>

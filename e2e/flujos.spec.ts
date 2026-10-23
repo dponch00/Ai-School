@@ -74,31 +74,39 @@ test('una nota y un marcador de lección se guardan y aparecen en «Mis notas»'
   await expect(page.locator('#marcadores ~ ul a', { hasText: 'Lección 2' })).toBeVisible()
 })
 
-test('una nota privada no aparece en ningún formato del reporte, pero sí en el respaldo (T020-03)', async ({ page, context }) => {
-  await context.grantPermissions(['clipboard-read', 'clipboard-write'])
-  const secreto = 'NOTA-SINTETICA-PRIVADA-7Q'
+test('una nota viaja en el respaldo descargado', async ({ page }) => {
+  const texto = 'NOTA-SINTETICA-7Q'
   await page.goto('/#/cursos/m02/lecciones/m02-l1')
-  await page.getByLabel(/Nota sobre esta lección/).fill(secreto)
+  await page.getByLabel(/Nota sobre esta lección/).fill(texto)
   await page.getByRole('button', { name: 'Guardar nota' }).click()
   await expect(page.getByRole('status').filter({ hasText: 'Nota guardada' })).toBeVisible()
 
-  await page.goto('/#/evaluacion')
-  await page.locator('label.radio', { hasText: 'Expediente completo' }).locator('input').check()
-  const html = await page.locator('.preview__frame').getAttribute('srcdoc')
-  expect(html).toBeTruthy()
-  expect(html).not.toContain(secreto)
-  await page.getByRole('button', { name: 'Copiar contexto en Markdown' }).click()
-  const markdown = await page.evaluate(() => navigator.clipboard.readText())
-  expect(markdown.length).toBeGreaterThan(100)
-  expect(markdown).not.toContain(secreto)
-  // El JSON pasivo va dentro del HTML: ya quedó cubierto arriba.
-
-  await page.goto('/#/perfil')
+  await page.goto('/#/respaldo')
   const descarga = page.waitForEvent('download')
   await page.getByRole('button', { name: 'Exportar respaldo completo' }).click()
   const archivo = await (await descarga).path()
   const { readFileSync } = await import('node:fs')
-  expect(readFileSync(archivo!, 'utf8')).toContain(secreto)
+  expect(readFileSync(archivo!, 'utf8')).toContain(texto)
+  await expect(page.getByRole('status').filter({ hasText: 'Respaldo descargado' })).toBeVisible()
+})
+
+test('el laboratorio es un caso de opción múltiple: al responder todo queda hecho (D-024)', async ({ page }) => {
+  await page.goto('/#/cursos/m02/laboratorio')
+  const preguntas = page.locator('section.lab-step fieldset.question')
+  await expect(preguntas.first()).toBeVisible()
+  const total = await preguntas.count()
+  expect(total).toBe(12)
+  // Ningún campo de texto que llenar en el laboratorio.
+  await expect(page.locator('main textarea')).toHaveCount(0)
+  for (let i = 0; i < total; i++) {
+    const p = preguntas.nth(i)
+    await p.locator('input[type=radio]').first().check()
+    await p.getByRole('button', { name: 'Comprobar' }).click()
+    await expect(p.locator('.option__feedback').first()).toBeVisible()
+  }
+  await expect(page.getByRole('status').filter({ hasText: 'El laboratorio cuenta como hecho' })).toBeVisible()
+  await page.goto('/#/cursos/m02')
+  await expect(page.locator('.lesson-list__status', { hasText: /^Hecho · \d+\/12$/ })).toBeVisible()
 })
 
 test('la búsqueda lleva al término del glosario, que recibe el foco, y sus referencias llevan a la lección (T020-04)', async ({ page }) => {

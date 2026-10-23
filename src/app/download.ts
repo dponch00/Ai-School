@@ -1,5 +1,5 @@
 /**
- * Guarda un archivo generado por la app (reporte HTML o respaldo JSON).
+ * Guarda un archivo generado por la app (hoy, el respaldo JSON).
  *
  * En un navegador normal usa un enlace con `download`. La versión de prueba en un solo archivo corre dentro
  * del visor de claude.ai, que no permite ese enlace: `scripts/build-single.py` define `window.__aisSaveFile`,
@@ -31,4 +31,4 @@ export async function saveFile(filename: string, blob: Blob): Promise<SaveOutcom
 export const notSavedMessage = (outcome: Exclude<SaveOutcome, 'saved'>) =>
   outcome === 'declined'
     ? 'No se descargó: rechazaste la confirmación. Puedes intentarlo otra vez.'
-    : 'No se descargó: esta vista no permite guardar archivos. Abre la app en el navegador o usa «Copiar contexto en Markdown».'
+    : 'No se descargó: esta vista no permite guardar archivos. Abre la app en un navegador normal para descargarlo.'

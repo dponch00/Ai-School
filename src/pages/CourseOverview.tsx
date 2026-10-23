@@ -16,7 +16,6 @@ export default function CourseOverview() {
   const assessments = useLive(() => assessmentAttempts(db, course?.id ?? ''), [course?.id], [])
   const exams = assessments.filter((a) => a.kind === 'exam')
   const retained = assessments.some((a) => a.kind === 'retention' && a.result?.passed)
-  const plan = useLive(() => db.adjustments.toArray(), [], [])
   const errors = useLive(
     async () => errorReviewQueue(await db.attempts.where('courseId').equals(course?.id ?? '').toArray(), await db.responses.toArray(), course?.id ?? '', now()),
     [course?.id],
@@ -31,6 +30,8 @@ export default function CourseOverview() {
     return null
   }
   const done = course.lessons.filter((l) => status(l.id)?.kind === 'done').length
+  // El laboratorio guarda su ronda como una lección más, con el ID del laboratorio (D-024).
+  const labCheck = progress.find((x) => x.lessonId === course.practice?.id)?.lastCheck
   const lastExam = exams.filter((a) => a.status === 'submitted').at(-1)
   const passedExam = exams.find((a) => a.result?.passed)
   const examStatus = exams.some((a) => a.status === 'in-progress')
@@ -65,7 +66,6 @@ export default function CourseOverview() {
         <ol className="lesson-list">
           {course.lessons.map((l) => {
             const s = status(l.id)
-            const inPlan = plan.some((a) => a.kind === 'review-lesson' && (a.state === 'accepted' || a.state === 'in-progress') && a.targetIds.includes(l.id))
             return (
               <li key={l.id}>
                 <Link to={`/cursos/${course.id}/lecciones/${l.id}`} className="lesson-list__link">
@@ -73,7 +73,6 @@ export default function CourseOverview() {
                   <span className="lesson-list__title">
                     {l.title}
                     {s && <span className={`lesson-list__status lesson-list__status--${s.kind}`}>{s.label}</span>}
-                    {inPlan && <span className="lesson-list__status lesson-list__status--plan">En tu ruta: repasar</span>}
                   </span>
                   <span className="lesson-list__time">{l.estimatedMinutes} min</span>
                 </Link>
@@ -89,9 +88,14 @@ export default function CourseOverview() {
           {course.practice && (
             <li>
               <Link to={`/cursos/${course.id}/laboratorio`} className="lesson-list__link">
-                <span className="lesson-list__order" aria-hidden="true">◆</span>
-                <span className="lesson-list__title">Laboratorio: {course.practice.title}</span>
-                <span className="lesson-list__time">75–90 min</span>
+                <span className="lesson-list__order" aria-hidden="true">{labCheck ? '✓' : '◆'}</span>
+                <span className="lesson-list__title">
+                  Laboratorio: {course.practice.title}
+                  <span className={`lesson-list__status${labCheck ? ' lesson-list__status--done' : ''}`}>
+                    {labCheck ? `Hecho · ${labCheck.correct}/${labCheck.total}` : `Caso práctico con ${course.practice.questionIds.length} preguntas de opción múltiple`}
+                  </span>
+                </span>
+                <span className="lesson-list__time">{course.practice.estimatedMinutes} min</span>
               </Link>
             </li>
           )}

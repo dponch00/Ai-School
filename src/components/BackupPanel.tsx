@@ -59,7 +59,7 @@ export default function BackupPanel() {
   return (
     <section className="form-group" aria-labelledby="respaldo">
       <h2 id="respaldo">Respaldo</h2>
-      <p className="muted">Tu expediente vive solo en este navegador. Si borras los datos del sitio o cambias de dispositivo, se pierde, salvo que tengas un respaldo.</p>
+      <p className="muted">Tu progreso vive solo en este navegador. Si borras los datos del sitio o cambias de dispositivo, se pierde, salvo que tengas un respaldo.</p>
       {health && (
         <p className="muted">
           {health.available ? 'Tu progreso se guarda en este navegador' : 'Este navegador no está guardando tu progreso'}
@@ -78,7 +78,7 @@ export default function BackupPanel() {
         <div className="notice notice--warning">
           <p className="notice__title">¿Restaurar este respaldo?</p>
           <p>
-            Exportado el {new Date(s.exportedAt).toLocaleString('es')} (app {s.appVersion}): {s.hasProfile ? 'con perfil' : 'sin perfil'}, {s.attempts} intentos, {s.responses} respuestas, {s.practiceSubmissions} entregas, {s.feedback} retroalimentaciones y {s.reports} reportes.
+            Exportado el {new Date(s.exportedAt).toLocaleString('es')} (app {s.appVersion}): {s.attempts} intentos y {s.responses} respuestas.
           </p>
           <p>Reemplaza todo lo que hay guardado en este navegador. Si quieres conservarlo, exporta primero un respaldo.</p>
           <div className="actions">

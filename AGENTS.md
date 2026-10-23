@@ -2,7 +2,7 @@
 
 > Nombre provisional. Código interno: `ai-school`. Fuente única de reglas compartidas. Codex lo recibe como instrucciones del repositorio (comprobado en la app de escritorio el 2026-10-21). Claude Code lo carga mediante el import `@AGENTS.md` de `CLAUDE.md`, porque solo lo lee por su cuenta cuando no existe un `CLAUDE.md`. Al abrir otra superficie o herramienta, comprobar qué instrucciones cargó.
 
-Academia personal de IA aplicada para Daniel: una PWA con diez manuales, laboratorios, exámenes, imágenes originales y un expediente de aprendizaje exportable. El plan maestro es [`plan.md`](plan.md) (v1.1). Si algo de aquí contradice el plan, manda la decisión más reciente registrada en [`docs/decisions.md`](docs/decisions.md).
+Academia personal de IA aplicada para Daniel: una PWA con diez manuales, laboratorios como casos prácticos, exámenes e imágenes originales. Toda evaluación es de opción múltiple con explicación; no hay entregas ni expediente exportable (D-024). El plan maestro es [`plan.md`](plan.md) (v1.1). Si algo de aquí contradice el plan, manda la decisión más reciente registrada en [`docs/decisions.md`](docs/decisions.md).
 
 ## Antes de trabajar
 

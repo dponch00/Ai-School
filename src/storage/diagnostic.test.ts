@@ -3,17 +3,16 @@ import 'fake-indexeddb/auto'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
-import { DiagnosticForm, Microtask, Question } from '../domain/content'
+import { DiagnosticForm, Question } from '../domain/content'
 import { seededRng } from '../domain/fixtures.test-utils'
 import type { Attempt } from '../domain/learner'
 import { openDb, type LearnerDb } from './db'
-import { blockResults, getMicrotask, microtaskCriticalOk, saveMicrotask, splitMicrotaskText, startDiagnostic } from './diagnostic'
+import { blockResults, startDiagnostic } from './diagnostic'
 import { selectExamAnswer, setExamConfidence, submitExam } from './exam'
 
 const read = (p: string) => JSON.parse(readFileSync(resolve(import.meta.dirname, '../../content/diagnostic', p), 'utf8'))
 const form = DiagnosticForm.parse(read('form.json'))
 const questions = Object.fromEntries(Question.array().parse(read('items.json')).map((q) => [q.id, q]))
-const microtasks = Microtask.array().parse(read('microtasks.json'))
 
 let db: LearnerDb
 let n = 0
@@ -51,7 +50,7 @@ describe('diagnóstico inicial', () => {
     const done = await submitExam(db, a.id)
     expect(done.status).toBe('submitted')
     expect(done.result).toBeUndefined()
-    const results = blockResults(form, done, await db.responses.toArray(), [])
+    const results = blockResults(form, done, await db.responses.toArray())
     const b1 = results.find((r) => r.blockId === 'B1')!
     const b2 = results.find((r) => r.blockId === 'B2')!
     expect(b1).toMatchObject({ correct: 4, total: 4, signal: 'likely-strength' })
@@ -59,16 +58,4 @@ describe('diagnóstico inicial', () => {
     expect(results.find((r) => r.blockId === 'B3')!.signal).toBe('review-recommended')
   })
 
-  it('la microtarea se guarda con sus dos respuestas y su autoevaluación decide los criterios críticos', async () => {
-    const m = microtasks[0]
-    expect(microtaskCriticalOk(m, await getMicrotask(db, m.id))).toBeUndefined()
-    const all = (level: 1 | 2 | 3) => m.rubric.map((c) => ({ criterionId: c.id, level, evidence: 'cita' }))
-    const s1 = await saveMicrotask(db, m, { firstAnswer: 'Falta el objetivo', taskAnswer: 'Spec breve', selfAssessment: all(2) })
-    expect(s1.state).toBe('self-assessed')
-    expect(splitMicrotaskText(s1.text)).toEqual({ firstAnswer: 'Falta el objetivo', taskAnswer: 'Spec breve' })
-    expect(microtaskCriticalOk(m, s1)).toBe(true)
-    const s2 = await saveMicrotask(db, m, { firstAnswer: 'x', taskAnswer: 'y', selfAssessment: all(1) })
-    expect(s2.id).toBe(s1.id)
-    expect(microtaskCriticalOk(m, s2)).toBe(false)
-  })
 })

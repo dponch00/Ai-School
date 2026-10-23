@@ -341,3 +341,7 @@ main:focus { outline: none; }
 .how__tag { display: inline-block; font-family: var(--ais-font-mono); font-size: 0.72rem; font-weight: 500; padding: 0.1rem 0.45rem; border-radius: 999px; vertical-align: 0.15em; background: var(--ais-color-info-surface); color: var(--ais-color-info); }
 .how__tag--counts { background: var(--ais-color-success-surface); color: var(--ais-color-on-success-surface); }
 .how__flow { display: grid; gap: var(--ais-space-2); }
+
+/* Confianza opcional antes de comprobar (D-024): un solo clic, sin campos de texto */
+.question__confidence { display: flex; align-items: flex-start; gap: var(--ais-space-2); min-height: var(--ais-layout-touch-target); margin: var(--ais-space-3) 0; font-size: var(--ais-font-size-sm); cursor: pointer; }
+.question__confidence input { margin-top: 0.2rem; width: 1.1rem; height: 1.1rem; flex: none; }

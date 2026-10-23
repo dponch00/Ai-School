@@ -3,13 +3,15 @@
 // por curso desde public/courses con verificación de integridad (F2-05).
 import { useEffect, useState } from 'react'
 import data from '../generated/content.json'
-import type { Asset, Competency, Course, DiagnosticForm, GlossaryTerm, Lesson, Microtask, Practice, ProductCard, Question } from '../domain/content'
+import type { Asset, Competency, Course, DiagnosticForm, GlossaryTerm, Lesson, Practice, ProductCard, Question } from '../domain/content'
 
 export type Block =
   | { type: 'html'; html: string }
   | { type: 'product-card'; id: string }
   | { type: 'figure'; id: string }
   | { type: 'check-questions' }
+  /** Preguntas del laboratorio para un paso (`::lab-questions{step=…}`, D-024). */
+  | { type: 'lab-questions'; id: string }
 
 export interface TocEntry {
   id: string
@@ -30,7 +32,7 @@ export interface LessonView extends Lesson {
   toc: TocEntry[]
 }
 
-/** La práctica completa (rúbrica incluida) salvo el cuerpo de sus instrucciones. */
+/** El laboratorio salvo el cuerpo de sus instrucciones. */
 export interface PracticeView extends Practice {
   toc: TocEntry[]
 }
@@ -59,10 +61,6 @@ export interface CatalogEntry {
   available: boolean
 }
 
-export interface MicrotaskView extends Microtask {
-  materialBlocks: Block[]
-}
-
 export interface SearchDoc {
   id: string
   kind: 'section' | 'lab' | 'glossary'
@@ -80,7 +78,7 @@ interface ContentData {
   catalog: CatalogEntry[]
   courses: CourseView[]
   competencies: Record<string, Competency>
-  diagnostic: { form: DiagnosticForm; microtasks: MicrotaskView[] }
+  diagnostic: { form: DiagnosticForm }
   glossary: GlossaryTerm[]
   /** Solo las del diagnóstico: las de cada curso viajan en su paquete. */
   questions: Record<string, Question>

@@ -162,7 +162,9 @@ export function responseIssues(attempt: Attempt, responses: Response[]): string[
   return issues
 }
 
-// ---------- Prácticas (content-standard §5) ----------
+// ---------- Datos heredados (antes de D-024) ----------
+// La app ya no escribe entregas, revisiones, retroalimentación ni ajustes de ruta. Los contratos siguen aquí
+// para que un respaldo antiguo se pueda restaurar sin perder nada.
 
 const CriterionLevel = z.union([z.int().min(1).max(4), z.literal('insufficient-evidence')])
 
@@ -210,53 +212,6 @@ export const PracticeSubmission = z.object({
   state: z.enum(['presented', 'self-assessed', 'review-pending', 'reviewed']),
 })
 export type PracticeSubmission = z.infer<typeof PracticeSubmission>
-
-/** Lo que el estado necesita saber de la práctica, en la versión que se entregó. */
-export interface PracticeRequirements {
-  criterionIds: string[]
-  transferNotebook: boolean
-}
-
-function coversExactly(criteria: { criterionId: string }[], required: string[]): boolean {
-  const ids = criteria.map((c) => c.criterionId)
-  return new Set(ids).size === ids.length && ids.length === required.length && required.every((id) => ids.includes(id))
-}
-
-/**
- * Estado de una práctica (content-standard §5 y §5.1):
- * - presentada: falta el cuaderno (si la práctica lo exige) o la autoevaluación de todos los criterios;
- * - autoevaluada: completa, sin revisiones externas;
- * - revisión pendiente: menos de dos revisiones independientes válidas, o discrepan;
- * - revisada: las dos últimas revisiones, de corridas distintas, evalúan exactamente los criterios
- *   de la rúbrica y no discrepan más de un nivel en ninguno (R-H-8 [H]).
- */
-export function reviewState(
-  sub: Pick<PracticeSubmission, 'selfAssessment' | 'reviews' | 'notebook'>,
-  practice: PracticeRequirements,
-): PracticeSubmission['state'] {
-  if (practice.transferNotebook && !sub.notebook) return 'presented'
-  if (!coversExactly(sub.selfAssessment, practice.criterionIds)) return 'presented'
-  if (sub.reviews.length === 0) return 'self-assessed'
-  // Cada corrida cuenta con su revisión más reciente: repetir una revisión en la misma conversación
-  // no es una evaluación nueva y no puede deshacer una pareja independiente (T017-05).
-  const latestByRun = new Map<string, PracticeReview>()
-  for (const r of sub.reviews.filter((x) => coversExactly(x.criteria, practice.criterionIds))) {
-    latestByRun.delete(r.runId)
-    latestByRun.set(r.runId, r)
-  }
-  const independent = [...latestByRun.values()]
-  if (independent.length < 2) return 'review-pending'
-  const [a, b] = independent.slice(-2)
-  for (const ca of a.criteria) {
-    const cb = b.criteria.find((c) => c.criterionId === ca.criterionId)!
-    if (ca.level === 'insufficient-evidence' || cb.level === 'insufficient-evidence') {
-      if (ca.level !== cb.level) return 'review-pending'
-      continue
-    }
-    if (Math.abs(ca.level - (cb.level as number)) > 1) return 'review-pending'
-  }
-  return 'reviewed'
-}
 
 // ---------- Feedback externo y ruta personal (plan §17.6–17.7) ----------
 

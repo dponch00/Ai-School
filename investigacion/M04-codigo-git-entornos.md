@@ -13,6 +13,9 @@
 - **Aviso para el banco y el laboratorio (T021-X-01):** los ítems del diagnóstico `dx-b4-01` a `dx-b4-04` ya están expuestos (qué pedir antes de aceptar, cómo recuperar la versión buena, qué importa en una revisión con cambios fuera de alcance y cómo dirigir un plan incremental). Tampoco se reutiliza en L3 el escenario de `dx-b3-02` (la regla de que ningún archivo de secretos se suba nunca). Se puede reutilizar el concepto erróneo, con una situación nueva de Altiplano en cada familia (estándar §4.1).
 - **Alumno:** profesional de finanzas que dirige agentes de código. No se forma a un programador: se forma a alguien capaz de leer, ubicar, aislar, recuperar y decidir si acepta un cambio (`docs/curriculum.md`, M04, «Alcance»).
 
+
+> **D-024 (2026-10-23):** toda evaluación es de opción múltiple. Los objetivos con verbo de producción se reformulan como decisiones evaluables por escenario, y el laboratorio propuesto aquí se convierte en un caso por pasos con preguntas, sin entregable ni rúbrica. Lo demás de esta base sigue vigente.
+
 ---
 
 ## 1. Resumen ejecutivo

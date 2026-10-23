@@ -3,7 +3,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { Asset, Competency, Course, DiagnosticForm, Microtask, Misconception, Question, Source } from './content'
+import { Asset, Competency, Course, DiagnosticForm, Misconception, Question, Source } from './content'
 
 const root = resolve(import.meta.dirname, '../..')
 const read = (p: string) => JSON.parse(readFileSync(resolve(root, 'content', p), 'utf8'))
@@ -11,14 +11,12 @@ const read = (p: string) => JSON.parse(readFileSync(resolve(root, 'content', p),
 describe('content/diagnostic', () => {
   const items = Question.array().parse(read('diagnostic/items.json'))
   const misconceptions = Misconception.array().parse(read('diagnostic/misconceptions.json'))
-  const microtasks = Microtask.array().parse(read('diagnostic/microtasks.json'))
   const form = DiagnosticForm.parse(read('diagnostic/form.json'))
   const byId = new Map(items.map((q) => [q.id, q]))
 
-  it('el formulario apunta a ítems y microtareas existentes, sin repetir', () => {
+  it('el formulario apunta a ítems existentes, sin repetir', () => {
     expect(new Set(form.itemIds).size).toBe(24)
     for (const id of form.itemIds) expect(byId.has(id), id).toBe(true)
-    for (const id of form.microtaskIds) expect(microtasks.some((m) => m.id === id), id).toBe(true)
   })
 
   it('cada bloque tiene 4 ítems: 2 de base y 2 avanzados (curriculum §2.1)', () => {
@@ -29,12 +27,9 @@ describe('content/diagnostic', () => {
     }
   })
 
-  it('cada competencia de un bloque aparece en al menos un ítem o microtarea del bloque', () => {
+  it('cada competencia de un bloque aparece en al menos un ítem del bloque', () => {
     for (const block of form.blocks) {
-      const covered = new Set([
-        ...items.filter((q) => q.diagnosticBlock === block.id).flatMap((q) => q.competencyIds),
-        ...microtasks.filter((m) => m.diagnosticBlock === block.id).flatMap((m) => m.competencyIds),
-      ])
+      const covered = new Set(items.filter((q) => q.diagnosticBlock === block.id).flatMap((q) => q.competencyIds))
       for (const c of block.competencyIds) expect(covered.has(c), `${block.id} ${c}`).toBe(true)
     }
   })
@@ -66,10 +61,6 @@ describe('content/diagnostic', () => {
     for (const q of items) counts.set(q.options.findIndex((o) => o.correct), (counts.get(q.options.findIndex((o) => o.correct)) ?? 0) + 1)
     for (const [pos, n] of counts) expect(n / items.length, `clave en la posición ${pos + 1} en ${n}/${items.length}`).toBeLessThanOrEqual(0.5)
   })
-
-  it('cada microtarea tiene al menos un criterio crítico', () => {
-    for (const m of microtasks) expect(m.rubric.some((c) => c.critical), m.id).toBe(true)
-  })
 })
 
 describe('content/competencies.json', () => {
@@ -99,7 +90,6 @@ describe('content/competencies.json', () => {
         for (const q of Question.array().parse(read(`${base}/questions/${file}`))) refs.push([q.id, q.competencyIds])
     }
     for (const q of Question.array().parse(read('diagnostic/items.json'))) refs.push([q.id, q.competencyIds])
-    for (const m of Microtask.array().parse(read('diagnostic/microtasks.json'))) refs.push([m.id, m.competencyIds])
     for (const b of form.blocks) refs.push([b.id, b.competencyIds])
     expect(refs.length).toBeGreaterThan(0)
     for (const [owner, ids] of refs) for (const id of ids) expect(byId.has(id), `${owner} → ${id}`).toBe(true)

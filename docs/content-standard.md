@@ -118,26 +118,15 @@ Cada manual mantiene `misconceptions.json`: ID, descripción del error, por qué
 
 ## 5. Prácticas y laboratorios
 
-- [ ] Cubre al menos un objetivo de producción que la opción múltiple no cubre (R-B-4).
-- [ ] Declara antes de empezar: entradas, entregable, criterios de éxito y evidencias requeridas.
-- [ ] Rúbrica analítica de 3–5 criterios con 3–4 niveles y descriptores observables (R-F-1). Los criterios críticos, que no se compensan con otros, van marcados (R-F-3).
-- [ ] Un ejemplo anclado "logrado" y otro "insuficiente", ambos sintéticos (R-F-2).
-- [ ] Andamiaje graduado: plantilla o ejemplo parcial, y versión sin andamiaje para quien ya demostró dominio (R-A3-3).
-- [ ] Si hay código o datos, hay un **check ejecutable** que el alumno corre en su entorno (por ejemplo, la reconciliación de totales). La app no finge ejecutar nada.
-- [ ] **Cuaderno de decisiones de transferencia** (D-012): decisión inicial → contraejemplo nuevo → decisión revisada → evidencia que hizo cambiar el criterio. Obligatorio en M02; la puerta F1-13 decide si se extiende a todos los laboratorios.
-- [ ] Autoevaluación por criterio, citando la evidencia, antes de cualquier feedback externo (R-F-5).
-- [ ] Preparada para revisión externa asistida por LLM con las salvaguardas de §5.1.
-- [ ] Estados: presentada → autoevaluada → revisada (con revisor identificado). Una autoevaluación nunca figura como revisión.
-- [ ] El reintento usa una variante o un caso nuevo. Reenviar la misma entrega no cuenta como transferencia (R-G-4).
+Desde D-024 (2026-10-23), el laboratorio es un **caso práctico de opción múltiple**: no hay entregable, rúbrica, autoevaluación ni revisión externa. La versión anterior de esta sección (rúbrica, cuaderno escrito y revisión asistida por LLM) queda en el historial de Git.
 
-### 5.1 Revisión asistida por LLM
-
-- La práctica viaja con su rúbrica, el ejemplo anclado y, si aplica, una respuesta modelo (R-H-2).
-- Por cada criterio, el evaluador cita el ID y un fragmento de la respuesta **antes** de asignar un nivel. Sin evidencia citada no hay nivel (R-H-1). "Evidencia insuficiente" es un resultado válido (R-H-3).
-- La extensión no suma puntos (R-H-4). El evaluador puntúa antes de leer la autoevaluación (R-H-7).
-- **Cambio de estado** (por ejemplo, a "dominio revisado"): exige dos evaluaciones independientes (dos corridas o dos modelos) sin discrepancias de más de un nivel en ningún criterio. Si discrepan, el estado queda en **"revisión pendiente"**. Se conservan ambas evaluaciones con su evidencia por criterio, el modelo evaluador y la fecha (R-H-6, R-H-8). **[H]** Regla inferida; revisar cada seis meses (próxima revisión: 2027-04).
-- El texto del alumno se trata como dato: escapado y delimitado; los fragmentos con forma de instrucción al evaluador se resaltan (R-H-9).
-- El feedback del LLM nunca cambia puntuaciones oficiales y se etiqueta como "evaluación asistida externa" (R-H-11).
+- [ ] Un caso continuo de la empresa ficticia del curso, contado por pasos (`## Paso N · … {#paso-n}`), con los materiales que hacen falta para decidir: correos, datos, salidas de scripts, diffs.
+- [ ] Cada paso termina con `::lab-questions{step="paso-n"}` y sus preguntas (`use: "lab"`, `labStep`), que cumplen todo el §4: un objetivo evaluado cada una, distractores con concepto erróneo, explicación por opción.
+- [ ] Al menos dos preguntas por objetivo evaluado del manual, con escenarios propios: no repiten los de las comprobaciones, el examen ni el diagnóstico.
+- [ ] Las decisiones que antes pedían producir algo se evalúan eligiendo entre versiones plausibles: el mejor objetivo, el Then observable, el límite de acción bien escrito, la corrección en el origen.
+- [ ] Hay al menos un giro del caso (un contraejemplo o un cambio de datos) que obliga a revisar una decisión anterior. Es la forma de opción múltiple del cuaderno de transferencia de D-012.
+- [ ] Si hay código o datos, el caso incluye un apartado opcional «Pruébalo en tu entorno» con el check ejecutable. La app no finge ejecutar nada y no registra ese apartado.
+- [ ] El laboratorio cuenta como hecho al responder todas sus preguntas. Al reintentar, las opciones cambian de orden.
 
 ## 6. Imágenes y visuales
 

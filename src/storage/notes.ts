@@ -1,6 +1,5 @@
 /**
- * Notas y marcadores por lección (F2-07). Viven en IndexedDB y viajan en el respaldo; no entran en
- * los reportes de evaluación.
+ * Notas y marcadores por lección (F2-07). Viven en IndexedDB y viajan en el respaldo.
  */
 import type { Bookmark, LearnerDb, Note } from './db'
 import { newLocalId, now } from './progress'

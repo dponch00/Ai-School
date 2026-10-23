@@ -43,7 +43,9 @@ for (const courseDir of readdirSync(resolve(root, 'courses'))) {
     const exam = existsSync(resolve(root, examPath)) ? Question.array().parse(read(examPath)) : []
     const practicePath = `courses/${courseDir}/questions/practice.json`
     const practiceItems = existsSync(resolve(root, practicePath)) ? Question.array().parse(read(practicePath)) : []
-    const allQuestions = [...checks, ...exam, ...practiceItems]
+    const labQPath = `courses/${courseDir}/questions/lab.json`
+    const labItems = existsSync(resolve(root, labQPath)) ? Question.array().parse(read(labQPath)) : []
+    const allQuestions = [...checks, ...exam, ...practiceItems, ...labItems]
     const lessonFiles = readdirSync(resolve(root, `courses/${courseDir}/lessons`)).filter((f) => f.endsWith('.json'))
     const lessons = lessonFiles.map((f) => Lesson.parse(read(`courses/${courseDir}/lessons/${f}`)))
 
@@ -90,7 +92,7 @@ for (const courseDir of readdirSync(resolve(root, 'courses'))) {
     })
 
     it('la longitud no delata la clave: ni siempre la más larga ni siempre la más corta', () => {
-      for (const [name, set] of [['comprobaciones', checks], ['examen', exam]] as const) {
+      for (const [name, set] of [['comprobaciones', checks], ['examen', exam], ['laboratorio', labItems]] as const) {
         if (set.length < 6) continue
         const bias = keyLengthBias(set)
         expect(bias.longest / bias.total, `${name}: clave más larga en ${bias.longest}/${bias.total}`).toBeLessThanOrEqual(0.4)
@@ -99,7 +101,7 @@ for (const courseDir of readdirSync(resolve(root, 'courses'))) {
     })
 
     it('la posición de la clave está repartida en cada banco (ninguna posición > 50 %)', () => {
-      for (const [name, set] of [['comprobaciones', checks], ['examen', exam], ['práctica', practiceItems]] as const) {
+      for (const [name, set] of [['comprobaciones', checks], ['examen', exam], ['práctica', practiceItems], ['laboratorio', labItems]] as const) {
         if (set.length < 6) continue
         const counts = new Map<number, number>()
         for (const q of set) {
@@ -162,11 +164,20 @@ for (const courseDir of readdirSync(resolve(root, 'courses'))) {
       const lab = Practice.parse(read(labPath))
       expect(existsSync(resolve(root, lab.instructionsPath)), lab.instructionsPath).toBe(true)
       for (const id of lab.evaluatedObjectiveIds) expect(eoIds.has(id), `${lab.id} → ${id}`).toBe(true)
-      expect(lab.rubric.some((c) => c.critical), 'al menos un criterio crítico').toBe(true)
-      // Cada criterio dice qué objetivos evalúa, y entre todos cubren los del laboratorio (D-011).
-      const byRubric = new Set(lab.rubric.flatMap((c) => c.evaluatedObjectiveIds))
-      for (const c of lab.rubric) for (const id of c.evaluatedObjectiveIds) expect(lab.evaluatedObjectiveIds, `${c.id} → ${id}`).toContain(id)
-      for (const id of lab.evaluatedObjectiveIds) expect(byRubric.has(id), `ningún criterio de la rúbrica evalúa ${id}`).toBe(true)
+      // Caso práctico (D-024): preguntas de laboratorio existentes, en anclas del instructivo, que cubren sus objetivos.
+      const md = readFileSync(resolve(root, lab.instructionsPath), 'utf8')
+      const byId = new Map(labItems.map((q) => [q.id, q]))
+      for (const id of lab.questionIds) {
+        const q = byId.get(id)
+        expect(q, `${lab.id} → ${id}`).toBeDefined()
+        expect(anchors(md).has(q!.labStep!), `${id}: el paso #${q!.labStep} no existe`).toBe(true)
+        expect(md.includes(`::lab-questions{step="${q!.labStep}"}`), `${id}: el paso ${q!.labStep} no tiene marca de preguntas`).toBe(true)
+      }
+      const covered = new Set(lab.questionIds.map((id) => byId.get(id)!.evaluatedObjectiveId))
+      for (const id of lab.evaluatedObjectiveIds) expect(covered.has(id), `ninguna pregunta del laboratorio evalúa ${id}`).toBe(true)
+      // No reutiliza escenarios de las comprobaciones ni del examen.
+      const seen = new Set([...checks, ...exam].map((q) => q.scenario))
+      for (const q of labItems) expect(seen.has(q.scenario), `${q.id} reutiliza un escenario`).toBe(false)
     })
 
     it('matriz objetivo → lección → actividad → evidencia completa (D-011, puerta F1-13)', () => {
@@ -176,7 +187,7 @@ for (const courseDir of readdirSync(resolve(root, 'courses'))) {
         expect(lessonObjectives.length, `${eo.id}: sin objetivo de lección`).toBeGreaterThanOrEqual(1)
         expect(checks.filter((q) => q.evaluatedObjectiveId === eo.id).length, `${eo.id}: menos de 2 comprobaciones`).toBeGreaterThanOrEqual(2)
         expect(new Set(exam.filter((q) => q.evaluatedObjectiveId === eo.id).map((q) => q.family)).size, `${eo.id}: menos de 2 familias de examen`).toBeGreaterThanOrEqual(2)
-        if (lab) expect(lab.rubric.some((c) => c.evaluatedObjectiveIds.includes(eo.id)), `${eo.id}: ningún criterio del laboratorio lo evalúa`).toBe(true)
+        if (lab) expect(labItems.filter((q) => q.evaluatedObjectiveId === eo.id).length, `${eo.id}: menos de 2 preguntas del laboratorio`).toBeGreaterThanOrEqual(2)
       }
     })
 

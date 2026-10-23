@@ -44,7 +44,7 @@ export default function QuestionCheck({ question, courseId, currentLessonId, lab
     }
     setError(false)
     setSubmitted(true)
-    onAnswer?.(question, options.map((o) => o.id), selected, { ...notes, explanation: notes.explanation?.trim() || undefined })
+    onAnswer?.(question, options.map((o) => o.id), selected, notes)
   }
 
   return (
@@ -79,31 +79,10 @@ export default function QuestionCheck({ question, courseId, currentLessonId, lab
         })}
       </div>
       {!submitted && onAnswer && (
-        <details className="question__notes">
-          <summary>Antes de comprobar: explica tu elección (opcional)</summary>
-          <label>¿Por qué elegiste esta respuesta?
-            <textarea rows={3} maxLength={4000} value={notes.explanation ?? ''} onChange={(e) => setNotes({ ...notes, explanation: e.target.value })} />
-          </label>
-          <div className="question__notes-row">
-            <label>Confianza
-              <select value={notes.confidence ?? ''} onChange={(e) => setNotes({ ...notes, confidence: (e.target.value || undefined) as AnswerNotes['confidence'] })}>
-                <option value="">Sin indicar</option>
-                <option value="low">Baja</option>
-                <option value="medium">Media</option>
-                <option value="high">Alta</option>
-              </select>
-            </label>
-            <label>Ayuda
-              <select value={notes.declaredHelp ?? ''} onChange={(e) => setNotes({ ...notes, declaredHelp: (e.target.value || undefined) as AnswerNotes['declaredHelp'] })}>
-                <option value="">Sin indicar</option>
-                <option value="none">Sin ayuda</option>
-                <option value="external-ai">Consulté una IA</option>
-                <option value="other">Otra ayuda</option>
-              </select>
-            </label>
-          </div>
-          <p className="muted">Sirve para que un evaluador vea tu criterio, incluso cuando aciertas. Se guarda con tu respuesta.</p>
-        </details>
+        <label className="question__confidence">
+          <input type="checkbox" checked={notes.confidence === 'high'} onChange={(e) => setNotes({ confidence: e.target.checked ? 'high' : undefined })} />
+          <span>Estoy muy seguro <span className="muted">(si fallas, la pregunta vuelve en el repaso de errores)</span></span>
+        </label>
       )}
       {error && <p className="question__error" role="alert">Elige una opción antes de comprobar.</p>}
       {!submitted ? (

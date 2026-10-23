@@ -5,7 +5,6 @@ import { makeQuestion } from '../domain/fixtures.test-utils'
 import { APP_VERSION } from '../app/version'
 import { openDb, type LearnerDb } from './db'
 import { MAX_BACKUP_BYTES, backupSummary, exportBackup, parseBackup, readBackupFile, restoreBackup } from './backup'
-import { saveProfile, saveReport } from './learner'
 import { recordCheckAnswer } from './progress'
 
 let a: LearnerDb
@@ -21,26 +20,21 @@ afterEach(async () => {
 })
 
 async function seed(db: LearnerDb) {
-  await saveProfile(db, { declared: { alias: 'Prueba', goals: ['especificar'], projects: [], tools: [], selfAssessment: [], constraints: [] }, priorEvidence: [] })
   const round = { courseId: 'm02', lessonId: 'm02-l1', purpose: 'checks' as const, contentVersion: '0.1.0', size: 1 }
-  await recordCheckAnswer(db, round, null, makeQuestion({ id: 'm02-l1-c1', use: 'check' }), ['k1', 'd1', 'd2'], 'k1', { explanation: 'porque sí' })
-  await saveReport(db, {
-    id: 'rep-000000000001', createdAt: '2026-10-22T10:00:00.000Z', cutoffAt: '2026-10-22T10:00:00.000Z', scope: { kind: 'full' },
-    fileName: 'evaluacion_ia_2026-10-22_00000000.html', includedSections: [], excluded: [], counts: { attempts: 1, responses: 1, practices: 0 }, byCompetency: [],
-  })
+  await recordCheckAnswer(db, round, null, makeQuestion({ id: 'm02-l1-c1', use: 'check' }), ['k1', 'd1', 'd2'], 'k1', { confidence: 'high' })
+  await db.notes.put({ id: 'nota-000001', targetId: 'm02-l1', text: 'mi nota', updatedAt: '2026-10-22T10:00:00.000Z' })
 }
 
 describe('respaldo', () => {
-  it('exporta y restaura en otra base: perfil, respuestas, progreso y reportes', async () => {
+  it('exporta y restaura en otra base: respuestas, progreso y notas', async () => {
     await seed(a)
     const text = JSON.stringify(await exportBackup(a, '0.1.0', { m02: '0.1.0' }))
     const parsed = parseBackup(text)
-    expect(backupSummary(parsed)).toMatchObject({ hasProfile: true, attempts: 1, responses: 1, reports: 1 })
+    expect(backupSummary(parsed)).toMatchObject({ hasProfile: false, attempts: 1, responses: 1 })
     await restoreBackup(b, parsed)
-    expect((await b.profile.toArray())[0].declared.alias).toBe('Prueba')
-    expect((await b.responses.toArray())[0].explanation).toBe('porque sí')
+    expect((await b.responses.toArray())[0].confidence).toBe('high')
     expect(await b.lessonProgress.count()).toBe(1)
-    expect(await b.reports.count()).toBe(1)
+    expect((await b.notes.toArray())[0].text).toBe('mi nota')
   })
 
   it('restaurar reemplaza lo que había, no lo mezcla', async () => {

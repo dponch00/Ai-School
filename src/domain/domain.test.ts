@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { Course, Question } from './content'
-import { Attempt, finalSelection, PracticeReview, Response, reviewState } from './learner'
+import { Attempt, finalSelection, Response } from './learner'
 import { bankIssues, diagnosticBlockSignal, scoreAttempt, selectExam } from './scoring'
 import { answer, makeAttempt, makeBank, makeQuestion, seededRng } from './fixtures.test-utils'
 
@@ -167,61 +167,6 @@ describe('diagnosticBlockSignal', () => {
 
   it('recomienda repaso si falla los dos de base', () => {
     expect(diagnosticBlockSignal(block([['base', false], ['base', false], ['advanced', true], ['advanced', true]]))).toBe('review-recommended')
-  })
-
-  it('la microtarea con un criterio crítico fallado impide la fortaleza', () => {
-    expect(diagnosticBlockSignal(block([['base', true], ['base', true], ['advanced', true], ['advanced', true]]), false)).toBe('no-clear-signal')
-  })
-})
-
-describe('reviewState (R-H-8, CTR-02, CTR-05)', () => {
-  const practice = { criterionIds: ['c1', 'c2'], transferNotebook: true }
-  const notebook = { initialDecision: 'a', counterexample: 'b', revisedDecision: 'c', evidenceForChange: 'd' }
-  const self = [{ criterionId: 'c1', level: 3 as const, evidence: 'cita' }, { criterionId: 'c2', level: 2 as const, evidence: 'cita' }]
-  let run = 0
-  const review = (levels: Array<number | 'insufficient-evidence'>, runId = `run-${++run}`): PracticeReview => ({
-    runId,
-    reviewer: { declaredName: 'evaluador', type: 'external-assisted' },
-    at: '2026-10-21T12:00:00-06:00',
-    criteria: levels.map((level, i) => ({ criterionId: `c${i + 1}`, evidenceQuote: 'cita', level })),
-  })
-  const state = (reviews: PracticeReview[], over: object = {}) => reviewState({ selfAssessment: self, notebook, reviews, ...over }, practice)
-
-  it('queda pendiente con una sola revisión', () => {
-    expect(state([review([3, 3])])).toBe('review-pending')
-  })
-
-  it('se da por revisada si dos corridas distintas difieren como mucho un nivel', () => {
-    expect(state([review([3, 2]), review([2, 3])])).toBe('reviewed')
-  })
-
-  it('queda pendiente si un criterio difiere más de un nivel', () => {
-    expect(state([review([4, 2]), review([2, 2])])).toBe('review-pending')
-  })
-
-  it('caso de Codex: un criterio evaluado una sola vez no cuenta como doble evaluación', () => {
-    expect(state([review([3]), review([3, 1])])).toBe('review-pending')
-  })
-
-  it('caso de Codex: dos copias de la misma corrida no son independientes', () => {
-    expect(state([review([3, 3], 'run-x'), review([3, 3], 'run-x')])).toBe('review-pending')
-  })
-
-  it('una revisión repetida en la misma corrida no deshace una pareja independiente (T017-05)', () => {
-    expect(state([review([3, 3], 'run-a'), review([3, 2], 'run-b'), review([3, 2], 'run-b')])).toBe('reviewed')
-  })
-
-  it('cuenta la revisión más reciente de cada corrida: si contradice a la otra corrida, vuelve a pendiente (T017-05)', () => {
-    expect(state([review([3, 3], 'run-a'), review([3, 2], 'run-b'), review([1, 1], 'run-b')])).toBe('review-pending')
-  })
-
-  it('una revisión sin cita no cumple el contrato (T017-04)', () => {
-    expect(() => PracticeReview.parse({ ...review([3, 3]), criteria: [{ criterionId: 'c1', evidenceQuote: '   ', level: 3 }] })).toThrow()
-  })
-
-  it('caso de Codex: sin autoevaluación completa o sin cuaderno sigue presentada', () => {
-    expect(state([review([3, 3]), review([3, 3])], { selfAssessment: [] })).toBe('presented')
-    expect(state([review([3, 3]), review([3, 3])], { notebook: undefined })).toBe('presented')
   })
 })
 

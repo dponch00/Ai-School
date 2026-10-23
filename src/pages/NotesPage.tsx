@@ -17,7 +17,7 @@ export default function NotesPage() {
     <div className="page page--reader">
       <article>
         <h1>Mis notas y marcadores</h1>
-        <p className="lead">Lo que guardaste mientras leías. Solo vive en este navegador y en tus respaldos; no entra en los reportes de evaluación.</p>
+        <p className="lead">Lo que guardaste mientras leías. Solo vive en este navegador y en tus respaldos.</p>
         <section className="section" aria-labelledby="marcadores">
           <h2 id="marcadores">Marcadores</h2>
           {data.bookmarks.length === 0 ? (

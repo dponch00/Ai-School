@@ -18,7 +18,7 @@ export default function StorageNotice() {
   return (
     <div className="update-prompt update-prompt--warning" role="alert">
       <p>
-        Este navegador no deja guardar tu progreso (puede ser navegación privada o datos del sitio bloqueados). Puedes leer las lecciones, pero tus respuestas, entregas y reportes no se guardarán.
+        Este navegador no deja guardar tu progreso (puede ser navegación privada o datos del sitio bloqueados). Puedes leer las lecciones, pero tus respuestas y tu avance no se guardarán.
       </p>
     </div>
   )

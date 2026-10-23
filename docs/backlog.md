@@ -50,13 +50,14 @@ Salida: base funcional y comprobada que permite integrar los cursos restantes (p
 | ID | Tarea | Quién | Depende de | Estado |
 | --- | --- | --- | --- | --- |
 | F2-01 | Reglas del examen del estándar §4.3: reintento al día siguiente y tras repasar los apartados de los errores, confianza opcional por pregunta, comprobación de retención a 7 días (6 variantes no vistas, 5/6) | Claude; revisa Codex | F1-08 | ✅ |
-| F2-02 | Revisiones externas de la práctica: registrar revisiones con corrida, evaluador y evidencia por criterio; estado con `reviewState` (prueba la hipótesis de doble evaluación) | Claude; revisa Codex | F1-09 | ✅ |
+| F2-02 | Revisiones externas de la práctica: registrar revisiones con corrida, evaluador y evidencia por criterio; estado con `reviewState` (prueba la hipótesis de doble evaluación) | Claude; revisa Codex | F1-09 | ❌ retirado por D-024 |
 | F2-03 | Errores con confianza alta: reaparecen en la sesión siguiente como repaso (R-E-4) | Claude | F2-01 | ✅ |
 | F2-04 | PWA: manifiesto, service worker (vite-plugin-pwa, `injectManifest`, `registerType: 'prompt'`), instalación, aviso de actualización que no interrumpe un examen en curso | Claude; revisa Codex | — | ✅ (instalación real en dispositivo: con F2-10) |
 | F2-05 | Offline por curso: contenido de cada curso en su propio paquete y caché, descargado con verificación (deuda de D-020) | Claude | F2-04 | ✅ |
-| F2-06 | Diagnóstico inicial: 24 ítems y 2 microtareas, señales por bloque y recomendaciones por competencia (D-015) | Claude; revisa Codex | — | ✅ |
+| F2-06 | Diagnóstico inicial: 24 ítems y 2 microtareas, señales por bloque y recomendaciones por competencia (D-015) | Claude; revisa Codex | — | ✅ (microtareas retiradas por D-024) |
 | F2-07 | Búsqueda (MiniSearch con stemmer español), glosario, notas y marcadores | Claude | — | ✅ |
 | F2-08 | Pruebas de interacción y accesibilidad (Playwright + axe) en las rutas principales | Claude; revisa Codex | — | ✅ `npm run e2e` |
 | F2-09 | Manejo de errores: aviso visible si IndexedDB no está disponible, cuota y `navigator.storage.persist()` | Claude | — | ✅ (prueba manual en ventana privada pendiente) |
 | F2-10 | Prueba de hosting en origen propio (F0-11) y revisión antes de publicar (F1-14) | Claude + Daniel | Organización de GitHub creada por Daniel | ⛔ espera a Daniel |
+| F2-11 | **D-024:** todo de opción múltiple. Quitar perfil, evaluación, Mi ruta, entrega del laboratorio y microtareas; laboratorio de M02 como caso con 12 preguntas; respaldo en pantalla propia | Claude; revisa Codex (T-023) | — | ✅ |
 

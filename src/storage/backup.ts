@@ -1,13 +1,13 @@
 /**
- * Respaldo completo del expediente (plan §9 y §17.3, F1-10): un JSON versionado que se puede
- * guardar fuera del navegador y restaurar en otro dispositivo.
+ * Respaldo completo del progreso (plan §9 y §17.3, F1-10): un JSON versionado que se puede
+ * guardar fuera del navegador y restaurar en otro dispositivo. Desde D-024 la app ya no escribe perfil,
+ * entregas, retroalimentación ni reportes, pero el respaldo conserva esas tablas para no perder datos antiguos.
  */
 import { Backup, SCHEMA_VERSION } from '../domain/learner'
 import type { LearnerDb } from './db'
-import { getProfile } from './learner'
 import { now } from './progress'
 
-/** Un respaldo más grande que esto no es un expediente personal: se rechaza antes de leerlo. */
+/** Un respaldo más grande que esto no es el progreso de una persona: se rechaza antes de leerlo. */
 export const MAX_BACKUP_BYTES = 20 * 1024 * 1024
 
 export async function exportBackup(db: LearnerDb, appVersion: string, contentVersions: Record<string, string>, at = now()): Promise<Backup> {
@@ -17,7 +17,7 @@ export async function exportBackup(db: LearnerDb, appVersion: string, contentVer
       exportedAt: at,
       appVersion,
       contentVersions,
-      profile: (await getProfile(db)) ?? null,
+      profile: (await db.profile.toCollection().first()) ?? null,
       attempts: await db.attempts.toArray(),
       responses: await db.responses.toArray(),
       practiceSubmissions: await db.practiceSubmissions.toArray(),
