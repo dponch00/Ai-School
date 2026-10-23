@@ -5,23 +5,23 @@
 ## Siguiente acción
 
 1. **Daniel:** hacer el recorrido completo como alumno (perfil, lecciones, examen, laboratorio, reporte compartido en un chat y retroalimentación registrada) y anotar su tiempo en `docs/registro-esfuerzo.md` o pasárselo a Claude. Con eso arranca el Bloque A.
-2. **Claude:** F2-07 (búsqueda, glosario, notas y marcadores) y F2-08 (pruebas de interacción y accesibilidad).
+2. **Claude:** F2-07 (búsqueda, glosario, notas y marcadores).
 3. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-22)
 
-**≈ 37 % de la V1** (rango razonable: 34–40 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 38 % de la V1** (rango razonable: 35–41 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 95 % (piloto revisado y puerta preparada; faltan el recorrido de Daniel y su decisión) | 20,9 |
-| 2 · Base de app y PWA | 15 % | 52 % (persistencia, reglas del examen, revisiones externas, repaso de errores, PWA con ícono, diagnóstico inicial y manejo del almacenamiento; faltan offline por curso, búsqueda y glosario, pruebas de interacción y hosting) | 7,8 |
+| 2 · Base de app y PWA | 15 % | 60 % (persistencia, reglas del examen, revisiones externas, repaso de errores, PWA con ícono, diagnóstico, almacenamiento y pruebas E2E con accesibilidad; faltan offline por curso, búsqueda y glosario, y hosting) | 9,0 |
 | 3 · Nueve manuales restantes | 40 % | 3 % (currículo y mapa de competencias) | 1,2 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 37 %** |
+| **Total** | 100 % | | **≈ 38 %** |
 
 ## Tickets
 
@@ -51,13 +51,16 @@
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | F2-08 y F2-07 |
+| Claude | F2-07 |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-22 · Claude Code — pruebas E2E y de accesibilidad (F2-08)
+Playwright 1.64 y axe 4.14 (D-014) corren contra el build real con su SW (`npm run e2e`): 13 rutas a 360 px y en escritorio, sin violaciones WCAG 2.2 A/AA ni desborde horizontal. También cubren una comprobación con teclado y su persistencia, un examen retomado tras recargar y el modo sin conexión con el diagrama. En la primera corrida salieron dos problemas reales y quedaron corregidos: una tabla ancha que no se podía alcanzar con el teclado en el celular (ahora las tablas son enfocables) y el radio del examen, que se desmarcaba un instante al hacer clic (ahora la selección se muestra al instante). 32/32 en E2E y 144/144 en `npm test`.
 
 ### 2026-10-22 · Claude Code — revisión de T-019
 Los 4 hallazgos de Codex se aplicaron. El alto: con el alcance de diagnóstico, la instrucción para el evaluador le pedía evaluar competencias y el Markdown abría con un resumen por competencia, lo que contradice D-015. Ahora el diagnóstico tiene su propia instrucción y su resumen por bloque. También se corrigieron estos puntos: la recomendación de «fortaleza probable» ya no habla de saltar lo que se domina; los ejemplos de la microtarea esperan a la autoevaluación completa, y las microtareas ya no se presentan como laboratorios. `npm test` 144/144.
