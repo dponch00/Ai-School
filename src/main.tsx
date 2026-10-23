@@ -35,6 +35,7 @@ const router = createHashRouter([
       { path: 'perfil', lazy: page(() => import('./pages/ProfilePage.tsx')) },
       { path: 'evaluacion', lazy: page(() => import('./pages/EvaluationPage.tsx')) },
       { path: 'ruta', lazy: page(() => import('./pages/RoutePage.tsx')) },
+      { path: 'como-funciona', lazy: page(() => import('./pages/HowItWorksPage.tsx')) },
       { path: '*', element: <NotFound /> },
     ],
   },

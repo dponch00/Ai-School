@@ -36,7 +36,8 @@ export default function Home() {
         </p>
         <p>
           <Link to="/diagnostico">Haz el diagnóstico inicial</Link> (unos 25 minutos) para saber por dónde te conviene empezar y
-          en qué bloques puedes ir más rápido.
+          en qué bloques puedes ir más rápido. Si es tu primera vez, lee <Link to="/como-funciona">cómo funciona</Link>: en qué
+          orden estudiar, qué cuenta para aprobar y quién califica tus respuestas de texto.
         </p>
         <ol className="route">
           {content.catalog.map((c) => (
