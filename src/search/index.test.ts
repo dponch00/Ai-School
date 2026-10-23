@@ -5,8 +5,8 @@ import { describe, expect, it } from 'vitest'
 import type { SearchDoc } from '../content'
 import { createIndex, processTerm, search, snippetOf } from './index'
 
-const generated = JSON.parse(readFileSync(resolve(import.meta.dirname, '../generated/content.json'), 'utf8')) as { searchDocs: SearchDoc[] }
-const index = createIndex(generated.searchDocs)
+const docs = JSON.parse(readFileSync(resolve(import.meta.dirname, '../generated/search.json'), 'utf8')) as SearchDoc[]
+const index = createIndex(docs)
 const ids = (q: string) => search(index, q).map((h) => h.id)
 
 describe('búsqueda', () => {

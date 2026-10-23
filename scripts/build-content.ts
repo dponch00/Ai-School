@@ -334,7 +334,6 @@ const out = {
   competencies,
   diagnostic,
   glossary,
-  searchDocs,
   // Solo las del diagnóstico: las de cada curso viajan en su paquete.
   questions: diagnosticQuestions,
   // Datos mínimos de cada fuente para las fichas de producto (que citan fuentes fuera de la lección).
@@ -342,6 +341,8 @@ const out = {
 }
 mkdirSync(resolve(root, 'src/generated'), { recursive: true })
 writeFileSync(resolve(root, 'src/generated/content.json'), JSON.stringify(out))
+// El índice de búsqueda solo lo usa la pantalla de búsqueda: va aparte y se carga al abrirla.
+writeFileSync(resolve(root, 'src/generated/search.json'), JSON.stringify(searchDocs))
 
 // ---------- Tokens de diseño → variables CSS ----------
 const tokens = JSON.parse(readFileSync(resolve(root, 'design/tokens.json'), 'utf8'))

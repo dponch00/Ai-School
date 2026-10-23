@@ -1,14 +1,25 @@
 /// <reference types="vitest/config" />
 import react from '@vitejs/plugin-react'
+import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
+
+// Build de un solo archivo para la versión de prueba del celular: sin fragmentos ni SW (AIS_SINGLE=1).
+const single = process.env.AIS_SINGLE === '1'
 
 // Origen propio en <org>.github.io (D-013), por eso base '/'.
 export default defineConfig({
   base: '/',
+  ...(single
+    ? {
+        build: { outDir: 'dist-single', rolldownOptions: { output: { codeSplitting: false } } },
+        resolve: { alias: { 'virtual:pwa-register/react': fileURLToPath(new URL('./src/app/pwa-stub.ts', import.meta.url)) } },
+      }
+    : {}),
   plugins: [
     react(),
     // PWA (F2-04, D-014): SW propio con injectManifest y actualización solo cuando Daniel la acepta.
+    !single &&
     VitePWA({
       strategies: 'injectManifest',
       srcDir: 'src/sw',

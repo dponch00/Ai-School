@@ -7,18 +7,13 @@ import Home from './pages/Home.tsx'
 import Library from './pages/Library.tsx'
 import CourseOverview from './pages/CourseOverview.tsx'
 import LessonPage from './pages/LessonPage.tsx'
-import LabPage from './pages/LabPage.tsx'
-import ExamPage from './pages/ExamPage.tsx'
-import PracticePage from './pages/PracticePage.tsx'
-import ProfilePage from './pages/ProfilePage.tsx'
-import EvaluationPage from './pages/EvaluationPage.tsx'
-import RoutePage from './pages/RoutePage.tsx'
-import ErrorReviewPage from './pages/ErrorReviewPage.tsx'
-import DiagnosticPage from './pages/DiagnosticPage.tsx'
-import SearchPage from './pages/SearchPage.tsx'
-import GlossaryPage from './pages/GlossaryPage.tsx'
-import NotesPage from './pages/NotesPage.tsx'
 import NotFound from './pages/NotFound.tsx'
+
+/**
+ * Carga diferida: lo que se usa al leer (inicio, cursos, portada y lección) viaja en el paquete principal;
+ * el resto se descarga al abrirlo. El SW precachea todos los fragmentos, así que también funcionan sin conexión.
+ */
+const page = (load: () => Promise<{ default: React.ComponentType }>) => async () => ({ Component: (await load()).default })
 
 // Hash routing (D-014): funciona en hosting estático sin reescrituras y offline con un solo index.html.
 const router = createHashRouter([
@@ -29,17 +24,17 @@ const router = createHashRouter([
       { path: 'cursos', element: <Library /> },
       { path: 'cursos/:courseId', element: <CourseOverview /> },
       { path: 'cursos/:courseId/lecciones/:lessonId', element: <LessonPage /> },
-      { path: 'cursos/:courseId/laboratorio', element: <LabPage /> },
-      { path: 'cursos/:courseId/examen', element: <ExamPage /> },
-      { path: 'cursos/:courseId/practica', element: <PracticePage /> },
-      { path: 'cursos/:courseId/repaso', element: <ErrorReviewPage /> },
-      { path: 'diagnostico', element: <DiagnosticPage /> },
-      { path: 'buscar', element: <SearchPage /> },
-      { path: 'glosario', element: <GlossaryPage /> },
-      { path: 'notas', element: <NotesPage /> },
-      { path: 'perfil', element: <ProfilePage /> },
-      { path: 'evaluacion', element: <EvaluationPage /> },
-      { path: 'ruta', element: <RoutePage /> },
+      { path: 'cursos/:courseId/laboratorio', lazy: page(() => import('./pages/LabPage.tsx')) },
+      { path: 'cursos/:courseId/examen', lazy: page(() => import('./pages/ExamPage.tsx')) },
+      { path: 'cursos/:courseId/practica', lazy: page(() => import('./pages/PracticePage.tsx')) },
+      { path: 'cursos/:courseId/repaso', lazy: page(() => import('./pages/ErrorReviewPage.tsx')) },
+      { path: 'diagnostico', lazy: page(() => import('./pages/DiagnosticPage.tsx')) },
+      { path: 'buscar', lazy: page(() => import('./pages/SearchPage.tsx')) },
+      { path: 'glosario', lazy: page(() => import('./pages/GlossaryPage.tsx')) },
+      { path: 'notas', lazy: page(() => import('./pages/NotesPage.tsx')) },
+      { path: 'perfil', lazy: page(() => import('./pages/ProfilePage.tsx')) },
+      { path: 'evaluacion', lazy: page(() => import('./pages/EvaluationPage.tsx')) },
+      { path: 'ruta', lazy: page(() => import('./pages/RoutePage.tsx')) },
       { path: '*', element: <NotFound /> },
     ],
   },

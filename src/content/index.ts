@@ -82,7 +82,6 @@ interface ContentData {
   competencies: Record<string, Competency>
   diagnostic: { form: DiagnosticForm; microtasks: MicrotaskView[] }
   glossary: GlossaryTerm[]
-  searchDocs: SearchDoc[]
   /** Solo las del diagnóstico: las de cada curso viajan en su paquete. */
   questions: Record<string, Question>
   sources: Record<string, { id: string; title: string; organization: string; url: string }>
@@ -180,6 +179,9 @@ export async function isCourseOffline(id: string): Promise<boolean> {
     return false
   }
 }
+
+/** Documentos de búsqueda: van en un archivo aparte que se carga solo al abrir la búsqueda. */
+export const loadSearchDocs = (): Promise<SearchDoc[]> => import('../generated/search.json').then((m) => m.default as unknown as SearchDoc[])
 
 /** Las imágenes de portada existen solo para los cursos que ya tienen una. */
 export const covers: Record<string, string> = { m02: 'm02-cover' }

@@ -1,6 +1,6 @@
-import { useId, useMemo } from 'react'
+import { useEffect, useId, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
-import { content } from '../content'
+import { loadSearchDocs, type SearchDoc } from '../content'
 import { createIndex, search } from '../search'
 
 const KIND = { section: 'Lección', lab: 'Laboratorio', glossary: 'Glosario' } as const
@@ -10,8 +10,12 @@ export default function SearchPage() {
   const [params, setParams] = useSearchParams()
   const q = params.get('q') ?? ''
   const inputId = useId()
-  const index = useMemo(() => createIndex(content.searchDocs), [])
-  const hits = useMemo(() => search(index, q), [index, q])
+  const [docs, setDocs] = useState<SearchDoc[] | null>(null)
+  useEffect(() => {
+    void loadSearchDocs().then(setDocs)
+  }, [])
+  const index = useMemo(() => (docs ? createIndex(docs) : null), [docs])
+  const hits = useMemo(() => (index ? search(index, q) : []), [index, q])
 
   return (
     <div className="page page--reader">
@@ -28,7 +32,8 @@ export default function SearchPage() {
             onChange={(e) => setParams(e.target.value ? { q: e.target.value } : {}, { replace: true })}
           />
         </form>
-        {q.trim().length >= 2 && (
+        {!index && <p className="muted" role="status">Preparando la búsqueda…</p>}
+        {index && q.trim().length >= 2 && (
           <p className="muted" role="status">{hits.length === 0 ? 'Sin resultados. Prueba con otra palabra o revisa el glosario.' : `${hits.length} ${hits.length === 1 ? 'resultado' : 'resultados'}`}</p>
         )}
         <ol className="search-results">

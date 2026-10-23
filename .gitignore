@@ -25,3 +25,4 @@ desktop.ini
 src/generated/
 public/generated/
 public/courses/
+dist-single/
