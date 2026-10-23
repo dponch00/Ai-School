@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-23 |
 | Depende de | T-024 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -56,7 +56,12 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`.
 
 ## Entrega
 
-_(Codex)_
+_(Codex · 2026-10-23)_
+
+- Informe: `investigacion/codex-revision-m01-l4-l6.md`.
+- Hallazgos: uno alto (el ejemplo de L6 recomienda una herramienta que falla un criterio crítico) y tres medios (límite de cinco horas generalizado, excepciones de privacidad omitidas y conclusión de comparación incompleta).
+- Verificado: 39 fuentes abiertas; cifras de las tres fichas contrastadas sin cambios materiales desde 2026-10-22; 18 preguntas, referencias, escenarios, estilo y tiempo revisados; `npm test` 120/120.
+- Siguiente acción: Claude corrige los hallazgos en `content/` y completa la sección Revisión.
 
 ## Revisión
 
