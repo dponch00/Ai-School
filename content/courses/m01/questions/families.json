@@ -20,8 +20,8 @@
   {
     "family": "m01-f04",
     "evaluatedObjectiveId": "m01-eo2",
-    "decision": "Reconocer cuándo una cifra o un gráfico salen de código y cuándo conviene delegar en un agente en la nube",
-    "equivalence": "Las variantes a y b piden producir una cifra o un gráfico exactos y comparten los errores de generador de imágenes y cálculo en el texto. La c pide elegir entre delegar en la nube y otras opciones, con la trampa de los cambios sin subir; es la más difícil."
+    "decision": "Reconocer que las cifras y los gráficos con datos salen de un cálculo con código, no del texto ni de un generador de imágenes",
+    "equivalence": "Las tres variantes piden de dónde debe salir una cifra o un gráfico: un gráfico para el directorio (a), un promedio de 2 000 facturas (b) y una cifra que aparece en el texto sin estar en la tabla calculada (c, más difícil porque el resto del trabajo sí salió de un script)."
   },
   {
     "family": "m01-f05",
@@ -32,8 +32,8 @@
   {
     "family": "m01-f06",
     "evaluatedObjectiveId": "m01-eo3",
-    "decision": "Elegir qué entra en el contexto y exigir la evidencia de la herramienta",
-    "equivalence": "Las variantes a y b piden elegir el material justo para una tarea entre opciones que llenan el contexto. La c pide reconocer que una herramienta desactivada no pudo usarse; es la más difícil porque la respuesta trae una cifra precisa."
+    "decision": "Elegir qué material entra en el contexto, en lugar de darle todo al modelo",
+    "equivalence": "Las tres variantes piden el material justo para una tarea: una cláusula de un contrato largo (a), los registros de un día dentro de un mes (b) y una definición dentro de un manual más lo decidido en una sesión larga (c, más difícil porque combina dos fuentes de exceso)."
   },
   {
     "family": "m01-f07",
@@ -44,8 +44,8 @@
   {
     "family": "m01-f08",
     "evaluatedObjectiveId": "m01-eo4",
-    "decision": "Ajustar la verificación al riesgo de la decisión sin tomar el tono ni la confirmación del modelo como evidencia",
-    "equivalence": "Las variantes a y b piden repartir la verificación según lo que está en juego. La c presenta un modelo que se retracta cuando el usuario lo cuestiona, y pide reconocer que ninguna de sus respuestas es evidencia; es la más difícil."
+    "decision": "Repartir la verificación según el riesgo de lo que se decide con cada resultado",
+    "equivalence": "Las tres variantes presentan usos con riesgos distintos y piden repartir el esfuerzo de verificar: un correo frente a un saldo para el banco (a), un informe con citas para una inversión (b) y tres usos a la vez, uno de ellos público (c, más difícil porque hay tres niveles)."
   },
   {
     "family": "m01-f09",

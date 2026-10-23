@@ -491,7 +491,7 @@
   },
   {
     "id": "m01-f04-c",
-    "version": 1,
+    "version": 2,
     "use": "exam",
     "courseId": "m01",
     "evaluatedObjectiveId": "m01-eo2",
@@ -502,35 +502,35 @@
     "process": "evaluate",
     "family": "m01-f04",
     "variant": "c",
-    "scenario": "Hay que agregar el mismo campo a cinco reportes del repositorio. Es un cambio mecánico, bien definido y con pruebas; prefieres no supervisarlo paso a paso y revisarlo mañana. Tienes cambios locales relacionados que todavía no subiste.",
+    "scenario": "Un asistente con ejecución de código armó, con un script, la tabla de ventas por región y su gráfico. En el texto que acompaña la tabla dice que el Norte creció 14 %, pero esa cifra no está en la tabla ni sale del script.",
     "stem": "¿Cómo lo haces?",
     "options": [
       {
         "id": "o1",
-        "text": "Subes tus cambios y delegas la tarea a un agente en la nube; mañana revisas lo que entregue",
-        "correct": true,
-        "feedback": "Correcta. Es una tarea acotada que vas a revisar al final, el uso típico del agente en la nube. Subir antes los cambios asegura que trabaje sobre la versión correcta."
+        "text": "Usas el 14 %, porque viene del mismo asistente que hizo bien la tabla y el gráfico",
+        "correct": false,
+        "feedback": "Que la tabla salga de un script no hace confiable una cifra escrita aparte en el texto. Esa cifra no tiene un cálculo detrás que se pueda revisar.",
+        "misconceptionId": "m01-mc28"
       },
       {
         "id": "o2",
-        "text": "La delegas en la nube tal cual: el agente verá tus cambios locales igual que en tu portátil",
-        "correct": false,
-        "feedback": "Una sesión iniciada desde el repositorio remoto no ve lo que no subiste. Delegar así hace que el agente trabaje sobre una versión vieja.",
-        "misconceptionId": "m01-mc02"
+        "text": "Calculas con el script el crecimiento del Norte y usas solo cifras del script en el texto",
+        "correct": true,
+        "feedback": "Correcta. Todas las cifras del texto tienen que salir del mismo cálculo que la tabla. Una cifra que aparece solo en la redacción no se puede repetir ni revisar."
       },
       {
         "id": "o3",
-        "text": "Pegas los cinco reportes en el chat y aplicas a mano los cambios que te devuelva",
+        "text": "Le pides al asistente una imagen que muestre el 14 % para que el texto y el gráfico coincidan",
         "correct": false,
-        "feedback": "El chat no puede correr las pruebas del proyecto. Además, aplicar a mano cinco cambios es justo el trabajo que querías delegar.",
-        "misconceptionId": "m01-mc08"
+        "feedback": "Una imagen generada no calcula nada ni garantiza cifras exactas. Lo que falta es el cálculo, no una ilustración.",
+        "misconceptionId": "m01-mc07"
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m01-l2#codigo",
+    "sectionRef": "m01-l2#datos",
     "sourceIds": [
-      "src-github-copilot-agents",
-      "src-anthropic-cc-cloud"
+      "src-google-prompting-strategies",
+      "src-openai-help-capabilities"
     ],
     "status": "draft"
   },
@@ -760,7 +760,7 @@
   },
   {
     "id": "m01-f06-c",
-    "version": 1,
+    "version": 2,
     "use": "exam",
     "courseId": "m01",
     "evaluatedObjectiveId": "m01-eo3",
@@ -771,35 +771,35 @@
     "process": "evaluate",
     "family": "m01-f06",
     "variant": "c",
-    "scenario": "En la cuenta de empresa, el administrador desactivó la búsqueda web. El asistente responde: «Consulté la página de la autoridad fiscal y la tasa vigente es del 3,5 %».",
+    "scenario": "Un agente tiene que corregir cómo se cuenta un «cliente activo». La definición está en un manual de políticas de 60 páginas, y lo que ya se decidió sobre el tema quedó en una sesión anterior de tres horas.",
     "stem": "¿Qué conviene hacer?",
     "options": [
       {
         "id": "o1",
-        "text": "Usar la cifra: si dice que consultó la página, la consultó",
+        "text": "Le das el manual completo y le pegas toda la conversación anterior, para que no le falte nada",
         "correct": false,
-        "feedback": "Una acción declarada no es evidencia. Con la búsqueda desactivada, la consulta no pudo ocurrir.",
-        "misconceptionId": "m01-mc11"
+        "feedback": "Sesenta páginas y tres horas de conversación llenan el contexto de material que no importa. El rendimiento baja justo por eso.",
+        "misconceptionId": "m01-mc09"
       },
       {
         "id": "o2",
-        "text": "Usar la cifra, porque una tasa tan precisa indica que viene de una fuente oficial",
+        "text": "Lo dejas sin nada: un agente puede buscar por su cuenta lo que necesite, y lo que lee no ocupa contexto",
         "correct": false,
-        "feedback": "La precisión aparente no dice de dónde salió la cifra. Un dato inventado puede tener todos sus decimales.",
-        "misconceptionId": "m01-mc13"
+        "feedback": "Lo que el agente lee también ocupa contexto, y sin indicaciones puede leer mucho más de lo necesario. Conviene darle lo pertinente.",
+        "misconceptionId": "m01-mc32"
       },
       {
         "id": "o3",
-        "text": "No usarla: ahí no pudo consultar nada; ir por tu cuenta a la fuente oficial",
+        "text": "Le das la sección del manual con la definición y un resumen breve de lo que ya se decidió",
         "correct": true,
-        "feedback": "Correcta. Sin la herramienta activada, la consulta no pudo ocurrir, así que la cifra no tiene respaldo. La evidencia es la fuente, no la frase."
+        "feedback": "Correcta. Con la definición y un resumen de lo decidido tiene delante lo que necesita. Es elegir lo que entra en lugar de meterlo todo."
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m01-l3#acceso",
+    "sectionRef": "m01-l3#mas-contexto",
     "sourceIds": [
-      "src-anthropic-support-web-search",
-      "src-transluce-o3-truthfulness"
+      "src-anthropic-context-windows",
+      "src-anthropic-cc-best-practices"
     ],
     "status": "draft"
   },
@@ -1033,7 +1033,7 @@
   },
   {
     "id": "m01-f08-c",
-    "version": 1,
+    "version": 2,
     "use": "exam",
     "courseId": "m01",
     "evaluatedObjectiveId": "m01-eo4",
@@ -1045,35 +1045,35 @@
     "process": "evaluate",
     "family": "m01-f08",
     "variant": "c",
-    "scenario": "El asistente te dice que el plazo de una licitación vence el día 15. Le respondes «creo que era el 20» y contesta: «Tienes razón, disculpa, es el 20».",
+    "scenario": "Hoy usas el asistente para tres cosas: reformular una nota interna, traducir el catálogo que se publicará en el sitio web y estimar el impacto de una tasa nueva en el margen, que irá al directorio.",
     "stem": "¿Qué haces?",
     "options": [
       {
         "id": "o1",
-        "text": "Usas el 20, porque el asistente reconoció el error y lo corrigió",
-        "correct": false,
-        "feedback": "Que se retracte no prueba que el 20 sea correcto. Los asistentes tienden a darle la razón al usuario, aunque el usuario se equivoque.",
-        "misconceptionId": "m01-mc14"
+        "text": "Lees la nota, revisas la traducción antes de publicar y recalculas el impacto con su fuente",
+        "correct": true,
+        "feedback": "Correcta. El esfuerzo crece con lo que está en juego: la nota se lee, lo que se publica se revisa antes de salir, y la cifra para el directorio se recalcula con su fuente."
       },
       {
         "id": "o2",
-        "text": "Usas la que diga la convocatoria oficial: ninguna de sus dos respuestas es evidencia",
-        "correct": true,
-        "feedback": "Correcta. Una respuesta que cambia según cómo preguntes no es una fuente. La fecha se comprueba en el documento de la licitación."
+        "text": "No usas el asistente para ninguna de las tres, porque en todas podría equivocarse sin avisar",
+        "correct": false,
+        "feedback": "Evitar la herramienta no es la respuesta al riesgo. Lo que corresponde es repartir la verificación según lo que se decide con cada resultado.",
+        "misconceptionId": "m01-mc17"
       },
       {
         "id": "o3",
-        "text": "Usas el 15, porque fue lo primero que dijo y lo dijo con más seguridad",
+        "text": "Lees las tres por encima: si se entienden bien y suenan seguras, las tres están bien",
         "correct": false,
-        "feedback": "La primera respuesta tampoco tiene respaldo. El tono seguro no indica que sea correcta.",
+        "feedback": "Que algo suene bien no lo hace correcto. Una cifra para el directorio se recalcula, y un texto que se publica se revisa con cuidado.",
         "misconceptionId": "m01-mc13"
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m01-l4#tono",
+    "sectionRef": "m01-l4#proporcion",
     "sourceIds": [
-      "src-arxiv-sycophancy",
-      "src-arxiv-kadavath-know"
+      "src-nist-ai-600-1",
+      "src-anthropic-reduce-hallucinations"
     ],
     "status": "draft"
   },

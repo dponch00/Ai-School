@@ -81,4 +81,6 @@ Entregado el 2026-10-23.
 - **T026-02 (media):** `m01-lab-q02` (v2) fija que la sesión se inició desde la web sobre el repositorio remoto, y la clave dice que la guía va al repositorio remoto porque es lo único que recibe esa sesión.
 - **T026-03 (media):** la clave de `m01-lab-q12` (v2) dice que primero se confirma con Legal qué plan o despliegue está autorizado y después se elige el costo. La explicación aclara que «no entrena con tus datos» no basta por sí solo.
 
+**Mismo criterio, aplicado al resto del banco:** F04, F06 y F08 también tenían una variante c que medía otra decisión: delegar en la nube, exigir la evidencia de la herramienta y el modelo que se retracta. Se reemplazaron por variantes difíciles de la misma decisión que a y b. Ahora son una cifra del texto que no sale del script, el contexto de dos fuentes excesivas y tres usos con riesgos distintos. Las decisiones retiradas siguen evaluadas en `m01-l2-c3`, `m01-lab-q04`, `m01-l3-c4`, `m01-lab-q08` y `m01-l4-c4`. La clave del examen es la opción más larga en 10 de 42.
+
 `npm test` 120/120.
