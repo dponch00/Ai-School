@@ -302,3 +302,5 @@ main:focus { outline: none; }
 .dx-block--incomplete-evidence { border-left-style: dashed; }
 
 .update-prompt--warning { background: var(--ais-color-warning-surface); border-left-color: var(--ais-color-warning); }
+
+.prose table:focus-visible { outline: 3px solid var(--ais-color-focus); outline-offset: 2px; }

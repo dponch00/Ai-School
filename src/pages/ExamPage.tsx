@@ -158,8 +158,11 @@ export function ExamForm({ attempt, onSubmitted }: { attempt: Attempt; onSubmitt
   const responses = useResponses(attempt.id)
   const [confirming, setConfirming] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  // La elección se muestra al instante; la base de datos la confirma unos milisegundos después.
+  const [optimistic, setOptimistic] = useState<Record<string, string>>({})
   const response = (qid: string) => responses.find((x) => x.questionId === qid)
   const selected = (qid: string) => {
+    if (optimistic[qid]) return optimistic[qid]
     const r = response(qid)
     return r ? finalSelection(r) : null
   }
@@ -192,7 +195,10 @@ export function ExamForm({ attempt, onSubmitted }: { attempt: Attempt; onSubmitt
           total={attempt.items.length}
           selected={selected(it.question.id)}
           confidence={response(it.question.id)?.confidence}
-          onChoose={(oid) => selectExamAnswer(db, attempt.id, it.question.id, oid).catch(fail)}
+          onChoose={(oid) => {
+            setOptimistic((prev) => ({ ...prev, [it.question.id]: oid }))
+            selectExamAnswer(db, attempt.id, it.question.id, oid).catch(fail)
+          }}
           onConfidence={(c) => setExamConfidence(db, attempt.id, it.question.id, c).catch(fail)}
         />
       ))}

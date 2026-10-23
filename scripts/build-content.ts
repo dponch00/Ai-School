@@ -127,6 +127,15 @@ const sanitizeSchema = {
 const LANG: Record<string, string> = { bash: 'Terminal', json: 'JSON', gherkin: 'Gherkin', python: 'Python', sql: 'SQL', ts: 'TypeScript' }
 
 /** UI-02 (T-011): cada <pre> se envuelve con etiqueta de lenguaje, foco con teclado y botón Copiar. */
+/** Las tablas se desplazan en horizontal en pantallas angostas: deben poder enfocarse con el teclado (F2-08, axe). */
+function rehypeFocusableTables() {
+  return (tree: HastRoot) => {
+    visit(tree, 'element', (node: Element) => {
+      if (node.tagName === 'table') node.properties = { ...node.properties, tabIndex: 0 }
+    })
+  }
+}
+
 function rehypeCodeBlocks() {
   return (tree: HastRoot) => {
     visit(tree, 'element', (node: Element, index, parent: any) => {
@@ -162,6 +171,7 @@ function renderMarkdown(md: string, file: string): Rendered {
     .use(remarkRehype)
     .use(rehypeSanitize, sanitizeSchema as any)
     .use(rehypeCodeBlocks)
+    .use(rehypeFocusableTables)
   const hast = processor.runSync(processor.parse(md)) as HastRoot
   const blocks: Block[] = []
   let buffer: ElementContent[] = []

@@ -8,6 +8,7 @@
 | `src/domain/learner.ts` | Datos del alumno: perfil (declarado + evidencia previa), intento con instantáneas congeladas, respuesta con primera selección y revisiones, entrega de práctica con cuaderno y revisiones, feedback externo, ajuste de la ruta y respaldo completo |
 | `src/domain/scoring.ts` | Selección del examen (2 familias por objetivo, variante nueva para familias falladas), corrección con la clave congelada y señales del diagnóstico por bloque |
 | `src/domain/domain.test.ts` | Pruebas de las reglas anteriores (`npm test`) |
+| `e2e/` | Pruebas de interacción y accesibilidad con Playwright y axe (`npm run e2e`) contra el build real con su SW: 13 rutas sin violaciones WCAG 2.2 A/AA ni desborde a 360 px y en escritorio, comprobación con teclado, examen retomado tras recargar y modo sin conexión (incluido el diagrama) |
 | `src/report/build.ts` | Reporte de evaluación (F1-09): HTML autocontenido con las 11 secciones de plan §17.4, Markdown equivalente y JSON pasivo. Función pura; escapa todo el texto del alumno |
 | `src/domain/feedback.ts` | Bloque estructurado opcional de retroalimentación (plan §17.6): esquema, lectura sin ejecutar nada, plantilla para el evaluador y discrepancias de referencias |
 | `src/storage/` | IndexedDB con Dexie (F1-07): tablas por contrato, progreso por lección, rondas de comprobación guardadas como intentos `check` con la pregunta congelada. Migraciones: cada cambio sube `SCHEMA_VERSION` y añade un `.version(n).upgrade()` en `db.ts` |

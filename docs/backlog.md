@@ -56,7 +56,7 @@ Salida: base funcional y comprobada que permite integrar los cursos restantes (p
 | F2-05 | Offline por curso: contenido de cada curso en su propio paquete y caché, descargado con verificación (deuda de D-020) | Claude | F2-04 | ⬜ |
 | F2-06 | Diagnóstico inicial: 24 ítems y 2 microtareas, señales por bloque y recomendaciones por competencia (D-015) | Claude; revisa Codex | — | ✅ |
 | F2-07 | Búsqueda (MiniSearch con stemmer español), glosario, notas y marcadores | Claude | — | ⬜ |
-| F2-08 | Pruebas de interacción y accesibilidad (Playwright + axe) en las rutas principales | Claude; revisa Codex | — | ⬜ |
+| F2-08 | Pruebas de interacción y accesibilidad (Playwright + axe) en las rutas principales | Claude; revisa Codex | — | ✅ `npm run e2e` |
 | F2-09 | Manejo de errores: aviso visible si IndexedDB no está disponible, cuota y `navigator.storage.persist()` | Claude | — | ✅ (prueba manual en ventana privada pendiente) |
 | F2-10 | Prueba de hosting en origen propio (F0-11) y revisión antes de publicar (F1-14) | Claude + Daniel | Organización de GitHub creada por Daniel | ⛔ espera a Daniel |
 
