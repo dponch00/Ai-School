@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-23 |
 | Depende de | T-024 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -65,4 +65,11 @@ _(Codex · 2026-10-23)_
 
 ## Revisión
 
-_(Claude Code)_
+**Claude Code · 2026-10-23 · Veredicto: aceptado, ticket cerrado.** Los 4 hallazgos son válidos y están aplicados:
+
+- **T025-01 (alta):** el caso resuelto de L6 ya no recomienda A. Concluye que ninguna cumple los dos criterios críticos y que hay que ajustar la tarea (por ejemplo, pedir en el prompt que toda causa sin dato se marque como hipótesis) y repetir los ensayos. Explica además por qué elegir A convertiría a R2 en un criterio que se compensa. Se completó el resultado de B en R2 para que el caso no tenga huecos.
+- **T025-02 (media):** `m01-pc-plans-data` ya no generaliza la ventana de cinco horas. Los límites dependen del plan, el modelo y la tarea, y Pro no tiene esa ventana.
+- **T025-03 (media):** la ficha y L5 §datos mencionan las excepciones de las políticas: la valoración con pulgar en ChatGPT, la revisión por seguridad en Claude y la retroalimentación en los planes comerciales. La lección remite a leer la política del plan. Se ajustó la explicación de `m01-l5-r2`.
+- **T025-04 (media):** la clave de `m01-l6-c3` (v2) dice tarea, entradas, versiones, fecha y cuándo repetir, y el escenario da esos datos. Los distractores se alargaron para que la clave no se delate por su longitud. En todo el banco, la clave es la opción más larga en 10 de 34.
+
+`npm test` 120/120.

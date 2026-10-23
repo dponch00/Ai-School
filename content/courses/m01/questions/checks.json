@@ -1342,14 +1342,14 @@
         "id": "o2",
         "text": "Nada: la política de datos es del proveedor y vale igual para todos sus planes",
         "correct": false,
-        "feedback": "Cada plan tiene su política. En los individuales, el uso para entrenar depende de un ajuste tuyo; en los de empresa, por defecto no se entrena.",
+        "feedback": "Cada plan tiene su política. En los individuales, el uso para entrenar depende sobre todo de un ajuste tuyo; en los de empresa, por defecto no se entrena.",
         "misconceptionId": "m01-mc22"
       },
       {
         "id": "o3",
         "text": "Si las conversaciones se usan para entrenar y cuánto tiempo se guardan",
         "correct": true,
-        "feedback": "Correcta. El entrenamiento y la retención cambian según el plan y los ajustes. Por eso «¿qué herramienta?» incluye «¿con qué cuenta?»."
+        "feedback": "Correcta. El entrenamiento y la retención cambian según el plan y los ajustes, y cada política tiene sus excepciones. Por eso «¿qué herramienta?» incluye «¿con qué cuenta?»."
       }
     ],
     "fixedOrder": false,
@@ -1458,7 +1458,7 @@
   },
   {
     "id": "m01-l6-c3",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m01",
     "lessonId": "m01-l6",
@@ -1468,25 +1468,25 @@
     ],
     "difficulty": "base",
     "process": "apply",
-    "scenario": "Con las versiones del 23 de octubre, A cumplió el criterio crítico en 3 de 3 ensayos y B en 1 de 3.",
+    "scenario": "Comparaste dos asistentes para el resumen semanal, con el snapshot del 19 y las versiones del 23 de octubre. A cumplió el criterio crítico en 3 de 3 ensayos y B en 1 de 3.",
     "stem": "¿Qué conclusión escribes?",
     "options": [
       {
         "id": "o1",
-        "text": "«A es mejor que B», y usamos A hasta que decidamos cambiar de herramienta",
+        "text": "«A es mejor que B», y el equipo usa A para estos resúmenes hasta que decidamos cambiar de herramienta",
         "correct": false,
         "feedback": "La conclusión no dice para qué tarea ni con qué versión, y no caduca. Los modelos y los planes cambian, y la comparación con ellos.",
         "misconceptionId": "m01-mc27"
       },
       {
         "id": "o2",
-        "text": "«Con estas versiones, A cumplió 3 de 3 y B 1 de 3; repetir si cambian»",
+        "text": "«En el resumen semanal, con este snapshot y las versiones del 23 de octubre, A cumplió 3 de 3 y B 1 de 3; repetir si algo cambia»",
         "correct": true,
-        "feedback": "Correcta. Dice qué se comparó, con qué versiones y hasta dónde llega el resultado. Y deja escrito cuándo hay que volver a comparar."
+        "feedback": "Correcta. Dice para qué tarea, con qué entradas, con qué versiones y en qué fecha se obtuvo el resultado, y hasta dónde llega. Además deja escrito cuándo hay que volver a comparar."
       },
       {
         "id": "o3",
-        "text": "«A es mejor que B para cualquier tarea de redacción del equipo»",
+        "text": "«A es mejor que B para redactar cualquier documento del equipo», porque cumplió el criterio crítico en todos sus ensayos",
         "correct": false,
         "feedback": "Ganar en una tarea con tres ensayos no dice nada de otras tareas. Generalizar así es tomar una prueba como si fuera un ranking.",
         "misconceptionId": "m01-mc24"
