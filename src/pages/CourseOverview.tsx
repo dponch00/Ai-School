@@ -87,7 +87,8 @@ export default function CourseOverview() {
         </ol>
       </section>
 
-      <section className="section" aria-labelledby="practica">
+      {/* Un manual en preparación no muestra práctica ni examen; la sección aparece solo si tiene algo (T024-04). */}
+      <section className="section" aria-labelledby="practica" hidden={!course.complete && !course.practice && errors.due.length === 0 && errors.upcoming.length === 0}>
         <h2 id="practica">Práctica y examen</h2>
         <ul className="lesson-list">
           {course.practice && (

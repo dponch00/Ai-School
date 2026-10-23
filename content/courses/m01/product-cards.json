@@ -2,66 +2,120 @@
   {
     "id": "m01-pc-agent-surfaces",
     "product": "Anthropic · Claude Code · OpenAI · Codex · GitHub Copilot",
-    "surfaces": ["cli", "ide", "desktop", "web", "cloud", "mobile"],
+    "surfaces": [
+      "cli",
+      "ide",
+      "desktop",
+      "web",
+      "cloud",
+      "mobile"
+    ],
     "capability": "Claude Code funciona en la terminal, VS Code, JetBrains (plugin en beta), la app de escritorio, la web (claude.ai/code) y el celular; todas las superficies comparten motor, pero las locales leen tu configuración y las de la nube parten de un clon limpio. Codex está en la app de escritorio de ChatGPT, ChatGPT web y móvil, Codex CLI, la extensión para editores y Codex Cloud. GitHub Copilot ofrece modo agente en el editor (local), Copilot CLI (local o en sandbox; disponible para todos desde el 2026-02-25), la Copilot app (local o nube; figuraba en vista previa técnica el 2026-06-02) y el agente en la nube de GitHub, que entrega una PR.",
     "kind": "capability",
     "maturity": "ga",
     "verifiedAt": "2026-10-22",
-    "sourceIds": ["src-anthropic-cc-overview", "src-anthropic-cc-glossary", "src-github-copilot-agents", "src-github-changelog-cli-ga", "src-github-changelog-gemini"],
+    "sourceIds": [
+      "src-anthropic-cc-overview",
+      "src-anthropic-cc-glossary",
+      "src-github-copilot-agents",
+      "src-github-changelog-cli-ga",
+      "src-github-changelog-gemini"
+    ],
     "nextReview": "2027-01-22"
   },
   {
     "id": "m01-pc-cloud-sessions",
     "product": "Anthropic · Claude Code en la web · OpenAI · Codex Cloud · GitHub Copilot cloud agent",
-    "surfaces": ["cloud", "web"],
-    "capability": "Claude Code en la web corre en una máquina virtual de Anthropic, clona la rama remota (no tu copia local), tiene la red limitada por defecto y comparte los límites de tu plan (Pro, Max, Team y Enterprise con asiento premium). En Codex Cloud cada tarea tiene su propio espacio de trabajo, sigue aunque apagues el equipo y el acceso a internet se configura por entorno. El agente en la nube de Copilot trabaja en un entorno efímero de GitHub y entrega el resultado como una PR.",
+    "surfaces": [
+      "cloud",
+      "web"
+    ],
+    "capability": "Claude Code en la web corre en una máquina virtual de Anthropic; si la sesión se inicia desde la web clona la rama remota, y si se inicia con claude --cloud sube un paquete del repositorio local, incluidos los cambios sin confirmar en archivos seguidos por Git; tiene la red limitada por defecto y comparte los límites de tu plan (Pro, Max, Team y Enterprise con asiento premium). En Codex Cloud cada tarea tiene su propio espacio de trabajo, sigue aunque apagues el equipo y el acceso a internet se configura por entorno. El agente en la nube de Copilot trabaja en un entorno efímero de GitHub y entrega el resultado como una PR.",
     "kind": "capability",
     "maturity": "ga",
     "verifiedAt": "2026-10-22",
-    "sourceIds": ["src-anthropic-cc-cloud", "src-openai-codex-cloud", "src-github-copilot-agents"],
+    "sourceIds": [
+      "src-anthropic-cc-cloud",
+      "src-openai-codex-cloud",
+      "src-github-copilot-agents"
+    ],
     "nextReview": "2027-01-22"
   },
   {
     "id": "m01-pc-chat-capabilities",
     "product": "OpenAI · ChatGPT · Anthropic · Claude (chat)",
-    "surfaces": ["chat", "web", "desktop", "mobile"],
-    "capability": "ChatGPT ofrece búsqueda, investigación profunda (plan revisable e informe con citas; lee la web pública, archivos subidos y apps conectadas solo en lectura), análisis de datos con código, generación y edición de imágenes, archivos y audio, voz, memoria y proyectos, según el plan. En Claude, Research encadena búsquedas en planes de pago, requiere la búsqueda web activa y en el celular omite los conectores; la creación de archivos ejecuta código en un sandbox y produce .xlsx, .pptx, .docx y PDF de hasta 30 MB; Claude no genera fotos ni ilustraciones y hace visuales con HTML y SVG (beta, web y escritorio).",
+    "surfaces": [
+      "chat",
+      "web",
+      "desktop",
+      "mobile"
+    ],
+    "capability": "ChatGPT ofrece búsqueda, investigación profunda (plan revisable e informe con citas; lee la web pública, archivos subidos y apps conectadas solo en lectura), análisis de datos con código, generación y edición de imágenes, archivos y audio, voz, memoria y proyectos, según el plan. En Claude, Research encadena búsquedas en planes de pago, requiere la búsqueda web activa y en el celular omite los conectores; la creación de archivos ejecuta código en un sandbox y produce .xlsx, .pptx, .docx y PDF; Claude no genera fotos ni ilustraciones y hace visuales con HTML y SVG (beta, web y escritorio).",
     "kind": "capability",
     "maturity": "ga",
     "verifiedAt": "2026-10-22",
-    "sourceIds": ["src-openai-help-capabilities", "src-openai-help-deep-research", "src-anthropic-support-research", "src-anthropic-support-files", "src-anthropic-support-images"],
+    "sourceIds": [
+      "src-openai-help-capabilities",
+      "src-openai-help-deep-research",
+      "src-anthropic-support-research",
+      "src-anthropic-support-files",
+      "src-anthropic-support-images"
+    ],
     "nextReview": "2027-01-22"
   },
   {
     "id": "m01-pc-agent-choice",
     "product": "GitHub Copilot",
-    "surfaces": ["ide", "cli", "cloud"],
+    "surfaces": [
+      "ide",
+      "cli",
+      "cloud"
+    ],
     "capability": "GitHub recomienda las superficies locales (editor, CLI, app) cuando quieres guiar el trabajo de cerca, y el agente en la nube para delegar una tarea bien acotada y revisar después la PR. Su guía de modelos agrupa las tareas en código general, ayuda rápida, razonamiento profundo y trabajo visual; la lista de modelos de esa página va por detrás de los planes vigentes, un buen ejemplo de por qué estas fichas llevan fecha.",
     "kind": "guidance",
     "verifiedAt": "2026-10-22",
-    "sourceIds": ["src-github-copilot-agents", "src-github-copilot-model-comparison"],
+    "sourceIds": [
+      "src-github-copilot-agents",
+      "src-github-copilot-model-comparison"
+    ],
     "nextReview": "2027-01-22"
   },
   {
     "id": "m01-pc-context-cutoff",
     "product": "Anthropic · API de Claude · OpenAI · API",
-    "surfaces": ["api"],
+    "surfaces": [
+      "api"
+    ],
     "capability": "Los modelos actuales de la API de Claude tienen una ventana de contexto de 1 millón de tokens, salida máxima de 128K y fecha de corte fiable en junio de 2026; desde Opus 4.7, el tokenizador produce cerca de un 30 % más de tokens para el mismo texto. En la API de OpenAI, GPT-6 Astra, GPT-6.1 Sol y GPT-6 Luna tienen 1,05 millones de tokens de contexto y 128K de salida, con corte el 2026-04-30 (Astra y Sol) y el 2026-05-18 (Luna); los tokens de razonamiento no se ven, pero ocupan contexto y se cobran como salida.",
     "kind": "capability",
     "maturity": "ga",
     "verifiedAt": "2026-10-22",
-    "sourceIds": ["src-anthropic-models-overview", "src-anthropic-context-windows", "src-anthropic-pricing", "src-openai-models", "src-openai-reasoning"],
+    "sourceIds": [
+      "src-anthropic-models-overview",
+      "src-anthropic-context-windows",
+      "src-anthropic-pricing",
+      "src-openai-models",
+      "src-openai-reasoning"
+    ],
     "nextReview": "2027-01-22"
   },
   {
     "id": "m01-pc-context-tools",
     "product": "Anthropic · Claude Code · Claude (chat)",
-    "surfaces": ["cli", "ide", "desktop", "chat"],
+    "surfaces": [
+      "cli",
+      "ide",
+      "desktop",
+      "chat"
+    ],
     "capability": "En Claude Code, /context muestra qué está ocupando el contexto y la compactación resume la conversación al acercarse al límite. En el chat de Claude, la búsqueda web cita sus fuentes; en los planes Team y Enterprise la habilita un Owner, y pegar una URL larga para que la lea trae todo su texto al contexto y consume más límite que una búsqueda breve.",
     "kind": "capability",
     "maturity": "ga",
     "verifiedAt": "2026-10-22",
-    "sourceIds": ["src-anthropic-cc-glossary", "src-anthropic-support-web-search"],
+    "sourceIds": [
+      "src-anthropic-cc-glossary",
+      "src-anthropic-support-web-search"
+    ],
     "nextReview": "2027-01-22"
   }
 ]

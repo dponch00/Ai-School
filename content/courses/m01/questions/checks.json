@@ -44,7 +44,7 @@
   },
   {
     "id": "m01-l1-c2",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m01",
     "lessonId": "m01-l1",
@@ -54,7 +54,7 @@
     ],
     "difficulty": "base",
     "process": "apply",
-    "scenario": "En tu portátil tienes un archivo de configuración personal que le pide al agente escribir siempre los comentarios del código en español. Una sesión del mismo agente en la nube entrega los comentarios en inglés.",
+    "scenario": "En tu portátil, fuera del repositorio, tienes un archivo de configuración personal que le pide al agente escribir siempre los comentarios del código en español. Una sesión del mismo agente en la nube, iniciada desde la web, entrega los comentarios en inglés.",
     "stem": "¿Por qué ocurre esto?",
     "options": [
       {
@@ -66,15 +66,15 @@
       },
       {
         "id": "o2",
-        "text": "Porque la sesión en la nube parte de una copia del repositorio y no lee tu configuración personal",
+        "text": "Porque la sesión trabaja sobre una copia del repositorio y tu configuración personal está fuera de él",
         "correct": true,
-        "feedback": "Correcta. La sesión en la nube trabaja sobre un clon limpio del repositorio remoto. Lo que vive solo en tu máquina, como una configuración personal o un cambio sin subir, no llega."
+        "feedback": "Correcta. La sesión en la nube solo tiene la copia del repositorio que recibió. Una configuración personal que vive fuera del repositorio, en tu máquina, no llega por ningún camino."
       },
       {
         "id": "o3",
         "text": "Es un fallo de la sesión: en la nube el agente debería ver lo mismo que ve en tu portátil",
         "correct": false,
-        "feedback": "Una sesión en la nube no ve tu máquina. Parte de lo que está en el repositorio remoto, así que lo que quieras que siga tiene que estar ahí.",
+        "feedback": "Una sesión en la nube no ve tu máquina. Trabaja sobre la copia del repositorio que recibe, así que lo que quieras que siga tiene que estar dentro de él.",
         "misconceptionId": "m01-mc02"
       }
     ],
@@ -581,7 +581,7 @@
   },
   {
     "id": "m01-l3-c2",
-    "version": 1,
+    "version": 2,
     "use": "check",
     "courseId": "m01",
     "lessonId": "m01-l3",
@@ -598,7 +598,7 @@
         "id": "o1",
         "text": "Le pegas otra vez todos los documentos del proyecto, para que tenga más contexto",
         "correct": false,
-        "feedback": "El problema es que el contexto ya está demasiado lleno. Agregar más documentos empeora el deterioro, y además cada turno los vuelve a enviar.",
+        "feedback": "El problema es que el contexto ya está demasiado lleno. Agregar más documentos empeora el deterioro, y mientras la sesión conserve el historial, viajan en cada solicitud.",
         "misconceptionId": "m01-mc09"
       },
       {
@@ -618,8 +618,8 @@
         "id": "o4",
         "text": "Sigues en la misma sesión: tus mensajes nuevos son cortos y casi no suman",
         "correct": false,
-        "feedback": "Cada turno reenvía todo el historial, así que una sesión larga pesa más aunque tu mensaje sea corto. Seguir acumulando agrava lo que ya ves.",
-        "misconceptionId": "m01-mc23"
+        "feedback": "Aunque tus mensajes sean cortos, el contexto sigue acumulando todo lo anterior y cada vez hay más información que distrae. Seguir en la misma sesión agrava el deterioro que ya ves.",
+        "misconceptionId": "m01-mc09"
       }
     ],
     "fixedOrder": false,

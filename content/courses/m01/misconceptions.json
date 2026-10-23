@@ -13,7 +13,7 @@
     "id": "m01-mc02",
     "courseId": "m01",
     "description": "Si el agente corre en la nube, ve lo mismo que yo en mi máquina.",
-    "whyWrong": "Una sesión en la nube parte de un clon del repositorio remoto: los cambios que no se subieron y la configuración personal no llegan.",
+    "whyWrong": "La sesión en la nube trabaja sobre la copia del repositorio que recibe: si clona el remoto, no ve los cambios que no subiste, y en ningún caso ve la configuración personal que guardas fuera del repositorio.",
     "sourceIds": [
       "src-anthropic-cc-cloud",
       "src-anthropic-cc-glossary"
@@ -81,7 +81,7 @@
     "id": "m01-mc09",
     "courseId": "m01",
     "description": "Con una ventana de contexto enorme, conviene meter todo.",
-    "whyWrong": "El rendimiento cae a medida que se llena el contexto y con información que distrae; además, cada turno vuelve a enviar todo lo anterior.",
+    "whyWrong": "El rendimiento cae a medida que se llena el contexto y con información que distrae; además, en una sesión que conserva el historial, todo lo acumulado viaja en cada solicitud.",
     "sourceIds": [
       "src-anthropic-context-windows",
       "src-chroma-context-rot",
@@ -219,7 +219,7 @@
     "id": "m01-mc23",
     "courseId": "m01",
     "description": "El costo de una sesión es el de mi último mensaje.",
-    "whyWrong": "Cada turno vuelve a enviar el historial; una sesión larga cuesta más aunque la pregunta sea corta.",
+    "whyWrong": "En una sesión que conserva el historial, cada solicitud incluye el contexto acumulado; una sesión larga cuesta más aunque la pregunta sea corta.",
     "sourceIds": [
       "src-anthropic-cc-costs"
     ]
@@ -276,7 +276,7 @@
     "id": "m01-mc29",
     "courseId": "m01",
     "description": "Delegar una tarea a un agente en la nube es lo mismo que trabajar con él en tu máquina.",
-    "whyWrong": "El agente en la nube trabaja sobre el repositorio remoto y entrega el resultado para revisarlo al final; para guiar de cerca un cambio conviene una sesión local.",
+    "whyWrong": "El agente en la nube trabaja sobre la copia del repositorio que recibe y entrega el resultado para revisarlo al final; para guiar de cerca un cambio conviene una sesión local.",
     "sourceIds": [
       "src-github-copilot-agents",
       "src-anthropic-cc-cloud"

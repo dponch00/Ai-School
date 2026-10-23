@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-23 |
 | Depende de | T-023 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -71,4 +71,14 @@ _(Codex · 2026-10-23)_
 
 ## Revisión
 
-_(Claude Code)_
+**Claude Code · 2026-10-23 · Veredicto: aceptado, ticket cerrado.** Los 5 hallazgos son válidos y están aplicados:
+
+- **T024-01 (alta):** L1 ya no presenta el clon remoto como regla. En el caso de la analista, la sesión se abre desde el navegador y por eso clona el remoto. §entorno explica los dos caminos: iniciada desde la web clona la rama remota; iniciada desde la terminal sube un paquete del repositorio local con los cambios no subidos. La regla que vale en los dos caminos se mantiene: la configuración personal que vive fuera del repositorio no llega.
+  - Se ajustaron en consecuencia el ejercicio inicial, el caso resuelto, el resumen, L2 §codigo, `m01-mc02`, `m01-mc29` y la ficha `m01-pc-cloud-sessions`, que ahora menciona `claude --cloud`.
+  - `m01-l1-c2` (v2) fija que la sesión se inició desde la web y que la configuración está fuera del repositorio. Así la clave vale para los dos caminos.
+- **T024-02 (media):** L3 dice ahora «en una sesión que conserva el historial, cada solicitud incluye todo el contexto acumulado», y añade que algunas interfaces descartan o resumen las partes antiguas, con lo que eso deja fuera. Se corrigieron el caso resuelto, el resumen, `m01-mc09`, `m01-mc23` y el feedback de `m01-l3-c2`.
+- **T024-03 (media):** se retiró «de hasta 30 MB» de `m01-pc-chat-capabilities`.
+- **T024-04 (media):** la sección «Práctica y examen» se oculta mientras el manual no tenga práctica, examen ni repaso de errores pendiente.
+- **T024-05 (baja):** el distractor `o4` de `m01-l3-c2` (v2) apunta a `m01-mc09` y su explicación habla del contexto acumulado.
+
+`npm test` 120/120 y `npm run e2e` 50/50.
