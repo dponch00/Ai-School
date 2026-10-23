@@ -1,0 +1,57 @@
+{
+  "id": "m01-l4",
+  "courseId": "m01",
+  "version": "0.1.0",
+  "order": 4,
+  "title": "Respuestas convincentes y falsas",
+  "objectives": [
+    {
+      "id": "m01-l4-o1",
+      "statement": "Dada una respuesta, separa hechos y citas, cifras y acciones declaradas, y elige cómo verificar cada una.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m01-eo4"
+    },
+    {
+      "id": "m01-l4-o2",
+      "statement": "Explica por qué el tono seguro y la confirmación del propio modelo no son evidencia.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m01-eo4"
+    },
+    {
+      "id": "m01-l4-o3",
+      "statement": "Ajusta el esfuerzo de verificación al riesgo de la decisión que se va a tomar.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m01-eo4"
+    }
+  ],
+  "bodyPath": "courses/m01/lessons/m01-l4.md",
+  "reviewQuestionIds": [
+    "m01-l3-r1",
+    "m01-l3-r2"
+  ],
+  "checkQuestionIds": [
+    "m01-l4-c1",
+    "m01-l4-c2",
+    "m01-l4-c3",
+    "m01-l4-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m01-pc-hallucination-guidance"
+  ],
+  "sourceIds": [
+    "src-nist-ai-600-1",
+    "src-openai-blog-hallucinate",
+    "src-arxiv-why-hallucinate",
+    "src-anthropic-reduce-hallucinations",
+    "src-arxiv-kadavath-know",
+    "src-arxiv-sycophancy",
+    "src-scirep-fabricated-citations",
+    "src-anthropic-support-web-search",
+    "src-google-prompting-strategies",
+    "src-transluce-o3-truthfulness",
+    "src-anthropic-cc-glossary"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

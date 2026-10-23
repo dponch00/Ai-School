@@ -700,7 +700,7 @@
         "id": "o2",
         "text": "Le preguntas si está seguro y la aceptas si lo confirma",
         "correct": false,
-        "feedback": "Preguntarle no aporta evidencia: el modelo tiende a sostener lo que ya dijo. La comprobación tiene que venir de fuera, por ejemplo corriendo tú el script.",
+        "feedback": "Preguntarle no aporta evidencia: según cómo preguntes, puede confirmar o retractarse sin mejor motivo. La comprobación tiene que venir de fuera, por ejemplo corriendo tú el script.",
         "misconceptionId": "m01-mc14"
       },
       {
@@ -722,6 +722,824 @@
     "sourceIds": [
       "src-transluce-o3-truthfulness",
       "src-anthropic-cc-glossary"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l3-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l3",
+    "evaluatedObjectiveId": "m01-eo3",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Un compañero quiere pegar en el chat el manual completo del CRM, de 400 páginas, para preguntarle cómo se calcula un solo campo.",
+    "stem": "¿Qué le recomiendas?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Pegarlo entero: con una ventana grande, más contexto da una mejor respuesta",
+        "correct": false,
+        "feedback": "Una ventana grande no evita el deterioro: a medida que se llena, el modelo aprovecha peor lo que tiene. Cuatrocientas páginas para un campo es casi todo ruido.",
+        "misconceptionId": "m01-mc09"
+      },
+      {
+        "id": "o2",
+        "text": "Darle solo la sección del manual que explica ese campo",
+        "correct": true,
+        "feedback": "Correcta. Lo que entra al contexto se elige. Con la sección pertinente, el modelo tiene delante lo que necesita y nada que lo distraiga."
+      },
+      {
+        "id": "o3",
+        "text": "Pegarlo entero y repetirlo en cada mensaje para que el modelo no lo olvide",
+        "correct": false,
+        "feedback": "Repetirlo agranda el contexto y agrava el problema. Lo útil es reducir lo que entra, no multiplicarlo.",
+        "misconceptionId": "m01-mc09"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l3#mas-contexto",
+    "sourceIds": [
+      "src-anthropic-context-windows",
+      "src-chroma-context-rot"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l3-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l3",
+    "evaluatedObjectiveId": "m01-eo3",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Para responder una pregunta simple, un agente lee 30 archivos grandes del proyecto.",
+    "stem": "¿Qué pasa con su contexto?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: en el contexto solo cuenta lo que tú escribes, no lo que lee el agente",
+        "correct": false,
+        "feedback": "Lo que lee la herramienta también entra en la ventana de contexto, junto con tus instrucciones y la respuesta. Treinta archivos grandes ocupan mucho espacio.",
+        "misconceptionId": "m01-mc32"
+      },
+      {
+        "id": "o2",
+        "text": "Mejora: con más archivos delante, la respuesta siempre sale más completa",
+        "correct": false,
+        "feedback": "Más contexto no es mejor contexto. Con mucho material parecido, el modelo aprovecha peor lo que importa.",
+        "misconceptionId": "m01-mc09"
+      },
+      {
+        "id": "o3",
+        "text": "Todo lo que leyó ocupa la ventana, junto con tus instrucciones y su respuesta",
+        "correct": true,
+        "feedback": "Correcta. Los resultados de las herramientas forman parte del contexto. Por eso conviene que el agente lea lo necesario y no todo lo que encuentra."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l3#contexto",
+    "sourceIds": [
+      "src-anthropic-context-windows"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l4-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l4",
+    "evaluatedObjectiveId": "m01-eo4",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "scenario": "El borrador del asistente dice: «Las ventas del Norte cayeron 8 % porque un competidor bajó sus precios. Ya actualicé el dashboard con esta cifra».",
+    "stem": "¿Cómo lo verificas?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Recalculas el 8 %, buscas fuente para la causa y pides evidencia de la actualización",
+        "correct": true,
+        "feedback": "Correcta. Son tres tipos de afirmación: una cifra, que se recalcula; una causa externa, que necesita fuente; y una acción declarada, que se comprueba con la evidencia de la herramienta."
+      },
+      {
+        "id": "o2",
+        "text": "Revisas solo la redacción: si el texto es coherente y preciso, el contenido está bien",
+        "correct": false,
+        "feedback": "La coherencia y la precisión aparente no indican que algo sea cierto. Una causa inventada puede estar perfectamente redactada.",
+        "misconceptionId": "m01-mc13"
+      },
+      {
+        "id": "o3",
+        "text": "Le pides al asistente que confirme las tres afirmaciones antes de enviarlo",
+        "correct": false,
+        "feedback": "La confirmación del propio modelo no es evidencia: su respuesta depende de cómo le preguntes. Cada afirmación necesita una comprobación externa.",
+        "misconceptionId": "m01-mc14"
+      },
+      {
+        "id": "o4",
+        "text": "Descartas el borrador entero: si una parte puede ser inventada, nada de él sirve",
+        "correct": false,
+        "feedback": "Descartarlo todo no es más seguro, solo más lento. Lo útil es verificar cada parte con su método y quedarte con lo que pasa.",
+        "misconceptionId": "m01-mc17"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l4#verificar",
+    "sourceIds": [
+      "src-anthropic-reduce-hallucinations",
+      "src-google-prompting-strategies",
+      "src-transluce-o3-truthfulness"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l4-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l4",
+    "evaluatedObjectiveId": "m01-eo4",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Le preguntas a un asistente en qué año se fundó un pequeño distribuidor de la región. Responde con un año concreto, en tono seguro, y se equivoca.",
+    "stem": "¿Qué explica mejor el error?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que es un modelo antiguo: los modelos nuevos ya no inventan datos",
+        "correct": false,
+        "feedback": "Las alucinaciones disminuyen con las técnicas de mitigación, pero no desaparecen. El mecanismo que las produce sigue presente en los modelos nuevos.",
+        "misconceptionId": "m01-mc15"
+      },
+      {
+        "id": "o2",
+        "text": "Un hecho poco frecuente no se deduce de patrones, y adivinar se premia",
+        "correct": true,
+        "feedback": "Correcta. La fecha de fundación de una empresa pequeña es un hecho arbitrario y poco frecuente en el entrenamiento. El modelo completa con algo verosímil, y muchas evaluaciones premian arriesgar antes que abstenerse."
+      },
+      {
+        "id": "o3",
+        "text": "Nada: si lo dijo con tanta seguridad, lo más probable es que tenga razón",
+        "correct": false,
+        "feedback": "La seguridad del tono es la misma cuando acierta y cuando se equivoca. Una alucinación es justamente un error dicho con seguridad.",
+        "misconceptionId": "m01-mc13"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l4#por-que",
+    "sourceIds": [
+      "src-arxiv-why-hallucinate",
+      "src-openai-blog-hallucinate"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l4-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l4",
+    "evaluatedObjectiveId": "m01-eo4",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Hoy usas el asistente para dos cosas: un correo interno que propone un horario de reunión y la cifra de cobertura del Sur que irá al comité.",
+    "stem": "¿Cómo repartes el esfuerzo de verificar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "No lo usas para ninguna de las dos, porque en cualquiera podría inventar algo",
+        "correct": false,
+        "feedback": "Evitar la herramienta no es la respuesta al riesgo. Lo que corresponde es verificar en proporción a lo que está en juego en cada caso.",
+        "misconceptionId": "m01-mc17"
+      },
+      {
+        "id": "o2",
+        "text": "Lees los dos por encima: si se entienden bien, los dos están bien",
+        "correct": false,
+        "feedback": "Que algo se lea bien no lo hace correcto. Una cifra para el comité necesita un recálculo, no una lectura.",
+        "misconceptionId": "m01-mc13"
+      },
+      {
+        "id": "o3",
+        "text": "Revisas el correo leyéndolo y recalculas la cobertura con el script de KPIs",
+        "correct": true,
+        "feedback": "Correcta. El esfuerzo crece con lo que se decide: un error en el correo se corrige con otro mensaje; uno en la cobertura cambia una decisión del comité."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l4#proporcion",
+    "sourceIds": [
+      "src-nist-ai-600-1"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l4-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l4",
+    "evaluatedObjectiveId": "m01-eo4",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "advanced",
+    "process": "apply",
+    "scenario": "Preguntas: «¿Estás seguro de que la cobertura del Sur es 1,3×?». El asistente responde: «Sí, lo comprobé dos veces y es correcto».",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La das por verificada, porque la comprobó dos veces",
+        "correct": false,
+        "feedback": "Que el modelo diga que lo comprobó no es evidencia. Además, tu pregunta ya sugería 1,3×, y los asistentes tienden a coincidir con lo que sugiere el usuario.",
+        "misconceptionId": "m01-mc14"
+      },
+      {
+        "id": "o2",
+        "text": "La aceptas si además te dice que ejecutó el cálculo",
+        "correct": false,
+        "feedback": "Una acción declarada no prueba nada sin la salida de la herramienta. Hay casos documentados de modelos que describen cálculos que no hicieron.",
+        "misconceptionId": "m01-mc11"
+      },
+      {
+        "id": "o3",
+        "text": "La aceptas, porque una respuesta tan precisa y segura suele ser correcta",
+        "correct": false,
+        "feedback": "El tono seguro y la precisión no distinguen un acierto de un error. La comprobación tiene que venir de fuera del modelo.",
+        "misconceptionId": "m01-mc13"
+      },
+      {
+        "id": "o4",
+        "text": "Recalculas la cobertura con el script: su confirmación no es evidencia",
+        "correct": true,
+        "feedback": "Correcta. Preguntarle al modelo si está seguro no verifica nada: su calibración falla en tareas nuevas y tiende a darte la razón. La cifra se comprueba recalculándola."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l4#tono",
+    "sourceIds": [
+      "src-arxiv-kadavath-know",
+      "src-arxiv-sycophancy"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l4-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l4",
+    "evaluatedObjectiveId": "m01-eo4",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Un compañero dice: «Eso de las citas inventadas era cosa de 2023; los modelos de ahora ya no lo hacen».",
+    "stem": "¿Qué le respondes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que el tipo de error sigue existiendo y las citas se comprueban igual",
+        "correct": true,
+        "feedback": "Correcta. Los porcentajes de aquel estudio son de modelos de 2023. Lo que sigue valiendo es el tipo de error: referencias que no existen o que no dicen lo que se les atribuye."
+      },
+      {
+        "id": "o2",
+        "text": "Que tiene razón: los modelos actuales ya resolvieron ese problema",
+        "correct": false,
+        "feedback": "Las técnicas reducen las alucinaciones, pero no las eliminan. Dar el problema por resuelto lleva a usar citas sin abrirlas.",
+        "misconceptionId": "m01-mc15"
+      },
+      {
+        "id": "o3",
+        "text": "Que tiene razón en parte: si la cita es de un sitio conocido, la cifra es la suya",
+        "correct": false,
+        "feedback": "Una referencia real puede venir con la cifra equivocada. Que el sitio sea conocido no garantiza que diga lo que se le atribuye.",
+        "misconceptionId": "m01-mc16"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l4#citas",
+    "sourceIds": [
+      "src-scirep-fabricated-citations",
+      "src-anthropic-reduce-hallucinations"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l4-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l4",
+    "evaluatedObjectiveId": "m01-eo4",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Vas a pedirle al asistente que responda preguntas sobre un contrato de distribución que le adjuntas.",
+    "stem": "¿Qué pides en el prompt para reducir las respuestas inventadas?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Escribes en mayúsculas: «NO INVENTES NADA Y RESPONDE CON TOTAL SEGURIDAD»",
+        "correct": false,
+        "feedback": "Una orden sin mecanismo no tiene respaldo, y pedir seguridad empuja justo en la dirección contraria. Lo que funciona es darle una salida cuando no sabe.",
+        "misconceptionId": "m01-mc33"
+      },
+      {
+        "id": "o2",
+        "text": "Que cite textualmente el contrato y diga «no tengo información suficiente»",
+        "correct": true,
+        "feedback": "Correcta. Son dos mitigaciones documentadas: permitir que se abstenga y pedir citas textuales del material entregado. Además, las citas te facilitan comprobar cada respuesta."
+      },
+      {
+        "id": "o3",
+        "text": "Que al final de cada respuesta te diga si está seguro de lo que afirmó",
+        "correct": false,
+        "feedback": "La autoevaluación del modelo no es una verificación fiable, sobre todo en tareas nuevas. Mejor pedirle citas que puedas comprobar.",
+        "misconceptionId": "m01-mc14"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l4#proporcion",
+    "sourceIds": [
+      "src-anthropic-reduce-hallucinations"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l5-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l5",
+    "evaluatedObjectiveId": "m01-eo5",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "El forecast admite como máximo 1 error en 50 notas. Con la muestra etiquetada, un modelo intermedio con esfuerzo medio falla en 3; el más capaz con esfuerzo medio, en 1.",
+    "stem": "¿Qué pruebas antes de pasar al modelo más capaz?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Pasas directo al más capaz con el esfuerzo al máximo, para no arriesgar",
+        "correct": false,
+        "feedback": "El máximo no se elige por precaución: se reserva para cuando las pruebas muestran una ganancia. Antes hay una opción más barata que no probaste.",
+        "misconceptionId": "m01-mc18"
+      },
+      {
+        "id": "o2",
+        "text": "Te quedas con el intermedio como está: 3 errores en 50 es poco",
+        "correct": false,
+        "feedback": "El requisito es 1 error en 50, y el intermedio no lo cumple. Ahorrar sin cumplir la calidad que pide el forecast sale caro.",
+        "misconceptionId": "m01-mc19"
+      },
+      {
+        "id": "o3",
+        "text": "Subes el esfuerzo del intermedio y vuelves a medir con la misma muestra",
+        "correct": true,
+        "feedback": "Correcta. El esfuerzo es una palanca dentro del mismo modelo, y ajustarlo a menudo rinde más que cambiar de modelo. Si con más esfuerzo cumple, es la opción suficiente."
+      },
+      {
+        "id": "o4",
+        "text": "Cambias al modelo que encabeza el ranking público de extracción de datos",
+        "correct": false,
+        "feedback": "El ranking mide otras tareas y otros datos. Lo que decide es tu muestra, que ya tienes etiquetada.",
+        "misconceptionId": "m01-mc25"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l5#esfuerzo",
+    "sourceIds": [
+      "src-anthropic-effort",
+      "src-anthropic-choosing-model"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l5-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l5",
+    "evaluatedObjectiveId": "m01-eo5",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "La analista paga la suscripción del chat de un proveedor y quiere automatizar con su API la extracción mensual de las notas.",
+    "stem": "¿Qué necesita saber sobre el costo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que la API se factura aparte de la suscripción y necesita su propio presupuesto",
+        "correct": true,
+        "feedback": "Correcta. La suscripción del chat y la API son modalidades distintas. La API se paga por token, sin importar lo que pague por el chat."
+      },
+      {
+        "id": "o2",
+        "text": "Que no hay costo extra: la suscripción del chat ya incluye el uso de la API",
+        "correct": false,
+        "feedback": "La suscripción no incluye la API. Contar con eso lleva a una factura que nadie había presupuestado.",
+        "misconceptionId": "m01-mc20"
+      },
+      {
+        "id": "o3",
+        "text": "Que la API es gratuita para suscriptores mientras no pase de cierto volumen",
+        "correct": false,
+        "feedback": "No hay un tramo gratuito por ser suscriptor. La API se cobra por token desde el primero, aparte del chat.",
+        "misconceptionId": "m01-mc20"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l5#pago",
+    "sourceIds": [
+      "src-anthropic-support-pro-plan",
+      "src-openai-codex-pricing"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l5-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l5",
+    "evaluatedObjectiveId": "m01-eo5",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "La extracción mensual de las 1 200 notas no es urgente: basta con tener el resultado al día siguiente.",
+    "stem": "¿Qué configuración aprovechas?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Una investigación profunda por cada nota, para que la extracción sea más completa",
+        "correct": false,
+        "feedback": "La investigación profunda busca en la web y consume mucho más. Para extraer campos de tus propias notas no aporta nada.",
+        "misconceptionId": "m01-mc05"
+      },
+      {
+        "id": "o2",
+        "text": "El procesamiento por lotes de la API, que cuesta cerca de la mitad",
+        "correct": true,
+        "feedback": "Correcta. Cuando no hace falta la respuesta al momento, los lotes reducen el costo a la mitad aproximadamente, y se pueden combinar con la caché."
+      },
+      {
+        "id": "o3",
+        "text": "Una sola sesión larga en el chat, nota por nota, que solo cuesta cada mensaje",
+        "correct": false,
+        "feedback": "En una sesión que conserva el historial, cada solicitud incluye todo lo anterior. Mil doscientas notas en una misma conversación es la opción más cara y la más lenta.",
+        "misconceptionId": "m01-mc23"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l5#pago",
+    "sourceIds": [
+      "src-anthropic-pricing",
+      "src-openai-pricing"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l5-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l5",
+    "evaluatedObjectiveId": "m01-eo5",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "scenario": "Para no enviar datos fuera de la empresa, la analista propone procesar las notas de visita con el agente de código que corre en su portátil.",
+    "stem": "¿Qué le dices?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que es buena idea: si el agente corre en su portátil, los datos de las notas no salen de ahí",
+        "correct": false,
+        "feedback": "El agente corre en su portátil, pero envía al modelo del proveedor lo que lee y sus instrucciones. Los datos salen igual.",
+        "misconceptionId": "m01-mc21"
+      },
+      {
+        "id": "o2",
+        "text": "Que da igual dónde corra: el proveedor trata los datos igual en todos sus planes",
+        "correct": false,
+        "feedback": "La política de datos cambia según el plan. El entrenamiento y la retención no son iguales en una cuenta personal, una de empresa y la API.",
+        "misconceptionId": "m01-mc22"
+      },
+      {
+        "id": "o3",
+        "text": "Que el agente local envía lo que lee al modelo remoto; solo un modelo en su equipo lo evita",
+        "correct": true,
+        "feedback": "Correcta. «Local» puede significar tres cosas, y solo un modelo de pesos abiertos que corre en su propio equipo mantiene la inferencia dentro."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l5#local-nube",
+    "sourceIds": [
+      "src-anthropic-cc-data-usage",
+      "src-openai-gpt-oss"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l5-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l5",
+    "evaluatedObjectiveId": "m01-eo5",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Subiste el esfuerzo de razonamiento y la factura de la API creció, aunque las respuestas tienen el mismo largo que antes.",
+    "stem": "¿Por qué pasó esto?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Por un error de facturación: solo se cobran los tokens de la respuesta que ves",
+        "correct": false,
+        "feedback": "No es un error. Los tokens de razonamiento no aparecen en la respuesta, pero se cobran como tokens de salida.",
+        "misconceptionId": "m01-mc34"
+      },
+      {
+        "id": "o2",
+        "text": "Porque los tokens de razonamiento se cobran como salida aunque no se vean",
+        "correct": true,
+        "feedback": "Correcta. Más esfuerzo significa más razonamiento antes de responder, y esos tokens se cobran aunque la respuesta visible no cambie de largo."
+      },
+      {
+        "id": "o3",
+        "text": "No debería: si la respuesta tiene el mismo largo, el costo tendría que ser igual",
+        "correct": false,
+        "feedback": "El costo no depende solo de lo que ves. El razonamiento previo ocupa contexto y se factura como salida.",
+        "misconceptionId": "m01-mc34"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l5#esfuerzo",
+    "sourceIds": [
+      "src-openai-reasoning",
+      "src-anthropic-context-windows"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l5-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l5",
+    "evaluatedObjectiveId": "m01-eo5",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Tienes el mismo asistente en una cuenta personal y en la cuenta de empresa de Altiplano.",
+    "stem": "¿Qué puede cambiar entre las dos en cuanto a tus datos?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada, si usas la app de escritorio, porque así todo queda en tu máquina",
+        "correct": false,
+        "feedback": "La app de escritorio también envía lo que escribes al modelo del proveedor. Dónde se ve la herramienta no decide dónde se procesan los datos.",
+        "misconceptionId": "m01-mc21"
+      },
+      {
+        "id": "o2",
+        "text": "Nada: la política de datos es del proveedor y vale igual para todos sus planes",
+        "correct": false,
+        "feedback": "Cada plan tiene su política. En los individuales, el uso para entrenar depende de un ajuste tuyo; en los de empresa, por defecto no se entrena.",
+        "misconceptionId": "m01-mc22"
+      },
+      {
+        "id": "o3",
+        "text": "Si las conversaciones se usan para entrenar y cuánto tiempo se guardan",
+        "correct": true,
+        "feedback": "Correcta. El entrenamiento y la retención cambian según el plan y los ajustes. Por eso «¿qué herramienta?» incluye «¿con qué cuenta?»."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l5#datos",
+    "sourceIds": [
+      "src-openai-help-data-training",
+      "src-anthropic-privacy-consumer-training",
+      "src-anthropic-privacy-commercial-training"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l6-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l6",
+    "evaluatedObjectiveId": "m01-eo6",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "Quieres comparar dos asistentes para redactar el resumen semanal del comité.",
+    "stem": "¿Qué diseño de comparación eliges?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Un ensayo por herramienta con el mismo prompt, y te quedas con la que salga mejor",
+        "correct": false,
+        "feedback": "Con un solo ensayo, el resultado puede deberse al azar: los modelos no responden igual cada vez. Hacen falta varios ensayos por herramienta.",
+        "misconceptionId": "m01-mc24"
+      },
+      {
+        "id": "o2",
+        "text": "Consultas el ranking público de redacción y eliges la que aparezca primero",
+        "correct": false,
+        "feedback": "El ranking mide otras tareas, con otros datos. La comparación que sirve se hace con tus entradas y tus criterios.",
+        "misconceptionId": "m01-mc25"
+      },
+      {
+        "id": "o3",
+        "text": "Puntúas cinco criterios en cada ensayo y eliges la herramienta con el mejor promedio",
+        "correct": false,
+        "feedback": "Un promedio puede esconder un fallo en las cifras. La exactitud tiene que separarse como criterio crítico y exigirse en todos los ensayos.",
+        "misconceptionId": "m01-mc26"
+      },
+      {
+        "id": "o4",
+        "text": "Mismas entradas, tres ensayos, cifras como criterio crítico y condiciones anotadas",
+        "correct": true,
+        "feedback": "Correcta. Así la comparación separa lo consistente del azar, no deja que un buen promedio tape un error en las cifras y dice con qué versión se obtuvo."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l6#ensayos",
+    "sourceIds": [
+      "src-anthropic-glossary",
+      "src-anthropic-evals-agents",
+      "src-anthropic-develop-tests"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l6-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l6",
+    "evaluatedObjectiveId": "m01-eo6",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "Tras tres ensayos, A promedia 8,5 sobre 10, pero en un ensayo cambió una cifra; B promedia 7,8 y acertó todas las cifras. La exactitud de las cifras es el criterio crítico.",
+    "stem": "¿Cuál recomiendas?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "B, porque A falló el criterio crítico, y eso no se compensa con el promedio",
+        "correct": true,
+        "feedback": "Correcta. Un criterio crítico se exige en todos los ensayos. Una cifra cambiada en un resumen para el comité no la compensa la buena redacción."
+      },
+      {
+        "id": "o2",
+        "text": "A, porque su promedio general es claramente mejor que el de B en los tres ensayos",
+        "correct": false,
+        "feedback": "El promedio mezcla criterios que no pesan lo mismo. Si la exactitud es crítica, un fallo en ella decide la comparación.",
+        "misconceptionId": "m01-mc26"
+      },
+      {
+        "id": "o3",
+        "text": "A, porque acertó las cifras en dos de los tres ensayos, la mayoría",
+        "correct": false,
+        "feedback": "Un criterio crítico no se aprueba por mayoría: se exige en todos los ensayos. Fallar uno de tres significa que puede volver a pasar.",
+        "misconceptionId": "m01-mc26"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l6#criterio-critico",
+    "sourceIds": [
+      "src-anthropic-develop-tests"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l6-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l6",
+    "evaluatedObjectiveId": "m01-eo6",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Con las versiones del 23 de octubre, A cumplió el criterio crítico en 3 de 3 ensayos y B en 1 de 3.",
+    "stem": "¿Qué conclusión escribes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "«A es mejor que B», y usamos A hasta que decidamos cambiar de herramienta",
+        "correct": false,
+        "feedback": "La conclusión no dice para qué tarea ni con qué versión, y no caduca. Los modelos y los planes cambian, y la comparación con ellos.",
+        "misconceptionId": "m01-mc27"
+      },
+      {
+        "id": "o2",
+        "text": "«Con estas versiones, A cumplió 3 de 3 y B 1 de 3; repetir si cambian»",
+        "correct": true,
+        "feedback": "Correcta. Dice qué se comparó, con qué versiones y hasta dónde llega el resultado. Y deja escrito cuándo hay que volver a comparar."
+      },
+      {
+        "id": "o3",
+        "text": "«A es mejor que B para cualquier tarea de redacción del equipo»",
+        "correct": false,
+        "feedback": "Ganar en una tarea con tres ensayos no dice nada de otras tareas. Generalizar así es tomar una prueba como si fuera un ranking.",
+        "misconceptionId": "m01-mc24"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l6#conclusion",
+    "sourceIds": [
+      "src-openai-codex-models",
+      "src-anthropic-effort"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l6-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l6",
+    "evaluatedObjectiveId": "m01-eo6",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "advanced",
+    "process": "understand",
+    "scenario": "Un ensayo de B quedó como fallido. Al leer la respuesta, ves que la cifra era correcta pero estaba escrita como «1,4 millones», y tu comprobación esperaba «1 400 000».",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Lo cuentas como fallido: lo que decide es la comprobación, no lo que tú lees",
+        "correct": false,
+        "feedback": "La comprobación también puede estar mal. Leer la respuesta sirve justamente para distinguir un fallo de la herramienta de uno del criterio.",
+        "misconceptionId": "m01-mc35"
+      },
+      {
+        "id": "o2",
+        "text": "Corriges la comprobación para aceptar ambos formatos y vuelves a calificar los ensayos",
+        "correct": true,
+        "feedback": "Correcta. El error estaba en el criterio, no en B. Corregirlo y recalificar todos los ensayos mantiene la comparación justa para las dos herramientas."
+      },
+      {
+        "id": "o3",
+        "text": "Ignoras ese ensayo y comparas solo con los otros dos, sin revisar nada más del criterio",
+        "correct": false,
+        "feedback": "Descartar el ensayo esconde el problema: la comprobación seguiría fallando en los próximos. Hay que corregir el criterio.",
+        "misconceptionId": "m01-mc35"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l6#leer",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
     ],
     "status": "draft"
   }

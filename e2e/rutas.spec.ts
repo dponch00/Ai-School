@@ -20,6 +20,7 @@ const RUTAS = [
   ['cómo funciona', '/#/como-funciona'],
   ['portada M01 (en preparación)', '/#/cursos/m01'],
   ['M01 lección 3', '/#/cursos/m01/lecciones/m01-l3'],
+  ['M01 lección 5 (fichas de precios)', '/#/cursos/m01/lecciones/m01-l5'],
 ] as const
 
 for (const [nombre, ruta] of RUTAS) {

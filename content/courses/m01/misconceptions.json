@@ -290,5 +290,42 @@
     "sourceIds": [
       "src-anthropic-building-agents"
     ]
+  },
+  {
+    "id": "m01-mc32",
+    "courseId": "m01",
+    "description": "En el contexto solo cuenta lo que yo escribo; lo que lee la herramienta no ocupa espacio.",
+    "whyWrong": "La ventana de contexto incluye las instrucciones, los mensajes, los documentos, los resultados de las herramientas y la propia respuesta.",
+    "sourceIds": [
+      "src-anthropic-context-windows"
+    ]
+  },
+  {
+    "id": "m01-mc33",
+    "courseId": "m01",
+    "description": "Pedirle al modelo que no invente basta para que no invente.",
+    "whyWrong": "Las mitigaciones documentadas dan un mecanismo: permitir que diga «no lo sé», pedir citas textuales y limitar la respuesta al material entregado. Una orden sin mecanismo no tiene ese respaldo.",
+    "sourceIds": [
+      "src-anthropic-reduce-hallucinations"
+    ]
+  },
+  {
+    "id": "m01-mc34",
+    "courseId": "m01",
+    "description": "Solo se cobran los tokens que aparecen en la respuesta visible.",
+    "whyWrong": "Los tokens de razonamiento no se ven, pero ocupan contexto y se cobran como tokens de salida.",
+    "sourceIds": [
+      "src-openai-reasoning",
+      "src-anthropic-context-windows"
+    ]
+  },
+  {
+    "id": "m01-mc35",
+    "courseId": "m01",
+    "description": "En una comparación bastan los puntajes; leer las respuestas no aporta nada.",
+    "whyWrong": "Leer las respuestas o las transcripciones revela si un fallo es de la herramienta o del criterio con que se calificó.",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
   }
 ]

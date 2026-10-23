@@ -117,5 +117,68 @@
       "src-anthropic-support-web-search"
     ],
     "nextReview": "2027-01-22"
+  },
+  {
+    "id": "m01-pc-hallucination-guidance",
+    "product": "Anthropic · API de Claude · OpenAI (investigación publicada)",
+    "surfaces": [
+      "api"
+    ],
+    "capability": "La guía de Anthropic para reducir alucinaciones propone permitir que el modelo diga «no lo sé», pedirle citas textuales de los documentos, verificar cada afirmación contra una cita y restringir la respuesta al material entregado; advierte que estas técnicas reducen el problema pero no lo eliminan. En septiembre de 2025, OpenAI publicó que las evaluaciones deberían penalizar más un error dicho con seguridad que una abstención.",
+    "kind": "guidance",
+    "verifiedAt": "2026-10-22",
+    "sourceIds": [
+      "src-anthropic-reduce-hallucinations",
+      "src-openai-blog-hallucinate",
+      "src-arxiv-why-hallucinate"
+    ],
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "m01-pc-api-prices",
+    "product": "Anthropic · API de Claude · OpenAI · API",
+    "surfaces": [
+      "api"
+    ],
+    "capability": "Precio por millón de tokens (entrada/salida) en la API de Claude: Fable 5.1, 10/50; Opus 5.5, 4/20; Sonnet 5.5, 2/10; Haiku 5.5, desde 0,10/0,50 (más caro por encima de 100 000 tokens de prompt). Lotes, −50 %; lectura de caché al 10 % del precio base (2,5 % en Fable 5.1; 5 % en Opus 5.5 y Sonnet 5.5); búsqueda web, USD 10 por 1 000. Esfuerzo: low, medium, high, xhigh y max; por defecto medium en Opus 5.5 y Haiku 5.5 y high en los demás. En la API de OpenAI (entrada/caché/salida, hasta 272K de entrada): GPT-6 Astra, 10/1/50; GPT-6.1 Sol, 2/0,10/10; GPT-6 Luna, 0,10/0,01/0,50; lotes y flex, cerca de la mitad; búsqueda web, USD 10 por 1 000 llamadas.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-22",
+    "sourceIds": [
+      "src-anthropic-pricing",
+      "src-anthropic-models-overview",
+      "src-anthropic-effort",
+      "src-openai-pricing",
+      "src-openai-models"
+    ],
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "m01-pc-plans-data",
+    "product": "OpenAI · Codex y ChatGPT · GitHub Copilot · Anthropic · Claude y Claude Code",
+    "surfaces": [
+      "chat",
+      "cli",
+      "ide",
+      "desktop",
+      "cloud"
+    ],
+    "capability": "Codex con los planes de ChatGPT: Free USD 0, Go 8, Plus 20, Pro desde 100 y Business 20–25 por usuario, con ventanas de cinco horas y límites semanales; con API key se paga por uso y no hay funciones en la nube. Copilot factura por créditos desde el 2026-06-01 (1 crédito = USD 0,01): Pro USD 10 con 1 500 créditos, Pro+ 39 con 7 000, Max 100 con 20 000, Business 19 por asiento y Enterprise 39. Claude Pro cuesta USD 20 al mes en EE. UU. y no incluye la API. Claude Code reporta un promedio de unos USD 13 por desarrollador y día activo en empresas (150–250 al mes). Datos: los planes individuales de Claude y de ChatGPT usan las conversaciones para entrenar solo si el usuario lo permite; los planes comerciales y la API no lo hacen por defecto. gpt-oss (Apache 2.0) corre en local: el de 20B con 16 GB de memoria; Codex CLI admite proveedores locales con --oss.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-22",
+    "sourceIds": [
+      "src-openai-codex-pricing",
+      "src-github-copilot-plans",
+      "src-github-copilot-billing-individuals",
+      "src-anthropic-support-pro-plan",
+      "src-anthropic-cc-costs",
+      "src-anthropic-privacy-consumer-training",
+      "src-anthropic-privacy-commercial-training",
+      "src-openai-help-data-training",
+      "src-openai-gpt-oss",
+      "src-openai-codex-cli-reference"
+    ],
+    "nextReview": "2027-01-22"
   }
 ]

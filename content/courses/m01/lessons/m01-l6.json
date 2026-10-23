@@ -1,0 +1,51 @@
+{
+  "id": "m01-l6",
+  "courseId": "m01",
+  "version": "0.1.0",
+  "order": 6,
+  "title": "Comparar herramientas con una tarea fija",
+  "objectives": [
+    {
+      "id": "m01-l6-o1",
+      "statement": "Elige el diseño de comparación válido: mismas entradas, varios ensayos, un criterio crítico y condiciones anotadas.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m01-eo6"
+    },
+    {
+      "id": "m01-l6-o2",
+      "statement": "Reconoce cuándo un criterio crítico decide por encima del promedio.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m01-eo6"
+    },
+    {
+      "id": "m01-l6-o3",
+      "statement": "Elige la conclusión que la evidencia permite sacar, con su tarea, su versión y su fecha.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m01-eo6"
+    }
+  ],
+  "bodyPath": "courses/m01/lessons/m01-l6.md",
+  "reviewQuestionIds": [
+    "m01-l5-r1",
+    "m01-l5-r2"
+  ],
+  "checkQuestionIds": [
+    "m01-l6-c1",
+    "m01-l6-c2",
+    "m01-l6-c3",
+    "m01-l6-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [],
+  "sourceIds": [
+    "src-anthropic-choosing-model",
+    "src-anthropic-develop-tests",
+    "src-anthropic-glossary",
+    "src-anthropic-evals-agents",
+    "src-openai-eval-best-practices",
+    "src-openai-codex-models",
+    "src-anthropic-effort"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

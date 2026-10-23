@@ -1,27 +1,27 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 en preparación (3 de 6 lecciones). · **Actualizado:** 2026-10-22 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 en preparación (6 de 6 lecciones; faltan examen y laboratorio). · **Actualizado:** 2026-10-22 por Claude Code
 
 ## Siguiente acción
 
-1. **Codex:** T-024, revisión temprana de M01 (lecciones 1 a 3, 16 preguntas, fichas y fuentes).
-2. **Claude:** mientras tanto, M01 lecciones 4 a 6. Después, su banco de examen y su laboratorio como caso, y luego M03 y M04.
+1. **Codex:** T-025, revisión de M01 lecciones 4 a 6 (18 preguntas nuevas y 3 fichas).
+2. **Claude:** mientras tanto, el banco de examen de M01 (36 ítems en 18 familias) y su laboratorio como caso de opción múltiple. Luego M03 y M04.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-22)
 
-**≈ 47 % de la V1** (rango razonable: 44–50 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 48 % de la V1** (rango razonable: 45–51 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 88 % (simplificada a opción múltiple con D-024; faltan el hosting y la instalación real en dispositivos) | 13,2 |
-| 3 · Nueve manuales restantes | 40 % | 12 % (investigación del Bloque A revisada; M01 con 3 de 6 lecciones) | 4,8 |
+| 3 · Nueve manuales restantes | 40 % | 14 % (investigación del Bloque A revisada; M01 con sus 6 lecciones, sin examen ni laboratorio) | 5,6 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 47 %** |
+| **Total** | 100 % | | **≈ 48 %** |
 
 ## Tickets
 
@@ -50,20 +50,37 @@
 | [T-021](coordinacion/tickets/T-021-codex-revision-investigacion-bloque-a.md) | Codex | Revisión cruzada de la investigación del Bloque A (M01, M03, M04) | cerrado |
 | [T-022](coordinacion/tickets/T-022-codex-revision-como-funciona.md) | Codex | Revisión de «Cómo funciona» y de la versión de prueba en un solo archivo | cerrado |
 | [T-023](coordinacion/tickets/T-023-codex-d024-opcion-multiple.md) | Codex | D-024: laboratorio como caso de opción múltiple y app simplificada | cerrado |
-| [T-024](coordinacion/tickets/T-024-codex-revision-m01-l1-l3.md) | Codex | Revisión temprana de M01: lecciones 1 a 3, preguntas y fichas | abierto |
+| [T-024](coordinacion/tickets/T-024-codex-revision-m01-l1-l3.md) | Codex | Revisión temprana de M01: lecciones 1 a 3, preguntas y fichas | cerrado |
+| [T-025](coordinacion/tickets/T-025-codex-revision-m01-l4-l6.md) | Codex | Revisión de M01: lecciones 4 a 6, preguntas y fichas | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-024) | `investigacion/codex-revision-m01-l1-l3.md` |
-| Claude | `content/courses/m01/lessons/m01-l4*`, `m01-l5*`, `m01-l6*` |
+| Codex (T-025) | `investigacion/codex-revision-m01-l4-l6.md` |
+| Claude | `content/courses/m01/questions/exam.json`, `families.json`, `practice/` |
 
 ## Decisiones recientes
 
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-23 · Claude Code — revisión de T-024 y M01, lecciones 4 a 6
+**T-024:** se aplicaron los 5 hallazgos.
+- L1 explica que una sesión en la nube clona el remoto solo si se inicia desde la web; desde la terminal puede subir el repositorio local.
+- L3 acota el reenvío del historial a las sesiones que lo conservan.
+- Se retiraron los 30 MB sin fuente.
+- La sección de práctica se oculta en un manual en preparación.
+- Se reasignó un concepto erróneo.
+
+**M01:**
+- Lecciones 4 a 6: alucinaciones, economía y comparación de herramientas.
+- 18 preguntas nuevas: el banco de comprobaciones queda en 34. La clave era la opción más larga en 19 de 34 y se rebalanceó a 9.
+- 4 conceptos erróneos y 3 fichas nuevos.
+- Las tres lecciones pasaron por el revisor de texto.
+
+Abierto T-025. `npm test` 120/120. Avance: ≈ 48 %.
 
 ### 2026-10-23 · Claude Code — revisión de T-023 y M01, lecciones 1 a 3
 **T-023:** se aplicaron los 5 hallazgos de Codex y dos correcciones más que salieron de comparar el laboratorio con todo el banco. `q04`, con la clave sugerida, quedaba igual a `m02-l4-c4`. El giro del lunes no coincidía con el script, que exige la misma regla para OPP-1036. Además, la confianza es una casilla también en el examen y se borró el CSS de lo retirado.

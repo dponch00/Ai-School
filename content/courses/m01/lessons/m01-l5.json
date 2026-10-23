@@ -1,0 +1,68 @@
+{
+  "id": "m01-l5",
+  "courseId": "m01",
+  "version": "0.1.0",
+  "order": 5,
+  "title": "La economía real: calidad, costo, latencia y privacidad",
+  "objectives": [
+    {
+      "id": "m01-l5-o1",
+      "statement": "Dado un caso, elige la configuración suficiente midiendo con una muestra propia y usando el esfuerzo como palanca.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m01-eo5"
+    },
+    {
+      "id": "m01-l5-o2",
+      "statement": "Distingue suscripción, créditos y API, y reconoce cuándo convienen los lotes.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m01-eo5"
+    },
+    {
+      "id": "m01-l5-o3",
+      "statement": "Reconoce cuándo los datos salen del equipo y qué cambia según el plan.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m01-eo5"
+    }
+  ],
+  "bodyPath": "courses/m01/lessons/m01-l5.md",
+  "reviewQuestionIds": [
+    "m01-l4-r1",
+    "m01-l4-r2"
+  ],
+  "checkQuestionIds": [
+    "m01-l5-c1",
+    "m01-l5-c2",
+    "m01-l5-c3",
+    "m01-l5-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m01-pc-api-prices",
+    "m01-pc-plans-data"
+  ],
+  "sourceIds": [
+    "src-anthropic-choosing-model",
+    "src-anthropic-glossary",
+    "src-anthropic-pricing",
+    "src-anthropic-cc-data-usage",
+    "src-anthropic-effort",
+    "src-openai-reasoning",
+    "src-anthropic-context-windows",
+    "src-anthropic-support-pro-plan",
+    "src-openai-codex-pricing",
+    "src-github-blog-ubb",
+    "src-github-copilot-billing-individuals",
+    "src-openai-pricing",
+    "src-anthropic-support-research",
+    "src-openai-codex-imagegen",
+    "src-anthropic-cc-costs",
+    "src-anthropic-cc-cloud",
+    "src-openai-gpt-oss",
+    "src-openai-codex-cli-reference",
+    "src-openai-help-data-training",
+    "src-anthropic-privacy-consumer-training",
+    "src-anthropic-privacy-commercial-training"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}
