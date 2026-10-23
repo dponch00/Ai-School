@@ -5,23 +5,23 @@
 ## Siguiente acción
 
 1. **Daniel:** hacer el recorrido completo como alumno (perfil, lecciones, examen, laboratorio, reporte compartido en un chat y retroalimentación registrada) y anotar su tiempo en `docs/registro-esfuerzo.md` o pasárselo a Claude. Con eso arranca el Bloque A.
-2. **Claude:** investigación con fuentes de M01, M03 y M04 (D-023, en curso con subagentes) y su revisión cruzada con Codex. No se escriben lecciones del Bloque A hasta el recorrido de Daniel.
+2. **Codex:** T-021, revisión cruzada de la investigación de M01, M03 y M04. Después, Claude aplica los hallazgos. No se escriben lecciones del Bloque A hasta el recorrido de Daniel (D-023).
 3. **Daniel:** releer la lección 1 en la app y decir si ya suena bien; probar la app en su celular (subtítulos del diagrama y texto ampliado al 200 %).
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-22)
 
-**≈ 41 % de la V1** (rango razonable: 38–44 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 44 % de la V1** (rango razonable: 41–47 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 95 % (piloto revisado y puerta preparada; faltan el recorrido de Daniel y su decisión) | 20,9 |
-| 2 · Base de app y PWA | 15 % | 80 % (incluye offline por curso; faltan el hosting y la instalación real en dispositivos) | 12,0 |
-| 3 · Nueve manuales restantes | 40 % | 3 % (currículo y mapa de competencias) | 1,2 |
+| 2 · Base de app y PWA | 15 % | 85 % (offline por curso y carga diferida; faltan el hosting y la instalación real en dispositivos) | 12,8 |
+| 3 · Nueve manuales restantes | 40 % | 7 % (currículo, competencias e investigación de M01, M03 y M04 sin revisar) | 2,8 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 41 %** |
+| **Total** | 100 % | | **≈ 44 %** |
 
 ## Tickets
 
@@ -47,18 +47,22 @@
 | [T-018](coordinacion/tickets/T-018-codex-repaso-errores-pwa-icono.md) | Codex | Ícono de la app y revisión del repaso de errores y la PWA | cerrado |
 | [T-019](coordinacion/tickets/T-019-codex-revision-diagnostico-almacenamiento.md) | Codex | Revisión del diagnóstico inicial y del manejo del almacenamiento | cerrado |
 | [T-020](coordinacion/tickets/T-020-codex-revision-glosario-busqueda-e2e.md) | Codex | Revisión del glosario, la búsqueda, las notas y las pruebas E2E | cerrado |
+| [T-021](coordinacion/tickets/T-021-codex-revision-investigacion-bloque-a.md) | Codex | Revisión cruzada de la investigación del Bloque A (M01, M03, M04) | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude (subagentes) | `investigacion/M01-*.md`, `investigacion/M03-*.md`, `investigacion/M04-*.md` |
+| Codex (T-021) | `investigacion/codex-revision-bloque-a.md` (los tres archivos de investigación quedan solo para lectura hasta la revisión) |
 
 ## Decisiones recientes
 
 Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-22 · Claude Code — investigación del Bloque A y carga diferida
+Los tres subagentes entregaron la investigación de M01 (56 fuentes), M03 (45) y M04 (54). Cada una trae seis objetivos evaluables, conceptos erróneos con fuente, fichas de producto fechadas, «qué no enseñar», un laboratorio con rúbrica y sus huecos declarados. Claude las leyó completas y abrió T-021 para la revisión cruzada de Codex. Antes de usarlas falta verificar por muestreo las fuentes más volátiles y recalcular las cifras de los laboratorios. En la app, las pantallas que no se usan para leer y el índice de búsqueda se cargan al abrirlos, y el paquete principal bajó de 869 kB a 451 kB. Para la versión de prueba hay un build de un solo archivo; la versión publicada se actualizó. `npm test` 158/158 y `npm run e2e` 46/46. Avance: ≈ 44 %.
 
 ### 2026-10-22 · Claude Code — offline por curso (F2-05) y arranque de la investigación del Bloque A (D-023)
 Daniel pidió adelantar todo lo posible mientras él no puede probar (D-023). Cada curso va ahora en su propio paquete, con verificación de integridad, que el SW guarda al abrirlo o al descargarlo desde la portada (botón «Descargar para usar sin conexión»). El paquete principal conserva solo el índice de los cursos. Las pruebas sacaron dos carreras reales y quedaron corregidas: el SW guarda en segundo plano, así que la descarga espera a que termine, y el botón del examen aparecía antes de que cargaran las preguntas, así que ahora espera. La versión del celular lleva el paquete incrustado. Tres subagentes investigan M01, M03 y M04 con fuentes. `npm test` 158/158 y `npm run e2e` 46/46, estable en dos corridas. Avance: ≈ 41 %.
