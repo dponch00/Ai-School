@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-22 |
 | Depende de | T-020 (cerrado) |
 | Fase del plan | 3 — Contenido (adelantado por D-023) |
@@ -51,7 +51,11 @@ No edites los tres archivos de investigación: Claude aplica los hallazgos. Tamp
 
 ## Entrega
 
-_(Codex)_
+Revisión entregada en `investigacion/codex-revision-bloque-a.md`.
+
+- Verifiqué 8 fuentes de M01, 10 de M03 y 8 de M04; la lista y el resultado de cada apertura están en el informe.
+- Hallazgos: 2 altos de M03 (cifra NoLiMa y regla transversal incorrecta de carga de instrucciones) y 2 medios transversales (separación de escenarios del diagnóstico y presupuesto de 25 minutos).
+- Recalculé los costos de M01 L5: USD 0,09, USD 7,44 y USD 18,60. Reproduje M04 §5 en copias temporales: la frontera mueve USD 58 000 y la variante de vencida con `<=` pasa.
 
 ## Revisión
 
