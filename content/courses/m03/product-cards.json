@@ -76,5 +76,63 @@
       "src-openai-latest-model"
     ],
     "nextReview": "2027-01-22"
+  },
+  {
+    "id": "m03-pc-skills-tools",
+    "product": "OpenAI · Codex · Anthropic · Claude Code · GitHub Copilot",
+    "surfaces": [
+      "cli",
+      "ide",
+      "desktop"
+    ],
+    "capability": "Dónde se buscan: Codex, en .agents/skills de la carpeta actual a la raíz, ~/.agents/skills y /etc/codex/skills; Claude Code, en .claude/skills (y ~/.claude/skills), sin documentar .agents/skills; Copilot, en .github/skills, .claude/skills o .agents/skills según la superficie. Invocación: implícita por la descripción en las tres; explícita con $ o /skills en Codex y con /nombre en Claude Code. Para solo invocación manual: policy.allow_implicit_invocation: false en Codex y disable-model-invocation: true en Claude Code. Presupuesto de descripciones: en Codex, el catálogo ocupa como máximo el 2 % de la ventana; en Claude Code, 1 536 caracteres por entrada y el 1 % de la ventana. Para probar la activación: $skill-creator en Codex y el plugin skill-creator en Claude Code; en Copilot, gh skill busca e instala.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-22",
+    "sourceIds": [
+      "src-openai-codex-skills",
+      "src-anthropic-cc-skills",
+      "src-anthropic-cc-features",
+      "src-github-agent-skills"
+    ],
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "m03-pc-memory",
+    "product": "Anthropic · Claude Code · OpenAI · Codex · GitHub Copilot",
+    "surfaces": [
+      "cli",
+      "ide",
+      "desktop",
+      "cloud"
+    ],
+    "capability": "Claude Code: memoria automática activada por defecto en sesiones locales, en ~/.claude/projects/<proyecto>/memory/ con MEMORY.md (se cargan las primeras 200 líneas o 25 KB), compartida entre worktrees del mismo repositorio y local de la máquina; /memory para verla o desactivarla; claude --continue y --resume retoman sesiones. Codex: Memories, desactivada por defecto, en ~/.codex/memories/, generada en segundo plano tras sesiones inactivas; la página no indica su madurez. Copilot Memory (vista previa pública): hechos por repositorio con citas validadas contra la rama actual, que se borran si no se usan en 28 días; activada por defecto en planes individuales.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-22",
+    "sourceIds": [
+      "src-anthropic-cc-memory",
+      "src-anthropic-cc-best-practices",
+      "src-openai-codex-memories",
+      "src-github-copilot-memory"
+    ],
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "m03-pc-citations",
+    "product": "Anthropic · API de Claude · Claude Code",
+    "surfaces": [
+      "api",
+      "cli"
+    ],
+    "capability": "La API de Claude ofrece citas sobre los documentos entregados: cada cita apunta a un pasaje válido y extrae el texto citado, que no cuenta como tokens de salida; son incompatibles con las salidas estructuradas (devuelven error 400). En Claude Code, las salidas de conectores MCP de más de 10 000 tokens generan un aviso, el tope por defecto es de 25 000, y los resultados de texto de más de 50 000 caracteres se guardan en un archivo.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-22",
+    "sourceIds": [
+      "src-anthropic-citations",
+      "src-anthropic-cc-mcp"
+    ],
+    "nextReview": "2027-01-22"
   }
 ]

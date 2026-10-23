@@ -1,0 +1,58 @@
+{
+  "id": "m03-l6",
+  "courseId": "m03",
+  "version": "0.1.0",
+  "order": 6,
+  "title": "Fuentes, recuperación justo a tiempo y límites de las citas",
+  "objectives": [
+    {
+      "id": "m03-l6-o1",
+      "statement": "Decide qué cargar de antemano y qué recuperar justo a tiempo, señalando la fuente que responde.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m03-eo6"
+    },
+    {
+      "id": "m03-l6-o2",
+      "statement": "Identifica las citas que apuntan a una fuente real pero no respaldan su afirmación.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m03-eo6"
+    },
+    {
+      "id": "m03-l6-o3",
+      "statement": "Trata lo recuperado como dato y no como instrucción, y calcula las cifras en lugar de citarlas.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m03-eo6"
+    }
+  ],
+  "bodyPath": "courses/m03/lessons/m03-l6.md",
+  "reviewQuestionIds": [
+    "m03-l5-r1",
+    "m03-l5-r2"
+  ],
+  "checkQuestionIds": [
+    "m03-l6-c1",
+    "m03-l6-c2",
+    "m03-l6-c3",
+    "m03-l6-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m03-pc-citations"
+  ],
+  "sourceIds": [
+    "src-anthropic-eng-context",
+    "src-anthropic-cc-best-practices",
+    "src-arxiv-context-length",
+    "src-chroma-context-rot",
+    "src-anthropic-cc-features",
+    "src-anthropic-cc-mcp",
+    "src-arxiv-verifiability",
+    "src-arxiv-legal-rag",
+    "src-anthropic-citations",
+    "src-anthropic-reduce-hallucinations",
+    "src-anthropic-skills-overview",
+    "src-owasp-llm01"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

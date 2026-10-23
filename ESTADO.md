@@ -1,27 +1,27 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 completo en piloto; M03 en preparación (3 de 6 lecciones). · **Actualizado:** 2026-10-22 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 completo en piloto; M03 en preparación (6 de 6 lecciones; faltan examen y laboratorio). · **Actualizado:** 2026-10-22 por Claude Code
 
 ## Siguiente acción
 
-1. **Codex:** T-027, revisión de M03 lecciones 1 a 3 (16 preguntas, 4 fichas, 33 fuentes nuevas).
-2. **Claude:** mientras tanto, M03 lecciones 4 a 6.
+1. **Codex:** T-028, revisión de M03 lecciones 4 a 6 (18 preguntas nuevas, 3 fichas).
+2. **Claude:** mientras tanto, el banco de examen de M03, su laboratorio como caso y su práctica. Luego M04.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-22)
 
-**≈ 51 % de la V1** (rango razonable: 48–54 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 52 % de la V1** (rango razonable: 49–55 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 88 % (simplificada a opción múltiple con D-024; faltan el hosting y la instalación real en dispositivos) | 13,2 |
-| 3 · Nueve manuales restantes | 40 % | 21 % (M01 completo y revisado; M03 con 3 de 6 lecciones; investigación de M04 lista) | 8,4 |
+| 3 · Nueve manuales restantes | 40 % | 23 % (M01 completo y revisado; M03 con sus 6 lecciones, sin examen ni laboratorio; investigación de M04 lista) | 9,2 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 51 %** |
+| **Total** | 100 % | | **≈ 52 %** |
 
 ## Tickets
 
@@ -53,13 +53,14 @@
 | [T-024](coordinacion/tickets/T-024-codex-revision-m01-l1-l3.md) | Codex | Revisión temprana de M01: lecciones 1 a 3, preguntas y fichas | cerrado |
 | [T-025](coordinacion/tickets/T-025-codex-revision-m01-l4-l6.md) | Codex | Revisión de M01: lecciones 4 a 6, preguntas y fichas | cerrado |
 | [T-026](coordinacion/tickets/T-026-codex-revision-m01-examen-laboratorio.md) | Codex | Revisión de M01: banco de examen, laboratorio como caso y práctica | cerrado |
-| [T-027](coordinacion/tickets/T-027-codex-revision-m03-l1-l3.md) | Codex | Revisión de M03: lecciones 1 a 3, preguntas y fichas | abierto |
+| [T-027](coordinacion/tickets/T-027-codex-revision-m03-l1-l3.md) | Codex | Revisión de M03: lecciones 1 a 3, preguntas y fichas | cerrado |
+| [T-028](coordinacion/tickets/T-028-codex-revision-m03-l4-l6.md) | Codex | Revisión de M03: lecciones 4 a 6, preguntas y fichas | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-027) | `investigacion/codex-revision-m03-l1-l3.md` |
+| Codex (T-028) | `investigacion/codex-revision-m03-l4-l6.md` |
 | Claude | `content/courses/m03/**` |
 
 ## Decisiones recientes
@@ -67,6 +68,23 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-23 · Claude Code — revisión de T-027 y M03, lecciones 4 a 6
+**T-027:**
+- NoLiMa quedó en 11 de 13. Se comprobó en la versión 3 del artículo, porque contradecía lo dicho en T-021.
+- L2 y la ficha distinguen el chat local de VS Code (AGENTS.md anidado, experimental) de las sesiones de agente, que también buscan en las carpetas intermedias.
+
+**M03:**
+- Lecciones 4 a 6: skills, continuidad entre sesiones y fuentes con sus citas.
+- 18 preguntas nuevas: el banco de comprobaciones queda en 34.
+- 24 conceptos erróneos y 3 fichas nuevos.
+
+Las lecciones 4 a 6 pasaron por el revisor de texto. De sus dudas se aplicaron tres:
+- se suavizó la inferencia sobre la memoria compartida entre personas;
+- L5 dice ahora que la prueba del arranque detecta si la sesión anterior dejó algo roto, como dice la fuente;
+- L4 tiene un ejemplo de trampa.
+
+Abierto T-028. `npm test` 134/134 y e2e 62/62 (incluye la ruta de M03 L4). Avance: ≈ 52 %.
 
 ### 2026-10-23 · Claude Code — revisión de T-026 y M03, lecciones 1 a 3
 **T-026:**

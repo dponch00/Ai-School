@@ -223,5 +223,237 @@
     "sourceIds": [
       "src-anthropic-cc-features"
     ]
+  },
+  {
+    "id": "m03-mc24",
+    "courseId": "m03",
+    "description": "Una descripción corta y genérica basta, porque el agente leerá el cuerpo de la skill.",
+    "whyWrong": "El cuerpo solo se lee si la descripción activa la skill; una descripción genérica no la activa o la activa en el momento equivocado.",
+    "sourceIds": [
+      "src-agentskills-descriptions",
+      "src-agentskills-spec"
+    ]
+  },
+  {
+    "id": "m03-mc25",
+    "courseId": "m03",
+    "description": "Para que una skill se active, hay que agregar a la descripción las palabras exactas de las consultas que fallaron.",
+    "whyWrong": "Eso ajusta la descripción a esas consultas y la empeora para las demás; se generaliza la categoría y se valida con consultas reservadas.",
+    "sourceIds": [
+      "src-agentskills-descriptions"
+    ]
+  },
+  {
+    "id": "m03-mc26",
+    "courseId": "m03",
+    "description": "Una skill instalada en la carpeta de una herramienta funciona en todas.",
+    "whyWrong": "El formato es común, pero cada herramienta busca las skills en carpetas distintas.",
+    "sourceIds": [
+      "src-openai-codex-skills",
+      "src-anthropic-cc-skills",
+      "src-github-agent-skills"
+    ]
+  },
+  {
+    "id": "m03-mc27",
+    "courseId": "m03",
+    "description": "Si una consulta sencilla no activó la skill, la descripción está mal.",
+    "whyWrong": "Los agentes suelen recurrir a una skill solo cuando la tarea excede lo que resuelven con sus herramientas básicas.",
+    "sourceIds": [
+      "src-agentskills-descriptions"
+    ]
+  },
+  {
+    "id": "m03-mc28",
+    "courseId": "m03",
+    "description": "Una skill de un repositorio público popular es segura de instalar.",
+    "whyWrong": "Una skill puede dirigir al agente a acciones ajenas a su propósito; se audita como cualquier software.",
+    "sourceIds": [
+      "src-anthropic-skills-overview",
+      "src-anthropic-eng-skills"
+    ]
+  },
+  {
+    "id": "m03-mc29",
+    "courseId": "m03",
+    "description": "Cuanto más completa sea la skill, con todos los casos posibles, mejor funciona.",
+    "whyWrong": "El detalle exhaustivo dispersa al agente; rinde más una guía breve con un ejemplo y referencias que se leen cuando hacen falta.",
+    "sourceIds": [
+      "src-agentskills-bp"
+    ]
+  },
+  {
+    "id": "m03-mc30",
+    "courseId": "m03",
+    "description": "Con la memoria automática activada ya no hace falta mantener el archivo de instrucciones.",
+    "whyWrong": "La memoria es una ayuda para recordar, no una garantía; lo obligatorio va en instrucciones versionadas.",
+    "sourceIds": [
+      "src-openai-codex-memories",
+      "src-anthropic-cc-memory"
+    ]
+  },
+  {
+    "id": "m03-mc31",
+    "courseId": "m03",
+    "description": "El historial del chat sirve como registro de decisiones.",
+    "whyWrong": "El historial se compacta, se limpia y no lo ve otra herramienta; el motivo de una decisión va a un registro escrito.",
+    "sourceIds": [
+      "src-anthropic-cc-context-window",
+      "src-nygard-adr"
+    ]
+  },
+  {
+    "id": "m03-mc32",
+    "courseId": "m03",
+    "description": "Un buen traspaso cuenta todo lo que pasó en la sesión.",
+    "whyWrong": "Lo útil es el estado, las decisiones, el siguiente paso y cómo verificar; el relato completo llena el contexto de quien retoma.",
+    "sourceIds": [
+      "src-anthropic-eng-harnesses",
+      "src-anthropic-eng-context"
+    ]
+  },
+  {
+    "id": "m03-mc33",
+    "courseId": "m03",
+    "description": "Al retomar con el traspaso, el agente puede empezar a implementar de inmediato.",
+    "whyWrong": "La rutina que funciona verifica primero el estado, con una prueba completa, antes de empezar algo nuevo.",
+    "sourceIds": [
+      "src-anthropic-eng-harnesses"
+    ]
+  },
+  {
+    "id": "m03-mc34",
+    "courseId": "m03",
+    "description": "Si la respuesta trae citas a documentos reales, sus afirmaciones están respaldadas.",
+    "whyWrong": "Una parte importante de las citas no respalda su frase; que el pasaje exista no prueba que la sostenga.",
+    "sourceIds": [
+      "src-arxiv-verifiability",
+      "src-anthropic-citations"
+    ]
+  },
+  {
+    "id": "m03-mc35",
+    "courseId": "m03",
+    "description": "Cargar todos los documentos al inicio evita que el agente se pierda algo.",
+    "whyWrong": "El contexto largo degrada el uso de la información; conviene un esquema mixto con recuperación cuando hace falta.",
+    "sourceIds": [
+      "src-anthropic-eng-context",
+      "src-arxiv-context-length"
+    ]
+  },
+  {
+    "id": "m03-mc36",
+    "courseId": "m03",
+    "description": "Con recuperación de documentos ya no hay invenciones.",
+    "whyWrong": "Las herramientas que trabajan sobre documentos recuperados siguen inventando en una fracción relevante de los casos.",
+    "sourceIds": [
+      "src-arxiv-legal-rag"
+    ]
+  },
+  {
+    "id": "m03-mc37",
+    "courseId": "m03",
+    "description": "Lo que el agente recupera de una fuente conectada es confiable y puede seguir sus instrucciones.",
+    "whyWrong": "Es contenido no confiable que puede traer instrucciones inyectadas; se trata como dato, no como orden.",
+    "sourceIds": [
+      "src-anthropic-cc-mcp",
+      "src-owasp-llm01"
+    ]
+  },
+  {
+    "id": "m03-mc38",
+    "courseId": "m03",
+    "description": "La descripción de una skill debe explicar cómo está implementada.",
+    "whyWrong": "La descripción se centra en la intención del usuario y en cuándo usar la skill, no en cómo está hecha.",
+    "sourceIds": [
+      "src-agentskills-descriptions"
+    ]
+  },
+  {
+    "id": "m03-mc39",
+    "courseId": "m03",
+    "description": "Para probar que una skill no se active de más, sirven consultas que no tienen nada que ver con ella.",
+    "whyWrong": "Las consultas negativas más valiosas son casi aciertos que comparten palabras con la skill pero piden otra cosa.",
+    "sourceIds": [
+      "src-agentskills-descriptions"
+    ]
+  },
+  {
+    "id": "m03-mc40",
+    "courseId": "m03",
+    "description": "Un casi acierto es una consulta que debería activar la skill dicha con otras palabras.",
+    "whyWrong": "Un casi acierto comparte palabras con la skill pero pide otra tarea: no debería activarla.",
+    "sourceIds": [
+      "src-agentskills-descriptions"
+    ]
+  },
+  {
+    "id": "m03-mc41",
+    "courseId": "m03",
+    "description": "Una skill instalada ocupa todo su contenido en el contexto desde el inicio.",
+    "whyWrong": "Las skills se cargan por niveles: al inicio solo el nombre y la descripción; el cuerpo, al activarse; los recursos, si se piden.",
+    "sourceIds": [
+      "src-agentskills-spec",
+      "src-agentskills-client-impl"
+    ]
+  },
+  {
+    "id": "m03-mc42",
+    "courseId": "m03",
+    "description": "Una skill no ocupa nada de contexto hasta que se usa.",
+    "whyWrong": "Su nombre y su descripción están en el contexto desde el inicio, para que el agente pueda decidir cuándo activarla.",
+    "sourceIds": [
+      "src-agentskills-spec"
+    ]
+  },
+  {
+    "id": "m03-mc43",
+    "courseId": "m03",
+    "description": "Cada herramienta usa un formato de skill propio, así que hay que reescribirla para cada una.",
+    "whyWrong": "El formato es abierto y común; lo que cambia entre herramientas es dónde se instala y qué campos extra entiende.",
+    "sourceIds": [
+      "src-agentskills-site",
+      "src-openai-codex-skills",
+      "src-anthropic-cc-skills"
+    ]
+  },
+  {
+    "id": "m03-mc44",
+    "courseId": "m03",
+    "description": "La memoria automática de una herramienta la puede usar otra persona con otra herramienta.",
+    "whyWrong": "La memoria es local de la máquina, de la carpeta del usuario o del servicio de una herramienta; no viaja.",
+    "sourceIds": [
+      "src-anthropic-cc-memory",
+      "src-openai-codex-memories",
+      "src-github-copilot-memory"
+    ]
+  },
+  {
+    "id": "m03-mc45",
+    "courseId": "m03",
+    "description": "Lo que se probó y falló no vale la pena anotarlo.",
+    "whyWrong": "Anotarlo brevemente evita que quien retome repita el mismo intento.",
+    "sourceIds": [
+      "src-anthropic-eng-harnesses"
+    ]
+  },
+  {
+    "id": "m03-mc46",
+    "courseId": "m03",
+    "description": "Recuperar justo a tiempo funciona igual aunque no se le indique al agente dónde buscar.",
+    "whyWrong": "Recuperar bajo demanda es más lento y necesita buena guía; señalar la fuente evita exploraciones amplias.",
+    "sourceIds": [
+      "src-anthropic-eng-context",
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m03-mc47",
+    "courseId": "m03",
+    "description": "Si una cita no respalda su frase, toda la respuesta es falsa.",
+    "whyWrong": "Cada cita se revisa por separado; la afirmación sin respaldo se marca como hipótesis o se quita, y el resto se evalúa por su cuenta.",
+    "sourceIds": [
+      "src-arxiv-verifiability"
+    ]
   }
 ]
