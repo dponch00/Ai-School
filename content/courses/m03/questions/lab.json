@@ -12,34 +12,34 @@
     ],
     "difficulty": "base",
     "process": "apply",
-    "scenario": "Pieza 4 del inventario: el agente no puede modificar los topes de gasto aprobados del archivo caps.csv, sin excepción.",
-    "stem": "¿Dónde va esa regla?",
+    "scenario": "Para la pieza 4, la analista ya configuró un permiso que bloquea la escritura de caps.csv. Se pregunta si con eso basta.",
+    "stem": "¿Hace falta algo más?",
     "options": [
       {
         "id": "o1",
-        "text": "En la instrucción permanente, con «nunca» en mayúsculas y al principio del archivo, para que se vea",
+        "text": "No: con el permiso configurado, el agente ya no necesita saber nada de esa regla",
         "correct": false,
-        "feedback": "Escrita en las instrucciones, la regla es una petición que el agente intenta seguir. Si tiene que cumplirse sin excepción, hace falta un control determinista.",
-        "misconceptionId": "m03-mc08"
+        "feedback": "Algunos controles no son una barrera completa, y la orientación sobre la conducta va en las instrucciones. Sin el motivo, el agente puede buscar otra vía para cambiar los topes.",
+        "misconceptionId": "m03-mc66"
       },
       {
         "id": "o2",
-        "text": "En un permiso o un hook que bloquee la escritura de caps.csv, con una línea sobre el motivo",
-        "correct": true,
-        "feedback": "Correcta. Un control determinista no depende de que el modelo obedezca. La línea con el motivo le explica al agente por qué no puede escribir ahí."
+        "text": "Sí: escribir la prohibición también en la skill y en el archivo de cada herramienta",
+        "correct": false,
+        "feedback": "Copiar la regla en varios lugares hace que, tarde o temprano, las copias se contradigan. Basta con el permiso y una línea con el motivo.",
+        "misconceptionId": "m03-mc20"
       },
       {
         "id": "o3",
-        "text": "En la skill de consolidación, que es la que trabaja con esos archivos",
-        "correct": false,
-        "feedback": "Una skill es texto que el agente lee, y solo cuando se activa. Una prohibición sin excepciones necesita un control que no dependa de eso.",
-        "misconceptionId": "m03-mc11"
+        "text": "Sí: una línea en las instrucciones que explique por qué no se tocan los topes",
+        "correct": true,
+        "feedback": "Correcta. Una regla crítica combina el control determinista con una línea que explique el motivo. El permiso bloquea y la línea orienta al agente."
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m03-l3#cuatro-preguntas",
+    "sectionRef": "m03-l3#combinar",
     "sourceIds": [
-      "src-anthropic-cc-features",
+      "src-openai-codex-hooks",
       "src-anthropic-cc-memory"
     ],
     "status": "draft"
@@ -501,10 +501,10 @@
     "options": [
       {
         "id": "o1",
-        "text": "«Lunes: empecé por el Norte; el martes el agente propuso cambiar la plantilla, lo discutimos y después pasamos al Sur…» (tres páginas)",
+        "text": "«3 de 4 regiones consolidadas. Sigue: Centro, hoy con 4 000 USD de diferencia. Descartado: repartir por ventas. El resto, en mi memoria.»",
         "correct": false,
-        "feedback": "Un relato completo llena el contexto de quien lo lee con detalles que no necesita. Lo que necesita es lo esencial, en pocas líneas.",
-        "misconceptionId": "m03-mc32"
+        "feedback": "Le falta cómo verificar antes de seguir, y el compañero no ve la memoria de esa herramienta. Podría tocar Centro sin saber si el resto sigue sano.",
+        "misconceptionId": "m03-mc33"
       },
       {
         "id": "o2",
@@ -514,10 +514,10 @@
       },
       {
         "id": "o3",
-        "text": "«Casi listo, falta una región. Sigue con lo que quede y, si los números no cierran, revisa las plantillas que te parezcan raras.»",
+        "text": "«3 de 4 regiones consolidadas. Sigue: Centro, hoy con 4 000 USD de diferencia. Verificar: make consolidate. Archivos: regions/ y caps.csv.»",
         "correct": false,
-        "feedback": "No dice qué región falta ni cómo verificar antes de seguir. Quien retoma no sabría si lo que encuentra está bien.",
-        "misconceptionId": "m03-mc33"
+        "feedback": "Le falta lo que se probó y falló. Sin eso, el compañero puede volver a proponer repartir por ventas, que ya se descartó.",
+        "misconceptionId": "m03-mc45"
       }
     ],
     "fixedOrder": false,

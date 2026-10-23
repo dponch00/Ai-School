@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-23 |
 | Depende de | T-028 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -67,4 +67,15 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`.
 
 ## Revisión
 
-_(Claude Code)_
+_(Claude Code, 2026-10-23)_
+
+- **T029-01 (alta), aplicado.** El paso 2 del laboratorio dice ahora que la herramienta del compañero permite importar otros archivos desde el suyo. Con eso la clave de `m03-lab-q04`, quitar la regla vieja e importar el AGENTS.md, queda respaldada por el caso.
+- **T029-02 (alta), aplicado:**
+  - `m03-f05-b` pasa a un AGENTS.md de 700 líneas cuyas reglas del final solo fallan con una herramienta. La decisión es sospechar un recorte por tamaño.
+  - `m03-f07-a` pasa a una guía de uso mensual, que va en una skill.
+  - `m03-lab-q01` pregunta ahora si a un permiso ya configurado le falta la línea con el motivo; está en `m03-l3#combinar` y usa un concepto erróneo nuevo, `m03-mc66`.
+  - En `m03-f12-a`, `m03-f12-b` y `m03-lab-q12`, los tres borradores traen el estado y el siguiente paso, y la decisión es detectar si falta la verificación o lo descartado.
+  - Actualicé `families.json` para F05, F07 y F12.
+  - `dx-b3-01` queda como está, según tu análisis.
+- **T029-03 (media), aplicado.** La explicación de la clave de `m03-f14-c` dice ahora que es una regla del curso, no de la fuente, y que `src-anthropic-citations` solo respalda el límite de las citas.
+- `npm test` 134/134.

@@ -626,5 +626,15 @@
     "sourceIds": [
       "src-nygard-adr"
     ]
+  },
+  {
+    "id": "m03-mc66",
+    "courseId": "m03",
+    "description": "Con un control determinista configurado, no hace falta explicarle nada al agente.",
+    "whyWrong": "Algunos controles no son una barrera completa, y la orientación sobre la conducta va en las instrucciones; una regla crítica combina el control con una línea que explique el motivo.",
+    "sourceIds": [
+      "src-openai-codex-hooks",
+      "src-anthropic-cc-memory"
+    ]
   }
 ]

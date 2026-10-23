@@ -27,7 +27,7 @@
     "family": "m03-f05",
     "evaluatedObjectiveId": "m03-eo2",
     "decision": "Comprobar qué archivos de instrucciones cargó la herramienta antes de buscar otra causa",
-    "equivalence": "Las tres variantes presentan un agente que no sigue reglas escritas y piden la primera comprobación. Cambia la pista: un AGENTS.md nuevo en una carpeta (a), el mismo AGENTS.md que funciona con una herramienta y no con otra (b) y un compañero que culpa al modelo justo después de crear un archivo personal (c, más difícil porque hay que conectar el archivo personal con la carga)."
+    "equivalence": "Las tres variantes presentan un agente que no sigue reglas escritas y piden la primera comprobación. Cambia la pista: un AGENTS.md nuevo en una carpeta (a), un archivo largo cuyas reglas del final solo fallan con una herramienta (b, recorte por tamaño) y un compañero que culpa al modelo justo después de crear un archivo personal (c, más difícil porque hay que conectar el archivo personal con la carga)."
   },
   {
     "family": "m03-f06",
@@ -39,7 +39,7 @@
     "family": "m03-f07",
     "evaluatedObjectiveId": "m03-eo3",
     "decision": "Elegir la capa de una pieza del proyecto según su frecuencia de uso, su alcance y su necesidad de garantía",
-    "equivalence": "Las tres variantes presentan una pieza del proyecto y piden su capa. Cambia la pieza: una prohibición sin excepciones (a, control determinista), una convención de una sola carpeta (b, regla por rutas) y un comando que se necesita en casi todas las sesiones y que alguien quiere pasar a una skill (c, más difícil porque el argumento del ahorro suena razonable)."
+    "equivalence": "Las tres variantes presentan una pieza del proyecto y piden su capa. Cambia la pieza: un procedimiento de uso mensual (a, skill), una convención de una sola carpeta (b, regla por rutas) y un comando que se necesita en casi todas las sesiones y que alguien quiere pasar a una skill (c, más difícil porque el argumento del ahorro suena razonable)."
   },
   {
     "family": "m03-f08",
@@ -69,7 +69,7 @@
     "family": "m03-f12",
     "evaluatedObjectiveId": "m03-eo5",
     "decision": "Elegir el documento de traspaso con el que otra persona u otro agente puede retomar el trabajo",
-    "equivalence": "Las tres variantes piden elegir entre tres borradores de traspaso. Cambia lo que falla en los distractores: un relato completo o un enlace al chat (a), la memoria de una herramienta o un resumen vago (b) y dos borradores casi completos a los que les falta la verificación o lo descartado (c, más difícil porque los tres se parecen)."
+    "equivalence": "Las tres variantes piden elegir entre tres borradores de traspaso que ya traen el estado y el siguiente paso; la decisión es detectar qué parte falta, la verificación o lo descartado. Cambia el caso: reportes de gastos con un borrador que remite al chat (a), conciliación de proveedores con una verificación que depende de la memoria de otra herramienta (b) y una regla de devoluciones con tres borradores casi iguales (c, más difícil porque solo cambia una línea)."
   },
   {
     "family": "m03-f13",

@@ -602,36 +602,34 @@
     "process": "analyze",
     "family": "m03-f05",
     "variant": "b",
-    "scenario": "El mismo AGENTS.md funciona bien con una herramienta. Con otra, en el mismo repositorio, el agente no aplica ninguna de sus reglas.",
+    "scenario": "El AGENTS.md del proyecto creció hasta 700 líneas. Con una herramienta, el agente aplica todas sus reglas; con otra, en el mismo repositorio, aplica las del principio e ignora las del final.",
     "stem": "¿Qué compruebas primero?",
     "options": [
       {
         "id": "o1",
-        "text": "Nada: todas las herramientas leen AGENTS.md igual, así que será solo un error pasajero",
+        "text": "Si el modelo de la segunda herramienta se distrae más con los archivos largos",
         "correct": false,
-        "feedback": "Cada herramienta lee AGENTS.md con condiciones distintas: alguna solo si no tiene su propio archivo, otra solo el de la raíz. Hay que ver qué cargó la segunda.",
-        "misconceptionId": "m03-mc05"
+        "feedback": "Antes de culpar al modelo hay que saber qué le llegó. Que fallen justo las reglas del final apunta a un recorte por tamaño.",
+        "misconceptionId": "m03-mc52"
       },
       {
         "id": "o2",
-        "text": "Qué archivos de instrucciones cargó la segunda herramienta en ese repositorio",
+        "text": "Si la segunda herramienta recibe el archivo entero o solo su principio, por su límite de tamaño",
         "correct": true,
-        "feedback": "Correcta. Las herramientas leen AGENTS.md con condiciones distintas. Mirar qué cargó la segunda muestra si lo vio o si otro archivo lo desplazó."
+        "feedback": "Correcta. Una herramienta entrega solo el principio de los archivos que superan su límite, y lo hace en silencio. Si el final no llega, el agente no puede seguir esas reglas, y conviene podar el archivo."
       },
       {
         "id": "o3",
-        "text": "Si al AGENTS.md le faltan los campos obligatorios que exige la segunda herramienta",
+        "text": "Si las reglas del final usan los campos obligatorios que exige la segunda herramienta",
         "correct": false,
-        "feedback": "AGENTS.md no tiene campos obligatorios: es Markdown libre. Si funciona con una herramienta, el contenido está bien; lo que cambia es cómo lo carga la otra.",
+        "feedback": "AGENTS.md no tiene campos obligatorios: es Markdown libre. El patrón de fallo, solo al final, apunta a un límite de tamaño.",
         "misconceptionId": "m03-mc53"
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m03-l2#compartido",
+    "sectionRef": "m03-l2#verificar-carga",
     "sourceIds": [
-      "src-agentsmd-site",
       "src-anthropic-cc-memory",
-      "src-microsoft-vscode-instructions",
       "src-openai-codex-agentsmd"
     ],
     "status": "draft"
@@ -826,35 +824,35 @@
     "process": "apply",
     "family": "m03-f07",
     "variant": "a",
-    "scenario": "Política de Contraloría: el agente no puede escribir en la carpeta payroll/, donde está la nómina. Tiene que cumplirse en todas las sesiones, sin excepción.",
+    "scenario": "La guía para redactar la nota mensual al directorio, con su formato, su tono y cuatro pasos de revisión, se usa una vez al mes.",
     "stem": "¿En qué capa va?",
     "options": [
       {
         "id": "o1",
-        "text": "En la instrucción permanente, escrita en mayúsculas y al principio del archivo",
+        "text": "En la instrucción permanente, para que el agente la tenga a mano cuando llegue el día",
         "correct": false,
-        "feedback": "Escrita en las instrucciones, la prohibición es una petición que el agente intenta seguir. Lo que tiene que cumplirse sin excepción va en un control determinista.",
-        "misconceptionId": "m03-mc08"
+        "feedback": "La instrucción permanente se paga en cada petición, y esta guía se usa una vez al mes. Durante el resto del mes ocuparía contexto sin servir.",
+        "misconceptionId": "m03-mc10"
       },
       {
         "id": "o2",
-        "text": "En una skill de nómina que el agente cargue cuando trabaje con esos archivos",
-        "correct": false,
-        "feedback": "Una skill también es texto que el agente lee, y solo cuando se activa. Una prohibición sin excepciones necesita un control que no dependa del modelo.",
-        "misconceptionId": "m03-mc11"
+        "text": "En una skill, que solo ocupa su descripción hasta que se usa",
+        "correct": true,
+        "feedback": "Correcta. Un procedimiento de varios pasos que se usa a veces va en una skill. Su contenido completo entra al contexto solo cuando se activa."
       },
       {
         "id": "o3",
-        "text": "En un permiso o un hook que bloquee la escritura, con una línea que explique el motivo",
-        "correct": true,
-        "feedback": "Correcta. Lo que tiene que pasar siempre va en un control determinista. La línea con el motivo ayuda al agente a entender por qué se bloquea."
+        "text": "En un subagente dedicado a la nota mensual, que guarde la guía hasta el día del cierre",
+        "correct": false,
+        "feedback": "Un subagente aísla trabajo que inundaría el contexto; no es un lugar para guardar procedimientos. Lo que se repite a veces va en una skill.",
+        "misconceptionId": "m03-mc23"
       }
     ],
     "fixedOrder": false,
     "sectionRef": "m03-l3#cuatro-preguntas",
     "sourceIds": [
       "src-anthropic-cc-features",
-      "src-anthropic-cc-memory"
+      "src-agentskills-site"
     ],
     "status": "draft"
   },
@@ -1510,23 +1508,23 @@
     "options": [
       {
         "id": "o1",
-        "text": "«Hoy empecé revisando el reporte 1; después el agente propuso cambiar la consulta, discutimos dos alternativas y al final…» (cuatro páginas)",
-        "correct": false,
-        "feedback": "Un relato completo llena el contexto de quien lo lee con detalles que no necesita. Le falta lo esencial en forma breve: estado, siguiente paso y cómo verificar.",
-        "misconceptionId": "m03-mc32"
+        "text": "«Hechos 3 de 5 reportes; las pruebas pasan. Sigue: el 4. Antes, corre make verify. Descartado: unir tablas por fecha, duplica filas.»",
+        "correct": true,
+        "feedback": "Correcta. Además del estado y el siguiente paso, dice cómo verificar y qué se descartó. Con eso el compañero comprueba antes de seguir y no repite el error."
       },
       {
         "id": "o2",
-        "text": "«Todo está en el chat de hoy: abre la conversación, léela con calma y sigue desde donde quedamos con el agente.»",
+        "text": "«Hechos 3 de 5 reportes; las pruebas pasan. Sigue: el 4. Antes, corre make verify. Archivos tocados: report_3.sql y la vista final.»",
         "correct": false,
-        "feedback": "El compañero usa otra herramienta y no tiene acceso a tu conversación. Lo que tiene que cruzar de una sesión a otra se escribe en el repositorio.",
-        "misconceptionId": "m03-mc31"
+        "feedback": "Le falta lo que se probó y falló. Sin eso, el compañero puede volver a unir las tablas por fecha y duplicar filas.",
+        "misconceptionId": "m03-mc45"
       },
       {
         "id": "o3",
-        "text": "«Hechos 3 de 5 reportes; las pruebas pasan. Sigue: el 4. Antes, corre make verify. Descartado: unir tablas por fecha, duplica filas.»",
-        "correct": true,
-        "feedback": "Correcta. Dice el estado, el siguiente paso, cómo verificar y lo que se descartó. Con eso el compañero puede retomar sin repetir el error."
+        "text": "«Hechos 3 de 5 reportes; las pruebas pasan. Sigue: el 4. Descartado: unir tablas por fecha, duplica filas. Lo demás, en el chat.»",
+        "correct": false,
+        "feedback": "Le falta cómo verificar antes de seguir, y remite al chat, que el compañero no ve. Sin la verificación, puede construir sobre algo roto.",
+        "misconceptionId": "m03-mc33"
       }
     ],
     "fixedOrder": false,
@@ -1556,23 +1554,23 @@
     "options": [
       {
         "id": "o1",
-        "text": "«12 de 14 proveedores cuadran. Sigue: el proveedor K. Verificar: script de conciliación, diferencia cero. Descartado: tolerancia de 1 USD.»",
-        "correct": true,
-        "feedback": "Correcta. Trae el estado, el siguiente paso, la forma de verificar y lo descartado. La analista puede comprobar el estado antes de seguir."
-      },
-      {
-        "id": "o2",
-        "text": "«Mi herramienta guardó en su memoria automática todo lo que hicimos esta semana; pídele a la tuya que se lo pregunte y te lo resuma con calma.»",
+        "text": "«12 de 14 proveedores cuadran. Sigue: el proveedor K. Verificar: pregúntale a mi herramienta, que recuerda qué probé esta semana.»",
         "correct": false,
-        "feedback": "La memoria de una herramienta no la ve otra persona con otra herramienta. Lo que pasa de una persona a otra se deja en el repositorio.",
+        "feedback": "La memoria de una herramienta no la ve otra persona con otra herramienta. La verificación tiene que ser algo que la analista pueda correr por su cuenta.",
         "misconceptionId": "m03-mc44"
       },
       {
+        "id": "o2",
+        "text": "«12 de 14 proveedores cuadran. Sigue: el proveedor K. Verificar: script de conciliación, diferencia cero. Descartado: tolerancia de 1 USD.»",
+        "correct": true,
+        "feedback": "Correcta. Trae el estado, el siguiente paso, una verificación que la analista puede correr y lo descartado. Puede comprobar el estado antes de seguir."
+      },
+      {
         "id": "o3",
-        "text": "«Ya casi está, quedan un par de proveedores. Sigue con lo que falte y avísame si encuentras algo raro en los números.»",
+        "text": "«12 de 14 proveedores cuadran. Sigue: el proveedor K. Verificar: script de conciliación, diferencia cero. Lo que no funcionó ya no importa.»",
         "correct": false,
-        "feedback": "No dice qué falta ni cómo verificar el estado antes de seguir. Quien retoma no sabría si lo que encuentra está bien.",
-        "misconceptionId": "m03-mc33"
+        "feedback": "Le falta lo que se probó y falló. Sin eso, la analista puede volver a intentar la tolerancia de 1 USD.",
+        "misconceptionId": "m03-mc45"
       }
     ],
     "fixedOrder": false,
@@ -1883,7 +1881,7 @@
         "id": "o3",
         "text": "Comprobar el 1,3 contra la salida del cálculo del proyecto, no contra la cita",
         "correct": true,
-        "feedback": "Correcta. El agente puede recuperar la ruta del dato, pero el número sale del cálculo del proyecto. Citar un documento no reemplaza reconciliar la cifra con ese cálculo."
+        "feedback": "Correcta. Es una regla de este curso, no de la fuente: las cifras salen del cálculo determinista del proyecto, y una cita a un documento no reemplaza esa reconciliación. La fuente solo respalda que una cita garantiza que el pasaje existe."
       }
     ],
     "fixedOrder": false,

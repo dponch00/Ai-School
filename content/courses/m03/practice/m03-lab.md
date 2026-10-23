@@ -16,13 +16,13 @@ El repositorio consolida los presupuestos de las cuatro regiones de Altiplano en
 4. La regla de Contraloría: el agente no puede modificar los topes de gasto aprobados del archivo `caps.csv`.
 5. La lista de responsables de cada región, que cambia casi todos los meses.
 
-Las piezas 1 y 2 tienen su lugar claro: la primera va en la instrucción permanente y la segunda, en un archivo de instrucciones dentro de `regions/`. Quedan las otras tres.
+Las piezas 1 y 2 tienen su lugar claro: la primera va en la instrucción permanente y la segunda, en un archivo de instrucciones dentro de `regions/`. Para la pieza 4, la analista ya configuró un permiso que bloquea la escritura de `caps.csv`. Quedan por decidir las piezas 3 y 5, y si a la 4 le falta algo.
 
 ::lab-questions{step="paso-1"}
 
 ## Paso 2 · La regla que no se cargaba {#paso-2}
 
-La analista escribe la pieza 1 en el AGENTS.md de la raíz, junto con una regla de unidades: «montos en miles de USD». Su compañero de equipo, que usa otra herramienta, cuenta que en su computadora el agente no corre `make consolidate` y entrega los montos en USD sin redondear. Desde el año pasado, él tiene ahí un archivo de instrucciones propio de su herramienta, que copió de otro proyecto.
+La analista escribe la pieza 1 en el AGENTS.md de la raíz, junto con una regla de unidades: «montos en miles de USD». Su compañero de equipo, que usa otra herramienta, cuenta que en su computadora el agente no corre `make consolidate` y entrega los montos en USD sin redondear. Desde el año pasado, él tiene ahí un archivo de instrucciones propio de su herramienta, que copió de otro proyecto. Su herramienta permite importar otros archivos desde ese archivo propio, con una sintaxis que reconoce.
 
 ::lab-questions{step="paso-2"}
 
