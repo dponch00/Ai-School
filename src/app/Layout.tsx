@@ -24,7 +24,7 @@ export default function Layout() {
           <nav aria-label="Principal">
             <NavLink to="/cursos">Cursos</NavLink>
             <NavLink to="/diagnostico">Diagnóstico</NavLink>
-            <NavLink to="/notas">Mis notas</NavLink>
+            <NavLink to="/notas">Notas</NavLink>
             <NavLink to="/respaldo">Respaldo</NavLink>
           </nav>
         </div>

@@ -40,6 +40,8 @@ export interface PracticeView extends Practice {
 export interface CourseView extends Course {
   lessons: LessonView[]
   practice: PracticeView | null
+  /** Todas las lecciones, el laboratorio y el banco de examen: solo entonces figura como disponible. */
+  complete: boolean
   package: { url: string; integrity: string; bytes: number }
 }
 

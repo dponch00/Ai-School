@@ -51,6 +51,11 @@ export default function CourseOverview() {
       )}
       <h1>{course.title}</h1>
       <p className="lead">{course.centralQuestion}</p>
+      {!course.complete && (
+        <p className="notice notice--info">
+          Manual en preparación: {course.lessons.length} de {course.lessonIds.length} lecciones escritas. El laboratorio y el examen llegan cuando esté completo y revisado.
+        </p>
+      )}
       <OfflineToggle courseId={course.id} bytes={course.package.bytes} />
 
       <section className="section" aria-labelledby="objetivos">
@@ -113,26 +118,30 @@ export default function CourseOverview() {
               </Link>
             </li>
           )}
-          <li>
-            <Link to={`/cursos/${course.id}/practica`} className="lesson-list__link">
-              <span className="lesson-list__order" aria-hidden="true">◇</span>
-              <span className="lesson-list__title">
-                Preguntas de práctica
-                <span className="lesson-list__status">Con el porqué de cada opción al responder; no cuentan para aprobar</span>
-              </span>
-              <span className="lesson-list__time">15 min</span>
-            </Link>
-          </li>
-          <li>
-            <Link to={`/cursos/${course.id}/examen`} className="lesson-list__link">
-              <span className="lesson-list__order" aria-hidden="true">{passedExam ? '✓' : '◆'}</span>
-              <span className="lesson-list__title">
-                Examen de {course.evaluatedObjectives.length * 2} preguntas
-                <span className={`lesson-list__status${passedExam ? ' lesson-list__status--done' : ''}`}>{examStatus}</span>
-              </span>
-              <span className="lesson-list__time">25 min</span>
-            </Link>
-          </li>
+          {course.complete && (
+            <>
+              <li>
+                <Link to={`/cursos/${course.id}/practica`} className="lesson-list__link">
+                  <span className="lesson-list__order" aria-hidden="true">◇</span>
+                  <span className="lesson-list__title">
+                    Preguntas de práctica
+                    <span className="lesson-list__status">Con el porqué de cada opción al responder; no cuentan para aprobar</span>
+                  </span>
+                  <span className="lesson-list__time">15 min</span>
+                </Link>
+              </li>
+              <li>
+                <Link to={`/cursos/${course.id}/examen`} className="lesson-list__link">
+                  <span className="lesson-list__order" aria-hidden="true">{passedExam ? '✓' : '◆'}</span>
+                  <span className="lesson-list__title">
+                    Examen de {course.evaluatedObjectives.length * 2} preguntas
+                    <span className={`lesson-list__status${passedExam ? ' lesson-list__status--done' : ''}`}>{examStatus}</span>
+                  </span>
+                  <span className="lesson-list__time">25 min</span>
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
       </section>
     </div>

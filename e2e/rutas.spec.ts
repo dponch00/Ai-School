@@ -18,6 +18,8 @@ const RUTAS = [
   ['glosario', '/#/glosario?termino=g-invariante'],
   ['mis notas', '/#/notas'],
   ['cómo funciona', '/#/como-funciona'],
+  ['portada M01 (en preparación)', '/#/cursos/m01'],
+  ['M01 lección 3', '/#/cursos/m01/lecciones/m01-l3'],
 ] as const
 
 for (const [nombre, ruta] of RUTAS) {

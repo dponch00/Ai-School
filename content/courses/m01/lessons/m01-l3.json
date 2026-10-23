@@ -1,0 +1,59 @@
+{
+  "id": "m01-l3",
+  "courseId": "m01",
+  "version": "0.1.0",
+  "order": 3,
+  "title": "Tokens, contexto, información actual y acceso real",
+  "objectives": [
+    {
+      "id": "m01-l3-o1",
+      "statement": "Reconoce qué ocupa la ventana de contexto y por qué llenarla empeora el resultado.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m01-eo3"
+    },
+    {
+      "id": "m01-l3-o2",
+      "statement": "Dado un pedido, determina qué información tiene que llegarle al modelo y por qué camino, teniendo en cuenta la fecha de corte.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m01-eo3"
+    },
+    {
+      "id": "m01-l3-o3",
+      "statement": "Exige la evidencia de la herramienta antes de aceptar que algo se ejecutó o se consultó.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m01-eo3"
+    }
+  ],
+  "bodyPath": "courses/m01/lessons/m01-l3.md",
+  "reviewQuestionIds": [
+    "m01-l2-r1",
+    "m01-l2-r2"
+  ],
+  "checkQuestionIds": [
+    "m01-l3-c1",
+    "m01-l3-c2",
+    "m01-l3-c3",
+    "m01-l3-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m01-pc-context-cutoff",
+    "m01-pc-context-tools"
+  ],
+  "sourceIds": [
+    "src-anthropic-glossary",
+    "src-anthropic-pricing",
+    "src-anthropic-context-windows",
+    "src-anthropic-cc-costs",
+    "src-chroma-context-rot",
+    "src-arxiv-lost-middle",
+    "src-anthropic-cc-best-practices",
+    "src-anthropic-models-overview",
+    "src-openai-models",
+    "src-anthropic-support-web-search",
+    "src-anthropic-cc-glossary",
+    "src-transluce-o3-truthfulness"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

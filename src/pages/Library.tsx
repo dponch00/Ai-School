@@ -21,7 +21,7 @@ export default function Library() {
                 <h2 className="course-card__title">{c.title}</h2>
                 <p className="course-card__question">{c.centralQuestion}</p>
                 <p className="course-card__status">
-                  {course ? `Disponible · ${course.lessons.length} lecciones · laboratorio` : 'Próximamente'}
+                  {!course ? 'Próximamente' : course.complete ? `Disponible · ${course.lessons.length} lecciones · laboratorio` : `En preparación · ${course.lessons.length} de ${course.lessonIds.length} lecciones`}
                 </p>
               </div>
             </>

@@ -1,0 +1,45 @@
+{
+  "id": "m01",
+  "version": "0.1.0",
+  "title": "Herramientas, modelos y límites de la IA",
+  "centralQuestion": "¿Qué herramienta usaría para esta tarea y cómo comprobaría su resultado?",
+  "competencyIds": ["C01", "C12"],
+  "evaluatedObjectives": [
+    {
+      "id": "m01-eo1",
+      "statement": "Dada una diferencia de comportamiento entre dos usos de «la misma IA», identifica qué capa la explica (modelo, producto, superficie, agente o entorno de ejecución), sin atribuir al modelo lo que depende del producto o del entorno.",
+      "competencyIds": ["C01"]
+    },
+    {
+      "id": "m01-eo2",
+      "statement": "Dada una tarea de trabajo, elige el tipo de herramienta y la superficie adecuados según lo que la herramienta tiene que tocar, la información que necesita y cómo se va a verificar el resultado, y reconoce por qué una alternativa plausible es peor.",
+      "competencyIds": ["C01"]
+    },
+    {
+      "id": "m01-eo3",
+      "statement": "Dado un pedido que requiere información reciente, archivos o sistemas, determina si la herramienta tiene acceso real y qué hay que darle o activar, teniendo en cuenta el límite de contexto y la fecha de corte del modelo.",
+      "competencyIds": ["C01"]
+    },
+    {
+      "id": "m01-eo4",
+      "statement": "Dada una respuesta con cifras, citas o acciones declaradas, identifica qué partes exigen verificación y elige un método proporcional al riesgo (fuente primaria, recálculo determinista o evidencia de la herramienta), sin tomar la seguridad del texto como evidencia.",
+      "competencyIds": ["C01", "C12"]
+    },
+    {
+      "id": "m01-eo5",
+      "statement": "Dado un caso con requisitos de calidad, volumen, latencia, privacidad y presupuesto, elige la configuración suficiente (modelo y esfuerzo, modalidad de pago, ejecución local o en la nube) y reconoce cuándo una opción más cara o más barata no se justifica.",
+      "competencyIds": ["C01"]
+    },
+    {
+      "id": "m01-eo6",
+      "statement": "Dadas dos herramientas candidatas y una tarea fija, elige el diseño de comparación válido (mismas entradas, varios ensayos, un criterio crítico) y la conclusión que la evidencia permite sacar, con fecha y versión.",
+      "competencyIds": ["C01", "C12"]
+    }
+  ],
+  "lessonIds": ["m01-l1", "m01-l2", "m01-l3", "m01-l4", "m01-l5", "m01-l6"],
+  "practiceId": "m01-lab",
+  "estimatedMinutes": 180,
+  "volatility": "very-high",
+  "reviewCadence": "quarterly",
+  "status": "draft"
+}

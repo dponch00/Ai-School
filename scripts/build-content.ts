@@ -263,7 +263,10 @@ for (const courseId of readdirSync(resolve(contentDir, 'courses'))) {
         throw new Error(`${labPath}: el paso «${step}» no tiene preguntas`)
     practice = { ...lab, toc: rendered.toc, blocks: rendered.blocks }
   }
-  courses.push({ ...course, lessons, practice })
+  // Un manual se publica completo: todas sus lecciones, su laboratorio y su banco de examen. Mientras tanto
+  // se puede abrir por su enlace como «en preparación», pero no figura como disponible.
+  const complete = lessons.length === course.lessonIds.length && practice !== null && Object.values(pieces.questions).some((x: any) => x.use === 'exam')
+  courses.push({ ...course, lessons, practice, complete })
 }
 
 // ---------- Glosario e índice de búsqueda (F2-07) ----------
@@ -337,7 +340,7 @@ const diagnosticQuestions = Object.fromEntries(Object.entries(questions).filter(
 
 const out = {
   generatedAt: new Date().toISOString(),
-  catalog: catalog.map((c) => ({ ...c, available: courses.some((x: any) => x.id === c.id) })),
+  catalog: catalog.map((c) => ({ ...c, available: courses.some((x: any) => x.id === c.id && x.complete) })),
   courses: outlines,
   competencies,
   diagnostic,

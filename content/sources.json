@@ -951,5 +951,696 @@
     "kind": "primary",
     "volatility": "low",
     "nextReview": "2027-10-21"
+  },
+  {
+    "id": "src-anthropic-models-overview",
+    "title": "Models overview",
+    "organization": "Anthropic",
+    "url": "https://platform.claude.com/docs/en/about-claude/models/overview",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Modelos actuales, precios base, latencia relativa, esfuerzo por defecto, contexto de 1M, salida de 128K, fecha de corte fiable frente a datos de entrenamiento, herramientas de servidor que puede desactivar un administrador"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-choosing-model",
+    "title": "Choosing the right model",
+    "organization": "Anthropic",
+    "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Criterios (capacidad, velocidad, costo, esfuerzo)",
+      "arrancar por eficiencia o por capacidad",
+      "ajustar esfuerzo antes que cambiar de modelo",
+      "pruebas propias como paso más importante",
+      "modo rápido hasta 2,5×"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-context-windows",
+    "title": "Context windows",
+    "organization": "Anthropic",
+    "url": "https://platform.claude.com/docs/en/build-with-claude/context-windows",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Qué cuenta en el contexto",
+      "memoria de trabajo",
+      "*context rot*",
+      "razonamiento cuenta y se cobra como salida",
+      "caché no libera contexto"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-anthropic-pricing",
+    "title": "Pricing",
+    "organization": "Anthropic",
+    "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Precios por modelo, caché, lotes −50 %, contexto largo, Haiku 5.5 por tramos, búsqueda web USD 10/1.000, residencia ×1,1, modo rápido, tokenizador ≈ +30 %"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-effort",
+    "title": "Effort",
+    "organization": "Anthropic",
+    "url": "https://platform.claude.com/docs/en/build-with-claude/effort",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Niveles de esfuerzo, valores por defecto, efecto sobre todos los tokens y herramientas",
+      "barrer los niveles con evaluaciones propias",
+      "el máximo aporta poca ganancia en muchas tareas",
+      "el control de esfuerzo está disponible para todos (GA)"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-glossary",
+    "title": "Glossary (Claude Platform)",
+    "organization": "Anthropic",
+    "url": "https://platform.claude.com/docs/en/about-claude/glossary",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Definiciones de LLM, preentrenamiento, RLHF, contexto, tokens, latencia, TTFT",
+      "no determinismo incluso a temperatura 0"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-anthropic-cc-overview",
+    "title": "Claude Code overview",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/overview",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Claude Code como herramienta agéntica",
+      "superficies",
+      "integraciones",
+      "planes requeridos por superficie"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-cc-glossary",
+    "title": "Claude Code glossary",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/glossary",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Arnés frente a modelo",
+      "bucle agéntico",
+      "herramienta",
+      "superficie",
+      "sesión en la nube",
+      "bucle de verificación",
+      "contexto y compactación"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-cc-cloud",
+    "title": "Use Claude Code in the cloud",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/claude-code-on-the-web",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "VM gestionada",
+      "planes",
+      "clona la rama remota, no la copia local",
+      "red limitada por defecto",
+      "credenciales fuera de la VM",
+      "comparte límites del plan"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-cc-costs",
+    "title": "Manage costs effectively",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/costs",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Promedio ≈ USD 13 por día activo y USD 150–250/mes",
+      "`/usage`",
+      "elegir modelo y esfuerzo",
+      "reenvío del historial",
+      "equipos de agentes ≈ 7×",
+      "CLI más eficiente que MCP"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-cc-data-usage",
+    "title": "Data usage",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/data-usage",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Claude Code corre en local pero envía prompts y respuestas al modelo",
+      "política de entrenamiento y retención por tipo de cuenta",
+      "flujo de datos en la nube"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-privacy-consumer-training",
+    "title": "Is my data used for model training? (consumidores, 2026-03-16)",
+    "organization": "Anthropic",
+    "url": "https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Planes Free/Pro/Max: uso para entrenar si el usuario lo permite",
+      "chats incógnito excluidos",
+      "feedback"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-privacy-commercial-training",
+    "title": "Is my data used for model training? (comercial, 2026-08-18)",
+    "organization": "Anthropic",
+    "url": "https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Productos comerciales y API: no se entrena por defecto"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-support-research",
+    "title": "Use research on Claude",
+    "organization": "Anthropic",
+    "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Research: búsquedas encadenadas, planes de pago, requiere búsqueda web, móvil sin conectores, modelo fijo, consumo mayor"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-support-web-search",
+    "title": "Enable and use web search",
+    "organization": "Anthropic",
+    "url": "https://support.claude.com/en/articles/10684626-enable-and-use-web-search",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Búsqueda con citas para verificar",
+      "habilitación por Owner",
+      "leer una URL larga consume contexto y límite"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-support-files",
+    "title": "Create and edit files with Claude (2026-08-06)",
+    "organization": "Anthropic",
+    "url": "https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Ejecución de código y creación de archivos de oficina en sandbox",
+      "disponibilidad por plan",
+      "red configurable y su riesgo",
+      "revisar lo generado"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-support-images",
+    "title": "Can Claude produce images? (2026-03-16)",
+    "organization": "Anthropic",
+    "url": "https://support.claude.com/en/articles/9002504-can-claude-produce-images",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "No genera fotos ni ilustraciones",
+      "visuales HTML/SVG en beta"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-support-pro-plan",
+    "title": "What is the Pro plan?",
+    "organization": "Anthropic",
+    "url": "https://support.claude.com/en/articles/8325606-what-is-the-pro-plan",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Precio USD 20 (EE. UU.)",
+      "no incluye API",
+      "límite cada cinco horas y semanal",
+      "consumo según largo y función"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-openai-models",
+    "title": "Models",
+    "organization": "OpenAI",
+    "url": "https://developers.openai.com/api/docs/models",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Modelos GPT-6, contexto, salida, fecha de corte, niveles de esfuerzo, recomendación de inicio"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-openai-pricing",
+    "title": "Pricing",
+    "organization": "OpenAI",
+    "url": "https://developers.openai.com/api/docs/pricing",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Precios por modelo, contexto largo, lotes/flex, modo rápido, búsqueda web USD 10/1.000"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-openai-codex-pricing",
+    "title": "Codex pricing",
+    "organization": "OpenAI",
+    "url": "https://learn.chatgpt.com/codex/pricing",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Planes y precios",
+      "ventanas de uso",
+      "créditos",
+      "nube consume más",
+      "API key aparte y sin nube",
+      "modos rápidos"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-openai-codex-models",
+    "title": "Codex models",
+    "organization": "OpenAI",
+    "url": "https://learn.chatgpt.com/codex/models",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Modelos recomendados por tarea",
+      "disponibilidad por plan y cliente",
+      "niveles de esfuerzo",
+      "retiradas con fecha"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-openai-codex-cloud",
+    "title": "Codex Cloud",
+    "organization": "OpenAI",
+    "url": "https://learn.chatgpt.com/codex/cloud",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Espacio de trabajo por tarea",
+      "sigue con el equipo apagado",
+      "red configurable",
+      "secretos por entorno"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-openai-codex-cli-reference",
+    "title": "Codex CLI reference",
+    "organization": "OpenAI",
+    "url": "https://learn.chatgpt.com/codex/cli/reference",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "`--oss` con `--local-provider` (Ollama, LM Studio)",
+      "`--model`"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-openai-codex-imagegen",
+    "title": "Image generation (Codex)",
+    "organization": "OpenAI",
+    "url": "https://learn.chatgpt.com/codex/image-generation",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Generación de imágenes integrada",
+      "consumo 3–5×"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-openai-help-capabilities",
+    "title": "ChatGPT capabilities overview",
+    "organization": "OpenAI",
+    "url": "https://help.openai.com/en/articles/9260256-chatgpt-capabilities-overview",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Herramientas de ChatGPT (búsqueda, investigación, imagen, archivos y audio, análisis con código, voz, memoria, proyectos, tareas)"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-openai-help-deep-research",
+    "title": "Deep research in ChatGPT",
+    "organization": "OpenAI",
+    "url": "https://help.openai.com/en/articles/10500283-deep-research-in-chatgpt",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Flujo con plan revisable",
+      "informe con citas",
+      "fuentes y apps solo en lectura",
+      "búsqueda frente a investigación",
+      "uso por plan"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-openai-help-data-training",
+    "title": "How your data is used to improve model performance",
+    "organization": "OpenAI",
+    "url": "https://help.openai.com/en/articles/5722486-how-your-data-is-used-to-improve-model-performance",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Entrenamiento según plan y ajuste",
+      "empresa y API excluidos por defecto",
+      "chats temporales",
+      "feedback"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-openai-blog-hallucinate",
+    "title": "Why language models hallucinate (2025-09-05)",
+    "organization": "OpenAI",
+    "url": "https://openai.com/index/why-language-models-hallucinate/",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Definición",
+      "incentivos de las evaluaciones",
+      "ejemplo abstención/acierto/error",
+      "origen en el preentrenamiento",
+      "no inevitables",
+      "exactitud < 100 %"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-arxiv-why-hallucinate",
+    "title": "Why Language Models Hallucinate (Kalai, Nachum, Vempala, Zhang; 2025-09-04)",
+    "organization": "OpenAI / Georgia Tech (arXiv)",
+    "url": "https://arxiv.org/abs/2509.04664",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Alucinación como error de clasificación binaria en el preentrenamiento",
+      "persistencia por puntuación que premia adivinar",
+      "remedio sociotécnico"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-openai-gpt-oss",
+    "title": "Introducing gpt-oss (2025-08-05)",
+    "organization": "OpenAI",
+    "url": "https://openai.com/index/introducing-gpt-oss/",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Pesos abiertos Apache 2.0",
+      "20B con 16 GB, 120B en una GPU de 80 GB",
+      "uso local"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-github-copilot-features",
+    "title": "About GitHub Copilot",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/copilot/get-started/features",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Capacidades por categoría",
+      "disponibilidad según plan, cliente y políticas"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-github-copilot-agents",
+    "title": "About GitHub Copilot agents",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/copilot/concepts/agent-capabilities/about-agents/about-github-copilot-agents",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Superficies de agentes y dónde ejecutan",
+      "cuándo elegir cada una"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-github-copilot-plans",
+    "title": "Plans for GitHub Copilot",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/copilot/get-started/plans",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Planes, precios, créditos, funciones y modelos por plan",
+      "CLI y app en todos los planes"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-github-copilot-billing-individuals",
+    "title": "Usage-based billing for individuals",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/copilot/concepts/billing-and-usage/individuals/billing",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "1 crédito = USD 0,01",
+      "qué consume",
+      "completions excluidas",
+      "descuento por selección automática",
+      "plan Max",
+      "qué pasa al agotar créditos"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-github-blog-ubb",
+    "title": "GitHub Copilot is moving to usage-based billing (2026-04-27)",
+    "organization": "GitHub",
+    "url": "https://github.blog/changelog/2026/04/27/github-copilot-is-moving-to-usage-based-billing/",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Créditos por tokens al precio de API desde 2026-06-01",
+      "completions incluidas",
+      "code review consume minutos de Actions"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-github-copilot-model-comparison",
+    "title": "AI model comparison",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/copilot/reference/ai-models/model-comparison",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Categorías de tarea para elegir modelo",
+      "lista desfasada respecto de los planes"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-github-changelog-cli-ga",
+    "title": "GitHub Copilot CLI is now generally available (2026-02-25)",
+    "organization": "GitHub",
+    "url": "https://github.blog/changelog/2026-02-25-github-copilot-cli-is-now-generally-available/",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "CLI GA",
+      "modo plan",
+      "delegación a la nube con `&`"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-github-changelog-gemini",
+    "title": "Gemini models in Copilot CLI, cloud agent, and the Copilot app (2026-06-02)",
+    "organization": "GitHub",
+    "url": "https://github.blog/changelog/2026-06-02-gemini-models-in-copilot-cli-cloud-agent-and-the-copilot-app/",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Copilot app en *technical preview* a esa fecha"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-arxiv-kadavath-know",
+    "title": "Language Models (Mostly) Know What They Know (Kadavath et al., 2022)",
+    "organization": "Anthropic (arXiv)",
+    "url": "https://arxiv.org/abs/2207.05221",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Calibración razonable en formatos cerrados",
+      "autoevaluación",
+      "calibración poco fiable en tareas nuevas"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-arxiv-sycophancy",
+    "title": "Towards Understanding Sycophancy in Language Models (Sharma et al., 2023; v4 2025)",
+    "organization": "Anthropic y otros (arXiv)",
+    "url": "https://arxiv.org/abs/2310.13548",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Asistentes que priorizan coincidir con el usuario",
+      "papel de las preferencias humanas"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-arxiv-lost-middle",
+    "title": "Lost in the Middle: How Language Models Use Long Contexts (Liu et al., 2023; TACL)",
+    "organization": "Stanford y otros (arXiv)",
+    "url": "https://arxiv.org/abs/2307.03172",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Peor uso de la información situada en medio de entradas largas"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-chroma-context-rot",
+    "title": "Context Rot: How Increasing Input Tokens Impacts LLM Performance (2025-07-14)",
+    "organization": "Chroma (informe técnico)",
+    "url": "https://www.trychroma.com/research/context-rot",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Degradación con la longitud de entrada en 18 modelos, incluso en tareas simples",
+      "efecto de distractores"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-scirep-fabricated-citations",
+    "title": "Fabrication and errors in the bibliographic citations generated by ChatGPT (Walters y Wilder, 2023)",
+    "organization": "Scientific Reports",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10484980/",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "55 % y 18 % de referencias inventadas según el modelo",
+      "errores sustantivos en referencias reales",
+      "modelos de 2023"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-transluce-o3-truthfulness",
+    "title": "Investigating truthfulness in a pre-release o3 model (2025-04-16)",
+    "organization": "Transluce (laboratorio sin fines de lucro)",
+    "url": "https://transluce.org/investigating-o3-truthfulness",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Un modelo afirmó haber ejecutado código que no podía ejecutar e inventó salidas"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-nist-ai-600-1",
+    "title": "AI RMF: Generative AI Profile (NIST AI 600-1, julio de 2024)",
+    "organization": "NIST",
+    "url": "https://doi.org/10.6028/NIST.AI.600-1",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Confabulación como riesgo",
+      "sesgo de automatización y confianza excesiva"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
   }
 ]

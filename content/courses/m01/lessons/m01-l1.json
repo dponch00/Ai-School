@@ -1,0 +1,52 @@
+{
+  "id": "m01-l1",
+  "courseId": "m01",
+  "version": "0.1.0",
+  "order": 1,
+  "title": "Modelo, producto, superficie, agente y entorno: cinco cosas distintas",
+  "objectives": [
+    {
+      "id": "m01-l1-o1",
+      "statement": "Dada una diferencia entre dos usos de una herramienta de IA, identifica si la explica el modelo, el producto, la superficie, el agente o el entorno de ejecución.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m01-eo1"
+    },
+    {
+      "id": "m01-l1-o2",
+      "statement": "Distingue un agente de un modelo sin herramientas y de un flujo fijo.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m01-eo1"
+    },
+    {
+      "id": "m01-l1-o3",
+      "statement": "Reconoce qué ve y qué no ve una sesión en la nube frente a una sesión local.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m01-eo1"
+    }
+  ],
+  "bodyPath": "courses/m01/lessons/m01-l1.md",
+  "reviewQuestionIds": [],
+  "checkQuestionIds": [
+    "m01-l1-c1",
+    "m01-l1-c2",
+    "m01-l1-c3",
+    "m01-l1-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m01-pc-agent-surfaces",
+    "m01-pc-cloud-sessions"
+  ],
+  "sourceIds": [
+    "src-anthropic-cc-cloud",
+    "src-anthropic-glossary",
+    "src-anthropic-building-agents",
+    "src-anthropic-cc-glossary",
+    "src-openai-help-capabilities",
+    "src-anthropic-cc-data-usage",
+    "src-github-copilot-agents",
+    "src-anthropic-support-research"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

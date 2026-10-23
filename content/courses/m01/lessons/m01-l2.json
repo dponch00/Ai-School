@@ -1,0 +1,58 @@
+{
+  "id": "m01-l2",
+  "courseId": "m01",
+  "version": "0.1.0",
+  "order": 2,
+  "title": "Elegir la herramienta por el tipo de tarea",
+  "objectives": [
+    {
+      "id": "m01-l2-o1",
+      "statement": "Dada una tarea, elige entre conversación, búsqueda, investigación, análisis con código o agente de código con las cuatro preguntas de la lección.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m01-eo2"
+    },
+    {
+      "id": "m01-l2-o2",
+      "statement": "Reconoce cuándo una cifra o un gráfico tienen que salir de código y no del texto de la respuesta ni de un generador de imágenes.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m01-eo2"
+    },
+    {
+      "id": "m01-l2-o3",
+      "statement": "Decide entre una sesión local y un agente en la nube según cuánto hay que supervisar el cambio.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m01-eo2"
+    }
+  ],
+  "bodyPath": "courses/m01/lessons/m01-l2.md",
+  "reviewQuestionIds": [
+    "m01-l1-r1",
+    "m01-l1-r2"
+  ],
+  "checkQuestionIds": [
+    "m01-l2-c1",
+    "m01-l2-c2",
+    "m01-l2-c3",
+    "m01-l2-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m01-pc-chat-capabilities",
+    "m01-pc-agent-choice"
+  ],
+  "sourceIds": [
+    "src-anthropic-cc-glossary",
+    "src-anthropic-support-web-search",
+    "src-openai-help-capabilities",
+    "src-openai-help-deep-research",
+    "src-anthropic-support-research",
+    "src-anthropic-support-files",
+    "src-google-prompting-strategies",
+    "src-anthropic-cc-overview",
+    "src-github-copilot-agents",
+    "src-anthropic-cc-cloud",
+    "src-anthropic-support-images"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

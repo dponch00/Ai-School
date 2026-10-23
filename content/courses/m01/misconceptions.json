@@ -1,0 +1,294 @@
+[
+  {
+    "id": "m01-mc01",
+    "courseId": "m01",
+    "description": "Lo que una IA puede hacer depende solo del modelo.",
+    "whyWrong": "El acceso a archivos, red, persistencia y acciones lo dan el arnés y el entorno de ejecución; el mismo modelo tiene capacidades distintas según el producto y la superficie.",
+    "sourceIds": [
+      "src-anthropic-cc-glossary",
+      "src-github-copilot-agents"
+    ]
+  },
+  {
+    "id": "m01-mc02",
+    "courseId": "m01",
+    "description": "Si el agente corre en la nube, ve lo mismo que yo en mi máquina.",
+    "whyWrong": "Una sesión en la nube parte de un clon del repositorio remoto: los cambios que no se subieron y la configuración personal no llegan.",
+    "sourceIds": [
+      "src-anthropic-cc-cloud",
+      "src-anthropic-cc-glossary"
+    ]
+  },
+  {
+    "id": "m01-mc03",
+    "courseId": "m01",
+    "description": "Un agente es simplemente un chat más listo.",
+    "whyWrong": "Un agente es un modelo con herramientas y un bucle que actúa y comprueba; la diferencia es de arquitectura, no de inteligencia.",
+    "sourceIds": [
+      "src-anthropic-building-agents",
+      "src-anthropic-cc-glossary"
+    ]
+  },
+  {
+    "id": "m01-mc04",
+    "courseId": "m01",
+    "description": "Si el proveedor anuncia una capacidad, está en todas sus superficies y planes.",
+    "whyWrong": "Los proveedores documentan la disponibilidad por plan, cliente y despliegue gradual.",
+    "sourceIds": [
+      "src-openai-codex-models",
+      "src-github-copilot-features"
+    ]
+  },
+  {
+    "id": "m01-mc05",
+    "courseId": "m01",
+    "description": "Para cualquier pregunta conviene la investigación profunda: más fuentes, mejor respuesta.",
+    "whyWrong": "La investigación profunda tarda más y consume más; para una consulta rápida la documentación recomienda el chat o la búsqueda.",
+    "sourceIds": [
+      "src-openai-help-deep-research",
+      "src-anthropic-support-research"
+    ]
+  },
+  {
+    "id": "m01-mc06",
+    "courseId": "m01",
+    "description": "Si la respuesta trae citas, ya está verificada.",
+    "whyWrong": "Las citas existen para que las verifiques; no garantizan que la fuente diga lo afirmado ni que exista.",
+    "sourceIds": [
+      "src-anthropic-support-web-search",
+      "src-scirep-fabricated-citations"
+    ]
+  },
+  {
+    "id": "m01-mc07",
+    "courseId": "m01",
+    "description": "Un gráfico con cifras se puede pedir a un generador de imágenes.",
+    "whyWrong": "Las cifras y etiquetas exactas exigen código o SVG; un generador de imágenes no garantiza que un número o una etiqueta salgan bien.",
+    "sourceIds": [
+      "src-anthropic-support-images"
+    ]
+  },
+  {
+    "id": "m01-mc08",
+    "courseId": "m01",
+    "description": "Para cambiar un proyecto basta pegar el código en el chat y copiar la respuesta.",
+    "whyWrong": "Sin herramientas no hay ejecución ni verificación en el proyecto real; un agente de código puede correr las pruebas y comprobar su propio trabajo.",
+    "sourceIds": [
+      "src-anthropic-cc-glossary"
+    ]
+  },
+  {
+    "id": "m01-mc09",
+    "courseId": "m01",
+    "description": "Con una ventana de contexto enorme, conviene meter todo.",
+    "whyWrong": "El rendimiento cae a medida que se llena el contexto y con información que distrae; además, cada turno vuelve a enviar todo lo anterior.",
+    "sourceIds": [
+      "src-anthropic-context-windows",
+      "src-chroma-context-rot",
+      "src-anthropic-cc-costs"
+    ]
+  },
+  {
+    "id": "m01-mc10",
+    "courseId": "m01",
+    "description": "El modelo sabe lo que pasó ayer porque es el más reciente.",
+    "whyWrong": "Todo modelo tiene una fecha de corte; lo posterior solo entra por búsqueda, por documentos que le das o por conectores.",
+    "sourceIds": [
+      "src-anthropic-models-overview",
+      "src-openai-models"
+    ]
+  },
+  {
+    "id": "m01-mc11",
+    "courseId": "m01",
+    "description": "Si dice que ejecutó el código o revisó la página, lo hizo.",
+    "whyWrong": "Hay casos documentados de acciones inventadas; la evidencia es la salida de la herramienta, no la frase del modelo.",
+    "sourceIds": [
+      "src-transluce-o3-truthfulness",
+      "src-anthropic-cc-glossary"
+    ]
+  },
+  {
+    "id": "m01-mc12",
+    "courseId": "m01",
+    "description": "Una palabra equivale a un token, así que el costo se calcula contando palabras.",
+    "whyWrong": "La relación entre palabras y tokens cambia según el idioma, el contenido y el tokenizador; se mide con la herramienta del proveedor.",
+    "sourceIds": [
+      "src-anthropic-glossary",
+      "src-anthropic-pricing"
+    ]
+  },
+  {
+    "id": "m01-mc13",
+    "courseId": "m01",
+    "description": "Una respuesta fluida, detallada y segura probablemente es correcta.",
+    "whyWrong": "Una alucinación es justamente contenido falso dicho con seguridad; el detalle no es evidencia.",
+    "sourceIds": [
+      "src-openai-blog-hallucinate",
+      "src-nist-ai-600-1"
+    ]
+  },
+  {
+    "id": "m01-mc14",
+    "courseId": "m01",
+    "description": "Preguntarle al modelo si está seguro sirve para verificar.",
+    "whyWrong": "La calibración del modelo falla en tareas nuevas y los asistentes tienden a darle la razón al usuario; hace falta una fuente o una comprobación externa.",
+    "sourceIds": [
+      "src-arxiv-kadavath-know",
+      "src-arxiv-sycophancy"
+    ]
+  },
+  {
+    "id": "m01-mc15",
+    "courseId": "m01",
+    "description": "Las alucinaciones son un fallo raro que los modelos nuevos ya resolvieron.",
+    "whyWrong": "El mecanismo es estadístico y los incentivos de evaluación persisten; las técnicas las reducen, no las eliminan.",
+    "sourceIds": [
+      "src-arxiv-why-hallucinate",
+      "src-anthropic-reduce-hallucinations"
+    ]
+  },
+  {
+    "id": "m01-mc16",
+    "courseId": "m01",
+    "description": "Si el modelo da su fuente, la fuente dice eso.",
+    "whyWrong": "Hay referencias inexistentes y referencias reales citadas con errores sustantivos.",
+    "sourceIds": [
+      "src-scirep-fabricated-citations"
+    ]
+  },
+  {
+    "id": "m01-mc17",
+    "courseId": "m01",
+    "description": "Como los modelos a veces inventan, mejor no usarlos para nada importante.",
+    "whyWrong": "La conducta útil es verificar en proporción al riesgo de la decisión, no evitar la herramienta.",
+    "sourceIds": [
+      "src-nist-ai-600-1"
+    ]
+  },
+  {
+    "id": "m01-mc18",
+    "courseId": "m01",
+    "description": "El modelo más grande con el esfuerzo máximo siempre da el mejor resultado.",
+    "whyWrong": "Los proveedores reservan los niveles máximos para cuando las pruebas muestran ganancia; en muchas tareas cuestan más sin mejorar.",
+    "sourceIds": [
+      "src-anthropic-effort",
+      "src-openai-reasoning"
+    ]
+  },
+  {
+    "id": "m01-mc19",
+    "courseId": "m01",
+    "description": "Lo prudente es usar siempre lo más barato.",
+    "whyWrong": "Sin medir la calidad en tus propios casos, el ahorro puede salir caro; la ruta documentada es probar y subir solo si hace falta.",
+    "sourceIds": [
+      "src-anthropic-choosing-model"
+    ]
+  },
+  {
+    "id": "m01-mc20",
+    "courseId": "m01",
+    "description": "Si pago la suscripción del chat, puedo usar la API sin costo extra.",
+    "whyWrong": "La API se factura aparte de la suscripción.",
+    "sourceIds": [
+      "src-anthropic-support-pro-plan",
+      "src-openai-codex-pricing"
+    ]
+  },
+  {
+    "id": "m01-mc21",
+    "courseId": "m01",
+    "description": "Si el agente corre en mi máquina, mis datos no salen.",
+    "whyWrong": "Un agente local envía los prompts, lo que lee y las respuestas al modelo remoto; solo un modelo que corre en tu equipo mantiene la inferencia dentro.",
+    "sourceIds": [
+      "src-anthropic-cc-data-usage",
+      "src-openai-gpt-oss"
+    ]
+  },
+  {
+    "id": "m01-mc22",
+    "courseId": "m01",
+    "description": "La política de datos de un proveedor es igual en todos sus planes.",
+    "whyWrong": "El uso para entrenar y la retención cambian entre planes individuales, de empresa y la API.",
+    "sourceIds": [
+      "src-openai-help-data-training",
+      "src-anthropic-privacy-consumer-training"
+    ]
+  },
+  {
+    "id": "m01-mc23",
+    "courseId": "m01",
+    "description": "El costo de una sesión es el de mi último mensaje.",
+    "whyWrong": "Cada turno vuelve a enviar el historial; una sesión larga cuesta más aunque la pregunta sea corta.",
+    "sourceIds": [
+      "src-anthropic-cc-costs"
+    ]
+  },
+  {
+    "id": "m01-mc24",
+    "courseId": "m01",
+    "description": "Si una herramienta ganó en una prueba, es mejor.",
+    "whyWrong": "Los modelos no son deterministas; hacen falta varios ensayos y casos representativos.",
+    "sourceIds": [
+      "src-anthropic-glossary",
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m01-mc25",
+    "courseId": "m01",
+    "description": "El ranking público dice qué herramienta usar para mi caso.",
+    "whyWrong": "Las guías de selección piden pruebas propias, con tus datos y tus prompts.",
+    "sourceIds": [
+      "src-anthropic-choosing-model"
+    ]
+  },
+  {
+    "id": "m01-mc26",
+    "courseId": "m01",
+    "description": "Un buen promedio compensa un fallo en las cifras.",
+    "whyWrong": "Un criterio crítico no se compensa con otros: se separa y se exige en todos los ensayos.",
+    "sourceIds": [
+      "src-anthropic-develop-tests"
+    ]
+  },
+  {
+    "id": "m01-mc27",
+    "courseId": "m01",
+    "description": "Una comparación de hoy vale hasta que cambie de herramienta.",
+    "whyWrong": "Modelos, planes y valores por defecto cambian; la conclusión lleva fecha y versión.",
+    "sourceIds": [
+      "src-openai-codex-models",
+      "src-anthropic-effort"
+    ]
+  },
+  {
+    "id": "m01-mc28",
+    "courseId": "m01",
+    "description": "El asistente puede calcular las cifras dentro de su respuesta de texto.",
+    "whyWrong": "Una cifra escrita en el texto de la respuesta no es reproducible ni revisable; para aritmética y análisis de datos se pide ejecutar código.",
+    "sourceIds": [
+      "src-google-prompting-strategies",
+      "src-openai-help-capabilities"
+    ]
+  },
+  {
+    "id": "m01-mc29",
+    "courseId": "m01",
+    "description": "Delegar una tarea a un agente en la nube es lo mismo que trabajar con él en tu máquina.",
+    "whyWrong": "El agente en la nube trabaja sobre el repositorio remoto y entrega el resultado para revisarlo al final; para guiar de cerca un cambio conviene una sesión local.",
+    "sourceIds": [
+      "src-github-copilot-agents",
+      "src-anthropic-cc-cloud"
+    ]
+  },
+  {
+    "id": "m01-mc31",
+    "courseId": "m01",
+    "description": "Cualquier automatización que use un modelo de lenguaje es un agente.",
+    "whyWrong": "En un flujo fijo el código decide la secuencia y el modelo solo cumple un paso; en un agente, el modelo decide qué herramienta usar y cuándo.",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ]
+  }
+]

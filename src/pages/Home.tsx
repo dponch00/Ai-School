@@ -40,13 +40,16 @@ export default function Home() {
           orden estudiar y qué cuenta para terminar un curso. Todo se responde con opción múltiple.
         </p>
         <ol className="route">
-          {content.catalog.map((c) => (
-            <li key={c.id} className={c.available ? 'route__item route__item--available' : 'route__item'}>
-              <span className="route__code">{c.id.toUpperCase()}</span>
-              {c.available ? <Link to={`/cursos/${c.id}`}>{c.title}</Link> : <span>{c.title}</span>}
-              <span className="route__status">{c.available ? 'Disponible' : 'Próximamente'}</span>
-            </li>
-          ))}
+          {content.catalog.map((c) => {
+            const draft = !c.available && content.courses.some((x) => x.id === c.id)
+            return (
+              <li key={c.id} className={c.available ? 'route__item route__item--available' : 'route__item'}>
+                <span className="route__code">{c.id.toUpperCase()}</span>
+                {c.available || draft ? <Link to={`/cursos/${c.id}`}>{c.title}</Link> : <span>{c.title}</span>}
+                <span className="route__status">{c.available ? 'Disponible' : draft ? 'En preparación' : 'Próximamente'}</span>
+              </li>
+            )
+          })}
         </ol>
       </section>
     </div>

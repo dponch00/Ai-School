@@ -1,0 +1,728 @@
+[
+  {
+    "id": "m01-l1-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l1",
+    "evaluatedObjectiveId": "m01-eo1",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "La analista le pide a un agente de código que instale una biblioteca para leer archivos de Excel. En su portátil funciona. En una sesión del mismo agente, dentro de un contenedor sin acceso a internet, falla.",
+    "stem": "¿Qué explica la diferencia?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El entorno de ejecución: el contenedor no tiene red para descargar la biblioteca",
+        "correct": true,
+        "feedback": "Correcta. El modelo y el agente son los mismos; lo que cambia es dónde corren los comandos. Un contenedor con la red cortada no puede descargar nada, por buena que sea la instrucción."
+      },
+      {
+        "id": "o2",
+        "text": "El modelo: en el contenedor corre una versión más limitada que no sabe instalar",
+        "correct": false,
+        "feedback": "Es el mismo agente con el mismo modelo. Instalar una biblioteca no depende de lo que sabe el modelo, sino de que el entorno tenga red. Atribuirle al modelo lo que depende del entorno lleva a cambiar de herramienta sin resolver nada.",
+        "misconceptionId": "m01-mc01"
+      },
+      {
+        "id": "o3",
+        "text": "Un error del producto: si el proveedor anuncia que sus agentes instalan, debe poder en cualquier sesión",
+        "correct": false,
+        "feedback": "Lo que anuncia un proveedor depende de la superficie, el plan y el entorno. En un contenedor sin red, instalar desde internet no es posible, y eso no es un fallo del producto.",
+        "misconceptionId": "m01-mc04"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l1#entorno",
+    "sourceIds": [
+      "src-anthropic-cc-glossary"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l1-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l1",
+    "evaluatedObjectiveId": "m01-eo1",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "En tu portátil tienes un archivo de configuración personal que le pide al agente escribir siempre los comentarios del código en español. Una sesión del mismo agente en la nube entrega los comentarios en inglés.",
+    "stem": "¿Por qué ocurre esto?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Porque en la nube corre otro modelo, que sigue peor las instrucciones del usuario",
+        "correct": false,
+        "feedback": "El modelo puede ser exactamente el mismo. La instrucción simplemente no llegó: estaba en un archivo de tu máquina, y la sesión en la nube no lo tiene.",
+        "misconceptionId": "m01-mc01"
+      },
+      {
+        "id": "o2",
+        "text": "Porque la sesión en la nube parte de una copia del repositorio y no lee tu configuración personal",
+        "correct": true,
+        "feedback": "Correcta. La sesión en la nube trabaja sobre un clon limpio del repositorio remoto. Lo que vive solo en tu máquina, como una configuración personal o un cambio sin subir, no llega."
+      },
+      {
+        "id": "o3",
+        "text": "Es un fallo de la sesión: en la nube el agente debería ver lo mismo que ve en tu portátil",
+        "correct": false,
+        "feedback": "Una sesión en la nube no ve tu máquina. Parte de lo que está en el repositorio remoto, así que lo que quieras que siga tiene que estar ahí.",
+        "misconceptionId": "m01-mc02"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l1#entorno",
+    "sourceIds": [
+      "src-anthropic-cc-cloud",
+      "src-anthropic-cc-glossary"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l1-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l1",
+    "evaluatedObjectiveId": "m01-eo1",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "scenario": "Desde el escritorio, la función de investigación de tu asistente arma un informe que incluye datos de tu unidad conectada. Desde el celular, con el mismo plan y la misma pregunta, el informe solo trae fuentes de la web.",
+    "stem": "¿Qué capa explica la diferencia?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El modelo: en el celular corre uno más pequeño, que no entiende tus documentos",
+        "correct": false,
+        "feedback": "No hace falta un modelo distinto para explicarlo. Desde el celular, esa función busca solo en la web y deja fuera los conectores, aunque el modelo sea el mismo.",
+        "misconceptionId": "m01-mc01"
+      },
+      {
+        "id": "o2",
+        "text": "Ninguna: si la función existe en el escritorio, en el celular hace exactamente lo mismo",
+        "correct": false,
+        "feedback": "Una función con el mismo nombre puede comportarse distinto según la superficie. Por eso un anuncio de capacidad se lee preguntando en qué superficie y en qué plan está.",
+        "misconceptionId": "m01-mc04"
+      },
+      {
+        "id": "o3",
+        "text": "La superficie: desde el celular, esa función busca solo en la web y no usa tus conectores",
+        "correct": true,
+        "feedback": "Correcta. Es el mismo producto y el mismo plan, pero otra superficie, y la documentación indica que desde el celular la investigación no usa los conectores. La diferencia no está en el modelo."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l1#producto-superficie",
+    "sourceIds": [
+      "src-anthropic-support-research"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l1-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l1",
+    "evaluatedObjectiveId": "m01-eo1",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Altiplano tiene dos automatizaciones. En la A, un script lee el snapshot, le pide al modelo un resumen y lo envía por correo, siempre en ese orden. En la B, el modelo recibe la tarea y decide si consulta los datos, corre un cálculo o pregunta antes de seguir.",
+    "stem": "¿Cuál de las dos es un agente?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Las dos, porque las dos usan un modelo de lenguaje para hacer su trabajo",
+        "correct": false,
+        "feedback": "Usar un modelo no convierte un sistema en agente. En la A, el código decide la secuencia y el modelo solo escribe el resumen: es un flujo fijo.",
+        "misconceptionId": "m01-mc31"
+      },
+      {
+        "id": "o2",
+        "text": "La A, porque funciona sola de principio a fin sin que nadie intervenga",
+        "correct": false,
+        "feedback": "Funcionar sin intervención no es lo que define a un agente. La A sigue siempre la misma secuencia, decidida por el código; nada lo decide el modelo.",
+        "misconceptionId": "m01-mc31"
+      },
+      {
+        "id": "o3",
+        "text": "Ninguna: un agente es un chat más capaz con el que conversas",
+        "correct": false,
+        "feedback": "Un agente no se define por conversar mejor, sino por tener herramientas y un bucle en el que el modelo decide qué hacer. Eso es lo que tiene la B.",
+        "misconceptionId": "m01-mc03"
+      },
+      {
+        "id": "o4",
+        "text": "La B, porque el modelo decide qué herramienta usar y en qué momento",
+        "correct": true,
+        "feedback": "Correcta. En un agente, el modelo elige los pasos y las herramientas; en un flujo fijo, como la A, la secuencia la decide el código. Los agentes ganan flexibilidad a cambio de más tiempo y costo."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l1#agente",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l1-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l1",
+    "evaluatedObjectiveId": "m01-eo1",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Lees un anuncio: «Nuestro asistente ya puede leer tus hojas de cálculo». Quieres usarlo para el cierre de mes.",
+    "stem": "¿Qué averiguas antes de contar con esa función?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Qué modelo usa, porque el modelo decide todo lo que la herramienta puede hacer",
+        "correct": false,
+        "feedback": "El modelo no decide si la herramienta puede abrir un archivo: eso lo dan el producto, la superficie y el plan. Saber el modelo no te dice si la función está donde la necesitas.",
+        "misconceptionId": "m01-mc01"
+      },
+      {
+        "id": "o2",
+        "text": "En qué superficie y en qué plan está disponible, y desde cuándo",
+        "correct": true,
+        "feedback": "Correcta. Las capacidades se despliegan por superficie, plan y fecha. Con esas tres respuestas sabes si la función existe en el lugar desde donde vas a trabajar."
+      },
+      {
+        "id": "o3",
+        "text": "Nada: si el proveedor lo anuncia, funciona igual en todas sus versiones",
+        "correct": false,
+        "feedback": "Los proveedores documentan disponibilidad distinta según el plan, el cliente y el despliegue. Dar por hecho que está en todas partes lleva a descubrir el límite en pleno cierre.",
+        "misconceptionId": "m01-mc04"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l1#producto-superficie",
+    "sourceIds": [
+      "src-anthropic-support-research",
+      "src-github-copilot-features"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l1-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l1",
+    "evaluatedObjectiveId": "m01-eo1",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "En el chat, el modelo te devuelve el código corregido de un script. En el agente de código del mismo proveedor, el mismo modelo edita el archivo, corre las pruebas y corrige lo que falla.",
+    "stem": "¿Qué explica la diferencia?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El modelo: el agente usa una versión más inteligente que la del chat",
+        "correct": false,
+        "feedback": "El caso dice que el modelo es el mismo. Lo que cambia es lo que puede hacer con él: en el agente tiene herramientas para editar y probar.",
+        "misconceptionId": "m01-mc01"
+      },
+      {
+        "id": "o2",
+        "text": "Nada de fondo: son lo mismo, y solo cambia la pantalla desde donde lo usas",
+        "correct": false,
+        "feedback": "No son lo mismo. El chat solo produce texto que tú tienes que aplicar; el agente actúa sobre los archivos y comprueba el resultado dentro de su bucle.",
+        "misconceptionId": "m01-mc03"
+      },
+      {
+        "id": "o3",
+        "text": "El agente: tiene herramientas y un bucle para actuar y comprobar su trabajo",
+        "correct": true,
+        "feedback": "Correcta. La diferencia es de arquitectura, no de inteligencia. Con herramientas y un bucle, el modelo puede editar, ejecutar las pruebas y volver a intentarlo."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l1#agente",
+    "sourceIds": [
+      "src-anthropic-cc-glossary"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l2-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l2",
+    "evaluatedObjectiveId": "m01-eo2",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Antes de la reunión de mañana, la directora comercial quiere saber si un cliente grande de Altiplano anunció esta semana la compra de otra empresa.",
+    "stem": "¿Qué herramienta usas?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Una investigación profunda, porque reúne más fuentes y da más seguridad",
+        "correct": false,
+        "feedback": "Para un dato puntual, la investigación profunda tarda más y consume más sin aportar nada. La propia documentación recomienda la búsqueda o el chat para consultas rápidas.",
+        "misconceptionId": "m01-mc05"
+      },
+      {
+        "id": "o2",
+        "text": "Una búsqueda web, y abres la noticia que sostiene la respuesta",
+        "correct": true,
+        "feedback": "Correcta. Es información de esta semana, posterior al entrenamiento, y es un dato puntual. La búsqueda lo trae con su enlace, y abrir la noticia es la forma de comprobarlo."
+      },
+      {
+        "id": "o3",
+        "text": "El chat sin búsqueda, porque el modelo más reciente ya conoce las noticias",
+        "correct": false,
+        "feedback": "Ningún modelo conoce lo que pasó después de su fecha de corte, por reciente que sea. Sin búsqueda, la respuesta saldría de su memoria y podría ser inventada.",
+        "misconceptionId": "m01-mc10"
+      },
+      {
+        "id": "o4",
+        "text": "Cualquiera que traiga citas, porque una respuesta con citas ya está verificada",
+        "correct": false,
+        "feedback": "Las citas sirven para que tú compruebes la fuente, no la reemplazan. Una cita puede apuntar a una página que no dice lo que afirma la respuesta.",
+        "misconceptionId": "m01-mc06"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l2#investigar",
+    "sourceIds": [
+      "src-openai-help-deep-research",
+      "src-anthropic-support-web-search"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l2-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l2",
+    "evaluatedObjectiveId": "m01-eo2",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "Para el resumen del comité necesitas la variación del pipeline por región entre los snapshots del 12 y del 19 de octubre, dos CSV de unas 40 filas cada uno.",
+    "stem": "¿Cómo obtienes las cifras?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Pegas los dos CSV en el chat y le pides la variación por región en su respuesta",
+        "correct": false,
+        "feedback": "Una cifra escrita en el texto de la respuesta no deja rastro de cómo se obtuvo, y si está mal no hay forma de revisarla. Para aritmética conviene que el asistente ejecute código.",
+        "misconceptionId": "m01-mc28"
+      },
+      {
+        "id": "o2",
+        "text": "Pides una investigación profunda sobre la evolución del pipeline de Altiplano",
+        "correct": false,
+        "feedback": "La investigación busca en la web y no tiene tus snapshots. Además, para un cálculo sobre tus propios archivos no hace falta reunir fuentes externas.",
+        "misconceptionId": "m01-mc05"
+      },
+      {
+        "id": "o3",
+        "text": "Subes los dos archivos a un entorno que ejecute código y pides el cálculo con su script",
+        "correct": true,
+        "feedback": "Correcta. El cálculo con código se puede repetir y revisar línea por línea. El texto del resumen se escribe después, a partir de esas cifras."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l2#datos",
+    "sourceIds": [
+      "src-google-prompting-strategies",
+      "src-openai-help-capabilities"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l2-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l2",
+    "evaluatedObjectiveId": "m01-eo2",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "Quieres cambiar cómo se calcula la cobertura en el script de KPIs. Es un cambio delicado y prefieres ver cada paso y corregir sobre la marcha.",
+    "stem": "¿Cómo lo haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Una sesión local del agente de código, para guiar el cambio de cerca",
+        "correct": true,
+        "feedback": "Correcta. Cuando quieres supervisar cada paso, la recomendación es trabajar en una superficie local. El agente puede editar y correr las pruebas mientras tú decides."
+      },
+      {
+        "id": "o2",
+        "text": "Lo delegas a un agente en la nube y revisas el resultado mañana por la mañana",
+        "correct": false,
+        "feedback": "Delegar en la nube sirve para tareas bien acotadas que vas a revisar al final. Para un cambio delicado que quieres guiar paso a paso, pierdes justo el control que buscabas.",
+        "misconceptionId": "m01-mc29"
+      },
+      {
+        "id": "o3",
+        "text": "Pegas el script en el chat y aplicas a mano los cambios que te devuelva",
+        "correct": false,
+        "feedback": "El chat no ve el resto del proyecto ni puede correr las pruebas. Aplicar a mano lo que devuelva te deja sin la comprobación que el cambio necesita.",
+        "misconceptionId": "m01-mc08"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l2#codigo",
+    "sourceIds": [
+      "src-github-copilot-agents",
+      "src-anthropic-cc-glossary"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l2-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l2",
+    "evaluatedObjectiveId": "m01-eo2",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Para la presentación del comité necesitas el embudo del pipeline por etapa, con el monto de cada etapa visible.",
+    "stem": "¿Cómo lo produces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Le pides la imagen a un generador, con los montos de cada etapa escritos en el prompt",
+        "correct": false,
+        "feedback": "Un generador de imágenes no garantiza que los números y las etiquetas salgan exactos. En una diapositiva para el comité, un monto mal dibujado es un error de dato.",
+        "misconceptionId": "m01-mc07"
+      },
+      {
+        "id": "o2",
+        "text": "Pides una imagen generada y corriges a mano los números que salgan mal",
+        "correct": false,
+        "feedback": "Corregir después no resuelve el problema de fondo: la imagen no sale de las cifras y cada versión puede traer errores distintos. Un gráfico con datos se genera con código.",
+        "misconceptionId": "m01-mc07"
+      },
+      {
+        "id": "o3",
+        "text": "Lo generas con código a partir de las cifras ya calculadas",
+        "correct": true,
+        "feedback": "Correcta. Con código, cada barra sale de una cifra calculada y las etiquetas son exactas. Si cambian los datos, el gráfico se vuelve a generar sin errores nuevos."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l2#imagen-audio",
+    "sourceIds": [
+      "src-anthropic-support-images"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l2-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l2",
+    "evaluatedObjectiveId": "m01-eo2",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Una investigación profunda te entrega un informe con 25 citas sobre los plazos de pago del sector, y vas a usar tres de sus cifras.",
+    "stem": "¿Qué haces antes de usarlas?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada más: el informe ya trae citas, así que está verificado",
+        "correct": false,
+        "feedback": "Las citas permiten verificar, pero no verifican solas. Hasta que abras la fuente, no sabes si dice lo que el informe afirma.",
+        "misconceptionId": "m01-mc06"
+      },
+      {
+        "id": "o2",
+        "text": "Revisas solo las citas de sitios desconocidos y confías en las de sitios conocidos",
+        "correct": false,
+        "feedback": "Que el sitio sea conocido no garantiza que diga esa cifra. Hay referencias reales citadas con errores, así que se revisa la fuente de cada dato que vas a usar.",
+        "misconceptionId": "m01-mc16"
+      },
+      {
+        "id": "o3",
+        "text": "Abres la fuente que sostiene cada una de las tres cifras",
+        "correct": true,
+        "feedback": "Correcta. Las citas existen para esto: te llevan a la fuente para que compruebes que dice lo afirmado. Con tres cifras, son tres fuentes que revisar."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l2#investigar",
+    "sourceIds": [
+      "src-anthropic-support-web-search",
+      "src-scirep-fabricated-citations"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l2-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l2",
+    "evaluatedObjectiveId": "m01-eo2",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Un compañero pregunta por qué insistes en que las cifras del resumen semanal salgan de un cálculo con código.",
+    "stem": "¿Qué le respondes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Porque así se pueden repetir y revisar; una cifra escrita en la respuesta no deja rastro",
+        "correct": true,
+        "feedback": "Correcta. Si el total sale de un script, cualquiera puede volver a correrlo y ver de dónde viene. Si sale del texto de la respuesta, no hay nada que revisar."
+      },
+      {
+        "id": "o2",
+        "text": "No hace falta: el asistente calcula bien las cifras dentro de su respuesta",
+        "correct": false,
+        "feedback": "Aunque a veces acierte, una cifra calculada en el texto no se puede comprobar ni repetir. Las guías recomiendan ejecutar código para la aritmética.",
+        "misconceptionId": "m01-mc28"
+      },
+      {
+        "id": "o3",
+        "text": "Porque los modelos inventan cosas y es mejor no usarlos para nada con cifras",
+        "correct": false,
+        "feedback": "El riesgo no se resuelve dejando la herramienta, sino usándola con un método que se pueda verificar. El cálculo con código es justamente ese método.",
+        "misconceptionId": "m01-mc17"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l2#datos",
+    "sourceIds": [
+      "src-google-prompting-strategies"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l3-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l3",
+    "evaluatedObjectiveId": "m01-eo3",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Quieres estimar cuánto costará procesar con una API 300 resúmenes de contratos en español. Sabes cuántas palabras tienen en total.",
+    "stem": "¿Cómo calculas los tokens?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Multiplicas las palabras por el precio por token, porque una palabra es un token",
+        "correct": false,
+        "feedback": "Una palabra no equivale a un token: puede ser varios, según el idioma y el tokenizador. Contar palabras da una cifra que puede quedar muy lejos del costo real.",
+        "misconceptionId": "m01-mc12"
+      },
+      {
+        "id": "o2",
+        "text": "Aplicas la regla de un token cada cuatro caracteres, que vale para todos los modelos",
+        "correct": false,
+        "feedback": "Esa regla aproximada cambia según el idioma y el tokenizador; un mismo proveedor ha cambiado la relación entre generaciones. No sirve como cálculo.",
+        "misconceptionId": "m01-mc12"
+      },
+      {
+        "id": "o3",
+        "text": "Mides los tokens de una muestra con la herramienta que ofrece el proveedor",
+        "correct": true,
+        "feedback": "Correcta. El conteo depende del tokenizador, del idioma y del contenido, así que se mide. Una muestra representativa te da una base para estimar el total."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l3#tokens",
+    "sourceIds": [
+      "src-anthropic-pricing",
+      "src-anthropic-glossary"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l3-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l3",
+    "evaluatedObjectiveId": "m01-eo3",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "advanced",
+    "process": "apply",
+    "scenario": "Llevas tres horas con el agente ajustando el dashboard. Ahora olvida reglas que le diste al principio y repite errores que ya habían quedado corregidos.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Le pegas otra vez todos los documentos del proyecto, para que tenga más contexto",
+        "correct": false,
+        "feedback": "El problema es que el contexto ya está demasiado lleno. Agregar más documentos empeora el deterioro, y además cada turno los vuelve a enviar.",
+        "misconceptionId": "m01-mc09"
+      },
+      {
+        "id": "o2",
+        "text": "Empiezas una sesión nueva con un resumen de lo decidido hasta ahora",
+        "correct": true,
+        "feedback": "Correcta. Con el contexto lleno, el modelo aprovecha peor lo que tiene. Una sesión nueva con un resumen breve le deja delante solo lo que importa."
+      },
+      {
+        "id": "o3",
+        "text": "Cambias de proveedor, porque este modelo no da para tareas largas",
+        "correct": false,
+        "feedback": "El síntoma es típico de un contexto saturado y aparece en cualquier modelo. Cambiar de herramienta sin cambiar la forma de trabajar repite el problema.",
+        "misconceptionId": "m01-mc01"
+      },
+      {
+        "id": "o4",
+        "text": "Sigues en la misma sesión: tus mensajes nuevos son cortos y casi no suman",
+        "correct": false,
+        "feedback": "Cada turno reenvía todo el historial, así que una sesión larga pesa más aunque tu mensaje sea corto. Seguir acumulando agrava lo que ya ves.",
+        "misconceptionId": "m01-mc23"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l3#mas-contexto",
+    "sourceIds": [
+      "src-anthropic-context-windows",
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l3-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l3",
+    "evaluatedObjectiveId": "m01-eo3",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Le pides a un asistente que resuma el acta del comité de ayer. No le adjuntaste nada, no tiene búsqueda activada y no tiene conectores.",
+    "stem": "¿Qué puedes esperar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que la resuma bien si el modelo es el más reciente del proveedor",
+        "correct": false,
+        "feedback": "Que el modelo sea reciente no le da acceso a un documento de ayer. Lo que no está en su entrenamiento ni en la conversación, no lo puede saber.",
+        "misconceptionId": "m01-mc10"
+      },
+      {
+        "id": "o2",
+        "text": "Que, si devuelve un resumen detallado y seguro, es porque encontró el acta",
+        "correct": false,
+        "feedback": "Un resumen detallado sin acceso al acta solo puede ser inventado. La seguridad del texto no indica que haya tenido la fuente.",
+        "misconceptionId": "m01-mc13"
+      },
+      {
+        "id": "o3",
+        "text": "Que no puede resumirla: el acta tiene que llegarle como documento o por un conector",
+        "correct": true,
+        "feedback": "Correcta. Lo que el modelo no tiene delante solo puede llegarle por búsqueda, por un documento que le das o por un conector. Aquí no hay ninguno de los tres."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l3#fecha-corte",
+    "sourceIds": [
+      "src-anthropic-models-overview",
+      "src-anthropic-support-web-search"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-l3-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l3",
+    "evaluatedObjectiveId": "m01-eo3",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "En una superficie sin ejecución de código, el asistente responde: «Ejecuté tu script y el total del Sur es USD 1 240 000».",
+    "stem": "¿Qué haces con esa cifra?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La aceptas: si dice que ejecutó el script, lo ejecutó",
+        "correct": false,
+        "feedback": "Hay casos documentados de modelos que describen ejecuciones que no pudieron hacer. Lo que demuestra una ejecución es la salida de la herramienta, no la frase.",
+        "misconceptionId": "m01-mc11"
+      },
+      {
+        "id": "o2",
+        "text": "Le preguntas si está seguro y la aceptas si lo confirma",
+        "correct": false,
+        "feedback": "Preguntarle no aporta evidencia: el modelo tiende a sostener lo que ya dijo. La comprobación tiene que venir de fuera, por ejemplo corriendo tú el script.",
+        "misconceptionId": "m01-mc14"
+      },
+      {
+        "id": "o3",
+        "text": "La aceptas, porque una cifra exacta hasta el último dólar indica que viene de un cálculo",
+        "correct": false,
+        "feedback": "La precisión aparente no es evidencia. Un número inventado puede tener todos sus dígitos; lo que importa es de dónde salió.",
+        "misconceptionId": "m01-mc13"
+      },
+      {
+        "id": "o4",
+        "text": "Desconfías: ahí no puede ejecutar código, así que pides la salida real o lo corres tú",
+        "correct": true,
+        "feedback": "Correcta. Esa superficie no tiene la herramienta, así que la ejecución no pudo ocurrir. La cifra vale cuando hay una salida que la respalde."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l3#acceso",
+    "sourceIds": [
+      "src-transluce-o3-truthfulness",
+      "src-anthropic-cc-glossary"
+    ],
+    "status": "draft"
+  }
+]
