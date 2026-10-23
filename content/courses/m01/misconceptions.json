@@ -327,5 +327,42 @@
     "sourceIds": [
       "src-anthropic-evals-agents"
     ]
+  },
+  {
+    "id": "m01-mc36",
+    "courseId": "m01",
+    "description": "Un agente siempre es mejor que un flujo fijo, porque es más flexible.",
+    "whyWrong": "Los agentes ganan flexibilidad a cambio de más tiempo y más costo; si la secuencia es siempre la misma, conviene lo más simple que funcione.",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ]
+  },
+  {
+    "id": "m01-mc37",
+    "courseId": "m01",
+    "description": "El agente de código es la mejor herramienta para cualquier tarea, porque puede hacer más cosas.",
+    "whyWrong": "Cada herramienta trae su costo, su tiempo y sus riesgos; se elige por lo que la tarea tiene que tocar y por cómo se va a verificar.",
+    "sourceIds": [
+      "src-anthropic-building-agents",
+      "src-openai-help-capabilities"
+    ]
+  },
+  {
+    "id": "m01-mc38",
+    "courseId": "m01",
+    "description": "Adaptar las entradas o el prompt a cada herramienta no afecta una comparación.",
+    "whyWrong": "Una comparación válida usa la misma tarea, las mismas entradas y la misma rúbrica; si cambian, ya no se sabe qué produjo la diferencia.",
+    "sourceIds": [
+      "src-openai-eval-best-practices"
+    ]
+  },
+  {
+    "id": "m01-mc39",
+    "courseId": "m01",
+    "description": "Todos los criterios de una rúbrica son críticos: fallar cualquiera descalifica.",
+    "whyWrong": "Solo los criterios críticos no se compensan; los demás se ponderan con el resto, y un fallo menor no descalifica por sí solo.",
+    "sourceIds": [
+      "src-anthropic-develop-tests"
+    ]
   }
 ]

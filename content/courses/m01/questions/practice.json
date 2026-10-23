@@ -1,0 +1,517 @@
+[
+  {
+    "id": "m01-p01",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m01",
+    "evaluatedObjectiveId": "m01-eo1",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "Tu sesión local del agente de código modificaba directamente la rama en la que trabajabas. El agente en la nube del mismo proveedor, en cambio, entregó su trabajo como una solicitud de cambios.",
+    "stem": "¿Qué explica la diferencia?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que el agente en la nube trabaja en su propio entorno y entrega el resultado para revisarlo",
+        "correct": true,
+        "feedback": "Correcta. Los agentes en la nube trabajan en un entorno temporal y entregan el resultado como una rama o una solicitud de cambios. Es una característica del entorno y del producto, no del modelo."
+      },
+      {
+        "id": "o2",
+        "text": "Que el modelo de la nube no sabe hacer cambios directos en una rama",
+        "correct": false,
+        "feedback": "Hacer o no un cambio directo no depende de lo que sepa el modelo. Depende de cómo trabaja el agente en ese entorno.",
+        "misconceptionId": "m01-mc01"
+      },
+      {
+        "id": "o3",
+        "text": "Que es un error: en la nube debería trabajar exactamente igual que en tu portátil",
+        "correct": false,
+        "feedback": "La sesión en la nube no es tu portátil. Trabaja en su propio entorno, sobre la copia del repositorio que recibe.",
+        "misconceptionId": "m01-mc02"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l1#entorno",
+    "sourceIds": [
+      "src-github-copilot-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-p02",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m01",
+    "evaluatedObjectiveId": "m01-eo1",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "En la documentación de un agente de código aparece la palabra «arnés».",
+    "stem": "¿Qué hace el arnés?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Elige en cada momento el modelo más potente para la tarea",
+        "correct": false,
+        "feedback": "El arnés no elige modelos. Es el programa que rodea al modelo y le da herramientas y un bucle de trabajo.",
+        "misconceptionId": "m01-mc01"
+      },
+      {
+        "id": "o2",
+        "text": "Es la ventana de chat desde la que conversas con el modelo",
+        "correct": false,
+        "feedback": "La ventana de chat es una superficie. El arnés es lo que convierte al modelo en agente: acceso a archivos, comandos, permisos y el bucle.",
+        "misconceptionId": "m01-mc03"
+      },
+      {
+        "id": "o3",
+        "text": "Le da al modelo acceso a archivos, comandos y permisos, y el bucle de trabajo",
+        "correct": true,
+        "feedback": "Correcta. El modelo va dentro del arnés. Sin él, solo produce texto; con él, puede actuar y comprobar."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l1#agente",
+    "sourceIds": [
+      "src-anthropic-cc-glossary"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-p03",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m01",
+    "evaluatedObjectiveId": "m01-eo2",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Tienes que escribir un correo cordial para pedirle a un cliente que actualice sus datos de facturación.",
+    "stem": "¿Qué herramienta conviene?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Una investigación profunda sobre buenas prácticas de comunicación con clientes",
+        "correct": false,
+        "feedback": "Para redactar un correo no hace falta reunir fuentes. La investigación profunda tarda y consume más sin aportar nada.",
+        "misconceptionId": "m01-mc05"
+      },
+      {
+        "id": "o2",
+        "text": "Una conversación con el asistente, revisando el tono y los datos antes de enviarlo",
+        "correct": true,
+        "feedback": "Correcta. Redactar a partir de lo que tú aportas es una tarea de conversación. Antes de enviarlo, revisas que diga lo que quieres."
+      },
+      {
+        "id": "o3",
+        "text": "Un agente de código, porque puede hacer más cosas que un chat",
+        "correct": false,
+        "feedback": "No hay nada que tocar en un repositorio. Un agente trae costo y riesgo que esta tarea no necesita.",
+        "misconceptionId": "m01-mc37"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l2#conversar",
+    "sourceIds": [
+      "src-openai-help-capabilities"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-p04",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m01",
+    "evaluatedObjectiveId": "m01-eo2",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Quieres saber si un competidor publicó hoy una nueva lista de precios en su sitio.",
+    "stem": "¿Qué herramienta usas?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Una búsqueda web, y abres la página del competidor que sostiene la respuesta",
+        "correct": true,
+        "feedback": "Correcta. Es información de hoy y puntual. La búsqueda la trae con su enlace, y la página se abre para comprobarla."
+      },
+      {
+        "id": "o2",
+        "text": "El chat sin búsqueda, porque el modelo más reciente conoce los precios actuales",
+        "correct": false,
+        "feedback": "Lo publicado hoy es posterior a la fecha de corte de cualquier modelo. Sin búsqueda, la respuesta sería vieja o inventada.",
+        "misconceptionId": "m01-mc10"
+      },
+      {
+        "id": "o3",
+        "text": "Una investigación profunda, porque reúne más fuentes y da más seguridad",
+        "correct": false,
+        "feedback": "Para comprobar una sola página, la investigación profunda es lenta y cara. Basta una búsqueda.",
+        "misconceptionId": "m01-mc05"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l2#investigar",
+    "sourceIds": [
+      "src-anthropic-support-web-search",
+      "src-openai-help-deep-research"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-p05",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m01",
+    "evaluatedObjectiveId": "m01-eo3",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Estás calculando cuánto espacio te queda en la ventana de contexto de una conversación larga.",
+    "stem": "¿Qué ocupa esa ventana?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Solo lo que escribes tú; lo que leen las herramientas no cuenta",
+        "correct": false,
+        "feedback": "Lo que leen las herramientas también entra en el contexto. A veces es lo que más espacio ocupa.",
+        "misconceptionId": "m01-mc32"
+      },
+      {
+        "id": "o2",
+        "text": "Nada que importe: la ventana es tan grande que nunca se llena",
+        "correct": false,
+        "feedback": "Aunque sea grande, el rendimiento cae a medida que se llena. Por eso conviene elegir lo que entra.",
+        "misconceptionId": "m01-mc09"
+      },
+      {
+        "id": "o3",
+        "text": "Instrucciones, mensajes, documentos, resultados de herramientas y la propia respuesta",
+        "correct": true,
+        "feedback": "Correcta. Todo eso está en la ventana de contexto, incluso la respuesta que el modelo está escribiendo."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l3#contexto",
+    "sourceIds": [
+      "src-anthropic-context-windows"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-p06",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m01",
+    "evaluatedObjectiveId": "m01-eo3",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Un modelo lanzado hace dos semanas no sabe nada de otro producto que su propio proveedor presentó el mes pasado.",
+    "stem": "¿Por qué no lo sabe?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Porque su fecha de corte es anterior a ese lanzamiento",
+        "correct": true,
+        "feedback": "Correcta. El conocimiento del modelo llega hasta su fecha de corte, que puede ser bastante anterior a su lanzamiento. Lo posterior solo llega por búsqueda, documentos o conectores."
+      },
+      {
+        "id": "o2",
+        "text": "No puede ser: un modelo nuevo conoce todo lo que lanzó su propio proveedor",
+        "correct": false,
+        "feedback": "Ser nuevo no le da información posterior a su fecha de corte. Eso vale incluso para los productos de su propio proveedor.",
+        "misconceptionId": "m01-mc10"
+      },
+      {
+        "id": "o3",
+        "text": "Porque le falta contexto: si le explicas mejor la pregunta, lo sabrá",
+        "correct": false,
+        "feedback": "Explicar mejor la pregunta no le da un dato que no tiene. Lo que falta es la información, y llega por búsqueda o por un documento.",
+        "misconceptionId": "m01-mc09"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l3#fecha-corte",
+    "sourceIds": [
+      "src-anthropic-models-overview",
+      "src-openai-models"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-p07",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m01",
+    "evaluatedObjectiveId": "m01-eo4",
+    "competencyIds": [
+      "C01",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Le adjuntaste un contrato al asistente y te responde con una «cita textual» de la cláusula de penalidades.",
+    "stem": "¿Cómo la verificas?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Buscas esa frase en el contrato y compruebas que esté y diga eso",
+        "correct": true,
+        "feedback": "Correcta. Una cita se verifica en su fuente. Que el modelo la presente como textual no garantiza que lo sea."
+      },
+      {
+        "id": "o2",
+        "text": "Le preguntas si la cita es exacta y la usas si lo confirma",
+        "correct": false,
+        "feedback": "La confirmación del modelo no es evidencia. La fuente la tienes tú: es el contrato.",
+        "misconceptionId": "m01-mc14"
+      },
+      {
+        "id": "o3",
+        "text": "La usas: si dice que es textual y el contrato existe, la cita es correcta",
+        "correct": false,
+        "feedback": "Una referencia real puede venir con el texto equivocado. Hay que abrir la fuente.",
+        "misconceptionId": "m01-mc16"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l4#verificar",
+    "sourceIds": [
+      "src-anthropic-reduce-hallucinations"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-p08",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m01",
+    "evaluatedObjectiveId": "m01-eo4",
+    "competencyIds": [
+      "C01",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "En una reunión, alguien pregunta qué es exactamente una «alucinación» de un modelo de IA.",
+    "stem": "¿Qué respondes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Un error raro que solo cometían los modelos de hace unos años",
+        "correct": false,
+        "feedback": "Las alucinaciones disminuyen con las mitigaciones, pero no desaparecen. Los modelos actuales también las producen.",
+        "misconceptionId": "m01-mc15"
+      },
+      {
+        "id": "o2",
+        "text": "Contenido falso que el modelo afirma con seguridad y que puede inducir a error",
+        "correct": true,
+        "feedback": "Correcta. Lo que la define es justamente el tono seguro: el error llega igual que una respuesta correcta."
+      },
+      {
+        "id": "o3",
+        "text": "Una respuesta en la que el modelo duda y te avisa de que podría equivocarse",
+        "correct": false,
+        "feedback": "Si el modelo avisa que duda, no hay alucinación. El problema es que el error se presenta con la misma seguridad que un acierto.",
+        "misconceptionId": "m01-mc13"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l4#que-es",
+    "sourceIds": [
+      "src-nist-ai-600-1",
+      "src-openai-blog-hallucinate"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-p09",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m01",
+    "evaluatedObjectiveId": "m01-eo5",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Cada día envías por la API el mismo manual de 50 páginas, junto con una pregunta distinta sobre él.",
+    "stem": "¿Qué abarata ese uso?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Usar el modelo más grande, que lee el manual más rápido",
+        "correct": false,
+        "feedback": "Un modelo más grande no abarata nada: cuesta más por token. Lo que se repite se abarata con otra función.",
+        "misconceptionId": "m01-mc18"
+      },
+      {
+        "id": "o2",
+        "text": "Hacerlo en una sesión de chat larga, que solo cobra el último mensaje",
+        "correct": false,
+        "feedback": "En una sesión que conserva el historial, cada solicitud incluye todo lo anterior. Sería más caro, no más barato.",
+        "misconceptionId": "m01-mc23"
+      },
+      {
+        "id": "o3",
+        "text": "La caché de prompts, que abarata la parte que se repite entre solicitudes",
+        "correct": true,
+        "feedback": "Correcta. El manual se repite en cada solicitud, que es justo lo que la caché abarata. Además se puede combinar con los lotes si no hay urgencia."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l5#pago",
+    "sourceIds": [
+      "src-anthropic-pricing",
+      "src-openai-pricing"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-p10",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m01",
+    "evaluatedObjectiveId": "m01-eo5",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Alguien propone usar un equipo de agentes trabajando en paralelo para revisar un memorando de tres páginas.",
+    "stem": "¿Qué le respondes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que conviene: más agentes revisan mejor y un agente siempre supera a una herramienta simple",
+        "correct": false,
+        "feedback": "Más agentes no garantizan una mejor revisión, y un equipo de agentes puede usar varias veces más tokens. Para tres páginas, es costo sin beneficio.",
+        "misconceptionId": "m01-mc36"
+      },
+      {
+        "id": "o2",
+        "text": "Que para tres páginas basta una conversación; un equipo de agentes multiplica los tokens",
+        "correct": true,
+        "feedback": "Correcta. En un caso documentado, un equipo de agentes usó unas siete veces más tokens. Para un documento corto, la herramienta suficiente es mucho más simple."
+      },
+      {
+        "id": "o3",
+        "text": "Que conviene, siempre que cada agente use el modelo más grande con el esfuerzo máximo",
+        "correct": false,
+        "feedback": "Eso multiplicaría el costo dos veces sin evidencia de mejora. El máximo se reserva para cuando las pruebas lo justifican.",
+        "misconceptionId": "m01-mc18"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l5#multiplicadores",
+    "sourceIds": [
+      "src-anthropic-cc-costs",
+      "src-anthropic-building-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-p11",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m01",
+    "evaluatedObjectiveId": "m01-eo6",
+    "competencyIds": [
+      "C01",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Un colega pregunta por qué repites varias veces la misma prueba con las mismas entradas, si ya sabes qué va a responder la herramienta.",
+    "stem": "¿Qué le contestas?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que no lo sabes: con las mismas entradas, un modelo puede responder distinto cada vez",
+        "correct": true,
+        "feedback": "Correcta. Los modelos no son deterministas, incluso con la temperatura al mínimo. Repetir la prueba muestra si el resultado es consistente."
+      },
+      {
+        "id": "o2",
+        "text": "Que no hace falta repetirla: con las mismas entradas, una prueba basta",
+        "correct": false,
+        "feedback": "Con las mismas entradas, cada ensayo puede salir distinto. Una sola prueba puede salir bien o mal por azar.",
+        "misconceptionId": "m01-mc24"
+      },
+      {
+        "id": "o3",
+        "text": "Que lo haces para poder comparar tu resultado con el ranking público",
+        "correct": false,
+        "feedback": "El ranking mide otras tareas. Los ensayos repetidos sirven para tu propia comparación, no para cotejarla con un ranking.",
+        "misconceptionId": "m01-mc25"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l6#ensayos",
+    "sourceIds": [
+      "src-anthropic-glossary",
+      "src-anthropic-evals-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-p12",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m01",
+    "evaluatedObjectiveId": "m01-eo6",
+    "competencyIds": [
+      "C01",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Hace un mes elegiste una herramienta después de una comparación cuidadosa. Hoy, su proveedor cambió el modelo por defecto.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: la comparación ya se hizo y vale hasta que cambies de herramienta",
+        "correct": false,
+        "feedback": "La conclusión valía para el modelo de entonces. Con otro modelo por defecto, puede que ya no se sostenga.",
+        "misconceptionId": "m01-mc27"
+      },
+      {
+        "id": "o2",
+        "text": "Cambias de herramienta, porque cualquier cambio del proveedor la empeora",
+        "correct": false,
+        "feedback": "Un cambio no la empeora necesariamente. Lo que corresponde es volver a medir, no decidir sin datos.",
+        "misconceptionId": "m01-mc19"
+      },
+      {
+        "id": "o3",
+        "text": "Repites la comparación con el modelo nuevo y actualizas la fecha de la conclusión",
+        "correct": true,
+        "feedback": "Correcta. La conclusión lleva fecha y versión. Cuando cambia una de las herramientas, se vuelve a comparar."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l6#conclusion",
+    "sourceIds": [
+      "src-openai-codex-models",
+      "src-anthropic-effort"
+    ],
+    "status": "draft"
+  }
+]

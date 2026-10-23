@@ -31,8 +31,8 @@ export default function Home() {
       <section className="section" aria-labelledby="ruta">
         <h2 id="ruta">Tu ruta</h2>
         <p className="muted">
-          El piloto empieza por M02 porque fija cómo se escriben y verifican todas las tareas que le darás a un agente. Los
-          demás manuales llegarán después.
+          Los manuales se publican a medida que quedan completos y revisados. Si recién empiezas, M01 explica qué herramienta
+          usar para cada tarea y cómo comprobar su resultado; M02, cómo convertir una idea en un encargo que se pueda verificar.
         </p>
         <p>
           <Link to="/diagnostico">Haz el diagnóstico inicial</Link> (unos 25 minutos) para saber por dónde te conviene empezar y

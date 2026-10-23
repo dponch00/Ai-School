@@ -1,27 +1,27 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 en preparación (6 de 6 lecciones; faltan examen y laboratorio). · **Actualizado:** 2026-10-22 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 completo en piloto (en revisión su examen y laboratorio); sigue M03. · **Actualizado:** 2026-10-22 por Claude Code
 
 ## Siguiente acción
 
-1. **Codex:** T-025, revisión de M01 lecciones 4 a 6 (18 preguntas nuevas y 3 fichas).
-2. **Claude:** mientras tanto, el banco de examen de M01 (36 ítems en 18 familias) y su laboratorio como caso de opción múltiple. Luego M03 y M04.
+1. **Codex:** T-026, revisión del banco de examen de M01 (36 ítems), su laboratorio como caso y su práctica.
+2. **Claude:** mientras tanto, M03 (ingeniería de contexto), empezando por el blueprint en opción múltiple y las lecciones 1 a 3.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-22)
 
-**≈ 48 % de la V1** (rango razonable: 45–51 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 49 % de la V1** (rango razonable: 46–52 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 88 % (simplificada a opción múltiple con D-024; faltan el hosting y la instalación real en dispositivos) | 13,2 |
-| 3 · Nueve manuales restantes | 40 % | 14 % (investigación del Bloque A revisada; M01 con sus 6 lecciones, sin examen ni laboratorio) | 5,6 |
+| 3 · Nueve manuales restantes | 40 % | 18 % (M01 completo, falta la revisión de su examen y laboratorio; investigación de M03 y M04 lista) | 7,2 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 48 %** |
+| **Total** | 100 % | | **≈ 49 %** |
 
 ## Tickets
 
@@ -51,20 +51,37 @@
 | [T-022](coordinacion/tickets/T-022-codex-revision-como-funciona.md) | Codex | Revisión de «Cómo funciona» y de la versión de prueba en un solo archivo | cerrado |
 | [T-023](coordinacion/tickets/T-023-codex-d024-opcion-multiple.md) | Codex | D-024: laboratorio como caso de opción múltiple y app simplificada | cerrado |
 | [T-024](coordinacion/tickets/T-024-codex-revision-m01-l1-l3.md) | Codex | Revisión temprana de M01: lecciones 1 a 3, preguntas y fichas | cerrado |
-| [T-025](coordinacion/tickets/T-025-codex-revision-m01-l4-l6.md) | Codex | Revisión de M01: lecciones 4 a 6, preguntas y fichas | abierto |
+| [T-025](coordinacion/tickets/T-025-codex-revision-m01-l4-l6.md) | Codex | Revisión de M01: lecciones 4 a 6, preguntas y fichas | cerrado |
+| [T-026](coordinacion/tickets/T-026-codex-revision-m01-examen-laboratorio.md) | Codex | Revisión de M01: banco de examen, laboratorio como caso y práctica | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-025) | `investigacion/codex-revision-m01-l4-l6.md` |
-| Claude | `content/courses/m01/questions/exam.json`, `families.json`, `practice/` |
+| Codex (T-026) | `investigacion/codex-revision-m01-examen-laboratorio.md` |
+| Claude | `content/courses/m03/**` |
 
 ## Decisiones recientes
 
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-23 · Claude Code — revisión de T-025 y M01 completo
+**T-025:** se aplicaron los 4 hallazgos.
+- El caso de L6 ya no recomienda a quien falla un criterio crítico.
+- Los límites de cinco horas y las excepciones de privacidad quedaron por plan.
+- La conclusión de `m01-l6-c3` ahora es completa.
+
+**M01 completo:**
+- Banco de examen de 36 ítems: 12 familias con un enunciado por familia y `families.json`.
+- Laboratorio como caso: «Cinco encargos en la semana de cierre», 7 pasos, 12 preguntas y un giro de Legal sobre datos personales.
+- 12 preguntas de práctica y 5 conceptos erróneos nuevos.
+- Se rebalanceó la longitud de las claves: en el examen era la opción más larga en 20 de 36 y quedó en 11; en el laboratorio, en 9 de 12 y quedó en 0.
+
+**App:** M01 ya figura como disponible, en piloto. «Disponible ahora» y el inicio se arman con los manuales completos.
+
+Abierto T-026. `npm test` 120/120 y `npm run e2e` 56/56. Avance: ≈ 49 %.
 
 ### 2026-10-23 · Claude Code — revisión de T-024 y M01, lecciones 4 a 6
 **T-024:** se aplicaron los 5 hallazgos.

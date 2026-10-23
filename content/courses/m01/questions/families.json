@@ -1,0 +1,74 @@
+[
+  {
+    "family": "m01-f01",
+    "evaluatedObjectiveId": "m01-eo1",
+    "decision": "Identificar la capa (producto, plan, entorno) que explica una diferencia de comportamiento, en lugar del modelo",
+    "equivalence": "Las tres variantes presentan la misma herramienta con resultados distintos y piden la capa que lo explica. Cambia la capa: la red del entorno (a), el plan del producto (b) y de dónde sale la copia del repositorio en una sesión en la nube (c, más difícil porque obliga a distinguir los dos caminos)."
+  },
+  {
+    "family": "m01-f02",
+    "evaluatedObjectiveId": "m01-eo1",
+    "decision": "Reconocer qué aporta el agente frente a un modelo sin herramientas y frente a un flujo fijo",
+    "equivalence": "Las tres variantes giran en torno a la arquitectura: qué le falta a un modelo para comprobar su trabajo (a), si un proceso de pasos fijos es un agente (b) y si conviene convertir un flujo estable en agente (c, más difícil porque pide juzgar costo y flexibilidad)."
+  },
+  {
+    "family": "m01-f03",
+    "evaluatedObjectiveId": "m01-eo2",
+    "decision": "Elegir el modo de trabajo según qué debe tocar la herramienta, si necesita información actual y cómo se verifica",
+    "equivalence": "Las tres variantes piden elegir herramienta para una tarea: explicar un concepto (conversación), un dato publicado hoy (búsqueda con fuente) y una tabla a partir de doce contratos propios (archivos y contraste con la fuente; c más difícil porque los distractores parecen razonables)."
+  },
+  {
+    "family": "m01-f04",
+    "evaluatedObjectiveId": "m01-eo2",
+    "decision": "Reconocer cuándo una cifra o un gráfico salen de código y cuándo conviene delegar en un agente en la nube",
+    "equivalence": "Las variantes a y b piden producir una cifra o un gráfico exactos y comparten los errores de generador de imágenes y cálculo en el texto. La c pide elegir entre delegar en la nube y otras opciones, con la trampa de los cambios sin subir; es la más difícil."
+  },
+  {
+    "family": "m01-f05",
+    "evaluatedObjectiveId": "m01-eo3",
+    "decision": "Determinar si la información necesaria puede llegarle al modelo y por qué camino, considerando la fecha de corte",
+    "equivalence": "Las tres variantes piden algo que el modelo no tiene: un documento interno (a), un dato de hoy (b) y la mitad de una comparación (c, más difícil porque el asistente ya respondió con seguridad y hay que decidir qué hacer con la respuesta)."
+  },
+  {
+    "family": "m01-f06",
+    "evaluatedObjectiveId": "m01-eo3",
+    "decision": "Elegir qué entra en el contexto y exigir la evidencia de la herramienta",
+    "equivalence": "Las variantes a y b piden elegir el material justo para una tarea entre opciones que llenan el contexto. La c pide reconocer que una herramienta desactivada no pudo usarse; es la más difícil porque la respuesta trae una cifra precisa."
+  },
+  {
+    "family": "m01-f07",
+    "evaluatedObjectiveId": "m01-eo4",
+    "decision": "Clasificar una afirmación (hecho externo, cifra o acción declarada) y elegir su método de verificación",
+    "equivalence": "Cada variante presenta un tipo de afirmación distinto: hecho normativo (fuente primaria), cifra (recálculo) y acción declarada por un agente (evidencia de la herramienta; c más difícil). Los distractores comparten pedirle confirmación al modelo o aceptar el tono seguro."
+  },
+  {
+    "family": "m01-f08",
+    "evaluatedObjectiveId": "m01-eo4",
+    "decision": "Ajustar la verificación al riesgo de la decisión sin tomar el tono ni la confirmación del modelo como evidencia",
+    "equivalence": "Las variantes a y b piden repartir la verificación según lo que está en juego. La c presenta un modelo que se retracta cuando el usuario lo cuestiona, y pide reconocer que ninguna de sus respuestas es evidencia; es la más difícil."
+  },
+  {
+    "family": "m01-f09",
+    "evaluatedObjectiveId": "m01-eo5",
+    "decision": "Elegir la configuración suficiente con una muestra propia, usando el esfuerzo y el costo como palancas",
+    "equivalence": "Las tres variantes dan resultados de una muestra y piden decidir: no subir el esfuerzo sin evidencia (a), no quedarse con lo barato si no cumple (b) y elegir según la palanca que importa en el caso (c, más difícil porque las dos opciones cumplen)."
+  },
+  {
+    "family": "m01-f10",
+    "evaluatedObjectiveId": "m01-eo5",
+    "decision": "Reconocer cómo se paga el uso y dónde ocurre la inferencia",
+    "equivalence": "Las variantes piden reconocer el costo o la ubicación de los datos en tres situaciones: volumen sin urgencia (lotes), datos que no deben salir (modelo de pesos abiertos propio) y una sesión larga que encarece (c, más difícil porque obliga a razonar sobre el historial)."
+  },
+  {
+    "family": "m01-f11",
+    "evaluatedObjectiveId": "m01-eo6",
+    "decision": "Elegir un diseño de comparación válido: varios ensayos, casos propios y las mismas entradas",
+    "equivalence": "Cada variante tiene un defecto de diseño distinto: un solo ensayo (a), un ranking en lugar de casos propios (b) y entradas distintas para cada herramienta (c, más difícil porque el diseño parece cuidadoso)."
+  },
+  {
+    "family": "m01-f12",
+    "evaluatedObjectiveId": "m01-eo6",
+    "decision": "Sacar la conclusión que la evidencia permite: criterio crítico, vigencia y errores del criterio",
+    "equivalence": "Las tres variantes dan un resultado y piden la conclusión correcta: el criterio crítico decide sobre el promedio (a), la conclusión caduca con las versiones (b) y un fallo puede ser del criterio y no de la herramienta (c, más difícil)."
+  }
+]

@@ -18,7 +18,9 @@ const RUTAS = [
   ['glosario', '/#/glosario?termino=g-invariante'],
   ['mis notas', '/#/notas'],
   ['cómo funciona', '/#/como-funciona'],
-  ['portada M01 (en preparación)', '/#/cursos/m01'],
+  ['portada M01', '/#/cursos/m01'],
+  ['laboratorio M01', '/#/cursos/m01/laboratorio'],
+  ['examen M01', '/#/cursos/m01/examen'],
   ['M01 lección 3', '/#/cursos/m01/lecciones/m01-l3'],
   ['M01 lección 5 (fichas de precios)', '/#/cursos/m01/lecciones/m01-l5'],
 ] as const

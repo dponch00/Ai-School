@@ -1,0 +1,533 @@
+[
+  {
+    "id": "m01-lab-q01",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m01",
+    "labStep": "paso-1",
+    "evaluatedObjectiveId": "m01-eo1",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "Primera historia del compañero: la sesión en la nube tenía que generar la documentación con una herramienta que se instala desde internet, y la instalación falló. En su portátil, la misma instalación funciona.",
+    "stem": "¿Qué explica la diferencia?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El modelo de la sesión en la nube, que es más limitado que el de su portátil",
+        "correct": false,
+        "feedback": "El agente y el modelo pueden ser los mismos en los dos lados. Instalar algo desde internet depende de la red del entorno, no del modelo.",
+        "misconceptionId": "m01-mc01"
+      },
+      {
+        "id": "o2",
+        "text": "El entorno: la sesión en la nube tenía la red limitada y no pudo descargarla",
+        "correct": true,
+        "feedback": "Correcta. Las sesiones en la nube pueden tener la red limitada por defecto. Lo que en el portátil funciona puede fallar ahí sin que el modelo tenga nada que ver."
+      },
+      {
+        "id": "o3",
+        "text": "Un error del producto, porque el proveedor anuncia que sus agentes instalan herramientas",
+        "correct": false,
+        "feedback": "Lo que anuncia un producto depende del entorno donde corre. En un entorno sin red hacia esa descarga, la instalación no es posible.",
+        "misconceptionId": "m01-mc04"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l1#entorno",
+    "sourceIds": [
+      "src-anthropic-cc-glossary",
+      "src-anthropic-cc-cloud"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-lab-q02",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m01",
+    "labStep": "paso-1",
+    "evaluatedObjectiveId": "m01-eo1",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "advanced",
+    "process": "apply",
+    "scenario": "Segunda historia: la documentación que entregó la sesión en la nube no seguía la guía de estilo del equipo. Esa guía vive en una carpeta compartida de la red, fuera del repositorio.",
+    "stem": "¿Qué conviene hacer para el encargo 5?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Cambiar a un modelo más capaz, que siga mejor las guías de estilo",
+        "correct": false,
+        "feedback": "El problema no es de capacidad: la sesión nunca tuvo la guía delante. Ningún modelo sigue un documento que no recibió.",
+        "misconceptionId": "m01-mc01"
+      },
+      {
+        "id": "o2",
+        "text": "Nada: en la nube el agente ve lo mismo que en tu red, así que fue un descuido suyo",
+        "correct": false,
+        "feedback": "La sesión en la nube no ve tu red ni tus carpetas compartidas. Solo trabaja con la copia del repositorio que recibe.",
+        "misconceptionId": "m01-mc02"
+      },
+      {
+        "id": "o3",
+        "text": "Agregar la guía al repositorio: la sesión solo tiene la copia del repositorio",
+        "correct": true,
+        "feedback": "Correcta. La sesión en la nube tiene lo que está en el repositorio que recibe, y nada más. Si la guía tiene que seguirse, tiene que estar ahí."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l1#entorno",
+    "sourceIds": [
+      "src-anthropic-cc-cloud",
+      "src-anthropic-cc-glossary"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-lab-q03",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m01",
+    "labStep": "paso-2",
+    "evaluatedObjectiveId": "m01-eo2",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Para el encargo 1 hacen falta el margen por región del trimestre, un gráfico de barras con esas cifras y un texto breve que las comente.",
+    "stem": "¿Cómo lo resuelve?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Le pide al chat el texto con los márgenes ya calculados y el gráfico a un generador de imágenes",
+        "correct": false,
+        "feedback": "Las cifras calculadas dentro de la respuesta no se pueden revisar, y un generador de imágenes no garantiza números exactos. Las dos piezas con datos tienen que salir de código.",
+        "misconceptionId": "m01-mc28"
+      },
+      {
+        "id": "o2",
+        "text": "Calcula los márgenes con código, genera el gráfico con código y redacta el texto a partir de esas cifras",
+        "correct": true,
+        "feedback": "Correcta. Las cifras y el gráfico salen del mismo cálculo, que se puede repetir. El texto se apoya en cifras que ya están comprobadas."
+      },
+      {
+        "id": "o3",
+        "text": "Le pide la imagen completa, texto y gráfico juntos, a un generador de imágenes con las cifras en el prompt",
+        "correct": false,
+        "feedback": "Un generador de imágenes no garantiza que las cifras ni las etiquetas salgan bien. Para un directorio, un número mal dibujado es un error de dato.",
+        "misconceptionId": "m01-mc07"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l2#datos",
+    "sourceIds": [
+      "src-google-prompting-strategies",
+      "src-anthropic-support-images"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-lab-q04",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m01",
+    "labStep": "paso-2",
+    "evaluatedObjectiveId": "m01-eo2",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El encargo 5 es acotado: actualizar la documentación y las pruebas del dashboard. Tiene que hacerse de noche y se revisa por la mañana.",
+    "stem": "¿Qué herramienta usa?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Un chat al que le pega la documentación, y por la mañana copia al repositorio lo que devuelva",
+        "correct": false,
+        "feedback": "El chat no puede correr las pruebas ni trabajar en el repositorio. Copiar a mano lo que devuelva es justo el trabajo que se quería delegar.",
+        "misconceptionId": "m01-mc08"
+      },
+      {
+        "id": "o2",
+        "text": "Una investigación profunda que reúna buenas prácticas de documentación de dashboards",
+        "correct": false,
+        "feedback": "La investigación trae fuentes de la web, pero no modifica el repositorio ni corre las pruebas. No resuelve el encargo.",
+        "misconceptionId": "m01-mc05"
+      },
+      {
+        "id": "o3",
+        "text": "Un agente en la nube que entregue los cambios para revisar, con sus cambios subidos antes",
+        "correct": true,
+        "feedback": "Correcta. Es una tarea acotada que se revisa al final, el uso típico del agente en la nube. Subir antes los cambios asegura que trabaje sobre la versión correcta."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l2#codigo",
+    "sourceIds": [
+      "src-github-copilot-agents",
+      "src-anthropic-cc-cloud"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-lab-q05",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m01",
+    "labStep": "paso-3",
+    "evaluatedObjectiveId": "m01-eo3",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Para el encargo 4, alguien propone pegar los 800 contratos en una sola conversación y pedir al final la tabla completa de renovaciones.",
+    "stem": "¿Qué le responde la analista?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Procesar cada contrato en una solicitud propia, para que lleve solo ese contrato",
+        "correct": true,
+        "feedback": "Correcta. Con un contrato por solicitud, el contexto lleva solo lo pertinente y cada extracción se puede revisar por separado."
+      },
+      {
+        "id": "o2",
+        "text": "Que está bien: con una ventana enorme, tener los 800 contratos juntos da mejor contexto",
+        "correct": false,
+        "feedback": "Ochocientos contratos parecidos en una sola conversación son el escenario donde el rendimiento más cae. Una ventana grande no lo evita.",
+        "misconceptionId": "m01-mc09"
+      },
+      {
+        "id": "o3",
+        "text": "Que está bien, porque una conversación solo cobra lo que cuesta su último mensaje",
+        "correct": false,
+        "feedback": "En una sesión que conserva el historial, cada solicitud incluye todo lo acumulado. Además del deterioro, sería la opción más cara.",
+        "misconceptionId": "m01-mc23"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l3#mas-contexto",
+    "sourceIds": [
+      "src-anthropic-context-windows",
+      "src-chroma-context-rot"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-lab-q06",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m01",
+    "labStep": "paso-3",
+    "evaluatedObjectiveId": "m01-eo3",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "advanced",
+    "process": "apply",
+    "scenario": "Para el encargo 3, el agente de código propone leer los 300 archivos del repositorio antes de tocar el script de comisiones, «para entender todo el proyecto».",
+    "stem": "¿Qué le indica la analista?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que lea todo: lo que lee el agente no ocupa contexto, solo cuenta lo que escribe ella",
+        "correct": false,
+        "feedback": "Lo que lee la herramienta entra en el contexto, junto con las instrucciones y la respuesta. Trescientos archivos lo llenarían de material ajeno al problema.",
+        "misconceptionId": "m01-mc32"
+      },
+      {
+        "id": "o2",
+        "text": "Empezar por el script de comisiones y su prueba, y leer otros solo si hacen falta",
+        "correct": true,
+        "feedback": "Correcta. El problema está en un script concreto. Elegir lo que entra deja el contexto para lo que importa."
+      },
+      {
+        "id": "o3",
+        "text": "Que lea todo, porque con más contexto la corrección siempre sale mejor",
+        "correct": false,
+        "feedback": "Más contexto no es mejor contexto. Entre cientos de archivos, lo que importa se aprovecha peor.",
+        "misconceptionId": "m01-mc09"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l3#contexto",
+    "sourceIds": [
+      "src-anthropic-context-windows"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-lab-q07",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m01",
+    "labStep": "paso-4",
+    "evaluatedObjectiveId": "m01-eo4",
+    "competencyIds": [
+      "C01",
+      "C12"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "Para el encargo 2, el asistente con búsqueda responde: «El impuesto es del 7 % y aplica desde el 1 de noviembre», con un enlace a una nota de prensa.",
+    "stem": "¿Qué hace la analista antes de avisarle a Comercial?",
+    "options": [
+      {
+        "id": "o2",
+        "text": "Abre la norma oficial y comprueba la tasa, la fecha y si incluye sus productos",
+        "correct": true,
+        "feedback": "Correcta. Es un hecho externo con consecuencias en los precios, así que se verifica en la fuente primaria. Una nota de prensa puede resumir mal o quedarse corta."
+      },
+      {
+        "id": "o1",
+        "text": "Lo da por bueno, porque la respuesta trae su fuente con enlace",
+        "correct": false,
+        "feedback": "Una cita sirve para comprobar, no reemplaza la comprobación. Y una nota de prensa no es la norma.",
+        "misconceptionId": "m01-mc06"
+      },
+      {
+        "id": "o3",
+        "text": "Lo da por bueno si la nota es de un medio conocido, porque entonces dice lo correcto",
+        "correct": false,
+        "feedback": "Un medio conocido también puede resumir mal una norma, y el asistente puede citarlo con otra cifra. La tasa se confirma en la norma.",
+        "misconceptionId": "m01-mc16"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l4#verificar",
+    "sourceIds": [
+      "src-anthropic-support-web-search",
+      "src-scirep-fabricated-citations"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-lab-q08",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m01",
+    "labStep": "paso-4",
+    "evaluatedObjectiveId": "m01-eo4",
+    "competencyIds": [
+      "C01",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El agente del encargo 3 cierra así: «Corregí el redondeo de las comisiones y todas las pruebas pasan».",
+    "stem": "¿Qué le pide la analista antes de aceptar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que le confirme, con más detalle, que el redondeo de todas las comisiones quedó bien",
+        "correct": false,
+        "feedback": "Una confirmación más detallada no es más evidencia. Lo que demuestra que las pruebas pasan es su salida.",
+        "misconceptionId": "m01-mc14"
+      },
+      {
+        "id": "o2",
+        "text": "Nada: si dice que las pruebas pasan, las corrió y pasaron",
+        "correct": false,
+        "feedback": "Una acción declarada no prueba nada sin la evidencia de la herramienta. Hay casos documentados de modelos que describen ejecuciones que no hicieron.",
+        "misconceptionId": "m01-mc11"
+      },
+      {
+        "id": "o3",
+        "text": "Los cambios que hizo y la salida de las pruebas que dice haber corrido",
+        "correct": true,
+        "feedback": "Correcta. «Corregí» y «pasan» son acciones declaradas. Se verifican con los cambios y la salida de las pruebas."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l4#verificar",
+    "sourceIds": [
+      "src-transluce-o3-truthfulness",
+      "src-anthropic-cc-glossary"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-lab-q09",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m01",
+    "labStep": "paso-5",
+    "evaluatedObjectiveId": "m01-eo5",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "Para el encargo 4 hay 800 contratos por trimestre, sin urgencia, y 40 contratos revisados a mano que sirven de muestra.",
+    "stem": "¿Qué configuración propone la analista?",
+    "options": [
+      {
+        "id": "o2",
+        "text": "Elegir con la muestra el modelo más simple que cumpla y procesar por lotes, porque no hay urgencia",
+        "correct": true,
+        "feedback": "Correcta. La muestra dice qué configuración alcanza, y la falta de urgencia permite usar lotes, que cuestan cerca de la mitad."
+      },
+      {
+        "id": "o1",
+        "text": "El modelo más capaz con esfuerzo máximo, en tiempo real, para terminar antes y sin ningún error",
+        "correct": false,
+        "feedback": "Sin pruebas que lo justifiquen, el máximo solo encarece, y la urgencia no existe. Ninguna de las dos cosas se apoya en la muestra.",
+        "misconceptionId": "m01-mc18"
+      },
+      {
+        "id": "o3",
+        "text": "El modelo más barato en tiempo real, sin probar nada, porque extraer dos campos es una tarea fácil",
+        "correct": false,
+        "feedback": "Que la tarea parezca fácil no dice que el modelo más barato la haga bien. Para eso está la muestra.",
+        "misconceptionId": "m01-mc19"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l5#arrancar",
+    "sourceIds": [
+      "src-anthropic-choosing-model",
+      "src-anthropic-pricing"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-lab-q10",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m01",
+    "labStep": "paso-6",
+    "evaluatedObjectiveId": "m01-eo6",
+    "competencyIds": [
+      "C01",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Antes de comparar los dos asistentes para el texto del encargo 1, la analista deja escrito el diseño de la comparación.",
+    "stem": "¿Qué incluye?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Un prompt a la medida de cada asistente, para que rinda al máximo, y un ensayo con cada uno",
+        "correct": false,
+        "feedback": "Con prompts distintos no se sabe qué produjo la diferencia. Además, un solo ensayo puede salir bien o mal por azar.",
+        "misconceptionId": "m01-mc38"
+      },
+      {
+        "id": "o2",
+        "text": "La posición de cada asistente en un ranking público de redacción, para no perder tiempo",
+        "correct": false,
+        "feedback": "El ranking mide otras tareas y otros datos. La comparación que sirve se hace con el encargo real.",
+        "misconceptionId": "m01-mc25"
+      },
+      {
+        "id": "o3",
+        "text": "Mismas entradas, tres ensayos, cifras como criterio crítico y condiciones anotadas",
+        "correct": true,
+        "feedback": "Correcta. Así la comparación separa lo consistente del azar, no deja que el promedio tape un error en las cifras y queda fechada con sus versiones."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l6#condiciones",
+    "sourceIds": [
+      "src-openai-eval-best-practices",
+      "src-anthropic-evals-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-lab-q11",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m01",
+    "labStep": "paso-6",
+    "evaluatedObjectiveId": "m01-eo6",
+    "competencyIds": [
+      "C01",
+      "C12"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "scenario": "Resultados: A acertó las cifras en sus tres ensayos, pero en uno superó las 150 palabras, un criterio no crítico. B cambió una cifra en uno de sus tres ensayos.",
+    "stem": "¿Qué concluye la analista?",
+    "options": [
+      {
+        "id": "o2",
+        "text": "A, con estas versiones y esta fecha: cumplió el criterio crítico, y el largo no lo es",
+        "correct": true,
+        "feedback": "Correcta. El criterio crítico, las cifras, solo lo cumplió A en todos los ensayos. El fallo de largo se pondera, y la conclusión queda atada a esa fecha y esas versiones."
+      },
+      {
+        "id": "o1",
+        "text": "Ninguna sirve, porque las dos fallaron algún criterio de la rúbrica",
+        "correct": false,
+        "feedback": "Solo los criterios críticos descalifican. Pasarse de largo en un ensayo es un fallo menor que se pondera con los demás.",
+        "misconceptionId": "m01-mc39"
+      },
+      {
+        "id": "o3",
+        "text": "B, porque acertó las cifras en la mayoría de sus ensayos y nunca se pasó del largo pedido",
+        "correct": false,
+        "feedback": "Un criterio crítico no se aprueba por mayoría: una cifra cambiada descalifica a B. El largo no compensa ese fallo.",
+        "misconceptionId": "m01-mc26"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l6#criterio-critico",
+    "sourceIds": [
+      "src-anthropic-develop-tests"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-lab-q12",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m01",
+    "labStep": "paso-7",
+    "evaluatedObjectiveId": "m01-eo5",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "Legal informa que los contratos del encargo 4 contienen datos personales y que la política prohíbe procesarlos en planes individuales de cualquier herramienta.",
+    "stem": "¿Cómo cambia la decisión del paso 5?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "No cambia: el procesamiento por lotes sigue siendo lo más barato, sea cual sea el plan que se use",
+        "correct": false,
+        "feedback": "La restricción nueva es sobre los datos, no sobre el costo. Si el plan no está permitido, la opción más barata deja de ser una opción.",
+        "misconceptionId": "m01-mc22"
+      },
+      {
+        "id": "o2",
+        "text": "Usa un agente de código en su portátil con el modelo del proveedor, porque así los datos no salen",
+        "correct": false,
+        "feedback": "El agente local envía lo que lee al modelo del proveedor. Los datos salen igual, y la política sigue sin cumplirse.",
+        "misconceptionId": "m01-mc21"
+      },
+      {
+        "id": "o3",
+        "text": "La decide la política: plan de empresa o API sin entrenamiento, o un modelo propio si hace falta",
+        "correct": true,
+        "feedback": "Correcta. Ahora la primera pregunta es en qué plan o despliegue pueden procesarse esos datos. El precio y la configuración se eligen después, dentro de lo permitido."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l5#datos",
+    "sourceIds": [
+      "src-anthropic-privacy-commercial-training",
+      "src-openai-help-data-training",
+      "src-openai-gpt-oss"
+    ],
+    "status": "draft"
+  }
+]
