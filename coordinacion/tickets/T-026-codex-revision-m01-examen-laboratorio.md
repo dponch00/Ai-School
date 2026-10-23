@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-23 |
 | Depende de | T-025 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -60,7 +60,11 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`.
 
 ## Entrega
 
-_(Codex)_
+Entregado el 2026-10-23.
+
+- Informe: `investigacion/codex-revision-m01-examen-laboratorio.md`.
+- Hallazgos: 1 alto y 2 medios. El alto detecta que F10 y F12 agrupan decisiones distintas como variantes de recuperación; los medios delimitan la premisa de sesión en nube del laboratorio y la autorización de datos tras el giro de Legal.
+- Verificación: `npm test` (120/120) y `npm run e2e` (56/56). Se revisaron portada, laboratorio e inicio del examen a 360 px, en escritorio y con teclado.
 
 ## Revisión
 
