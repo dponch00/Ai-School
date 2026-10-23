@@ -1,0 +1,54 @@
+{
+  "id": "m03-l3",
+  "courseId": "m03",
+  "version": "0.1.0",
+  "order": 3,
+  "title": "Qué va en cada capa",
+  "objectives": [
+    {
+      "id": "m03-l3-o1",
+      "statement": "Dado un elemento del proyecto, elige su capa con las cuatro preguntas: cada sesión, una parte del código, uso ocasional o garantía.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m03-eo3"
+    },
+    {
+      "id": "m03-l3-o2",
+      "statement": "Reconoce lo que sobra en la instrucción permanente y cuándo agregar una capa a partir de un síntoma.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m03-eo3"
+    },
+    {
+      "id": "m03-l3-o3",
+      "statement": "Combina capas cuando conviene (conector más skill, control determinista más motivo) sin duplicar reglas.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m03-eo3"
+    }
+  ],
+  "bodyPath": "courses/m03/lessons/m03-l3.md",
+  "reviewQuestionIds": [
+    "m03-l2-r1",
+    "m03-l2-r2"
+  ],
+  "checkQuestionIds": [
+    "m03-l3-c1",
+    "m03-l3-c2",
+    "m03-l3-c3",
+    "m03-l3-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m03-pc-layer-costs"
+  ],
+  "sourceIds": [
+    "src-anthropic-cc-best-practices",
+    "src-openai-codex-best-practices",
+    "src-anthropic-cc-memory",
+    "src-github-copilot-instructions",
+    "src-anthropic-cc-features",
+    "src-agentskills-site",
+    "src-mcp-intro",
+    "src-openai-codex-hooks"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

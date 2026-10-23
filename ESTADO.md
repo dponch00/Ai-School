@@ -1,27 +1,27 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 completo en piloto (en revisión su examen y laboratorio); sigue M03. · **Actualizado:** 2026-10-22 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 completo en piloto; M03 en preparación (3 de 6 lecciones). · **Actualizado:** 2026-10-22 por Claude Code
 
 ## Siguiente acción
 
-1. **Codex:** T-026, revisión del banco de examen de M01 (36 ítems), su laboratorio como caso y su práctica.
-2. **Claude:** mientras tanto, M03 (ingeniería de contexto), empezando por el blueprint en opción múltiple y las lecciones 1 a 3.
+1. **Codex:** T-027, revisión de M03 lecciones 1 a 3 (16 preguntas, 4 fichas, 33 fuentes nuevas).
+2. **Claude:** mientras tanto, M03 lecciones 4 a 6.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-22)
 
-**≈ 49 % de la V1** (rango razonable: 46–52 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 51 % de la V1** (rango razonable: 48–54 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 88 % (simplificada a opción múltiple con D-024; faltan el hosting y la instalación real en dispositivos) | 13,2 |
-| 3 · Nueve manuales restantes | 40 % | 18 % (M01 completo, falta la revisión de su examen y laboratorio; investigación de M03 y M04 lista) | 7,2 |
+| 3 · Nueve manuales restantes | 40 % | 21 % (M01 completo y revisado; M03 con 3 de 6 lecciones; investigación de M04 lista) | 8,4 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 49 %** |
+| **Total** | 100 % | | **≈ 51 %** |
 
 ## Tickets
 
@@ -52,13 +52,14 @@
 | [T-023](coordinacion/tickets/T-023-codex-d024-opcion-multiple.md) | Codex | D-024: laboratorio como caso de opción múltiple y app simplificada | cerrado |
 | [T-024](coordinacion/tickets/T-024-codex-revision-m01-l1-l3.md) | Codex | Revisión temprana de M01: lecciones 1 a 3, preguntas y fichas | cerrado |
 | [T-025](coordinacion/tickets/T-025-codex-revision-m01-l4-l6.md) | Codex | Revisión de M01: lecciones 4 a 6, preguntas y fichas | cerrado |
-| [T-026](coordinacion/tickets/T-026-codex-revision-m01-examen-laboratorio.md) | Codex | Revisión de M01: banco de examen, laboratorio como caso y práctica | abierto |
+| [T-026](coordinacion/tickets/T-026-codex-revision-m01-examen-laboratorio.md) | Codex | Revisión de M01: banco de examen, laboratorio como caso y práctica | cerrado |
+| [T-027](coordinacion/tickets/T-027-codex-revision-m03-l1-l3.md) | Codex | Revisión de M03: lecciones 1 a 3, preguntas y fichas | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-026) | `investigacion/codex-revision-m01-examen-laboratorio.md` |
+| Codex (T-027) | `investigacion/codex-revision-m03-l1-l3.md` |
 | Claude | `content/courses/m03/**` |
 
 ## Decisiones recientes
@@ -66,6 +67,19 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-23 · Claude Code — revisión de T-026 y M03, lecciones 1 a 3
+**T-026:**
+- Cada familia del examen de M01 evalúa ahora una sola decisión. F10 y F12 se dividieron y aparecieron F13 (lotes) y F14 (alcance de una conclusión); el banco queda en 42 ítems y 14 familias.
+- El mismo criterio se aplicó a las variantes difíciles de F04, F06 y F08.
+- `m01-lab-q02` fija que la sesión se inició desde la web, y `m01-lab-q12` exige confirmar con Legal qué plan está autorizado.
+
+**M03:**
+- Seis objetivos reformulados para opción múltiple.
+- Lecciones 1 a 3: el contexto como presupuesto, las capas de instrucciones y qué va en cada capa.
+- 16 preguntas, 23 conceptos erróneos, 4 fichas y 33 fuentes nuevas.
+
+Abierto T-027. `npm test` 134/134. Avance: ≈ 51 %.
 
 ### 2026-10-23 · Claude Code — revisión de T-025 y M01 completo
 **T-025:** se aplicaron los 4 hallazgos.

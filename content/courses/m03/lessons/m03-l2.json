@@ -1,0 +1,55 @@
+{
+  "id": "m03-l2",
+  "courseId": "m03",
+  "version": "0.1.0",
+  "order": 2,
+  "title": "Capas de instrucciones y precedencia",
+  "objectives": [
+    {
+      "id": "m03-l2-o1",
+      "statement": "Explica por qué un archivo de instrucciones es contexto y no una regla obligatoria, y qué significa la precedencia en cada herramienta.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m03-eo2"
+    },
+    {
+      "id": "m03-l2-o2",
+      "statement": "Dada una conducta inesperada, identifica la omisión o la contradicción entre archivos que la explica, comprobando qué se cargó.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m03-eo2"
+    },
+    {
+      "id": "m03-l2-o3",
+      "statement": "Elige la corrección mínima: eliminar la contradicción, importar en lugar de copiar o mencionar, y podar lo que no llega.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m03-eo2"
+    }
+  ],
+  "bodyPath": "courses/m03/lessons/m03-l2.md",
+  "reviewQuestionIds": [
+    "m03-l1-r1",
+    "m03-l1-r2"
+  ],
+  "checkQuestionIds": [
+    "m03-l2-c1",
+    "m03-l2-c2",
+    "m03-l2-c3",
+    "m03-l2-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m03-pc-instruction-precedence",
+    "m03-pc-copilot-instructions"
+  ],
+  "sourceIds": [
+    "src-anthropic-cc-memory",
+    "src-anthropic-cc-features",
+    "src-openai-codex-agentsmd",
+    "src-github-copilot-instructions",
+    "src-microsoft-vscode-instructions",
+    "src-agentsmd-site",
+    "src-lf-aaif",
+    "src-anthropic-cc-best-practices"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

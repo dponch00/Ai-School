@@ -1,0 +1,53 @@
+{
+  "id": "m03-l1",
+  "courseId": "m03",
+  "version": "0.1.0",
+  "order": 1,
+  "title": "El contexto como presupuesto",
+  "objectives": [
+    {
+      "id": "m03-l1-o1",
+      "statement": "Reconoce qué ocupa el contexto de un agente y por qué rinde menos al llenarse, aunque quepa en la ventana.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m03-eo1"
+    },
+    {
+      "id": "m03-l1-o2",
+      "statement": "Dado el síntoma de una sesión, elige entre limpiar, compactar con foco, aislar en un subagente o persistir en un archivo.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m03-eo1"
+    },
+    {
+      "id": "m03-l1-o3",
+      "statement": "Reconoce que lo dicho solo en el chat puede perderse al compactar y que lo que debe durar va a un archivo.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m03-eo1"
+    }
+  ],
+  "bodyPath": "courses/m03/lessons/m03-l1.md",
+  "reviewQuestionIds": [],
+  "checkQuestionIds": [
+    "m03-l1-c1",
+    "m03-l1-c2",
+    "m03-l1-c3",
+    "m03-l1-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m03-pc-context-tools"
+  ],
+  "sourceIds": [
+    "src-anthropic-eng-context",
+    "src-anthropic-cc-best-practices",
+    "src-arxiv-ruler",
+    "src-arxiv-nolima",
+    "src-arxiv-context-length",
+    "src-chroma-context-rot",
+    "src-openai-codex-best-practices",
+    "src-anthropic-cc-context-window",
+    "src-anthropic-cc-subagents",
+    "src-anthropic-cc-memory"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

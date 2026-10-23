@@ -1,0 +1,718 @@
+[
+  {
+    "id": "m03-l1-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m03",
+    "lessonId": "m03-l1",
+    "evaluatedObjectiveId": "m03-eo1",
+    "competencyIds": [
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Llevas una hora con el agente ajustando el cálculo de cobertura y quieres hacerle una pregunta sobre la plantilla del correo del comité, que no tiene relación con ese cálculo.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Preguntas en la misma sesión, porque así el agente aprovecha todo lo que ya sabe",
+        "correct": false,
+        "feedback": "Lo que sabe sobre la cobertura no ayuda con la plantilla. Además, mezclar tareas llena el contexto de ruido para las dos.",
+        "misconceptionId": "m03-mc17"
+      },
+      {
+        "id": "o2",
+        "text": "Abres una sesión aparte para la pregunta del correo",
+        "correct": true,
+        "feedback": "Correcta. Son tareas sin relación, y cada una rinde mejor con su propio contexto. La sesión de la cobertura sigue limpia para cuando vuelvas."
+      },
+      {
+        "id": "o3",
+        "text": "Le repites antes las reglas de cobertura en mayúsculas, para que no las olvide al volver",
+        "correct": false,
+        "feedback": "Repetir con énfasis agrega texto a un contexto que ya tiene mucho. Lo que protege la tarea es no mezclarla con otra.",
+        "misconceptionId": "m03-mc04"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l1#movimientos",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-openai-codex-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-l1-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m03",
+    "lessonId": "m03-l1",
+    "evaluatedObjectiveId": "m03-eo1",
+    "competencyIds": [
+      "C03"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "La tarea sigue siendo la misma y el historial tiene decisiones que importan, pero la sesión ya es muy larga y el agente empieza a responder con menos precisión.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Compactas sin indicaciones, porque la compactación conserva todo lo que se dijo",
+        "correct": false,
+        "feedback": "La compactación resume, y en el resumen se puede perder lo que no indicaste. Conviene decirle qué conservar.",
+        "misconceptionId": "m03-mc02"
+      },
+      {
+        "id": "o2",
+        "text": "Limpias y empiezas de cero, aunque se pierdan las decisiones de la sesión",
+        "correct": false,
+        "feedback": "Empezar de cero sirve cuando el contexto está contaminado o la tarea cambió. Aquí la tarea es la misma y el historial vale: perderlo obliga a rehacer decisiones.",
+        "misconceptionId": "m03-mc18"
+      },
+      {
+        "id": "o3",
+        "text": "Sigues igual: con una ventana tan grande, el largo de la sesión no debería afectar",
+        "correct": false,
+        "feedback": "El rendimiento cae dentro de la ventana anunciada, mucho antes de llenarla. El síntoma que ves es justamente ese.",
+        "misconceptionId": "m03-mc01"
+      },
+      {
+        "id": "o4",
+        "text": "Compactas indicando qué conservar, como los archivos modificados y los comandos de prueba",
+        "correct": true,
+        "feedback": "Correcta. Con la misma tarea y un historial valioso, compactar con foco libera espacio sin perder las decisiones. Decir qué conservar evita que el resumen se lleve lo importante."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l1#movimientos",
+    "sourceIds": [
+      "src-anthropic-eng-context",
+      "src-anthropic-cc-context-window"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-l1-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m03",
+    "lessonId": "m03-l1",
+    "evaluatedObjectiveId": "m03-eo1",
+    "competencyIds": [
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Antes de cambiar la carga de datos, quieres un inventario de todos los lugares del repositorio que leen el snapshot. Son unos 40 archivos, y después tienes que seguir con tu tarea principal.",
+    "stem": "¿Cómo lo haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Le pides a un subagente que explore y te devuelva la lista con las rutas",
+        "correct": true,
+        "feedback": "Correcta. La exploración de 40 archivos llenaría tu sesión con material que no vas a volver a consultar. El subagente trabaja en su propio contexto y te devuelve solo el resumen."
+      },
+      {
+        "id": "o2",
+        "text": "Lo haces en la misma sesión, junto con la tarea principal, para que compartan contexto",
+        "correct": false,
+        "feedback": "Mezclar la exploración con la tarea principal llena el contexto de archivos. Lo que sigue después no los necesita.",
+        "misconceptionId": "m03-mc17"
+      },
+      {
+        "id": "o3",
+        "text": "Le pides al agente que lea los 40 archivos en tu sesión: con una ventana grande no hay problema",
+        "correct": false,
+        "feedback": "Aunque quepan, 40 archivos en tu sesión degradan lo que viene después. El tamaño de la ventana no evita el deterioro.",
+        "misconceptionId": "m03-mc01"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l1#movimientos",
+    "sourceIds": [
+      "src-anthropic-eng-context",
+      "src-anthropic-cc-subagents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-l1-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m03",
+    "lessonId": "m03-l1",
+    "evaluatedObjectiveId": "m03-eo1",
+    "competencyIds": [
+      "C03"
+    ],
+    "difficulty": "advanced",
+    "process": "apply",
+    "scenario": "Quieres que, desde ahora, el agente corra el check de reconciliación antes de dar algo por terminado, también en las próximas sesiones.",
+    "stem": "¿Dónde lo indicas?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Se lo dices en el chat: aunque la conversación se compacte, lo va a recordar",
+        "correct": false,
+        "feedback": "Lo que se dice solo en el chat puede perderse al compactar, y no pasa a la próxima sesión. Una regla que tiene que durar no vive en el historial.",
+        "misconceptionId": "m03-mc02"
+      },
+      {
+        "id": "o2",
+        "text": "Se lo repites al principio de cada mensaje, en mayúsculas",
+        "correct": false,
+        "feedback": "Repetirlo en cada mensaje es frágil y llena el contexto. El lugar de una regla permanente es un archivo que la herramienta carga siempre.",
+        "misconceptionId": "m03-mc04"
+      },
+      {
+        "id": "o3",
+        "text": "Le pides que lo guarde en su memoria automática, para que lo tenga presente",
+        "correct": false,
+        "feedback": "La memoria automática ayuda a recordar, pero no es el lugar para lo obligatorio. Las reglas van en instrucciones escritas y versionadas.",
+        "misconceptionId": "m03-mc19"
+      },
+      {
+        "id": "o4",
+        "text": "Lo escribes en el archivo de instrucciones del proyecto",
+        "correct": true,
+        "feedback": "Correcta. El archivo de instrucciones se vuelve a cargar en cada sesión y después de compactar. Es el lugar de lo que tiene que durar."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l1#fragil",
+    "sourceIds": [
+      "src-anthropic-cc-memory",
+      "src-anthropic-cc-context-window"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-l1-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m03",
+    "lessonId": "m03-l1",
+    "evaluatedObjectiveId": "m03-eo1",
+    "competencyIds": [
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Después de varias horas, el agente empieza a ignorar instrucciones que le diste al principio de la sesión, aunque la conversación todavía cabe en su ventana.",
+    "stem": "¿Qué lo explica?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Con el contexto muy lleno, el modelo aprovecha peor lo que tiene, aunque quepa en la ventana",
+        "correct": true,
+        "feedback": "Correcta. La caída es gradual y empieza mucho antes de llenar la ventana. Ignorar instrucciones tempranas es uno de los primeros síntomas."
+      },
+      {
+        "id": "o2",
+        "text": "Nada que tenga que ver con el contexto: mientras quepa, todo se aprovecha igual",
+        "correct": false,
+        "feedback": "Los estudios muestran caídas dentro de la ventana anunciada. Que quepa no significa que se aproveche igual.",
+        "misconceptionId": "m03-mc01"
+      },
+      {
+        "id": "o3",
+        "text": "Que no las dijiste con suficiente énfasis y hay que repetirlas más fuerte",
+        "correct": false,
+        "feedback": "El problema no es el énfasis sino el contexto saturado. Repetir agrega más texto al mismo problema.",
+        "misconceptionId": "m03-mc04"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l1#por-que-rinde-menos",
+    "sourceIds": [
+      "src-anthropic-eng-context",
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-l1-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m03",
+    "lessonId": "m03-l1",
+    "evaluatedObjectiveId": "m03-eo1",
+    "competencyIds": [
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Le pediste a un subagente que explorara el repositorio y te devolvió un buen resumen. Al revisar el consumo, ves que el total de la tarea subió.",
+    "stem": "¿Qué pasó?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Es un error: delegar en un subagente siempre reduce los tokens que gasta la tarea",
+        "correct": false,
+        "feedback": "El subagente protege tu contexto, no el gasto total. Trabaja con sus propios tokens.",
+        "misconceptionId": "m03-mc03"
+      },
+      {
+        "id": "o2",
+        "text": "No debería pasar: los subagentes existen justamente para gastar menos en total",
+        "correct": false,
+        "feedback": "Existen para aislar trabajo que llenaría la sesión principal. El costo de ese trabajo lo pagan igual, en su propio contexto.",
+        "misconceptionId": "m03-mc03"
+      },
+      {
+        "id": "o3",
+        "text": "Es esperable: el subagente protege tu contexto, pero gasta sus propios tokens",
+        "correct": true,
+        "feedback": "Correcta. Delegar mantiene limpia la sesión principal a cambio de un costo propio. Conviene cuando lo que se protege vale más que lo que se gasta."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l1#movimientos",
+    "sourceIds": [
+      "src-anthropic-cc-subagents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-l2-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m03",
+    "lessonId": "m03-l2",
+    "evaluatedObjectiveId": "m03-eo2",
+    "competencyIds": [
+      "C04"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "scenario": "Un compañero agrega en la raíz del repositorio, versionado, un archivo de instrucciones propio de su herramienta con dos reglas de estilo. Desde entonces, en esa herramienta, nadie ve las reglas del AGENTS.md.",
+    "stem": "¿Qué explica el cambio y cómo se corrige?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En esa herramienta, un archivo propio reemplaza a AGENTS.md; hay que importarlo desde él",
+        "correct": true,
+        "feedback": "Correcta. Hay herramientas que solo leen AGENTS.md si no existe su propio archivo. Importarlo desde ese archivo, o cambiar el ajuste de carga, devuelve las reglas compartidas."
+      },
+      {
+        "id": "o2",
+        "text": "Nada que corregir: el archivo nuevo es más cercano y por eso anula al AGENTS.md",
+        "correct": false,
+        "feedback": "Los dos están en la raíz, y en todo caso la cercanía no anula reglas: se concatenan. Aquí AGENTS.md directamente dejó de cargarse.",
+        "misconceptionId": "m03-mc06"
+      },
+      {
+        "id": "o3",
+        "text": "No puede ser: todas las herramientas leen AGENTS.md igual, así que el problema tiene que ser otro",
+        "correct": false,
+        "feedback": "Cada herramienta lee AGENTS.md con condiciones distintas. En algunas, un archivo propio basta para que no lo lea.",
+        "misconceptionId": "m03-mc05"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l2#compartido",
+    "sourceIds": [
+      "src-anthropic-cc-memory"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-l2-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m03",
+    "lessonId": "m03-l2",
+    "evaluatedObjectiveId": "m03-eo2",
+    "competencyIds": [
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El AGENTS.md de la raíz dice «fechas en formato ISO» y el de la carpeta de reportes dice «fechas en formato día/mes/año».",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: el de la carpeta de reportes es más cercano a esos archivos y gana siempre",
+        "correct": false,
+        "feedback": "Que un archivo sea más cercano no garantiza que gane. Una herramienta advierte que el modelo puede seguir cualquiera de las dos instrucciones.",
+        "misconceptionId": "m03-mc06"
+      },
+      {
+        "id": "o2",
+        "text": "Dejas la regla en un solo archivo, con la excepción explícita si hace falta",
+        "correct": true,
+        "feedback": "Correcta. Una contradicción no se resuelve con el orden de lectura, sino eliminándola. Si la carpeta de reportes necesita otro formato, se dice como excepción, en un solo lugar."
+      },
+      {
+        "id": "o3",
+        "text": "Reordenas los archivos para que el correcto se lea al final",
+        "correct": false,
+        "feedback": "El orden de lectura es una tendencia, no una anulación garantizada. Mientras las dos reglas existan, el resultado puede variar.",
+        "misconceptionId": "m03-mc16"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l2#precedencia",
+    "sourceIds": [
+      "src-anthropic-cc-memory",
+      "src-microsoft-vscode-instructions"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-l2-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m03",
+    "lessonId": "m03-l2",
+    "evaluatedObjectiveId": "m03-eo2",
+    "competencyIds": [
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Tu herramienta usa su propio archivo de instrucciones, y quieres que también aplique las reglas del AGENTS.md que comparte el equipo.",
+    "stem": "¿Cómo lo consigues?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Escribes en tu archivo «lee también AGENTS.md antes de empezar»",
+        "correct": false,
+        "feedback": "Mencionar el archivo deja la lectura a criterio del agente, que puede no abrirlo. Una importación lo carga siempre.",
+        "misconceptionId": "m03-mc07"
+      },
+      {
+        "id": "o2",
+        "text": "Copias todas las reglas de AGENTS.md dentro de tu archivo",
+        "correct": false,
+        "feedback": "Las copias divergen con el tiempo. Cuando alguien cambie AGENTS.md, tu archivo quedará con la versión vieja y se contradirán.",
+        "misconceptionId": "m03-mc20"
+      },
+      {
+        "id": "o3",
+        "text": "Importas AGENTS.md desde tu archivo con la sintaxis de importación de la herramienta",
+        "correct": true,
+        "feedback": "Correcta. La importación carga AGENTS.md siempre, y las reglas siguen existiendo en un solo lugar."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l2#compartido",
+    "sourceIds": [
+      "src-anthropic-cc-memory"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-l2-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m03",
+    "lessonId": "m03-l2",
+    "evaluatedObjectiveId": "m03-eo2",
+    "competencyIds": [
+      "C04"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "El archivo de instrucciones del proyecto creció hasta 900 líneas, y el agente ignora sistemáticamente las reglas que están al final.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada estructural: todo lo que está en el archivo se carga, así que basta con insistir",
+        "correct": false,
+        "feedback": "Algunas herramientas dejan de cargar o truncan los archivos que pasan su límite. El final de un archivo largo puede no llegar nunca al modelo.",
+        "misconceptionId": "m03-mc15"
+      },
+      {
+        "id": "o2",
+        "text": "Copias al principio, en mayúsculas, las reglas que están al final",
+        "correct": false,
+        "feedback": "Duplicar reglas con énfasis agranda el archivo y crea copias que divergen. El problema es el tamaño, no el énfasis.",
+        "misconceptionId": "m03-mc04"
+      },
+      {
+        "id": "o3",
+        "text": "Lo podas, llevas lo ocasional a skills y lo parcial a rutas, y revisas qué se carga",
+        "correct": true,
+        "feedback": "Correcta. Un archivo largo puede cortarse en silencio y además cuesta contexto en cada petición. Podarlo y comprobar qué llega resuelve las dos cosas."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l2#verificar-carga",
+    "sourceIds": [
+      "src-openai-codex-agentsmd",
+      "src-anthropic-cc-memory"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-l2-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m03",
+    "lessonId": "m03-l2",
+    "evaluatedObjectiveId": "m03-eo2",
+    "competencyIds": [
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Creaste un AGENTS.md en la carpeta de consultas SQL y quieres saber si el agente lo está usando.",
+    "stem": "¿Cómo lo compruebas?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "No hace falta: si el archivo existe y está bien escrito, el agente lo leyó",
+        "correct": false,
+        "feedback": "Cada herramienta carga los archivos según sus propias reglas; algunas no leen los anidados sin un ajuste. Que exista no significa que se haya cargado.",
+        "misconceptionId": "m03-mc21"
+      },
+      {
+        "id": "o2",
+        "text": "Miras en la herramienta la lista de instrucciones o referencias que cargó",
+        "correct": true,
+        "feedback": "Correcta. Casi todas las herramientas muestran qué archivos de instrucciones usó. Si el archivo no aparece, el agente no lo vio."
+      },
+      {
+        "id": "o3",
+        "text": "Si el agente siguió alguna regla del proyecto, es que leyó todos los archivos",
+        "correct": false,
+        "feedback": "Seguir una regla de la raíz no dice nada del archivo de la subcarpeta. Además, una instrucción es contexto: seguirla no prueba de dónde salió.",
+        "misconceptionId": "m03-mc08"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l2#verificar-carga",
+    "sourceIds": [
+      "src-anthropic-cc-memory",
+      "src-openai-codex-agentsmd",
+      "src-github-copilot-instructions"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-l2-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m03",
+    "lessonId": "m03-l2",
+    "evaluatedObjectiveId": "m03-eo2",
+    "competencyIds": [
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "La documentación de una herramienta dice que, entre sus archivos de instrucciones, «el más cercano a la carpeta de trabajo prevalece, porque aparece después».",
+    "stem": "¿Qué significa en la práctica?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que el más cercano anula siempre al general, así que las contradicciones se resuelven solas",
+        "correct": false,
+        "feedback": "Prevalecer porque aparece después es una tendencia, no una anulación garantizada. Otras herramientas advierten que el modelo puede seguir cualquiera.",
+        "misconceptionId": "m03-mc06"
+      },
+      {
+        "id": "o2",
+        "text": "Que basta con ordenar bien los archivos para que siempre gane la regla correcta",
+        "correct": false,
+        "feedback": "El orden ayuda, pero no garantiza nada mientras la contradicción exista. Lo robusto es eliminarla.",
+        "misconceptionId": "m03-mc16"
+      },
+      {
+        "id": "o3",
+        "text": "Que se lee después y tiende a pesar más, pero no garantiza que anule al general",
+        "correct": true,
+        "feedback": "Correcta. La precedencia describe el orden de lectura y una tendencia. Por eso las contradicciones se eliminan en el origen."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l2#precedencia",
+    "sourceIds": [
+      "src-openai-codex-agentsmd",
+      "src-anthropic-cc-memory"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-l3-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m03",
+    "lessonId": "m03-l3",
+    "evaluatedObjectiveId": "m03-eo3",
+    "competencyIds": [
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "En el repositorio, las pruebas de los scripts de Python usan siempre los datos de la carpeta tests/fixtures, una convención que no es la habitual. Solo importa cuando se trabaja en esas pruebas.",
+    "stem": "¿Dónde va esta regla?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En la instrucción permanente del proyecto, porque todo lo importante tiene que estar ahí",
+        "correct": false,
+        "feedback": "La instrucción permanente se paga en cada petición, aunque la tarea no tenga que ver con las pruebas. Lo que vale para una parte del código va en una regla por rutas.",
+        "misconceptionId": "m03-mc10"
+      },
+      {
+        "id": "o2",
+        "text": "En una regla por rutas o en un archivo de esa carpeta, que se carga al tocar las pruebas",
+        "correct": true,
+        "feedback": "Correcta. La regla solo hace falta al trabajar en las pruebas, y una regla por rutas se carga justo entonces. Además, como no es la convención habitual, el agente no la deduciría."
+      },
+      {
+        "id": "o3",
+        "text": "En ningún lado: el agente deduce las convenciones leyendo el código",
+        "correct": false,
+        "feedback": "Una convención que se aparta de lo habitual es justamente lo que el agente no deduce. Por eso necesita estar escrita.",
+        "misconceptionId": "m03-mc22"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l3#cuatro-preguntas",
+    "sourceIds": [
+      "src-anthropic-cc-memory",
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-l3-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m03",
+    "lessonId": "m03-l3",
+    "evaluatedObjectiveId": "m03-eo3",
+    "competencyIds": [
+      "C04"
+    ],
+    "difficulty": "advanced",
+    "process": "apply",
+    "scenario": "Antes de cada entrega, el agente debe ejecutar el formateador de código. La regla ya está escrita en las instrucciones, y aun así lo olvidó dos veces esta semana.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La reescribes en las instrucciones, más clara y con un ejemplo",
+        "correct": false,
+        "feedback": "Una instrucción más clara sigue siendo una petición. Si algo tiene que pasar siempre, la garantía la da un control determinista.",
+        "misconceptionId": "m03-mc11"
+      },
+      {
+        "id": "o2",
+        "text": "Agregas un hook que ejecute el formateador siempre, y dejas una línea con el motivo",
+        "correct": true,
+        "feedback": "Correcta. Un hook se ejecuta sin depender de que el agente se acuerde. La línea con el motivo ayuda a que el agente entienda la regla."
+      },
+      {
+        "id": "o3",
+        "text": "Se la repites en mayúsculas al principio de cada encargo",
+        "correct": false,
+        "feedback": "Repetir con énfasis no convierte la petición en garantía. Además, agrega texto a cada encargo.",
+        "misconceptionId": "m03-mc04"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l3#cuatro-preguntas",
+    "sourceIds": [
+      "src-anthropic-cc-features",
+      "src-anthropic-cc-memory"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-l3-c3",
+    "version": 2,
+    "use": "check",
+    "courseId": "m03",
+    "lessonId": "m03-l3",
+    "evaluatedObjectiveId": "m03-eo3",
+    "competencyIds": [
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Cada vez que preparas el reporte de cobranza, le pegas al agente los mismos ocho pasos: filtrar, agrupar por antigüedad, conciliar con contabilidad y cinco más.",
+    "stem": "¿Dónde debería vivir ese procedimiento?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En una skill, que ocupa poco contexto hasta que el agente la usa",
+        "correct": true,
+        "feedback": "Correcta. Es un procedimiento de varios pasos que se usa a veces. Una skill solo ocupa su descripción hasta que hace falta, y su contenido completo entra al usarla."
+      },
+      {
+        "id": "o2",
+        "text": "En la instrucción permanente, para que el agente lo tenga siempre presente",
+        "correct": false,
+        "feedback": "Se pagaría en cada petición, aunque la tarea no sea el reporte de cobranza. Un procedimiento ocasional no va en la instrucción permanente.",
+        "misconceptionId": "m03-mc10"
+      },
+      {
+        "id": "o3",
+        "text": "En un subagente dedicado, que guarde el procedimiento para cuando haga falta",
+        "correct": false,
+        "feedback": "El subagente sirve para aislar trabajo que llenaría el contexto, no para guardar procedimientos. Eso es lo que hace una skill.",
+        "misconceptionId": "m03-mc23"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l3#cuatro-preguntas",
+    "sourceIds": [
+      "src-anthropic-cc-features",
+      "src-agentskills-site"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m03-l3-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m03",
+    "lessonId": "m03-l3",
+    "evaluatedObjectiveId": "m03-eo3",
+    "competencyIds": [
+      "C04"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "El agente necesita consultar las oportunidades del CRM ficticio de Altiplano. Alguien propone conectar los seis servidores MCP disponibles, «por si acaso», y no explicarle nada más.",
+    "stem": "¿Qué propones?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Conectar los seis, porque así el agente tiene todo lo que pueda necesitar",
+        "correct": false,
+        "feedback": "Cada conector ocupa contexto y agrega riesgo. Se empieza con el que desbloquea el flujo real.",
+        "misconceptionId": "m03-mc12"
+      },
+      {
+        "id": "o2",
+        "text": "Conectar el del CRM y no explicar nada más, porque el conector ya le da todo lo necesario",
+        "correct": false,
+        "feedback": "El conector da acceso, no criterio. Sin saber los campos y filtros del equipo, el agente puede consultar mal datos a los que sí llega.",
+        "misconceptionId": "m03-mc13"
+      },
+      {
+        "id": "o3",
+        "text": "Conectar solo el MCP del CRM, con una skill que explique sus campos y filtros",
+        "correct": true,
+        "feedback": "Correcta. El conector da el acceso y la skill enseña cómo usarlo. Es la combinación más útil entre capas, y solo con lo que hace falta."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m03-l3#combinar",
+    "sourceIds": [
+      "src-anthropic-cc-features",
+      "src-openai-codex-best-practices"
+    ],
+    "status": "draft"
+  }
+]

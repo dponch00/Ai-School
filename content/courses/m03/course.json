@@ -1,0 +1,69 @@
+{
+  "id": "m03",
+  "version": "0.1.0",
+  "title": "Ingeniería de contexto y conocimiento",
+  "centralQuestion": "¿Qué necesita saber el agente para trabajar bien sin saturarse?",
+  "competencyIds": [
+    "C03",
+    "C04"
+  ],
+  "evaluatedObjectives": [
+    {
+      "id": "m03-eo1",
+      "statement": "Dado el síntoma de una sesión de trabajo con un agente, elige entre continuar, limpiar y reformular, compactar con foco, aislar en un subagente o persistir en un archivo, justificando la elección por el estado del contexto.",
+      "competencyIds": [
+        "C03"
+      ]
+    },
+    {
+      "id": "m03-eo2",
+      "statement": "Dado un repositorio con varios archivos de instrucciones y la ficha de precedencias vigente, predice qué instrucciones cargará la herramienta, identifica la omisión o el conflicto que explica una conducta inesperada y elige la corrección mínima, sin duplicar reglas.",
+      "competencyIds": [
+        "C04"
+      ]
+    },
+    {
+      "id": "m03-eo3",
+      "statement": "Dado un elemento de un proyecto (una regla, un procedimiento o una fuente de datos), elige la capa adecuada (instrucción permanente, regla por rutas, skill, subagente, control determinista, MCP o CLI) según su frecuencia de uso, su alcance y su necesidad de garantía.",
+      "competencyIds": [
+        "C04",
+        "C03"
+      ]
+    },
+    {
+      "id": "m03-eo4",
+      "statement": "Dada una tarea repetible y varias skills o descripciones candidatas, elige la que cumple el formato abierto y se activa en los casos correctos, y reconoce qué consultas de prueba, incluidos los casi aciertos, la validan.",
+      "competencyIds": [
+        "C04"
+      ]
+    },
+    {
+      "id": "m03-eo5",
+      "statement": "Dada una sesión interrumpida o un cambio de herramienta, elige el documento de traspaso con el que otro agente puede retomar el trabajo y decide qué va en las instrucciones escritas, qué en el registro de decisiones y qué puede quedar en la memoria automática.",
+      "competencyIds": [
+        "C03",
+        "C04"
+      ]
+    },
+    {
+      "id": "m03-eo6",
+      "statement": "Dada una pregunta que exige documentos o datos del proyecto, decide qué cargar de antemano y qué recuperar justo a tiempo, e identifica las citas que apuntan a una fuente real pero no respaldan la afirmación que acompañan.",
+      "competencyIds": [
+        "C03"
+      ]
+    }
+  ],
+  "lessonIds": [
+    "m03-l1",
+    "m03-l2",
+    "m03-l3",
+    "m03-l4",
+    "m03-l5",
+    "m03-l6"
+  ],
+  "practiceId": "m03-lab",
+  "estimatedMinutes": 180,
+  "volatility": "high",
+  "reviewCadence": "quarterly",
+  "status": "draft"
+}

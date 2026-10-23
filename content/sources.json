@@ -1642,5 +1642,554 @@
     "kind": "primary",
     "volatility": "low",
     "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-anthropic-cc-skills",
+    "title": "Extend Claude with skills",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/skills",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Sigue Agent Skills",
+      "rutas (sin `.agents/skills`)",
+      "campos estándar frente a extensiones",
+      "tope de 1 536 caracteres y presupuesto del 1 %",
+      "compactación (5 000 / 25 000 tokens)",
+      "solución de problemas de activación",
+      "`skill-creator`, `claude plugin eval`",
+      "efectos secundarios"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-cc-context-window",
+    "title": "Explore the context window",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/context-window",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Qué carga al inicio",
+      "qué sobrevive a la compactación (tabla)",
+      "`/compact` con foco, `/rewind`, `/autocompact`, `/clear`",
+      "reglas con `paths` se pierden al compactar",
+      "ventana de 1M en modelos recientes"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-cc-subagents",
+    "title": "Create custom subagents",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/sub-agents",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Qué carga un subagente",
+      "no hereda historial ni memoria",
+      "devuelve un resumen",
+      "cada subagente gasta tokens",
+      "aviso de 15 000 tokens en descripciones",
+      "fork frente a subagente nuevo",
+      "memoria persistente"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-cc-mcp",
+    "title": "Connect Claude Code to tools via MCP",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/mcp",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Límites de salida (10 000 / 25 000 tokens, 50 000 caracteres)",
+      "prioridad de alcances local > proyecto > usuario",
+      "riesgo de inyección con servidores que traen contenido externo"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-eng-skills",
+    "title": "Equipping agents for the real world with Agent Skills (2025-10-16; act. 2025-12-18)",
+    "organization": "Anthropic",
+    "url": "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Definición",
+      "carga progresiva",
+      "contenido empaquetado prácticamente ilimitado",
+      "código como herramienta determinista",
+      "seguridad",
+      "publicación como estándar abierto",
+      "empezar por la evaluación"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-anthropic-eng-harnesses",
+    "title": "Effective harnesses for long-running agents (2025-11-26)",
+    "organization": "Anthropic",
+    "url": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Sesiones sin memoria",
+      "agente inicializador",
+      "registro de progreso, lista de funciones en JSON, commits, script de arranque",
+      "rutina de inicio con prueba de extremo a extremo",
+      "fallos de hacer todo a la vez y declarar terminado"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-anthropic-skills-overview",
+    "title": "Agent Skills (overview)",
+    "organization": "Anthropic",
+    "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Tres niveles con tokens (~100, < 5k, sin costo hasta leer)",
+      "scripts solo aportan su salida",
+      "seguridad (fuentes de confianza, auditoría, URLs externas)",
+      "las skills no se sincronizan entre superficies"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-anthropic-skills-bp",
+    "title": "Skill authoring best practices",
+    "organization": "Anthropic",
+    "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Concisión",
+      "grados de libertad",
+      "probar con varios modelos",
+      "nombres",
+      "descripción en tercera persona con qué y cuándo",
+      "referencias a un nivel",
+      "tabla de contenido en referencias largas",
+      "flujos y bucles de validación",
+      "sin información con fecha",
+      "evaluaciones primero (al menos tres)",
+      "Claude A / Claude B"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-anthropic-citations",
+    "title": "Citations",
+    "organization": "Anthropic",
+    "url": "https://platform.claude.com/docs/en/build-with-claude/citations",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Punteros válidos garantizados y texto citado extraído",
+      "ventajas frente a citas por prompt",
+      "incompatibles con salidas estructuradas"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-agentskills-site",
+    "title": "Agent Skills Overview",
+    "organization": "Agent Skills (proyecto abierto)",
+    "url": "https://agentskills.io",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Formato abierto",
+      "origen en Anthropic",
+      "carga progresiva en tres etapas",
+      "reutilización entre productos"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-agentskills-spec",
+    "title": "Specification",
+    "organization": "Agent Skills (proyecto abierto)",
+    "url": "https://agentskills.io/specification",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Estructura de carpetas",
+      "reglas de `name`, `description`, `compatibility`, `metadata`",
+      "`allowed-tools` experimental",
+      "~100 tokens / < 5 000 tokens / < 500 líneas",
+      "referencias a un nivel",
+      "`skills-ref validate`"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-agentskills-descriptions",
+    "title": "Optimizing skill descriptions",
+    "organization": "Agent Skills (proyecto abierto)",
+    "url": "https://agentskills.io/skill-creation/optimizing-descriptions",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "La descripción carga con la activación",
+      "fraseo imperativo e intención del usuario",
+      "~20 consultas, casi aciertos",
+      "3 corridas, umbral 0,5",
+      "60/40",
+      "no copiar palabras de fallos",
+      "~5 iteraciones",
+      "tareas simples pueden no activar"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-agentskills-bp",
+    "title": "Best practices for skill creators",
+    "organization": "Agent Skills (proyecto abierto)",
+    "url": "https://agentskills.io/skill-creation/best-practices",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Partir de experiencia real",
+      "leer trazas",
+      "añadir lo que el agente no sabe",
+      "unidades coherentes",
+      "detalle moderado",
+      "trampas",
+      "valores por defecto",
+      "procedimientos",
+      "plantillas",
+      "bucles de validación"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-agentskills-client-impl",
+    "title": "How to add skills support to your agent",
+    "organization": "Agent Skills (proyecto abierto)",
+    "url": "https://agentskills.io/client-implementation/adding-skills-support",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Catálogo de 50–100 tokens por skill",
+      "convención `.agents/skills`",
+      "proyecto sobre usuario como convención",
+      "confianza en skills de proyecto",
+      "proteger skills de la compactación"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-openai-codex-skills",
+    "title": "Build skills",
+    "organization": "OpenAI",
+    "url": "https://learn.chatgpt.com/codex/build-skills",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Rutas `.agents/skills` (repo, usuario), admin y sistema",
+      "enlaces simbólicos",
+      "duplicados",
+      "presupuesto del 2 % / 8 000 caracteres, `skills.max_context_tokens`",
+      "invocación `$` y `/skills`",
+      "`agents/openai.yaml`",
+      "describir cuándo sí y cuándo no",
+      "basada en agentskills.io"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-openai-codex-memories",
+    "title": "Memories (Codex)",
+    "organization": "OpenAI",
+    "url": "https://learn.chatgpt.com/docs/customization/memories",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Memoria local desactivada por defecto",
+      "`~/.codex/memories/`",
+      "generación en segundo plano",
+      "`/memories`",
+      "claves de configuración",
+      "reglas obligatorias en AGENTS.md",
+      "ayuda para recordar",
+      "redacción de secretos"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-openai-codex-hooks",
+    "title": "Hooks (Codex)",
+    "organization": "OpenAI",
+    "url": "https://learn.chatgpt.com/codex/hooks",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Los hooks de herramientas no son una barrera de control completa",
+      "formato propio (no portable)"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-github-copilot-instructions",
+    "title": "Adding repository custom instructions",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Tipos de instrucción",
+      "`applyTo` y `excludeAgent`",
+      "AGENTS.md (gana el más cercano)",
+      "CLAUDE.md/GEMINI.md en la raíz",
+      "ambos archivos se usan",
+      "prioridad personal > repositorio > organización y todos se entregan",
+      "lista References",
+      "code review lee la rama con cambios"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-github-instructions-support",
+    "title": "Support for different types of custom instructions",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/copilot/reference/custom-instructions-support",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Matriz de soporte por superficie de Copilot (repositorio, ruta, AGENTS.md, CLAUDE.md/GEMINI.md, personal, organización)"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-github-agent-skills",
+    "title": "About agent skills",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/copilot/concepts/agents/about-agent-skills",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Superficies con skills (incluida la Copilot app)",
+      "rutas de proyecto y personales",
+      "dependencia de la superficie",
+      "`gh skill`",
+      "estándar abierto"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-github-copilot-memory",
+    "title": "About Copilot Memory",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/copilot/concepts/agents/copilot-memory",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Hechos por repositorio y preferencias",
+      "citas validadas contra la rama",
+      "28 días",
+      "quién revisa y borra",
+      "activación por usuario",
+      "public preview"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-microsoft-vscode-instructions",
+    "title": "Custom instructions in VS Code (pág. 2026-10-21)",
+    "organization": "Microsoft",
+    "url": "https://code.visualstudio.com/docs/copilot/customization/custom-instructions",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Tipos de archivo",
+      "AGENTS.md raíz y anidado experimental",
+      "CLAUDE.md con `chat.useClaudeMdFile`",
+      "\"no hay orden general de precedencia\"",
+      "cómo verificar"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-agentsmd-site",
+    "title": "AGENTS.md",
+    "organization": "Agentic AI Foundation",
+    "url": "https://agents.md",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Formato abierto sin campos obligatorios",
+      "secciones sugeridas",
+      "gana el más cercano",
+      "el prompt del usuario prevalece",
+      "custodia de la AAIF",
+      "lista de herramientas sin Claude Code"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-lf-aaif",
+    "title": "Linux Foundation announces the formation of the Agentic AI Foundation",
+    "organization": "Linux Foundation",
+    "url": "https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "AAIF (2025-12-09) custodia AGENTS.md y MCP"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-mcp-intro",
+    "title": "What is the Model Context Protocol?",
+    "organization": "Model Context Protocol",
+    "url": "https://modelcontextprotocol.io/docs/getting-started/intro",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Definición de MCP como estándar abierto para conectar aplicaciones de IA con sistemas externos",
+      "documentación de la revisión 2026-07-28"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-arxiv-ruler",
+    "title": "RULER: What's the Real Context Size of Your Long-Context Language Models? (COLM, 2024)",
+    "organization": "Hsieh et al. (NVIDIA)",
+    "url": "https://arxiv.org/abs/2404.06654",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "17 modelos",
+      "solo la mitad mantiene el rendimiento a 32K",
+      "ventana efectiva menor que la anunciada"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-arxiv-nolima",
+    "title": "NoLiMa: Long-Context Evaluation Beyond Literal Matching (ICML, 2025)",
+    "organization": "Modarressi et al. (Adobe Research, LMU)",
+    "url": "https://arxiv.org/abs/2502.05167",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "12 modelos de ≥ 128K",
+      "10 bajo el 50 % de su base a 32K sin coincidencia literal (corregido por T021-M03-01)"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-arxiv-context-length",
+    "title": "Context Length Alone Hurts LLM Performance Despite Perfect Retrieval (Findings of EMNLP, 2025)",
+    "organization": "Du et al.",
+    "url": "https://arxiv.org/abs/2510.05381",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Caídas de 13,9 %–85 % con recuperación perfecta, con relleno en blanco o enmascarado",
+      "recitar la evidencia como mitigación"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-arxiv-verifiability",
+    "title": "Evaluating Verifiability in Generative Search Engines (Findings of EMNLP, 2023)",
+    "organization": "Liu, Zhang, Liang (Stanford)",
+    "url": "https://arxiv.org/abs/2304.09848",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "51,5 % de frases plenamente respaldadas",
+      "74,5 % de citas que respaldan su frase"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-arxiv-legal-rag",
+    "title": "Hallucination-Free? Assessing the Reliability of Leading AI Legal Research Tools (2024)",
+    "organization": "Magesh et al. (Stanford RegLab / HAI)",
+    "url": "https://arxiv.org/abs/2405.20362",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Herramientas legales con recuperación inventan entre el 17 % y el 33 %"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-nygard-adr",
+    "title": "Documenting Architecture Decisions (2011-11-15)",
+    "organization": "Michael Nygard (Cognitect)",
+    "url": "https://www.cognitect.com/blog/2011/11/15/documenting-architecture-decisions",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Formato ADR: título, contexto, decisión, estado, consecuencias",
+      "numeración",
+      "reemplazadas se conservan"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-anthropic-academy",
+    "title": "Anthropic Academy (catálogo)",
+    "organization": "Anthropic",
+    "url": "https://anthropic.skilljar.com/",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Referencia de temario (cursos de Agent Skills y subagentes)"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-dlai-agent-skills",
+    "title": "Agent Skills with Anthropic",
+    "organization": "DeepLearning.AI / Anthropic",
+    "url": "https://www.deeplearning.ai/short-courses/agent-skills-with-anthropic/",
+    "accessedAt": "2026-10-21",
+    "supports": [
+      "Referencia de temario (skills frente a herramientas, MCP y subagentes)"
+    ],
+    "kind": "secondary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
   }
 ]

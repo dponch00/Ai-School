@@ -1,0 +1,227 @@
+[
+  {
+    "id": "m03-mc01",
+    "courseId": "m03",
+    "description": "Con una ventana de un millón de tokens ya no hace falta gestionar el contexto.",
+    "whyWrong": "El rendimiento cae dentro de la ventana anunciada, incluso con recuperación perfecta; la ventana efectiva es menor que la anunciada.",
+    "sourceIds": [
+      "src-arxiv-context-length",
+      "src-arxiv-ruler",
+      "src-arxiv-nolima"
+    ]
+  },
+  {
+    "id": "m03-mc02",
+    "courseId": "m03",
+    "description": "Compactar conserva todo lo que le dije al agente.",
+    "whyWrong": "La compactación resume la conversación; las instrucciones que solo se dijeron en el chat pueden perderse, mientras que las de archivo se vuelven a cargar.",
+    "sourceIds": [
+      "src-anthropic-cc-memory",
+      "src-anthropic-cc-context-window"
+    ]
+  },
+  {
+    "id": "m03-mc03",
+    "courseId": "m03",
+    "description": "Delegar en un subagente ahorra tokens en total.",
+    "whyWrong": "El subagente protege el contexto principal, pero consume sus propios tokens.",
+    "sourceIds": [
+      "src-anthropic-cc-subagents"
+    ]
+  },
+  {
+    "id": "m03-mc04",
+    "courseId": "m03",
+    "description": "Si el agente empieza a ignorar instrucciones, hay que repetirlas con más énfasis en el mismo chat.",
+    "whyWrong": "Es un síntoma de contexto lleno o contaminado; lo indicado es limpiar o compactar y reformular.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m03-mc05",
+    "courseId": "m03",
+    "description": "Todas las herramientas leen AGENTS.md de la misma forma.",
+    "whyWrong": "Una lo lee siempre, otra solo si no hay un archivo propio, otra solo en la raíz salvo un ajuste experimental.",
+    "sourceIds": [
+      "src-openai-codex-agentsmd",
+      "src-anthropic-cc-memory",
+      "src-microsoft-vscode-instructions"
+    ]
+  },
+  {
+    "id": "m03-mc06",
+    "courseId": "m03",
+    "description": "El archivo de instrucciones más cercano anula al general; si se contradicen, gana siempre el cercano.",
+    "whyWrong": "Los archivos se concatenan; una herramienta advierte que el modelo puede seguir cualquiera de las dos instrucciones y otra que no hay un orden general.",
+    "sourceIds": [
+      "src-anthropic-cc-memory",
+      "src-microsoft-vscode-instructions"
+    ]
+  },
+  {
+    "id": "m03-mc07",
+    "courseId": "m03",
+    "description": "Escribir «lee AGENTS.md» en el archivo propio de la herramienta equivale a importarlo.",
+    "whyWrong": "El agente lo verá solo si decide abrirlo; una importación lo carga siempre.",
+    "sourceIds": [
+      "src-anthropic-cc-memory"
+    ]
+  },
+  {
+    "id": "m03-mc08",
+    "courseId": "m03",
+    "description": "Si la regla está en el archivo de instrucciones, el agente no puede violarla.",
+    "whyWrong": "Es contexto, no configuración obligatoria; para garantías hay hooks y permisos.",
+    "sourceIds": [
+      "src-anthropic-cc-memory",
+      "src-anthropic-cc-features"
+    ]
+  },
+  {
+    "id": "m03-mc09",
+    "courseId": "m03",
+    "description": "Un archivo personal no versionado no afecta lo que el agente lee del repositorio.",
+    "whyWrong": "En al menos una herramienta, la presencia de un archivo personal propio hace que deje de leer el AGENTS.md compartido.",
+    "sourceIds": [
+      "src-anthropic-cc-memory"
+    ]
+  },
+  {
+    "id": "m03-mc10",
+    "courseId": "m03",
+    "description": "Todo lo importante del proyecto va en el archivo de instrucciones.",
+    "whyWrong": "La instrucción permanente se paga en cada petición y un archivo inflado hace que se ignoren reglas; los procedimientos y referencias van a skills, y lo parcial, a reglas por rutas.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-anthropic-cc-features"
+    ]
+  },
+  {
+    "id": "m03-mc11",
+    "courseId": "m03",
+    "description": "Una prohibición escrita en una skill o en las instrucciones es una garantía.",
+    "whyWrong": "Es una petición; la garantía la da un hook o un permiso.",
+    "sourceIds": [
+      "src-anthropic-cc-features"
+    ]
+  },
+  {
+    "id": "m03-mc12",
+    "courseId": "m03",
+    "description": "Conviene conectar todos los MCP disponibles, por si el agente los necesita.",
+    "whyWrong": "Ocupan contexto y añaden riesgo; se empieza con uno o dos que desbloqueen un flujo real.",
+    "sourceIds": [
+      "src-openai-codex-best-practices",
+      "src-anthropic-cc-features"
+    ]
+  },
+  {
+    "id": "m03-mc13",
+    "courseId": "m03",
+    "description": "Si conecto un MCP, ya no necesito explicarle nada al agente sobre esos datos.",
+    "whyWrong": "El conector da acceso, no criterio; una skill enseña el esquema, los filtros y las convenciones del equipo.",
+    "sourceIds": [
+      "src-anthropic-cc-features"
+    ]
+  },
+  {
+    "id": "m03-mc14",
+    "courseId": "m03",
+    "description": "Describir la arquitectura archivo por archivo en las instrucciones ayuda al agente.",
+    "whyWrong": "Es deducible leyendo el código y cuesta contexto en cada petición.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m03-mc15",
+    "courseId": "m03",
+    "description": "Un archivo de instrucciones largo no tiene más costo que el contexto que ocupa.",
+    "whyWrong": "Algunas herramientas dejan de cargar archivos al superar un tope o entregan solo el principio; el final puede no llegar nunca al modelo.",
+    "sourceIds": [
+      "src-openai-codex-agentsmd",
+      "src-anthropic-cc-memory"
+    ]
+  },
+  {
+    "id": "m03-mc16",
+    "courseId": "m03",
+    "description": "Si dos archivos de instrucciones se contradicen, basta con ordenarlos para que gane el correcto.",
+    "whyWrong": "La precedencia describe un orden de lectura, no una anulación garantizada; la única solución robusta es eliminar la contradicción.",
+    "sourceIds": [
+      "src-anthropic-cc-memory",
+      "src-microsoft-vscode-instructions"
+    ]
+  },
+  {
+    "id": "m03-mc17",
+    "courseId": "m03",
+    "description": "Mantener varias tareas en la misma sesión aprovecha mejor el contexto.",
+    "whyWrong": "Mezclar tareas llena el contexto de ruido; conviene una sesión por unidad de trabajo coherente.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-openai-codex-best-practices"
+    ]
+  },
+  {
+    "id": "m03-mc18",
+    "courseId": "m03",
+    "description": "Ante cualquier sesión larga, lo mejor es empezar de cero.",
+    "whyWrong": "Si la tarea es la misma y el historial tiene decisiones valiosas, se compacta con foco en lo que hay que conservar.",
+    "sourceIds": [
+      "src-anthropic-eng-context",
+      "src-anthropic-cc-context-window"
+    ]
+  },
+  {
+    "id": "m03-mc19",
+    "courseId": "m03",
+    "description": "La memoria automática del agente sirve como lugar para las reglas obligatorias.",
+    "whyWrong": "La memoria ayuda a recordar; lo obligatorio va en instrucciones escritas y versionadas.",
+    "sourceIds": [
+      "src-openai-codex-memories",
+      "src-anthropic-cc-memory",
+      "src-github-copilot-memory"
+    ]
+  },
+  {
+    "id": "m03-mc20",
+    "courseId": "m03",
+    "description": "Copiar las mismas reglas en el archivo de cada herramienta no causa problemas.",
+    "whyWrong": "Las copias divergen con el tiempo y terminan contradiciéndose; una regla vive en un solo lugar y los demás archivos la importan.",
+    "sourceIds": [
+      "src-anthropic-cc-memory"
+    ]
+  },
+  {
+    "id": "m03-mc21",
+    "courseId": "m03",
+    "description": "Si un archivo de instrucciones existe en el repositorio, el agente lo leyó.",
+    "whyWrong": "Cada herramienta carga los archivos según sus propias reglas; si no aparece en la lista de cargados, el agente no lo vio.",
+    "sourceIds": [
+      "src-anthropic-cc-memory",
+      "src-openai-codex-agentsmd",
+      "src-github-copilot-instructions",
+      "src-microsoft-vscode-instructions"
+    ]
+  },
+  {
+    "id": "m03-mc22",
+    "courseId": "m03",
+    "description": "El agente deduce solo todas las convenciones del proyecto leyendo el código.",
+    "whyWrong": "Las convenciones que difieren de lo habitual y las trampas conocidas no se deducen; van en las instrucciones.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m03-mc23",
+    "courseId": "m03",
+    "description": "Un subagente es el lugar para guardar un procedimiento que se repite.",
+    "whyWrong": "El subagente aísla trabajo que llenaría el contexto; un procedimiento reutilizable va en una skill.",
+    "sourceIds": [
+      "src-anthropic-cc-features"
+    ]
+  }
+]

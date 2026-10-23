@@ -1,0 +1,80 @@
+[
+  {
+    "id": "m03-pc-context-tools",
+    "product": "Anthropic · Claude Code · OpenAI · Codex",
+    "surfaces": [
+      "cli",
+      "ide",
+      "desktop"
+    ],
+    "capability": "Claude Code: /context muestra el contexto por categoría; /clear limpia, /compact <foco> compacta con indicaciones, /rewind permite resumir desde o hasta un punto, y la compactación automática actúa cerca del límite. Tras compactar se vuelven a cargar el CLAUDE.md de la raíz, las reglas sin paths, la memoria automática, las descripciones de skills (v2.1.304+) y el plan; se releen hasta 5 archivos recientes, y los cuerpos de skills invocadas vuelven truncados (5 000 tokens por skill, 25 000 en total). Sus subagentes tienen contexto propio, cargan CLAUDE.md y el estado de git (salvo Explore y Plan) y no heredan el historial. Codex recomienda un hilo por unidad de trabajo, con /compact, compactación automática y /fork cuando el trabajo se bifurca.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-22",
+    "sourceIds": [
+      "src-anthropic-cc-context-window",
+      "src-anthropic-cc-best-practices",
+      "src-anthropic-cc-subagents",
+      "src-openai-codex-best-practices"
+    ],
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "m03-pc-instruction-precedence",
+    "product": "OpenAI · Codex · Anthropic · Claude Code",
+    "surfaces": [
+      "cli",
+      "ide",
+      "desktop"
+    ],
+    "capability": "Codex lee AGENTS.md de forma nativa (AGENTS.override.md lo sustituye en su carpeta): concatena de la raíz Git a la carpeta actual, como máximo un archivo por carpeta, y deja de agregar al llegar a 32 KiB combinados; el más cercano se presenta como el que prevalece. Claude Code usa CLAUDE.md (y CLAUDE.local.md, personal); lee AGENTS.md desde v2.1.277 solo si no hay CLAUDE.md, .claude/CLAUDE.md ni CLAUDE.local.md en la carpeta de trabajo o por encima, salvo que se cambie el ajuste Project instructions; con CLAUDE.md, la vía documentada es importar con @AGENTS.md (hasta 4 saltos). Concatena sin que un archivo anule a otro y, ante una contradicción, el modelo puede seguir cualquiera. Recomienda menos de 200 líneas por archivo; /context y /memory muestran qué cargó. En Windows, un enlace simbólico CLAUDE.md → AGENTS.md requiere permisos y Git puede bajarlo como texto: conviene importar.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-22",
+    "sourceIds": [
+      "src-openai-codex-agentsmd",
+      "src-anthropic-cc-memory"
+    ],
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "m03-pc-copilot-instructions",
+    "product": "GitHub Copilot (GitHub.com y VS Code)",
+    "surfaces": [
+      "web",
+      "ide",
+      "cloud"
+    ],
+    "capability": "En GitHub.com, Copilot usa .github/copilot-instructions.md, AGENTS.md en cualquier carpeta (gana el más cercano) y, como alternativa, un solo CLAUDE.md o GEMINI.md en la raíz; entrega todas las capas que aplican con prioridad personal > repositorio > organización, y las reglas por ruta (*.instructions.md con applyTo) valen en el agente en la nube y la revisión de código. La lista References de cada respuesta muestra qué instrucciones usó. En el chat de VS Code las capas son aditivas y «no hay orden general de precedencia»; lee AGENTS.md en la raíz (los anidados requieren un ajuste experimental) y CLAUDE.md con chat.useClaudeMdFile. La revisión de código lee las instrucciones de la rama con los cambios, no de la rama base.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-22",
+    "sourceIds": [
+      "src-github-copilot-instructions",
+      "src-github-instructions-support",
+      "src-microsoft-vscode-instructions"
+    ],
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "m03-pc-layer-costs",
+    "product": "Anthropic · Claude Code · OpenAI · Codex · GitHub Copilot",
+    "surfaces": [
+      "cli",
+      "ide"
+    ],
+    "capability": "Claude Code documenta cuándo carga y qué cuesta cada pieza: CLAUDE.md es aditivo; skills y subagentes se anulan por nombre (skills: gestionada > usuario > proyecto); en MCP, local > proyecto > usuario; los hooks se suman. La búsqueda de herramientas MCP difiere los esquemas, /context all muestra los tokens por herramienta y avisa con salidas MCP de más de 10 000 tokens (tope por defecto de 25 000). Reglas por ruta en cada producto: un AGENTS.md anidado (Codex), .claude/rules con paths (Claude Code) y *.instructions.md con applyTo (Copilot); subagentes y hooks no son portables entre ellos. Codex advierte que sus hooks de herramientas no son una barrera de control completa, y su guía de GPT-6 Astra señala que ese modelo es más sensible a las contradicciones entre skills y AGENTS.md.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-22",
+    "sourceIds": [
+      "src-anthropic-cc-features",
+      "src-anthropic-cc-mcp",
+      "src-openai-codex-agentsmd",
+      "src-github-copilot-instructions",
+      "src-openai-codex-hooks",
+      "src-openai-latest-model"
+    ],
+    "nextReview": "2027-01-22"
+  }
+]
