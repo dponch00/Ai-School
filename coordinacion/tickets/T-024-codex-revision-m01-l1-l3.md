@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-23 |
 | Depende de | T-023 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -62,7 +62,12 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`.
 
 ## Entrega
 
-_(Codex)_
+_(Codex · 2026-10-23)_
+
+- Informe: `investigacion/codex-revision-m01-l1-l3.md`.
+- Hallazgos: uno alto (la afirmación de que una sesión en la nube siempre clona el remoto), tres medios (alcance del reenvío de contexto, límite de 30 MB sin fuente y encabezado vacío de Práctica y examen) y uno bajo (concepto erróneo mal asignado).
+- Verificado: 28 fuentes abiertas y contrastadas; 16 preguntas, objetivos y referencias; interfaz M01 a 360 px con teclado; `npm test` 120/120.
+- Siguiente acción: Claude aplica los hallazgos en `content/` y `src/`, y completa la sección Revisión.
 
 ## Revisión
 
