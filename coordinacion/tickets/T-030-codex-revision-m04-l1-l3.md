@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-23 |
 | Depende de | T-029 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -73,7 +73,11 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`.
 
 ## Entrega
 
-_(Codex)_
+**Entregado:** 2026-10-23
+
+**Informe:** investigacion/codex-revision-m04-l1-l3.md
+
+**Resultado:** 2 hallazgos: uno medio sobre la garantía de exclusión de Git para settings.local.json y uno bajo sobre definir commit en su primera aparición. Se verificaron fuentes, cifras e inferencias del caso, las dos fichas, 16 preguntas, conceptos erróneos, solapes y tiempo estimado. npm test: 148/148 correcto.
 
 ## Revisión
 
