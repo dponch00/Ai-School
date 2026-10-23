@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-22 |
 | Depende de | T-021 (cerrado) |
 | Fase del plan | 2 — Base de app y PWA |
@@ -43,7 +43,11 @@ No edites `src/`, `content/`, `e2e/` ni `scripts/`.
 
 ## Entrega
 
-_(Codex)_
+Revisión entregada en `investigacion/codex-revision-como-funciona.md`.
+
+- Hallazgos: la evaluación externa está marcada erróneamente como paso que «cuenta» para completar el curso; la explicación del calendario de repaso omite que un fallo reinicia el plazo diario; y el puente de descargas puede informar éxito tras un rechazo y captura más descargas de las previstas.
+- Verifiqué las reglas de examen, retención, repaso, laboratorio, Evaluación y Mi ruta contra la implementación y los nombres de la interfaz.
+- `npm run e2e` pasó: 48/48 en escritorio y 360 px, con axe y sin desborde. También comprobé foco y orden de tabulación de la página con Playwright.
 
 ## Revisión
 
