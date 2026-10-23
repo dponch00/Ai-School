@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-23 |
 | Depende de | T-026 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -59,7 +59,11 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`.
 
 ## Entrega
 
-_(Codex)_
+Entregado el 2026-10-23.
+
+- Informe: `investigacion/codex-revision-m03-l1-l3.md`.
+- Hallazgos: 1 alto (la cifra atribuida a NoLiMa) y 1 medio (cambió la carga de `AGENTS.md` anidado en VS Code). El informe incluye las 33 fuentes abiertas y dos bloqueos 403 sin uso en L1–L3.
+- Verificado: `npm test` (134/134). Las 16 preguntas tienen una sola clave; se revisaron sus distractores, referencias, solapes, objetivos reformulados, longitud y estilo.
 
 ## Revisión
 
