@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-23 |
 | Depende de | T-028 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -60,7 +60,10 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`.
 
 ## Entrega
 
-_(Codex)_
+- Informe: investigacion/codex-revision-m03-examen-laboratorio.md.
+- Hallazgos: T029-01 (alta), ambigüedad sobre la importación; T029-02 (alta), repeticiones que revelan decisiones del diagnóstico B3; T029-03 (media), fuente indirecta de m03-f14-c.
+- Verificación: npm test (134/134) y revisión en navegador a 360 px.
+- Estado: entregado.
 
 ## Revisión
 
