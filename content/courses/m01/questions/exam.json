@@ -1221,38 +1221,38 @@
       "C01"
     ],
     "difficulty": "base",
-    "process": "apply",
+    "process": "analyze",
     "family": "m01-f10",
     "variant": "a",
-    "scenario": "Cada mes hay que resumir 5 000 tickets de soporte. El reporte se lee el lunes, así que el resumen puede tardar horas.",
+    "scenario": "Un compañero cuenta que procesa sus documentos con la app de escritorio del asistente, y que por eso los documentos no salen de su computadora.",
     "stem": "¿Qué es lo correcto?",
     "options": [
       {
         "id": "o1",
-        "text": "Conviene el procesamiento por lotes de la API, que cuesta cerca de la mitad",
-        "correct": true,
-        "feedback": "Correcta. Cuando nadie espera la respuesta al momento, los lotes reducen el costo a la mitad aproximadamente. Es la opción natural para volumen sin urgencia."
+        "text": "Es cierto: la app de escritorio procesa todo dentro de la computadora",
+        "correct": false,
+        "feedback": "La app es una superficie: lo que escribes y adjuntas viaja al modelo del proveedor. Que la herramienta se vea en tu escritorio no dice dónde se procesa.",
+        "misconceptionId": "m01-mc21"
       },
       {
         "id": "o2",
-        "text": "Conviene una sola sesión de chat con los 5 000 tickets, que solo cobra cada mensaje",
-        "correct": false,
-        "feedback": "En una sesión que conserva el historial, cada solicitud incluye todo lo anterior. Cinco mil tickets en una conversación es lo más caro y lo más lento.",
-        "misconceptionId": "m01-mc23"
+        "text": "La app envía lo que escribe y adjunta al modelo del proveedor; se procesa fuera",
+        "correct": true,
+        "feedback": "Correcta. La app de escritorio, igual que un agente local, envía el contenido al modelo remoto. Solo un modelo que corre en el propio equipo mantiene la inferencia dentro."
       },
       {
         "id": "o3",
-        "text": "Conviene el modelo más grande con el esfuerzo máximo, para que los resúmenes salgan mejores",
+        "text": "Da igual la app: los datos se tratan igual en cualquier plan y en cualquier superficie",
         "correct": false,
-        "feedback": "Sin una muestra que lo justifique, el máximo solo encarece. Y no tiene que ver con aprovechar que no hay urgencia.",
-        "misconceptionId": "m01-mc18"
+        "feedback": "La pregunta es dónde ocurre la inferencia, y además las políticas cambian según el plan. Ninguna de las dos cosas es igual en todos lados.",
+        "misconceptionId": "m01-mc22"
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m01-l5#pago",
+    "sectionRef": "m01-l5#local-nube",
     "sourceIds": [
-      "src-anthropic-pricing",
-      "src-openai-pricing"
+      "src-anthropic-cc-data-usage",
+      "src-openai-gpt-oss"
     ],
     "status": "draft"
   },
@@ -1311,38 +1311,39 @@
       "C01"
     ],
     "difficulty": "advanced",
-    "process": "analyze",
+    "process": "evaluate",
     "family": "m01-f10",
     "variant": "c",
-    "scenario": "Una analista lleva seis horas en la misma sesión con el agente ajustando un modelo financiero. Sus últimos mensajes son cortos, pero el consumo de su plan creció mucho más rápido de lo que esperaba.",
+    "scenario": "Para un análisis hay tres opciones: (1) un agente de código local que usa el modelo del proveedor, (2) una sesión en la nube del mismo proveedor y (3) un modelo de pesos abiertos que corre en la laptop del analista.",
     "stem": "¿Qué es lo correcto?",
     "options": [
       {
         "id": "o1",
-        "text": "Es un error del plan, porque el costo de una sesión es el de su último mensaje",
-        "correct": false,
-        "feedback": "No es un error. En una sesión que conserva el historial, cada solicitud incluye todo lo acumulado, por corto que sea el mensaje.",
-        "misconceptionId": "m01-mc23"
+        "text": "Los datos salen en la 1 y en la 2; solo en la 3 la inferencia se queda en el equipo",
+        "correct": true,
+        "feedback": "Correcta. El agente local envía lo que lee al modelo remoto, y la sesión en la nube además copia el código a la máquina del proveedor. Solo el modelo propio procesa todo en el equipo."
       },
       {
         "id": "o2",
-        "text": "Cada solicitud incluye el historial acumulado, que en seis horas es muy grande",
-        "correct": true,
-        "feedback": "Correcta. El contexto crece con cada turno y cada solicitud lo lleva entero. Una sesión nueva con un resumen corta ese crecimiento."
+        "text": "Los datos solo salen en la 2; en la 1 y en la 3 todo se queda en el equipo",
+        "correct": false,
+        "feedback": "El agente local corre en el equipo, pero el modelo que razona está en el proveedor. Lo que lee viaja hasta allá.",
+        "misconceptionId": "m01-mc21"
       },
       {
         "id": "o3",
-        "text": "El contexto no influye: lo que encarece la sesión es que el agente lee archivos",
+        "text": "En ninguna salen datos si la cuenta es de empresa, porque esos planes no entrenan con ellos",
         "correct": false,
-        "feedback": "Lo que lee el agente también suma, pero el historial acumulado de seis horas viaja en cada solicitud. Ese es el costo que crece.",
-        "misconceptionId": "m01-mc32"
+        "feedback": "No entrenar con los datos no significa que no salgan del equipo. La inferencia de la 1 y la 2 ocurre en el proveedor, sea cual sea el plan.",
+        "misconceptionId": "m01-mc22"
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m01-l5#multiplicadores",
+    "sectionRef": "m01-l5#local-nube",
     "sourceIds": [
-      "src-anthropic-cc-costs",
-      "src-anthropic-context-windows"
+      "src-anthropic-cc-data-usage",
+      "src-anthropic-cc-cloud",
+      "src-openai-gpt-oss"
     ],
     "status": "draft"
   },
@@ -1539,8 +1540,278 @@
       "C12"
     ],
     "difficulty": "base",
-    "process": "apply",
+    "process": "analyze",
     "family": "m01-f12",
+    "variant": "b",
+    "scenario": "Comparas dos asistentes para extraer el número de identificación fiscal de las facturas; que ese número sea exacto es crítico. A acertó los números en sus tres ensayos, pero redacta peor las notas. B redacta mejor, pero en un ensayo copió mal un número.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Recomiendas B, porque gana en casi todos los criterios",
+        "correct": false,
+        "feedback": "Ganar en los criterios que se compensan no cubre un fallo en el crítico. Un número fiscal mal copiado es justo el error que no se acepta.",
+        "misconceptionId": "m01-mc26"
+      },
+      {
+        "id": "o2",
+        "text": "No recomiendas ninguna, porque A redacta peor y eso también es un fallo",
+        "correct": false,
+        "feedback": "La redacción de las notas no es un criterio crítico: se pondera con los demás. Solo el crítico descalifica.",
+        "misconceptionId": "m01-mc39"
+      },
+      {
+        "id": "o3",
+        "text": "Recomiendas A, porque B falló el criterio crítico y eso no se compensa",
+        "correct": true,
+        "feedback": "Correcta. Un criterio crítico se exige en todos los ensayos. A lo cumplió; B no, por bien que redacte."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l6#criterio-critico",
+    "sourceIds": [
+      "src-anthropic-develop-tests"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-f12-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m01",
+    "evaluatedObjectiveId": "m01-eo6",
+    "competencyIds": [
+      "C01",
+      "C12"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m01-f12",
+    "variant": "c",
+    "scenario": "En la comparación para clasificar gastos, que la categoría fiscal sea correcta es crítico. A falló ese criterio en 1 de 3 ensayos y B en 2 de 3. En los demás criterios, A va mejor.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "No recomiendas ninguna aún: ajustas la tarea o las candidatas y repites",
+        "correct": true,
+        "feedback": "Correcta. Ninguna cumple el criterio crítico en todos los ensayos, así que ninguna queda recomendada. Elegir a la que falla menos convertiría el criterio crítico en uno que se compensa."
+      },
+      {
+        "id": "o2",
+        "text": "Recomiendas A, porque falla el criterio crítico menos veces que B",
+        "correct": false,
+        "feedback": "Fallar menos no es cumplir. Un criterio crítico se exige en todos los ensayos, y A también lo falló.",
+        "misconceptionId": "m01-mc26"
+      },
+      {
+        "id": "o3",
+        "text": "Recomiendas A, porque además va mejor en todos los demás criterios de la rúbrica",
+        "correct": false,
+        "feedback": "Los demás criterios no compensan un fallo en el crítico. Si se compensaran, ya no sería crítico.",
+        "misconceptionId": "m01-mc26"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l6#criterio-critico",
+    "sourceIds": [
+      "src-anthropic-develop-tests"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-f13-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m01",
+    "evaluatedObjectiveId": "m01-eo5",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m01-f13",
+    "variant": "a",
+    "scenario": "Cada mes hay que resumir 5 000 tickets de soporte. El reporte se lee el lunes, así que el resumen puede tardar horas.",
+    "stem": "¿Qué es lo correcto?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Conviene el procesamiento por lotes de la API, que cuesta cerca de la mitad",
+        "correct": true,
+        "feedback": "Correcta. Cuando nadie espera la respuesta al momento, los lotes reducen el costo a la mitad aproximadamente. Es la opción natural para volumen sin urgencia."
+      },
+      {
+        "id": "o2",
+        "text": "Conviene una sola sesión de chat con los 5 000 tickets, que solo cobra cada mensaje",
+        "correct": false,
+        "feedback": "En una sesión que conserva el historial, cada solicitud incluye todo lo anterior. Cinco mil tickets en una conversación es lo más caro y lo más lento.",
+        "misconceptionId": "m01-mc23"
+      },
+      {
+        "id": "o3",
+        "text": "Conviene el modelo más grande con el esfuerzo máximo, para que los resúmenes salgan mejores",
+        "correct": false,
+        "feedback": "Sin una muestra que lo justifique, el máximo solo encarece. Y no tiene que ver con aprovechar que no hay urgencia.",
+        "misconceptionId": "m01-mc18"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l5#pago",
+    "sourceIds": [
+      "src-anthropic-pricing",
+      "src-openai-pricing"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-f13-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m01",
+    "evaluatedObjectiveId": "m01-eo5",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m01-f13",
+    "variant": "b",
+    "scenario": "Cada fin de mes, el área de crédito reprocesa 20 000 solicitudes antiguas para actualizar un indicador. El resultado se usa recién la semana siguiente.",
+    "stem": "¿Qué es lo correcto?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Conviene el modelo más grande en tiempo real, para que el indicador salga más preciso",
+        "correct": false,
+        "feedback": "Sin una muestra que lo justifique, el modelo más grande solo encarece. Y el tiempo real no aporta nada si el resultado se usa una semana después.",
+        "misconceptionId": "m01-mc18"
+      },
+      {
+        "id": "o2",
+        "text": "Conviene una sola conversación con las 20 000 solicitudes, que solo cobra lo de cada mensaje",
+        "correct": false,
+        "feedback": "En una sesión que conserva el historial, cada solicitud incluye todo lo acumulado. Con 20 000 solicitudes sería lo más caro y lo más lento.",
+        "misconceptionId": "m01-mc23"
+      },
+      {
+        "id": "o3",
+        "text": "Conviene el procesamiento por lotes: nadie espera el resultado y cuesta cerca de la mitad",
+        "correct": true,
+        "feedback": "Correcta. Cuando no hay urgencia, los lotes reducen el costo a la mitad aproximadamente. Es la opción natural para volumen grande y periódico."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l5#pago",
+    "sourceIds": [
+      "src-anthropic-pricing",
+      "src-openai-pricing"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-f13-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m01",
+    "evaluatedObjectiveId": "m01-eo5",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m01-f13",
+    "variant": "c",
+    "scenario": "Un proceso tiene dos partes: responder en el momento las consultas de los vendedores durante el día, y resumir cada noche todas las consultas para el gerente, que lee el resumen a la mañana.",
+    "stem": "¿Qué es lo correcto?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Conviene usar lotes para todo, porque es la modalidad más barata",
+        "correct": false,
+        "feedback": "Los vendedores necesitan la respuesta en el momento, y los lotes no responden al instante. Lo más barato no sirve si no cumple lo que la tarea necesita.",
+        "misconceptionId": "m01-mc19"
+      },
+      {
+        "id": "o2",
+        "text": "Conviene tiempo real para las consultas del día y lotes para el resumen nocturno",
+        "correct": true,
+        "feedback": "Correcta. Cada parte tiene su palanca: la consulta necesita latencia baja; el resumen, no. Separarlas permite pagar el tiempo real solo donde hace falta."
+      },
+      {
+        "id": "o3",
+        "text": "Conviene el modelo más grande en tiempo real para las dos partes, para no complicarse",
+        "correct": false,
+        "feedback": "Usar la opción más cara en las dos partes paga una urgencia que el resumen no tiene. Además, nadie probó que haga falta un modelo de ese tamaño.",
+        "misconceptionId": "m01-mc18"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l5#pago",
+    "sourceIds": [
+      "src-anthropic-pricing",
+      "src-anthropic-glossary"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-f14-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m01",
+    "evaluatedObjectiveId": "m01-eo6",
+    "competencyIds": [
+      "C01",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m01-f14",
+    "variant": "a",
+    "scenario": "En tu comparación para el resumen semanal, el asistente A cumplió todos los criterios. Un colega quiere usar ese resultado para elegir la herramienta que redactará los contratos de distribución.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Le explicas que vale para el resumen semanal; para contratos hay que comparar de nuevo",
+        "correct": true,
+        "feedback": "Correcta. Una conclusión vale para la tarea, las entradas y las versiones con que se obtuvo. Redactar contratos es otra tarea, con otros criterios."
+      },
+      {
+        "id": "o2",
+        "text": "Le recomiendas A, porque ganó la comparación y eso indica que es mejor en general para todo",
+        "correct": false,
+        "feedback": "Haber ganado en una tarea no dice nada de otra. Generalizar así es tomar una prueba como si fuera un ranking.",
+        "misconceptionId": "m01-mc24"
+      },
+      {
+        "id": "o3",
+        "text": "Le recomiendas A, y que confirme mirando el ranking público de redacción de contratos",
+        "correct": false,
+        "feedback": "El ranking mide otras tareas y otros datos. Para contratos, la comparación que sirve se hace con contratos reales y criterios propios.",
+        "misconceptionId": "m01-mc25"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l6#conclusion",
+    "sourceIds": [
+      "src-anthropic-choosing-model"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m01-f14-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m01",
+    "evaluatedObjectiveId": "m01-eo6",
+    "competencyIds": [
+      "C01",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m01-f14",
     "variant": "b",
     "scenario": "En marzo comparaste dos asistentes para redactar el informe de gastos y A cumplió todos los criterios. Hoy, en octubre, ambos proveedores cambiaron de modelo y uno cambió sus planes.",
     "stem": "¿Qué haces?",
@@ -1575,7 +1846,7 @@
     "status": "draft"
   },
   {
-    "id": "m01-f12-c",
+    "id": "m01-f14-c",
     "version": 1,
     "use": "exam",
     "courseId": "m01",
@@ -1586,36 +1857,37 @@
     ],
     "difficulty": "advanced",
     "process": "evaluate",
-    "family": "m01-f12",
+    "family": "m01-f14",
     "variant": "c",
-    "scenario": "Un ensayo del asistente B quedó como fallido porque tu comprobación esperaba las fechas en formato «2026-10-19» y B las escribió como «19/10/2026». Las fechas eran correctas.",
+    "scenario": "Tu comparación de agosto para el informe de gastos sigue anotada como vigente. Ayer, el proveedor de la herramienta elegida no cambió de modelo, pero sí cambió el nivel de esfuerzo que usa por defecto.",
     "stem": "¿Qué haces?",
     "options": [
       {
         "id": "o1",
-        "text": "Lo cuentas como fallido: lo que decide es la comprobación, no tu lectura",
+        "text": "Nada: como el modelo es el mismo, la comparación sigue valiendo",
         "correct": false,
-        "feedback": "La comprobación también puede fallar. Leer la respuesta es justamente lo que permite ver que el error estaba en el criterio.",
-        "misconceptionId": "m01-mc35"
+        "feedback": "El esfuerzo cambia lo que hace el modelo, su costo y su latencia. Es una de las condiciones que se anotan, así que su cambio puede mover el resultado.",
+        "misconceptionId": "m01-mc27"
       },
       {
         "id": "o2",
-        "text": "Corriges la comprobación para aceptar ambos formatos y vuelves a calificar todos los ensayos",
+        "text": "Repites la comparación, o al menos el criterio crítico, con el esfuerzo nuevo",
         "correct": true,
-        "feedback": "Correcta. El fallo era del criterio, no de B. Corregirlo y recalificar los ensayos de las dos herramientas mantiene la comparación justa."
+        "feedback": "Correcta. La conclusión vale para las condiciones con que se obtuvo, y el esfuerzo es una de ellas. Si cambia, se vuelve a medir antes de confiar en el resultado."
       },
       {
         "id": "o3",
-        "text": "Descartas ese ensayo y decides solo con los otros dos, sin revisar el criterio de calificación",
+        "text": "Nada: la comparación vale hasta que el equipo decida por su cuenta cambiar de herramienta",
         "correct": false,
-        "feedback": "Descartar el ensayo esconde el problema: la comprobación seguirá fallando en los próximos. Hay que corregirla.",
-        "misconceptionId": "m01-mc35"
+        "feedback": "Una conclusión no caduca cuando el equipo decide, sino cuando cambian sus condiciones. Esto ya ocurrió.",
+        "misconceptionId": "m01-mc27"
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m01-l6#leer",
+    "sectionRef": "m01-l6#conclusion",
     "sourceIds": [
-      "src-anthropic-evals-agents"
+      "src-anthropic-effort",
+      "src-openai-codex-models"
     ],
     "status": "draft"
   }

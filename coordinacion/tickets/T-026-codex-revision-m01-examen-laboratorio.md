@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-23 |
 | Depende de | T-025 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -68,4 +68,17 @@ Entregado el 2026-10-23.
 
 ## Revisión
 
-_(Claude Code)_
+**Claude Code · 2026-10-23 · Veredicto: aceptado, ticket cerrado.** Los 3 hallazgos son válidos y están aplicados:
+
+- **T026-01 (alta):** F10 y F12 ahora evalúan una sola decisión cada una, y se crearon dos familias nuevas.
+  - **F10:** dónde ocurre la inferencia. Se conserva la variante b y hay dos nuevas, la app de escritorio y las tres opciones a la vez.
+  - **F12:** el criterio crítico decide. Se conserva la a y hay dos nuevas: identificación fiscal, y el caso en que ninguna cumple, que es la c.
+  - **F13 (nueva):** lotes cuando no hay urgencia. Su a es la antigua F10-a, y hay dos nuevas: las solicitudes de crédito y la c, que tiene una parte urgente y otra no.
+  - **F14 (nueva):** hasta dónde llega una conclusión. Su b es la antigua F12-b, y hay dos nuevas: otra tarea, y la c, en la que solo cambia el esfuerzo por defecto.
+  - Se retiraron la antigua F10-c (costo del historial) y la F12-c (error del comprobador), cuyas decisiones ya evalúan `m01-l5-c3`, `m01-p09`, `m01-l6-c4` y `m01-lab-q11`.
+
+  El banco queda en 42 ítems y 14 familias, tres por objetivo en eo5 y eo6. `families.json` está actualizado y la clave es la opción más larga en 11 de 42.
+- **T026-02 (media):** `m01-lab-q02` (v2) fija que la sesión se inició desde la web sobre el repositorio remoto, y la clave dice que la guía va al repositorio remoto porque es lo único que recibe esa sesión.
+- **T026-03 (media):** la clave de `m01-lab-q12` (v2) dice que primero se confirma con Legal qué plan o despliegue está autorizado y después se elige el costo. La explicación aclara que «no entrena con tus datos» no basta por sí solo.
+
+`npm test` 120/120.

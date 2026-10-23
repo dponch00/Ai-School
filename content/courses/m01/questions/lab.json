@@ -45,7 +45,7 @@
   },
   {
     "id": "m01-lab-q02",
-    "version": 1,
+    "version": 2,
     "use": "lab",
     "courseId": "m01",
     "labStep": "paso-1",
@@ -55,7 +55,7 @@
     ],
     "difficulty": "advanced",
     "process": "apply",
-    "scenario": "Segunda historia: la documentación que entregó la sesión en la nube no seguía la guía de estilo del equipo. Esa guía vive en una carpeta compartida de la red, fuera del repositorio.",
+    "scenario": "Segunda historia: la documentación que entregó la sesión en la nube, iniciada desde la web sobre el repositorio remoto, no seguía la guía de estilo del equipo. Esa guía vive en una carpeta compartida de la red, fuera del repositorio.",
     "stem": "¿Qué conviene hacer para el encargo 5?",
     "options": [
       {
@@ -69,14 +69,14 @@
         "id": "o2",
         "text": "Nada: en la nube el agente ve lo mismo que en tu red, así que fue un descuido suyo",
         "correct": false,
-        "feedback": "La sesión en la nube no ve tu red ni tus carpetas compartidas. Solo trabaja con la copia del repositorio que recibe.",
+        "feedback": "La sesión en la nube no ve tu red ni tus carpetas compartidas. Iniciada desde la web, solo trabaja con la copia del repositorio remoto.",
         "misconceptionId": "m01-mc02"
       },
       {
         "id": "o3",
-        "text": "Agregar la guía al repositorio: la sesión solo tiene la copia del repositorio",
+        "text": "Agregar la guía al repositorio remoto, que es lo único que recibe esa sesión",
         "correct": true,
-        "feedback": "Correcta. La sesión en la nube tiene lo que está en el repositorio que recibe, y nada más. Si la guía tiene que seguirse, tiene que estar ahí."
+        "feedback": "Correcta. Una sesión iniciada desde la web clona el repositorio remoto y no recibe nada más. Si la guía tiene que seguirse, tiene que estar ahí."
       }
     ],
     "fixedOrder": false,
@@ -487,7 +487,7 @@
   },
   {
     "id": "m01-lab-q12",
-    "version": 1,
+    "version": 2,
     "use": "lab",
     "courseId": "m01",
     "labStep": "paso-7",
@@ -516,9 +516,9 @@
       },
       {
         "id": "o3",
-        "text": "La decide la política: plan de empresa o API sin entrenamiento, o un modelo propio si hace falta",
+        "text": "Confirma con Legal qué plan o despliegue está autorizado y después elige el costo dentro de eso",
         "correct": true,
-        "feedback": "Correcta. Ahora la primera pregunta es en qué plan o despliegue pueden procesarse esos datos. El precio y la configuración se eligen después, dentro de lo permitido."
+        "feedback": "Correcta. Ahora la primera pregunta es dónde pueden procesarse y guardarse esos datos. Un plan de empresa, la API o un modelo propio son candidatos solo si Legal los aprueba; «no entrena con tus datos» no basta por sí solo."
       }
     ],
     "fixedOrder": false,

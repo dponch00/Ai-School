@@ -56,8 +56,8 @@
   {
     "family": "m01-f10",
     "evaluatedObjectiveId": "m01-eo5",
-    "decision": "Reconocer cómo se paga el uso y dónde ocurre la inferencia",
-    "equivalence": "Las variantes piden reconocer el costo o la ubicación de los datos en tres situaciones: volumen sin urgencia (lotes), datos que no deben salir (modelo de pesos abiertos propio) y una sesión larga que encarece (c, más difícil porque obliga a razonar sobre el historial)."
+    "decision": "Reconocer dónde ocurre la inferencia y, por lo tanto, si los datos salen del equipo",
+    "equivalence": "Las tres variantes piden decidir si la inferencia ocurre en el equipo o en el proveedor: una app de escritorio (a), un agente local frente a un modelo propio (b) y tres opciones a la vez (c, más difícil porque mezcla agente local, nube y modelo propio, y un distractor sobre la política de entrenamiento)."
   },
   {
     "family": "m01-f11",
@@ -68,7 +68,19 @@
   {
     "family": "m01-f12",
     "evaluatedObjectiveId": "m01-eo6",
-    "decision": "Sacar la conclusión que la evidencia permite: criterio crítico, vigencia y errores del criterio",
-    "equivalence": "Las tres variantes dan un resultado y piden la conclusión correcta: el criterio crítico decide sobre el promedio (a), la conclusión caduca con las versiones (b) y un fallo puede ser del criterio y no de la herramienta (c, más difícil)."
+    "decision": "Reconocer que el criterio crítico decide por encima del promedio y de los criterios que se compensan",
+    "equivalence": "Las tres variantes dan resultados con un criterio crítico y piden la recomendación: conciliación de montos (a), identificación fiscal (b) y un caso en que ninguna cumple el crítico (c, más difícil porque la tentación es elegir a la que falla menos)."
+  },
+  {
+    "family": "m01-f13",
+    "evaluatedObjectiveId": "m01-eo5",
+    "decision": "Elegir el procesamiento por lotes cuando nadie espera el resultado, y el tiempo real solo donde hace falta",
+    "equivalence": "Las variantes a y b presentan volumen sin urgencia (tickets de soporte, solicitudes de crédito) con los mismos distractores: modelo más grande y conversación larga. La c combina una parte urgente y otra que no lo es; es más difícil porque obliga a separarlas."
+  },
+  {
+    "family": "m01-f14",
+    "evaluatedObjectiveId": "m01-eo6",
+    "decision": "Reconocer hasta dónde llega una conclusión: su tarea y las condiciones con que se obtuvo",
+    "equivalence": "Las tres variantes piden decidir si una conclusión anterior sigue sirviendo: para otra tarea (a), después de un cambio de modelos y planes (b) y después de un cambio solo del esfuerzo por defecto (c, más difícil porque el modelo es el mismo)."
   }
 ]
