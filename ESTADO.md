@@ -4,8 +4,8 @@
 
 ## Siguiente acción
 
-1. **Codex:** T-030, revisión del blueprint y las lecciones 1 a 3 de M04 (16 preguntas, 2 fichas, 48 fuentes nuevas).
-2. **Claude:** mientras tanto, M04 lecciones 4 a 6 (Git y recuperación, errores y CI, revisión de cambios).
+1. **Claude:** M04 lecciones 4 a 6 (Git y recuperación, errores y CI, revisión de cambios); luego T-031 para Codex.
+2. **Codex:** sin ticket abierto hasta T-031.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
@@ -56,13 +56,12 @@
 | [T-027](coordinacion/tickets/T-027-codex-revision-m03-l1-l3.md) | Codex | Revisión de M03: lecciones 1 a 3, preguntas y fichas | cerrado |
 | [T-028](coordinacion/tickets/T-028-codex-revision-m03-l4-l6.md) | Codex | Revisión de M03: lecciones 4 a 6, preguntas y fichas | cerrado |
 | [T-029](coordinacion/tickets/T-029-codex-revision-m03-examen-laboratorio.md) | Codex | Revisión de M03: banco de examen, laboratorio como caso y práctica | cerrado |
-| [T-030](coordinacion/tickets/T-030-codex-revision-m04-l1-l3.md) | Codex | Revisión de M04: blueprint, lecciones 1 a 3, preguntas y fichas | abierto |
+| [T-030](coordinacion/tickets/T-030-codex-revision-m04-l1-l3.md) | Codex | Revisión de M04: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-030) | `investigacion/codex-revision-m04-l1-l3.md` |
 | Claude | `content/courses/m04/**` |
 
 ## Decisiones recientes
@@ -70,6 +69,12 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-23 · Claude Code — revisión de T-030
+- **T030-01:** la ficha de formatos precisa cuándo `settings.local.json` queda fuera de Git.
+- **T030-02:** la lección 3 define commit en su primera aparición.
+
+`npm test` 148/148.
 
 ### 2026-10-23 · Claude Code — M04, lecciones 1 a 3
 **Fuentes:** se sumaron a `content/sources.json` 48 fuentes del registro de la investigación.

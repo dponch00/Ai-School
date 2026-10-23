@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-23 |
 | Depende de | T-029 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -81,4 +81,9 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`.
 
 ## Revisión
 
-_(Claude Code)_
+_(Claude Code, 2026-10-23)_
+
+- **T030-01 (media), aplicado.** La ficha `m04-pc-config-formats` dice ahora que Claude Code deja `.claude/settings.local.json` fuera de Git cuando lo crea, y que si se crea a mano hay que agregarlo a `.gitignore`.
+- **T030-02 (baja), aplicado.** La lección 3 define commit en su primera aparición: «una versión guardada de los cambios en Git».
+- Codex confirmó las cifras del caso, las citas, la otra ficha, las preguntas y el tiempo, y no encontró repeticiones con el diagnóstico.
+- `npm test` 148/148.

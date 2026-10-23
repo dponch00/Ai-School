@@ -7,7 +7,7 @@
       "ide",
       "desktop"
     ],
-    "capability": "Claude Code guarda sus ajustes en JSON estricto, sin comentarios ni comas finales, en tres ámbitos: usuario (~/.claude/settings.json), proyecto (.claude/settings.json, compartido en el repositorio) y local (.claude/settings.local.json, fuera de Git). Codex usa config.toml en ~/.codex/ y en la carpeta .codex/ del proyecto; esta última solo se carga en proyectos marcados como de confianza. Las skills de ambos usan SKILL.md con metadatos YAML.",
+    "capability": "Claude Code guarda sus ajustes en JSON estricto, sin comentarios ni comas finales, en tres ámbitos: usuario (~/.claude/settings.json), proyecto (.claude/settings.json, compartido en el repositorio) y local (.claude/settings.local.json, que Claude Code deja fuera de Git cuando lo crea; si se crea a mano, hay que agregarlo a .gitignore). Codex usa config.toml en ~/.codex/ y en la carpeta .codex/ del proyecto; esta última solo se carga en proyectos marcados como de confianza. Las skills de ambos usan SKILL.md con metadatos YAML.",
     "kind": "capability",
     "maturity": "ga",
     "verifiedAt": "2026-10-22",
