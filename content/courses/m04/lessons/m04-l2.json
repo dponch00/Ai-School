@@ -1,0 +1,55 @@
+{
+  "id": "m04-l2",
+  "courseId": "m04",
+  "version": "0.1.0",
+  "order": 2,
+  "title": "Reconocer SQL y los formatos de configuración",
+  "objectives": [
+    {
+      "id": "m04-l2-o1",
+      "statement": "Predice el resultado de una consulta SQL con valores vacíos, agregados o claves repetidas.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m04-eo1"
+    },
+    {
+      "id": "m04-l2-o2",
+      "statement": "Identifica si un archivo está en JSON, TOML o YAML, qué valor controla qué comportamiento y qué regla del formato lo invalida.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m04-eo2"
+    },
+    {
+      "id": "m04-l2-o3",
+      "statement": "Reconoce TypeScript y que sus tipos no validan datos al ejecutar.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m04-eo2"
+    }
+  ],
+  "bodyPath": "courses/m04/lessons/m04-l2.md",
+  "reviewQuestionIds": [
+    "m04-l2-r1",
+    "m04-l2-r2"
+  ],
+  "checkQuestionIds": [
+    "m04-l2-c1",
+    "m04-l2-c2",
+    "m04-l2-c3",
+    "m04-l2-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m04-pc-config-formats"
+  ],
+  "sourceIds": [
+    "src-postgres-tutorial-agg",
+    "src-postgres-comparison",
+    "src-postgres-aggregate",
+    "src-ietf-rfc8259",
+    "src-toml-v1",
+    "src-pypa-pyproject",
+    "src-yaml-spec-122",
+    "src-agentskills-spec",
+    "src-ts-handbook-from-scratch"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

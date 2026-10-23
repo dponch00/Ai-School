@@ -1,0 +1,57 @@
+{
+  "id": "m04-l3",
+  "courseId": "m04",
+  "version": "0.1.0",
+  "order": 3,
+  "title": "Carpetas, dependencias, entorno y secretos",
+  "objectives": [
+    {
+      "id": "m04-l3-o1",
+      "statement": "Clasifica los elementos de un proyecto y decide cuáles se versionan.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m04-eo3"
+    },
+    {
+      "id": "m04-l3-o2",
+      "statement": "Ante un secreto expuesto, elige revocar o rotar como primera acción y explica por qué borrarlo no basta.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m04-eo3"
+    },
+    {
+      "id": "m04-l3-o3",
+      "statement": "Reconoce que una dependencia agregada por un agente se comprueba antes de aceptarla.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m04-eo3"
+    }
+  ],
+  "bodyPath": "courses/m04/lessons/m04-l3.md",
+  "reviewQuestionIds": [
+    "m04-l3-r1",
+    "m04-l3-r2"
+  ],
+  "checkQuestionIds": [
+    "m04-l3-c1",
+    "m04-l3-c2",
+    "m04-l3-c3",
+    "m04-l3-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m04-pc-push-protection"
+  ],
+  "sourceIds": [
+    "src-12factor-config",
+    "src-owasp-secrets-mgmt",
+    "src-vite-env",
+    "src-git-gitignore",
+    "src-github-remove-sensitive-data",
+    "src-git-githooks",
+    "src-github-push-protection",
+    "src-python-venv",
+    "src-pypa-pyproject",
+    "src-pip-user-guide",
+    "src-arxiv-package-hallucination"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

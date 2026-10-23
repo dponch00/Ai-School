@@ -2191,5 +2191,768 @@
     "kind": "secondary",
     "volatility": "medium",
     "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-progit-what-is-git",
+    "title": "Pro Git, 1.3 What is Git?",
+    "organization": "Git (Pro Git, 2.ª ed.)",
+    "url": "https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Instantáneas",
+      "operaciones locales",
+      "integridad",
+      "tres estados y tres lugares",
+      "difícil perder lo confirmado"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-progit-undoing",
+    "title": "Pro Git, 2.4 Undoing Things",
+    "organization": "Git (Pro Git)",
+    "url": "https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "`--amend` solo sin publicar",
+      "`restore --staged`",
+      "`restore` descarta cambios",
+      "lo confirmado casi siempre se recupera, lo no confirmado no",
+      "`restore` desde Git 2.23"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-progit-branches",
+    "title": "Pro Git, 3.1 Branches in a Nutshell",
+    "organization": "Git (Pro Git)",
+    "url": "https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Rama como puntero móvil",
+      "`HEAD`",
+      "ramas baratas"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-git-diff",
+    "title": "git-diff",
+    "organization": "Git",
+    "url": "https://git-scm.com/docs/git-diff",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Formas de comparación",
+      "`--stat`, `--name-only`",
+      "formato unificado (`-`, `+`, contexto, encabezado de bloque con función)"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-git-switch",
+    "title": "git-switch",
+    "organization": "Git",
+    "url": "https://git-scm.com/docs/git-switch",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "`switch -c`",
+      "se aborta si perdería cambios locales",
+      "`--detach`"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-git-worktree",
+    "title": "git-worktree",
+    "organization": "Git",
+    "url": "https://git-scm.com/docs/git-worktree",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Worktree enlazado",
+      "`HEAD` e índice propios, historial compartido",
+      "una rama no en dos worktrees",
+      "`remove` solo limpio salvo `--force`"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-git-restore",
+    "title": "git-restore",
+    "organization": "Git",
+    "url": "https://git-scm.com/docs/git-restore",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Restaurar rutas desde índice o commit (`--source`)",
+      "`--staged` / `--worktree`"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-git-revert",
+    "title": "git-revert",
+    "organization": "Git",
+    "url": "https://git-scm.com/docs/git-revert",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Commit nuevo que deshace otro",
+      "seguro con historia compartida",
+      "exige carpeta limpia",
+      "`reset --hard` descarta cambios"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-git-reset-restore-revert",
+    "title": "git(1), sección «Reset, restore and revert»",
+    "organization": "Git",
+    "url": "https://git-scm.com/docs/git",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Diferencia entre `revert` (commit nuevo), `restore` (archivos, no mueve la rama) y `reset` (mueve la rama, cambia la historia)"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-git-reflog",
+    "title": "git-reflog",
+    "organization": "Git",
+    "url": "https://git-scm.com/docs/git-reflog",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Qué registra",
+      "`HEAD@{n}`",
+      "local, no se comparte",
+      "caducidad 90 / 30 días"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-git-bisect",
+    "title": "git-bisect",
+    "organization": "Git",
+    "url": "https://git-scm.com/docs/git-bisect",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Búsqueda binaria del commit que introdujo el error",
+      "`bisect run` con código 0 = bueno, 125 = omitir"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-github-remove-sensitive-data",
+    "title": "Removing sensitive data from a repository",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Revocar o rotar primero",
+      "no se limpia en clones, forks ni caché",
+      "efectos de reescribir historia",
+      "escáneres pre-commit"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-owasp-secrets-mgmt",
+    "title": "Secrets Management Cheat Sheet",
+    "organization": "OWASP",
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Qué es un secreto",
+      "no en código ni control de versiones",
+      "riesgos de variables de entorno",
+      "detección en pre-commit y CI",
+      "revocar → rotar → borrar",
+      "mínimo privilegio"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-12factor-config",
+    "title": "The Twelve-Factor App: III. Config",
+    "organization": "Heroku / 12factor.net (A. Wiggins)",
+    "url": "https://12factor.net/config",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Definición de configuración",
+      "prueba de publicar el código",
+      "variables de entorno",
+      "riesgo de archivos de configuración subidos por error"
+    ],
+    "kind": "secondary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-python-controlflow",
+    "title": "Python tutorial, 4. More Control Flow Tools",
+    "organization": "Python Software Foundation",
+    "url": "https://docs.python.org/3/tutorial/controlflow.html",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "`if/elif/else`",
+      "`def`",
+      "cuerpo indentado",
+      "`return` y `None`",
+      "argumentos por defecto y por nombre",
+      "cuatro espacios"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-python-floatingpoint",
+    "title": "Python tutorial, 15. Floating-Point Arithmetic",
+    "organization": "Python Software Foundation",
+    "url": "https://docs.python.org/3/tutorial/floatingpoint.html",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "0,1 no exacto en binario",
+      "0,1+0,1+0,1 ≠ 0,3",
+      "`decimal` para contabilidad"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-python-errors",
+    "title": "Python tutorial, 8. Errors and Exceptions",
+    "organization": "Python Software Foundation",
+    "url": "https://docs.python.org/3/tutorial/errors.html",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Sintaxis frente a excepción",
+      "leer el traceback (última línea)",
+      "`try/except`",
+      "`raise`",
+      "capturar lo específico"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-python-logging",
+    "title": "Logging HOWTO",
+    "organization": "Python Software Foundation",
+    "url": "https://docs.python.org/3/howto/logging.html",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Niveles y significado",
+      "WARNING por defecto",
+      "cuándo `print`, log o excepción"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-python-sys",
+    "title": "sys — `sys.exit`",
+    "organization": "Python Software Foundation",
+    "url": "https://docs.python.org/3/library/sys.html",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "0 = éxito, otro = fallo",
+      "convención 2 / 1"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-python-venv",
+    "title": "venv — Creation of virtual environments",
+    "organization": "Python Software Foundation",
+    "url": "https://docs.python.org/3/library/venv.html",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Aislamiento",
+      "no versionar",
+      "desechable",
+      "no portable",
+      "reconstruir con requisitos",
+      "`.gitignore` automático desde 3.13"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-pypa-pyproject",
+    "title": "Writing your pyproject.toml",
+    "organization": "Python Packaging Authority",
+    "url": "https://packaging.python.org/en/latest/guides/writing-pyproject-toml/",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Tablas `[project]`, `dependencies`, `requires-python`",
+      "cautela con límites superiores"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-pip-user-guide",
+    "title": "pip User Guide (requirements files)",
+    "organization": "Python Packaging Authority",
+    "url": "https://pip.pypa.io/en/stable/user_guide/",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "`requirements.txt`",
+      "`pip freeze` fija versiones para repetir instalaciones",
+      "archivos de restricciones"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-arxiv-package-hallucination",
+    "title": "We Have a Package for You! A Comprehensive Analysis of Package Hallucinations by Code Generating LLMs (2024, rev. 2025; USENIX Security 2025)",
+    "organization": "Spracklen et al. (UT San Antonio y otros)",
+    "url": "https://arxiv.org/abs/2406.10279",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "16 modelos",
+      "≥ 5,2 % (comerciales) y 21,7 % (abiertos) de paquetes inexistentes",
+      "205 474 nombres únicos"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-postgres-comparison",
+    "title": "PostgreSQL 18: 9.2 Comparison Functions and Operators",
+    "organization": "PostgreSQL Global Development Group",
+    "url": "https://www.postgresql.org/docs/current/functions-comparison.html",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "`= NULL` da nulo",
+      "usar `IS NULL`",
+      "`IS DISTINCT FROM`"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-postgres-tutorial-agg",
+    "title": "PostgreSQL 18: 2.7 Aggregate Functions",
+    "organization": "PostgreSQL Global Development Group",
+    "url": "https://www.postgresql.org/docs/current/tutorial-agg.html",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Agregados",
+      "`GROUP BY`",
+      "`WHERE` antes y `HAVING` después de agrupar"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-postgres-aggregate",
+    "title": "PostgreSQL 18: 9.21 Aggregate Functions",
+    "organization": "PostgreSQL Global Development Group",
+    "url": "https://www.postgresql.org/docs/current/functions-aggregate.html",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "`count(*)` frente a `count(expr)`",
+      "`sum`/`avg` ignoran nulos",
+      "`sum` vacío = nulo",
+      "`coalesce`"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-ietf-rfc8259",
+    "title": "RFC 8259: The JSON Data Interchange Format (dic. 2017, STD 90)",
+    "organization": "IETF",
+    "url": "https://www.rfc-editor.org/rfc/rfc8259",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Tipos de valor",
+      "comillas dobles",
+      "literales en minúscula",
+      "nombres únicos recomendados",
+      "gramática sin comentarios"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-toml-v1",
+    "title": "TOML v1.0.0",
+    "organization": "TOML (T. Preston-Werner y otros)",
+    "url": "https://toml.io/en/v1.0.0",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Formato mínimo",
+      "`clave = valor`",
+      "tablas y arreglos de tablas",
+      "mayúsculas",
+      "booleanos en minúscula",
+      "fechas"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-yaml-spec-122",
+    "title": "YAML Ain't Markup Language, v1.2.2",
+    "organization": "YAML Language Development Team",
+    "url": "https://yaml.org/spec/1.2.2/",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Tabuladores prohibidos para indentar (6.1)",
+      "`#` comentarios",
+      "superconjunto de JSON (1.2)",
+      "booleanos del esquema básico (10.3.2)"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-ts-handbook-from-scratch",
+    "title": "TypeScript for the New Programmer",
+    "organization": "Microsoft (TypeScript)",
+    "url": "https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Superconjunto de JavaScript",
+      "tipos revisados antes de ejecutar y borrados al compilar",
+      "comportamiento en ejecución igual"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-22"
+  },
+  {
+    "id": "src-github-actions-workflow-syntax",
+    "title": "Workflow syntax for GitHub Actions",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Workflows en YAML en `.github/workflows`, extensión `.yml`/`.yaml`",
+      "claves `on`, `jobs`"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-github-about-prs",
+    "title": "About pull requests",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "PR como propuesta de fusión",
+      "pestañas",
+      "borradores no fusionables"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-github-reviewing-prs",
+    "title": "Reviewing proposed changes in a pull request",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Revisar por archivo",
+      "comentarios por línea",
+      "comentar / aprobar / pedir cambios",
+      "el autor no aprueba su PR",
+      "revisar el diff fuente de dependencias"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-github-status-checks",
+    "title": "About status checks",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Qué es un check",
+      "conclusiones",
+      "checks requeridos en ramas protegidas",
+      "trabajo omitido = éxito"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-github-actions-logs",
+    "title": "Using workflow run logs",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/actions/how-tos/monitor-workflows/use-workflow-run-logs",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Ver logs",
+      "pasos fallidos expandidos",
+      "buscar y descargar"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-github-actions-secrets",
+    "title": "Using secrets in GitHub Actions",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Secretos por contexto",
+      "no pasarlos por línea de comandos",
+      "`::add-mask::`",
+      "no llegan a workflows de forks"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-github-cloud-agent",
+    "title": "About Copilot cloud agent",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Rama y PR por tarea",
+      "entorno efímero con tests y linters",
+      "registros de sesión que no sustituyen la revisión"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-github-cloud-agent-risks",
+    "title": "Risks and mitigations for Copilot cloud agent",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/copilot/concepts/agents/cloud-agent/risks-and-mitigations",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Rama `copilot/`",
+      "no aprueba ni fusiona",
+      "quien lo pidió no aprueba",
+      "workflows con aprobación"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-22"
+  },
+  {
+    "id": "src-github-copilot-code-review",
+    "title": "About Copilot code review",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/copilot/concepts/agents/code-review",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "No garantiza encontrar todo",
+      "puede equivocarse",
+      "validar y sumar revisión humana",
+      "aprobaciones en *preview*"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-vscode-copilot-checkpoints",
+    "title": "Chat checkpoints (pág. act. 2026-10-21)",
+    "organization": "Microsoft (VS Code)",
+    "url": "https://code.visualstudio.com/docs/copilot/chat/chat-checkpoints",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Instantánea antes de cada petición",
+      "restaurar y rehacer",
+      "`chat.checkpoints.enabled`",
+      "no revierte terminal, red, despliegues ni servicios externos",
+      "no sustituye a Git"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-cc-checkpointing",
+    "title": "Checkpointing (Claude Code)",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/checkpointing",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Checkpoint por turno",
+      "`/rewind`",
+      "restaurar código, conversación o ambos",
+      "no rastrea Bash ni cambios externos",
+      "subagentes",
+      "enlaces",
+      "100 checkpoints",
+      "~30 días",
+      "no reemplaza el control de versiones"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-cc-worktrees",
+    "title": "Run parallel sessions with worktrees (Claude Code)",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/worktrees",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "`--worktree`",
+      "ruta y rama",
+      "base por defecto",
+      "limpieza al salir",
+      "`.worktreeinclude`",
+      "instalar dependencias",
+      "subagentes aislados"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-cc-workflows",
+    "title": "Common workflows (Claude Code)",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/common-workflows",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Worktrees requieren un commit",
+      "dar el comando que reproduce el error",
+      "revisar la PR generada"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-cc-settings",
+    "title": "Settings files and precedence (Claude Code)",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/settings",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Ajustes en JSON estricto (sin comentarios ni comas finales)",
+      "ámbitos usuario / proyecto / local",
+      "local fuera de Git"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-openai-codex-worktrees",
+    "title": "Worktrees (Codex)",
+    "organization": "OpenAI",
+    "url": "https://learn.chatgpt.com/codex/environments/git-worktrees",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "App de escritorio",
+      "`$CODEX_HOME/worktrees`",
+      "HEAD separado",
+      "Hand off",
+      "Create branch here",
+      "15 por defecto",
+      "instantánea antes de borrar",
+      "`.worktreeinclude`"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-openai-codex-code-review",
+    "title": "Code review (Codex)",
+    "organization": "OpenAI",
+    "url": "https://learn.chatgpt.com/docs/code-review",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Panel de revisión con alcances y preparar / revertir por bloque",
+      "requiere Git",
+      "`/review` no cambia la carpeta de trabajo",
+      "revisión en GitHub GA, GitLab *preview*"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-openai-codex-slash-commands",
+    "title": "Slash commands (Codex)",
+    "organization": "OpenAI",
+    "url": "https://learn.chatgpt.com/codex/reference/slash-commands",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "Lista de comandos (incluye `/review`, `/worktree`, `/fork`)",
+      "no aparece `/undo` ni `/rewind`"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-openai-codex-config-basic",
+    "title": "Config basics (Codex)",
+    "organization": "OpenAI",
+    "url": "https://learn.chatgpt.com/docs/config-file/config-basic",
+    "accessedAt": "2026-10-22",
+    "supports": [
+      "`config.toml` en `~/.codex/` y `.codex/`",
+      "capas de proyecto solo en proyectos de confianza",
+      "precedencia"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-22"
   }
 ]

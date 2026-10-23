@@ -1,0 +1,213 @@
+[
+  {
+    "id": "m04-mc01",
+    "courseId": "m04",
+    "description": "Si el código corre sin error, la cifra que calcula está bien.",
+    "whyWrong": "Un operador mal puesto en una condición de frontera no produce ningún error, sino otra cifra. Por eso la salida se comprueba contra un valor esperado.",
+    "sourceIds": [
+      "src-python-controlflow"
+    ]
+  },
+  {
+    "id": "m04-mc02",
+    "courseId": "m04",
+    "description": "Una función sin return devuelve 0 o un valor vacío.",
+    "whyWrong": "En Python, una función que termina sin return devuelve None.",
+    "sourceIds": [
+      "src-python-controlflow"
+    ]
+  },
+  {
+    "id": "m04-mc03",
+    "courseId": "m04",
+    "description": "Los números de coma flotante (float) sirven para montos si se redondea al final.",
+    "whyWrong": "La representación binaria no es exacta, y redondear al final no garantiza recuperar los centavos; para importes se recomienda el módulo decimal.",
+    "sourceIds": [
+      "src-python-floatingpoint"
+    ]
+  },
+  {
+    "id": "m04-mc04",
+    "courseId": "m04",
+    "description": "WHERE columna = NULL encuentra las filas con ese valor vacío.",
+    "whyWrong": "Comparar con NULL da NULL, no verdadero; para buscar vacíos se usa IS NULL.",
+    "sourceIds": [
+      "src-postgres-comparison"
+    ]
+  },
+  {
+    "id": "m04-mc05",
+    "courseId": "m04",
+    "description": "count(*) y count(columna) dan siempre la misma cifra.",
+    "whyWrong": "count(columna) ignora las filas donde esa columna está vacía; count(*) las cuenta todas.",
+    "sourceIds": [
+      "src-postgres-aggregate"
+    ]
+  },
+  {
+    "id": "m04-mc06",
+    "courseId": "m04",
+    "description": "Si no hay filas que sumar, sum devuelve 0.",
+    "whyWrong": "sum sobre cero filas devuelve NULL; para obtener cero se usa coalesce.",
+    "sourceIds": [
+      "src-postgres-aggregate"
+    ]
+  },
+  {
+    "id": "m04-mc07",
+    "courseId": "m04",
+    "description": "Se puede comentar un archivo JSON con // para documentar un ajuste.",
+    "whyWrong": "JSON no tiene comentarios; un lector estricto rechaza el archivo como inválido.",
+    "sourceIds": [
+      "src-ietf-rfc8259",
+      "src-anthropic-cc-settings"
+    ]
+  },
+  {
+    "id": "m04-mc08",
+    "courseId": "m04",
+    "description": "En YAML da igual sangrar con espacios o con tabuladores.",
+    "whyWrong": "La especificación prohíbe los tabuladores para sangrar.",
+    "sourceIds": [
+      "src-yaml-spec-122"
+    ]
+  },
+  {
+    "id": "m04-mc09",
+    "courseId": "m04",
+    "description": "Los tipos de TypeScript validan los datos mientras el programa corre.",
+    "whyWrong": "Los tipos se revisan antes de ejecutar y se borran; el programa se comporta igual que el JavaScript equivalente.",
+    "sourceIds": [
+      "src-ts-handbook-from-scratch"
+    ]
+  },
+  {
+    "id": "m04-mc10",
+    "courseId": "m04",
+    "description": "Agregar un archivo a .gitignore lo saca del repositorio.",
+    "whyWrong": ".gitignore solo afecta a archivos que Git todavía no sigue; lo ya seguido hay que quitarlo del índice, y sigue en los commits anteriores.",
+    "sourceIds": [
+      "src-git-gitignore"
+    ]
+  },
+  {
+    "id": "m04-mc11",
+    "courseId": "m04",
+    "description": "Si borro el secreto en un commit nuevo, el problema está resuelto.",
+    "whyWrong": "El secreto sigue en la historia, en las copias y en las bifurcaciones, y sigue siendo válido; primero hay que revocarlo o rotarlo.",
+    "sourceIds": [
+      "src-github-remove-sensitive-data",
+      "src-owasp-secrets-mgmt"
+    ]
+  },
+  {
+    "id": "m04-mc12",
+    "courseId": "m04",
+    "description": "Una variable de entorno es un lugar seguro por definición.",
+    "whyWrong": "Cualquier proceso del sistema puede leerla y puede terminar en un registro de errores; en una aplicación que corre en el navegador deja de ser secreta.",
+    "sourceIds": [
+      "src-owasp-secrets-mgmt",
+      "src-vite-env"
+    ]
+  },
+  {
+    "id": "m04-mc13",
+    "courseId": "m04",
+    "description": "Hay que versionar el entorno virtual para que el proyecto funcione en otra máquina.",
+    "whyWrong": "El entorno virtual no se versiona ni funciona si se copia a otra máquina; se reconstruye a partir de la lista de dependencias.",
+    "sourceIds": [
+      "src-python-venv"
+    ]
+  },
+  {
+    "id": "m04-mc14",
+    "courseId": "m04",
+    "description": "Si el agente agregó una dependencia, el paquete existe y hace falta.",
+    "whyWrong": "Los modelos recomiendan paquetes inexistentes con una frecuencia medible; hay que comprobar que exista, que sea el correcto y que haga falta.",
+    "sourceIds": [
+      "src-arxiv-package-hallucination"
+    ]
+  },
+  {
+    "id": "m04-mc15",
+    "courseId": "m04",
+    "description": "Un cambio que solo toca la sangría no cambia lo que hace el programa.",
+    "whyWrong": "En Python, la sangría decide qué líneas están dentro de una condición o una función.",
+    "sourceIds": [
+      "src-python-controlflow"
+    ]
+  },
+  {
+    "id": "m04-mc16",
+    "courseId": "m04",
+    "description": "El orden de las condiciones if y elif no cambia el resultado.",
+    "whyWrong": "Se evalúan en orden y solo se ejecuta la primera verdadera; una condición amplia antes de una específica la deja inalcanzable.",
+    "sourceIds": [
+      "src-python-controlflow"
+    ]
+  },
+  {
+    "id": "m04-mc17",
+    "courseId": "m04",
+    "description": "Si el código no se tocó, cambiar un archivo de configuración no cambia el comportamiento.",
+    "whyWrong": "La configuración decide parte del comportamiento: cambiar un valor cambia lo que hace el programa sin tocar una línea de código.",
+    "sourceIds": [
+      "src-12factor-config"
+    ]
+  },
+  {
+    "id": "m04-mc18",
+    "courseId": "m04",
+    "description": "Unir dos tablas con JOIN no altera los totales.",
+    "whyWrong": "Si la clave se repite en una de las tablas, cada fila se multiplica y los totales crecen.",
+    "sourceIds": [
+      "src-postgres-tutorial-agg"
+    ]
+  },
+  {
+    "id": "m04-mc19",
+    "courseId": "m04",
+    "description": "WHERE y HAVING son intercambiables.",
+    "whyWrong": "WHERE filtra filas antes de agrupar y HAVING filtra grupos después; una condición sobre un agregado va en HAVING.",
+    "sourceIds": [
+      "src-postgres-tutorial-agg"
+    ]
+  },
+  {
+    "id": "m04-mc20",
+    "courseId": "m04",
+    "description": "Si reescribo la historia del repositorio, el secreto desaparece de todas partes.",
+    "whyWrong": "Reescribir la historia no limpia las copias ya descargadas, las bifurcaciones ni las vistas en caché; por eso primero se revoca.",
+    "sourceIds": [
+      "src-github-remove-sensitive-data"
+    ]
+  },
+  {
+    "id": "m04-mc21",
+    "courseId": "m04",
+    "description": "Con un hook antes del commit, ningún secreto puede entrar al repositorio.",
+    "whyWrong": "El hook se salta con --no-verify y ningún escáner detecta todos los secretos; las defensas se combinan.",
+    "sourceIds": [
+      "src-git-githooks",
+      "src-owasp-secrets-mgmt"
+    ]
+  },
+  {
+    "id": "m04-mc22",
+    "courseId": "m04",
+    "description": "Entre < y <= la diferencia no importa en la práctica.",
+    "whyWrong": "Dan el mismo resultado salvo en el valor exacto del límite, que es justo el caso que conviene probar a mano.",
+    "sourceIds": [
+      "src-python-controlflow"
+    ]
+  },
+  {
+    "id": "m04-mc23",
+    "courseId": "m04",
+    "description": "En YAML, yes y no son valores de verdad en cualquier lector.",
+    "whyWrong": "En el esquema básico de YAML 1.2 solo true y false son valores de verdad; yes y no se leen como texto.",
+    "sourceIds": [
+      "src-yaml-spec-122"
+    ]
+  }
+]

@@ -1,0 +1,68 @@
+{
+  "id": "m04",
+  "version": "0.1.0",
+  "title": "Código, Git y entornos para dirigir agentes",
+  "centralQuestion": "¿Cómo reviso y recupero un cambio que hizo la IA?",
+  "competencyIds": [
+    "C05",
+    "C06"
+  ],
+  "evaluatedObjectives": [
+    {
+      "id": "m04-eo1",
+      "statement": "Dado un fragmento de Python o SQL de hasta unas 30 líneas y una entrada concreta del caso, predice la salida o identifica la línea que produce una cifra dada, también en el caso límite (valor vacío, fecha de frontera o fila repetida).",
+      "competencyIds": [
+        "C05"
+      ]
+    },
+    {
+      "id": "m04-eo2",
+      "statement": "Dado un archivo de configuración o de datos (JSON, TOML, YAML o Markdown con metadatos) o un fragmento de TypeScript, identifica el formato, qué valor controla qué comportamiento y la regla del formato que lo invalida, sin confundir un formato con otro.",
+      "competencyIds": [
+        "C05"
+      ]
+    },
+    {
+      "id": "m04-eo3",
+      "statement": "Dado el árbol de carpetas de un proyecto, clasifica cada elemento (código, datos, configuración, dependencias, entorno, secreto o resultado generado), decide cuáles se versionan y, ante un secreto expuesto, elige revocar o rotar como primera acción.",
+      "competencyIds": [
+        "C06",
+        "C05"
+      ]
+    },
+    {
+      "id": "m04-eo4",
+      "statement": "Dado un escenario de trabajo con un agente (experimento arriesgado, trabajo en paralelo o cambio defectuoso, confirmado o sin confirmar), elige la operación de Git adecuada (commit, rama, worktree, restore o revert), reconoce lo que un checkpoint de la herramienta no cubre y la evidencia que prueba que no se perdió trabajo válido.",
+      "competencyIds": [
+        "C06"
+      ]
+    },
+    {
+      "id": "m04-eo5",
+      "statement": "Dado un traceback, un log o la salida de un check de integración continua, identifica el archivo, la línea o el paso que falló, la causa más probable y el siguiente paso de diagnóstico, distinguiendo el síntoma de la causa.",
+      "competencyIds": [
+        "C05"
+      ]
+    },
+    {
+      "id": "m04-eo6",
+      "statement": "Dado un diff y el reporte de un agente, decide entre aceptar, pedir cambios o rechazar, identificando el defecto, el cambio fuera de alcance o la evidencia que falta, sin aceptar un «ya funciona» sin una salida verificable.",
+      "competencyIds": [
+        "C05"
+      ]
+    }
+  ],
+  "lessonIds": [
+    "m04-l1",
+    "m04-l2",
+    "m04-l3",
+    "m04-l4",
+    "m04-l5",
+    "m04-l6"
+  ],
+  "practiceId": "m04-lab",
+  "estimatedMinutes": 180,
+  "volatility": "low",
+  "reviewCadence": "annual",
+  "status": "draft"
+}

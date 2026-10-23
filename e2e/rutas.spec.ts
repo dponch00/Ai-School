@@ -28,6 +28,9 @@ const RUTAS = [
   ['examen M03', '/#/cursos/m03/examen'],
   ['M03 lección 2', '/#/cursos/m03/lecciones/m03-l2'],
   ['M03 lección 4', '/#/cursos/m03/lecciones/m03-l4'],
+  ['portada M04 (en preparación)', '/#/cursos/m04'],
+  ['M04 lección 1 (código)', '/#/cursos/m04/lecciones/m04-l1'],
+  ['M04 lección 3', '/#/cursos/m04/lecciones/m04-l3'],
 ] as const
 
 for (const [nombre, ruta] of RUTAS) {

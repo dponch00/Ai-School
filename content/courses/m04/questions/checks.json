@@ -1,0 +1,697 @@
+[
+  {
+    "id": "m04-l1-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l1",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "En la función q4_2026, un agente cambió value <= \"2026-12-31\" por value < \"2026-12-31\". Entra la fecha de cierre de OPP-1038: \"2026-12-31\".",
+    "stem": "¿Qué devuelve ahora la función para esa fecha?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "True, porque las dos comparaciones incluyen el 31 de diciembre",
+        "correct": false,
+        "feedback": "Con < el límite queda fuera: \"2026-12-31\" < \"2026-12-31\" es falso. Entre < y <= solo cambia el valor exacto del límite, y esta es justo esa fecha.",
+        "misconceptionId": "m04-mc22"
+      },
+      {
+        "id": "o2",
+        "text": "False: la oportunidad deja de contar en el trimestre",
+        "correct": true,
+        "feedback": "Correcta. Con < el 31 de diciembre ya no cumple la condición. OPP-1038 sale del pipeline del T4 sin que aparezca ningún error."
+      },
+      {
+        "id": "o3",
+        "text": "Un error, porque la fecha queda fuera del rango permitido",
+        "correct": false,
+        "feedback": "Una condición que deja fuera un valor no da error: devuelve False y el cálculo sigue. Por eso un error de frontera se ve en la cifra, no en un mensaje.",
+        "misconceptionId": "m04-mc01"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l1#frontera",
+    "sourceIds": [
+      "src-python-controlflow"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l1-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l1",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Una función calcula un descuento y lo guarda en una variable, pero el agente borró por error la línea return descuento. Otra parte del programa usa lo que devuelve esa función.",
+    "stem": "¿Qué recibe esa otra parte?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Un 0, porque la función no devolvió nada",
+        "correct": false,
+        "feedback": "En Python, una función que termina sin return no devuelve 0. Devuelve None, que suele provocar un error más adelante o una cifra vacía.",
+        "misconceptionId": "m04-mc02"
+      },
+      {
+        "id": "o2",
+        "text": "El último valor que calculó la función, aunque no tenga return",
+        "correct": false,
+        "feedback": "Lo que se calcula dentro de la función no sale de ella si no hay return. Sin esa línea, la función devuelve None, aunque haya calculado el descuento.",
+        "misconceptionId": "m04-mc02"
+      },
+      {
+        "id": "o3",
+        "text": "None, el valor que Python usa para decir «nada»",
+        "correct": true,
+        "feedback": "Correcta. Una función que termina sin pasar por un return devuelve None. Quien la llama recibe ese valor, no el descuento."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l1#caja",
+    "sourceIds": [
+      "src-python-controlflow"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l1-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l1",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Un agente propone cambiar Decimal(str(value)) por float(value) en el cálculo de montos, «para simplificar», y redondear el total al final.",
+    "stem": "¿Qué le respondes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que no: en binario hay decimales que no se representan exactos, y para montos se usa decimal",
+        "correct": true,
+        "feedback": "Correcta. Con coma flotante, sumar tres veces 0,1 no da exactamente 0,3. Para contabilidad, la documentación recomienda el módulo decimal."
+      },
+      {
+        "id": "o2",
+        "text": "Que sí, siempre que redondee el total a dos decimales al final del cálculo, antes del reporte",
+        "correct": false,
+        "feedback": "Redondear al final no garantiza recuperar los centavos que se perdieron en cada suma. El problema está en la representación, no en la presentación.",
+        "misconceptionId": "m04-mc03"
+      },
+      {
+        "id": "o3",
+        "text": "Que da igual, porque los dos tipos guardan exactamente los mismos números",
+        "correct": false,
+        "feedback": "No guardan lo mismo: la coma flotante trabaja en binario y no representa con exactitud un valor como 0,1. El módulo decimal, en cambio, trabaja con decimales exactos.",
+        "misconceptionId": "m04-mc03"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l1#dinero",
+    "sourceIds": [
+      "src-python-floatingpoint"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l1-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l1",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Una función clasifica oportunidades por monto. Primero pregunta if monto >= 50000 y devuelve \"mediana\"; después, elif monto >= 100000, devuelve \"grande\". Entra una oportunidad de 120 000.",
+    "stem": "¿Qué clasificación recibe?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "\"grande\", porque 120 000 supera los 100 000",
+        "correct": false,
+        "feedback": "Las condiciones se evalúan en orden, y 120 000 ya cumple la primera. La segunda nunca llega a evaluarse para esta oportunidad.",
+        "misconceptionId": "m04-mc16"
+      },
+      {
+        "id": "o2",
+        "text": "\"mediana\", porque gana la primera condición verdadera",
+        "correct": true,
+        "feedback": "Correcta. Solo se ejecuta el bloque de la primera condición verdadera. Con este orden, ninguna oportunidad llega a ser \"grande\"."
+      },
+      {
+        "id": "o3",
+        "text": "Las dos, porque la oportunidad cumple ambas condiciones a la vez",
+        "correct": false,
+        "feedback": "Un if con elif ejecuta un solo bloque: el de la primera condición verdadera. El orden de las condiciones decide el resultado.",
+        "misconceptionId": "m04-mc16"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l1#condiciones",
+    "sourceIds": [
+      "src-python-controlflow"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l2-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l2",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "En el Centro hay 13 oportunidades y una de ellas no tiene fecha de cierre. Una consulta pide count(*) y count(expected_close_date), agrupadas por región.",
+    "stem": "¿Qué cifras da para el Centro?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "13 y 13, porque las dos funciones cuentan las filas de la región",
+        "correct": false,
+        "feedback": "count(columna) ignora las filas donde esa columna está vacía. Por eso las dos cifras difieren en la fila sin fecha.",
+        "misconceptionId": "m04-mc05"
+      },
+      {
+        "id": "o2",
+        "text": "13 y 12: la segunda no cuenta la fila sin fecha",
+        "correct": true,
+        "feedback": "Correcta. count(*) cuenta filas; count(expected_close_date) cuenta solo las que tienen fecha. Las dos cifras son correctas, pero miden cosas distintas."
+      },
+      {
+        "id": "o3",
+        "text": "12 y 12, porque las filas con valores vacíos se descartan de la consulta",
+        "correct": false,
+        "feedback": "count(*) cuenta todas las filas, también las que tienen columnas vacías. Solo count(columna) las deja fuera.",
+        "misconceptionId": "m04-mc05"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l2#nulos",
+    "sourceIds": [
+      "src-postgres-aggregate"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l2-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l2",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Una consulta suma el monto de las oportunidades del Sur que están en la etapa Negociación. Esta semana no hay ninguna.",
+    "stem": "¿Qué devuelve sum(amount)?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "NULL; para obtener 0 hay que usar coalesce",
+        "correct": true,
+        "feedback": "Correcta. sum sobre cero filas devuelve NULL, no cero. coalesce(sum(amount), 0) convierte ese vacío en 0."
+      },
+      {
+        "id": "o2",
+        "text": "0, porque no hay montos que sumar",
+        "correct": false,
+        "feedback": "Intuitivamente sería cero, pero SQL devuelve NULL cuando no hay filas. Un reporte que espera un número puede mostrar un vacío o fallar.",
+        "misconceptionId": "m04-mc06"
+      },
+      {
+        "id": "o3",
+        "text": "Un error de la consulta, porque no encontró filas para sumar",
+        "correct": false,
+        "feedback": "Una consulta sin filas no es un error. sum devuelve NULL, y se corrige con coalesce si se necesita un cero.",
+        "misconceptionId": "m04-mc06"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l2#nulos",
+    "sourceIds": [
+      "src-postgres-aggregate"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l2-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l2",
+    "evaluatedObjectiveId": "m04-eo2",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Un agente agrega al archivo de supuestos, que está en JSON, la línea // acordado con FP&A el 20 de octubre, justo encima de \"duplicate_policy\".",
+    "stem": "¿Qué pasa cuando el cálculo lee el archivo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El lector ignora la línea, como haría con cualquier comentario",
+        "correct": false,
+        "feedback": "JSON no tiene comentarios. Un lector estricto no sabe qué hacer con esa línea y rechaza el archivo.",
+        "misconceptionId": "m04-mc07"
+      },
+      {
+        "id": "o2",
+        "text": "Se lee bien, pero el valor de la política queda guardado como texto",
+        "correct": false,
+        "feedback": "El problema no es el tipo del valor: el archivo entero deja de ser JSON válido. El cálculo no llega a leer ninguna política.",
+        "misconceptionId": "m04-mc07"
+      },
+      {
+        "id": "o3",
+        "text": "Un lector estricto rechaza el archivo, porque JSON no admite comentarios",
+        "correct": true,
+        "feedback": "Correcta. La gramática de JSON no tiene comentarios, así que la línea invalida el archivo. La nota va en otro lugar, como el registro de decisiones."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l2#json",
+    "sourceIds": [
+      "src-ietf-rfc8259"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l2-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l2",
+    "evaluatedObjectiveId": "m04-eo2",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "En un archivo YAML de configuración, alguien escribe run_tests: yes esperando activar las pruebas. El programa lo lee con las reglas del esquema básico de YAML 1.2.",
+    "stem": "¿Qué valor recibe el programa?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El texto \"yes\", no un valor de verdad; habría que escribir true",
+        "correct": true,
+        "feedback": "Correcta. En el esquema básico de YAML 1.2 solo true y false son valores de verdad. yes se lee como texto, y el programa puede no activar nada."
+      },
+      {
+        "id": "o2",
+        "text": "El valor de verdad true, porque yes significa sí",
+        "correct": false,
+        "feedback": "En YAML 1.2, yes ya no es un valor de verdad: se lee como texto. Algunas bibliotecas siguen reglas más antiguas y lo tratan distinto, y por eso conviene no depender de esa palabra.",
+        "misconceptionId": "m04-mc23"
+      },
+      {
+        "id": "o3",
+        "text": "Un error, porque yes no es una palabra válida en YAML",
+        "correct": false,
+        "feedback": "yes es válido en YAML, solo que se lee como texto. El archivo no falla; lo que falla es la intención de activar las pruebas.",
+        "misconceptionId": "m04-mc23"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l2#yaml",
+    "sourceIds": [
+      "src-yaml-spec-122"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l2-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l2",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Una regla marca como vencida una oportunidad abierta si su fecha de cierre es anterior a la del snapshot, con close_date < snapshot_date. El snapshot es del 2026-10-19.",
+    "stem": "¿Qué fecha de cierre conviene probar a mano primero?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Una fecha muy lejana, como 2027-06-30, para ver si la regla aguanta",
+        "correct": false,
+        "feedback": "Una fecha lejana da el mismo resultado con < y con <=. Lo que distingue a los dos operadores es el valor exacto del límite.",
+        "misconceptionId": "m04-mc22"
+      },
+      {
+        "id": "o2",
+        "text": "2026-10-19, el mismo día del snapshot",
+        "correct": true,
+        "feedback": "Correcta. Entre < y <= solo cambia el valor exacto del límite. Con <, una oportunidad que cierra el mismo día no cuenta como vencida."
+      },
+      {
+        "id": "o3",
+        "text": "Cualquier fecha de octubre, porque todas se comportan igual con esta regla",
+        "correct": false,
+        "feedback": "Las fechas de octubre no se comportan igual. Las anteriores al 19 son vencidas, las posteriores no, y el 19 es el caso límite.",
+        "misconceptionId": "m04-mc22"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l1#frontera",
+    "sourceIds": [
+      "src-python-controlflow"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l2-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l2",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "En un cambio del agente, la única diferencia de una línea es que ahora tiene cuatro espacios menos de sangría: quedó al mismo nivel que el if que antes la contenía.",
+    "stem": "¿Qué significa para tu revisión?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: es un cambio estético, y el programa hace lo mismo",
+        "correct": false,
+        "feedback": "En Python, la sangría decide qué líneas están dentro de una condición. Este cambio puede alterar el resultado.",
+        "misconceptionId": "m04-mc15"
+      },
+      {
+        "id": "o2",
+        "text": "Que Python dará un error al ejecutar el script, porque la sangría de la línea cambió de nivel",
+        "correct": false,
+        "feedback": "Mientras la sangría sea coherente, Python no da error. La línea simplemente se ejecuta en otro lugar del flujo.",
+        "misconceptionId": "m04-mc15"
+      },
+      {
+        "id": "o3",
+        "text": "Que la línea ya no depende de la condición y ahora se ejecuta siempre",
+        "correct": true,
+        "feedback": "Correcta. La sangría agrupa: al salir del bloque del if, la línea se ejecuta en todos los casos. Merece la misma atención que una línea nueva."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l1#condiciones",
+    "sourceIds": [
+      "src-python-controlflow"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l3-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l3",
+    "evaluatedObjectiveId": "m04-eo3",
+    "competencyIds": [
+      "C06",
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "El archivo out/pipeline_kpis.json, que genera el cálculo, ya estaba en el repositorio. Alguien agrega out/ a .gitignore y hace un commit.",
+    "stem": "¿Qué pasa con ese archivo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Desaparece del repositorio, porque ahora está ignorado",
+        "correct": false,
+        "feedback": ".gitignore solo afecta a archivos que Git todavía no sigue. Este ya estaba en seguimiento y sigue estándolo.",
+        "misconceptionId": "m04-mc10"
+      },
+      {
+        "id": "o2",
+        "text": "Git lo sigue igual; para dejar de seguirlo hay que quitarlo con git rm --cached",
+        "correct": true,
+        "feedback": "Correcta. Un archivo ya seguido no se ve afectado por .gitignore. git rm --cached lo saca del índice, y queda en los commits anteriores."
+      },
+      {
+        "id": "o3",
+        "text": "Git lo borra de la carpeta y de todos los commits anteriores",
+        "correct": false,
+        "feedback": "Agregar una línea a .gitignore no borra nada, ni de la carpeta ni de la historia. Solo evita que entren archivos nuevos.",
+        "misconceptionId": "m04-mc10"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l3#gitignore",
+    "sourceIds": [
+      "src-git-gitignore"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l3-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l3",
+    "evaluatedObjectiveId": "m04-eo3",
+    "competencyIds": [
+      "C06",
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Hace dos días, un agente pegó la clave de acceso a la API ficticia del banco en un script y la subió en un commit. Cinco personas trabajan con copias del repositorio.",
+    "stem": "¿Qué haces primero?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Revocar la clave en el banco ficticio y pedir una nueva",
+        "correct": true,
+        "feedback": "Correcta. La clave se da por comprometida: está en la historia y en cinco copias. Revocarla la vuelve inútil, se borre o no después."
+      },
+      {
+        "id": "o2",
+        "text": "Borrar la clave del script en un commit nuevo",
+        "correct": false,
+        "feedback": "El commit nuevo no la saca de la historia ni de las copias, y la clave sigue siendo válida. Primero hay que revocarla.",
+        "misconceptionId": "m04-mc11"
+      },
+      {
+        "id": "o3",
+        "text": "Reescribir la historia para que la clave desaparezca de todas partes",
+        "correct": false,
+        "feedback": "Reescribir la historia no limpia las copias que ya descargaron las cinco personas. Además es costoso y deja la clave válida mientras tanto.",
+        "misconceptionId": "m04-mc20"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l3#secreto-expuesto",
+    "sourceIds": [
+      "src-github-remove-sensitive-data",
+      "src-owasp-secrets-mgmt"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l3-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l3",
+    "evaluatedObjectiveId": "m04-eo3",
+    "competencyIds": [
+      "C06",
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Antes del primer commit de un repositorio nuevo, revisas lo que hay en la carpeta: pipeline_kpis.py, pyproject.toml, .venv/, out/pipeline_kpis.json y .env.",
+    "stem": "¿Qué se versiona?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Todo, para que el proyecto funcione igual en cualquier máquina",
+        "correct": false,
+        "feedback": "El entorno virtual no funciona si se copia a otra máquina, y se reconstruye a partir de las dependencias. El resultado generado y el secreto tampoco van al repositorio.",
+        "misconceptionId": "m04-mc13"
+      },
+      {
+        "id": "o2",
+        "text": "Todo menos .env, que es el único archivo con un secreto",
+        "correct": false,
+        "feedback": "Excluir el secreto es correcto, pero no alcanza. El entorno virtual no se versiona, y out/ es un resultado que el cálculo vuelve a generar.",
+        "misconceptionId": "m04-mc13"
+      },
+      {
+        "id": "o3",
+        "text": "pipeline_kpis.py y pyproject.toml: el código y sus dependencias",
+        "correct": true,
+        "feedback": "Correcta. El código y la declaración de dependencias se versionan. El entorno se reconstruye, el resultado se regenera y el secreto se queda fuera."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l3#entorno",
+    "sourceIds": [
+      "src-python-venv",
+      "src-12factor-config"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l3-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l3",
+    "evaluatedObjectiveId": "m04-eo3",
+    "competencyIds": [
+      "C06",
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El agente agregó al pyproject.toml una dependencia llamada fiscal-calendar-tools para calcular trimestres, y dice que la función ya funciona.",
+    "stem": "¿Qué compruebas antes de aceptar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada especial: si el agente la agregó, el paquete existe y es el adecuado",
+        "correct": false,
+        "feedback": "Los modelos recomiendan paquetes que no existen con una frecuencia medible. Que el agente nombre un paquete no prueba que exista ni que sea el correcto.",
+        "misconceptionId": "m04-mc14"
+      },
+      {
+        "id": "o2",
+        "text": "Que el paquete exista, que sea el que crees y que de verdad haga falta",
+        "correct": true,
+        "feedback": "Correcta. Una dependencia mete código ajeno en el proyecto. Puede tener un nombre inventado o coincidir con un paquete que alguien publicó con ese nombre."
+      },
+      {
+        "id": "o3",
+        "text": "Solo que se instale sin errores en tu máquina",
+        "correct": false,
+        "feedback": "Un paquete con ese nombre puede instalarse sin errores y no ser el que crees. Además, conviene saber si hacía falta.",
+        "misconceptionId": "m04-mc14"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l3#dependencias",
+    "sourceIds": [
+      "src-arxiv-package-hallucination",
+      "src-pypa-pyproject"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l3-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l3",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Quieres ver solo las regiones con más de diez oportunidades abiertas. El agente escribió la condición count(*) > 10 dentro del WHERE de la consulta.",
+    "stem": "¿Dónde debería ir esa condición?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Donde está: WHERE filtra cualquier condición de la consulta",
+        "correct": false,
+        "feedback": "WHERE filtra filas antes de agrupar, cuando todavía no existe el conteo por región. Una condición sobre un agregado va después.",
+        "misconceptionId": "m04-mc19"
+      },
+      {
+        "id": "o2",
+        "text": "En HAVING, que filtra los grupos después de agrupar",
+        "correct": true,
+        "feedback": "Correcta. WHERE filtra filas antes de agrupar y HAVING filtra grupos después. El conteo por región solo existe después de agrupar."
+      },
+      {
+        "id": "o3",
+        "text": "En el SELECT, junto a las columnas que se muestran",
+        "correct": false,
+        "feedback": "El SELECT elige qué mostrar, no qué grupos entran. Para filtrar grupos por un agregado se usa HAVING.",
+        "misconceptionId": "m04-mc19"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l2#sql-filtrar",
+    "sourceIds": [
+      "src-postgres-tutorial-agg"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l3-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l3",
+    "evaluatedObjectiveId": "m04-eo2",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "En el pyproject.toml, el agente cambió requires-python = \">=3.11\" por requires-python = \">=3.11,<3.12\", sin tocar ningún archivo de código.",
+    "stem": "¿Qué cambió?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ahora el proyecto declara que no funciona con Python 3.12 ni posteriores",
+        "correct": true,
+        "feedback": "Correcta. El límite superior excluye las versiones nuevas de Python. La guía de empaquetado aconseja pensarlo dos veces antes de ponerlo."
+      },
+      {
+        "id": "o2",
+        "text": "Nada de comportamiento, porque no se tocó ningún archivo de código",
+        "correct": false,
+        "feedback": "Este archivo decide con qué versiones de Python se puede instalar el proyecto. Cambiar un valor de configuración cambia el comportamiento.",
+        "misconceptionId": "m04-mc17"
+      },
+      {
+        "id": "o3",
+        "text": "Solo el formato: para el instalador, los dos valores significan lo mismo",
+        "correct": false,
+        "feedback": "No significan lo mismo: el segundo agrega un límite superior. Con él, el proyecto deja de poder instalarse en Python 3.12.",
+        "misconceptionId": "m04-mc17"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l2#toml",
+    "sourceIds": [
+      "src-pypa-pyproject"
+    ],
+    "status": "draft"
+  }
+]

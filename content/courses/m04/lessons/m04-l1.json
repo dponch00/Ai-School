@@ -1,0 +1,44 @@
+{
+  "id": "m04-l1",
+  "courseId": "m04",
+  "version": "0.1.0",
+  "order": 1,
+  "title": "Leer una función: entradas, condiciones y salidas",
+  "objectives": [
+    {
+      "id": "m04-l1-o1",
+      "statement": "Lee una función de Python identificando qué entra, qué condición decide y qué sale, incluido lo que devuelve sin return.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m04-eo1"
+    },
+    {
+      "id": "m04-l1-o2",
+      "statement": "Predice el resultado de una condición en el valor exacto de su límite y reconoce que un error de frontera no da ningún mensaje.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m04-eo1"
+    },
+    {
+      "id": "m04-l1-o3",
+      "statement": "Reconoce en un cambio los riesgos de la sangría, el orden de las condiciones, la coma flotante para montos y los valores por defecto.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m04-eo1"
+    }
+  ],
+  "bodyPath": "courses/m04/lessons/m04-l1.md",
+  "reviewQuestionIds": [],
+  "checkQuestionIds": [
+    "m04-l1-c1",
+    "m04-l1-c2",
+    "m04-l1-c3",
+    "m04-l1-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [],
+  "sourceIds": [
+    "src-python-controlflow",
+    "src-python-floatingpoint",
+    "src-python-errors"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

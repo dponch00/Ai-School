@@ -1,0 +1,37 @@
+[
+  {
+    "id": "m04-pc-config-formats",
+    "product": "Anthropic · Claude Code · OpenAI · Codex",
+    "surfaces": [
+      "cli",
+      "ide",
+      "desktop"
+    ],
+    "capability": "Claude Code guarda sus ajustes en JSON estricto, sin comentarios ni comas finales, en tres ámbitos: usuario (~/.claude/settings.json), proyecto (.claude/settings.json, compartido en el repositorio) y local (.claude/settings.local.json, fuera de Git). Codex usa config.toml en ~/.codex/ y en la carpeta .codex/ del proyecto; esta última solo se carga en proyectos marcados como de confianza. Las skills de ambos usan SKILL.md con metadatos YAML.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-22",
+    "sourceIds": [
+      "src-anthropic-cc-settings",
+      "src-openai-codex-config-basic",
+      "src-agentskills-spec"
+    ],
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "m04-pc-push-protection",
+    "product": "GitHub · protección de push",
+    "surfaces": [
+      "web",
+      "cli"
+    ],
+    "capability": "Bloquea en el servidor los envíos que contienen secretos con patrones conocidos. Para usuarios, está activada por defecto en los envíos a repositorios públicos; la protección a nivel de repositorio hay que activarla. Quien envía puede omitir el bloqueo indicando un motivo, así que no reemplaza revocar un secreto expuesto.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-22",
+    "sourceIds": [
+      "src-github-push-protection"
+    ],
+    "nextReview": "2027-04-22"
+  }
+]

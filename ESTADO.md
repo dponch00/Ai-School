@@ -1,27 +1,27 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 y M03 completos y revisados; M04 en preparación. · **Actualizado:** 2026-10-23 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 y M03 completos y revisados; M04 en preparación (3 de 6 lecciones). · **Actualizado:** 2026-10-23 por Claude Code
 
 ## Siguiente acción
 
-1. **Claude:** M04 (investigación ya lista): blueprint y lecciones 1 a 3; luego T-030 para Codex.
-2. **Codex:** sin ticket abierto hasta T-030.
+1. **Codex:** T-030, revisión del blueprint y las lecciones 1 a 3 de M04 (16 preguntas, 2 fichas, 48 fuentes nuevas).
+2. **Claude:** mientras tanto, M04 lecciones 4 a 6 (Git y recuperación, errores y CI, revisión de cambios).
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-23)
 
-**≈ 53 % de la V1** (rango razonable: 50–56 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 54 % de la V1** (rango razonable: 51–57 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 88 % (simplificada a opción múltiple con D-024; faltan el hosting y la instalación real en dispositivos) | 13,2 |
-| 3 · Nueve manuales restantes | 40 % | 27 % (M01 y M03 completos y revisados; investigación de M04 lista) | 10,8 |
+| 3 · Nueve manuales restantes | 40 % | 29 % (M01 y M03 completos y revisados; M04 con 3 de 6 lecciones) | 11,6 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 53 %** |
+| **Total** | 100 % | | **≈ 54 %** |
 
 ## Tickets
 
@@ -56,11 +56,13 @@
 | [T-027](coordinacion/tickets/T-027-codex-revision-m03-l1-l3.md) | Codex | Revisión de M03: lecciones 1 a 3, preguntas y fichas | cerrado |
 | [T-028](coordinacion/tickets/T-028-codex-revision-m03-l4-l6.md) | Codex | Revisión de M03: lecciones 4 a 6, preguntas y fichas | cerrado |
 | [T-029](coordinacion/tickets/T-029-codex-revision-m03-examen-laboratorio.md) | Codex | Revisión de M03: banco de examen, laboratorio como caso y práctica | cerrado |
+| [T-030](coordinacion/tickets/T-030-codex-revision-m04-l1-l3.md) | Codex | Revisión de M04: blueprint, lecciones 1 a 3, preguntas y fichas | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
+| Codex (T-030) | `investigacion/codex-revision-m04-l1-l3.md` |
 | Claude | `content/courses/m04/**` |
 
 ## Decisiones recientes
@@ -68,6 +70,29 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-23 · Claude Code — M04, lecciones 1 a 3
+**Fuentes:** se sumaron a `content/sources.json` 48 fuentes del registro de la investigación.
+
+**Blueprint:** seis objetivos en opción múltiple (D-024).
+
+**Lecciones:**
+- L1: leer una función.
+- L2: SQL y formatos de configuración.
+- L3: carpetas, entorno y secretos.
+
+Las tres usan el código y los datos sintéticos del laboratorio de M02.
+
+**Preguntas, conceptos y fichas:**
+- 16 preguntas;
+- 23 conceptos erróneos;
+- 2 fichas (formatos de configuración y protección de push).
+
+Comprobaciones:
+- Las cifras del caso de L1 se verificaron corriendo `calculate()` sobre copias modificadas de `reconcile.py`, fuera del repositorio.
+- Las lecciones pasaron por el revisor de texto. Por sus dudas, `m04-l2-c1` usa ahora las 13 oportunidades reales del Centro.
+
+Abierto T-030. `npm test` 148/148 y e2e 72/72, con las rutas de M04. Avance: ≈ 54 %.
 
 ### 2026-10-23 · Claude Code — revisión de T-029
 - **T029-01:** el laboratorio declara que la herramienta del compañero importa archivos.
