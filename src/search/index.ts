@@ -12,13 +12,14 @@ const STOP = new Set(['de', 'la', 'el', 'en', 'y', 'a', 'los', 'las', 'del', 'un
 const unaccent = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '')
 
 /**
- * Devuelve la raíz con y sin tildes: «reconciliación» y «reconciliacion» (escrita sin tilde) deben coincidir,
- * y Snowball solo reconoce el sufijo cuando la tilde está.
+ * Devuelve la raíz con y sin tildes («reconciliación» y «reconciliacion» deben coincidir, y Snowball solo
+ * reconoce el sufijo cuando la tilde está) y la palabra completa sin tilde. La palabra completa es la que
+ * permite a la búsqueda difusa tolerar una letra de más o dos letras cambiadas de lugar (T020-01).
  */
 export function processTerm(term: string): string | string[] | null {
   const lower = term.toLowerCase()
   if (lower.length < 2 || STOP.has(lower)) return null
-  const terms = [...new Set([unaccent(stemmer(lower)), unaccent(stemmer(unaccent(lower)))])]
+  const terms = [...new Set([unaccent(stemmer(lower)), unaccent(stemmer(unaccent(lower))), unaccent(lower)])]
   return terms.length === 1 ? terms[0] : terms
 }
 

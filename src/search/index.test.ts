@@ -28,6 +28,9 @@ describe('búsqueda', () => {
     expect(ids('reconciliacion')[0]).toBeDefined()
     expect(ids('especificacion autocontenida')).toContain('g-especificacion-autocontenida')
     expect(ids('evidensia')).toContain('g-evidencia')
+    // T020-01: una letra de más y dos letras cambiadas de lugar
+    expect(ids('invariantte')).toContain('g-invariante')
+    expect(ids('invariabte')).toContain('g-invariante')
   })
 
   it('los resultados llevan a la lección y al apartado, al laboratorio o al glosario', () => {

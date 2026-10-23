@@ -3,138 +3,211 @@
     "id": "g-archivo-instrucciones",
     "term": "Archivo de instrucciones",
     "definition": "Archivo del repositorio con las reglas que valen para todo el proyecto, como el lenguaje de los cálculos o la prohibición de usar datos reales. Conviene que sea breve, y cada herramienta tiene el suyo, así que hay que comprobar que el agente lo cargó.",
-    "refs": ["m02-l2#capas"]
+    "refs": [
+      "m02-l2#capas"
+    ]
   },
   {
     "id": "g-alcance",
     "term": "Alcance y exclusiones",
     "definition": "Parte de una especificación que dice qué entra en el trabajo y qué queda fuera. Va en las dos direcciones porque, si no se excluye algo, el agente puede decidir incluirlo.",
-    "refs": ["m02-l4#alcance"]
+    "refs": [
+      "m02-l4#alcance"
+    ]
   },
   {
     "id": "g-caso-prueba",
     "term": "Caso de prueba",
     "definition": "Ejemplo con una entrada concreta y el resultado que debe salir, de modo que se puede ejecutar y ver si pasa. A diferencia de un ejemplo de formato, no solo enseña la apariencia del resultado: permite comprobarlo.",
-    "refs": ["m02-l3#casos"]
+    "refs": [
+      "m02-l3#casos"
+    ]
   },
   {
     "id": "g-cifra-visible",
     "term": "Cifra visible",
     "definition": "Número que verá quien use la herramienta, por ejemplo un total del dashboard. En este curso, una ambigüedad que cambia una cifra visible se pregunta antes de avanzar; si no la cambia, se decide y se registra.",
-    "refs": ["m02-l2#supuestos"]
+    "refs": [
+      "m02-l2#supuestos"
+    ]
   },
   {
     "id": "g-contexto-limpio",
     "term": "Contexto limpio",
     "definition": "Sesión u otro agente que no ha visto cómo se hizo el trabajo. Un revisor en contexto limpio suele detectar más que el mismo agente revisando su propio trabajo en la misma sesión.",
-    "refs": ["m02-l5#revision", "m02-l5#ciclo"]
+    "refs": [
+      "m02-l5#revision",
+      "m02-l5#ciclo"
+    ]
   },
   {
     "id": "g-contraejemplo",
     "term": "Contraejemplo",
     "definition": "Caso concreto de lo que no debe pasar, escrito con su resultado esperado, por ejemplo «una oportunidad Perdida no suma al pipeline abierto». Se puede probar, a diferencia de una prohibición abstracta.",
-    "refs": ["m02-l3#contraejemplos"]
+    "refs": [
+      "m02-l3#contraejemplos"
+    ]
   },
   {
     "id": "g-contrato-salida",
     "term": "Contrato de salida",
     "en": "output contract",
     "definition": "Acuerdo previo sobre la forma del resultado cuando lo lee otro programa: qué campos trae, de qué tipo, en qué unidad y moneda, a qué fecha de corte y qué devolver cuando no hay respuesta válida.",
-    "refs": ["m02-l3#contrato"]
+    "refs": [
+      "m02-l3#contrato"
+    ]
   },
   {
     "id": "g-criterio-aceptacion",
     "term": "Criterio de aceptación",
     "en": "acceptance criterion",
     "definition": "Condición que tiene que cumplir la entrega para darla por buena. Sirve si es específico, medible y observable; «que se vea bien» no lo es.",
-    "refs": ["m02-l6#criterios", "m02-l6#testable"]
+    "refs": [
+      "m02-l6#criterios",
+      "m02-l6#testable"
+    ]
   },
   {
     "id": "g-especificacion-autocontenida",
     "term": "Especificación autocontenida",
     "definition": "Especificación que tiene escrito todo lo necesario para hacer el trabajo y comprobarlo, de modo que alguien sin el historial de la conversación, una persona o un agente en una sesión nueva, pueda ejecutarla sin preguntar.",
-    "refs": ["m02-l4#autocontenida"]
+    "refs": [
+      "m02-l4#autocontenida"
+    ]
   },
   {
     "id": "g-esquema",
     "term": "Esquema",
     "en": "JSON Schema",
     "definition": "Descripción formal de qué campos y tipos admite un resultado en JSON. Garantiza la forma, no que los valores sean ciertos: las cifras se verifican aparte.",
-    "refs": ["m02-l3#contrato", "m02-l3#forma-verdad"]
+    "refs": [
+      "m02-l3#contrato",
+      "m02-l3#forma-verdad"
+    ]
   },
   {
     "id": "g-esta-listo-cuando",
     "term": "Está listo cuando…",
     "en": "done when",
     "definition": "Frase que dice en qué momento se considera terminada una tarea, de forma que se pueda comprobar: unas pruebas que pasan, un comportamiento que cambia o un error que deja de aparecer.",
-    "refs": ["m02-l1#terminado"]
+    "refs": [
+      "m02-l1#terminado"
+    ]
   },
   {
     "id": "g-evidencia",
     "term": "Evidencia",
     "definition": "Lo que permite comprobar una afirmación de avance por cuenta propia: los archivos que cambiaron, el comando que se ejecutó y lo que devolvió. «Listo, todo funciona» es una afirmación, no evidencia.",
-    "refs": ["m02-l6#evidencia"]
+    "refs": [
+      "m02-l6#evidencia"
+    ]
   },
   {
     "id": "g-given-when-then",
     "term": "Given / When / Then",
     "definition": "Forma de escribir un escenario de prueba en tres partes: el contexto (Given), lo que ocurre (When) y el resultado que tiene que verse (Then). Es la base del formato Gherkin.",
-    "refs": ["m02-l6#observables"]
+    "refs": [
+      "m02-l6#observables"
+    ]
   },
   {
     "id": "g-hito",
     "term": "Hito",
     "definition": "Parte de una tarea grande con su meta, el trabajo que implica, el resultado que deja y una prueba propia. Entre un hito y el siguiente hay una comprobación, y si no pasa, no se avanza.",
-    "refs": ["m02-l5#hitos"]
+    "refs": [
+      "m02-l5#hitos"
+    ]
   },
   {
     "id": "g-invariante",
     "term": "Invariante",
     "definition": "Regla de significado que siempre debe cumplirse y que se comprueba en código, como «el ponderado nunca supera al total». Completa al esquema, que solo fija la forma.",
-    "refs": ["m02-l3#forma-verdad"]
+    "refs": [
+      "m02-l3#forma-verdad"
+    ]
   },
   {
     "id": "g-limites-accion",
     "term": "Límites de acción",
     "definition": "Cosas que el agente no puede hacer sin confirmarlo antes contigo mientras trabaja, como borrar archivos, escribir fuera del proyecto o instalar dependencias.",
-    "refs": ["m02-l4#alcance"]
+    "refs": [
+      "m02-l4#alcance"
+    ]
   },
   {
     "id": "g-punto-control",
     "term": "Punto de control humano",
     "definition": "Momento del trabajo en que una persona revisa y aprueba antes de seguir, por ejemplo aprobar los supuestos antes de que se calcule nada.",
-    "refs": ["m02-l5#hitos"]
+    "refs": [
+      "m02-l5#hitos"
+    ]
   },
   {
     "id": "g-reporte-final",
     "term": "Reporte final",
     "definition": "Cierre de la entrega con secciones fijas: el resultado, los archivos cambiados, los comandos y lo que devolvieron, la reconciliación, los supuestos usados y lo pendiente. Con un formato fijo se nota enseguida si falta algo.",
-    "refs": ["m02-l6#ejecutable"]
+    "refs": [
+      "m02-l6#ejecutable"
+    ]
   },
   {
     "id": "g-resultado-observable",
     "term": "Resultado observable",
     "definition": "Lo que aparece en la pantalla, en un reporte o en un mensaje. Se opone al estado interno, algo que pasa dentro del sistema y que el usuario no ve, como un registro en una tabla.",
-    "refs": ["m02-l6#observables"]
+    "refs": [
+      "m02-l6#observables"
+    ]
   },
   {
     "id": "g-sdd",
     "term": "Desarrollo guiado por especificaciones",
     "en": "spec-driven development",
     "definition": "Forma de trabajar a partir de especificaciones escritas antes del código, que se pueden revisar antes de tocarlo y dejan marcadas las ambigüedades. Su rigor conviene que crezca con el riesgo de la tarea.",
-    "refs": ["m02-l4#proporcion"]
+    "refs": [
+      "m02-l4#proporcion"
+    ]
   },
   {
     "id": "g-supuesto",
     "term": "Supuesto",
     "definition": "Decisión sobre algo que nadie definió, escrita con su dueño (quien puede aprobarla) y su estado (aprobado, propuesto o pendiente) para que no quede oculta.",
-    "refs": ["m02-l2#supuestos"]
+    "refs": [
+      "m02-l2#supuestos"
+    ]
   },
   {
     "id": "g-ventana-contexto",
     "term": "Ventana de contexto",
     "en": "context window",
     "definition": "Todo el texto que el modelo tiene presente durante la sesión. Su rendimiento baja a medida que se llena, por eso conviene dar contexto específico y no abundante.",
-    "refs": ["m02-l2#contexto"]
+    "refs": [
+      "m02-l2#contexto"
+    ]
+  },
+  {
+    "id": "g-reconciliacion",
+    "term": "Reconciliación",
+    "definition": "Comprobación que recalcula las cifras por un camino independiente y las compara con las que entregó el agente, por ejemplo con un script que recalcula los KPI. Forma parte de la evidencia del reporte final.",
+    "refs": [
+      "m02-l6#ejecutable",
+      "m02-l6#evidencia"
+    ]
+  },
+  {
+    "id": "g-ambiguedad",
+    "term": "Ambigüedad",
+    "definition": "Algo que la petición no define y que admite más de una lectura, como la moneda o qué hacer con los duplicados. Si nadie lo dice, el agente lo rellena por su cuenta; por eso se pregunta o se decide y se deja por escrito.",
+    "refs": [
+      "m02-l2#supuestos",
+      "m02-l1#porque"
+    ]
+  },
+  {
+    "id": "g-prompt",
+    "term": "Prompt",
+    "definition": "El texto con el encargo que le das al modelo o al agente. Lleva las reglas de esa tarea en particular; las que valen para todo el proyecto van en el archivo de instrucciones.",
+    "refs": [
+      "m02-l2#capas"
+    ]
   }
 ]

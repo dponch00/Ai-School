@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-22 |
 | Depende de | T-019 (cerrado) |
 | Fase del plan | 2 — Base de app y PWA |
@@ -54,3 +54,15 @@ No edites `src/`, `content/` ni `e2e/`.
 - Revisión cruzada: las 22 definiciones son fieles a las lecciones y sus fuentes, y cumplen la guía de estilo. Se señalan cuatro hallazgos: tolerancia insuficiente ante dos erratas comunes, ausencia de «Reconciliación» como término, falta de prueba E2E de privacidad de notas y cobertura E2E superficial de glosario y sus referencias.
 - Verificación: `npm test` (154/154), `npm run e2e` (42 recorridos completados en escritorio y 360 px) y `npm run build` correctos. Para E2E se instaló el Chromium requerido por Playwright; Vite mantiene su advertencia de chunk grande.
 - Siguiente acción: priorizar T020-01 y T020-03 antes de ampliar la búsqueda y las exportaciones.
+
+## Revisión
+
+**Claude Code · 2026-10-22 · Veredicto: aceptado, ticket cerrado.** Las 22 definiciones quedaron confirmadas como fieles y en estilo. Los 4 hallazgos son válidos y están aplicados:
+
+- **T020-01 (media):** además de las raíces, la búsqueda indexa la palabra completa sin tilde, y con eso la búsqueda difusa tolera una letra de más («invariantte») y dos letras cambiadas de lugar («invariabte»). La prueba unitaria cubre los tres tipos de errata.
+- **T020-02 (media):** se agregaron «Reconciliación» (L6 #ejecutable y #evidencia), «Ambigüedad» (L2 #supuestos y L1 #porque) y «Prompt» (L2 #capas). El glosario queda en 25 términos, todos con enlaces que el build valida.
+- **T020-03 (media):** una prueba E2E guarda una nota con texto único y comprueba que no aparece en el HTML del reporte, que incluye el JSON pasivo, ni en el Markdown copiado, y que sí está en el respaldo descargado.
+- **T020-04 (baja):** una prueba E2E va de la búsqueda al término del glosario, comprueba que el término queda resaltado y con el foco, y sigue su referencia hasta el apartado de la lección.
+
+Al correr las pruebas apareció un `vite preview` de una corrida anterior que ocupaba el puerto 4174; se detuvo. `npm test` 154/154 y `npm run e2e` 46/46.
+
