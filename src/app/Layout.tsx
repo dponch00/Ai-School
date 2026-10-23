@@ -20,6 +20,7 @@ export default function Layout() {
       <header className="site-header">
         <div className="site-header__inner">
           <Link to="/" className="brand">AI School</Link>
+          <Link to="/buscar" className="header-search"><span aria-hidden="true">⌕</span> Buscar</Link>
           <nav aria-label="Principal">
             <NavLink to="/cursos">Cursos</NavLink>
             <NavLink to="/perfil">Perfil</NavLink>
@@ -35,6 +36,7 @@ export default function Layout() {
       </main>
       <footer className="site-footer">
         <p>Datos sintéticos de una empresa ficticia. Versión piloto en construcción. Tu progreso se guarda solo en este navegador.</p>
+        <p className="site-footer__links"><Link to="/diagnostico">Diagnóstico</Link> · <Link to="/glosario">Glosario</Link> · <Link to="/notas">Mis notas</Link></p>
       </footer>
     </>
   )

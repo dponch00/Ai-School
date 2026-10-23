@@ -5,6 +5,7 @@ import LessonBlocks from '../components/LessonBlocks'
 import { scrollToAnchor } from '../components/anchors'
 import QuestionCheck from '../components/QuestionCheck'
 import Toc from '../components/Toc'
+import LessonNotes from '../components/LessonNotes'
 import NotFound from './NotFound'
 import { db } from '../storage/db'
 import { lessonProgress, markLessonVisited } from '../storage/progress'
@@ -100,6 +101,8 @@ export default function LessonPage() {
               </ol>
             </section>
           )}
+
+          <LessonNotes lessonId={lesson.id} />
 
           <nav className="pager" aria-label="Lecciones">
             {prev ? <Link to={`/cursos/${course.id}/lecciones/${prev.id}`}>← {prev.title}</Link> : <span />}

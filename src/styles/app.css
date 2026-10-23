@@ -304,3 +304,26 @@ main:focus { outline: none; }
 .update-prompt--warning { background: var(--ais-color-warning-surface); border-left-color: var(--ais-color-warning); }
 
 .prose table:focus-visible { outline: 3px solid var(--ais-color-focus); outline-offset: 2px; }
+
+/* Búsqueda, glosario y notas (F2-07) */
+.header-search { display: inline-flex; align-items: center; gap: var(--ais-space-1); min-height: var(--ais-layout-touch-target); padding-inline: var(--ais-space-3); margin-left: auto; color: var(--ais-color-ink); text-decoration: none; border-radius: var(--ais-radius-sm); }
+.header-search:hover { background: var(--ais-color-canvas); }
+.site-header__inner > nav { margin-left: var(--ais-space-2); }
+@media (max-width: 34rem) { .site-header__inner > nav { margin-left: 0; } }
+.search-results { list-style: none; padding: 0; display: grid; gap: var(--ais-space-2); }
+.search-result { display: grid; gap: var(--ais-space-1); padding: var(--ais-space-3) var(--ais-space-4); border: 1px solid var(--ais-color-border); border-radius: var(--ais-radius-md); background: var(--ais-color-surface); color: var(--ais-color-ink); text-decoration: none; min-height: var(--ais-layout-touch-target); }
+.search-result:hover { border-color: var(--ais-color-accent); }
+.search-result__kind { font-size: var(--ais-font-size-sm); color: var(--ais-color-muted); }
+.search-result__title { font-weight: 700; }
+.search-result__snippet { font-size: 0.95em; }
+.glossary dl { display: grid; gap: var(--ais-space-3); }
+.glossary__term { border-bottom: 1px solid var(--ais-color-border); padding-bottom: var(--ais-space-3); scroll-margin-top: var(--ais-space-5); }
+.glossary__term--target { background: var(--ais-color-selection); border-radius: var(--ais-radius-md); padding: var(--ais-space-3); }
+.glossary__term dt { font-family: var(--ais-font-display); font-weight: 700; font-size: 1.1em; }
+.glossary__term dd { margin: var(--ais-space-1) 0 0; }
+.glossary__refs { font-size: var(--ais-font-size-sm); }
+.glossary__refs a { display: inline-flex; align-items: center; min-height: var(--ais-layout-touch-target); }
+.lesson-notes .button[aria-pressed="true"] { border-color: var(--ais-color-accent); }
+.note-item { border-top: 1px dashed var(--ais-color-border); padding-top: var(--ais-space-3); }
+.note-item__text { white-space: pre-wrap; }
+.site-footer__links a { display: inline-flex; align-items: center; min-height: var(--ais-layout-touch-target); }

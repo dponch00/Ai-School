@@ -45,3 +45,25 @@ test('sin conexión, la app y una lección cargan desde la caché del service wo
   await expect.poll(() => figura.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBe(true)
   await context.setOffline(false)
 })
+
+test('la búsqueda encuentra un término y lleva a su apartado en la lección', async ({ page }) => {
+  await page.goto('/#/buscar')
+  await page.getByLabel('Buscar en las lecciones, el laboratorio y el glosario').fill('invariante')
+  const resultado = page.locator('.search-result', { hasText: 'La forma no es la verdad' }).first()
+  await expect(resultado).toBeVisible()
+  await resultado.click()
+  await expect(page).toHaveURL(/lecciones\/m02-l3\?seccion=forma-verdad/)
+  await expect(page.locator('main h1')).toContainText('Ejemplos, contraejemplos')
+})
+
+test('una nota y un marcador de lección se guardan y aparecen en «Mis notas»', async ({ page }) => {
+  await page.goto('/#/cursos/m02/lecciones/m02-l2')
+  await page.getByRole('button', { name: /Marcar esta lección/ }).click()
+  await page.getByLabel(/Nota sobre esta lección/).fill('Repasar la política de supuestos')
+  await page.getByRole('button', { name: 'Guardar nota' }).click()
+  await expect(page.getByRole('status').filter({ hasText: 'Nota guardada' })).toBeVisible()
+  await page.goto('/#/notas')
+  await expect(page.getByText('Repasar la política de supuestos')).toBeVisible()
+  await expect(page.locator('#marcadores ~ ul a', { hasText: 'Lección 2' })).toBeVisible()
+})
+

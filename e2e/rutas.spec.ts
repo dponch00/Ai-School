@@ -16,6 +16,9 @@ const RUTAS = [
   ['perfil', '/#/perfil'],
   ['evaluación', '/#/evaluacion'],
   ['mi ruta', '/#/ruta'],
+  ['buscar (con resultados)', '/#/buscar?q=invariante'],
+  ['glosario', '/#/glosario?termino=g-invariante'],
+  ['mis notas', '/#/notas'],
 ] as const
 
 for (const [nombre, ruta] of RUTAS) {

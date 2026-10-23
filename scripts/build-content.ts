@@ -18,7 +18,7 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import { unified } from 'unified'
 import { visit } from 'unist-util-visit'
-import { Asset, Competency, Course, DiagnosticForm, Lesson, Microtask, Misconception, Practice, ProductCard, Question, Source } from '../src/domain/content.ts'
+import { Asset, Competency, Course, DiagnosticForm, GlossaryTerm, Lesson, Microtask, Misconception, Practice, ProductCard, Question, Source } from '../src/domain/content.ts'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const contentDir = resolve(root, 'content')
@@ -249,6 +249,40 @@ for (const courseId of readdirSync(resolve(contentDir, 'courses'))) {
   courses.push({ ...course, lessons, practice })
 }
 
+// ---------- Glosario e índice de búsqueda (F2-07) ----------
+const glossary = GlossaryTerm.array().parse(readJson('glossary.json'))
+const anchorsByLesson = new Map<string, Set<string>>()
+for (const c of courses as any[]) for (const l of c.lessons) anchorsByLesson.set(l.id, new Set(l.toc.map((t: { id: string }) => t.id)))
+for (const g of glossary) {
+  for (const ref of g.refs) {
+    const [lessonId, anchor] = ref.split('#')
+    if (!anchorsByLesson.get(lessonId)?.has(anchor)) throw new Error(`glosario ${g.id}: el apartado ${ref} no existe`)
+  }
+}
+
+const decode = (s: string) => s.replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&')
+const plain = (html: string) => decode(html.replace(/<sup class="(cite|inference)"[\s\S]*?<\/sup>/g, '').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim()
+
+/** Un documento por apartado (cada h2), más uno por término del glosario. */
+function sectionsOf(blocks: Block[]): { anchor: string; title: string; text: string }[] {
+  const html = blocks.filter((b): b is Extract<Block, { type: 'html' }> => b.type === 'html').map((b) => b.html).join(' ')
+  const parts = html.split(/(?=<h2 id=")/)
+  return parts
+    .map((p) => {
+      const m = p.match(/^<h2 id="([^"]+)">([\s\S]*?)<\/h2>/)
+      return m ? { anchor: m[1], title: plain(m[2]), text: plain(p.slice(m[0].length)) } : null
+    })
+    .filter((x): x is { anchor: string; title: string; text: string } => !!x && x.text.length > 0)
+}
+const searchDocs: { id: string; kind: 'section' | 'lab' | 'glossary'; courseId: string | null; lessonId?: string; anchor?: string; title: string; context: string; text: string }[] = []
+for (const c of courses as any[]) {
+  for (const l of c.lessons) {
+    for (const s of sectionsOf(l.blocks)) searchDocs.push({ id: `${l.id}#${s.anchor}`, kind: 'section', courseId: c.id, lessonId: l.id, anchor: s.anchor, title: s.title, context: `${c.id.toUpperCase()} · Lección ${l.order}: ${l.title}`, text: s.text })
+  }
+  if (c.practice) for (const s of sectionsOf(c.practice.blocks)) searchDocs.push({ id: `${c.id}-lab#${s.anchor}`, kind: 'lab', courseId: c.id, anchor: s.anchor, title: s.title, context: `${c.id.toUpperCase()} · Laboratorio`, text: s.text })
+}
+for (const g of glossary) searchDocs.push({ id: g.id, kind: 'glossary', courseId: null, title: g.term, context: 'Glosario', text: `${g.en ?? ''} ${g.definition}`.trim() })
+
 // ---------- Diagnóstico inicial (F2-06, D-015) ----------
 const diagnosticForm = DiagnosticForm.parse(readJson('diagnostic/form.json'))
 for (const q of Question.array().parse(readJson('diagnostic/items.json'))) questions[q.id] = q
@@ -264,6 +298,8 @@ const out = {
   courses,
   competencies,
   diagnostic,
+  glossary,
+  searchDocs,
   questions,
   productCards,
   assets,

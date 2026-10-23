@@ -1,4 +1,6 @@
-import { Link, useParams } from 'react-router'
+import { useEffect } from 'react'
+import { Link, useParams, useSearchParams } from 'react-router'
+import { scrollToAnchor } from '../components/anchors'
 import { content, getCourse } from '../content'
 import LessonBlocks from '../components/LessonBlocks'
 import Toc from '../components/Toc'
@@ -11,6 +13,11 @@ export default function LabPage() {
   const { courseId } = useParams()
   const course = getCourse(courseId)
   const lab = course?.practice
+  const [params] = useSearchParams()
+  const target = params.get('seccion')
+  useEffect(() => {
+    if (target) requestAnimationFrame(() => scrollToAnchor(target))
+  }, [target])
   if (!course || !lab) return <NotFound />
   return (
     <div className="page page--reader">

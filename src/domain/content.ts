@@ -229,6 +229,20 @@ export type Practice = z.infer<typeof Practice>
 // ---------- Diagnóstico (D-015) ----------
 
 /** Microtarea del diagnóstico: muestra producción, no solo reconocimiento. */
+// ---------- Glosario (F2-07) ----------
+
+/** Término del glosario: parafrasea su lección y enlaza a los apartados donde se explica. */
+export const GlossaryTerm = z.object({
+  id: z.string().regex(/^g-[a-z0-9-]+$/),
+  term: z.string().min(2).max(80),
+  /** Término en inglés, si ayuda a reconocer la documentación o la interfaz. */
+  en: z.string().max(80).optional(),
+  definition: z.string().min(20).max(400),
+  /** `mNN-lN#ancla`: apartados de lección donde se explica. */
+  refs: z.array(z.string().regex(/^m\d{2}-l\d#[a-z0-9-]+$/)).min(1),
+})
+export type GlossaryTerm = z.infer<typeof GlossaryTerm>
+
 export const Microtask = z.object({
   id: Slug,
   version: z.int().min(1),
