@@ -251,14 +251,9 @@ function ExamQuestion({ item, n, total, selected, confidence, onChoose, onConfid
         ))}
       </div>
       {selected && (
-        <label className="exam__confidence">
-          ¿Qué tan seguro estás? <span className="muted">(opcional)</span>
-          <select value={confidence ?? ''} onChange={(e) => onConfidence((e.target.value || undefined) as Response['confidence'] | undefined)}>
-            <option value="">Sin indicar</option>
-            <option value="low">Poco</option>
-            <option value="medium">Más o menos</option>
-            <option value="high">Mucho</option>
-          </select>
+        <label className="question__confidence">
+          <input type="checkbox" checked={confidence === 'high'} onChange={(e) => onConfidence(e.target.checked ? 'high' : undefined)} />
+          <span>Estoy muy seguro <span className="muted">(opcional; si fallas, la pregunta vuelve en el repaso de errores)</span></span>
         </label>
       )}
     </fieldset>
@@ -323,7 +318,7 @@ function ExamReview({ attempt, courseId, objectives, onBack }: ReviewProps) {
               <p className="question__label">
                 Pregunta {i + 1}
                 {chosen === null ? ' · sin responder' : ''}
-                {conf ? ` · seguridad: ${conf === 'high' ? 'mucha' : conf === 'medium' ? 'media' : 'poca'}` : ''}
+                {conf === 'high' ? ' · marcaste «Estoy muy seguro»' : ''}
               </p>
               <p className="question__scenario">{it.question.scenario}</p>
               <p className="question__stem">{it.question.stem}</p>

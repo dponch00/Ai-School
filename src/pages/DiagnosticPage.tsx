@@ -42,7 +42,7 @@ export default function DiagnosticPage() {
         <h1>Diagnóstico inicial</h1>
         {open ? (
           <>
-            <p className="muted">24 preguntas en 6 bloques. No verás si aciertas hasta el final. Si dudas, marca tu seguridad: ayuda a interpretar la señal.</p>
+            <p className="muted">24 preguntas en 6 bloques. No verás si aciertas hasta el final. Si estás muy seguro de una respuesta, márcalo: ayuda a interpretar la señal.</p>
             <ExamForm attempt={open} onSubmitted={() => window.scrollTo(0, 0)} />
           </>
         ) : (

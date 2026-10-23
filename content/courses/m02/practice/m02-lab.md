@@ -4,7 +4,7 @@
 Vas a seguir un caso completo: un correo tan vago como los que llegan un viernes por la tarde, que termina convertido en una especificación que cualquier agente puede ejecutar y cualquier persona puede verificar. En cada paso tomas las decisiones clave respondiendo preguntas, y al final llega un cambio inesperado que pone a prueba la especificación.
 :::
 
-Calcula unos 30 minutos [H]. Son seis pasos con dos preguntas cada uno, como mucho, y cada respuesta trae la explicación de por qué es o no la mejor opción. No hay nada que entregar ni que llenar: el laboratorio cuenta como hecho cuando respondes todas sus preguntas. Todos los datos son sintéticos y pertenecen a Altiplano Industrial S.A., la empresa ficticia del curso; ninguna cifra es real.
+Calcula unos 30 minutos [H]. Son seis pasos y doce preguntas repartidas entre ellos, y cada respuesta trae la explicación de por qué es o no la mejor opción. No hay nada que entregar ni que llenar: el laboratorio cuenta como hecho cuando respondes todas sus preguntas. Todos los datos son sintéticos y pertenecen a Altiplano Industrial S.A., la empresa ficticia del curso; ninguna cifra es real.
 
 ## Paso 1 · La petición y sus ambigüedades {#paso-1}
 
@@ -20,9 +20,9 @@ Los datos que te pasó Marta son el snapshot de oportunidades del 2026-10-19 (un
 
 - **Preguntar:** cambia una cifra visible, el alcance o algo irreversible.
 - **Decidir y registrar:** no cambia cifras, así que la decides tú y la dejas escrita con su motivo.
-- **Fuera de alcance:** no forma parte de esta entrega.
+- **Fuera de alcance:** no es parte de lo que pidió el director para el lunes.
 
-Algunas dudas no están en el correo, sino en los archivos. Al abrir el snapshot aparecen, entre otras cosas, un registro duplicado, una oportunidad sin fecha de cierre, una etapa escrita sin tilde, otra que no está en la tabla de probabilidades y seis montos en euros.
+Algunas dudas no están en el correo, sino en los archivos. Al abrir el snapshot aparecen, entre otras cosas, un registro duplicado, una oportunidad sin fecha de cierre, una etapa escrita sin tilde, otra (OPP-1036, «En revisión») que no está en la tabla de probabilidades y seis montos en euros.
 
 ::lab-questions{step="paso-1"}
 
@@ -74,7 +74,7 @@ El prompt de ejecución es el encargo que le darías a un agente de código al a
 
 El lunes a primera hora, Marta envía el snapshot del 2026-10-26. Trae una etapa nueva, «En pausa», con tres oportunidades del Centro por USD 410 000. FP&A todavía no le ha asignado probabilidad.
 
-Si un agente ejecuta la especificación tal como está con este snapshot, el script de reconciliación se detiene antes de calcular y avisa que hay etapas sin probabilidad y ninguna política declarada para ellas. Cuando la especificación dice qué hacer, por ejemplo excluirlas y reportarlas, el script las deja fuera del cálculo y las lista en el panel de calidad.
+Es el mismo problema de OPP-1036 del paso 1, ahora con tres oportunidades y USD 410 000. Si la especificación no tiene una regla para las etapas sin probabilidad, el script de reconciliación se detiene antes de calcular y avisa cuáles son. Si la tiene, por ejemplo dejarlas fuera del ponderado y mostrarlas en el panel de calidad hasta que FP&A decida, el script las excluye y las lista. Una especificación que resolvió OPP-1036 con una regla general aguanta el cambio; una que lo trató como caso aislado, no.
 
 ::lab-questions{step="paso-6"}
 

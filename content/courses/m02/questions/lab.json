@@ -1,52 +1,46 @@
 [
   {
     "id": "m02-lab-q01",
-    "version": 1,
+    "version": 2,
     "use": "lab",
     "courseId": "m02",
     "labStep": "paso-1",
-    "evaluatedObjectiveId": "m02-eo2",
+    "evaluatedObjectiveId": "m02-eo4",
     "competencyIds": [
-      "C02"
+      "C02",
+      "C07"
     ],
     "difficulty": "base",
     "process": "apply",
-    "scenario": "En el correo de R. Ibáñez encuentras varias dudas: el color de las barras, dónde va el comentario de IA, qué cuenta como «pipeline» y qué es «lo importante».",
-    "stem": "¿Cuál de estas dudas tienes que preguntarle antes de avanzar?",
+    "scenario": "Tu lista de dudas tiene tres grupos: lo que se pregunta, lo que decides y registras, y lo que queda fuera de alcance porque no es parte de lo que el director pidió para el lunes.",
+    "stem": "¿Cuál de estas dudas va en el grupo «fuera de alcance»?",
     "options": [
       {
         "id": "o1",
-        "text": "El color de las barras por región, porque el director podría tener una preferencia",
+        "text": "Qué hacer con los seis montos en euros, que complican el cálculo del total",
         "correct": false,
-        "misconceptionId": "m02-mc38",
-        "feedback": "El color no cambia ninguna cifra ni el alcance. Esa duda la decides tú, la anotas con su motivo y sigues. Preguntar todo frena el trabajo sin mejorar el resultado."
+        "misconceptionId": "m02-mc37",
+        "feedback": "Los montos en euros son parte del pipeline que pidió el director. Dejarlos fuera cambia el total sin que nadie lo sepa. La moneda y su tasa se definen, no se esquivan."
       },
       {
         "id": "o2",
-        "text": "Qué es «lo importante»: un modelo capaz lo deducirá del resto del correo",
-        "correct": false,
-        "misconceptionId": "m02-mc01",
-        "feedback": "Ningún modelo puede deducir qué decisión tiene que tomar el comité si nadie lo dice. Es contexto que solo tiene el director, y la duda se resuelve preguntando para qué es el dashboard."
+        "text": "Si el dashboard debe conectarse al CRM para actualizarse solo cada mañana",
+        "correct": true,
+        "feedback": "Correcta. El correo pide un dashboard para el lunes con los datos que entregó Marta, no una conexión en vivo. Anotarlo como fuera de alcance evita que el agente lo construya por iniciativa propia y deja la idea registrada para después."
       },
       {
         "id": "o3",
-        "text": "Qué cuenta como «pipeline»: solo lo abierto o también lo ganado, y si va ponderado",
-        "correct": true,
-        "feedback": "Correcta. La respuesta cambia directamente el total que verá el comité, y una cifra visible no se adivina. Según la política del curso, lo que cambia una cifra, el alcance o algo irreversible se pregunta antes de avanzar."
-      },
-      {
-        "id": "o4",
-        "text": "Si el comentario va arriba o abajo de los gráficos, para no rehacer la página",
+        "text": "Qué hacer con OPP-1021, que no tiene fecha de cierre y no encaja en el trimestre",
         "correct": false,
-        "misconceptionId": "m02-mc38",
-        "feedback": "La posición del comentario no cambia cifras ni alcance, y moverlo después cuesta poco. Se decide, se registra y se sigue. Reserva las preguntas para lo que cambia lo que el comité va a leer como dato."
+        "misconceptionId": "m02-mc37",
+        "feedback": "OPP-1021 está en los datos del encargo, así que su tratamiento sí es parte del trabajo. Sacarla en silencio cambia las cifras. Lo que corresponde es definir qué pasa con ella y mostrarla en el panel de calidad."
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m02-l2#supuestos",
+    "sectionRef": "m02-l4#alcance",
     "sourceIds": [
-      "src-github-speckit-quickstart",
-      "src-anthropic-prompting-fable5"
+      "src-anthropic-prompting-sonnet55",
+      "src-anthropic-prompting-bp"
     ],
     "status": "draft"
   },
@@ -154,52 +148,51 @@
   },
   {
     "id": "m02-lab-q04",
-    "version": 1,
+    "version": 2,
     "use": "lab",
     "courseId": "m02",
     "labStep": "paso-2",
-    "evaluatedObjectiveId": "m02-eo4",
+    "evaluatedObjectiveId": "m02-eo2",
     "competencyIds": [
-      "C02",
-      "C07"
+      "C02"
     ],
     "difficulty": "advanced",
     "process": "evaluate",
-    "scenario": "El director no sabe qué significa «en riesgo» y la primera versión es para el lunes. El panel de las 10 oportunidades en mayor riesgo depende de esa definición.",
-    "stem": "¿Qué dejas en el registro de supuestos?",
+    "scenario": "El director no sabe qué significa «en riesgo». Escribes en el registro de supuestos la fila de esa pregunta, con ID, supuesto, dueño, estado y política.",
+    "stem": "¿Cuál de estas filas está completa y bien planteada?",
     "options": [
       {
         "id": "o1",
-        "text": "Defines «en riesgo» como «sin actividad en 14 días», lo documentas y das el supuesto por cerrado",
+        "text": "S2 · «En riesgo» = sin actividad en 14 días · documentada y cerrada",
         "correct": false,
         "misconceptionId": "m02-mc43",
-        "feedback": "Documentar una definición no la convierte en decisión del negocio. Si la das por cerrada, el comité leerá el panel como si el director la hubiera aprobado. El supuesto sigue abierto hasta que su dueño responda."
+        "feedback": "Documentar una definición no la convierte en decisión del negocio. Si la fila queda cerrada, el panel saldrá como si el director la hubiera aprobado. Falta el dueño, y el estado sigue abierto hasta que él responda."
       },
       {
         "id": "o2",
-        "text": "Usas la definición que propone el agente, porque ya la aplicó en otros dashboards",
+        "text": "S2 · «En riesgo» según la propuesta del agente · dueño: el agente · cerrada",
         "correct": false,
         "misconceptionId": "m02-mc45",
-        "feedback": "Que el agente proponga una definición no significa que alguien la haya decidido. Puede servir como borrador, pero el dueño de la definición sigue siendo el director."
+        "feedback": "El agente puede proponer opciones, pero no es el dueño de una definición de negocio. Adoptar su propuesta no equivale a que alguien la haya decidido."
       },
       {
         "id": "o3",
-        "text": "Dejas que el agente elija una regla razonable al programar, sin anotarla",
+        "text": "Sin fila: el agente aplicará la regla que le parezca razonable y la mencionará en su reporte final",
         "correct": false,
         "misconceptionId": "m02-mc08",
-        "feedback": "Una regla elegida en silencio queda escondida en el código. Nadie sabrá que el panel depende de ella, y si el director tenía otra idea, el error pasará sin que nadie lo vea."
+        "feedback": "Si la duda no está en el registro, la regla que elija el agente queda escondida en el código hasta el reporte, cuando el panel ya está hecho. El registro existe para que estas decisiones se vean antes."
       },
       {
         "id": "o4",
-        "text": "Dueño: R. Ibáñez; estado: abierto; mientras tanto, una regla provisional visible en pantalla",
+        "text": "S2 · Qué es «en riesgo» · dueño: R. Ibáñez · abierta · se pregunta; sin panel hasta decidir",
         "correct": true,
-        "feedback": "Correcta. La pregunta sigue en manos de quien puede decidirla, y la especificación dice qué hacer mientras tanto. Como la regla provisional se ve en pantalla, nadie la confunde con una definición aprobada."
+        "feedback": "Correcta. La fila dice quién decide, que la pregunta sigue abierta y qué se hace mientras tanto: el panel de riesgo no sale en la primera versión. Así nadie toma una definición provisional por una aprobada."
       }
     ],
     "fixedOrder": false,
     "sectionRef": "m02-l2#supuestos",
     "sourceIds": [
-      "src-anthropic-reduce-hallucinations",
+      "src-github-speckit-sdd-doc",
       "src-openai-codex-execplans"
     ],
     "status": "draft"
@@ -360,7 +353,7 @@
   },
   {
     "id": "m02-lab-q08",
-    "version": 1,
+    "version": 2,
     "use": "lab",
     "courseId": "m02",
     "labStep": "paso-4",
@@ -371,35 +364,35 @@
     ],
     "difficulty": "base",
     "process": "apply",
-    "scenario": "OPP-1021 está abierta pero no tiene fecha de cierre esperada. Escribes su escenario: «Given el snapshot del 19, When se calcula el pipeline del T4, Then…».",
+    "scenario": "El snapshot del 19 trae seis montos en euros. Escribes su escenario: «Given el snapshot del 19 y las tasas de fx_rates.csv, When se calcula el pipeline abierto, Then…».",
     "stem": "¿Cómo completas el Then?",
     "options": [
       {
         "id": "o1",
-        "text": "…OPP-1021 no suma al pipeline del T4 y aparece en el panel de calidad como «fecha de cierre vacía»",
+        "text": "…cada región muestra su pipeline en USD, con los euros a la tasa del 19, igual que la reconciliación",
         "correct": true,
-        "feedback": "Correcta. Describe algo que se ve en la página: la cifra no la incluye y el panel la muestra con su motivo. Cualquiera puede comprobarlo sin abrir el código."
+        "feedback": "Correcta. Describe lo que se ve en la página, una cifra en USD por región, y cómo se comprueba: comparándola con la reconciliación. Cualquiera puede verificarlo sin abrir el código."
       },
       {
         "id": "o2",
-        "text": "…el sistema guarda OPP-1021 en una tabla interna de oportunidades excluidas",
+        "text": "…el sistema agrega a la tabla interna una columna amount_usd con todos los montos ya convertidos",
         "correct": false,
         "misconceptionId": "m02-mc26",
-        "feedback": "Una tabla interna es un estado del sistema que el comité no ve. Que exista no demuestra que la cifra esté bien ni que alguien se entere del problema. El Then describe lo que se observa."
+        "feedback": "Una columna interna es un estado del sistema que el comité no ve. Puede existir y aun así la página puede mostrar los euros como si fueran dólares. El Then describe lo que se observa."
       },
       {
         "id": "o3",
-        "text": "…el dashboard sigue viéndose bien y funcionando aunque falten algunos datos",
+        "text": "…el dashboard maneja correctamente las distintas monedas que vengan en los datos del CRM",
         "correct": false,
         "misconceptionId": "m02-mc25",
-        "feedback": "«Verse bien y funcionar» no dice qué tendría que pasar con OPP-1021. Dos personas pueden mirar la misma página y no ponerse de acuerdo sobre si cumple."
+        "feedback": "«Correctamente» no dice qué cifra debería aparecer ni con qué tasa. Dos personas pueden mirar la misma página y no ponerse de acuerdo sobre si cumple."
       },
       {
         "id": "o4",
-        "text": "…el agente confirma en su reporte que los casos de datos incompletos están cubiertos",
+        "text": "…el agente confirma en su reporte que la conversión de monedas quedó bien hecha",
         "correct": false,
         "misconceptionId": "m02-mc27",
-        "feedback": "La confirmación del agente es una afirmación, no una observación. El escenario tiene que describir lo que tú verías en la página, y el reporte tiene que traer la evidencia."
+        "feedback": "La confirmación del agente es una afirmación, no una observación. El escenario describe lo que tú verías en la página, y el reporte tiene que traer la evidencia."
       }
     ],
     "fixedOrder": false,
@@ -568,7 +561,7 @@
   },
   {
     "id": "m02-lab-q12",
-    "version": 1,
+    "version": 2,
     "use": "lab",
     "courseId": "m02",
     "labStep": "paso-6",
@@ -579,7 +572,7 @@
     ],
     "difficulty": "advanced",
     "process": "evaluate",
-    "scenario": "Con el snapshot del lunes, el script de reconciliación se detiene: la etapa «En pausa» no tiene probabilidad y tu especificación no dice qué hacer en ese caso.",
+    "scenario": "Con el snapshot del lunes, el script de reconciliación se detiene: la etapa «En pausa» no tiene probabilidad y tu especificación no tiene una regla para etapas sin probabilidad.",
     "stem": "¿Qué haces?",
     "options": [
       {
@@ -591,9 +584,9 @@
       },
       {
         "id": "o2",
-        "text": "Agregas a la especificación qué hacer con etapas sin probabilidad y vuelves a correr el check",
+        "text": "Agregas a la especificación una regla para toda etapa sin probabilidad y repites el check",
         "correct": true,
-        "feedback": "Correcta. El problema nació en la especificación, así que se corrige ahí: por ejemplo, excluir esas oportunidades y reportarlas en el panel de calidad. Después, el código y el check siguen esa regla."
+        "feedback": "Correcta. El hueco está en la especificación, así que se corrige ahí, con una regla general y no caso por caso. La regla no inventa probabilidades: por ejemplo, deja esas oportunidades fuera del ponderado y las muestra en el panel de calidad hasta que FP&A decida."
       },
       {
         "id": "o3",

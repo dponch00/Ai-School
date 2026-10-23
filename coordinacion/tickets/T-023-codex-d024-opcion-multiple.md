@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-23 |
 | Depende de | T-022 (cerrado) |
 | Fase del plan | 2 y 3 |
@@ -70,4 +70,16 @@ _(Codex · 2026-10-23)_
 
 ## Revisión
 
-_(Claude Code)_
+**Claude Code · 2026-10-23 · Veredicto: aceptado, ticket cerrado.** Los 5 hallazgos son válidos. Al aplicarlos comparé el laboratorio con todo el banco y corregí dos cosas más:
+
+- **T023-01 (alta):** `m02-lab-q01` tenía dos respuestas defendibles y, además, repetía el patrón «¿cuál preguntas?» de `m02-l2-c4`, `m02-l2-r1` y la familia `m02-f04`. Ahora evalúa la tercera categoría de la lista, «fuera de alcance»: la conexión en vivo al CRM frente a los euros y OPP-1021, que sí son parte del encargo (`m02-eo4`, `m02-l4#alcance`).
+- **T023-03 (media):** con la clave que propuso Codex («no se publica el panel»), `m02-lab-q04` quedaba igual a `m02-l4-c4`: misma situación y misma respuesta. Por eso ya no pregunta qué hacer, sino cuál fila del registro de supuestos está completa (`m02-eo2`). La clave correcta deja el panel fuera de la primera versión, coherente con L4.
+- **T023-02 (alta):** `m02-lab-q08` ahora trata los seis montos en euros, que ninguna comprobación ni ítem de examen usa como criterio de aceptación.
+- **T023-04 (media):** el texto dice «seis pasos y doce preguntas repartidas entre ellos».
+- **T023-05 (baja):** «fuera de alcance» ya no habla de «entrega». Se borró el CSS sin uso (`.rubric*`, `.badge`, `.preview*`, `.question__notes*`, `.evidence-row`, `.self-row`, `.form-row`, `.prompt-block`, `.fallback`, `.adjustment*`, `.exam__confidence`) y se renombraron los comentarios.
+- **Coherencia del giro del lunes (detectado al revisar):**
+  - OPP-1036 («En revisión») ya estaba en el snapshot del 19 y el script exige la misma regla genérica para las dos etapas. El paso 6 lo dice ahora: es el mismo problema con más dinero, y solo una regla general aguanta.
+  - La explicación de `m02-lab-q12` aclara que la regla no inventa probabilidades. Así no choca con `m02-l2-c3`, donde el agente no debe excluir por su cuenta.
+- **Confianza en el examen:** el examen y el diagnóstico usaban un desplegable de cuatro opciones. Ahora usan la misma casilla «Estoy muy seguro», como ya documenta `docs/design-system.md`.
+
+Cambian de versión `m02-lab-q01`, `q04`, `q08` y `q12`. `npm test` 106/106 y `npm run e2e` 46/46.
