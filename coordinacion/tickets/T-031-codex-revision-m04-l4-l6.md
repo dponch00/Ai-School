@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-23 |
 | Depende de | T-030 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -62,7 +62,11 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`.
 
 ## Entrega
 
-_(Codex)_
+_(Codex, 2026-10-23)_
+
+- Informe: `investigacion/codex-revision-m04-l4-l6.md`.
+- Resultado: un hallazgo medio en el alcance de la cita de OWASP sobre secretos en registros; la línea `FAIL`, las fichas, las 18 preguntas, la separación respecto de B4 y el tiempo de L4 fueron verificados.
+- Fuentes oficiales abiertas y su resultado incluidos en el informe.
 
 ## Revisión
 
