@@ -87,7 +87,7 @@ _(Codex, 2026-10-23)_
 - Informe: `investigacion/codex-revision-m05.md`.
 - Hallazgos: 0 críticos, 0 altos, 2 medios y 2 bajos. Prioridades: estados de lanzamiento de fichas, pistas de longitud en 11 ítems y un solape que adelanta una respuesta del examen.
 - Verificación: `npm test` pasó (12 archivos, 162 pruebas); revisión de 360 px y escritorio sin desbordamiento, con selección por teclado en laboratorio y examen.
-- Commit de entrega: pendiente de crear.
+- Commit de entrega: `ad33012f34d82a5d461f4cdd0baeb62bb6ee1ba4` (`[codex] Entrega T-033: revisión integral de M05`).
 
 ## Revisión
 
