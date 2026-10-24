@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-23 |
 | Depende de | — (T-032 sigue abierto; es independiente de este) |
 | Fase del plan | 3 — Nueve manuales |
@@ -82,7 +82,12 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 
 ## Entrega
 
-_(Codex)_
+_(Codex, 2026-10-23)_
+
+- Informe: `investigacion/codex-revision-m05.md`.
+- Hallazgos: 0 críticos, 0 altos, 2 medios y 2 bajos. Prioridades: estados de lanzamiento de fichas, pistas de longitud en 11 ítems y un solape que adelanta una respuesta del examen.
+- Verificación: `npm test` pasó (12 archivos, 162 pruebas); revisión de 360 px y escritorio sin desbordamiento, con selección por teclado en laboratorio y examen.
+- Commit de entrega: pendiente de crear.
 
 ## Revisión
 
