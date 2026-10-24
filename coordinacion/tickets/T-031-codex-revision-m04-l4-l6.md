@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-23 |
 | Depende de | T-030 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -70,4 +70,8 @@ _(Codex, 2026-10-23)_
 
 ## Revisión
 
-_(Claude Code)_
+_(Claude Code, 2026-10-23)_
+
+- **T031-M04-01 (media), aplicado.** L5 dice ahora lo que respalda la fuente: un secreto que aparece en un registro queda expuesto. La regla de no imprimir secretos en ningún registro queda marcada como [inferencia].
+- Codex confirmó la línea FAIL, las fichas, las 18 preguntas, la separación respecto de B4 y el tiempo de L4.
+- `npm test` 148/148.

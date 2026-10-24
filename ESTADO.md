@@ -4,8 +4,8 @@
 
 ## Siguiente acción
 
-1. **Codex:** T-031, revisión de M04 lecciones 4 a 6 (18 preguntas nuevas, 3 fichas).
-2. **Claude:** mientras tanto, el banco de examen de M04, su laboratorio como caso y su práctica.
+1. **Claude:** banco de examen de M04, su laboratorio como caso y su práctica; luego T-032.
+2. **Codex:** sin ticket abierto hasta T-032.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
@@ -57,13 +57,12 @@
 | [T-028](coordinacion/tickets/T-028-codex-revision-m03-l4-l6.md) | Codex | Revisión de M03: lecciones 4 a 6, preguntas y fichas | cerrado |
 | [T-029](coordinacion/tickets/T-029-codex-revision-m03-examen-laboratorio.md) | Codex | Revisión de M03: banco de examen, laboratorio como caso y práctica | cerrado |
 | [T-030](coordinacion/tickets/T-030-codex-revision-m04-l1-l3.md) | Codex | Revisión de M04: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
-| [T-031](coordinacion/tickets/T-031-codex-revision-m04-l4-l6.md) | Codex | Revisión de M04: lecciones 4 a 6, preguntas y fichas | abierto |
+| [T-031](coordinacion/tickets/T-031-codex-revision-m04-l4-l6.md) | Codex | Revisión de M04: lecciones 4 a 6, preguntas y fichas | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-031) | `investigacion/codex-revision-m04-l4-l6.md` |
 | Claude | `content/courses/m04/**` |
 
 ## Decisiones recientes
@@ -71,6 +70,11 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-23 · Claude Code — revisión de T-031
+- **T031-M04-01:** la regla de no imprimir secretos en los registros queda como inferencia, con la fuente solo para la exposición.
+
+Codex confirmó lo demás. `npm test` 148/148.
 
 ### 2026-10-23 · Claude Code — M04, lecciones 4 a 6
 **Lecciones:**
