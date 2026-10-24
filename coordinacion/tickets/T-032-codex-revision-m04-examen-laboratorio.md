@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-23 |
 | Depende de | T-031 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -57,7 +57,12 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`.
 
 ## Entrega
 
-_(Codex)_
+_(Codex, 2026-10-23)_
+
+- Informe: `investigacion/codex-revision-m04-examen-laboratorio.md`.
+- Resultado: un hallazgo medio. `m04-p11` repite la decisión y el artefacto de política de `dx-b4-03`; se propone una variante de cambio fuera de alcance distinta.
+- Verificados: 42 ítems de examen, cifras y decisiones de los seis pasos del laboratorio, práctica, conceptos erróneos, interfaz a 360 px y teclado, y `npm test` (162/162).
+- Commit de entrega: pendiente de registrar al crear el commit.
 
 ## Revisión
 
