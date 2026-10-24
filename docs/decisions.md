@@ -174,3 +174,12 @@ Una entrada por decisión. Estados: **aceptada**, **propuesta** (espera a Daniel
   - **Investigación:** los subagentes investigan en paralelo los manuales siguientes, empezando por M05 a M07, para que cada manual arranque con su investigación lista.
   - **Trabajo fijo por ronda:** las pruebas E2E y la versión de prueba se actualizan al cerrar cada manual, o cuando Daniel quiera estudiar, no en cada entrega parcial. `npm test` se sigue corriendo en cada cambio.
 - **Excepción:** M04 ya tiene revisadas sus lecciones, así que su próximo ticket cubre el examen, el laboratorio y la práctica.
+
+## D-026 · Volver a revisar lección por lección
+
+- **Estado:** aceptada por Daniel · 2026-10-23 · **reemplaza** la parte de D-025 sobre un ticket por manual completo
+- **Decisión:** Daniel prefiere que se analice cada lección con calma, como en las rondas anteriores, en las que el contenido y las preguntas le parecieron muy acertados.
+  - **Revisión:** desde M06 se vuelve a las tandas pequeñas, con lecciones 1 a 3, lecciones 4 a 6, y examen con laboratorio, cada tanda con su ticket a Codex.
+  - **Investigación:** sigue en paralelo, porque no afecta la calidad.
+  - **Trabajo fijo por ronda:** las pruebas E2E y la versión de prueba se siguen actualizando al cerrar cada manual.
+- **M04 y M05:** quedan como están. Sus tickets (T-032 y T-033) se cierran con la revisión de Codex.

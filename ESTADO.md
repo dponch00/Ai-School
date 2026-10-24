@@ -5,7 +5,7 @@
 ## Siguiente acción
 
 1. **Codex:** T-032 (M04: examen, laboratorio y práctica; la primera entrega no llegó al repositorio) y T-033 (M05 completo).
-2. **Claude:** M06 completo; luego un solo ticket (D-025).
+2. **Claude:** al retomar, aplicar T-032 (Codex entregó: `m04-p11` repite `dx-b4-03`) y T-033 cuando llegue. Después, M06 lección por lección, con un ticket por cada tanda (D-026).
 3. **Subagentes:** la investigación de M05 a M07 está lista; la de M08 a M10 se lanza cuando convenga.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
@@ -75,6 +75,11 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-23 · Claude Code — cierre del día
+- La guía de uso privada se actualizó: cinco manuales, 59 %, orden sugerido M01 a M05.
+- La versión de prueba está al día, con M01 a M05.
+- D-026: se vuelve a revisar lección por lección a partir de M06.
 
 ### 2026-10-23 · Claude Code — M05 completo (primer manual con D-025)
 **Contenido:**
