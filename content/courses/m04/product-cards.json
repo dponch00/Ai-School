@@ -33,5 +33,65 @@
       "src-github-push-protection"
     ],
     "nextReview": "2027-04-22"
+  },
+  {
+    "id": "m04-pc-worktrees",
+    "product": "Anthropic · Claude Code · OpenAI · Codex",
+    "surfaces": [
+      "cli",
+      "desktop"
+    ],
+    "capability": "Claude Code: claude --worktree <nombre> crea un worktree en .claude/worktrees/<nombre>/ sobre la rama worktree-<nombre>, por defecto desde la rama principal del remoto; necesita al menos un commit, hay que instalar las dependencias en el worktree y un archivo .worktreeinclude copia archivos ignorados como .env. La app de escritorio de Codex crea worktrees en $CODEX_HOME/worktrees, en HEAD separado; permite pasar el trabajo a la carpeta local o convertirlo en rama, conserva por defecto los 15 más recientes y también admite .worktreeinclude.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-22",
+    "sourceIds": [
+      "src-anthropic-cc-worktrees",
+      "src-anthropic-cc-workflows",
+      "src-openai-codex-worktrees"
+    ],
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "m04-pc-checkpoints",
+    "product": "Anthropic · Claude Code · GitHub Copilot en VS Code · OpenAI · Codex",
+    "surfaces": [
+      "cli",
+      "ide",
+      "desktop"
+    ],
+    "capability": "Claude Code guarda un checkpoint antes de cada turno; /rewind (o doble Esc) restaura el código, la conversación o ambos. No rastrea los archivos cambiados por comandos Bash ni los cambios externos, guarda 100 checkpoints por sesión y borra las instantáneas a los 30 días aproximadamente. Copilot en VS Code toma una instantánea antes de cada petición (Restore Checkpoint y Redo, activado por defecto), pero no revierte comandos de terminal, peticiones de red, despliegues ni servicios externos. En Codex no está documentado un checkpoint de archivos; su panel de revisión permite revertir cambios sin confirmar. Las dos guías que los describen dicen que no reemplazan a Git.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-22",
+    "sourceIds": [
+      "src-anthropic-cc-checkpointing",
+      "src-vscode-copilot-checkpoints",
+      "src-openai-codex-code-review"
+    ],
+    "nextReview": "2027-01-22"
+  },
+  {
+    "id": "m04-pc-review-agents",
+    "product": "GitHub Copilot · OpenAI · Codex · Anthropic · Claude Code",
+    "surfaces": [
+      "web",
+      "cloud",
+      "cli",
+      "ide",
+      "desktop"
+    ],
+    "capability": "El agente en la nube de Copilot trabaja en una rama copilot/ y abre una PR que no puede aprobar ni fusionar; quien pidió el cambio no puede aprobarla, y los workflows esperan aprobación manual por defecto. Copilot code review comenta y sugiere; que sus aprobaciones cuenten para las reglas de aprobación está en vista previa pública y desactivado por defecto. En Codex, /review informa hallazgos priorizados sin cambiar la carpeta de trabajo; su revisión en GitHub es GA y en GitLab, vista previa. En Claude Code, /code-review revisa el diff con un subagente de contexto limpio.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-22",
+    "sourceIds": [
+      "src-github-cloud-agent-risks",
+      "src-github-cloud-agent",
+      "src-github-copilot-code-review",
+      "src-openai-codex-code-review",
+      "src-anthropic-cc-best-practices"
+    ],
+    "nextReview": "2027-01-22"
   }
 ]

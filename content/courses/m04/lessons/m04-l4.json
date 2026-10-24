@@ -1,0 +1,61 @@
+{
+  "id": "m04-l4",
+  "courseId": "m04",
+  "version": "0.1.0",
+  "order": 4,
+  "title": "Git: aislar, comparar y recuperar",
+  "objectives": [
+    {
+      "id": "m04-l4-o1",
+      "statement": "Reconoce por qué el punto de partida se confirma en un commit antes de cada encargo.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m04-eo4"
+    },
+    {
+      "id": "m04-l4-o2",
+      "statement": "Elige entre rama y worktree para aislar un experimento o trabajar en paralelo.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m04-eo4"
+    },
+    {
+      "id": "m04-l4-o3",
+      "statement": "Elige entre restore y revert para deshacer, y reconoce lo que un checkpoint no cubre.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m04-eo4"
+    }
+  ],
+  "bodyPath": "courses/m04/lessons/m04-l4.md",
+  "reviewQuestionIds": [
+    "m04-l4-r1",
+    "m04-l4-r2"
+  ],
+  "checkQuestionIds": [
+    "m04-l4-c1",
+    "m04-l4-c2",
+    "m04-l4-c3",
+    "m04-l4-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m04-pc-worktrees",
+    "m04-pc-checkpoints"
+  ],
+  "sourceIds": [
+    "src-progit-what-is-git",
+    "src-progit-undoing",
+    "src-git-diff",
+    "src-progit-branches",
+    "src-git-switch",
+    "src-git-worktree",
+    "src-anthropic-cc-worktrees",
+    "src-openai-codex-worktrees",
+    "src-git-reset-restore-revert",
+    "src-git-restore",
+    "src-git-revert",
+    "src-git-reflog",
+    "src-anthropic-cc-checkpointing",
+    "src-vscode-copilot-checkpoints"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

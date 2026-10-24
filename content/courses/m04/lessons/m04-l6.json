@@ -1,0 +1,52 @@
+{
+  "id": "m04-l6",
+  "courseId": "m04",
+  "version": "0.1.0",
+  "order": 6,
+  "title": "Revisar un cambio antes de aceptarlo",
+  "objectives": [
+    {
+      "id": "m04-l6-o1",
+      "statement": "Revisa un diff con una lista que cubre alcance, condiciones, checks, dependencias, secretos y evidencia.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m04-eo6"
+    },
+    {
+      "id": "m04-l6-o2",
+      "statement": "Decide entre aceptar, pedir cambios o rechazar, y reconoce cuándo un cambio mueve la vara de medir.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m04-eo6"
+    },
+    {
+      "id": "m04-l6-o3",
+      "statement": "Reconoce que los revisores automáticos no reemplazan la revisión humana y que quien encarga no aprueba solo.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m04-eo6"
+    }
+  ],
+  "bodyPath": "courses/m04/lessons/m04-l6.md",
+  "reviewQuestionIds": [
+    "m04-l6-r1",
+    "m04-l6-r2"
+  ],
+  "checkQuestionIds": [
+    "m04-l6-c1",
+    "m04-l6-c2",
+    "m04-l6-c3",
+    "m04-l6-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m04-pc-review-agents"
+  ],
+  "sourceIds": [
+    "src-github-about-prs",
+    "src-github-reviewing-prs",
+    "src-anthropic-cc-best-practices",
+    "src-github-copilot-code-review",
+    "src-github-cloud-agent",
+    "src-github-cloud-agent-risks"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

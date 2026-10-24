@@ -1,0 +1,52 @@
+{
+  "id": "m04-l5",
+  "courseId": "m04",
+  "version": "0.1.0",
+  "order": 5,
+  "title": "Leer errores, registros y checks",
+  "objectives": [
+    {
+      "id": "m04-l5-o1",
+      "statement": "Lee un traceback para identificar qué pasó y dónde empezar a buscar.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m04-eo5"
+    },
+    {
+      "id": "m04-l5-o2",
+      "statement": "Interpreta niveles de registro, códigos de salida y resultados de checks, incluido el check omitido.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m04-eo5"
+    },
+    {
+      "id": "m04-l5-o3",
+      "statement": "Distingue corregir la causa de esconder el síntoma, y da al agente lo necesario para reproducir el fallo.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m04-eo5"
+    }
+  ],
+  "bodyPath": "courses/m04/lessons/m04-l5.md",
+  "reviewQuestionIds": [
+    "m04-l5-r1",
+    "m04-l5-r2"
+  ],
+  "checkQuestionIds": [
+    "m04-l5-c1",
+    "m04-l5-c2",
+    "m04-l5-c3",
+    "m04-l5-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [],
+  "sourceIds": [
+    "src-python-errors",
+    "src-python-logging",
+    "src-python-sys",
+    "src-github-status-checks",
+    "src-github-actions-logs",
+    "src-owasp-secrets-mgmt",
+    "src-anthropic-cc-best-practices",
+    "src-anthropic-cc-workflows"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

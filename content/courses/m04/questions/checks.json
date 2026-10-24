@@ -693,5 +693,791 @@
       "src-pypa-pyproject"
     ],
     "status": "draft"
+  },
+  {
+    "id": "m04-l4-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l4",
+    "evaluatedObjectiveId": "m04-eo4",
+    "competencyIds": [
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Quieres que dos agentes prueben al mismo tiempo dos enfoques distintos para el comentario narrativo del reporte, sin pisarse los archivos.",
+    "stem": "¿Qué usas?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Dos ramas en la misma carpeta, una para cada agente",
+        "correct": false,
+        "feedback": "En una sola carpeta solo hay una rama activa por vez, así que los dos agentes editarían los mismos archivos. Para tener carpetas separadas hace falta un worktree.",
+        "misconceptionId": "m04-mc29"
+      },
+      {
+        "id": "o2",
+        "text": "Dos worktrees, cada uno con su rama y su propia carpeta",
+        "correct": true,
+        "feedback": "Correcta. Cada worktree tiene sus archivos, su HEAD y su índice, y comparte la historia. Los dos agentes trabajan en paralelo sin pisarse."
+      },
+      {
+        "id": "o3",
+        "text": "Los checkpoints de la herramienta, para volver atrás si se cruzan los cambios",
+        "correct": false,
+        "feedback": "Un checkpoint sirve para deshacer dentro de una sesión, no para aislar dos trabajos en paralelo. Tampoco reemplaza a Git.",
+        "misconceptionId": "m04-mc24"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l4#worktree",
+    "sourceIds": [
+      "src-git-worktree"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l4-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l4",
+    "evaluatedObjectiveId": "m04-eo4",
+    "competencyIds": [
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El agente borró con un comando de terminal el archivo de supuestos, que estaba confirmado en el último commit. Alguien propone restaurar el checkpoint de la sesión para recuperarlo.",
+    "stem": "¿Qué conviene hacer?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Recuperarlo desde Git, porque el checkpoint puede no cubrir lo que hizo la terminal",
+        "correct": true,
+        "feedback": "Correcta. Las guías de los checkpoints advierten que pueden no cubrir los cambios hechos con comandos de terminal. El archivo estaba confirmado, así que git restore lo trae desde el último commit."
+      },
+      {
+        "id": "o2",
+        "text": "Restaurar el checkpoint, que deshace todo lo que hizo el agente durante la sesión, también en la terminal",
+        "correct": false,
+        "feedback": "Los checkpoints pueden no cubrir comandos de terminal ni procesos externos. El último commit, en cambio, sí tiene el archivo.",
+        "misconceptionId": "m04-mc25"
+      },
+      {
+        "id": "o3",
+        "text": "Darlo por perdido, porque lo borrado con la terminal no deja rastro en Git",
+        "correct": false,
+        "feedback": "El archivo estaba confirmado, y lo confirmado casi siempre se recupera. Git lo tiene en el último commit.",
+        "misconceptionId": "m04-mc30"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l4#checkpoint",
+    "sourceIds": [
+      "src-anthropic-cc-checkpointing",
+      "src-vscode-copilot-checkpoints",
+      "src-progit-undoing"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l4-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l4",
+    "evaluatedObjectiveId": "m04-eo4",
+    "competencyIds": [
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Tienes cambios sin confirmar en pipeline_kpis.py que quieres conservar. El agente rompió una línea de ese archivo y propone correr git restore pipeline_kpis.py para deshacerla.",
+    "stem": "¿Qué pasa si lo corres?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Se deshace solo la línea que rompió el agente",
+        "correct": false,
+        "feedback": "git restore no trabaja por líneas: reemplaza el archivo entero con la versión del índice. Tus cambios sin confirmar también se van.",
+        "misconceptionId": "m04-mc27"
+      },
+      {
+        "id": "o2",
+        "text": "Se crea un commit nuevo que deshace solo esa línea, sin tocar el resto de tus cambios en el archivo",
+        "correct": false,
+        "feedback": "Eso describe a revert, que trabaja sobre commits. restore reemplaza el archivo de la carpeta de trabajo, sin crear ningún commit.",
+        "misconceptionId": "m04-mc26"
+      },
+      {
+        "id": "o3",
+        "text": "El archivo vuelve a la versión del índice y se pierden todos sus cambios sin confirmar",
+        "correct": true,
+        "feedback": "Correcta. Sin --staged, restore pisa la copia de trabajo de ese archivo. Antes de correrlo, conviene guardar tus cambios en un commit."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l4#deshacer",
+    "sourceIds": [
+      "src-git-restore",
+      "src-progit-undoing"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l4-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l4",
+    "evaluatedObjectiveId": "m04-eo4",
+    "competencyIds": [
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Antes de pedirle al agente que reorganice a fondo el código del cálculo, git status muestra varios archivos modificados que todavía no confirmaste.",
+    "stem": "¿Qué haces primero?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Empezar: Git guarda los cambios aunque no estén en un commit",
+        "correct": false,
+        "feedback": "Lo que nunca se confirmó puede perderse sin remedio. Sin un commit previo no hay un punto seguro al que volver.",
+        "misconceptionId": "m04-mc40"
+      },
+      {
+        "id": "o2",
+        "text": "Confirmar el estado actual en un commit, para tener un punto seguro al que volver",
+        "correct": true,
+        "feedback": "Correcta. Lo confirmado casi siempre se recupera. Con la carpeta limpia y el estado en un commit, cualquier error del agente se puede deshacer."
+      },
+      {
+        "id": "o3",
+        "text": "Empezar y confiar en los checkpoints de la herramienta para volver atrás si algo sale mal en la sesión",
+        "correct": false,
+        "feedback": "Un checkpoint es de la sesión, caduca y no cubre todo lo que hace el agente. El punto de partida va en un commit.",
+        "misconceptionId": "m04-mc24"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l4#estados",
+    "sourceIds": [
+      "src-progit-undoing",
+      "src-progit-what-is-git"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l4-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l4",
+    "evaluatedObjectiveId": "m04-eo3",
+    "competencyIds": [
+      "C06",
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Un compañero pide subir la carpeta .venv/ al repositorio, para no tener que instalar nada cuando trabaje desde su computadora.",
+    "stem": "¿Qué le respondes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que no: el entorno virtual se reconstruye en cada máquina desde las dependencias",
+        "correct": true,
+        "feedback": "Correcta. El entorno virtual no se versiona y no funciona copiado a otra carpeta u otra máquina. Se vuelve a crear a partir del archivo de dependencias."
+      },
+      {
+        "id": "o2",
+        "text": "Que sí, porque así el proyecto funciona igual en todas las máquinas",
+        "correct": false,
+        "feedback": "Copiado a otra máquina, el entorno virtual no funciona. Lo que se versiona es la lista de dependencias para reconstruirlo.",
+        "misconceptionId": "m04-mc13"
+      },
+      {
+        "id": "o3",
+        "text": "Que sí, siempre que el archivo .env quede fuera del repositorio",
+        "correct": false,
+        "feedback": "Dejar fuera el secreto está bien, pero el entorno virtual tampoco se versiona. Se reconstruye desde las dependencias.",
+        "misconceptionId": "m04-mc13"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l3#entorno",
+    "sourceIds": [
+      "src-python-venv"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l4-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l4",
+    "evaluatedObjectiveId": "m04-eo3",
+    "competencyIds": [
+      "C06",
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Un agente propone guardar el token del CRM en una variable de entorno de la aplicación web del dashboard, que se ejecuta en el navegador de cada usuario.",
+    "stem": "¿Es una forma segura de guardarlo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Sí, porque una variable de entorno nunca forma parte del código",
+        "correct": false,
+        "feedback": "Lo que se entrega al navegador queda a la vista de cualquier usuario, venga de una variable de entorno o no. Ahí el token deja de ser secreto.",
+        "misconceptionId": "m04-mc12"
+      },
+      {
+        "id": "o2",
+        "text": "Sí, siempre que la variable tenga un nombre difícil de adivinar",
+        "correct": false,
+        "feedback": "El nombre no protege nada: el valor llega al navegador y cualquiera puede verlo. Un secreto no se entrega al cliente.",
+        "misconceptionId": "m04-mc12"
+      },
+      {
+        "id": "o3",
+        "text": "No: lo que se entrega al navegador deja de ser secreto",
+        "correct": true,
+        "feedback": "Correcta. En una aplicación de navegador, todo lo que se envía al cliente queda expuesto. El token tiene que quedarse del lado del servidor."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l3#variables",
+    "sourceIds": [
+      "src-vite-env",
+      "src-owasp-secrets-mgmt"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l5-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l5",
+    "evaluatedObjectiveId": "m04-eo5",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "Un traceback de Python termina con la línea KeyError: 'region'. Justo arriba aparecen tres pasos dentro de archivos de una biblioteca y, antes de ellos, pipeline_kpis.py, línea 42.",
+    "stem": "¿Por dónde empiezas a mirar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Por la primera línea del traceback, donde empieza el recorrido",
+        "correct": false,
+        "feedback": "La primera línea es el comienzo del recorrido, no lo que pasó. El traceback se lee de abajo hacia arriba.",
+        "misconceptionId": "m04-mc31"
+      },
+      {
+        "id": "o2",
+        "text": "Por pipeline_kpis.py, línea 42, buscando por qué falta la clave 'region'",
+        "correct": true,
+        "feedback": "Correcta. La última línea dice qué pasó: falta la clave 'region'. Subiendo, el primer archivo del proyecto es el mejor lugar para empezar."
+      },
+      {
+        "id": "o3",
+        "text": "Por el último archivo de la biblioteca, porque es donde se produjo el error",
+        "correct": false,
+        "feedback": "El error saltó en la biblioteca, pero lo más probable es que el dato le llegara mal desde el código del proyecto. Se empieza por el primer archivo propio.",
+        "misconceptionId": "m04-mc41"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l5#traceback",
+    "sourceIds": [
+      "src-python-errors"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l5-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l5",
+    "evaluatedObjectiveId": "m04-eo5",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Para que el script deje de fallar cuando el archivo de tipos de cambio llega vacío, el agente envolvió la lectura en un try con except Exception: pass.",
+    "stem": "¿Qué haces con ese cambio?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Aceptarlo, porque el script ya no falla",
+        "correct": false,
+        "feedback": "El script deja de fallar porque el error queda escondido, no corregido. Con tipos de cambio vacíos, las cifras salen mal sin aviso.",
+        "misconceptionId": "m04-mc33"
+      },
+      {
+        "id": "o2",
+        "text": "Aceptarlo, porque atrapar errores es la forma correcta de manejarlos en Python",
+        "correct": false,
+        "feedback": "Se recomienda atrapar lo específico y dejar que lo inesperado se vea. Un except general sin hacer nada es lo contrario.",
+        "misconceptionId": "m04-mc33"
+      },
+      {
+        "id": "o3",
+        "text": "Pedir cambios: que detecte el archivo vacío y se detenga con un mensaje claro",
+        "correct": true,
+        "feedback": "Correcta. Atrapar cualquier error sin hacer nada convierte un fallo visible en uno silencioso. Un archivo vacío es un caso concreto, que el código puede detectar y tratar por separado."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l5#capturar",
+    "sourceIds": [
+      "src-python-errors"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l5-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l5",
+    "evaluatedObjectiveId": "m04-eo5",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "El registro de una ejecución nocturna del cálculo tiene tres líneas WARNING, ninguna ERROR, y el programa terminó con código 0.",
+    "stem": "¿Qué concluyes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que terminó bien, aunque conviene revisar qué avisan los WARNING",
+        "correct": true,
+        "feedback": "Correcta. WARNING indica algo inesperado con el programa todavía funcionando, y el código 0 es éxito. Los avisos se leen, pero no son un fallo."
+      },
+      {
+        "id": "o2",
+        "text": "Que falló, porque un WARNING es un error del programa",
+        "correct": false,
+        "feedback": "WARNING no es un fallo: avisa de algo inesperado y el programa sigue. Un fallo sería un ERROR, una excepción o un código distinto de 0.",
+        "misconceptionId": "m04-mc34"
+      },
+      {
+        "id": "o3",
+        "text": "Que hay que volver a correrla, porque con WARNING el resultado no vale",
+        "correct": false,
+        "feedback": "Un WARNING pide revisar, no repetir. El código 0 dice que el programa terminó bien.",
+        "misconceptionId": "m04-mc34"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l5#niveles",
+    "sourceIds": [
+      "src-python-logging",
+      "src-python-sys"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l5-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l5",
+    "evaluatedObjectiveId": "m04-eo5",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "La rama protegida exige el check de pruebas. En la PR del agente aparece en verde, pero el detalle dice que ese trabajo se omitió.",
+    "stem": "¿Qué te dice ese check sobre el cambio?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que las pruebas pasaron con el cambio del agente",
+        "correct": false,
+        "feedback": "Un trabajo omitido cuenta como éxito sin haber corrido. Ese verde no dice nada sobre las pruebas.",
+        "misconceptionId": "m04-mc32"
+      },
+      {
+        "id": "o2",
+        "text": "Nada: un trabajo omitido cuenta como éxito sin haber corrido las pruebas",
+        "correct": true,
+        "feedback": "Correcta. En una rama protegida, un check omitido se toma como éxito. Para saber si el cambio funciona hay que ver pruebas que sí se hayan corrido."
+      },
+      {
+        "id": "o3",
+        "text": "Que falló, porque un check omitido bloquea la fusión",
+        "correct": false,
+        "feedback": "Al contrario: un trabajo omitido cuenta como éxito y no bloquea. Por eso puede pasar inadvertido.",
+        "misconceptionId": "m04-mc32"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l5#ci",
+    "sourceIds": [
+      "src-github-status-checks"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l5-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l5",
+    "evaluatedObjectiveId": "m04-eo4",
+    "competencyIds": [
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Un commit defectuoso ya está en la rama que comparten tres personas. Un compañero propone deshacerlo con git reset --hard y volver a enviar la rama.",
+    "stem": "¿Qué le respondes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que sí, porque así el commit desaparece del todo y la historia de la rama queda limpia para todos",
+        "correct": false,
+        "feedback": "Que desaparezca de la historia es justamente el problema: los demás ya lo tienen. reset reescribe la historia compartida.",
+        "misconceptionId": "m04-mc26"
+      },
+      {
+        "id": "o2",
+        "text": "Que no: con trabajo compartido se usa revert, que deshace sin reescribir la historia",
+        "correct": true,
+        "feedback": "Correcta. revert crea un commit nuevo que deshace el defectuoso. Los demás reciben la corrección sin que su historia cambie."
+      },
+      {
+        "id": "o3",
+        "text": "Que sí, siempre que avise a las tres personas antes de hacerlo",
+        "correct": false,
+        "feedback": "Avisar no evita los conflictos de reescribir una historia que otros tienen. revert resuelve lo mismo sin ese riesgo.",
+        "misconceptionId": "m04-mc26"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l4#deshacer",
+    "sourceIds": [
+      "src-git-reset-restore-revert",
+      "src-git-revert"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l5-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l5",
+    "evaluatedObjectiveId": "m04-eo4",
+    "competencyIds": [
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "Abriste un worktree nuevo para un experimento. Al correr el cálculo ahí, falla porque no encuentra la variable ALTIPLANO_CRM_TOKEN, que en tu carpeta principal funciona.",
+    "stem": "¿Qué pasó?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El worktree está dañado y hay que volver a crearlo",
+        "correct": false,
+        "feedback": "El worktree está bien: es una copia limpia, y por eso no trae los archivos ignorados. Volver a crearlo daría el mismo resultado.",
+        "misconceptionId": "m04-mc28"
+      },
+      {
+        "id": "o2",
+        "text": "La rama del worktree perdió el archivo .env al crearse",
+        "correct": false,
+        "feedback": ".env nunca estuvo en la rama, porque está ignorado. El worktree se crea desde la historia, que no lo contiene.",
+        "misconceptionId": "m04-mc28"
+      },
+      {
+        "id": "o3",
+        "text": "El worktree es una copia limpia y no trae archivos ignorados como .env",
+        "correct": true,
+        "feedback": "Correcta. Un worktree nuevo no trae los archivos ignorados ni las dependencias instaladas. Hay que preparar su entorno."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l4#worktree",
+    "sourceIds": [
+      "src-anthropic-cc-worktrees",
+      "src-openai-codex-worktrees"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l6-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l6",
+    "evaluatedObjectiveId": "m04-eo6",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Para que una prueba deje de fallar, el agente cambió en expected/kpis_correct.json el ponderado esperado del Norte por el valor que ahora calcula su versión.",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Aceptar, porque la prueba ya pasa",
+        "correct": false,
+        "feedback": "La prueba pasa porque se cambió lo que se espera, no porque el cálculo esté bien. Eso es mover la vara de medir.",
+        "misconceptionId": "m04-mc37"
+      },
+      {
+        "id": "o2",
+        "text": "Rechazar: cambia lo que se espera en lugar de corregir la causa",
+        "correct": true,
+        "feedback": "Correcta. El resultado esperado es la vara de medir. Ajustarlo al valor nuevo hace pasar la prueba aunque el cálculo esté mal."
+      },
+      {
+        "id": "o3",
+        "text": "Pedir que actualice también los demás valores esperados, para que todo cuadre",
+        "correct": false,
+        "feedback": "Eso extiende el mismo problema a más cifras. Lo que hay que corregir es el cálculo, no lo que se espera de él.",
+        "misconceptionId": "m04-mc37"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l6#lista",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l6-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l6",
+    "evaluatedObjectiveId": "m04-eo6",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El revisor automático del servicio de repositorios revisó la PR del agente y no dejó ningún comentario.",
+    "stem": "¿Qué concluyes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que igual hace falta una revisión humana, porque esos revisores no lo encuentran todo",
+        "correct": true,
+        "feedback": "Correcta. Su documentación advierte que no garantizan encontrar todos los problemas y que pueden equivocarse. Ayudan, pero no certifican."
+      },
+      {
+        "id": "o2",
+        "text": "Que el cambio está bien, porque el revisor lo revisó completo",
+        "correct": false,
+        "feedback": "Que no comente no prueba que no haya problemas. Estos revisores pueden pasar cosas por alto y equivocarse.",
+        "misconceptionId": "m04-mc36"
+      },
+      {
+        "id": "o3",
+        "text": "Que se puede aprobar sin más revisión siempre que, además, los checks de la PR estén en verde",
+        "correct": false,
+        "feedback": "Un check en verde y un revisor callado pueden convivir con un error que nadie miró. Falta la revisión humana del diff.",
+        "misconceptionId": "m04-mc36"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l6#automaticos",
+    "sourceIds": [
+      "src-github-copilot-code-review"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l6-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l6",
+    "evaluatedObjectiveId": "m04-eo6",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Le encargaste el cambio al agente, revisaste su PR y te parece bien. Nadie más la miró, y tienes permiso para fusionarla.",
+    "stem": "¿Qué conviene antes de fusionar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Aprobarla tú, porque conoces mejor que nadie lo que pediste",
+        "correct": false,
+        "feedback": "Conocer el encargo no reemplaza una segunda mirada. Quien encarga el cambio no debería ser el único que lo aprueba.",
+        "misconceptionId": "m04-mc38"
+      },
+      {
+        "id": "o2",
+        "text": "Pedirle al propio agente que la apruebe, ya que él la escribió",
+        "correct": false,
+        "feedback": "Quien escribió el cambio tampoco puede aprobar el suyo. El agente es el autor de la PR.",
+        "misconceptionId": "m04-mc38"
+      },
+      {
+        "id": "o3",
+        "text": "Que la apruebe otra persona, porque quien encarga no debería aprobar solo",
+        "correct": true,
+        "feedback": "Correcta. Separar a quien pide de quien aprueba es un control deliberado. En un flujo documentado, quien pidió el cambio no puede aprobarlo."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l6#controles",
+    "sourceIds": [
+      "src-github-cloud-agent-risks",
+      "src-github-reviewing-prs"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l6-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l6",
+    "evaluatedObjectiveId": "m04-eo6",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "La PR del agente modifica el archivo de dependencias. La vista resumida del servicio muestra un solo paquete actualizado.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Confiar en la vista resumida, que ya muestra lo que cambió",
+        "correct": false,
+        "feedback": "La vista resumida puede omitir cambios. La guía pide mirar también el diff completo del archivo.",
+        "misconceptionId": "m04-mc39"
+      },
+      {
+        "id": "o2",
+        "text": "Revisar también el diff completo del archivo, porque el resumen puede omitir cambios",
+        "correct": true,
+        "feedback": "Correcta. La vista resumida ayuda, pero no muestra todo. En el diff completo se ve cada línea que cambió, incluidas dependencias nuevas."
+      },
+      {
+        "id": "o3",
+        "text": "Pasarla por alto, porque el archivo de dependencias no es código y no cambia lo que hace el cálculo",
+        "correct": false,
+        "feedback": "Una dependencia mete código ajeno en el proyecto. Un cambio en ese archivo merece tanta atención como uno en el código.",
+        "misconceptionId": "m04-mc14"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l6#pr",
+    "sourceIds": [
+      "src-github-reviewing-prs"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l6-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l6",
+    "evaluatedObjectiveId": "m04-eo5",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "En la integración continua, un paso corre la reconciliación del caso y termina con código 2. Su documentación dice: 0 si todo coincide, 1 si alguna cifra difiere y 2 si faltan datos o un supuesto.",
+    "stem": "¿Qué indica ese 2?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que terminó bien, con dos avisos en el registro",
+        "correct": false,
+        "feedback": "Cualquier código distinto de 0 es un fallo. El número no cuenta avisos: su significado lo define cada programa.",
+        "misconceptionId": "m04-mc42"
+      },
+      {
+        "id": "o2",
+        "text": "Que dos cifras no coinciden con lo esperado",
+        "correct": false,
+        "feedback": "El código no cuenta cifras. En este script, las diferencias de cifras dan 1; el 2 indica otra cosa.",
+        "misconceptionId": "m04-mc42"
+      },
+      {
+        "id": "o3",
+        "text": "Que falló porque faltan datos o un supuesto, no por una diferencia de cifras",
+        "correct": true,
+        "feedback": "Correcta. Un código distinto de 0 es fallo, y este script usa el 2 para datos o supuestos faltantes. Lo siguiente es buscar la línea ERROR."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l5#codigo-salida",
+    "sourceIds": [
+      "src-python-sys"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-l6-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m04",
+    "lessonId": "m04-l6",
+    "evaluatedObjectiveId": "m04-eo5",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Vas a pedirle al agente que corrija la diferencia de 58 000 del Sur que mostró la reconciliación.",
+    "stem": "¿Qué le das junto con el encargo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El comando de la reconciliación y la línea FAIL completa, y le pides la causa",
+        "correct": true,
+        "feedback": "Correcta. Con el comando puede reproducir el fallo, y con la línea completa sabe qué buscar. Pedir la causa evita que solo haga desaparecer el síntoma."
+      },
+      {
+        "id": "o2",
+        "text": "Solo la indicación «arregla la diferencia del Sur»",
+        "correct": false,
+        "feedback": "Sin el comando ni el error completo, el agente tiene que adivinar. Es más probable que ataque el síntoma.",
+        "misconceptionId": "m04-mc43"
+      },
+      {
+        "id": "o3",
+        "text": "Permiso para subir la tolerancia si no encuentra otra solución",
+        "correct": false,
+        "feedback": "Subir la tolerancia hace pasar el check sin corregir nada. Eso es cambiar la vara de medir.",
+        "misconceptionId": "m04-mc37"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l5#reproducir",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-anthropic-cc-workflows"
+    ],
+    "status": "draft"
   }
 ]

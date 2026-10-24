@@ -209,5 +209,192 @@
     "sourceIds": [
       "src-yaml-spec-122"
     ]
+  },
+  {
+    "id": "m04-mc24",
+    "courseId": "m04",
+    "description": "El checkpoint de la herramienta equivale a un commit.",
+    "whyWrong": "Un checkpoint es un punto de restauración de la sesión: no se comparte, caduca y no cubre todo lo que hizo el agente; no reemplaza al control de versiones.",
+    "sourceIds": [
+      "src-anthropic-cc-checkpointing",
+      "src-vscode-copilot-checkpoints"
+    ]
+  },
+  {
+    "id": "m04-mc25",
+    "courseId": "m04",
+    "description": "Restaurar un checkpoint deshace también lo que el agente hizo con comandos de terminal o fuera de la carpeta.",
+    "whyWrong": "Los checkpoints pueden no cubrir comandos de terminal, procesos externos, peticiones de red ni despliegues.",
+    "sourceIds": [
+      "src-anthropic-cc-checkpointing",
+      "src-vscode-copilot-checkpoints"
+    ]
+  },
+  {
+    "id": "m04-mc26",
+    "courseId": "m04",
+    "description": "Para deshacer un commit que ya se compartió, lo correcto es reset --hard.",
+    "whyWrong": "reset reescribe la historia que otras personas ya tienen; para trabajo compartido se usa revert, que deshace con un commit nuevo.",
+    "sourceIds": [
+      "src-git-reset-restore-revert",
+      "src-git-revert"
+    ]
+  },
+  {
+    "id": "m04-mc27",
+    "courseId": "m04",
+    "description": "git restore sobre un archivo es inofensivo.",
+    "whyWrong": "Sin --staged, reemplaza el archivo de la carpeta de trabajo y se pierden sus cambios sin confirmar.",
+    "sourceIds": [
+      "src-progit-undoing"
+    ]
+  },
+  {
+    "id": "m04-mc28",
+    "courseId": "m04",
+    "description": "Un worktree es una copia completa del proyecto, con su .env y sus dependencias instaladas.",
+    "whyWrong": "Un worktree nuevo es una copia limpia: no trae los archivos ignorados ni lo instalado, y hay que preparar su entorno.",
+    "sourceIds": [
+      "src-anthropic-cc-worktrees",
+      "src-openai-codex-worktrees"
+    ]
+  },
+  {
+    "id": "m04-mc29",
+    "courseId": "m04",
+    "description": "Una rama y un worktree son lo mismo.",
+    "whyWrong": "La rama es un puntero a un commit; el worktree es otra carpeta de trabajo, con su propio HEAD e índice, que comparte la historia.",
+    "sourceIds": [
+      "src-progit-branches",
+      "src-git-worktree"
+    ]
+  },
+  {
+    "id": "m04-mc30",
+    "courseId": "m04",
+    "description": "Si un commit ya no aparece en el historial, se perdió para siempre.",
+    "whyWrong": "El reflog local registra los movimientos de HEAD y de las ramas, y, por defecto, conserva las entradas 90 días.",
+    "sourceIds": [
+      "src-git-reflog"
+    ]
+  },
+  {
+    "id": "m04-mc31",
+    "courseId": "m04",
+    "description": "La causa de un error está en la primera línea del traceback.",
+    "whyWrong": "La última línea dice qué pasó; las de arriba muestran el recorrido hasta el error.",
+    "sourceIds": [
+      "src-python-errors"
+    ]
+  },
+  {
+    "id": "m04-mc32",
+    "courseId": "m04",
+    "description": "Si el check requerido está en verde, el cambio se probó.",
+    "whyWrong": "Un trabajo omitido cuenta como éxito, y un check solo cubre los casos que contiene.",
+    "sourceIds": [
+      "src-github-status-checks"
+    ]
+  },
+  {
+    "id": "m04-mc33",
+    "courseId": "m04",
+    "description": "Envolver el código en un try con un except general arregla el error.",
+    "whyWrong": "No lo arregla, lo esconde. La guía pide atrapar lo específico y dejar que lo inesperado se vea.",
+    "sourceIds": [
+      "src-python-errors"
+    ]
+  },
+  {
+    "id": "m04-mc34",
+    "courseId": "m04",
+    "description": "Un WARNING en el registro significa que el proceso falló.",
+    "whyWrong": "WARNING avisa de algo inesperado con el programa todavía funcionando; un fallo es un ERROR o una excepción.",
+    "sourceIds": [
+      "src-python-logging"
+    ]
+  },
+  {
+    "id": "m04-mc35",
+    "courseId": "m04",
+    "description": "Si el agente dice que las pruebas pasan, el cambio se puede aceptar.",
+    "whyWrong": "Hay que pedir el comando que corrió y su salida; una afirmación no es evidencia.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m04-mc36",
+    "courseId": "m04",
+    "description": "Si la revisión automática no encontró nada, el cambio está bien.",
+    "whyWrong": "Los revisores automáticos no garantizan encontrar todos los problemas y pueden equivocarse; se suman a una revisión humana.",
+    "sourceIds": [
+      "src-github-copilot-code-review"
+    ]
+  },
+  {
+    "id": "m04-mc37",
+    "courseId": "m04",
+    "description": "Ajustar la tolerancia o el resultado esperado es una corrección válida si el check pasa.",
+    "whyWrong": "Cambia la vara con la que se mide, no la causa de la diferencia.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m04-mc38",
+    "courseId": "m04",
+    "description": "Quien le pidió el cambio al agente puede aprobar la PR sin nadie más.",
+    "whyWrong": "Quien encarga no debería ser el único que aprueba; en un flujo documentado, quien pidió el cambio no puede aprobarlo.",
+    "sourceIds": [
+      "src-github-cloud-agent-risks",
+      "src-github-reviewing-prs"
+    ]
+  },
+  {
+    "id": "m04-mc39",
+    "courseId": "m04",
+    "description": "Basta con mirar la vista resumida de un cambio; el diff completo es para programadores.",
+    "whyWrong": "La vista resumida puede omitir cambios; la guía pide mirar también el diff completo del archivo.",
+    "sourceIds": [
+      "src-github-reviewing-prs"
+    ]
+  },
+  {
+    "id": "m04-mc40",
+    "courseId": "m04",
+    "description": "Git guarda los cambios aunque no se confirmen en un commit.",
+    "whyWrong": "Lo que nunca se confirmó puede perderse sin remedio; solo lo confirmado casi siempre se recupera.",
+    "sourceIds": [
+      "src-progit-undoing"
+    ]
+  },
+  {
+    "id": "m04-mc41",
+    "courseId": "m04",
+    "description": "El error está en el archivo de biblioteca donde termina el traceback.",
+    "whyWrong": "La última línea dice qué pasó, pero el mejor lugar para empezar suele ser el primer archivo del proyecto subiendo desde abajo.",
+    "sourceIds": [
+      "src-python-errors"
+    ]
+  },
+  {
+    "id": "m04-mc42",
+    "courseId": "m04",
+    "description": "El código de salida indica cuántos avisos o errores hubo.",
+    "whyWrong": "El código de salida dice si el programa terminó bien (0) o no (cualquier otro valor); cada programa documenta qué significa cada número.",
+    "sourceIds": [
+      "src-python-sys"
+    ]
+  },
+  {
+    "id": "m04-mc43",
+    "courseId": "m04",
+    "description": "Para que el agente corrija un fallo, basta con describirle el síntoma.",
+    "whyWrong": "Conviene darle el comando que reproduce el fallo y el error completo, y pedirle la causa.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-anthropic-cc-workflows"
+    ]
   }
 ]

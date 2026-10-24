@@ -1,27 +1,27 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 y M03 completos y revisados; M04 en preparación (3 de 6 lecciones). · **Actualizado:** 2026-10-23 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 y M03 completos y revisados; M04 en preparación (6 de 6 lecciones; faltan examen y laboratorio). · **Actualizado:** 2026-10-23 por Claude Code
 
 ## Siguiente acción
 
-1. **Claude:** M04 lecciones 4 a 6 (Git y recuperación, errores y CI, revisión de cambios); luego T-031 para Codex.
-2. **Codex:** sin ticket abierto hasta T-031.
+1. **Codex:** T-031, revisión de M04 lecciones 4 a 6 (18 preguntas nuevas, 3 fichas).
+2. **Claude:** mientras tanto, el banco de examen de M04, su laboratorio como caso y su práctica.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-23)
 
-**≈ 54 % de la V1** (rango razonable: 51–57 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 55 % de la V1** (rango razonable: 52–58 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 88 % (simplificada a opción múltiple con D-024; faltan el hosting y la instalación real en dispositivos) | 13,2 |
-| 3 · Nueve manuales restantes | 40 % | 29 % (M01 y M03 completos y revisados; M04 con 3 de 6 lecciones) | 11,6 |
+| 3 · Nueve manuales restantes | 40 % | 31 % (M01 y M03 completos y revisados; M04 con sus 6 lecciones, sin examen ni laboratorio) | 12,4 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 54 %** |
+| **Total** | 100 % | | **≈ 55 %** |
 
 ## Tickets
 
@@ -57,11 +57,13 @@
 | [T-028](coordinacion/tickets/T-028-codex-revision-m03-l4-l6.md) | Codex | Revisión de M03: lecciones 4 a 6, preguntas y fichas | cerrado |
 | [T-029](coordinacion/tickets/T-029-codex-revision-m03-examen-laboratorio.md) | Codex | Revisión de M03: banco de examen, laboratorio como caso y práctica | cerrado |
 | [T-030](coordinacion/tickets/T-030-codex-revision-m04-l1-l3.md) | Codex | Revisión de M04: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
+| [T-031](coordinacion/tickets/T-031-codex-revision-m04-l4-l6.md) | Codex | Revisión de M04: lecciones 4 a 6, preguntas y fichas | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
+| Codex (T-031) | `investigacion/codex-revision-m04-l4-l6.md` |
 | Claude | `content/courses/m04/**` |
 
 ## Decisiones recientes
@@ -69,6 +71,19 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-23 · Claude Code — M04, lecciones 4 a 6
+**Lecciones:**
+- L4: Git para aislar, comparar y recuperar, con checkpoints y el reflog en un Aparte.
+- L5: errores, registros y checks.
+- L6: revisar un cambio antes de aceptarlo.
+
+**Preguntas, conceptos y fichas:**
+- 18 preguntas nuevas: el banco de comprobaciones queda en 34;
+- 20 conceptos erróneos;
+- 3 fichas (worktrees, checkpoints y revisión con agentes).
+
+Las lecciones pasaron por el revisor de texto; sus dos dudas de fuente van a T-031. Abierto T-031. `npm test` 148/148 y e2e 76/76. Avance: ≈ 55 %.
 
 ### 2026-10-23 · Claude Code — revisión de T-030
 - **T030-01:** la ficha de formatos precisa cuándo `settings.local.json` queda fuera de Git.
