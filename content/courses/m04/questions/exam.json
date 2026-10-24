@@ -1,0 +1,1870 @@
+[
+  {
+    "id": "m04-f01-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m04-f01",
+    "variant": "a",
+    "scenario": "La función es_grande(monto) tiene una sola condición: if monto > 100000: return \"grande\". No tiene else ni otro return. Entra un monto de 100 000.",
+    "stem": "¿Qué devuelve la función?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "\"grande\", porque 100 000 llega al límite",
+        "correct": false,
+        "feedback": "Con > el límite queda fuera, porque 100 000 > 100 000 es falso. La condición no se cumple y ese return no se ejecuta.",
+        "misconceptionId": "m04-mc22"
+      },
+      {
+        "id": "o2",
+        "text": "None: no supera el límite y no hay return",
+        "correct": true,
+        "feedback": "Correcta. 100 000 no es mayor que 100 000, así que la condición es falsa. La función llega al final sin pasar por un return y devuelve None."
+      },
+      {
+        "id": "o3",
+        "text": "Un texto vacío, porque la condición no se cumplió",
+        "correct": false,
+        "feedback": "Una función que termina sin return no devuelve un texto vacío. Devuelve None, el valor con el que Python representa «nada».",
+        "misconceptionId": "m04-mc02"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l1#caja",
+    "sourceIds": [
+      "src-python-controlflow"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f01-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m04-f01",
+    "variant": "b",
+    "scenario": "La función dias_vencida(cierre, snapshot) devuelve 0 si cierre >= snapshot y, si no, los días de atraso. El snapshot es del 2026-10-19 y entra un cierre del 2026-10-19.",
+    "stem": "¿Qué devuelve la función?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "0, porque con >= el mismo día no cuenta como atraso",
+        "correct": true,
+        "feedback": "Correcta. \"2026-10-19\" >= \"2026-10-19\" es verdadero, así que la función devuelve 0. Con >=, el límite queda incluido en la primera rama."
+      },
+      {
+        "id": "o2",
+        "text": "1, porque el mismo día ya cuenta como un día de atraso",
+        "correct": false,
+        "feedback": "Con >=, la igualdad cumple la primera condición y la función devuelve 0. La diferencia entre > y >= está solo en qué pasa con el valor exacto del límite.",
+        "misconceptionId": "m04-mc22"
+      },
+      {
+        "id": "o3",
+        "text": "Un error, porque las dos fechas son iguales",
+        "correct": false,
+        "feedback": "Comparar dos valores iguales no da error, sino verdadero o falso. Aquí da verdadero y la función devuelve 0.",
+        "misconceptionId": "m04-mc01"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l1#frontera",
+    "sourceIds": [
+      "src-python-controlflow"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f01-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "family": "m04-f01",
+    "variant": "c",
+    "scenario": "La función neto(monto, descuento_pct=5) devuelve monto * (100 - descuento_pct) / 100. Un agente cambió el valor por defecto a 10. El reporte la llama como neto(200000), y esa línea no cambió.",
+    "stem": "¿Qué devuelve la función?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "190 000, porque la llamada del reporte no cambió",
+        "correct": false,
+        "feedback": "La llamada no cambió, pero como no pasa el descuento, usa el valor por defecto, que ahora es 10. Un cambio en el valor por defecto afecta a todas las llamadas que lo omiten.",
+        "misconceptionId": "m04-mc44"
+      },
+      {
+        "id": "o2",
+        "text": "Un error, porque a la llamada le falta el segundo argumento",
+        "correct": false,
+        "feedback": "Un parámetro con valor por defecto se puede omitir sin que haya error. Cuando se omite, la función usa ese valor.",
+        "misconceptionId": "m04-mc01"
+      },
+      {
+        "id": "o3",
+        "text": "180 000: usa el nuevo descuento por defecto",
+        "correct": true,
+        "feedback": "Correcta. Sin el segundo argumento, la función toma el valor por defecto, que ahora es 10. El resultado cambia aunque la llamada no aparezca en el diff."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l1#otras-salidas",
+    "sourceIds": [
+      "src-python-controlflow"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f02-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m04-f02",
+    "variant": "a",
+    "scenario": "La consulta es SELECT count(*) FROM opportunities WHERE expected_close_date = NULL. En la tabla hay 3 oportunidades sin fecha de cierre.",
+    "stem": "¿Qué devuelve la consulta?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "3, las oportunidades que no tienen fecha",
+        "correct": false,
+        "feedback": "Comparar con = NULL nunca da verdadero, así que ninguna fila pasa el filtro. Para buscar valores vacíos se usa IS NULL.",
+        "misconceptionId": "m04-mc04"
+      },
+      {
+        "id": "o2",
+        "text": "0, porque comparar con = NULL nunca da verdadero",
+        "correct": true,
+        "feedback": "Correcta. Cualquier comparación con NULL da «desconocido», y WHERE solo deja pasar las filas en las que la condición es verdadera. Para contar las tres oportunidades sin fecha habría que usar IS NULL."
+      },
+      {
+        "id": "o3",
+        "text": "Un error, porque NULL no se puede escribir en una consulta",
+        "correct": false,
+        "feedback": "La consulta es válida y corre, solo que no encuentra ninguna fila. El problema es de lógica, no de sintaxis.",
+        "misconceptionId": "m04-mc04"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l2#nulos",
+    "sourceIds": [
+      "src-postgres-comparison"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f02-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m04-f02",
+    "variant": "b",
+    "scenario": "La consulta es SELECT avg(amount) FROM opportunities WHERE region = 'Centro'. Para simplificar, el Centro tiene tres filas: 100 000, 200 000 y una con el monto vacío.",
+    "stem": "¿Qué devuelve la consulta?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "150 000, porque avg ignora el monto vacío",
+        "correct": true,
+        "feedback": "Correcta. avg promedia solo las filas que tienen valor, (100 000 + 200 000) / 2. La fila vacía no entra en la cuenta."
+      },
+      {
+        "id": "o2",
+        "text": "100 000, porque el monto vacío cuenta como cero",
+        "correct": false,
+        "feedback": "avg no convierte el vacío en cero, sino que lo ignora. Si lo contara como cero, el promedio sería 100 000, pero no es lo que hace.",
+        "misconceptionId": "m04-mc45"
+      },
+      {
+        "id": "o3",
+        "text": "NULL, porque basta un monto vacío para anular el promedio",
+        "correct": false,
+        "feedback": "Un valor vacío no anula el promedio, porque avg lo ignora. El resultado solo es NULL si no queda ninguna fila con valor.",
+        "misconceptionId": "m04-mc46"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l2#nulos",
+    "sourceIds": [
+      "src-postgres-aggregate"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f02-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "family": "m04-f02",
+    "variant": "c",
+    "scenario": "La consulta es SELECT region, coalesce(sum(amount), 0) AS ganado FROM opportunities WHERE stage = 'Ganada' GROUP BY region. El Norte no tiene ninguna oportunidad ganada.",
+    "stem": "¿Qué devuelve la consulta?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Una fila del Norte con 0, gracias a coalesce",
+        "correct": false,
+        "feedback": "coalesce reemplaza un valor vacío dentro de una fila que existe. Como WHERE dejó al Norte sin filas, no hay ningún grupo del Norte al que aplicarlo.",
+        "misconceptionId": "m04-mc47"
+      },
+      {
+        "id": "o2",
+        "text": "Una fila del Norte con NULL, porque sum de cero filas da NULL",
+        "correct": false,
+        "feedback": "Eso pasaría si hubiera un grupo del Norte con el monto vacío. Aquí no hay grupo, porque WHERE quitó todas sus filas antes de agrupar.",
+        "misconceptionId": "m04-mc06"
+      },
+      {
+        "id": "o3",
+        "text": "Solo las regiones con ganadas; el Norte no aparece",
+        "correct": true,
+        "feedback": "Correcta. WHERE filtra antes de agrupar, y el Norte se queda sin filas. Sin filas no hay grupo, y sin grupo coalesce no tiene nada que reemplazar."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l2#sql-filtrar",
+    "sourceIds": [
+      "src-postgres-tutorial-agg",
+      "src-postgres-aggregate"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f03-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "family": "m04-f03",
+    "variant": "a",
+    "scenario": "Las vencidas del Sur pasaron de 2 a 3. En el diff cambiaron la regla de vencidas, de close_date < snapshot_date a close_date <= snapshot_date, y el título del reporte. En los datos, una oportunidad abierta del Sur cierra el mismo día del snapshot.",
+    "stem": "¿Qué línea explica la cifra?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La regla de vencidas, que ahora incluye ese día",
+        "correct": true,
+        "feedback": "Correcta. Con <=, la oportunidad que cierra el mismo día del snapshot pasa a contar como vencida. Es justo la que lleva el conteo de 2 a 3."
+      },
+      {
+        "id": "o2",
+        "text": "El título del reporte, que cambió junto con las cifras",
+        "correct": false,
+        "feedback": "Un título cambia lo que se muestra, no lo que se calcula. La cifra se explica por el cambio en la regla de vencidas.",
+        "misconceptionId": "m04-mc48"
+      },
+      {
+        "id": "o3",
+        "text": "Ninguna: el conteo varía de una ejecución a otra",
+        "correct": false,
+        "feedback": "El cálculo es determinista, es decir, con los mismos datos da siempre el mismo resultado. Si la cifra cambió, la causa está en el diff.",
+        "misconceptionId": "m04-mc01"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l1#frontera",
+    "sourceIds": [
+      "src-python-controlflow"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f03-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "family": "m04-f03",
+    "variant": "b",
+    "scenario": "La cobertura del Norte cambió, pero el pipeline abierto y el ponderado del Norte no. En el diff hay tres cambios: la cuota restante pasó de quota - won a quota + won, el orden de las columnas de un CSV de salida y un comentario.",
+    "stem": "¿Qué línea explica la cifra?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El orden de las columnas del CSV de salida",
+        "correct": false,
+        "feedback": "Reordenar columnas cambia cómo se presentan los datos, no las cifras. La cobertura depende de la cuota restante, y esa sí cambió.",
+        "misconceptionId": "m04-mc48"
+      },
+      {
+        "id": "o2",
+        "text": "La cuota restante, que ahora suma lo ganado",
+        "correct": true,
+        "feedback": "Correcta. La cobertura divide el pipeline por la cuota restante. Si el pipeline no se movió, el cambio tiene que estar en el denominador."
+      },
+      {
+        "id": "o3",
+        "text": "El comentario, que quedó justo al lado de la fórmula",
+        "correct": false,
+        "feedback": "Python ignora los comentarios al ejecutar, así que no pueden mover una cifra. La cobertura cambió por el signo de la cuota restante.",
+        "misconceptionId": "m04-mc49"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l1#caja",
+    "sourceIds": [
+      "src-python-controlflow"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f03-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m04-f03",
+    "variant": "c",
+    "scenario": "El pipeline del Norte sale 35 000 por encima del esperado. El agente no tocó el código, pero en el archivo de supuestos cambió duplicate_policy de latest_last_activity a highest_amount. OPP-1012 aparece dos veces: 125 000 y 90 000, esta con la actividad más reciente.",
+    "stem": "¿Qué línea explica la cifra?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguna línea: si el código no cambió, el problema está en los datos",
+        "correct": false,
+        "feedback": "Parte del comportamiento lo decide la configuración, no el código. Al cambiar la política de duplicados cambia qué fila se conserva, sin tocar una sola línea del cálculo.",
+        "misconceptionId": "m04-mc17"
+      },
+      {
+        "id": "o2",
+        "text": "La política de duplicados: ahora queda la fila de 125 000",
+        "correct": true,
+        "feedback": "Correcta. Con highest_amount se conserva la fila de 125 000 en lugar de la de 90 000, que era la de actividad más reciente. La diferencia es exactamente 35 000."
+      },
+      {
+        "id": "o3",
+        "text": "Un JOIN que suma las dos filas de OPP-1012",
+        "correct": false,
+        "feedback": "Si se sumaran las dos filas, la diferencia sería de 125 000, no de 35 000. La cifra coincide con quedarse con la fila más alta.",
+        "misconceptionId": "m04-mc18"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l2#json",
+    "sourceIds": [
+      "src-ietf-rfc8259"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f04-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo2",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "family": "m04-f04",
+    "variant": "a",
+    "scenario": "El agente agregó una política al archivo de supuestos, en JSON, y dejó el final así: \"unknown_stage_policy\": \"exclude_and_report\", } con una coma antes de la llave de cierre.",
+    "stem": "¿Qué problema tiene el archivo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La coma final, que JSON no admite",
+        "correct": true,
+        "feedback": "Correcta. La gramática de JSON no admite una coma después del último elemento. Un lector estricto no puede leer el archivo."
+      },
+      {
+        "id": "o2",
+        "text": "Ninguno: JSON tolera una coma después del último elemento",
+        "correct": false,
+        "feedback": "JSON es estricto y la coma final lo invalida. Otros formatos la toleran, pero JSON no.",
+        "misconceptionId": "m04-mc50"
+      },
+      {
+        "id": "o3",
+        "text": "Las comillas dobles, porque JSON pide comillas simples",
+        "correct": false,
+        "feedback": "Es al revés, porque en JSON los textos van entre comillas dobles. El problema de este archivo es la coma final.",
+        "misconceptionId": "m04-mc50"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l2#json",
+    "sourceIds": [
+      "src-ietf-rfc8259"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f04-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo2",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "family": "m04-f04",
+    "variant": "b",
+    "scenario": "En el pyproject.toml, el agente escribió requires-python = >=3.11, sin comillas alrededor del valor.",
+    "stem": "¿Qué problema tiene el archivo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguno: TOML acepta textos sin comillas",
+        "correct": false,
+        "feedback": "En TOML, un texto va entre comillas. Sin ellas, >=3.11 no es un valor válido.",
+        "misconceptionId": "m04-mc51"
+      },
+      {
+        "id": "o2",
+        "text": "Falta poner el texto entre comillas",
+        "correct": true,
+        "feedback": "Correcta. En TOML los textos van entre comillas, como en requires-python = \">=3.11\". Sin ellas, el archivo no es válido."
+      },
+      {
+        "id": "o3",
+        "text": "TOML no admite el signo >= en ningún valor",
+        "correct": false,
+        "feedback": "El signo >= puede ir dentro de un texto sin problema. Lo que falta son las comillas que lo marcan como texto.",
+        "misconceptionId": "m04-mc51"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l2#toml",
+    "sourceIds": [
+      "src-toml-v1"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f04-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo2",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m04-f04",
+    "variant": "c",
+    "scenario": "El archivo de supuestos quedó con dos líneas \"duplicate_policy\": la primera dice latest_last_activity y otra, más abajo, highest_amount. El cálculo lo lee sin dar error.",
+    "stem": "¿Qué problema tiene el archivo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguno: en JSON, cuando un nombre se repite, siempre vale el último",
+        "correct": false,
+        "feedback": "La norma de JSON recomienda que los nombres no se repitan, justamente porque, si se repiten, cada lector puede quedarse con un valor distinto. No hay una regla fija que diga cuál gana.",
+        "misconceptionId": "m04-mc52"
+      },
+      {
+        "id": "o2",
+        "text": "Ninguno, porque el lector toma el primero, que es el correcto",
+        "correct": false,
+        "feedback": "Algunos lectores toman el primero y otros el último. Que hoy funcione no garantiza que con otro lector se obtenga el mismo resultado.",
+        "misconceptionId": "m04-mc52"
+      },
+      {
+        "id": "o3",
+        "text": "El nombre repetido: cada lector puede quedarse con un valor distinto",
+        "correct": true,
+        "feedback": "Correcta. Los nombres de un objeto JSON deberían ser únicos. Con dos valores, la política que se aplica depende del lector, y las cifras pueden cambiar sin aviso."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l2#json",
+    "sourceIds": [
+      "src-ietf-rfc8259"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f05-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo2",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "family": "m04-f05",
+    "variant": "a",
+    "scenario": "En el archivo de supuestos, el agente cambió \"reporting_currency\": \"USD\" por \"EUR\". El cálculo solo admite USD como moneda de reporte y lo dice en su documentación.",
+    "stem": "¿Qué efecto tiene el cambio?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Las cifras pasan a calcularse en euros",
+        "correct": false,
+        "feedback": "El nombre del valor lo sugiere, pero es el programa el que decide qué hace con él. Este solo admite USD y no convierte nada.",
+        "misconceptionId": "m04-mc53"
+      },
+      {
+        "id": "o2",
+        "text": "Ninguno, porque el código del cálculo no cambió",
+        "correct": false,
+        "feedback": "La configuración decide parte del comportamiento, y aquí detiene el cálculo. Para cambiar lo que pasa no hace falta tocar el código.",
+        "misconceptionId": "m04-mc17"
+      },
+      {
+        "id": "o3",
+        "text": "El cálculo se detiene, porque solo admite USD",
+        "correct": true,
+        "feedback": "Correcta. El valor no convierte nada, porque el programa lo rechaza. Un valor de configuración hace lo que el programa decide, no lo que sugiere su nombre."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l2#json",
+    "sourceIds": [
+      "src-12factor-config"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f05-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo2",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "family": "m04-f05",
+    "variant": "b",
+    "scenario": "En el dashboard, escrito en TypeScript, el agente cambió amount: number por amount: string en una interface. El código que suma los montos no cambió.",
+    "stem": "¿Qué efecto tiene el cambio?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El compilador avisará antes de ejecutar",
+        "correct": true,
+        "feedback": "Correcta. TypeScript revisa los tipos antes de ejecutar y después los borra. El aviso aparece al compilar, no mientras corre el programa."
+      },
+      {
+        "id": "o2",
+        "text": "Los montos que lleguen como texto se rechazarán mientras el programa corre",
+        "correct": false,
+        "feedback": "Los tipos de TypeScript no validan datos durante la ejecución, porque se borran al compilar. El aviso llega antes, cuando el compilador revisa el código.",
+        "misconceptionId": "m04-mc09"
+      },
+      {
+        "id": "o3",
+        "text": "Ninguno: las anotaciones de tipo son comentarios para quien lee",
+        "correct": false,
+        "feedback": "Es cierto que no validan nada durante la ejecución. Pero el compilador sí las revisa y avisa cuando un uso no coincide con el tipo.",
+        "misconceptionId": "m04-mc54"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l2#typescript",
+    "sourceIds": [
+      "src-ts-handbook-from-scratch"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f05-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo2",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m04-f05",
+    "variant": "c",
+    "scenario": "En el SKILL.md de la skill de reconciliación, el agente cambió el campo name de reconciliacion-semanal a «Reconciliación Semanal», sin cambiar el nombre de la carpeta.",
+    "stem": "¿Qué efecto tiene el cambio?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Solo cambia cómo se muestra el nombre de la skill",
+        "correct": false,
+        "feedback": "El nombre de una skill tiene reglas de formato: minúsculas, dígitos y guiones, y tiene que coincidir con el de la carpeta. No es solo una etiqueta.",
+        "misconceptionId": "m04-mc55"
+      },
+      {
+        "id": "o2",
+        "text": "Deja de cumplir el formato y no coincide con la carpeta",
+        "correct": true,
+        "feedback": "Correcta. El formato pide un nombre en minúsculas, con dígitos y guiones, igual al de la carpeta. Con mayúsculas, tildes y espacios, la skill deja de ser válida."
+      },
+      {
+        "id": "o3",
+        "text": "La skill se activa con más consultas, porque el nombre es más claro",
+        "correct": false,
+        "feedback": "Que la skill se active depende de su descripción, no de cómo se escribe el nombre. Y este nombre, además, ya no cumple el formato.",
+        "misconceptionId": "m04-mc55"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l2#yaml",
+    "sourceIds": [
+      "src-agentskills-spec"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f06-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo3",
+    "competencyIds": [
+      "C06",
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m04-f06",
+    "variant": "a",
+    "scenario": "En el repositorio aparece una carpeta __pycache__/ con archivos .pyc que Python genera solo al ejecutar el código.",
+    "stem": "¿Cómo se trata ese elemento en el repositorio?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Se versiona, porque es parte del código del proyecto",
+        "correct": false,
+        "feedback": "Nadie escribió esos archivos, porque Python los genera al ejecutar el código. Si se borran, se vuelven a crear solos.",
+        "misconceptionId": "m04-mc56"
+      },
+      {
+        "id": "o2",
+        "text": "Se ignora: es un resultado que se vuelve a generar",
+        "correct": true,
+        "feedback": "Correcta. Lo que se genera al ejecutar no se versiona. Se agrega a .gitignore y cada máquina lo crea al correr el código."
+      },
+      {
+        "id": "o3",
+        "text": "Se versiona, para que el código corra más rápido en otra máquina",
+        "correct": false,
+        "feedback": "Lo generado depende de cada máquina y se vuelve a crear solo. Versionarlo no ayuda a otra máquina y agrega ruido al historial.",
+        "misconceptionId": "m04-mc13"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l3#arbol",
+    "sourceIds": [
+      "src-git-gitignore"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f06-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo3",
+    "competencyIds": [
+      "C06",
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m04-f06",
+    "variant": "b",
+    "scenario": "El archivo data/fx_rates.csv tiene los tipos de cambio sintéticos que usa el cálculo. Las pruebas lo necesitan para dar siempre el mismo resultado.",
+    "stem": "¿Cómo se trata ese elemento en el repositorio?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Se versiona: las pruebas lo necesitan",
+        "correct": true,
+        "feedback": "Correcta. Los datos sintéticos de entrada forman parte del proyecto. Versionarlos permite que las pruebas den siempre el mismo resultado."
+      },
+      {
+        "id": "o2",
+        "text": "Se ignora, porque los datos nunca van al repositorio",
+        "correct": false,
+        "feedback": "Depende de para qué sirvan. Los datos sintéticos de entrada que necesitan las pruebas sí se versionan.",
+        "misconceptionId": "m04-mc57"
+      },
+      {
+        "id": "o3",
+        "text": "Se mueve a una variable de entorno, porque es configuración",
+        "correct": false,
+        "feedback": "Una tabla de tipos de cambio es un dato de entrada, no un valor que cambie de un entorno a otro. Además, las variables de entorno no están pensadas para guardar tablas.",
+        "misconceptionId": "m04-mc12"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l3#arbol",
+    "sourceIds": [
+      "src-git-gitignore",
+      "src-12factor-config"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f06-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo3",
+    "competencyIds": [
+      "C06",
+      "C05"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m04-f06",
+    "variant": "c",
+    "scenario": "Un requirements.txt generado con pip freeze lista 40 paquetes con versiones exactas, y el pyproject.toml declara 3 dependencias. Un compañero propone borrar requirements.txt porque «repite» lo mismo.",
+    "stem": "¿Cómo se trata ese elemento en el repositorio?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Borrarlo, porque los dos archivos declaran las mismas dependencias",
+        "correct": false,
+        "feedback": "Los dos archivos no cumplen la misma función. pyproject.toml declara lo que el proyecto necesita, y requirements.txt fija lo que estaba instalado, versión por versión.",
+        "misconceptionId": "m04-mc58"
+      },
+      {
+        "id": "o2",
+        "text": "Conservarlo: fija versiones exactas, y pyproject no",
+        "correct": true,
+        "feedback": "Correcta. pyproject.toml declara las dependencias, mientras que requirements.txt, generado con pip freeze, fija las versiones exactas para repetir la misma instalación. Uno no reemplaza al otro."
+      },
+      {
+        "id": "o3",
+        "text": "Borrarlo y versionar la carpeta .venv para fijar las versiones",
+        "correct": false,
+        "feedback": "El entorno virtual no se versiona, porque depende de cada máquina y no es portable. Para fijar versiones existe justamente requirements.txt.",
+        "misconceptionId": "m04-mc13"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l3#dependencias",
+    "sourceIds": [
+      "src-pypa-pyproject",
+      "src-pip-user-guide"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f07-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo3",
+    "competencyIds": [
+      "C06",
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m04-f07",
+    "variant": "a",
+    "scenario": "Un registro de la integración continua, que ve todo el equipo, muestra completo el token ficticio de acceso al almacén de datos.",
+    "stem": "¿Qué haces primero?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Borrar ese registro para que nadie más pueda verlo",
+        "correct": false,
+        "feedback": "Borrar el registro no anula el token, y quien ya lo vio o lo copió puede seguir usándolo. Lo primero es revocarlo.",
+        "misconceptionId": "m04-mc59"
+      },
+      {
+        "id": "o2",
+        "text": "Reiniciar el servicio del almacén de datos",
+        "correct": false,
+        "feedback": "Reiniciar el servicio no anula nada. El token sigue siendo válido hasta que alguien lo revoca.",
+        "misconceptionId": "m04-mc60"
+      },
+      {
+        "id": "o3",
+        "text": "Revocar o rotar el token",
+        "correct": true,
+        "feedback": "Correcta. Un secreto que apareció en un registro se trata como expuesto. Al revocarlo deja de servir para cualquiera que lo haya visto."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l3#secreto-expuesto",
+    "sourceIds": [
+      "src-owasp-secrets-mgmt"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f07-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo3",
+    "competencyIds": [
+      "C06",
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m04-f07",
+    "variant": "b",
+    "scenario": "El agente dejó la contraseña ficticia de la base de datos en un notebook versionado, y ese commit ya está en el servidor compartido. Propone reescribir la historia esa misma tarde.",
+    "stem": "¿Qué haces primero?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Revocar la contraseña antes que nada",
+        "correct": true,
+        "feedback": "Correcta. La contraseña ya está en el servidor y quizá en las copias de otros. Al revocarla deja de servir, se reescriba o no la historia después."
+      },
+      {
+        "id": "o2",
+        "text": "Reescribir la historia esa tarde, como propone el agente",
+        "correct": false,
+        "feedback": "Reescribir la historia no limpia las copias que otros ya descargaron, y mientras tanto la contraseña sigue siendo válida. Primero se revoca.",
+        "misconceptionId": "m04-mc20"
+      },
+      {
+        "id": "o3",
+        "text": "Agregar el notebook a .gitignore",
+        "correct": false,
+        "feedback": "El archivo .gitignore no afecta a un archivo que Git ya sigue ni a los commits anteriores. La contraseña seguiría válida y en la historia.",
+        "misconceptionId": "m04-mc10"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l3#secreto-expuesto",
+    "sourceIds": [
+      "src-github-remove-sensitive-data",
+      "src-owasp-secrets-mgmt"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f07-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo3",
+    "competencyIds": [
+      "C06",
+      "C05"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m04-f07",
+    "variant": "c",
+    "scenario": "La protección del servidor bloqueó un envío del agente porque detectó una clave en un archivo. El agente propone omitir el bloqueo y dar como motivo que «es una clave de prueba».",
+    "stem": "¿Qué haces primero?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Omitir el bloqueo con el motivo, porque el servidor lo permite",
+        "correct": false,
+        "feedback": "La omisión existe para casos justificados, y que el agente diga que la clave es de prueba no basta. Si es real, omitir el bloqueo la envía al repositorio compartido.",
+        "misconceptionId": "m04-mc61"
+      },
+      {
+        "id": "o2",
+        "text": "Quitar la clave del commit y, si es real, revocarla",
+        "correct": true,
+        "feedback": "Correcta. Primero hay que comprobar qué es esa clave y sacarla del commit antes de enviar. Si es real, ya quedó en un commit local, así que conviene revocarla."
+      },
+      {
+        "id": "o3",
+        "text": "Enviar con --no-verify para saltar el control",
+        "correct": false,
+        "feedback": "La opción --no-verify salta los hooks locales, no la protección del servidor. Y saltarse un control no resuelve el problema que detectó.",
+        "misconceptionId": "m04-mc21"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l3#defensas",
+    "sourceIds": [
+      "src-github-push-protection",
+      "src-git-githooks"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f08-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo4",
+    "competencyIds": [
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m04-f08",
+    "variant": "a",
+    "scenario": "El agente va a probar una reorganización arriesgada del cálculo que puede no servir. Quieres poder descartarla sin tocar la rama principal.",
+    "stem": "¿Qué operación conviene?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Trabajar en la rama principal y volver al checkpoint si sale mal",
+        "correct": false,
+        "feedback": "Un checkpoint pertenece a la sesión y no cubre todo lo que hace el agente. Además, el experimento quedaría mezclado con la rama principal.",
+        "misconceptionId": "m04-mc24"
+      },
+      {
+        "id": "o2",
+        "text": "Crear una rama nueva para el experimento",
+        "correct": true,
+        "feedback": "Correcta. Una rama aísla el experimento, de modo que si no sirve se descarta y si sirve se revisa e incorpora. Mientras tanto, la rama principal no se toca."
+      },
+      {
+        "id": "o3",
+        "text": "Trabajar en la rama principal y deshacer con reset --hard si falla",
+        "correct": false,
+        "feedback": "Un reset --hard reescribe la historia y descarta los cambios sin confirmar. Es una operación que conviene evitar, no un plan de respaldo.",
+        "misconceptionId": "m04-mc26"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l4#rama",
+    "sourceIds": [
+      "src-progit-branches",
+      "src-git-switch"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f08-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo4",
+    "competencyIds": [
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m04-f08",
+    "variant": "b",
+    "scenario": "Confirmaste en tu rama local, que nadie más tiene, un commit que cambió dos archivos. Uno quedó mal y el otro está bien. Quieres recuperar el primero tal como estaba antes de ese commit.",
+    "stem": "¿Qué operación conviene?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "restore --source del commit anterior para ese archivo",
+        "correct": true,
+        "feedback": "Correcta. Con --source, restore trae un archivo tal como estaba en otro commit, sin mover la rama. El otro archivo queda intacto."
+      },
+      {
+        "id": "o2",
+        "text": "git revert del commit, que deshace solo el archivo que quedó mal",
+        "correct": false,
+        "feedback": "Un revert deshace el commit completo, incluido el archivo que estaba bien. Para recuperar un solo archivo se usa restore con --source.",
+        "misconceptionId": "m04-mc62"
+      },
+      {
+        "id": "o3",
+        "text": "Restaurar el checkpoint de la sesión en que se hizo el commit",
+        "correct": false,
+        "feedback": "El checkpoint no es historia del proyecto y puede haber caducado. El commit anterior, en cambio, está en Git.",
+        "misconceptionId": "m04-mc24"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l4#deshacer",
+    "sourceIds": [
+      "src-git-restore",
+      "src-git-reset-restore-revert"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f08-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo4",
+    "competencyIds": [
+      "C06"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m04-f08",
+    "variant": "c",
+    "scenario": "Necesitas revisar la versión de ayer del cálculo mientras el agente sigue trabajando, sin interrumpirlo, en la versión actual de la misma carpeta.",
+    "stem": "¿Qué operación conviene?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Cambiar de rama en la misma carpeta y volver cuando termines",
+        "correct": false,
+        "feedback": "En una sola carpeta, cambiar de rama cambia los archivos con los que está trabajando el agente. Una rama no es otra carpeta.",
+        "misconceptionId": "m04-mc29"
+      },
+      {
+        "id": "o2",
+        "text": "Restaurar con restore los archivos de ayer en la carpeta del agente",
+        "correct": false,
+        "feedback": "Con restore pisarías los archivos del agente y sus cambios sin confirmar. Es justo lo contrario de no interrumpirlo.",
+        "misconceptionId": "m04-mc27"
+      },
+      {
+        "id": "o3",
+        "text": "Abrir un worktree con el commit de ayer en otra carpeta",
+        "correct": true,
+        "feedback": "Correcta. Un worktree es otra carpeta de trabajo que comparte la misma historia. Revisas ahí la versión de ayer y el agente sigue en la suya."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l4#worktree",
+    "sourceIds": [
+      "src-git-worktree"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f09-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo4",
+    "competencyIds": [
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "family": "m04-f09",
+    "variant": "a",
+    "scenario": "El agente editó tres archivos con su herramienta de edición y después instaló un paquete con un comando de terminal. Restauras el checkpoint de antes de esos cambios.",
+    "stem": "¿Qué conclusión es la correcta?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Se deshace todo, incluido el paquete instalado",
+        "correct": false,
+        "feedback": "Los checkpoints pueden no cubrir lo que se hizo con comandos de terminal. Los archivos vuelven, pero el paquete puede seguir instalado.",
+        "misconceptionId": "m04-mc25"
+      },
+      {
+        "id": "o2",
+        "text": "Vuelven los tres archivos, pero el paquete instalado puede seguir ahí",
+        "correct": true,
+        "feedback": "Correcta. El checkpoint cubre las ediciones hechas con la herramienta del agente, pero puede no cubrir los comandos de terminal. La instalación hay que revisarla aparte."
+      },
+      {
+        "id": "o3",
+        "text": "No vuelve nada, porque el checkpoint solo guarda la conversación",
+        "correct": false,
+        "feedback": "El checkpoint guarda los archivos que el agente editó con sus herramientas, no solo la conversación. Lo que puede quedar fuera es lo que se hizo desde la terminal.",
+        "misconceptionId": "m04-mc63"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l4#checkpoint",
+    "sourceIds": [
+      "src-anthropic-cc-checkpointing",
+      "src-vscode-copilot-checkpoints"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f09-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo4",
+    "competencyIds": [
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "family": "m04-f09",
+    "variant": "b",
+    "scenario": "El agente modificó un archivo y envió un registro de prueba a la API ficticia del CRM. Restauras el checkpoint anterior.",
+    "stem": "¿Qué conclusión es la correcta?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El archivo puede volver, pero lo enviado al CRM no se deshace",
+        "correct": true,
+        "feedback": "Correcta. Los checkpoints no revierten las peticiones de red ni los cambios en servicios externos. Lo que se envió al CRM hay que corregirlo allí."
+      },
+      {
+        "id": "o2",
+        "text": "Se deshacen los dos cambios, porque ocurrieron en la misma sesión",
+        "correct": false,
+        "feedback": "La petición al CRM ya salió de tu computadora y llegó al servicio. Ningún checkpoint puede traerla de vuelta.",
+        "misconceptionId": "m04-mc25"
+      },
+      {
+        "id": "o3",
+        "text": "No vuelve ninguno, porque hubo una acción externa en la sesión",
+        "correct": false,
+        "feedback": "La acción externa no impide recuperar el archivo, porque el checkpoint cubre las ediciones de archivos. Lo que no vuelve es lo enviado al CRM.",
+        "misconceptionId": "m04-mc63"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l4#checkpoint",
+    "sourceIds": [
+      "src-vscode-copilot-checkpoints"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f09-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo4",
+    "competencyIds": [
+      "C06"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m04-f09",
+    "variant": "c",
+    "scenario": "Un compañero dice que ya no hace falta hacer commits, porque la herramienta guarda 100 checkpoints por sesión durante unos 30 días.",
+    "stem": "¿Qué conclusión es la correcta?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Tiene razón: 100 checkpoints cubren de sobra una sesión de trabajo",
+        "correct": false,
+        "feedback": "El problema no es la cantidad. El checkpoint pertenece a la sesión, no se comparte, caduca y no cubre todo lo que hace el agente.",
+        "misconceptionId": "m04-mc24"
+      },
+      {
+        "id": "o2",
+        "text": "Tiene razón, siempre que se guarde también la conversación",
+        "correct": false,
+        "feedback": "Guardar la conversación no convierte un checkpoint en historia del proyecto. Seguiría sin compartirse y sin cubrir lo que se hizo en la terminal.",
+        "misconceptionId": "m04-mc24"
+      },
+      {
+        "id": "o3",
+        "text": "No tiene razón: el checkpoint es de la sesión, caduca, no se comparte y no cubre todo",
+        "correct": true,
+        "feedback": "Correcta. Un commit es historia del proyecto, que dura, se comparte y se revisa. Las propias guías de los checkpoints advierten que no reemplazan al control de versiones."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l4#checkpoint",
+    "sourceIds": [
+      "src-anthropic-cc-checkpointing",
+      "src-vscode-copilot-checkpoints"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f10-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo4",
+    "competencyIds": [
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "family": "m04-f10",
+    "variant": "a",
+    "scenario": "Recuperaste pipeline_kpis.py con restore desde el commit anterior y confirmaste la corrección en una rama de revisión.",
+    "stem": "¿Qué prueba la recuperación?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que al abrir el archivo la condición se ve como antes",
+        "correct": false,
+        "feedback": "Ver la línea correcta no prueba que las cifras cuadren ni que no haya quedado nada a medias. Falta una evidencia que se pueda ejecutar.",
+        "misconceptionId": "m04-mc01"
+      },
+      {
+        "id": "o2",
+        "text": "git status limpio, el commit de corrección en git log y la reconciliación pasando",
+        "correct": true,
+        "feedback": "Correcta. El estado limpio dice que no quedó nada a medias, el log muestra la corrección y la reconciliación prueba las cifras. Entre las tres cubren lo que hay que demostrar."
+      },
+      {
+        "id": "o3",
+        "text": "Que el agente confirme que el archivo quedó igual que antes",
+        "correct": false,
+        "feedback": "Una afirmación del agente no es evidencia. La recuperación se prueba con salidas que cualquiera puede repetir.",
+        "misconceptionId": "m04-mc35"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l4#deshacer",
+    "sourceIds": [
+      "src-progit-what-is-git",
+      "src-git-restore"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f10-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo4",
+    "competencyIds": [
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "family": "m04-f10",
+    "variant": "b",
+    "scenario": "Deshiciste con revert un commit compartido que tenía dos cambios. Uno era el error; el otro, el formato de moneda del reporte, había que conservarlo.",
+    "stem": "¿Qué prueba la recuperación?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que el revert aparece en git log",
+        "correct": false,
+        "feedback": "El revert deshizo el commit completo, incluido el formato de moneda. Que aparezca en el log no prueba que el formato siga ahí.",
+        "misconceptionId": "m04-mc62"
+      },
+      {
+        "id": "o2",
+        "text": "Que el checkpoint de la sesión muestra el formato",
+        "correct": false,
+        "feedback": "El checkpoint no es historia del proyecto. Lo que cuenta es lo que quedó registrado en los commits.",
+        "misconceptionId": "m04-mc24"
+      },
+      {
+        "id": "o3",
+        "text": "El revert y un commit que vuelve a aplicar el formato, con la reconciliación pasando",
+        "correct": true,
+        "feedback": "Correcta. Como revert deshace el commit entero, el formato hay que volver a aplicarlo en otro commit. La reconciliación prueba que el error ya no está."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l4#deshacer",
+    "sourceIds": [
+      "src-git-revert"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f10-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo4",
+    "competencyIds": [
+      "C06"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m04-f10",
+    "variant": "c",
+    "scenario": "Después de recuperar el cálculo, git status muestra la carpeta limpia y git log tiene el commit de corrección. Todavía no corriste la reconciliación.",
+    "stem": "¿Qué prueba la recuperación?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Todavía nada sobre las cifras: falta que la reconciliación pase",
+        "correct": true,
+        "feedback": "Correcta. El estado y el log dicen que el trabajo quedó guardado, no que el cálculo esté bien. Las cifras solo las prueba el check."
+      },
+      {
+        "id": "o2",
+        "text": "La recuperación completa, porque el estado está limpio",
+        "correct": false,
+        "feedback": "Una carpeta limpia dice que no hay cambios sin confirmar. No dice nada sobre si las cifras son correctas.",
+        "misconceptionId": "m04-mc64"
+      },
+      {
+        "id": "o3",
+        "text": "La recuperación completa, porque el commit de corrección está en el log",
+        "correct": false,
+        "feedback": "Que el commit exista no prueba que corrija bien. Para eso está la reconciliación.",
+        "misconceptionId": "m04-mc64"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l4#deshacer",
+    "sourceIds": [
+      "src-progit-what-is-git"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f11-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo5",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "family": "m04-f11",
+    "variant": "a",
+    "scenario": "Un traceback termina con FileNotFoundError: [Errno 2] No such file or directory: 'data/fx_rates.csv'. Justo arriba aparece pipeline_kpis.py, línea 12, dentro de load_fx_rates.",
+    "stem": "¿Qué te dice el error?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que hay un error de sintaxis en la línea 12",
+        "correct": false,
+        "feedback": "Un error de sintaxis impide que el programa empiece a ejecutarse. Aquí el programa corrió y falló al buscar un archivo, así que es una excepción.",
+        "misconceptionId": "m04-mc65"
+      },
+      {
+        "id": "o2",
+        "text": "Que el cálculo no encontró el archivo de tipos de cambio en esa ruta",
+        "correct": true,
+        "feedback": "Correcta. La última línea dice qué pasó: el archivo no está en esa ruta. Lo siguiente es comprobar si existe y desde qué carpeta se está corriendo el programa."
+      },
+      {
+        "id": "o3",
+        "text": "Que la causa está en la primera línea del traceback",
+        "correct": false,
+        "feedback": "Un traceback se lee de abajo hacia arriba. La última línea es la que dice qué pasó.",
+        "misconceptionId": "m04-mc31"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l5#traceback",
+    "sourceIds": [
+      "src-python-errors"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f11-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo5",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "family": "m04-f11",
+    "variant": "b",
+    "scenario": "Un registro de la ejecución nocturna dice: «INFO cargadas 40 filas», «WARNING etapa sin probabilidad OPP-1031, excluida» y «ERROR missing_fx_rate: no hay tipo de cambio para GBP». El programa terminó con código 2.",
+    "stem": "¿Qué te dice el error?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que falló porque falta el tipo de cambio de GBP; el WARNING es otro aviso",
+        "correct": true,
+        "feedback": "Correcta. La línea ERROR y el código 2 explican por qué se detuvo: no hay tipo de cambio para GBP. El WARNING avisa de algo que el programa pudo manejar."
+      },
+      {
+        "id": "o2",
+        "text": "Que falló por la etapa sin probabilidad de OPP-1031",
+        "correct": false,
+        "feedback": "Ese WARNING avisa de una oportunidad excluida, pero el programa siguió adelante. Lo que lo detuvo fue el ERROR.",
+        "misconceptionId": "m04-mc34"
+      },
+      {
+        "id": "o3",
+        "text": "Que terminó bien, porque el registro empieza con un INFO",
+        "correct": false,
+        "feedback": "Un código distinto de 0 indica un fallo, y además hay una línea ERROR. El primer INFO solo dice que la carga empezó bien.",
+        "misconceptionId": "m04-mc42"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l5#niveles",
+    "sourceIds": [
+      "src-python-logging",
+      "src-python-sys"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f11-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo5",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m04-f11",
+    "variant": "c",
+    "scenario": "Un error de sintaxis señala la línea 30 de pipeline_kpis.py, que se ve bien. En la línea 29, el agente agregó una llamada a una función y no cerró el paréntesis.",
+    "stem": "¿Qué te dice el error?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que la línea 30 tiene un error invisible que hay que buscar",
+        "correct": false,
+        "feedback": "El lugar que señala un error de sintaxis no siempre es el que hay que corregir. Aquí el problema empieza una línea antes, con el paréntesis sin cerrar.",
+        "misconceptionId": "m04-mc66"
+      },
+      {
+        "id": "o2",
+        "text": "Que es una excepción provocada por los datos de entrada",
+        "correct": false,
+        "feedback": "Un error de sintaxis aparece antes de ejecutar, sin mirar ningún dato. Es un problema en el texto del código.",
+        "misconceptionId": "m04-mc65"
+      },
+      {
+        "id": "o3",
+        "text": "Que el problema está en la línea 29: el paréntesis sin cerrar",
+        "correct": true,
+        "feedback": "Correcta. Python señala el error donde ya no puede seguir leyendo, y a veces eso ocurre en la línea siguiente. Por eso conviene mirar también un poco antes."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l5#sintaxis-excepcion",
+    "sourceIds": [
+      "src-python-errors"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f12-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo5",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "family": "m04-f12",
+    "variant": "a",
+    "scenario": "La reconciliación falla solo en el Centro, por 98 000, que es justo el monto de OPP-1021, la oportunidad del Centro que no tiene fecha de cierre.",
+    "stem": "¿Cuál es el siguiente paso?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Subir la tolerancia a 100 000 para que el check pase",
+        "correct": false,
+        "feedback": "Subir la tolerancia cambia la vara de medir y deja la causa intacta. La pista apunta a cómo se tratan las fechas vacías.",
+        "misconceptionId": "m04-mc37"
+      },
+      {
+        "id": "o2",
+        "text": "Revisar en el diff cómo trata el cálculo las fechas de cierre vacías",
+        "correct": true,
+        "feedback": "Correcta. La diferencia coincide con el monto de la única oportunidad sin fecha. Eso apunta a un cambio en cómo el cálculo trata las fechas vacías."
+      },
+      {
+        "id": "o3",
+        "text": "Volver a correr la reconciliación hasta que pase",
+        "correct": false,
+        "feedback": "El cálculo es determinista: con los mismos datos dará siempre lo mismo. Repetir no explica el fallo.",
+        "misconceptionId": "m04-mc68"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l5#reproducir",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f12-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo5",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "family": "m04-f12",
+    "variant": "b",
+    "scenario": "En la PR del agente, el paso «Instalar dependencias» de la integración continua falló, y los pasos siguientes, «Pruebas» y «Reconciliación», también aparecen fallidos.",
+    "stem": "¿Cuál es el siguiente paso?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Empezar por «Reconciliación», el último paso que falló",
+        "correct": false,
+        "feedback": "Los pasos siguientes suelen fallar porque el primero no terminó. Por eso se empieza por el primer paso que falló.",
+        "misconceptionId": "m04-mc67"
+      },
+      {
+        "id": "o2",
+        "text": "Volver a ejecutar todo hasta que los tres pasos pasen",
+        "correct": false,
+        "feedback": "Un fallo que desaparece al repetir sigue sin explicación. Primero hay que leer por qué falló la instalación.",
+        "misconceptionId": "m04-mc68"
+      },
+      {
+        "id": "o3",
+        "text": "Empezar por «Instalar dependencias», el primer paso que falló",
+        "correct": true,
+        "feedback": "Correcta. Si la instalación falló, las pruebas y la reconciliación no tenían con qué correr. Se lee primero el registro de ese paso."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l5#ci",
+    "sourceIds": [
+      "src-github-actions-logs"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f12-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo5",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m04-f12",
+    "variant": "c",
+    "scenario": "Un fallo aparece en la integración continua y no en tu computadora. El servidor usa Python 3.10 y tu computadora, 3.12. El traceback dice SyntaxError en una línea que usa una sintaxis nueva.",
+    "stem": "¿Cuál es el siguiente paso?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Alinear las versiones: declarar la mínima en requires-python o usarla en la integración continua",
+        "correct": true,
+        "feedback": "Correcta. La diferencia de versión explica que la sintaxis nueva falle en 3.10. Lo que hay que decidir es qué versión soporta el proyecto, y declararla."
+      },
+      {
+        "id": "o2",
+        "text": "Ignorarlo, porque en tu computadora funciona",
+        "correct": false,
+        "feedback": "Que funcione en tu computadora es una pista de que los entornos difieren, no una excusa. El fallo es real para cualquiera que use 3.10.",
+        "misconceptionId": "m04-mc69"
+      },
+      {
+        "id": "o3",
+        "text": "Revisar el código buscando un error de lógica en esa línea",
+        "correct": false,
+        "feedback": "Un SyntaxError no es un error de lógica, porque en 3.10 el código ni siquiera llega a ejecutarse. La pista está en la versión de Python.",
+        "misconceptionId": "m04-mc65"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l5#sintaxis-excepcion",
+    "sourceIds": [
+      "src-python-errors",
+      "src-pypa-pyproject"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f13-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo6",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "family": "m04-f13",
+    "variant": "a",
+    "scenario": "Pediste corregir el formato de las fechas en el reporte. El diff cambia solo las líneas de formato de report.py y trae la salida de las pruebas y de la reconciliación, antes y después, todo en verde.",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Pedir cambios por prudencia, porque es un cambio de un agente",
+        "correct": false,
+        "feedback": "Pedir cambios sin un motivo concreto no agrega seguridad. Este cambio hace lo pedido, no toca nada más y trae evidencia.",
+        "misconceptionId": "m04-mc70"
+      },
+      {
+        "id": "o2",
+        "text": "Aceptar: hace lo pedido, no toca nada más y trae evidencia",
+        "correct": true,
+        "feedback": "Correcta. El alcance coincide con lo que pediste y la evidencia se puede verificar. No hay motivo para pedir cambios."
+      },
+      {
+        "id": "o3",
+        "text": "Rechazar, porque un agente no debería tocar el código del reporte",
+        "correct": false,
+        "feedback": "El encargo era justamente cambiar el reporte. Rechazar un cambio que cumple con lo pedido no tiene fundamento.",
+        "misconceptionId": "m04-mc70"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l6#lista",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-github-reviewing-prs"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f13-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo6",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "family": "m04-f13",
+    "variant": "b",
+    "scenario": "Pediste agregar una prueba para el caso de fecha vacía. El diff agrega la prueba, pero también marca con @unittest.skip otra prueba que estaba fallando.",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Pedir cambios: quitar el skip o explicar por qué esa prueba falla",
+        "correct": true,
+        "feedback": "Correcta. Saltar una prueba es tocar el check, aunque la prueba nueva esté bien. Se pide quitar el skip y entender por qué esa prueba fallaba."
+      },
+      {
+        "id": "o2",
+        "text": "Aceptar, porque la prueba nueva está bien y ahora todo pasa",
+        "correct": false,
+        "feedback": "Todo pasa porque una prueba dejó de correr, y eso cambia la vara de medir. El verde ya no significa lo mismo que antes.",
+        "misconceptionId": "m04-mc37"
+      },
+      {
+        "id": "o3",
+        "text": "Aceptar y quitar el skip más adelante, cuando haya tiempo",
+        "correct": false,
+        "feedback": "Mientras tanto, el fallo queda escondido detrás de un check en verde. Eso se resuelve antes de aceptar, no después.",
+        "misconceptionId": "m04-mc37"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l6#lista",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f13-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo6",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m04-f13",
+    "variant": "c",
+    "scenario": "Pediste que la lectura del CSV fuera más rápida. El diff lo logra, pero agrega una dependencia nueva que no conoces, fastcsv-pro, y trae la salida de la reconciliación en verde.",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Aceptar, porque la reconciliación pasa",
+        "correct": false,
+        "feedback": "La reconciliación prueba las cifras, no que el paquete sea legítimo. Un estudio encontró que los modelos recomiendan, con una frecuencia que no es despreciable, paquetes que no existen.",
+        "misconceptionId": "m04-mc14"
+      },
+      {
+        "id": "o2",
+        "text": "Pedir cambios: comprobar que el paquete exista, sea legítimo y haga falta, o quitarlo",
+        "correct": true,
+        "feedback": "Correcta. Una dependencia nueva mete en el proyecto código escrito por otros. Mientras no sepas qué es, el cambio no se acepta."
+      },
+      {
+        "id": "o3",
+        "text": "Aceptar si la vista resumida de dependencias no muestra nada más",
+        "correct": false,
+        "feedback": "La vista resumida de dependencias puede omitir cambios. Y aunque los mostrara todos, faltaría comprobar el paquete.",
+        "misconceptionId": "m04-mc39"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l6#lista",
+    "sourceIds": [
+      "src-arxiv-package-hallucination",
+      "src-github-reviewing-prs"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f14-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo6",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "family": "m04-f14",
+    "variant": "a",
+    "scenario": "El agente adjunta la salida de las pruebas en verde. Su cambio toca el cálculo de la cobertura, y ninguna de las pruebas mide la cobertura.",
+    "stem": "¿Qué falta para poder aceptar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La reconciliación de las cifras afectadas, antes y después del cambio",
+        "correct": true,
+        "feedback": "Correcta. Las pruebas en verde no dicen nada de lo que no miden. La reconciliación, en cambio, compara la cobertura con el valor esperado."
+      },
+      {
+        "id": "o2",
+        "text": "Nada: las pruebas están en verde",
+        "correct": false,
+        "feedback": "Un check solo cubre los casos que contiene. Si ninguna prueba mide la cobertura, que estén en verde no dice nada sobre ella.",
+        "misconceptionId": "m04-mc32"
+      },
+      {
+        "id": "o3",
+        "text": "Que el revisor automático apruebe el cambio",
+        "correct": false,
+        "feedback": "Un revisor automático puede pasar cosas por alto y no mide cifras. Hace falta una evidencia que se pueda ejecutar sobre la cobertura.",
+        "misconceptionId": "m04-mc36"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l6#evidencia",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f14-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo6",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "family": "m04-f14",
+    "variant": "b",
+    "scenario": "El agente adjunta la salida de la reconciliación en verde, pero se ve que la corrió con --tolerance 60000 en lugar de la tolerancia original de 0.01.",
+    "stem": "¿Qué falta para poder aceptar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: la reconciliación pasó",
+        "correct": false,
+        "feedback": "Con una tolerancia de 60 000, cualquier diferencia hasta ese monto pasa igual. El verde no prueba que el error esté corregido.",
+        "misconceptionId": "m04-mc37"
+      },
+      {
+        "id": "o2",
+        "text": "La salida de la reconciliación con la tolerancia original",
+        "correct": true,
+        "feedback": "Correcta. La tolerancia es parte de la vara de medir. Solo con la original se sabe si las cifras cuadran."
+      },
+      {
+        "id": "o3",
+        "text": "Que suba también la tolerancia de las pruebas, para que todo sea coherente",
+        "correct": false,
+        "feedback": "Eso extendería el mismo problema a las pruebas. Lo que hace falta es medir con la vara original.",
+        "misconceptionId": "m04-mc37"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l6#evidencia",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-f14-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo6",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m04-f14",
+    "variant": "c",
+    "scenario": "El agente adjunta la reconciliación en verde, con la tolerancia original. Su diff cambia también la regla de vencidas, algo que no se pidió, y en los datos ninguna oportunidad cae en esa frontera.",
+    "stem": "¿Qué falta para poder aceptar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: con la tolerancia original, la reconciliación lo cubre todo",
+        "correct": false,
+        "feedback": "La reconciliación solo cubre los casos que hay en los datos. Como ninguna oportunidad cae en esa frontera, el cambio pasa sin que nadie lo note.",
+        "misconceptionId": "m04-mc32"
+      },
+      {
+        "id": "o2",
+        "text": "Un comentario en el código que explique por qué cambió la regla",
+        "correct": false,
+        "feedback": "Un comentario no prueba nada ni justifica un cambio que no se pidió. Lo que falta es un caso de prueba que lo respalde, o retirar el cambio.",
+        "misconceptionId": "m04-mc35"
+      },
+      {
+        "id": "o3",
+        "text": "Una justificación con un caso de prueba para la regla de vencidas, o retirarla",
+        "correct": true,
+        "feedback": "Correcta. El cambio está fuera de alcance y el check no tiene cómo detectarlo. Si hace falta, se respalda con un caso de prueba; si no, se retira."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l6#lista",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  }
+]

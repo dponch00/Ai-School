@@ -396,5 +396,251 @@
       "src-anthropic-cc-best-practices",
       "src-anthropic-cc-workflows"
     ]
+  },
+  {
+    "id": "m04-mc44",
+    "courseId": "m04",
+    "description": "Si una llamada a una función no cambió en el diff, su resultado tampoco cambia.",
+    "whyWrong": "Si cambió el valor por defecto de un parámetro, cambia también el resultado de todas las llamadas que no lo pasan, aunque esas llamadas no aparezcan en el diff.",
+    "sourceIds": [
+      "src-python-controlflow"
+    ]
+  },
+  {
+    "id": "m04-mc45",
+    "courseId": "m04",
+    "description": "avg cuenta los valores vacíos como cero.",
+    "whyWrong": "avg ignora los valores vacíos: promedia solo las filas que tienen valor.",
+    "sourceIds": [
+      "src-postgres-aggregate"
+    ]
+  },
+  {
+    "id": "m04-mc46",
+    "courseId": "m04",
+    "description": "Un solo valor vacío vuelve vacío el resultado de cualquier agregado.",
+    "whyWrong": "sum y avg ignoran los valores vacíos, y el resultado solo es NULL si no queda ninguna fila con valor.",
+    "sourceIds": [
+      "src-postgres-aggregate"
+    ]
+  },
+  {
+    "id": "m04-mc47",
+    "courseId": "m04",
+    "description": "coalesce hace aparecer los grupos que no tienen filas.",
+    "whyWrong": "coalesce reemplaza un valor vacío dentro de una fila que existe. Si WHERE dejó fuera todas las filas de un grupo, ese grupo no aparece en el resultado.",
+    "sourceIds": [
+      "src-postgres-tutorial-agg",
+      "src-postgres-aggregate"
+    ]
+  },
+  {
+    "id": "m04-mc48",
+    "courseId": "m04",
+    "description": "Un cambio de formato en el reporte cambia las cifras que se calculan.",
+    "whyWrong": "El formato cambia cómo se muestra una cifra, no cómo se calcula; la causa de una diferencia de valor se busca en la lógica o en la configuración del cálculo.",
+    "sourceIds": [
+      "src-python-controlflow"
+    ]
+  },
+  {
+    "id": "m04-mc49",
+    "courseId": "m04",
+    "description": "Un comentario en el código puede cambiar lo que hace el programa.",
+    "whyWrong": "Python ignora los comentarios al ejecutar; un comentario puede confundir a quien lee, pero no cambia el resultado.",
+    "sourceIds": [
+      "src-python-controlflow"
+    ]
+  },
+  {
+    "id": "m04-mc50",
+    "courseId": "m04",
+    "description": "JSON admite una coma después del último elemento.",
+    "whyWrong": "La gramática de JSON no admite comas finales; un lector estricto rechaza el archivo.",
+    "sourceIds": [
+      "src-ietf-rfc8259"
+    ]
+  },
+  {
+    "id": "m04-mc51",
+    "courseId": "m04",
+    "description": "En TOML, los textos pueden ir sin comillas.",
+    "whyWrong": "En TOML un texto va entre comillas; sin ellas, el valor no es válido.",
+    "sourceIds": [
+      "src-toml-v1"
+    ]
+  },
+  {
+    "id": "m04-mc52",
+    "courseId": "m04",
+    "description": "Si un nombre se repite en un objeto JSON, siempre vale el último.",
+    "whyWrong": "Los nombres deberían ser únicos; si se repiten, cada lector puede quedarse con un valor distinto.",
+    "sourceIds": [
+      "src-ietf-rfc8259"
+    ]
+  },
+  {
+    "id": "m04-mc53",
+    "courseId": "m04",
+    "description": "Cambiar un valor de configuración produce siempre el efecto que su nombre sugiere.",
+    "whyWrong": "El programa decide qué hace con cada valor; puede rechazarlo, ignorarlo o usarlo de otra forma, y eso se comprueba en el código o en la documentación.",
+    "sourceIds": [
+      "src-12factor-config"
+    ]
+  },
+  {
+    "id": "m04-mc54",
+    "courseId": "m04",
+    "description": "Las anotaciones de tipo de TypeScript no tienen ningún efecto, como si fueran comentarios.",
+    "whyWrong": "No validan datos al ejecutar, pero el compilador las revisa antes y avisa de los usos incompatibles.",
+    "sourceIds": [
+      "src-ts-handbook-from-scratch"
+    ]
+  },
+  {
+    "id": "m04-mc55",
+    "courseId": "m04",
+    "description": "El nombre de una skill es solo una etiqueta visible.",
+    "whyWrong": "El formato pone reglas al nombre: minúsculas, dígitos y guiones, y tiene que coincidir con el de la carpeta.",
+    "sourceIds": [
+      "src-agentskills-spec"
+    ]
+  },
+  {
+    "id": "m04-mc56",
+    "courseId": "m04",
+    "description": "Todo lo que Python genera junto al código se versiona.",
+    "whyWrong": "Lo que se genera al ejecutar se vuelve a crear cada vez, así que se ignora en lugar de versionarse.",
+    "sourceIds": [
+      "src-git-gitignore"
+    ]
+  },
+  {
+    "id": "m04-mc57",
+    "courseId": "m04",
+    "description": "Los datos nunca se versionan.",
+    "whyWrong": "Depende de su función: los datos sintéticos de entrada que necesitan las pruebas sí se versionan, para que den siempre el mismo resultado.",
+    "sourceIds": [
+      "src-git-gitignore"
+    ]
+  },
+  {
+    "id": "m04-mc58",
+    "courseId": "m04",
+    "description": "requirements.txt y pyproject.toml cumplen la misma función.",
+    "whyWrong": "pyproject.toml declara las dependencias del proyecto; un requirements.txt generado con pip freeze fija las versiones exactas para repetir una instalación.",
+    "sourceIds": [
+      "src-pypa-pyproject",
+      "src-pip-user-guide"
+    ]
+  },
+  {
+    "id": "m04-mc59",
+    "courseId": "m04",
+    "description": "Borrar el lugar donde apareció un secreto lo deja a salvo.",
+    "whyWrong": "Quien ya lo vio o lo copió puede usarlo igual, así que lo primero es revocarlo o rotarlo.",
+    "sourceIds": [
+      "src-owasp-secrets-mgmt"
+    ]
+  },
+  {
+    "id": "m04-mc60",
+    "courseId": "m04",
+    "description": "Reiniciar la aplicación revoca el secreto.",
+    "whyWrong": "Reiniciar no anula nada: la credencial sigue siendo válida hasta que se revoca o se rota.",
+    "sourceIds": [
+      "src-owasp-secrets-mgmt"
+    ]
+  },
+  {
+    "id": "m04-mc61",
+    "courseId": "m04",
+    "description": "Si el servidor permite omitir el bloqueo de un secreto, no hay riesgo en hacerlo.",
+    "whyWrong": "La omisión existe para casos justificados; si el secreto es real, omitir el bloqueo lo envía al repositorio compartido.",
+    "sourceIds": [
+      "src-github-push-protection"
+    ]
+  },
+  {
+    "id": "m04-mc62",
+    "courseId": "m04",
+    "description": "git revert deshace solo los archivos o las partes que uno elige.",
+    "whyWrong": "revert deshace el commit completo con un commit nuevo; para recuperar un solo archivo se usa restore con --source.",
+    "sourceIds": [
+      "src-git-revert",
+      "src-git-restore"
+    ]
+  },
+  {
+    "id": "m04-mc63",
+    "courseId": "m04",
+    "description": "Un checkpoint solo guarda la conversación.",
+    "whyWrong": "Guarda los archivos que el agente editó con sus herramientas, pero puede no cubrir comandos de terminal ni acciones externas.",
+    "sourceIds": [
+      "src-anthropic-cc-checkpointing"
+    ]
+  },
+  {
+    "id": "m04-mc64",
+    "courseId": "m04",
+    "description": "Si git status está limpio, el cálculo está correcto.",
+    "whyWrong": "Una carpeta limpia dice que no hay cambios sin confirmar, no que las cifras sean correctas; eso lo prueba el check.",
+    "sourceIds": [
+      "src-progit-what-is-git"
+    ]
+  },
+  {
+    "id": "m04-mc65",
+    "courseId": "m04",
+    "description": "Cualquier error que aparece al ejecutar es un error de sintaxis.",
+    "whyWrong": "Un error de sintaxis impide que el programa empiece a ejecutarse; un error que aparece durante la ejecución es una excepción, como no encontrar un archivo.",
+    "sourceIds": [
+      "src-python-errors"
+    ]
+  },
+  {
+    "id": "m04-mc66",
+    "courseId": "m04",
+    "description": "Un error de sintaxis está siempre en la línea que señala.",
+    "whyWrong": "El lugar señalado no siempre es el que hay que corregir; a veces el problema empieza un poco antes, como un paréntesis sin cerrar en la línea anterior.",
+    "sourceIds": [
+      "src-python-errors"
+    ]
+  },
+  {
+    "id": "m04-mc67",
+    "courseId": "m04",
+    "description": "En la integración continua, la causa está en el último paso que falló.",
+    "whyWrong": "Los pasos siguientes suelen fallar como consecuencia del primero; se empieza por el primer paso fallido.",
+    "sourceIds": [
+      "src-github-actions-logs"
+    ]
+  },
+  {
+    "id": "m04-mc68",
+    "courseId": "m04",
+    "description": "Si un paso de la integración continua falla, basta con volver a correrlo hasta que pase.",
+    "whyWrong": "Un fallo que desaparece al repetir sigue sin explicación; primero se lee qué falló y por qué.",
+    "sourceIds": [
+      "src-github-status-checks"
+    ]
+  },
+  {
+    "id": "m04-mc69",
+    "courseId": "m04",
+    "description": "Si funciona en mi computadora, el fallo de la integración continua es problema del servidor.",
+    "whyWrong": "Los entornos pueden ser distintos, por ejemplo en la versión de Python, y esa diferencia es una pista, no una excusa.",
+    "sourceIds": [
+      "src-pypa-pyproject"
+    ]
+  },
+  {
+    "id": "m04-mc70",
+    "courseId": "m04",
+    "description": "Por prudencia, un cambio de un agente nunca se acepta en la primera revisión.",
+    "whyWrong": "Se acepta cuando hace lo pedido, no toca nada más y trae evidencia; pedir cambios sin motivo no agrega seguridad.",
+    "sourceIds": [
+      "src-github-reviewing-prs"
+    ]
   }
 ]

@@ -1,28 +1,28 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 y M03 completos y revisados; M04 en preparación (6 de 6 lecciones; faltan examen y laboratorio). · **Actualizado:** 2026-10-23 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 y M03 completos y revisados; M04 completo, en revisión de Codex (T-032). · **Actualizado:** 2026-10-23 por Claude Code
 
 ## Siguiente acción
 
-1. **Claude:** banco de examen de M04, su laboratorio como caso y su práctica; luego T-032. Desde ahora va un ticket por manual completo (D-025).
-2. **Subagentes:** investigan M05, M06 y M07 en paralelo (`investigacion/M05-*.md`, `M06-*.md`, `M07-*.md`).
-3. **Codex:** sin ticket abierto hasta T-032.
+1. **Codex:** T-032, revisión del banco de examen, el laboratorio y la práctica de M04.
+2. **Claude:** M05 completo (6 lecciones, examen, laboratorio y práctica) en cuanto esté su investigación; luego un solo ticket (D-025).
+3. **Subagentes:** investigan M05, M06 y M07 en paralelo (`investigacion/M05-*.md`, `M06-*.md`, `M07-*.md`).
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-23)
 
-**≈ 55 % de la V1** (rango razonable: 52–58 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 56 % de la V1** (rango razonable: 53–59 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 88 % (simplificada a opción múltiple con D-024; faltan el hosting y la instalación real en dispositivos) | 13,2 |
-| 3 · Nueve manuales restantes | 40 % | 31 % (M01 y M03 completos y revisados; M04 con sus 6 lecciones, sin examen ni laboratorio) | 12,4 |
+| 3 · Nueve manuales restantes | 40 % | 34 % (M01 y M03 completos y revisados; M04 completo, falta su revisión cruzada; investigación de M05 a M07 en curso) | 13,6 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 55 %** |
+| **Total** | 100 % | | **≈ 56 %** |
 
 ## Tickets
 
@@ -59,18 +59,38 @@
 | [T-029](coordinacion/tickets/T-029-codex-revision-m03-examen-laboratorio.md) | Codex | Revisión de M03: banco de examen, laboratorio como caso y práctica | cerrado |
 | [T-030](coordinacion/tickets/T-030-codex-revision-m04-l1-l3.md) | Codex | Revisión de M04: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
 | [T-031](coordinacion/tickets/T-031-codex-revision-m04-l4-l6.md) | Codex | Revisión de M04: lecciones 4 a 6, preguntas y fichas | cerrado |
+| [T-032](coordinacion/tickets/T-032-codex-revision-m04-examen-laboratorio.md) | Codex | Revisión de M04: banco de examen, laboratorio como caso y práctica | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | `content/courses/m04/**` |
+| Codex (T-032) | `investigacion/codex-revision-m04-examen-laboratorio.md`, `design/qa/T-032/**` |
+| Claude | `content/courses/m05/**` |
 
 ## Decisiones recientes
 
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-23 · Claude Code — M04 completo
+**Banco de examen:** 14 familias de una sola decisión, con 3 variantes cada una (42 ítems).
+
+**Laboratorio como caso:** «La etapa que dejó de estar cerrada», con 6 pasos y 12 preguntas. Sus cifras salen de simular el cálculo sin «Perdida».
+
+**Práctica y conceptos erróneos:**
+- 12 preguntas de práctica;
+- 27 conceptos erróneos nuevos.
+
+**Equilibrio de longitudes:**
+
+| Banco | Clave más larga | Clave más corta |
+| --- | --- | --- |
+| Examen | 14 de 42 | 15 de 42 |
+| Laboratorio | 3 de 12 | 3 de 12 |
+
+Pasó por el revisor de texto: el enunciado de la familia f09 quedó mejor alineado con sus opciones, y L6 aclara cuándo se piden cambios y cuándo se rechaza. M04 aparece como disponible. Abierto T-032. `npm test` de M04 en verde y e2e 80/80, con el laboratorio y el examen de M04.
 
 ### 2026-10-23 · Claude Code — D-025: más rápido
 Daniel preguntó por qué avanzábamos lento. Desde ahora:

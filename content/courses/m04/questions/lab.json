@@ -1,0 +1,522 @@
+[
+  {
+    "id": "m04-lab-q01",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m04",
+    "labStep": "paso-1",
+    "evaluatedObjectiveId": "m04-eo3",
+    "competencyIds": [
+      "C06",
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "En c2, que ya está en la rama principal compartida, aparece el archivo .env con el token ficticio del CRM.",
+    "stem": "¿Qué hace primero la analista?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Revocar el token en el CRM ficticio",
+        "correct": true,
+        "feedback": "Correcta. El token quedó en un commit que el equipo ya tiene, así que hay que darlo por comprometido. Al revocarlo deja de servir, y la limpieza del repositorio puede hacerse después con calma."
+      },
+      {
+        "id": "o2",
+        "text": "Borrar .env en un commit nuevo",
+        "correct": false,
+        "feedback": "Un commit nuevo quita el archivo de ahí en adelante, pero el token sigue en c2 y en las copias de todo el equipo, y sigue siendo válido. Por eso lo primero es revocarlo.",
+        "misconceptionId": "m04-mc11"
+      },
+      {
+        "id": "o3",
+        "text": "Agregar .env a .gitignore y seguir con la revisión",
+        "correct": false,
+        "feedback": "El archivo .gitignore solo afecta a lo que Git todavía no sigue, así que no saca .env de c2 ni deja de versionarlo. El token quedaría expuesto y válido.",
+        "misconceptionId": "m04-mc10"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l3#secreto-expuesto",
+    "sourceIds": [
+      "src-github-remove-sensitive-data",
+      "src-owasp-secrets-mgmt"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-lab-q02",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m04",
+    "labStep": "paso-1",
+    "evaluatedObjectiveId": "m04-eo3",
+    "competencyIds": [
+      "C06",
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "La analista ya revocó el token. Ahora quiere que .env deje de estar en el repositorio y no vuelva a entrar.",
+    "stem": "¿Qué hace?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Agregar .env a .gitignore, que ya lo saca del repositorio",
+        "correct": false,
+        "feedback": "El archivo .gitignore solo afecta a lo que Git todavía no sigue, y .env ya está en el repositorio. Para que deje de estarlo hay que quitarlo del índice, además de ignorarlo.",
+        "misconceptionId": "m04-mc10"
+      },
+      {
+        "id": "o2",
+        "text": "git rm --cached .env y agregar .env a .gitignore",
+        "correct": true,
+        "feedback": "Correcta. git rm --cached quita el archivo del índice sin borrarlo de tu carpeta, y la línea en .gitignore evita que vuelva a entrar. El token sigue en c2, pero ya está revocado y no sirve."
+      },
+      {
+        "id": "o3",
+        "text": "Borrar .env de su carpeta y confirmar el cambio",
+        "correct": false,
+        "feedback": "Así el archivo sale del repositorio, pero también desaparece de tu carpeta, y nada impide que un .env vuelva a entrar en otro commit. Lo que hace falta es quitarlo del índice e ignorarlo.",
+        "misconceptionId": "m04-mc11"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l3#gitignore",
+    "sourceIds": [
+      "src-git-gitignore"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-lab-q03",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m04",
+    "labStep": "paso-2",
+    "evaluatedObjectiveId": "m04-eo5",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "El pipeline abierto y las vencidas suben en las tres regiones, pero el ponderado pasa en todas. En la tabla de FP&A, la etapa Perdida tiene probabilidad 0.",
+    "stem": "¿Qué sugiere ese patrón?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que el cálculo del ponderado está roto y por eso no se movió",
+        "correct": false,
+        "feedback": "Que el ponderado no cambie es la pista, no el problema. Si las filas que se sumaron tienen probabilidad 0, no pueden agregarle nada, y eso es justo lo que se ve.",
+        "misconceptionId": "m04-mc01"
+      },
+      {
+        "id": "o2",
+        "text": "Entraron oportunidades con probabilidad 0, como las perdidas",
+        "correct": true,
+        "feedback": "Correcta. Si el pipeline sube y el ponderado no, las filas que entraron aportan monto pero tienen probabilidad 0. En la tabla de FP&A, esa es la etapa Perdida."
+      },
+      {
+        "id": "o3",
+        "text": "Que el error es de redondeo y afecta a todas las cifras por igual",
+        "correct": false,
+        "feedback": "Un redondeo daría diferencias de centavos, no de 60 000 o 75 000, y tampoco cambiaría el conteo de vencidas. El patrón indica que cambió qué filas entran al cálculo.",
+        "misconceptionId": "m04-mc03"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l5#reproducir",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-lab-q04",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m04",
+    "labStep": "paso-2",
+    "evaluatedObjectiveId": "m04-eo5",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "La reconciliación terminó con código 1.",
+    "stem": "¿Qué indica ese código?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que encontró un solo error",
+        "correct": false,
+        "feedback": "El código de salida no cuenta errores, sino que dice cómo terminó el programa. Qué significa cada número lo documenta cada programa.",
+        "misconceptionId": "m04-mc42"
+      },
+      {
+        "id": "o2",
+        "text": "Que terminó bien, porque no hubo ninguna línea ERROR",
+        "correct": false,
+        "feedback": "Cualquier código distinto de 0 indica un fallo, aunque no aparezca la palabra ERROR. En este check, el 1 significa que hay cifras distintas de las esperadas.",
+        "misconceptionId": "m04-mc42"
+      },
+      {
+        "id": "o3",
+        "text": "Hay cifras que no coinciden, no faltan datos",
+        "correct": true,
+        "feedback": "Correcta. En este check, el código 1 indica diferencias de cifras y el 2, datos o supuestos que faltan. Por eso la causa hay que buscarla en el cálculo."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l5#codigo-salida",
+    "sourceIds": [
+      "src-python-sys"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-lab-q05",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m04",
+    "labStep": "paso-3",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Con CLOSED_STAGES = {\"Ganada\"}, entra al cálculo una oportunidad en etapa Perdida, con fecha de cierre dentro del trimestre.",
+    "stem": "¿Qué vale is_open para esa oportunidad?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "True: Perdida ya no cuenta como cerrada",
+        "correct": true,
+        "feedback": "Correcta. is_open es verdadero cuando la etapa no está en CLOSED_STAGES. Como Perdida ya no está en la lista, una oportunidad perdida cuenta como abierta y entra al pipeline."
+      },
+      {
+        "id": "o2",
+        "text": "False, porque una oportunidad perdida nunca está abierta",
+        "correct": false,
+        "feedback": "Eso es lo que diría cualquiera en el negocio, pero el código no sabe de negocio y solo mira la lista. Si Perdida no está en CLOSED_STAGES, la trata como abierta.",
+        "misconceptionId": "m04-mc01"
+      },
+      {
+        "id": "o3",
+        "text": "Un error, porque Perdida ya no aparece en ninguna lista",
+        "correct": false,
+        "feedback": "La expresión not in no falla cuando el valor no está en la lista, sino que devuelve verdadero. El programa sigue corriendo y suma la oportunidad sin avisar.",
+        "misconceptionId": "m04-mc01"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l1#condiciones",
+    "sourceIds": [
+      "src-python-controlflow"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-lab-q06",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m04",
+    "labStep": "paso-3",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "scenario": "Las oportunidades perdidas ahora entran al pipeline abierto. El ponderado suma cada monto multiplicado por la probabilidad de su etapa.",
+    "stem": "¿Por qué el ponderado no cambia?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Porque el ponderado se calcula antes de leer la lista de etapas cerradas",
+        "correct": false,
+        "feedback": "Aunque el ponderado usara la misma lista, cada oportunidad perdida le sumaría su monto multiplicado por 0. La explicación está en la probabilidad, no en el orden del cálculo.",
+        "misconceptionId": "m04-mc16"
+      },
+      {
+        "id": "o2",
+        "text": "Porque la probabilidad de Perdida es 0, así que suma 0 al ponderado",
+        "correct": true,
+        "feedback": "Correcta. Cada oportunidad perdida suma su monto completo al pipeline, pero al ponderado le suma ese monto multiplicado por 0. Por eso cambian el pipeline, las coberturas y las vencidas, y el ponderado no."
+      },
+      {
+        "id": "o3",
+        "text": "Porque la reconciliación tiene más tolerancia para el ponderado",
+        "correct": false,
+        "feedback": "La tolerancia de los montos es la misma para todas las cifras, 0.01, como muestra la salida. El ponderado pasa porque de verdad no cambió.",
+        "misconceptionId": "m04-mc37"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l1#caja",
+    "sourceIds": [
+      "src-python-controlflow"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-lab-q07",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m04",
+    "labStep": "paso-4",
+    "evaluatedObjectiveId": "m04-eo2",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "scenario": "En c3, el agente cambió la tolerancia del flujo de integración continua de 0.01 a 80000. Las diferencias de pipeline son de 60 000, 75 000 y 70 000.",
+    "stem": "¿Qué pasaría con la reconciliación?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Pasaría entera, porque todas las diferencias quedan por debajo de 80 000",
+        "correct": false,
+        "feedback": "Según la documentación del check, la tolerancia solo se aplica a los montos. Las coberturas admiten como máximo 0,0001 y los conteos tienen que coincidir, así que esas líneas seguirían fallando.",
+        "misconceptionId": "m04-mc53"
+      },
+      {
+        "id": "o2",
+        "text": "Pasarían los montos, pero seguirían fallando las coberturas y las vencidas",
+        "correct": true,
+        "feedback": "Correcta. La documentación dice que la tolerancia no se aplica a las coberturas, que tienen su propio máximo de 0,0001, ni a los conteos. Un valor de configuración no siempre hace lo que su nombre sugiere en todas las cifras."
+      },
+      {
+        "id": "o3",
+        "text": "Nada cambiaría, porque la tolerancia solo afecta a las pruebas",
+        "correct": false,
+        "feedback": "Ese valor es justamente el que usa la reconciliación cuando corre en la integración continua. Al subirlo, se aceptan diferencias de monto que antes fallaban.",
+        "misconceptionId": "m04-mc17"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l2#yaml",
+    "sourceIds": [
+      "src-yaml-spec-122"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-lab-q08",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m04",
+    "labStep": "paso-4",
+    "evaluatedObjectiveId": "m04-eo2",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "En el mismo archivo YAML, el agente sangró con un tabulador una línea nueva.",
+    "stem": "¿Qué pasa con el flujo de integración continua?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El archivo deja de ser YAML válido y el flujo no llega a correr",
+        "correct": true,
+        "feedback": "Correcta. La especificación de YAML no permite sangrar con tabuladores. Con el archivo inválido, el flujo no arranca y ni las pruebas ni la reconciliación llegan a correr."
+      },
+      {
+        "id": "o2",
+        "text": "Nada: YAML acepta tabuladores y espacios por igual",
+        "correct": false,
+        "feedback": "La especificación de YAML no permite sangrar con tabuladores, solo con espacios. Con esa línea, el archivo deja de ser válido.",
+        "misconceptionId": "m04-mc08"
+      },
+      {
+        "id": "o3",
+        "text": "Solo esa línea se ignora y el resto del flujo corre normal",
+        "correct": false,
+        "feedback": "Un archivo YAML inválido no se lee por partes ni se salta la línea que falla. Falla entero, y con él todo el flujo.",
+        "misconceptionId": "m04-mc08"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l2#yaml",
+    "sourceIds": [
+      "src-yaml-spec-122"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-lab-q09",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m04",
+    "labStep": "paso-5",
+    "evaluatedObjectiveId": "m04-eo4",
+    "competencyIds": [
+      "C06"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "c2 está en la rama principal compartida y contiene el cambio pedido en report.py, que hay que conservar, y la línea equivocada en pipeline_kpis.py.",
+    "stem": "¿Cómo deshace el error la analista?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "git reset --hard a c1 y volver a enviar la rama principal",
+        "correct": false,
+        "feedback": "Con reset se reescribe una historia que el equipo ya descargó, y además se pierde el cambio de report.py. Es la opción más riesgosa de las tres.",
+        "misconceptionId": "m04-mc26"
+      },
+      {
+        "id": "o2",
+        "text": "git revert c2, que deshace solo pipeline_kpis.py",
+        "correct": false,
+        "feedback": "Un revert deshace el commit completo, incluido el cambio de report.py que había que conservar. Después habría que volver a aplicarlo.",
+        "misconceptionId": "m04-mc62"
+      },
+      {
+        "id": "o3",
+        "text": "restore --source=c1 de pipeline_kpis.py, y un commit",
+        "correct": true,
+        "feedback": "Correcta. Con restore se trae solo ese archivo tal como estaba en c1, sin tocar report.py ni reescribir la historia. El commit nuevo deja la corrección registrada para todos."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l4#deshacer",
+    "sourceIds": [
+      "src-git-restore",
+      "src-git-reset-restore-revert"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-lab-q10",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m04",
+    "labStep": "paso-5",
+    "evaluatedObjectiveId": "m04-eo4",
+    "competencyIds": [
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Después del restore y del commit, la analista quiere mostrar que la recuperación funcionó sin perder el cambio pedido.",
+    "stem": "¿Qué evidencia adjunta?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Una captura del checkpoint de la sesión antes del error",
+        "correct": false,
+        "feedback": "El checkpoint pertenece a la sesión, no a la historia del proyecto, y una captura no prueba que las cifras cuadren. La evidencia tiene que salir de Git y de la reconciliación.",
+        "misconceptionId": "m04-mc24"
+      },
+      {
+        "id": "o2",
+        "text": "Status, log, reconciliación y report.py con lo pedido",
+        "correct": true,
+        "feedback": "Correcta. El estado y el log muestran que el trabajo quedó guardado, la reconciliación prueba que las cifras cuadran y report.py demuestra que lo pedido sigue ahí. Cada pieza responde una pregunta distinta."
+      },
+      {
+        "id": "o3",
+        "text": "git status limpio, que ya demuestra que todo está bien",
+        "correct": false,
+        "feedback": "Una carpeta limpia solo dice que no quedan cambios sin confirmar. No prueba que las cifras cuadren ni que el cambio pedido siga en report.py.",
+        "misconceptionId": "m04-mc64"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l4#deshacer",
+    "sourceIds": [
+      "src-progit-what-is-git"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-lab-q11",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m04",
+    "labStep": "paso-6",
+    "evaluatedObjectiveId": "m04-eo6",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "La PR agente/fix-etapas vuelve a poner Perdida en la lista y además borra test_overdue_counts «porque fallaba». El reporte dice: «Corregido; todas las pruebas pasan».",
+    "stem": "¿Qué decide la analista?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Aceptar, porque la línea de Perdida es la corrección correcta",
+        "correct": false,
+        "feedback": "La línea de Perdida está bien, pero borrar una prueba porque fallaba es cambiar la forma de medir. Eso hay que resolverlo antes de aceptar.",
+        "misconceptionId": "m04-mc37"
+      },
+      {
+        "id": "o2",
+        "text": "Pedir cambios: mantener la línea, restaurar la prueba y adjuntar la salida",
+        "correct": true,
+        "feedback": "Correcta. La corrección de la lista es la buena, pero la prueba borrada puede esconder otro problema y el reporte no trae ninguna salida. Por eso se conserva la línea y se piden esos dos cambios."
+      },
+      {
+        "id": "o3",
+        "text": "Aceptar, porque el reporte dice que todas las pruebas pasan",
+        "correct": false,
+        "feedback": "Todas las pruebas pasan porque una dejó de existir. Además, una afirmación sin la salida del comando no es evidencia.",
+        "misconceptionId": "m04-mc35"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l6#lista",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-lab-q12",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m04",
+    "labStep": "paso-6",
+    "evaluatedObjectiveId": "m04-eo6",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "La tercera PR solo vuelve a poner Perdida en la lista de cerradas. Trae la salida completa de las pruebas y de la reconciliación, con la tolerancia original, todo en verde.",
+    "stem": "¿Qué decide la analista?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Aceptar: hace lo justo, no toca nada más y trae evidencia",
+        "correct": true,
+        "feedback": "Correcta. El cambio coincide con la causa que encontraste en el paso 3, y la evidencia usa la tolerancia original. No hay motivo para pedir nada más."
+      },
+      {
+        "id": "o2",
+        "text": "Pedir cambios por prudencia, porque la anterior intentó borrar una prueba",
+        "correct": false,
+        "feedback": "Cada cambio se juzga por lo que trae, no por lo que hizo la PR anterior. Este hace lo pedido, no toca nada más y viene con evidencia.",
+        "misconceptionId": "m04-mc70"
+      },
+      {
+        "id": "o3",
+        "text": "Rechazar y corregirlo ella misma, para no depender del agente",
+        "correct": false,
+        "feedback": "Rechazar un cambio correcto y probado solo duplica el trabajo. La revisión decide por el contenido, no por quién lo escribió.",
+        "misconceptionId": "m04-mc70"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l6#lista",
+    "sourceIds": [
+      "src-github-reviewing-prs"
+    ],
+    "status": "draft"
+  }
+]

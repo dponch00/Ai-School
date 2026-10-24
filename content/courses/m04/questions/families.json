@@ -1,0 +1,86 @@
+[
+  {
+    "family": "m04-f01",
+    "evaluatedObjectiveId": "m04-eo1",
+    "decision": "Predecir la salida de una función de Python para una entrada concreta, incluido el caso límite",
+    "equivalence": "Las tres variantes dan una función breve y una entrada, y piden la salida. Cambia la trampa: una función sin return para el valor del límite (a), una comparación >= en la misma fecha (b) y un valor por defecto que cambió sin que cambie la llamada (c, más difícil porque la llamada no aparece en el diff)."
+  },
+  {
+    "family": "m04-f02",
+    "evaluatedObjectiveId": "m04-eo1",
+    "decision": "Predecir el resultado de una consulta SQL con valores vacíos, agregados o grupos sin filas",
+    "equivalence": "Las tres variantes dan una consulta y los datos, y piden el resultado. Cambia el tratamiento del vacío: una comparación con = NULL (a), un promedio con un monto vacío (b) y un grupo que WHERE deja sin filas (c, más difícil porque coalesce parece resolverlo)."
+  },
+  {
+    "family": "m04-f03",
+    "evaluatedObjectiveId": "m04-eo1",
+    "decision": "Identificar, entre varios cambios, el que produce una cifra observada",
+    "equivalence": "Las tres variantes muestran una cifra que cambió y varios cambios candidatos, y piden el responsable. Cambia el tipo de cambio: una frontera en la regla de vencidas (a), un signo en la cuota restante (b) y un valor del archivo de supuestos sin tocar el código (c, más difícil porque no hay ninguna línea de código responsable)."
+  },
+  {
+    "family": "m04-f04",
+    "evaluatedObjectiveId": "m04-eo2",
+    "decision": "Identificar la regla del formato que invalida un archivo de configuración o lo vuelve impredecible",
+    "equivalence": "Las tres variantes muestran un archivo editado por el agente y piden el problema. Cambia la regla del formato: una coma final en JSON (a), un texto sin comillas en TOML (b) y un nombre repetido en JSON que no da error (c, más difícil porque el archivo parece funcionar)."
+  },
+  {
+    "family": "m04-f05",
+    "evaluatedObjectiveId": "m04-eo2",
+    "decision": "Identificar qué comportamiento controla un valor de configuración o una anotación, sin suponer el efecto por su nombre",
+    "equivalence": "Las tres variantes muestran un cambio en un archivo que no es lógica de cálculo y piden su efecto. Cambia el archivo: la moneda en el JSON de supuestos (a), un tipo en TypeScript (b) y el nombre en los metadatos YAML de una skill (c, más difícil porque parece una etiqueta)."
+  },
+  {
+    "family": "m04-f06",
+    "evaluatedObjectiveId": "m04-eo3",
+    "decision": "Clasificar un elemento del proyecto y decidir si se versiona",
+    "equivalence": "Las tres variantes presentan un elemento del proyecto y piden cómo tratarlo. Cambia el tipo de elemento: un resultado generado (a), datos sintéticos de entrada (b) y un archivo de versiones exactas que parece duplicar a otro (c, más difícil porque los dos tratan de dependencias)."
+  },
+  {
+    "family": "m04-f07",
+    "evaluatedObjectiveId": "m04-eo3",
+    "decision": "Elegir la primera acción ante un secreto expuesto o a punto de exponerse",
+    "equivalence": "Las tres variantes presentan un secreto expuesto y piden la primera acción. Cambia dónde apareció: un registro de la integración continua (a), un commit ya enviado al servidor (b) y un envío que el servidor bloqueó (c, más difícil porque el secreto todavía no llegó al servidor)."
+  },
+  {
+    "family": "m04-f08",
+    "evaluatedObjectiveId": "m04-eo4",
+    "decision": "Elegir la operación de Git que aísla o recupera según el escenario",
+    "equivalence": "Las tres variantes describen una situación de trabajo con un agente y piden la operación. Cambia la necesidad: aislar un experimento (a, rama), recuperar un archivo de un commit sin deshacer el resto (b, restore con --source) y revisar otra versión sin interrumpir al agente (c, worktree, más difícil porque cambiar de rama parece suficiente)."
+  },
+  {
+    "family": "m04-f09",
+    "evaluatedObjectiveId": "m04-eo4",
+    "decision": "Reconocer qué recupera un checkpoint de la herramienta y qué queda fuera",
+    "equivalence": "Las tres variantes presentan un checkpoint y algo que hizo el agente, y piden qué se recupera. Cambia lo que hizo el agente: editar archivos e instalar un paquete por terminal (a), editar un archivo y enviar algo a un servicio externo (b) y la idea de reemplazar los commits por checkpoints (c, más difícil porque las cifras de la herramienta parecen suficientes)."
+  },
+  {
+    "family": "m04-f10",
+    "evaluatedObjectiveId": "m04-eo4",
+    "decision": "Reconocer la evidencia que demuestra que una recuperación dejó el proyecto correcto sin perder trabajo válido",
+    "equivalence": "Las tres variantes describen una recuperación y piden qué la prueba. Cambia lo que se recuperó: un archivo con restore (a), un commit con dos cambios deshecho con revert (b) y una recuperación con estado limpio pero sin el check (c, más difícil porque la evidencia parece completa)."
+  },
+  {
+    "family": "m04-f11",
+    "evaluatedObjectiveId": "m04-eo5",
+    "decision": "Interpretar un traceback o un registro para ubicar qué falló y dónde",
+    "equivalence": "Las tres variantes muestran un mensaje de error y piden qué dice. Cambia el mensaje: una excepción de archivo no encontrado (a), un registro con niveles mezclados y código 2 (b) y un error de sintaxis que señala la línea equivocada (c, más difícil porque la línea señalada está bien)."
+  },
+  {
+    "family": "m04-f12",
+    "evaluatedObjectiveId": "m04-eo5",
+    "decision": "Elegir el siguiente paso de diagnóstico que apunta a la causa y no al síntoma",
+    "equivalence": "Las tres variantes presentan un fallo y piden el siguiente paso. Cambia la pista: una diferencia que coincide con una fila (a), varios pasos fallidos en la integración continua (b) y un fallo que solo ocurre en la integración continua (c, más difícil porque hace pensar que el problema es del servidor)."
+  },
+  {
+    "family": "m04-f13",
+    "evaluatedObjectiveId": "m04-eo6",
+    "decision": "Decidir entre aceptar, pedir cambios o rechazar un cambio del agente",
+    "equivalence": "Las tres variantes presentan un diff con su evidencia y piden la decisión. Cambia lo que trae: un cambio limpio y probado (a, aceptar), una prueba nueva junto a otra saltada (b, pedir cambios) y una dependencia desconocida con el check en verde (c, más difícil porque la evidencia parece completa)."
+  },
+  {
+    "family": "m04-f14",
+    "evaluatedObjectiveId": "m04-eo6",
+    "decision": "Identificar la evidencia concreta que falta para aceptar un cambio que ya trae alguna evidencia",
+    "equivalence": "Las tres variantes presentan un cambio con parte de la evidencia y piden lo que falta. Cambia el hueco: pruebas que no cubren la cifra tocada (a), una reconciliación con la tolerancia cambiada (b) y un cambio fuera de alcance que el check no puede detectar (c, más difícil porque toda la evidencia está en verde)."
+  }
+]

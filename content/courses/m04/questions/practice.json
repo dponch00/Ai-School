@@ -1,0 +1,509 @@
+[
+  {
+    "id": "m04-p01",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Una condición dice if dias > 30: marcar como atrasada. Entra una factura con 30 días.",
+    "stem": "¿Se marca como atrasada?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "No: 30 no es mayor que 30",
+        "correct": true,
+        "feedback": "Correcta. Con > el límite queda fuera, porque 30 no es mayor que 30. Una factura de exactamente 30 días no se marca."
+      },
+      {
+        "id": "o2",
+        "text": "Sí: llega al límite de 30 días",
+        "correct": false,
+        "feedback": "Con > hay que superar el límite, no basta con alcanzarlo. Para que los 30 días contaran, la condición tendría que usar >=.",
+        "misconceptionId": "m04-mc22"
+      },
+      {
+        "id": "o3",
+        "text": "Depende de cómo esté escrito el resto del código",
+        "correct": false,
+        "feedback": "La condición se puede leer sola: 30 > 30 es falso. Para responder no hace falta ver el resto del código.",
+        "misconceptionId": "m04-mc22"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l1#frontera",
+    "sourceIds": [
+      "src-python-controlflow"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-p02",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo1",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Una consulta cuenta las facturas por cliente con count(due_date). Un cliente tiene 5 facturas y 2 no tienen fecha de vencimiento.",
+    "stem": "¿Qué cifra da para ese cliente?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "5, porque cuenta todas sus facturas",
+        "correct": false,
+        "feedback": "count(columna) no cuenta las filas en las que esa columna está vacía. Para contar las cinco facturas haría falta count(*).",
+        "misconceptionId": "m04-mc05"
+      },
+      {
+        "id": "o2",
+        "text": "3, porque no cuenta las facturas sin fecha",
+        "correct": true,
+        "feedback": "Correcta. count(due_date) cuenta solo las filas que tienen fecha de vencimiento. Las dos facturas sin fecha quedan fuera, y quedan 3."
+      },
+      {
+        "id": "o3",
+        "text": "NULL, porque hay facturas sin fecha",
+        "correct": false,
+        "feedback": "count no devuelve NULL porque haya vacíos, simplemente los ignora. Para ese cliente da 3.",
+        "misconceptionId": "m04-mc46"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l2#nulos",
+    "sourceIds": [
+      "src-postgres-aggregate"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-p03",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo2",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Un archivo empieza con [project] y sigue con líneas como name = \"pipeline\" y version = \"0.1.0\".",
+    "stem": "¿En qué formato está?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "TOML",
+        "correct": true,
+        "feedback": "Correcta. Las secciones entre corchetes y las líneas del tipo clave = valor son propias de TOML. Es el formato del archivo pyproject.toml."
+      },
+      {
+        "id": "o2",
+        "text": "JSON",
+        "correct": false,
+        "feedback": "JSON usa llaves, nombres entre comillas y dos puntos. No tiene secciones entre corchetes ni signos de igual.",
+        "misconceptionId": "m04-mc50"
+      },
+      {
+        "id": "o3",
+        "text": "YAML",
+        "correct": false,
+        "feedback": "YAML usa dos puntos y sangría para ordenar los datos. No usa secciones entre corchetes ni líneas con signo de igual.",
+        "misconceptionId": "m04-mc08"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l2#toml",
+    "sourceIds": [
+      "src-toml-v1"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-p04",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo2",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Un archivo JSON de configuración tiene \"enabled\": True, con la T en mayúscula.",
+    "stem": "¿Es válido?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Sí, porque True es un valor de verdad",
+        "correct": false,
+        "feedback": "En JSON, los valores de verdad se escriben en minúscula: true. Con mayúscula, el archivo no es válido.",
+        "misconceptionId": "m04-mc50"
+      },
+      {
+        "id": "o2",
+        "text": "Sí, siempre que vaya entre comillas dobles",
+        "correct": false,
+        "feedback": "Entre comillas, \"True\" sería un texto y no un valor de verdad. Lo correcto es true, en minúscula y sin comillas.",
+        "misconceptionId": "m04-mc53"
+      },
+      {
+        "id": "o3",
+        "text": "No: en JSON los literales van en minúscula, true",
+        "correct": true,
+        "feedback": "Correcta. JSON solo admite true, false y null, siempre en minúscula. Con True, el archivo no es válido."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l2#json",
+    "sourceIds": [
+      "src-ietf-rfc8259"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-p05",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo3",
+    "competencyIds": [
+      "C06",
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El cálculo genera cada vez el archivo out/pipeline_kpis.json.",
+    "stem": "¿Se versiona?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Sí, para tener siempre a mano el último resultado",
+        "correct": false,
+        "feedback": "Es un resultado que el cálculo vuelve a generar cada vez que corre. Versionarlo mezcla los resultados con el código.",
+        "misconceptionId": "m04-mc56"
+      },
+      {
+        "id": "o2",
+        "text": "No: es un resultado generado, y va a .gitignore",
+        "correct": true,
+        "feedback": "Correcta. Lo que se vuelve a generar no se versiona. Se agrega a .gitignore y cada ejecución lo crea de nuevo."
+      },
+      {
+        "id": "o3",
+        "text": "Sí, porque las pruebas lo necesitan como entrada",
+        "correct": false,
+        "feedback": "Las pruebas comparan contra los resultados esperados que están en expected/. No usan lo que genera cada ejecución.",
+        "misconceptionId": "m04-mc57"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l3#arbol",
+    "sourceIds": [
+      "src-git-gitignore"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-p06",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo3",
+    "competencyIds": [
+      "C06",
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Ves en la pantalla compartida de una reunión el archivo .env de un compañero, con un token ficticio a la vista.",
+    "stem": "¿Qué conviene hacer?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Avisarle para que revoque o rote el token",
+        "correct": true,
+        "feedback": "Correcta. Un secreto que otros vieron se da por comprometido, haya llegado o no al repositorio. Revocarlo o rotarlo es la única forma de que deje de servir."
+      },
+      {
+        "id": "o2",
+        "text": "Nada, porque el archivo nunca llegó al repositorio",
+        "correct": false,
+        "feedback": "El repositorio no es la única forma de exponer un secreto. Todos los que estaban en la reunión lo vieron, y cualquiera pudo anotarlo.",
+        "misconceptionId": "m04-mc59"
+      },
+      {
+        "id": "o3",
+        "text": "Pedirle que reinicie la aplicación",
+        "correct": false,
+        "feedback": "Reiniciar la aplicación no anula el token. Sigue siendo válido hasta que alguien lo revoca.",
+        "misconceptionId": "m04-mc60"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l3#secreto-expuesto",
+    "sourceIds": [
+      "src-owasp-secrets-mgmt"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-p07",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo4",
+    "competencyIds": [
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Quieres ver qué archivos cambió el último commit, sin ver las líneas.",
+    "stem": "¿Qué opción de git diff usas?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "--staged",
+        "correct": false,
+        "feedback": "La opción --staged compara lo que está en el índice con el último commit. Muestra las líneas, no un resumen por archivo.",
+        "misconceptionId": "m04-mc29"
+      },
+      {
+        "id": "o2",
+        "text": "--stat",
+        "correct": true,
+        "feedback": "Correcta. --stat resume qué archivos cambiaron y cuántas líneas en cada uno. Si solo quieres los nombres, existe --name-only."
+      },
+      {
+        "id": "o3",
+        "text": "--hard",
+        "correct": false,
+        "feedback": "La opción --hard es de reset, no de diff. Además, descarta los cambios sin confirmar, así que conviene no confundirlas.",
+        "misconceptionId": "m04-mc26"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l4#diff",
+    "sourceIds": [
+      "src-git-diff"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-p08",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo4",
+    "competencyIds": [
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Un commit con un error está en tu rama local; nadie más lo tiene. Quieres deshacerlo entero.",
+    "stem": "¿Qué es más seguro?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "git revert del commit",
+        "correct": true,
+        "feedback": "Correcta. git revert crea un commit nuevo que deshace el anterior y deja registro de lo que se deshizo, sin reescribir la historia. Por eso sigue siendo seguro aunque más adelante compartas la rama."
+      },
+      {
+        "id": "o2",
+        "text": "Borrar los archivos a mano y confirmar",
+        "correct": false,
+        "feedback": "A mano es fácil equivocarse y dejar algo a medias. git revert deshace exactamente lo que hizo el commit, ni más ni menos.",
+        "misconceptionId": "m04-mc40"
+      },
+      {
+        "id": "o3",
+        "text": "Restaurar el checkpoint de la sesión",
+        "correct": false,
+        "feedback": "El checkpoint no deshace commits y puede no cubrir todo lo que pasó en la sesión. Para deshacer un commit está git revert.",
+        "misconceptionId": "m04-mc24"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l4#deshacer",
+    "sourceIds": [
+      "src-git-revert"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-p09",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo5",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Un programa terminó con código 0, aunque su registro tiene un WARNING.",
+    "stem": "¿Cómo terminó?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Mal, porque hay un WARNING",
+        "correct": false,
+        "feedback": "Un WARNING avisa de algo inesperado, pero el programa siguió adelante. El código 0 indica que terminó bien.",
+        "misconceptionId": "m04-mc34"
+      },
+      {
+        "id": "o2",
+        "text": "Mal, porque 0 significa que no hizo nada",
+        "correct": false,
+        "feedback": "El código 0 significa éxito, no que el programa no hizo nada. Cualquier otro valor indica un fallo.",
+        "misconceptionId": "m04-mc42"
+      },
+      {
+        "id": "o3",
+        "text": "Bien: 0 es éxito, aunque el WARNING merece una mirada",
+        "correct": true,
+        "feedback": "Correcta. El código 0 indica que el programa terminó bien. El WARNING conviene leerlo, pero no es un fallo."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l5#codigo-salida",
+    "sourceIds": [
+      "src-python-sys",
+      "src-python-logging"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-p10",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo5",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "Un traceback termina con ZeroDivisionError: division by zero. Justo arriba aparece pipeline_kpis.py, línea 88, donde se calcula la cobertura.",
+    "stem": "¿Qué conviene revisar primero?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Por qué el denominador de la cobertura vale cero en ese caso",
+        "correct": true,
+        "feedback": "Correcta. La última línea del traceback dice qué pasó, una división por cero. En la cobertura, eso apunta a una cuota restante que vale cero."
+      },
+      {
+        "id": "o2",
+        "text": "La sintaxis de la línea 88",
+        "correct": false,
+        "feedback": "El programa corrió hasta esa línea, así que la sintaxis está bien. Lo que falló es un valor durante la ejecución, es decir, una excepción.",
+        "misconceptionId": "m04-mc65"
+      },
+      {
+        "id": "o3",
+        "text": "La primera línea del traceback",
+        "correct": false,
+        "feedback": "Un traceback se lee de abajo hacia arriba. La última línea es la que dice qué pasó.",
+        "misconceptionId": "m04-mc31"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l5#traceback",
+    "sourceIds": [
+      "src-python-errors"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-p11",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo6",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Pediste corregir un texto del reporte. El diff también cambia la probabilidad de una etapa en stage_probability.csv.",
+    "stem": "¿Qué haces con ese cambio?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Aceptarlo si la reconciliación pasa",
+        "correct": false,
+        "feedback": "Que la reconciliación pase no justifica el cambio. La tabla de probabilidades es una política de FP&A, y el encargo no la incluía.",
+        "misconceptionId": "m04-mc37"
+      },
+      {
+        "id": "o2",
+        "text": "Pedir que lo retire: está fuera de lo pedido y es una política de FP&A",
+        "correct": true,
+        "feedback": "Correcta. El cambio está fuera de lo pedido y toca una política del negocio, así que no se acepta. Esa tabla la decide FP&A, no el agente."
+      },
+      {
+        "id": "o3",
+        "text": "Aceptarlo, porque probablemente el agente tenía un motivo",
+        "correct": false,
+        "feedback": "Un motivo que nadie explicó ni pidió no alcanza para aceptar el cambio. Además, la tabla no le corresponde al agente.",
+        "misconceptionId": "m04-mc70"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l6#lista",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m04-p12",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m04",
+    "evaluatedObjectiveId": "m04-eo6",
+    "competencyIds": [
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Revisas una PR y el resumen del servicio dice «3 archivos cambiados».",
+    "stem": "¿Qué es lo primero que miras?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Solo el mensaje del commit, que resume el cambio",
+        "correct": false,
+        "feedback": "El mensaje del commit dice lo que el autor cree que hizo. Lo que de verdad cambió se ve en el diff.",
+        "misconceptionId": "m04-mc35"
+      },
+      {
+        "id": "o2",
+        "text": "Cuáles son los tres archivos y si alguno queda fuera de lo pedido",
+        "correct": true,
+        "feedback": "Correcta. La primera pregunta de la lista de revisión es qué archivos cambiaron. Un archivo inesperado es la primera señal de un cambio fuera de alcance."
+      },
+      {
+        "id": "o3",
+        "text": "Si el revisor automático dejó comentarios",
+        "correct": false,
+        "feedback": "El revisor automático ayuda, pero puede pasar cosas por alto. No reemplaza tu propia lectura del diff.",
+        "misconceptionId": "m04-mc36"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m04-l6#lista",
+    "sourceIds": [
+      "src-github-reviewing-prs"
+    ],
+    "status": "draft"
+  }
+]
