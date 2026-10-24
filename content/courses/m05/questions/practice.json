@@ -1,0 +1,513 @@
+[
+  {
+    "id": "m05-p01",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m05",
+    "evaluatedObjectiveId": "m05-eo1",
+    "competencyIds": [
+      "C11",
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Hablas de los controles de un agente con un colega.",
+    "stem": "¿Qué hace el sandbox?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Limita lo que un comando puede tocar mientras corre",
+        "correct": true,
+        "feedback": "Correcta. Es un límite que impone el sistema operativo. No decide si la acción corre: eso lo deciden los permisos."
+      },
+      {
+        "id": "o2",
+        "text": "Decide qué acciones necesitan tu aprobación",
+        "correct": false,
+        "feedback": "Eso lo deciden los permisos. Son controles distintos.",
+        "misconceptionId": "m05-mc04"
+      },
+      {
+        "id": "o3",
+        "text": "Garantiza que el agente no pueda hacer nada riesgoso",
+        "correct": false,
+        "feedback": "Un sandbox no protege lo que el agente hace dentro del proyecto. Y puede tener fugas.",
+        "misconceptionId": "m05-mc42"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l1#capas",
+    "sourceIds": [
+      "src-anthropic-cc-sandboxing"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-p02",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m05",
+    "evaluatedObjectiveId": "m05-eo1",
+    "competencyIds": [
+      "C11",
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Una tarea solo usa archivos del repositorio.",
+    "stem": "¿Cómo conviene la red?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Abierta, por si el agente necesita algo",
+        "correct": false,
+        "feedback": "Abrir la red sin necesidad agrega una salida para sacar datos. Si no hace falta, se apaga.",
+        "misconceptionId": "m05-mc03"
+      },
+      {
+        "id": "o2",
+        "text": "Apagada",
+        "correct": true,
+        "feedback": "Correcta. La red se abre solo a lo que la tarea necesita. Aquí no necesita nada."
+      },
+      {
+        "id": "o3",
+        "text": "Da igual, porque el sandbox ya protege",
+        "correct": false,
+        "feedback": "Archivos y red son aislamientos distintos. Activar uno no cubre el otro.",
+        "misconceptionId": "m05-mc03"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l1#red",
+    "sourceIds": [
+      "src-openai-codex-security"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-p03",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m05",
+    "evaluatedObjectiveId": "m05-eo2",
+    "competencyIds": [
+      "C07"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Quieres cambiar el texto de un botón del dashboard.",
+    "stem": "¿Cómo lo pides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Directo",
+        "correct": true,
+        "feedback": "Correcta. Cabe en una frase. Planear solo agrega costo."
+      },
+      {
+        "id": "o2",
+        "text": "Con un plan detallado previo",
+        "correct": false,
+        "feedback": "Un cambio de una frase no necesita plan. Planear solo agrega costo.",
+        "misconceptionId": "m05-mc07"
+      },
+      {
+        "id": "o3",
+        "text": "Con una entrevista previa sobre el botón",
+        "correct": false,
+        "feedback": "No hay ninguna idea que afinar. Se pide directo.",
+        "misconceptionId": "m05-mc07"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l2#cuando",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-p04",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m05",
+    "evaluatedObjectiveId": "m05-eo2",
+    "competencyIds": [
+      "C07"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El plan del agente no dice cómo se verificará cada paso.",
+    "stem": "¿Qué haces antes de aprobarlo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Aprobarlo, porque el resto se entiende bien",
+        "correct": false,
+        "feedback": "Un plan sin verificación por paso tiene un defecto que se corrige antes. Falta la verificación por paso.",
+        "misconceptionId": "m05-mc08"
+      },
+      {
+        "id": "o2",
+        "text": "Aprobarlo y probar todo al final",
+        "correct": false,
+        "feedback": "Probar al final mezcla los errores de varios pasos. Se prueba cada paso.",
+        "misconceptionId": "m05-mc11"
+      },
+      {
+        "id": "o3",
+        "text": "Pedir una verificación por paso",
+        "correct": true,
+        "feedback": "Correcta. Con una prueba por paso, los errores no se mezclan y se puede volver atrás."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l2#revisar-plan",
+    "sourceIds": [
+      "src-anthropic-eng-harnesses"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-p05",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m05",
+    "evaluatedObjectiveId": "m05-eo3",
+    "competencyIds": [
+      "C07"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Escribes un encargo para el agente.",
+    "stem": "¿Qué cuatro piezas lleva?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Qué cambiar, qué no tocar, cómo se comprueba y qué evidencia entregar",
+        "correct": true,
+        "feedback": "Correcta. Con esas cuatro piezas, el agente tiene alcance, límites, un check y lo que debe mostrar."
+      },
+      {
+        "id": "o2",
+        "text": "Qué cambiar, con cuánto cuidado, en qué orden y para cuándo",
+        "correct": false,
+        "feedback": "Cuidado, orden y plazo no dicen cómo se comprueba ni qué no tocar. Faltan los límites y el check.",
+        "misconceptionId": "m05-mc31"
+      },
+      {
+        "id": "o3",
+        "text": "Solo qué cambiar, para darle libertad al agente",
+        "correct": false,
+        "feedback": "Sin límites ni check, la única señal es que parezca terminado. Hacen falta límites y un check.",
+        "misconceptionId": "m05-mc15"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l3#piezas",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-p06",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m05",
+    "evaluatedObjectiveId": "m05-eo3",
+    "competencyIds": [
+      "C07"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "La salida de las pruebas está en verde, pero el diff muestra que una prueba cambió lo que esperaba.",
+    "stem": "¿Qué concluyes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que el cambio está bien, porque la salida es real",
+        "correct": false,
+        "feedback": "Es real, pero la vara de medir cambió. Una prueba modificada puede pasar con el código mal.",
+        "misconceptionId": "m05-mc13"
+      },
+      {
+        "id": "o2",
+        "text": "Que la evidencia no prueba lo pedido",
+        "correct": true,
+        "feedback": "Correcta. Una prueba modificada puede pasar sin que el código esté bien."
+      },
+      {
+        "id": "o3",
+        "text": "Que basta con pedirle que lo revise otra vez",
+        "correct": false,
+        "feedback": "Revisarse solo produce otra afirmación. Hace falta mirar el cambio en la prueba.",
+        "misconceptionId": "m05-mc12"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l3#trampa",
+    "sourceIds": [
+      "src-arxiv-impossiblebench"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-p07",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m05",
+    "evaluatedObjectiveId": "m05-eo4",
+    "competencyIds": [
+      "C07",
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Comparas los movimientos de una sesión.",
+    "stem": "¿En qué se diferencia bifurcar de limpiar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En nada: los dos empiezan de cero",
+        "correct": false,
+        "feedback": "Bifurcar copia la conversación. Limpiar la vacía.",
+        "misconceptionId": "m05-mc19"
+      },
+      {
+        "id": "o2",
+        "text": "Bifurcar conserva la sesión original; limpiar la vacía",
+        "correct": true,
+        "feedback": "Correcta. Bifurcar sirve para probar otro camino sin perder el actual."
+      },
+      {
+        "id": "o3",
+        "text": "Limpiar conserva la sesión y bifurcar la borra",
+        "correct": false,
+        "feedback": "Es al revés. Limpiar empieza con el contexto vacío.",
+        "misconceptionId": "m05-mc19"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l4#movimientos",
+    "sourceIds": [
+      "src-anthropic-cc-sessions"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-p08",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m05",
+    "evaluatedObjectiveId": "m05-eo4",
+    "competencyIds": [
+      "C07",
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El agente lleva dos correcciones fallidas sobre lo mismo.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Parar y empezar una sesión nueva con lo aprendido",
+        "correct": true,
+        "feedback": "Correcta. Tras dos correcciones fallidas, el contexto está contaminado. Una sesión nueva con lo aprendido rinde más."
+      },
+      {
+        "id": "o2",
+        "text": "Insistir con más detalle en la misma sesión",
+        "correct": false,
+        "feedback": "Más detalle no limpia el contexto contaminado. Conviene una sesión nueva.",
+        "misconceptionId": "m05-mc16"
+      },
+      {
+        "id": "o3",
+        "text": "Compactar para borrar los intentos",
+        "correct": false,
+        "feedback": "Compactar resume la confusión. No la borra.",
+        "misconceptionId": "m05-mc33"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l4#parar",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-p09",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m05",
+    "evaluatedObjectiveId": "m05-eo5",
+    "competencyIds": [
+      "C07"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Un cambio solo toca el diseño de una pantalla.",
+    "stem": "¿Qué verificación lo cubre?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Las pruebas automáticas que ya existen",
+        "correct": false,
+        "feedback": "Las pruebas que no muestran la página no ven los errores visuales. Hace falta verla.",
+        "misconceptionId": "m05-mc21"
+      },
+      {
+        "id": "o2",
+        "text": "Una revisión del mismo agente que lo hizo",
+        "correct": false,
+        "feedback": "El mismo agente arrastra su razonamiento. Y no ve la pantalla.",
+        "misconceptionId": "m05-mc22"
+      },
+      {
+        "id": "o3",
+        "text": "Verla en el navegador y compararla con el diseño",
+        "correct": true,
+        "feedback": "Correcta. Lo que solo se ve en pantalla se verifica viéndolo."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l5#navegador",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-p10",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m05",
+    "evaluatedObjectiveId": "m05-eo5",
+    "competencyIds": [
+      "C07"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Un revisor marca observaciones de estilo y una de corrección.",
+    "stem": "¿Qué atiendes primero?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La de corrección",
+        "correct": true,
+        "feedback": "Correcta. Lo que afecta a la corrección y a los requisitos va primero. El estilo puede esperar."
+      },
+      {
+        "id": "o2",
+        "text": "Todas por igual, en el orden en que llegaron",
+        "correct": false,
+        "feedback": "Perseguir todas por igual lleva a complicar de más. Primero va lo que afecta a la corrección.",
+        "misconceptionId": "m05-mc23"
+      },
+      {
+        "id": "o3",
+        "text": "Ninguna, porque son opiniones",
+        "correct": false,
+        "feedback": "La de corrección no es una opinión. Afecta al resultado.",
+        "misconceptionId": "m05-mc47"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l5#revision",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-p11",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m05",
+    "evaluatedObjectiveId": "m05-eo6",
+    "competencyIds": [
+      "C01",
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Vas a lanzar una tarea en la nube.",
+    "stem": "¿Desde dónde parte la sesión?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Desde tu carpeta local, con todo lo que tengas ahí",
+        "correct": false,
+        "feedback": "Parte del repositorio remoto. Lo no subido no está.",
+        "misconceptionId": "m05-mc25"
+      },
+      {
+        "id": "o2",
+        "text": "Desde la rama remota",
+        "correct": true,
+        "feedback": "Correcta. Por eso hay que subir lo que el agente debe leer."
+      },
+      {
+        "id": "o3",
+        "text": "Desde la conversación de tu sesión local",
+        "correct": false,
+        "feedback": "La conversación no viaja. Lo que viaja es lo escrito en el repositorio.",
+        "misconceptionId": "m05-mc28"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l6#remoto",
+    "sourceIds": [
+      "src-anthropic-cc-cloud"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-p12",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m05",
+    "evaluatedObjectiveId": "m05-eo6",
+    "competencyIds": [
+      "C01",
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El agente en la nube abrió una PR con su trabajo.",
+    "stem": "¿Qué haces con ella?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Fusionarla, porque el agente ya probó todo",
+        "correct": false,
+        "feedback": "Los registros de la sesión no reemplazan la revisión ni las pruebas propias. La PR se revisa.",
+        "misconceptionId": "m05-mc26"
+      },
+      {
+        "id": "o2",
+        "text": "Revisarla como cualquier otro cambio",
+        "correct": true,
+        "feedback": "Correcta. La PR es el punto de control del trabajo en la nube."
+      },
+      {
+        "id": "o3",
+        "text": "Aprobarla tú solo, porque la pediste",
+        "correct": false,
+        "feedback": "Quien pidió el cambio no debería aprobarlo solo. Hace falta otra persona.",
+        "misconceptionId": "m05-mc39"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l6#continuidad",
+    "sourceIds": [
+      "src-github-cloud-agent",
+      "src-github-cloud-agent-risks"
+    ],
+    "status": "draft"
+  }
+]

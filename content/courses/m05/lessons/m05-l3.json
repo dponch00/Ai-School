@@ -1,0 +1,51 @@
+{
+  "id": "m05-l3",
+  "courseId": "m05",
+  "version": "0.1.0",
+  "order": 3,
+  "title": "Encargos acotados con verificación ejecutable",
+  "objectives": [
+    {
+      "id": "m05-l3-o1",
+      "statement": "Elige el encargo con las cuatro piezas: qué cambiar, qué no tocar, cómo se comprueba y qué evidencia entregar.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m05-eo3"
+    },
+    {
+      "id": "m05-l3-o2",
+      "statement": "Reconoce que pedirle al agente que se revise no reemplaza un check ejecutable.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m05-eo3"
+    },
+    {
+      "id": "m05-l3-o3",
+      "statement": "Identifica cuándo un check pasa porque el agente cambió la prueba.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m05-eo3"
+    }
+  ],
+  "bodyPath": "courses/m05/lessons/m05-l3.md",
+  "reviewQuestionIds": [
+    "m05-l3-r1",
+    "m05-l3-r2"
+  ],
+  "checkQuestionIds": [
+    "m05-l3-c1",
+    "m05-l3-c2",
+    "m05-l3-c3",
+    "m05-l3-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m05-pc-verification-gates"
+  ],
+  "sourceIds": [
+    "src-anthropic-cc-best-practices",
+    "src-openai-codex-best-practices",
+    "src-github-copilot-agent-bp",
+    "src-arxiv-self-correct",
+    "src-arxiv-impossiblebench"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

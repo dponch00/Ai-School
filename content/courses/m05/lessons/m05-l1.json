@@ -1,0 +1,50 @@
+{
+  "id": "m05-l1",
+  "courseId": "m05",
+  "version": "0.1.0",
+  "order": 1,
+  "title": "Antes de dejar actuar al agente: permisos, sandbox y red",
+  "objectives": [
+    {
+      "id": "m05-l1-o1",
+      "statement": "Distingue permisos, sandbox y red como controles distintos.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m05-eo1"
+    },
+    {
+      "id": "m05-l1-o2",
+      "statement": "Elige la configuración de menor privilegio que deja trabajar al agente sin aprobar cada paso.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m05-eo1"
+    },
+    {
+      "id": "m05-l1-o3",
+      "statement": "Reconoce el riesgo que deja abierto aprobar todo a mano, usar un modo automático o dar acceso total.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m05-eo1"
+    }
+  ],
+  "bodyPath": "courses/m05/lessons/m05-l1.md",
+  "reviewQuestionIds": [],
+  "checkQuestionIds": [
+    "m05-l1-c1",
+    "m05-l1-c2",
+    "m05-l1-c3",
+    "m05-l1-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m05-pc-permission-modes"
+  ],
+  "sourceIds": [
+    "src-anthropic-cc-sandboxing",
+    "src-openai-codex-security",
+    "src-anthropic-eng-sandboxing",
+    "src-owasp-llm06",
+    "src-anthropic-cc-permission-modes",
+    "src-vscode-copilot-approvals",
+    "src-anthropic-cc-security"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

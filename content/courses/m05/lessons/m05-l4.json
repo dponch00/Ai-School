@@ -1,0 +1,54 @@
+{
+  "id": "m05-l4",
+  "courseId": "m05",
+  "version": "0.1.0",
+  "order": 4,
+  "title": "Depurar reproduciendo y saber cuándo parar",
+  "objectives": [
+    {
+      "id": "m05-l4-o1",
+      "statement": "Pide una corrección con el comando que reproduce el fallo y la diferencia exacta.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m05-eo4"
+    },
+    {
+      "id": "m05-l4-o2",
+      "statement": "Elige entre limpiar, compactar, bifurcar o volver atrás según el estado de la sesión.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m05-eo4"
+    },
+    {
+      "id": "m05-l4-o3",
+      "statement": "Tiene en cuenta el consumo y no confunde la sensación de avance con el avance.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m05-eo4"
+    }
+  ],
+  "bodyPath": "courses/m05/lessons/m05-l4.md",
+  "reviewQuestionIds": [
+    "m05-l4-r1",
+    "m05-l4-r2"
+  ],
+  "checkQuestionIds": [
+    "m05-l4-c1",
+    "m05-l4-c2",
+    "m05-l4-c3",
+    "m05-l4-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m05-pc-session-moves"
+  ],
+  "sourceIds": [
+    "src-anthropic-cc-workflows",
+    "src-anthropic-cc-best-practices",
+    "src-anthropic-cc-sessions",
+    "src-openai-codex-best-practices",
+    "src-anthropic-cc-checkpointing",
+    "src-anthropic-cc-costs",
+    "src-openai-codex-slash-commands",
+    "src-arxiv-metr-productivity"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

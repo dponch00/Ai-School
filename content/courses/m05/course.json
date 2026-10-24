@@ -1,0 +1,72 @@
+{
+  "id": "m05",
+  "version": "0.1.0",
+  "title": "Desarrollo con agentes de código",
+  "centralQuestion": "¿Cómo dirijo una mejora de principio a fin, con el agente bajo control?",
+  "competencyIds": [
+    "C07",
+    "C01",
+    "C03",
+    "C11"
+  ],
+  "evaluatedObjectives": [
+    {
+      "id": "m05-eo1",
+      "statement": "Dado un encargo con su tarea, sus datos y su entorno, elige la combinación de permisos, sandbox y red de menor privilegio que deja trabajar al agente sin una aprobación en cada paso, e identifica qué riesgo deja abierto cada alternativa.",
+      "competencyIds": [
+        "C11",
+        "C01"
+      ]
+    },
+    {
+      "id": "m05-eo2",
+      "statement": "Dada una tarea y su contexto, decide si conviene explorar y planear, pedir una entrevista o pedir el cambio directo, y ante un plan propuesto identifica el defecto que obliga a corregirlo antes de implementar.",
+      "competencyIds": [
+        "C07"
+      ]
+    },
+    {
+      "id": "m05-eo3",
+      "statement": "Dado un encargo o el reporte de un agente, elige la formulación con alcance acotado y un check ejecutable de «hecho cuando», e identifica si el reporte trae evidencia o solo una afirmación, incluido el caso en que el check pasa porque el agente lo cambió.",
+      "competencyIds": [
+        "C07"
+      ]
+    },
+    {
+      "id": "m05-eo4",
+      "statement": "Dado un fallo o una sesión que no avanza, elige el siguiente movimiento (reproducir, detenerse, limpiar, compactar, bifurcar o volver a un punto anterior), justificado por el estado de la sesión y su consumo.",
+      "competencyIds": [
+        "C07",
+        "C03"
+      ]
+    },
+    {
+      "id": "m05-eo5",
+      "statement": "Dado un cambio en el cálculo o en la interfaz, elige la verificación que lo cubre (prueba ejecutable, verificación visual en el navegador o revisión en contexto limpio) e identifica lo que cada una deja sin cubrir.",
+      "competencyIds": [
+        "C07"
+      ]
+    },
+    {
+      "id": "m05-eo6",
+      "statement": "Dada una tarea, decide si se ejecuta en local o en la nube, y si en paralelo; identifica qué necesita el entorno remoto para ver el trabajo y qué artefacto de continuidad acompaña el cambio de herramienta.",
+      "competencyIds": [
+        "C01",
+        "C03"
+      ]
+    }
+  ],
+  "lessonIds": [
+    "m05-l1",
+    "m05-l2",
+    "m05-l3",
+    "m05-l4",
+    "m05-l5",
+    "m05-l6"
+  ],
+  "practiceId": "m05-lab",
+  "estimatedMinutes": 180,
+  "volatility": "very-high",
+  "reviewCadence": "quarterly",
+  "status": "draft"
+}

@@ -2954,5 +2954,287 @@
     "kind": "primary",
     "volatility": "high",
     "nextReview": "2027-01-22"
+  },
+  {
+    "id": "src-anthropic-cc-permission-modes",
+    "title": "Choose a permission mode (Claude Code)",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/permission-modes",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Seis modos y qué permite cada uno",
+      "modo inicial `auto` desde v2.1.283",
+      "`-p` y SDK en manual",
+      "ajustes de proyecto no pueden activar `auto` ni bypass",
+      "denegación gana siempre",
+      "clasificador del modo automático, qué bloquea, umbrales de pausa",
+      "límites dichos en chat no son reglas y se pierden al compactar",
+      "advertencia de que no garantiza seguridad",
+      "bypass solo en entornos aislados",
+      "plan mode, edición del plan, opciones al aprobar"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-anthropic-cc-sandboxing",
+    "title": "Sandboxing (Claude Code)",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/sandboxing",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Sandbox de Bash desactivado por defecto",
+      "escritura en el directorio de trabajo",
+      "lectura amplia por defecto",
+      "proxy de red con lista vacía",
+      "permisos frente a sandbox",
+      "sistemas operativos",
+      "falla abierta por defecto",
+      "fugas documentadas (dominios amplios, sockets, archivos de arranque)",
+      "no es aislamiento completo"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-anthropic-eng-sandboxing",
+    "title": "Making Claude Code safer with sandboxing (2025-10-20)",
+    "organization": "Anthropic",
+    "url": "https://www.anthropic.com/engineering/claude-code-sandboxing",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Fatiga de aprobación",
+      "se necesitan aislamiento de archivos y de red",
+      "−84 % de solicitudes de permiso en uso interno"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-23"
+  },
+  {
+    "id": "src-anthropic-cc-cloud-environments",
+    "title": "Configure cloud environments (Claude Code)",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/cloud-environments",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Niveles de red None, Trusted (por defecto), Full, Custom",
+      "secretos de red fuera de la máquina",
+      "tráfico que no pasa por la lista (GitHub, conectores)"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-anthropic-cc-chrome",
+    "title": "Use Claude Code with Chrome",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/chrome",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Navegador para probar apps web, leer consola, verificar diseño",
+      "comparte el estado de sesión",
+      "pausa ante inicio de sesión o CAPTCHA",
+      "permisos por sitio",
+      "requisitos"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-anthropic-cc-sessions",
+    "title": "Manage sessions (Claude Code)",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/sessions",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Reanudar",
+      "bifurcar copia la conversación y deja intacta la original",
+      "`/clear`, `/compact`, `/context`"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-openai-codex-permissions",
+    "title": "Permission modes (Codex)",
+    "organization": "OpenAI",
+    "url": "https://learn.chatgpt.com/codex/permission-modes",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Ask for approval, Approve for me (`workspace-write` + `on-request` + revisión automática), Full access, personalizado",
+      "recomienda empezar por Ask for approval",
+      "no indica el predeterminado",
+      "`/permissions` en CLI"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-openai-codex-computer-use",
+    "title": "Computer use (Codex)",
+    "organization": "OpenAI",
+    "url": "https://learn.chatgpt.com/codex/computer-use",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Verificar apps y flujos de interfaz",
+      "permisos por app",
+      "navegador aparte porque las acciones con sesión iniciada cuentan como tuyas",
+      "páginas maliciosas",
+      "preferir el navegador integrado para apps locales"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-openai-codex-browser",
+    "title": "Browser (Codex)",
+    "organization": "OpenAI",
+    "url": "https://learn.chatgpt.com/codex/browser",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Navegador integrado solo en la app de escritorio",
+      "previsualizar la app local junto al diff",
+      "anotaciones",
+      "perfil separado",
+      "contenido de página como no confiable"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-github-copilot-cli",
+    "title": "About GitHub Copilot CLI",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Modo plan",
+      "aprobaciones una vez / sesión",
+      "`--allow-tool`, `--deny-tool`, `--allow-all-tools`",
+      "directorio de confianza heurístico",
+      "aprobación automática = tu mismo acceso",
+      "sandbox local",
+      "`--cloud` en *preview* pública",
+      "`/compact`, `/context`"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-vscode-copilot-approvals",
+    "title": "Manage approvals and permissions (VS Code, pág. 2026-10-21)",
+    "organization": "Microsoft (VS Code)",
+    "url": "https://code.visualstudio.com/docs/agents/run/approvals",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Niveles Manual, Assisted (experimental), Allow all",
+      "Autopilot",
+      "autoaprobación de terminal como comodidad, no barrera",
+      "aprobación de URL en dos tiempos",
+      "sandbox de terminal independiente del nivel, *preview* / experimental",
+      "modos de los arneses de terceros"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-vscode-copilot-agent-tools",
+    "title": "Use tools with agents (VS Code, pág. 2026-10-21)",
+    "organization": "Microsoft (VS Code)",
+    "url": "https://code.visualstudio.com/docs/copilot/agents/agent-tools",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Disponibilidad de una herramienta separada de su aprobación"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-vscode-browser-agent-testing",
+    "title": "Browser agent testing guide (VS Code, pág. 2026-10-21)",
+    "organization": "Microsoft (VS Code)",
+    "url": "https://code.visualstudio.com/docs/copilot/guides/browser-agent-testing-guide",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "El agente abre la app en el navegador integrado, prueba contra criterios, corrige y repite",
+      "páginas propias aisladas y efímeras",
+      "las compartidas usan tus cookies",
+      "herramientas de navegador activas por defecto"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-owasp-llm06",
+    "title": "LLM06:2025 Excessive Agency",
+    "organization": "OWASP",
+    "url": "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Definición",
+      "funciones, permisos y autonomía excesivas",
+      "mitigaciones: minimizar herramientas, mínimo privilegio, contexto del usuario, aprobación humana para alto impacto, mediación completa"
+    ],
+    "kind": "secondary",
+    "volatility": "medium",
+    "nextReview": "2027-04-23"
+  },
+  {
+    "id": "src-arxiv-metr-productivity",
+    "title": "Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity (2025, v2)",
+    "organization": "METR (Becker, Rush, Barnes, Rein)",
+    "url": "https://arxiv.org/abs/2507.09089",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Ensayo aleatorizado, 16 desarrolladores, 246 tareas",
+      "+19 % de tiempo con IA",
+      "creían −20 %",
+      "cautelas de los autores"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-23"
+  },
+  {
+    "id": "src-arxiv-self-correct",
+    "title": "Large Language Models Cannot Self-Correct Reasoning Yet (ICLR 2024)",
+    "organization": "Huang et al. (Google DeepMind y otros)",
+    "url": "https://arxiv.org/abs/2310.01798",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "La autocorrección sin retroalimentación externa no es fiable y a veces empeora"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-23"
+  },
+  {
+    "id": "src-arxiv-impossiblebench",
+    "title": "ImpossibleBench: Measuring LLMs' Propensity of Exploiting Test Cases (2025-10-23)",
+    "organization": "Zhong, Raghunathan, Carlini",
+    "url": "https://arxiv.org/abs/2510.20270",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Agentes que pasan tareas imposibles modificando pruebas o con atajos",
+      "pruebas de solo lectura frenan la modificación",
+      "instrucción estricta de detenerse y salida para escalar reducen la trampa",
+      "el prompt y el acceso a las pruebas cambian la tasa"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-23"
   }
 ]

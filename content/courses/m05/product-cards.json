@@ -1,0 +1,127 @@
+[
+  {
+    "id": "m05-pc-permission-modes",
+    "product": "Anthropic · Claude Code · OpenAI · Codex · GitHub Copilot",
+    "surfaces": [
+      "cli",
+      "ide",
+      "desktop"
+    ],
+    "capability": "Claude Code tiene seis modos de permiso (manual, aceptar ediciones, plan, auto, no preguntar y omitir permisos); el modo auto delega la aprobación en un clasificador y es el inicial en la terminal y VS Code desde la v2.1.283. Las reglas de denegación bloquean en todos los modos. Su sandbox de comandos está desactivado por defecto (/sandbox), funciona en macOS, Linux y WSL2, y su lista de dominios empieza vacía. Codex ofrece «Ask for approval», «Approve for me», «Full access» y modos personalizados; con escritura limitada al espacio de trabajo, la red está apagada y .git queda de solo lectura; la página no indica cuál es el predeterminado. Copilot CLI aprueba una vez o para la sesión y admite --deny-tool (la denegación gana); en VS Code, los niveles son Manual (predeterminado), Assisted (experimental) y Allow all, y la autoaprobación de comandos se describe como una comodidad, no una barrera.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-23",
+    "sourceIds": [
+      "src-anthropic-cc-permission-modes",
+      "src-anthropic-cc-sandboxing",
+      "src-openai-codex-permissions",
+      "src-openai-codex-security",
+      "src-github-copilot-cli",
+      "src-vscode-copilot-approvals"
+    ],
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "m05-pc-plan-mode",
+    "product": "Anthropic · Claude Code · OpenAI · Codex · GitHub Copilot CLI",
+    "surfaces": [
+      "cli",
+      "ide",
+      "desktop"
+    ],
+    "capability": "Claude Code entra en modo plan con Shift+Tab, --permission-mode plan o /plan; Ctrl+G abre el plan en el editor, y tiene una herramienta para hacer preguntas al usuario y un prompt de entrevista que termina en SPEC.md. Codex usa /plan o Shift+Tab y propone una plantilla PLANS.md para trabajos largos. Copilot CLI entra en modo plan con Shift+Tab y hace preguntas aclaratorias antes de escribir código.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-23",
+    "sourceIds": [
+      "src-anthropic-cc-permission-modes",
+      "src-anthropic-cc-best-practices",
+      "src-openai-codex-best-practices",
+      "src-openai-codex-slash-commands",
+      "src-github-copilot-cli"
+    ],
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "m05-pc-verification-gates",
+    "product": "Anthropic · Claude Code · GitHub Copilot",
+    "surfaces": [
+      "cli",
+      "ide",
+      "cloud"
+    ],
+    "capability": "Claude Code documenta /goal (un evaluador revisa la condición en cada turno), el hook Stop como compuerta determinista, un subagente verificador y /verify para comprobar contra la aplicación en marcha. El agente en la nube de Copilot usa el archivo copilot-setup-steps.yml para instalar las dependencias antes de trabajar, y su guía indica que poder correr pruebas y linters mejora las PR.",
+    "kind": "guidance",
+    "verifiedAt": "2026-10-23",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-github-copilot-agent-bp"
+    ],
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "m05-pc-session-moves",
+    "product": "Anthropic · Claude Code · OpenAI · Codex · GitHub Copilot CLI",
+    "surfaces": [
+      "cli",
+      "ide",
+      "desktop"
+    ],
+    "capability": "Claude Code: Esc detiene; Esc Esc o /rewind vuelve a un checkpoint; /clear limpia; /compact con un foco compacta; /branch o --fork-session bifurca; --continue y --resume retoman; /context muestra qué ocupa el contexto y /usage, el consumo de la sesión. Codex: /new, /compact, /fork, /status (contexto y límites) y /usage. Copilot CLI: /compact (compacta sola cerca del 95 % del límite) y /context; no se encontró documentada una bifurcación.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-23",
+    "sourceIds": [
+      "src-anthropic-cc-sessions",
+      "src-anthropic-cc-costs",
+      "src-openai-codex-slash-commands",
+      "src-github-copilot-cli"
+    ],
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "m05-pc-browser-review",
+    "product": "Anthropic · Claude Code · OpenAI · Codex · VS Code",
+    "surfaces": [
+      "cli",
+      "ide",
+      "desktop"
+    ],
+    "capability": "Claude Code se conecta a Chrome y otros navegadores Chromium con una extensión que comparte el estado de sesión del navegador y se pausa ante inicios de sesión o CAPTCHA; /code-review revisa el diff con un subagente de contexto limpio. Codex tiene un navegador integrado, con perfil separado, solo en la app de escritorio, y /review contra la rama base, los cambios sin confirmar o un commit. En VS Code, el agente tiene herramientas de navegador activas por defecto y las páginas que abre usan sesiones aisladas.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-23",
+    "sourceIds": [
+      "src-anthropic-cc-chrome",
+      "src-anthropic-cc-best-practices",
+      "src-openai-codex-browser",
+      "src-openai-codex-best-practices",
+      "src-vscode-browser-agent-testing"
+    ],
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "m05-pc-cloud-agents",
+    "product": "Anthropic · Claude Code · OpenAI · Codex · GitHub Copilot",
+    "surfaces": [
+      "web",
+      "cloud",
+      "cli",
+      "desktop",
+      "mobile"
+    ],
+    "capability": "Claude Code en la nube (web, móvil, escritorio y claude --cloud) usa por defecto la red «Trusted» y --teleport trae la sesión a la terminal (solo en esa dirección en la CLI). Codex Cloud usa entornos con script de instalación, red y secretos; la página no indica la red por defecto. El agente en la nube de Copilot trabaja en un entorno efímero, en una rama y con una PR por tarea, con una sesión máxima de 59 minutos; copilot --cloud está en vista previa pública. La app de Codex pasa una conversación entre la carpeta local y un worktree con «Hand off».",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-23",
+    "sourceIds": [
+      "src-anthropic-cc-cloud",
+      "src-anthropic-cc-cloud-environments",
+      "src-openai-codex-cloud",
+      "src-github-cloud-agent",
+      "src-github-copilot-cli",
+      "src-openai-codex-worktrees"
+    ],
+    "nextReview": "2027-01-23"
+  }
+]

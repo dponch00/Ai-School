@@ -1,0 +1,31 @@
+{
+  "id": "m05-lab",
+  "courseId": "m05",
+  "version": "0.1.0",
+  "title": "Las alertas de cobranza",
+  "evaluatedObjectiveIds": [
+    "m05-eo1",
+    "m05-eo2",
+    "m05-eo3",
+    "m05-eo4",
+    "m05-eo5",
+    "m05-eo6"
+  ],
+  "instructionsPath": "courses/m05/practice/m05-lab.md",
+  "estimatedMinutes": 30,
+  "questionIds": [
+    "m05-lab-q01",
+    "m05-lab-q02",
+    "m05-lab-q03",
+    "m05-lab-q04",
+    "m05-lab-q05",
+    "m05-lab-q06",
+    "m05-lab-q07",
+    "m05-lab-q08",
+    "m05-lab-q09",
+    "m05-lab-q10",
+    "m05-lab-q11",
+    "m05-lab-q12"
+  ],
+  "status": "draft"
+}

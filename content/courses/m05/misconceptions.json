@@ -1,0 +1,487 @@
+[
+  {
+    "id": "m05-mc01",
+    "courseId": "m05",
+    "description": "Si apruebo cada acción a mano, el agente es lo más seguro posible.",
+    "whyWrong": "La fatiga de aprobación hace que se apruebe sin leer; un límite técnico como el sandbox protege aunque la atención falle.",
+    "sourceIds": [
+      "src-anthropic-eng-sandboxing",
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m05-mc02",
+    "courseId": "m05",
+    "description": "El modo automático decide por mí qué es seguro, así que no hace falta revisar.",
+    "whyWrong": "Reduce las preguntas, pero su documentación dice que no garantiza la seguridad; para una garantía hacen falta reglas de denegación y revisión.",
+    "sourceIds": [
+      "src-anthropic-cc-permission-modes"
+    ]
+  },
+  {
+    "id": "m05-mc03",
+    "courseId": "m05",
+    "description": "Con el sandbox activado ya no importa la red.",
+    "whyWrong": "Archivos y red son aislamientos distintos y se necesitan ambos; una lista de dominios amplia puede servir para sacar datos.",
+    "sourceIds": [
+      "src-anthropic-eng-sandboxing",
+      "src-anthropic-cc-sandboxing"
+    ]
+  },
+  {
+    "id": "m05-mc04",
+    "courseId": "m05",
+    "description": "Permisos y sandbox son dos nombres de lo mismo.",
+    "whyWrong": "Los permisos deciden si una acción corre; el sandbox limita lo que toca una acción ya en marcha.",
+    "sourceIds": [
+      "src-anthropic-cc-sandboxing",
+      "src-openai-codex-security"
+    ]
+  },
+  {
+    "id": "m05-mc05",
+    "courseId": "m05",
+    "description": "Lo que le digo al agente en el chat queda como regla para toda la sesión.",
+    "whyWrong": "Un límite dicho en el chat no se guarda como regla y puede perderse al compactar; una regla de denegación sí persiste.",
+    "sourceIds": [
+      "src-anthropic-cc-permission-modes"
+    ]
+  },
+  {
+    "id": "m05-mc06",
+    "courseId": "m05",
+    "description": "El acceso total es aceptable si el repositorio es mío.",
+    "whyWrong": "Está pensado para entornos aislados; no protege frente a instrucciones inyectadas ni a acciones fuera del repositorio.",
+    "sourceIds": [
+      "src-anthropic-cc-permission-modes",
+      "src-openai-codex-security"
+    ]
+  },
+  {
+    "id": "m05-mc07",
+    "courseId": "m05",
+    "description": "Siempre conviene planear: más plan es más control.",
+    "whyWrong": "Planear agrega costo; si el diff cabe en una frase, se pide directo.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m05-mc08",
+    "courseId": "m05",
+    "description": "Si el plan suena razonable, se aprueba tal cual.",
+    "whyWrong": "El plan se revisa y se edita: archivos protegidos, alcance y verificación por paso.",
+    "sourceIds": [
+      "src-anthropic-cc-permission-modes"
+    ]
+  },
+  {
+    "id": "m05-mc09",
+    "courseId": "m05",
+    "description": "Para explorar, conviene que el agente lea todo el repositorio.",
+    "whyWrong": "Una exploración sin límites llena el contexto; se acota o se delega en un subagente.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-openai-codex-best-practices"
+    ]
+  },
+  {
+    "id": "m05-mc10",
+    "courseId": "m05",
+    "description": "La entrevista del agente define las reglas de negocio que faltan.",
+    "whyWrong": "La entrevista encuentra las preguntas; las definiciones del negocio las decide quien es responsable de ellas.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m05-mc11",
+    "courseId": "m05",
+    "description": "Es más eficiente que el agente haga todo en una pasada y pruebe al final.",
+    "whyWrong": "Hacerlo todo de una vez deja trabajo a medias y errores mezclados; se avanza por pasos, con una prueba en cada uno.",
+    "sourceIds": [
+      "src-anthropic-eng-harnesses",
+      "src-anthropic-cc-costs"
+    ]
+  },
+  {
+    "id": "m05-mc12",
+    "courseId": "m05",
+    "description": "Si le pido que revise su trabajo con calma, el agente lo corrige solo.",
+    "whyWrong": "Sin una señal externa, la autocorrección no es fiable; hace falta un check que pueda correr.",
+    "sourceIds": [
+      "src-arxiv-self-correct",
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m05-mc13",
+    "courseId": "m05",
+    "description": "Si adjunta la salida y está en verde, el cambio es correcto.",
+    "whyWrong": "El check pudo pasar porque se modificó la prueba o el resultado esperado; hay que ver qué archivos de prueba cambió.",
+    "sourceIds": [
+      "src-arxiv-impossiblebench"
+    ]
+  },
+  {
+    "id": "m05-mc14",
+    "courseId": "m05",
+    "description": "«Corrige hasta que pasen las pruebas» es un buen criterio para dar por terminado el trabajo.",
+    "whyWrong": "Si no prohíbe tocar las pruebas, invita a ajustar el check en lugar del código.",
+    "sourceIds": [
+      "src-arxiv-impossiblebench"
+    ]
+  },
+  {
+    "id": "m05-mc15",
+    "courseId": "m05",
+    "description": "Un encargo corto y abierto le deja al agente más libertad para hacerlo bien.",
+    "whyWrong": "Sin alcance ni criterio de terminado, la única señal es que el trabajo parece terminado.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-openai-codex-best-practices"
+    ]
+  },
+  {
+    "id": "m05-mc16",
+    "courseId": "m05",
+    "description": "Si insisto con más detalle en la misma sesión, al final el agente lo arregla.",
+    "whyWrong": "Tras dos correcciones fallidas, el contexto está contaminado; rinde más una sesión nueva con un encargo mejor.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m05-mc17",
+    "courseId": "m05",
+    "description": "Para que el agente corrija un fallo, basta con describirlo.",
+    "whyWrong": "Hace falta el comando que lo reproduce y la diferencia o el error exactos.",
+    "sourceIds": [
+      "src-anthropic-cc-workflows",
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m05-mc18",
+    "courseId": "m05",
+    "description": "Compactar es la forma más barata de seguir trabajando.",
+    "whyWrong": "Compactar lee todo lo que resume y es una petición grande; limpiar no cuesta, aunque pierde la continuidad.",
+    "sourceIds": [
+      "src-anthropic-cc-costs"
+    ]
+  },
+  {
+    "id": "m05-mc19",
+    "courseId": "m05",
+    "description": "Bifurcar y limpiar la sesión dan lo mismo.",
+    "whyWrong": "Bifurcar copia la conversación y conserva la original para volver a ella; limpiar empieza con el contexto vacío.",
+    "sourceIds": [
+      "src-anthropic-cc-sessions"
+    ]
+  },
+  {
+    "id": "m05-mc20",
+    "courseId": "m05",
+    "description": "Si siento que avanzo rápido, la sesión está rindiendo.",
+    "whyWrong": "La percepción y el tiempo medido pueden ir en sentidos opuestos; se mira si el fallo reproducido cambió.",
+    "sourceIds": [
+      "src-arxiv-metr-productivity"
+    ]
+  },
+  {
+    "id": "m05-mc21",
+    "courseId": "m05",
+    "description": "Si las pruebas pasan, la pantalla está bien.",
+    "whyWrong": "Las pruebas que no muestran la página no ven los errores visuales; hay que verificarla en el navegador.",
+    "sourceIds": [
+      "src-anthropic-eng-harnesses",
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m05-mc22",
+    "courseId": "m05",
+    "description": "El mismo agente que hizo el cambio es el mejor revisor, porque conoce el contexto.",
+    "whyWrong": "Un revisor en contexto limpio no arrastra el razonamiento que produjo el cambio.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m05-mc23",
+    "courseId": "m05",
+    "description": "Hay que corregir todo lo que señale el revisor.",
+    "whyWrong": "Pedir huecos siempre produce alguno; se atiende lo que afecta a la corrección y a los requisitos.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m05-mc24",
+    "courseId": "m05",
+    "description": "Para probar el dashboard, conviene que el agente use mi navegador con todas mis sesiones.",
+    "whyWrong": "Con tus sesiones iniciadas puede actuar como tú en cualquier sitio; conviene un navegador sin ellas.",
+    "sourceIds": [
+      "src-anthropic-cc-chrome",
+      "src-openai-codex-computer-use",
+      "src-openai-codex-browser"
+    ]
+  },
+  {
+    "id": "m05-mc25",
+    "courseId": "m05",
+    "description": "La sesión en la nube ve lo mismo que tengo en mi carpeta.",
+    "whyWrong": "Clona el repositorio remoto; lo no confirmado o no subido no está.",
+    "sourceIds": [
+      "src-anthropic-cc-cloud"
+    ]
+  },
+  {
+    "id": "m05-mc26",
+    "courseId": "m05",
+    "description": "Si lo mando a la nube, me ahorro revisar: llega terminado.",
+    "whyWrong": "Entrega una rama o una PR que hay que revisar; los registros de la sesión no sustituyen la revisión ni las pruebas.",
+    "sourceIds": [
+      "src-github-cloud-agent",
+      "src-github-cloud-agent-risks"
+    ]
+  },
+  {
+    "id": "m05-mc27",
+    "courseId": "m05",
+    "description": "Más tareas en paralelo siempre terminan antes.",
+    "whyWrong": "Solo si son independientes; además, cada sesión consume límites de uso.",
+    "sourceIds": [
+      "src-anthropic-cc-cloud"
+    ]
+  },
+  {
+    "id": "m05-mc28",
+    "courseId": "m05",
+    "description": "Al cambiar de herramienta, la conversación se lleva sola el contexto.",
+    "whyWrong": "Lo que viaja es lo escrito en el repositorio; cada herramienta empieza sin la conversación de la otra.",
+    "sourceIds": [
+      "src-anthropic-cc-cloud"
+    ]
+  },
+  {
+    "id": "m05-mc29",
+    "courseId": "m05",
+    "description": "Una tarea larga y compleja es ideal para el agente en la nube, porque corre solo.",
+    "whyWrong": "Hay límites de duración de sesión y la guía pide dividirla en tareas más pequeñas.",
+    "sourceIds": [
+      "src-github-cloud-agent"
+    ]
+  },
+  {
+    "id": "m05-mc30",
+    "courseId": "m05",
+    "description": "Explorar antes de cambiar es tiempo perdido: conviene implementar directo.",
+    "whyWrong": "Cuando el enfoque es incierto o el código es desconocido, explorar y planear evita resolver el problema equivocado.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m05-mc31",
+    "courseId": "m05",
+    "description": "Pedirle cuidado al agente en el encargo evita que tome atajos.",
+    "whyWrong": "Lo que reduce los atajos es concreto: pruebas de solo lectura, la instrucción de detenerse si una prueba parece incorrecta y una salida para consultar.",
+    "sourceIds": [
+      "src-arxiv-impossiblebench"
+    ]
+  },
+  {
+    "id": "m05-mc32",
+    "courseId": "m05",
+    "description": "Pedir el check en el mensaje basta, aunque nadie supervise la ejecución.",
+    "whyWrong": "Cuanto más desatendida es la ejecución, más firme conviene que sea el check, hasta una compuerta que impida terminar sin pasar.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m05-mc33",
+    "courseId": "m05",
+    "description": "Compactar borra del contexto los intentos fallidos.",
+    "whyWrong": "Compactar resume lo que hay, también la confusión; cuando el historial está contaminado, conviene empezar limpio.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m05-mc34",
+    "courseId": "m05",
+    "description": "Limpiar es siempre la mejor opción, porque no cuesta nada.",
+    "whyWrong": "Limpiar pierde la continuidad; si el historial de la misma tarea sigue valiendo, se compacta con foco.",
+    "sourceIds": [
+      "src-anthropic-cc-costs",
+      "src-anthropic-cc-sessions"
+    ]
+  },
+  {
+    "id": "m05-mc35",
+    "courseId": "m05",
+    "description": "Si una prueba pasa, cubre todos los casos.",
+    "whyWrong": "Una prueba cubre solo lo que codifica; los casos límite hay que agregarlos.",
+    "sourceIds": [
+      "src-anthropic-cc-workflows"
+    ]
+  },
+  {
+    "id": "m05-mc36",
+    "courseId": "m05",
+    "description": "Volver a un checkpoint deshace todo lo que hizo el agente.",
+    "whyWrong": "El checkpoint puede no cubrir lo hecho con comandos de terminal y no reemplaza a Git.",
+    "sourceIds": [
+      "src-anthropic-cc-checkpointing"
+    ]
+  },
+  {
+    "id": "m05-mc37",
+    "courseId": "m05",
+    "description": "Limpiar la sesión deshace los cambios hechos en los archivos.",
+    "whyWrong": "Limpiar vacía el contexto de la conversación; los archivos quedan como estaban.",
+    "sourceIds": [
+      "src-anthropic-cc-sessions"
+    ]
+  },
+  {
+    "id": "m05-mc38",
+    "courseId": "m05",
+    "description": "Las sesiones en la nube no pueden correr en paralelo.",
+    "whyWrong": "Las guías proponen lanzar tareas independientes en paralelo, cada una en su sesión.",
+    "sourceIds": [
+      "src-anthropic-cc-cloud",
+      "src-openai-codex-cloud"
+    ]
+  },
+  {
+    "id": "m05-mc39",
+    "courseId": "m05",
+    "description": "Quien pidió el cambio puede aprobar solo la PR del agente en la nube.",
+    "whyWrong": "El agente no aprueba ni fusiona su PR, y quien la pidió tampoco; hace falta otra persona.",
+    "sourceIds": [
+      "src-github-cloud-agent-risks"
+    ]
+  },
+  {
+    "id": "m05-mc40",
+    "courseId": "m05",
+    "description": "Si la revisión automática no deja comentarios, el cambio está bien.",
+    "whyWrong": "Una revisión automática no garantiza encontrar todos los problemas.",
+    "sourceIds": [
+      "src-github-copilot-code-review"
+    ]
+  },
+  {
+    "id": "m05-mc41",
+    "courseId": "m05",
+    "description": "Un token de prueba puede guardarse en un archivo del repositorio para que el agente lo encuentre.",
+    "whyWrong": "Un token, aunque sea de prueba, va fuera del repositorio; lo que entra en un commit queda en la historia y en las copias.",
+    "sourceIds": [
+      "src-anthropic-cc-cloud-environments"
+    ]
+  },
+  {
+    "id": "m05-mc42",
+    "courseId": "m05",
+    "description": "Un sandbox elimina todos los riesgos de trabajar con un agente.",
+    "whyWrong": "El sandbox no protege lo que el agente decide hacer dentro del proyecto, y hay casos documentados de fuga.",
+    "sourceIds": [
+      "src-anthropic-cc-sandboxing"
+    ]
+  },
+  {
+    "id": "m05-mc43",
+    "courseId": "m05",
+    "description": "El reporte de un agente nunca basta como evidencia, aunque traiga lo pedido.",
+    "whyWrong": "Si el reporte trae el diff, la salida del check pedido y la lista de pruebas sin cambios, es la evidencia que se pidió.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m05-mc44",
+    "courseId": "m05",
+    "description": "Mientras la conversación quepa en la ventana, no hace falta hacer nada.",
+    "whyWrong": "El rendimiento baja a medida que crece la entrada; con la misma tarea y un historial valioso, se compacta antes de llegar al límite.",
+    "sourceIds": [
+      "src-anthropic-cc-sessions"
+    ]
+  },
+  {
+    "id": "m05-mc45",
+    "courseId": "m05",
+    "description": "Para empezar una sesión nueva conviene pegar el historial completo de la anterior.",
+    "whyWrong": "Pegarlo traería de vuelta la confusión; a la sesión nueva van el comando, lo descartado y la hipótesis.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m05-mc46",
+    "courseId": "m05",
+    "description": "Una captura de pantalla sirve para verificar un cálculo.",
+    "whyWrong": "Una captura muestra cómo se ve una cifra, no si está bien calculada; el cálculo se verifica con una prueba o una reconciliación.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m05-mc47",
+    "courseId": "m05",
+    "description": "Las observaciones de un revisor se pueden ignorar porque son opiniones.",
+    "whyWrong": "Las que afectan a la corrección o a los requisitos se atienden; las demás se pueden dejar como opcionales.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m05-mc48",
+    "courseId": "m05",
+    "description": "Toda tarea conviene hacerla en local, para tenerla bajo control.",
+    "whyWrong": "Las tareas acotadas, independientes y verificables con una PR pueden ir a la nube, que entrega una rama para revisar.",
+    "sourceIds": [
+      "src-anthropic-cc-cloud",
+      "src-openai-codex-cloud"
+    ]
+  },
+  {
+    "id": "m05-mc49",
+    "courseId": "m05",
+    "description": "Si algo falla en la nube, es un error del agente.",
+    "whyWrong": "El entorno remoto tiene su propia red, sus propios archivos y sus propios secretos; muchas fallas vienen de lo que el entorno no tiene.",
+    "sourceIds": [
+      "src-anthropic-cc-cloud-environments"
+    ]
+  },
+  {
+    "id": "m05-mc50",
+    "courseId": "m05",
+    "description": "Una sesión de la nube nunca se puede retomar en local.",
+    "whyWrong": "Se puede traer a la terminal si se cumplen los requisitos: carpeta limpia, mismo repositorio, rama subida y misma cuenta.",
+    "sourceIds": [
+      "src-anthropic-cc-cloud"
+    ]
+  },
+  {
+    "id": "m05-mc51",
+    "courseId": "m05",
+    "description": "Lo que el agente lee en una página es una instrucción válida.",
+    "whyWrong": "El contenido externo puede traer instrucciones inyectadas; se trata como no confiable, no como una orden.",
+    "sourceIds": [
+      "src-openai-codex-security",
+      "src-anthropic-cc-security"
+    ]
+  },
+  {
+    "id": "m05-mc52",
+    "courseId": "m05",
+    "description": "La memoria automática de una herramienta sirve para traspasar trabajo a otra.",
+    "whyWrong": "La memoria de una herramienta no la ve otra; lo que viaja es lo escrito en el repositorio.",
+    "sourceIds": [
+      "src-anthropic-cc-cloud"
+    ]
+  }
+]

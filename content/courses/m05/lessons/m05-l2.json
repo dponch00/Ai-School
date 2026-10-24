@@ -1,0 +1,52 @@
+{
+  "id": "m05-l2",
+  "courseId": "m05",
+  "version": "0.1.0",
+  "order": 2,
+  "title": "Explorar y planear según la complejidad",
+  "objectives": [
+    {
+      "id": "m05-l2-o1",
+      "statement": "Decide entre pedir directo, planear o pedir una entrevista según la tarea.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m05-eo2"
+    },
+    {
+      "id": "m05-l2-o2",
+      "statement": "Acota la exploración o la delega en un subagente.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m05-eo2"
+    },
+    {
+      "id": "m05-l2-o3",
+      "statement": "Identifica el defecto de un plan antes de aprobarlo.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m05-eo2"
+    }
+  ],
+  "bodyPath": "courses/m05/lessons/m05-l2.md",
+  "reviewQuestionIds": [
+    "m05-l2-r1",
+    "m05-l2-r2"
+  ],
+  "checkQuestionIds": [
+    "m05-l2-c1",
+    "m05-l2-c2",
+    "m05-l2-c3",
+    "m05-l2-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m05-pc-plan-mode"
+  ],
+  "sourceIds": [
+    "src-anthropic-cc-best-practices",
+    "src-openai-codex-best-practices",
+    "src-anthropic-cc-permission-modes",
+    "src-anthropic-eng-harnesses",
+    "src-anthropic-cc-costs",
+    "src-github-copilot-agent-bp"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

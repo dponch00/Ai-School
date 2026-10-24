@@ -1,0 +1,55 @@
+{
+  "id": "m05-l5",
+  "courseId": "m05",
+  "version": "0.1.0",
+  "order": 5,
+  "title": "Pruebas, verificación visual y revisión",
+  "objectives": [
+    {
+      "id": "m05-l5-o1",
+      "statement": "Elige la verificación que cubre un cambio: prueba, navegador o revisión.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m05-eo5"
+    },
+    {
+      "id": "m05-l5-o2",
+      "statement": "Identifica lo que cada verificación deja sin cubrir.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m05-eo5"
+    },
+    {
+      "id": "m05-l5-o3",
+      "statement": "Usa un revisor en contexto limpio y un navegador sin sesiones personales.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m05-eo5"
+    }
+  ],
+  "bodyPath": "courses/m05/lessons/m05-l5.md",
+  "reviewQuestionIds": [
+    "m05-l5-r1",
+    "m05-l5-r2"
+  ],
+  "checkQuestionIds": [
+    "m05-l5-c1",
+    "m05-l5-c2",
+    "m05-l5-c3",
+    "m05-l5-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m05-pc-browser-review"
+  ],
+  "sourceIds": [
+    "src-anthropic-cc-workflows",
+    "src-openai-codex-best-practices",
+    "src-anthropic-cc-best-practices",
+    "src-anthropic-eng-harnesses",
+    "src-vscode-browser-agent-testing",
+    "src-anthropic-cc-chrome",
+    "src-openai-codex-computer-use",
+    "src-openai-codex-browser",
+    "src-github-copilot-code-review"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

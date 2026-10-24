@@ -1,0 +1,86 @@
+[
+  {
+    "family": "m05-f01",
+    "evaluatedObjectiveId": "m05-eo1",
+    "decision": "Elegir la combinación de permisos, sandbox y red de menor privilegio para una tarea",
+    "equivalence": "Las tres variantes describen lo que necesita una tarea y piden la configuración. Cambia la necesidad de red: ninguna (a), solo el registro de paquetes (b) y una API interna con un token de prueba (c, más difícil porque además hay que decidir dónde va el token)."
+  },
+  {
+    "family": "m05-f02",
+    "evaluatedObjectiveId": "m05-eo1",
+    "decision": "Identificar el riesgo que deja abierto cada forma de controlar al agente",
+    "equivalence": "Las tres variantes presentan una configuración y piden el riesgo que no cubre. Cambia la configuración: sandbox con red apagada (a), modo automático (b) y aprobación manual de todo (c, más difícil porque parece la más segura)."
+  },
+  {
+    "family": "m05-f03",
+    "evaluatedObjectiveId": "m05-eo2",
+    "decision": "Decidir entre pedir directo, explorar y planear, o pedir una entrevista, según la tarea",
+    "equivalence": "Las tres variantes presentan una tarea y piden cómo encargarla. Cambia la tarea: una línea de registro (a, directo), un cambio con una regla sin definir en un módulo desconocido (b, explorar y planear con la regla aclarada) y un cambio mecánico que toca muchos archivos (c, más difícil porque tocar muchos archivos parece pedir un plan)."
+  },
+  {
+    "family": "m05-f04",
+    "evaluatedObjectiveId": "m05-eo2",
+    "decision": "Identificar el defecto que obliga a corregir un plan antes de aprobarlo",
+    "equivalence": "Las tres variantes presentan un paso de un plan y piden la corrección. Cambia el defecto: una exploración sin límites (a), una regla de negocio fijada por el agente (b) y un paso que regenera los resultados esperados (c, más difícil porque el paso parece de mantenimiento)."
+  },
+  {
+    "family": "m05-f05",
+    "evaluatedObjectiveId": "m05-eo3",
+    "decision": "Elegir el encargo con alcance acotado, un check ejecutable y la evidencia que hay que entregar",
+    "equivalence": "Las tres variantes piden elegir entre tres encargos para una tarea. Cambia la tarea: un filtro nuevo (a), una corrección de redondeo (b) y una tarea que correrá sin supervisión (c, más difícil porque las dos alternativas tienen parte de lo necesario)."
+  },
+  {
+    "family": "m05-f06",
+    "evaluatedObjectiveId": "m05-eo3",
+    "decision": "Identificar si el reporte de un agente trae evidencia de lo pedido o solo una afirmación",
+    "equivalence": "Las tres variantes presentan un reporte y piden qué dice. Cambia el reporte: una salida en verde con una prueba modificada (a), un reporte completo según lo pedido (b) y un agente que se detuvo ante una prueba contradictoria (c, más difícil porque detenerse parece un fallo)."
+  },
+  {
+    "family": "m05-f07",
+    "evaluatedObjectiveId": "m05-eo3",
+    "decision": "Identificar la pieza que falta en un encargo: qué no tocar, la evidencia o qué hacer ante una prueba dudosa",
+    "equivalence": "Las tres variantes presentan un encargo incompleto y piden la pieza que falta. Cambia lo que falta: qué no tocar (a), la evidencia (b) y qué hacer si una prueba parece incorrecta en una ejecución sin supervisión (c, más difícil porque el encargo ya tiene las cuatro piezas básicas)."
+  },
+  {
+    "family": "m05-f08",
+    "evaluatedObjectiveId": "m05-eo4",
+    "decision": "Elegir el movimiento de sesión que corresponde al estado de una depuración",
+    "equivalence": "Las tres variantes describen el estado de una sesión y piden el movimiento. Cambia el estado: correcciones fallidas (a, sesión nueva), historial valioso cerca del límite (b, compactar con foco) y un enfoque alternativo que se quiere probar (c, más difícil porque volver a un checkpoint parece equivalente)."
+  },
+  {
+    "family": "m05-f09",
+    "evaluatedObjectiveId": "m05-eo4",
+    "decision": "Elegir lo que se le entrega al agente para que corrija un fallo: reproducción, diferencia exacta y lo descartado",
+    "equivalence": "Las tres variantes presentan un fallo y piden qué darle al agente. Cambia el fallo: una cifra que difiere (a), un fallo intermitente (b) y una sesión nueva después de correcciones fallidas (c, más difícil porque el historial completo parece lo más informativo)."
+  },
+  {
+    "family": "m05-f10",
+    "evaluatedObjectiveId": "m05-eo5",
+    "decision": "Elegir la verificación que cubre lo que todavía no se comprobó de un cambio",
+    "equivalence": "Las tres variantes describen lo que ya se verificó y piden lo que falta. Cambia el hueco: casos límite de un cálculo (a), lo visual (b) y el alcance del cambio con todo en verde (c, más difícil porque las verificaciones automáticas ya pasaron)."
+  },
+  {
+    "family": "m05-f11",
+    "evaluatedObjectiveId": "m05-eo5",
+    "decision": "Decidir qué hacer con el resultado de una revisión o con la forma de verificar en el navegador",
+    "equivalence": "Las tres variantes presentan una situación de verificación y piden la decisión. Cambia la situación: muchas observaciones de un revisor (a), una observación que afecta a la corrección (b) y una propuesta de usar el navegador con sesiones de trabajo (c, más difícil porque parece cómodo)."
+  },
+  {
+    "family": "m05-f12",
+    "evaluatedObjectiveId": "m05-eo6",
+    "decision": "Decidir si una tarea va en local o en la nube, y si en paralelo",
+    "equivalence": "Las tres variantes presentan tareas y piden dónde van. Cambia la tarea: una acotada y ya subida (a, nube), una que depende de una conversación en vivo (b, local) y un grupo con dependencias (c, más difícil porque mezcla las dos)."
+  },
+  {
+    "family": "m05-f13",
+    "evaluatedObjectiveId": "m05-eo6",
+    "decision": "Identificar qué le falta al entorno remoto o al traspaso para ver el trabajo",
+    "equivalence": "Las tres variantes presentan un problema con la nube o el traspaso y piden la causa. Cambia la causa: un commit sin subir (a), un entorno sin red para instalar (b) y una carpeta con cambios sin confirmar al retomar en local (c, más difícil porque parece que el traspaso no existe)."
+  },
+  {
+    "family": "m05-f14",
+    "evaluatedObjectiveId": "m05-eo1",
+    "decision": "Decidir cómo tratar un límite, una configuración o un contenido que afectan lo que puede hacer el agente",
+    "equivalence": "Las tres variantes presentan algo que cambia lo que el agente puede hacer y piden la decisión. Cambia el origen: un límite dicho en el chat (a), un modo de acceso total en la configuración del proyecto (b) y una instrucción encontrada en una página (c, más difícil porque parece inofensiva)."
+  }
+]

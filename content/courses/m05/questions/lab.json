@@ -1,0 +1,529 @@
+[
+  {
+    "id": "m05-lab-q01",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m05",
+    "labStep": "paso-1",
+    "evaluatedObjectiveId": "m05-eo1",
+    "competencyIds": [
+      "C11",
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "La tarea de las alertas necesita editar el repositorio, correr pruebas y quizá instalar una librería ya declarada.",
+    "stem": "¿Con qué configuración empieza la analista?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Aprobando a mano cada acción, para no correr ningún riesgo",
+        "correct": false,
+        "feedback": "Con aprobaciones constantes llega la fatiga de aprobación. Un límite técnico protege mejor.",
+        "misconceptionId": "m05-mc01"
+      },
+      {
+        "id": "o2",
+        "text": "Sandbox en el proyecto, red solo al registro y aprobación para enviar al servidor",
+        "correct": true,
+        "feedback": "Correcta. Es el menor privilegio que deja trabajar al agente. Lo de alto impacto, enviar al servidor, sigue pidiendo aprobación."
+      },
+      {
+        "id": "o3",
+        "text": "Acceso total, porque la tarea toca muchas cosas a la vez",
+        "correct": false,
+        "feedback": "El acceso total es para entornos aislados. Que la tarea sea amplia no lo justifica.",
+        "misconceptionId": "m05-mc06"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l1#red",
+    "sourceIds": [
+      "src-anthropic-cc-sandboxing",
+      "src-owasp-llm06"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-lab-q02",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m05",
+    "labStep": "paso-1",
+    "evaluatedObjectiveId": "m05-eo1",
+    "competencyIds": [
+      "C11",
+      "C01"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "scenario": "La analista le escribe al agente: «no toques data/clientes.csv». Ese archivo está dentro del proyecto.",
+    "stem": "¿Qué hace falta para que eso valga toda la tarea?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Una regla de denegación de escritura sobre ese archivo",
+        "correct": true,
+        "feedback": "Correcta. Una regla de denegación vale en cualquier modo. Lo dicho en el chat puede perderse."
+      },
+      {
+        "id": "o2",
+        "text": "Nada más: el sandbox ya impide que el agente toque ese archivo",
+        "correct": false,
+        "feedback": "El sandbox deja escribir dentro del proyecto, y el archivo está dentro. No lo protege.",
+        "misconceptionId": "m05-mc04"
+      },
+      {
+        "id": "o3",
+        "text": "Repetírselo en cada mensaje para que no lo olvide",
+        "correct": false,
+        "feedback": "Repetirlo lo deja igual de frágil. Hace falta una regla en la configuración.",
+        "misconceptionId": "m05-mc05"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l1#automatico",
+    "sourceIds": [
+      "src-anthropic-cc-permission-modes"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-lab-q03",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m05",
+    "labStep": "paso-2",
+    "evaluatedObjectiveId": "m05-eo2",
+    "competencyIds": [
+      "C07"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El paso 3 del plan fija el umbral de alerta en 90 días «según las buenas prácticas de cobranza».",
+    "stem": "¿Qué hace la analista con ese paso?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Lo aprueba, porque 90 días coincide con lo que ella pidió",
+        "correct": false,
+        "feedback": "Coincide, pero el umbral lo fija FP&A. Que el agente lo dé por bueno con otra justificación no lo confirma.",
+        "misconceptionId": "m05-mc08"
+      },
+      {
+        "id": "o2",
+        "text": "Lo deja: el agente conoce las buenas prácticas del sector",
+        "correct": false,
+        "feedback": "Las prácticas generales no son la regla de la empresa. La regla la decide FP&A.",
+        "misconceptionId": "m05-mc10"
+      },
+      {
+        "id": "o3",
+        "text": "Pide que el umbral quede como regla confirmada por FP&A",
+        "correct": true,
+        "feedback": "Correcta. Es lógica de negocio. El agente puede proponerla, pero la regla la decide FP&A."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l2#delegar",
+    "sourceIds": [
+      "src-github-copilot-agent-bp"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-lab-q04",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m05",
+    "labStep": "paso-2",
+    "evaluatedObjectiveId": "m05-eo2",
+    "competencyIds": [
+      "C07"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Los pasos 1 y 5 del plan dicen «leer todos los archivos del repositorio» y «correr las pruebas al final».",
+    "stem": "¿Qué corrige la analista?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Acotar la exploración y verificar cada paso",
+        "correct": true,
+        "feedback": "Correcta. Leer todo llena el contexto y probar al final mezcla los errores. Se acota y se prueba por paso."
+      },
+      {
+        "id": "o2",
+        "text": "Nada: explorar todo y probar al final es lo más ordenado",
+        "correct": false,
+        "feedback": "Una exploración sin límites llena el contexto. Y probar al final deja trabajo a medias.",
+        "misconceptionId": "m05-mc11"
+      },
+      {
+        "id": "o3",
+        "text": "Nada, porque el plan en conjunto suena razonable",
+        "correct": false,
+        "feedback": "Un plan se revisa como una especificación, paso por paso. Aquí fallan la exploración y la verificación.",
+        "misconceptionId": "m05-mc08"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l2#revisar-plan",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-anthropic-eng-harnesses"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-lab-q05",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m05",
+    "labStep": "paso-3",
+    "evaluatedObjectiveId": "m05-eo3",
+    "competencyIds": [
+      "C07"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El agente se detuvo: la prueba test_aging espera alertas desde los 60 días y el encargo dice 90. No la modificó.",
+    "stem": "¿Qué concluye la analista?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que el agente falló, porque debía hacer pasar todas las pruebas",
+        "correct": false,
+        "feedback": "Hacerla pasar habría sido ajustar el check. Detenerse era lo correcto.",
+        "misconceptionId": "m05-mc14"
+      },
+      {
+        "id": "o2",
+        "text": "Que hizo bien: hay que decidir con FP&A cuál de los dos vale",
+        "correct": true,
+        "feedback": "Correcta. La prueba y el encargo se contradicen. Quien define la regla decide cuál vale."
+      },
+      {
+        "id": "o3",
+        "text": "Que debe pedirle al agente que ajuste la prueba a 90",
+        "correct": false,
+        "feedback": "Si el agente ajusta la prueba sin confirmar la regla, el check deja de proteger nada. Primero se decide qué regla vale.",
+        "misconceptionId": "m05-mc14"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l3#trampa",
+    "sourceIds": [
+      "src-arxiv-impossiblebench"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-lab-q06",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m05",
+    "labStep": "paso-3",
+    "evaluatedObjectiveId": "m05-eo3",
+    "competencyIds": [
+      "C07"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "scenario": "Gracias a una frase del encargo, el agente se detuvo en lugar de cambiar test_aging.",
+    "stem": "¿Qué frase lo hizo posible?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "«Asegúrate de que todas las pruebas pasen»",
+        "correct": false,
+        "feedback": "Esa frase empuja a cambiar las pruebas. No a detenerse.",
+        "misconceptionId": "m05-mc14"
+      },
+      {
+        "id": "o2",
+        "text": "«Ten mucho cuidado con las pruebas»",
+        "correct": false,
+        "feedback": "Pedir cuidado no da una salida concreta. La instrucción de detenerse sí la da.",
+        "misconceptionId": "m05-mc31"
+      },
+      {
+        "id": "o3",
+        "text": "«Si una prueba parece incorrecta, detente y explícalo»",
+        "correct": true,
+        "feedback": "Correcta. Es la instrucción que más reduce los atajos. Y además obligó a revisar el paso 2: el umbral no estaba confirmado."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l3#trampa",
+    "sourceIds": [
+      "src-arxiv-impossiblebench"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-lab-q07",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m05",
+    "labStep": "paso-4",
+    "evaluatedObjectiveId": "m05-eo4",
+    "competencyIds": [
+      "C07",
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Dos arreglos fallidos, contexto muy ocupado, y un comando mínimo muestra que Cuenta Ficticia Prisma tiene un pago parcial con la fecha vacía.",
+    "stem": "¿Qué hace la analista?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Abre una sesión nueva con el comando, la causa y lo descartado",
+        "correct": true,
+        "feedback": "Correcta. Tras dos correcciones fallidas se para. La sesión nueva parte con lo aprendido."
+      },
+      {
+        "id": "o2",
+        "text": "Le explica el problema otra vez en la misma sesión, con más detalle",
+        "correct": false,
+        "feedback": "El contexto está contaminado por los intentos. Más detalle no lo limpia.",
+        "misconceptionId": "m05-mc16"
+      },
+      {
+        "id": "o3",
+        "text": "Le dice «Prisma no debería aparecer, arréglalo» y espera",
+        "correct": false,
+        "feedback": "Describir el síntoma no basta. Tiene la causa probable y el comando: hay que darlos.",
+        "misconceptionId": "m05-mc17"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l4#parar",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-lab-q08",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m05",
+    "labStep": "paso-4",
+    "evaluatedObjectiveId": "m05-eo4",
+    "competencyIds": [
+      "C07",
+      "C03"
+    ],
+    "difficulty": "advanced",
+    "process": "apply",
+    "scenario": "En la sesión nueva, el agente corrige los pagos parciales. La analista quiere probar además otra regla para las fechas vacías, sin perder lo hecho.",
+    "stem": "¿Qué movimiento usa?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Limpiar la sesión y probar la regla desde cero",
+        "correct": false,
+        "feedback": "Limpiar pierde lo hecho. Para probar sin perder, se bifurca.",
+        "misconceptionId": "m05-mc19"
+      },
+      {
+        "id": "o2",
+        "text": "Bifurcar la sesión",
+        "correct": true,
+        "feedback": "Correcta. La bifurcación conserva la sesión original. Si la otra regla no sirve, vuelve a la que funcionaba."
+      },
+      {
+        "id": "o3",
+        "text": "Compactar, porque es lo más barato para seguir trabajando",
+        "correct": false,
+        "feedback": "Compactar es una petición grande y no conserva un camino al que volver. Para probar sin perder, se bifurca.",
+        "misconceptionId": "m05-mc18"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l4#movimientos",
+    "sourceIds": [
+      "src-anthropic-cc-sessions",
+      "src-anthropic-cc-costs"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-lab-q09",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m05",
+    "labStep": "paso-5",
+    "evaluatedObjectiveId": "m05-eo5",
+    "competencyIds": [
+      "C07"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Las pruebas pasan. Falta saber si la lista y sus marcas de color se ven bien en el dashboard.",
+    "stem": "¿Qué verificación pide la analista?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguna más: las pruebas ya pasaron",
+        "correct": false,
+        "feedback": "Las pruebas no muestran la página. Lo visual hay que verlo.",
+        "misconceptionId": "m05-mc21"
+      },
+      {
+        "id": "o2",
+        "text": "Que el agente use su navegador de trabajo, con sus sesiones abiertas",
+        "correct": false,
+        "feedback": "Con sus sesiones abiertas, el agente podría actuar como ella. Conviene un navegador sin ellas.",
+        "misconceptionId": "m05-mc24"
+      },
+      {
+        "id": "o3",
+        "text": "Una captura en un navegador sin sus sesiones, comparada con el diseño",
+        "correct": true,
+        "feedback": "Correcta. Lo visual se verifica viéndolo, y sin exponer las sesiones personales."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l5#navegador",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-openai-codex-browser"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-lab-q10",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m05",
+    "labStep": "paso-5",
+    "evaluatedObjectiveId": "m05-eo5",
+    "competencyIds": [
+      "C07"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El revisor en contexto limpio devolvió ocho observaciones. Una dice que la lista falla con un cliente sin facturas; siete son de estilo.",
+    "stem": "¿Qué hace la analista?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Atiende la del cliente sin facturas",
+        "correct": true,
+        "feedback": "Correcta. Afecta a la corrección. Las de estilo pueden quedar como opcionales."
+      },
+      {
+        "id": "o2",
+        "text": "Corrige las ocho, para dejar el cambio impecable",
+        "correct": false,
+        "feedback": "Perseguir todas lleva a complicar de más. Se atiende lo que afecta a la corrección.",
+        "misconceptionId": "m05-mc23"
+      },
+      {
+        "id": "o3",
+        "text": "Le pide al mismo agente que lo hizo que revise de nuevo",
+        "correct": false,
+        "feedback": "El mismo agente arrastra su razonamiento. La revisión limpia ya está hecha.",
+        "misconceptionId": "m05-mc22"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l5#revision",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-lab-q11",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m05",
+    "labStep": "paso-6",
+    "evaluatedObjectiveId": "m05-eo6",
+    "competencyIds": [
+      "C01",
+      "C03"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "La analista va a mandar a la nube las pruebas de pagos parciales y el README. El plan está en un archivo sin subir.",
+    "stem": "¿Qué necesita el entorno remoto?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: la sesión en la nube ve su carpeta",
+        "correct": false,
+        "feedback": "La nube clona el remoto. Lo que no se subió no está.",
+        "misconceptionId": "m05-mc25"
+      },
+      {
+        "id": "o2",
+        "text": "La rama con el plan subida y red hacia el registro de paquetes",
+        "correct": true,
+        "feedback": "Correcta. La nube parte del remoto y tiene su propia red. Se sube lo que debe leer y se abre solo lo necesario."
+      },
+      {
+        "id": "o3",
+        "text": "Acceso total al entorno, para que no falle nada durante la noche",
+        "correct": false,
+        "feedback": "Basta con la red necesaria. El acceso total es para entornos aislados y aquí no hace falta.",
+        "misconceptionId": "m05-mc06"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l6#remoto",
+    "sourceIds": [
+      "src-anthropic-cc-cloud",
+      "src-anthropic-cc-cloud-environments"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m05-lab-q12",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m05",
+    "labStep": "paso-6",
+    "evaluatedObjectiveId": "m05-eo6",
+    "competencyIds": [
+      "C01",
+      "C03"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "El lunes, otra persona seguirá con las alertas usando otra herramienta.",
+    "stem": "¿Qué le sirve para retomar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La memoria automática de la herramienta de la analista",
+        "correct": false,
+        "feedback": "La memoria de una herramienta no la ve otra. Lo que viaja es lo escrito en el repositorio.",
+        "misconceptionId": "m05-mc52"
+      },
+      {
+        "id": "o2",
+        "text": "La conversación de la sesión, que la otra herramienta recibe sola",
+        "correct": false,
+        "feedback": "La conversación no viaja entre herramientas. Cada herramienta empieza sin ella.",
+        "misconceptionId": "m05-mc28"
+      },
+      {
+        "id": "o3",
+        "text": "Lo escrito en el repositorio: plan, decisiones y traspaso",
+        "correct": true,
+        "feedback": "Correcta. Entre herramientas solo viaja lo escrito. La regla de 90 días va al registro de decisiones."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m05-l6#continuidad",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  }
+]

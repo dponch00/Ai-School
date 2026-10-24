@@ -1,0 +1,54 @@
+{
+  "id": "m05-l6",
+  "courseId": "m05",
+  "version": "0.1.0",
+  "order": 6,
+  "title": "Local o nube, y el traspaso entre herramientas",
+  "objectives": [
+    {
+      "id": "m05-l6-o1",
+      "statement": "Decide si una tarea va en local o en la nube, y si en paralelo.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m05-eo6"
+    },
+    {
+      "id": "m05-l6-o2",
+      "statement": "Identifica qué necesita el entorno remoto para ver el trabajo.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m05-eo6"
+    },
+    {
+      "id": "m05-l6-o3",
+      "statement": "Reconoce que entre herramientas viaja lo escrito en el repositorio, y que la PR es el punto de control.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m05-eo6"
+    }
+  ],
+  "bodyPath": "courses/m05/lessons/m05-l6.md",
+  "reviewQuestionIds": [
+    "m05-l6-r1",
+    "m05-l6-r2"
+  ],
+  "checkQuestionIds": [
+    "m05-l6-c1",
+    "m05-l6-c2",
+    "m05-l6-c3",
+    "m05-l6-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m05-pc-cloud-agents"
+  ],
+  "sourceIds": [
+    "src-anthropic-cc-cloud",
+    "src-github-cloud-agent",
+    "src-anthropic-cc-cloud-environments",
+    "src-openai-codex-cloud",
+    "src-openai-codex-worktrees",
+    "src-github-copilot-agent-bp",
+    "src-anthropic-cc-best-practices",
+    "src-github-cloud-agent-risks"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}
