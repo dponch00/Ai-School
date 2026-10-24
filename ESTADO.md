@@ -4,8 +4,9 @@
 
 ## Siguiente acción
 
-1. **Claude:** banco de examen de M04, su laboratorio como caso y su práctica; luego T-032.
-2. **Codex:** sin ticket abierto hasta T-032.
+1. **Claude:** banco de examen de M04, su laboratorio como caso y su práctica; luego T-032. Desde ahora va un ticket por manual completo (D-025).
+2. **Subagentes:** investigan M05, M06 y M07 en paralelo (`investigacion/M05-*.md`, `M06-*.md`, `M07-*.md`).
+3. **Codex:** sin ticket abierto hasta T-032.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
@@ -70,6 +71,12 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-23 · Claude Code — D-025: más rápido
+Daniel preguntó por qué avanzábamos lento. Desde ahora:
+- va un ticket de revisión por manual completo;
+- la investigación de M05 a M07 corre en paralelo con subagentes;
+- las pruebas E2E y la versión de prueba se actualizan al cerrar cada manual.
 
 ### 2026-10-23 · Claude Code — revisión de T-031
 - **T031-M04-01:** la regla de no imprimir secretos en los registros queda como inferencia, con la fuente solo para la exposición.

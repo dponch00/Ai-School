@@ -164,3 +164,13 @@ Una entrada por decisión. Estados: **aceptada**, **propuesta** (espera a Daniel
 - **Recorrido de Daniel:** deja de ser condición para escribir el Bloque A (actualiza D-022 y D-023). Con la app simplificada, Daniel estudia a su ritmo y sus observaciones se incorporan cuando lleguen.
 - **Datos:** IndexedDB conserva las tablas antiguas (perfil, entregas, retroalimentación, ajustes, reportes) y el respaldo las sigue exportando y restaurando, para no perder nada guardado antes. La app ya no las escribe.
 - **Cómo se hace cumplir:** `course-files.test.ts` exige que cada pregunta del laboratorio esté en un paso marcado del instructivo, que cubran todos sus objetivos con al menos dos cada uno, que no repitan escenarios de comprobaciones ni examen y que la longitud no delate la clave. `build-content.ts` falla si un paso no tiene preguntas. La prueba E2E del laboratorio comprueba que no hay campos de texto y que al responder todo queda hecho.
+
+## D-025 · Un ticket de revisión por manual completo e investigación en paralelo
+
+- **Estado:** aceptada por Daniel · 2026-10-23 · **actualiza** el ritmo de trabajo de `coordinacion/PROTOCOLO.md`; la revisión cruzada sigue igual
+- **Problema:** cada manual pasaba por 3 o 4 rondas con Codex (lecciones 1 a 3, lecciones 4 a 6, examen y laboratorio), y cada ronda dependía de que Daniel pasara el ticket. Las últimas revisiones encontraban 1 o 2 detalles menores, así que revisar en lotes chicos costaba más de lo que rendía. La investigación iba de a un manual por vez.
+- **Decisión:**
+  - **Revisión:** Claude escribe el manual completo (6 lecciones, banco de examen, laboratorio como caso y práctica) y abre un solo ticket de revisión por manual. El autor sigue sin ser el único revisor.
+  - **Investigación:** los subagentes investigan en paralelo los manuales siguientes, empezando por M05 a M07, para que cada manual arranque con su investigación lista.
+  - **Trabajo fijo por ronda:** las pruebas E2E y la versión de prueba se actualizan al cerrar cada manual, o cuando Daniel quiera estudiar, no en cada entrega parcial. `npm test` se sigue corriendo en cada cambio.
+- **Excepción:** M04 ya tiene revisadas sus lecciones, así que su próximo ticket cubre el examen, el laboratorio y la práctica.
