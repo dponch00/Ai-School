@@ -27,7 +27,7 @@
     },
     {
       "id": "m05-eo3",
-      "statement": "Dado un encargo o el reporte de un agente, elige la formulación con alcance acotado y un check ejecutable de «hecho cuando», e identifica si el reporte trae evidencia o solo una afirmación, incluido el caso en que el check pasa porque el agente lo cambió.",
+      "statement": "Dado un encargo o el reporte de un agente, elige la formulación con alcance acotado y un check ejecutable de «listo cuando», e identifica si el reporte trae evidencia o solo una afirmación, incluido el caso en que el check pasa porque el agente lo cambió.",
       "competencyIds": [
         "C07"
       ]

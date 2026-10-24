@@ -19,20 +19,20 @@
         "id": "o1",
         "text": "Aprobar a mano cada acción que proponga el agente",
         "correct": false,
-        "feedback": "Con aprobaciones constantes se termina aprobando sin leer. Un límite técnico protege aunque la atención falle.",
+        "feedback": "Cuando las aprobaciones son constantes, uno termina aprobando sin leer. Un límite técnico, como el sandbox, protege aunque la atención falle.",
         "misconceptionId": "m05-mc01"
       },
       {
         "id": "o2",
         "text": "Sandbox con escritura solo en el repositorio y la red apagada",
         "correct": true,
-        "feedback": "Correcta. El agente trabaja sin pedir permiso a cada paso, pero no puede escribir fuera del proyecto ni conectarse a ningún lado. Es el menor privilegio que deja hacer la tarea."
+        "feedback": "Correcta. El agente trabaja sin pedir permiso a cada paso, pero no puede escribir fuera del proyecto ni conectarse a ningún lado. Es la configuración con menos privilegios que le permite hacer la tarea."
       },
       {
         "id": "o3",
         "text": "Acceso total, porque el repositorio es tuyo y la tarea es sencilla",
         "correct": false,
-        "feedback": "El acceso total es para entornos aislados. Que el repositorio sea tuyo no impide que el agente escriba fuera o siga una instrucción escondida.",
+        "feedback": "El acceso total está pensado para entornos aislados. Que el repositorio sea tuyo no impide que el agente escriba fuera de él o siga una instrucción escondida en un archivo.",
         "misconceptionId": "m05-mc06"
       }
     ],
@@ -64,20 +64,20 @@
         "id": "o1",
         "text": "Que archivos y red se aíslan por separado",
         "correct": true,
-        "feedback": "Correcta. Hacen falta los dos aislamientos. Con una lista de dominios demasiado amplia, el sandbox puede tener fugas."
+        "feedback": "Correcta. Hacen falta los dos aislamientos, el de archivos y el de red. Si la lista de dominios permitidos es demasiado amplia, el sandbox puede fallar."
       },
       {
         "id": "o2",
         "text": "Que tiene razón, porque el sandbox ya impide cualquier salida",
         "correct": false,
-        "feedback": "El sandbox de archivos no limita por sí solo a dónde se conecta el agente. Sin aislamiento de red, puede sacar archivos.",
+        "feedback": "El aislamiento de archivos no limita por sí solo a dónde se conecta el agente. Sin aislamiento de red, un agente comprometido puede sacar archivos.",
         "misconceptionId": "m05-mc03"
       },
       {
         "id": "o3",
         "text": "Que tiene razón, porque permisos, sandbox y red son el mismo control",
         "correct": false,
-        "feedback": "Son tres controles distintos: si una acción corre, qué toca y a dónde se conecta. Activar uno no reemplaza a los otros.",
+        "feedback": "Son tres controles distintos, que deciden si una acción corre, qué toca y a dónde se conecta. Activar uno no reemplaza a los otros.",
         "misconceptionId": "m05-mc04"
       }
     ],
@@ -102,12 +102,12 @@
     ],
     "difficulty": "base",
     "process": "apply",
-    "scenario": "Usas el modo que delega la aprobación en un clasificador. Le escribes al agente en el chat: «nunca envíes cambios al servidor».",
+    "scenario": "Usas el modo que delega la aprobación en otro modelo. Le escribes al agente en el chat: «nunca envíes cambios al servidor».",
     "stem": "¿Qué falta para que eso valga siempre?",
     "options": [
       {
         "id": "o1",
-        "text": "Nada: el clasificador lo recordará durante toda la sesión",
+        "text": "Nada: ese modelo lo recordará durante toda la sesión",
         "correct": false,
         "feedback": "Un límite dicho en el chat no se guarda como regla y puede perderse al compactar. Lo que tiene que valer siempre va en la configuración.",
         "misconceptionId": "m05-mc05"
@@ -116,14 +116,14 @@
         "id": "o2",
         "text": "Repetirlo en cada mensaje, para que no lo olvide",
         "correct": false,
-        "feedback": "Repetirlo lo deja igual de frágil. Lo que tiene que valer siempre va en la configuración.",
+        "feedback": "Repetirlo no cambia nada, porque sigue viviendo solo en la conversación. Lo que tiene que valer siempre va en la configuración, como regla de denegación.",
         "misconceptionId": "m05-mc05"
       },
       {
         "id": "o3",
         "text": "Una regla de denegación en la configuración",
         "correct": true,
-        "feedback": "Correcta. Una regla de denegación bloquea esa acción en cualquier modo y no depende de la conversación. El clasificador reduce preguntas, pero no garantiza nada."
+        "feedback": "Correcta. Una regla de denegación bloquea esa acción en cualquier modo y no depende de la conversación. El modo automático reduce preguntas, pero no garantiza la seguridad."
       }
     ],
     "fixedOrder": false,
@@ -153,20 +153,20 @@
         "id": "o1",
         "text": "Seguir aprobando a mano, porque es lo más seguro",
         "correct": false,
-        "feedback": "A la cuadragésima aprobación ya no se lee lo que se aprueba. Esa es la fatiga de aprobación.",
+        "feedback": "A la cuadragésima aprobación ya nadie lee lo que aprueba. Eso es la fatiga de aprobación, y hace el trabajo menos seguro, no más.",
         "misconceptionId": "m05-mc01"
       },
       {
         "id": "o2",
         "text": "Preaprobar ese comando y usar un sandbox",
         "correct": true,
-        "feedback": "Correcta. Un comando conocido se aprueba de antemano, y el sandbox limita lo demás. Así la atención queda para lo que de verdad importa."
+        "feedback": "Correcta. Un comando conocido se aprueba de antemano y el sandbox limita todo lo demás. Así la atención queda para lo que de verdad importa."
       },
       {
         "id": "o3",
         "text": "Pasar al acceso total para que deje de preguntar",
         "correct": false,
-        "feedback": "Quita las preguntas y también todos los límites. El acceso total es para entornos aislados.",
+        "feedback": "Las preguntas desaparecen, pero también todos los límites. El acceso total está pensado para entornos aislados.",
         "misconceptionId": "m05-mc06"
       }
     ],
@@ -197,20 +197,20 @@
         "id": "o1",
         "text": "Directo, sin plan",
         "correct": true,
-        "feedback": "Correcta. El cambio cabe en una frase. Un plan solo agregaría costo."
+        "feedback": "Correcta. El cambio cabe en una frase, así que un plan solo agregaría costo."
       },
       {
         "id": "o2",
         "text": "Con un plan previo, para tener control sobre el cambio",
         "correct": false,
-        "feedback": "Planear cuesta. Si el diff se describe en una frase, se pide directo.",
+        "feedback": "Planear tiene un costo y aquí no aporta nada. Si el diff se puede describir en una frase, se pide directo.",
         "misconceptionId": "m05-mc07"
       },
       {
         "id": "o3",
         "text": "Pidiendo primero que el agente te entreviste sobre el cambio",
         "correct": false,
-        "feedback": "La entrevista sirve para ideas verdes y grandes. Una errata no la necesita.",
+        "feedback": "La entrevista sirve para funciones grandes cuya idea todavía está verde. Una errata no la necesita.",
         "misconceptionId": "m05-mc07"
       }
     ],
@@ -240,20 +240,20 @@
         "id": "o1",
         "text": "Pidiéndole al agente que la implemente ya y ajustarla después",
         "correct": false,
-        "feedback": "Sin saber qué casos cubrir, el agente resolverá rápido el problema equivocado. Primero hay que saber qué casos cubrir.",
+        "feedback": "Si no sabes qué casos debe cubrir, el agente puede resolver muy rápido el problema equivocado. Conviene aclararlo antes de implementar.",
         "misconceptionId": "m05-mc15"
       },
       {
         "id": "o2",
         "text": "Con una entrevista y una especificación",
         "correct": true,
-        "feedback": "Correcta. La entrevista ayuda a encontrar las preguntas, y la especificación queda escrita. Los umbrales, si son de negocio, los decide quien corresponda."
+        "feedback": "Correcta. La entrevista ayuda a encontrar las preguntas y la especificación deja las respuestas por escrito. Si los umbrales son de negocio, los decide quien es responsable de esa regla."
       },
       {
         "id": "o3",
         "text": "Dejando que el agente decida los umbrales en la entrevista",
         "correct": false,
-        "feedback": "La entrevista encuentra las preguntas, pero los umbrales de negocio no los fija el agente. Los decide quien es responsable de esa regla.",
+        "feedback": "La entrevista sirve para encontrar las preguntas, pero los umbrales de negocio no los fija el agente. Los decide quien es responsable de esa regla.",
         "misconceptionId": "m05-mc10"
       }
     ],
@@ -284,21 +284,21 @@
         "id": "o1",
         "text": "Dejarlo leer todo, así no se le escapa nada",
         "correct": false,
-        "feedback": "Una exploración sin límites llena el contexto con material que no se volverá a usar. Se le dice dónde mirar o se delega la exploración.",
+        "feedback": "Una exploración sin límites llena el contexto de material que no se volverá a usar. Conviene decirle dónde mirar o delegar la exploración.",
         "misconceptionId": "m05-mc09"
       },
       {
         "id": "o2",
         "text": "Cancelar la exploración y pedir el cambio directo",
         "correct": false,
-        "feedback": "Si el código es desconocido, explorar evita resolver mal el problema. Lo que hay que corregir es el alcance.",
+        "feedback": "Si no conoces el código, explorar evita resolver mal el problema. Lo que hay que corregir es el alcance de la exploración, no saltársela.",
         "misconceptionId": "m05-mc30"
       },
       {
         "id": "o3",
         "text": "Acotar la exploración o delegarla en un subagente",
         "correct": true,
-        "feedback": "Correcta. Se le dice dónde mirar, o un subagente explora aparte y devuelve un resumen. La sesión principal queda limpia."
+        "feedback": "Correcta. O le dices dónde mirar, o un subagente explora aparte y devuelve un resumen. Así la sesión principal no se llena."
       }
     ],
     "fixedOrder": false,
@@ -328,20 +328,20 @@
         "id": "o1",
         "text": "Una verificación por paso",
         "correct": true,
-        "feedback": "Correcta. Con una prueba por paso, los errores no se mezclan y se puede volver atrás. Hacerlo todo de una vez deja trabajo a medias."
+        "feedback": "Correcta. Con una prueba por paso, los errores de un cambio no se mezclan con los de otro y se puede volver atrás. Hacerlo todo de una vez suele dejar trabajo a medias."
       },
       {
         "id": "o2",
         "text": "Nada: hacerlo todo de una vez es más eficiente",
         "correct": false,
-        "feedback": "Probar al final mezcla los errores de los cuatro cambios. Se avanza por pasos.",
+        "feedback": "Si todo se prueba al final, los errores de los cuatro cambios aparecen mezclados. Conviene avanzar paso a paso, con una verificación en cada uno.",
         "misconceptionId": "m05-mc11"
       },
       {
         "id": "o3",
         "text": "Nada, porque el plan suena razonable",
         "correct": false,
-        "feedback": "Un plan se revisa como una especificación, aunque suene bien. Aquí falta la verificación por paso.",
+        "feedback": "Un plan se revisa como una especificación, aunque suene bien. En este falta la verificación por paso.",
         "misconceptionId": "m05-mc08"
       }
     ],
@@ -373,20 +373,20 @@
         "id": "o1",
         "text": "Tu aprobación, que define qué puede hacer",
         "correct": false,
-        "feedback": "La aprobación decide si la acción corre, no qué toca una vez en marcha. El límite durante la ejecución lo pone el sandbox.",
+        "feedback": "La aprobación decide si la acción corre, no qué toca una vez en marcha. Ese límite lo pone el sandbox.",
         "misconceptionId": "m05-mc04"
       },
       {
         "id": "o2",
         "text": "El sandbox, durante la ejecución",
         "correct": true,
-        "feedback": "Correcta. Los permisos deciden antes; el sandbox limita durante la ejecución. Son controles distintos."
+        "feedback": "Correcta. Los permisos deciden antes de que la acción ocurra, y el sandbox la limita mientras corre. Son controles distintos."
       },
       {
         "id": "o3",
         "text": "El modo automático, que vigila cada comando",
         "correct": false,
-        "feedback": "El modo automático decide aprobaciones y no garantiza nada. El límite durante la ejecución lo pone el sandbox.",
+        "feedback": "El modo automático decide aprobaciones y no garantiza la seguridad. Lo que limita al script mientras corre es el sandbox.",
         "misconceptionId": "m05-mc02"
       }
     ],
@@ -417,21 +417,21 @@
         "id": "o1",
         "text": "Que es razonable, porque el repositorio es del equipo",
         "correct": false,
-        "feedback": "El acceso total no distingue de quién es el repositorio: deja al agente escribir y conectarse sin límites. Está pensado para entornos aislados.",
+        "feedback": "El acceso total no distingue de quién es el repositorio, porque deja al agente escribir y conectarse sin límites. Está pensado para entornos aislados.",
         "misconceptionId": "m05-mc06"
       },
       {
         "id": "o2",
         "text": "Que es razonable si además está activado el modo automático",
         "correct": false,
-        "feedback": "El modo automático no garantiza la seguridad. No compensa quitar todos los límites.",
+        "feedback": "El modo automático reduce preguntas, pero no garantiza la seguridad. No compensa haber quitado todos los límites.",
         "misconceptionId": "m05-mc02"
       },
       {
         "id": "o3",
         "text": "Que es para entornos aislados",
         "correct": true,
-        "feedback": "Correcta. Las tres familias de herramientas lo reservan para contenedores o máquinas virtuales aisladas. En un portátil de trabajo hay mucho más que el repositorio."
+        "feedback": "Correcta. Las tres herramientas revisadas lo reservan para contenedores o máquinas virtuales aisladas. En un portátil de trabajo hay mucho más que el repositorio."
       }
     ],
     "fixedOrder": false,
@@ -461,20 +461,20 @@
         "id": "o1",
         "text": "«Agrega la columna de moneda y asegúrate de que funcione»",
         "correct": false,
-        "feedback": "No dice cómo se comprueba ni qué no tocar. La única señal será que parezca terminado.",
+        "feedback": "No dice cómo se comprueba ni qué no hay que tocar. La única señal será que el trabajo parezca terminado.",
         "misconceptionId": "m05-mc15"
       },
       {
         "id": "o2",
-        "text": "«En report.py; sin tocar pruebas; hecho cuando pasen; entrega diff y salida»",
+        "text": "«En report.py; sin tocar pruebas; listo cuando pasen; entrega diff y salida»",
         "correct": true,
-        "feedback": "Correcta. Tiene las cuatro piezas: qué cambiar, qué no tocar, cómo se comprueba y qué evidencia entregar."
+        "feedback": "Correcta. Tiene las cuatro piezas de un encargo acotado. Dice qué cambiar, qué no tocar, cómo se comprueba y qué evidencia entregar."
       },
       {
         "id": "o3",
         "text": "«Agrega la columna y corrige las pruebas hasta que pasen todas»",
         "correct": false,
-        "feedback": "Invita a ajustar las pruebas en lugar del código. «Hasta que pasen» se cumple también cambiando lo que esperan.",
+        "feedback": "Invita a ajustar las pruebas en lugar del código. «Hasta que pasen» también se cumple cambiando lo que las pruebas esperan.",
         "misconceptionId": "m05-mc14"
       }
     ],
@@ -505,13 +505,13 @@
         "id": "o1",
         "text": "Otra afirmación: para una señal hace falta un check que pueda correr",
         "correct": true,
-        "feedback": "Correcta. Sin una señal externa, la autocorrección no es fiable. Un check da una señal que no depende del agente."
+        "feedback": "Correcta. Sin una señal externa, la autocorrección no es fiable. Un check da una señal que no depende de lo que diga el agente."
       },
       {
         "id": "o2",
         "text": "Una corrección fiable, porque el agente detecta sus propios errores",
         "correct": false,
-        "feedback": "Un estudio encontró que revisar la propia respuesta sin señal externa no mejora de forma fiable, y a veces empeora. Hace falta una señal que no dependa del agente.",
+        "feedback": "Un estudio encontró que, sin una señal externa, revisar la propia respuesta no la mejora de forma fiable, y a veces la empeora. Hace falta una señal que no dependa del agente.",
         "misconceptionId": "m05-mc12"
       },
       {
@@ -549,21 +549,21 @@
         "id": "o1",
         "text": "«Asegúrate de que todas las pruebas pasen antes de terminar»",
         "correct": false,
-        "feedback": "Esa frase se cumple también cambiando las pruebas. No reduce el riesgo; lo aumenta.",
+        "feedback": "Esa frase también se cumple cambiando las pruebas. Lejos de reducir el riesgo, lo aumenta.",
         "misconceptionId": "m05-mc14"
       },
       {
         "id": "o2",
         "text": "«Sé muy cuidadoso con las pruebas»",
         "correct": false,
-        "feedback": "Pedir cuidado no da ninguna señal. Lo que funciona es concreto: detenerse y explicar.",
+        "feedback": "Pedir cuidado no le dice al agente qué hacer. Lo que funcionó en el estudio fue una instrucción concreta, detenerse y explicar.",
         "misconceptionId": "m05-mc31"
       },
       {
         "id": "o3",
         "text": "«Si una prueba parece incorrecta, detente y explícalo»",
         "correct": true,
-        "feedback": "Correcta. En el estudio, pedir de forma estricta que se detuviera redujo mucho las trampas. Hacer las pruebas de solo lectura también ayuda."
+        "feedback": "Correcta. En el estudio, pedir de forma estricta que se detuviera redujo mucho las trampas. Hacer que las pruebas sean de solo lectura también ayuda."
       }
     ],
     "fixedOrder": false,
@@ -592,20 +592,20 @@
         "id": "o1",
         "text": "Pedirlo en el mensaje, como siempre",
         "correct": false,
-        "feedback": "Sin nadie que mire, un check pedido en el mensaje es lo más fácil de saltarse. Conviene uno más firme.",
+        "feedback": "Sin nadie que supervise, un check pedido solo en el mensaje es el más fácil de saltarse. Conviene uno más firme.",
         "misconceptionId": "m05-mc32"
       },
       {
         "id": "o2",
         "text": "Una compuerta que impida terminar hasta que el check pase",
         "correct": true,
-        "feedback": "Correcta. Cuanto más desatendida la ejecución, más firme conviene el check. Una compuerta no depende de que el agente lo recuerde."
+        "feedback": "Correcta. Cuanto menos se supervisa la ejecución, más firme conviene que sea el check. Una compuerta no depende de que el agente se acuerde."
       },
       {
         "id": "o3",
         "text": "Ninguno: revisar todo a la mañana con calma",
         "correct": false,
-        "feedback": "Sin check, el agente se detiene cuando parece terminado, y la revisión de la mañana encuentra cada error a mano. Una compuerta evita ese trabajo.",
+        "feedback": "Sin check, el agente se detiene cuando el trabajo parece terminado, y a la mañana tienes que encontrar cada error a mano. Una compuerta te ahorra ese trabajo.",
         "misconceptionId": "m05-mc15"
       }
     ],
@@ -635,20 +635,20 @@
         "id": "o1",
         "text": "Aceptar, porque la entrevista sirve justamente para eso",
         "correct": false,
-        "feedback": "La entrevista encuentra las preguntas; las reglas del negocio las decide quien es responsable. En este caso, FP&A.",
+        "feedback": "La entrevista sirve para encontrar las preguntas, pero las reglas del negocio las decide quien es responsable de ellas. En este caso, FP&A.",
         "misconceptionId": "m05-mc10"
       },
       {
         "id": "o2",
         "text": "Llevar la pregunta a FP&A, que es quien define la regla",
         "correct": true,
-        "feedback": "Correcta. Una regla de KPI es lógica de negocio. El agente puede proponer, pero la decide FP&A."
+        "feedback": "Correcta. Una regla de KPI es lógica de negocio. El agente puede proponer una, pero la decide FP&A."
       },
       {
         "id": "o3",
         "text": "Dejar que la deduzca del código existente",
         "correct": false,
-        "feedback": "Si la regla no está definida, el código no la contiene. Deducirla es inventarla.",
+        "feedback": "Si la regla no está definida, el código no la contiene. Deducirla de ahí sería inventarla.",
         "misconceptionId": "m05-mc10"
       }
     ],
@@ -679,20 +679,20 @@
         "id": "o1",
         "text": "Quitarlo o pedir una justificación antes de aprobar",
         "correct": true,
-        "feedback": "Correcta. Borrar una prueba es tocar el check. Un plan se revisa como una especificación antes de aprobarlo."
+        "feedback": "Correcta. Borrar una prueba es debilitar el check. Por eso un plan se revisa como una especificación antes de aprobarlo."
       },
       {
         "id": "o2",
         "text": "Aprobar el plan, porque el resto suena razonable",
         "correct": false,
-        "feedback": "Un paso que toca el check basta para corregir el plan antes de aprobarlo. El resto puede estar bien y aun así el plan no se aprueba tal cual.",
+        "feedback": "Basta un paso que toque el check para corregir el plan antes de aprobarlo. El resto puede estar bien, pero el plan no se aprueba tal cual.",
         "misconceptionId": "m05-mc08"
       },
       {
         "id": "o3",
         "text": "Aprobarlo si las demás pruebas siguen pasando",
         "correct": false,
-        "feedback": "Que las otras pasen no dice nada de lo que dejaría de probarse. El check se debilita.",
+        "feedback": "Que las otras pruebas pasen no dice nada de lo que dejaría de probarse. El check queda más débil.",
         "misconceptionId": "m05-mc13"
       }
     ],
@@ -723,20 +723,20 @@
         "id": "o1",
         "text": "Explicarle otra vez el problema, con más detalle",
         "correct": false,
-        "feedback": "Tras dos correcciones fallidas, el contexto está contaminado. Más detalle en la misma sesión no lo limpia.",
+        "feedback": "Después de dos correcciones fallidas, el contexto está contaminado. Agregar más detalle en la misma sesión no lo limpia.",
         "misconceptionId": "m05-mc16"
       },
       {
         "id": "o2",
         "text": "Una sesión nueva con lo aprendido",
         "correct": true,
-        "feedback": "Correcta. Una sesión nueva con lo aprendido suele rendir más que insistir. No se lleva el historial, sino lo esencial."
+        "feedback": "Correcta. Una sesión nueva con lo aprendido suele rendir más que insistir. No se lleva el historial, sino lo esencial: el comando, lo descartado y la hipótesis."
       },
       {
         "id": "o3",
         "text": "Compactar para quitar del contexto los intentos fallidos",
         "correct": false,
-        "feedback": "Compactar resume lo que hay, también la confusión. Cuando el historial está contaminado, se empieza limpio.",
+        "feedback": "Compactar resume lo que hay, incluida la confusión. Cuando el historial está contaminado, conviene empezar de cero.",
         "misconceptionId": "m05-mc33"
       }
     ],
@@ -767,21 +767,21 @@
         "id": "o1",
         "text": "Nada: el agente puede investigar por su cuenta",
         "correct": false,
-        "feedback": "Sin el comando ni la diferencia exacta, el agente tiene que adivinar. Es más probable que ataque el síntoma.",
+        "feedback": "Sin el comando ni la diferencia exacta, el agente tiene que adivinar. Así es más probable que esconda el síntoma en lugar de encontrar la causa.",
         "misconceptionId": "m05-mc17"
       },
       {
         "id": "o2",
         "text": "Más énfasis, para que entienda que es urgente",
         "correct": false,
-        "feedback": "La urgencia no le dice dónde está el fallo. Le falta con qué reproducirlo.",
+        "feedback": "La urgencia no le dice dónde está el fallo. Lo que le falta es una forma de reproducirlo.",
         "misconceptionId": "m05-mc16"
       },
       {
         "id": "o3",
         "text": "El comando que reproduce el fallo y la diferencia exacta",
         "correct": true,
-        "feedback": "Correcta. Con eso el agente puede reproducir y comprobar. Además conviene pedir la causa, no que el síntoma desaparezca."
+        "feedback": "Correcta. Con eso el agente puede reproducir el fallo y comprobar si lo arregló. Además conviene pedirle que busque la causa, no que el síntoma desaparezca."
       }
     ],
     "fixedOrder": false,
@@ -818,14 +818,14 @@
         "id": "o2",
         "text": "Limpiar la sesión y empezar con el enfoque nuevo",
         "correct": false,
-        "feedback": "Limpiar empieza con el contexto vacío y pierde lo que llevas. No es lo mismo que bifurcar.",
+        "feedback": "Limpiar empieza con el contexto vacío y pierde lo que llevas. Para probar sin perder nada, se bifurca.",
         "misconceptionId": "m05-mc19"
       },
       {
         "id": "o3",
         "text": "Compactar y seguir con el enfoque nuevo en la misma sesión",
         "correct": false,
-        "feedback": "Compactar no conserva un camino al que volver. Para probar sin perder, se bifurca.",
+        "feedback": "Compactar no deja un camino al que volver. Para probar sin perder nada, se bifurca.",
         "misconceptionId": "m05-mc19"
       }
     ],
@@ -856,7 +856,7 @@
         "id": "o1",
         "text": "Que tiene razón: compactar es lo más barato",
         "correct": false,
-        "feedback": "Compactar es una petición grande, porque lee todo lo que resume. Lo que no cuesta es limpiar.",
+        "feedback": "Compactar es una petición grande, porque el modelo tiene que leer todo lo que resume. Lo que no cuesta nada es limpiar.",
         "misconceptionId": "m05-mc18"
       },
       {
@@ -869,7 +869,7 @@
         "id": "o3",
         "text": "Que conviene limpiar siempre, porque no cuesta nada",
         "correct": false,
-        "feedback": "Limpiar pierde la continuidad. Con un historial valioso de la misma tarea, se compacta con foco.",
+        "feedback": "Limpiar no cuesta, pero pierde la continuidad. Si el historial de la misma tarea vale, se compacta con foco.",
         "misconceptionId": "m05-mc34"
       }
     ],
@@ -893,27 +893,27 @@
     ],
     "difficulty": "base",
     "process": "evaluate",
-    "scenario": "Tu encargo terminaba en «hecho cuando las pruebas pasen». El agente reporta que pasan.",
+    "scenario": "Tu encargo terminaba en «está listo cuando las pruebas pasen». El agente reporta que pasan.",
     "stem": "¿Qué le faltó al encargo?",
     "options": [
       {
         "id": "o1",
         "text": "Nada: tenía un check que se puede correr",
         "correct": false,
-        "feedback": "Tenía un check, pero no decía qué no tocar ni qué entregar. Las pruebas podrían pasar porque se cambiaron.",
+        "feedback": "Tenía un check, pero no decía qué no tocar ni qué entregar. Las pruebas podrían pasar porque alguien las cambió.",
         "misconceptionId": "m05-mc14"
       },
       {
         "id": "o2",
         "text": "Decir qué no tocar y qué evidencia entregar",
         "correct": true,
-        "feedback": "Correcta. Sin prohibir tocar las pruebas y sin pedir el diff y la salida, «pasan» no prueba lo pedido."
+        "feedback": "Correcta. Si no prohíbes tocar las pruebas y no pides el diff y la salida, que «pasen» no demuestra que se hizo lo pedido."
       },
       {
         "id": "o3",
         "text": "Pedirle que tuviera mucho cuidado al terminar",
         "correct": false,
-        "feedback": "Pedir cuidado no reemplaza los límites concretos. Faltaban qué no tocar y la evidencia.",
+        "feedback": "Pedir cuidado no reemplaza los límites concretos. Faltaba decir qué no tocar y qué evidencia entregar.",
         "misconceptionId": "m05-mc31"
       }
     ],
@@ -944,21 +944,21 @@
         "id": "o1",
         "text": "Ninguna: tiene todo lo necesario",
         "correct": false,
-        "feedback": "Dice qué cambiar, qué no tocar y qué entregar, pero no cuándo está terminado. Falta el criterio de terminado.",
+        "feedback": "Dice qué cambiar, qué no tocar y qué entregar, pero no cuándo está listo. Falta esa pieza.",
         "misconceptionId": "m05-mc15"
       },
       {
         "id": "o2",
         "text": "Que el agente revise su trabajo antes de entregar",
         "correct": false,
-        "feedback": "Pedirle que se revise no es un check. Lo que falta es el criterio de terminado.",
+        "feedback": "Pedirle que se revise no es un check. Lo que falta es decir cuándo está listo.",
         "misconceptionId": "m05-mc12"
       },
       {
         "id": "o3",
-        "text": "Cómo se comprueba que está terminado",
+        "text": "Cómo se comprueba que ya está listo",
         "correct": true,
-        "feedback": "Correcta. Falta el «hecho cuando», por ejemplo, una prueba nueva que pase y las existentes con código 0."
+        "feedback": "Correcta. Falta el «está listo cuando», por ejemplo, una prueba nueva que pase y las existentes terminando con código 0."
       }
     ],
     "fixedOrder": false,
@@ -987,20 +987,20 @@
         "id": "o1",
         "text": "Ninguna: si las pruebas pasan, la tabla está bien",
         "correct": false,
-        "feedback": "Las pruebas que no muestran la página no ven los errores visuales. Lo visual se verifica viéndolo.",
+        "feedback": "Las pruebas que no muestran la página no ven los errores visuales. Lo que se ve en pantalla se verifica viéndolo.",
         "misconceptionId": "m05-mc21"
       },
       {
         "id": "o2",
         "text": "Ver la tabla en el navegador y compararla con el diseño",
         "correct": true,
-        "feedback": "Correcta. Lo que solo se ve en pantalla se verifica viéndolo, con una captura comparada con el diseño."
+        "feedback": "Correcta. Lo que solo se ve en pantalla se verifica viéndolo. Lo habitual es una captura comparada con el diseño."
       },
       {
         "id": "o3",
         "text": "Volver a correr las pruebas para confirmar",
         "correct": false,
-        "feedback": "Repetir las mismas pruebas da el mismo resultado. No cubren lo visual.",
+        "feedback": "Repetir las mismas pruebas da el mismo resultado. Esas pruebas no cubren lo visual.",
         "misconceptionId": "m05-mc21"
       }
     ],
@@ -1031,20 +1031,20 @@
         "id": "o1",
         "text": "Así está bien, porque ese agente conoce todo el contexto",
         "correct": false,
-        "feedback": "Conocer el contexto es justamente el problema: arrastra el razonamiento que produjo el cambio. Un revisor nuevo mira solo el diff y los criterios.",
+        "feedback": "Conocer el contexto es justamente el problema, porque arrastra el razonamiento que produjo el cambio. Un revisor nuevo mira solo el diff y los criterios.",
         "misconceptionId": "m05-mc22"
       },
       {
         "id": "o2",
         "text": "Un revisor en contexto limpio, que vea solo el diff y los criterios",
         "correct": true,
-        "feedback": "Correcta. Un revisor que no participó no está sesgado por el razonamiento del cambio."
+        "feedback": "Correcta. Un revisor que no participó no está condicionado por el razonamiento que produjo el cambio. Ve lo que hay, no lo que se quiso hacer."
       },
       {
         "id": "o3",
         "text": "No hace falta revisar si las pruebas pasan",
         "correct": false,
-        "feedback": "Las pruebas no cubren lo que nadie previó, como el alcance. Para eso está la revisión.",
+        "feedback": "Las pruebas no cubren lo que nadie previó, como un cambio que se sale del alcance. Para eso está la revisión.",
         "misconceptionId": "m05-mc21"
       }
     ],
@@ -1081,14 +1081,14 @@
         "id": "o2",
         "text": "Sí, siempre que solo abra la dirección del dashboard local",
         "correct": false,
-        "feedback": "Una página puede traer contenido malicioso que lo dirija a otro sitio. El riesgo está en las sesiones abiertas.",
+        "feedback": "Una página puede traer contenido malicioso que lleve al agente a otro sitio. El riesgo está en tener las sesiones abiertas.",
         "misconceptionId": "m05-mc24"
       },
       {
         "id": "o3",
         "text": "No: conviene un navegador sin tus sesiones personales",
         "correct": true,
-        "feedback": "Correcta. Para verificar un dashboard local no hacen falta tus sesiones, y con ellas cualquier acción cuenta como tuya."
+        "feedback": "Correcta. Para verificar un dashboard local no hacen falta tus sesiones. Con ellas abiertas, cualquier acción del agente cuenta como tuya."
       }
     ],
     "fixedOrder": false,
@@ -1118,7 +1118,7 @@
         "id": "o1",
         "text": "Casos límite: monto cero, vacío y negativo",
         "correct": true,
-        "feedback": "Correcta. Una prueba cubre solo lo que codifica. Los casos límite son donde suelen esconderse los errores."
+        "feedback": "Correcta. Una prueba cubre solo lo que codifica. En los casos límite es donde suelen esconderse los errores."
       },
       {
         "id": "o2",
@@ -1162,21 +1162,21 @@
         "id": "o1",
         "text": "Que la sesión rinde, porque la sensación es de avance",
         "correct": false,
-        "feedback": "La percepción y el tiempo medido pueden ir en sentidos opuestos. El fallo no cambió.",
+        "feedback": "La percepción y el tiempo medido pueden ir en sentidos opuestos. Aquí lo que cuenta es que el fallo no cambió.",
         "misconceptionId": "m05-mc20"
       },
       {
         "id": "o2",
         "text": "Que basta con compactar y seguir igual",
         "correct": false,
-        "feedback": "Compactar no cambia que el fallo siga igual. Hace falta parar y replantear.",
+        "feedback": "Compactar no cambia el hecho de que el fallo sigue igual. Hace falta parar y replantear.",
         "misconceptionId": "m05-mc20"
       },
       {
         "id": "o3",
         "text": "Que no avanza: el fallo sigue igual, así que conviene parar",
         "correct": true,
-        "feedback": "Correcta. Mirar si el fallo reproducido cambió es más fiable que la impresión. Si no cambió, se para y se replantea."
+        "feedback": "Correcta. Mirar si el fallo reproducido cambió es más fiable que la impresión de avanzar. Si no cambió, se para y se replantea."
       }
     ],
     "fixedOrder": false,
@@ -1206,20 +1206,20 @@
         "id": "o1",
         "text": "Que la terminal puede quedar fuera: mejor Git",
         "correct": true,
-        "feedback": "Correcta. El checkpoint cubre las ediciones de la herramienta, pero puede no cubrir los comandos de terminal. Git sí tiene el estado confirmado."
+        "feedback": "Correcta. El checkpoint cubre las ediciones de la herramienta, pero puede no cubrir los comandos de terminal. Git, en cambio, guarda el estado confirmado."
       },
       {
         "id": "o2",
         "text": "Que volver al checkpoint deshace todo lo que hizo el agente",
         "correct": false,
-        "feedback": "El checkpoint puede no cubrir lo hecho con comandos de terminal. No reemplaza a Git.",
+        "feedback": "El checkpoint puede no cubrir lo que se hizo con comandos de terminal. No reemplaza a Git.",
         "misconceptionId": "m05-mc36"
       },
       {
         "id": "o3",
         "text": "Que limpiar la sesión deshace los cambios en los archivos",
         "correct": false,
-        "feedback": "Limpiar vacía la conversación; los archivos quedan como están. Para volver atrás en los archivos hace falta Git o el checkpoint.",
+        "feedback": "Limpiar vacía la conversación, pero los archivos quedan como están. Para volver atrás en los archivos hace falta Git o el checkpoint.",
         "misconceptionId": "m05-mc37"
       }
     ],
@@ -1251,20 +1251,20 @@
         "id": "o1",
         "text": "Nada: la sesión en la nube verá el archivo en tu carpeta",
         "correct": false,
-        "feedback": "La sesión en la nube clona el repositorio remoto. Lo que no subiste no está.",
+        "feedback": "La sesión en la nube clona el repositorio remoto. Lo que no subiste no está ahí.",
         "misconceptionId": "m05-mc25"
       },
       {
         "id": "o2",
         "text": "Confirmar y subir el plan antes de lanzar la tarea",
         "correct": true,
-        "feedback": "Correcta. La nube parte del remoto, así que lo que el agente debe leer tiene que estar ahí."
+        "feedback": "Correcta. La nube parte del remoto, así que lo que el agente debe leer tiene que estar ahí. Por eso se confirma y se sube antes de lanzar la tarea."
       },
       {
         "id": "o3",
         "text": "Pegar el plan en el chat de tu sesión local",
         "correct": false,
-        "feedback": "La conversación local no viaja a la sesión en la nube. Lo que viaja es lo escrito en el repositorio.",
+        "feedback": "La conversación local no pasa a la sesión en la nube. Lo que viaja es lo escrito en el repositorio.",
         "misconceptionId": "m05-mc28"
       }
     ],
@@ -1308,7 +1308,7 @@
         "id": "o3",
         "text": "Ninguna, porque las sesiones en la nube no corren en paralelo",
         "correct": false,
-        "feedback": "Las guías proponen lanzar tareas independientes en paralelo, cada una en su sesión. Lo que hay que respetar son las dependencias entre tareas.",
+        "feedback": "Las guías proponen lanzar tareas independientes en paralelo, cada una en su sesión. Lo que hay que respetar es qué tareas dependen de otras.",
         "misconceptionId": "m05-mc38"
       }
     ],
@@ -1339,21 +1339,21 @@
         "id": "o1",
         "text": "Sí, porque corre sola mientras haces otra cosa",
         "correct": false,
-        "feedback": "Hay una duración máxima de sesión y no se cambian varios repositorios en una ejecución. Por eso conviene dividirla.",
+        "feedback": "La sesión tiene una duración máxima y una ejecución no cambia varios repositorios a la vez. Por eso conviene dividir la tarea.",
         "misconceptionId": "m05-mc29"
       },
       {
         "id": "o2",
         "text": "Sí, si la dejas corriendo toda la noche",
         "correct": false,
-        "feedback": "La duración máxima no se extiende por dejarla más tiempo. Hay que dividirla.",
+        "feedback": "La duración máxima no se extiende por dejar la tarea más tiempo. Hay que dividirla.",
         "misconceptionId": "m05-mc29"
       },
       {
         "id": "o3",
         "text": "No: hay que dividirla, un repositorio por tarea",
         "correct": true,
-        "feedback": "Correcta. La guía pide dividir el trabajo complejo, y cada ejecución trabaja en un solo repositorio."
+        "feedback": "Correcta. La guía pide dividir el trabajo complejo en tareas más pequeñas. Además, cada ejecución trabaja en un solo repositorio."
       }
     ],
     "fixedOrder": false,
@@ -1383,13 +1383,13 @@
         "id": "o1",
         "text": "Revisarla como cualquier cambio, con la ayuda de otra persona para aprobarla",
         "correct": true,
-        "feedback": "Correcta. Los registros de la sesión no reemplazan la revisión ni las pruebas propias. Y quien pidió el cambio no lo aprueba solo."
+        "feedback": "Correcta. Los registros de la sesión no reemplazan la revisión ni tus propias pruebas. Y quien pidió el cambio no debería aprobarlo solo."
       },
       {
         "id": "o2",
         "text": "Fusionarla, porque el reporte dice que todo pasó",
         "correct": false,
-        "feedback": "El reporte es una afirmación. La PR se revisa como cualquier otro cambio.",
+        "feedback": "El reporte es una afirmación del agente. La PR se revisa como cualquier otro cambio.",
         "misconceptionId": "m05-mc26"
       },
       {
@@ -1427,20 +1427,20 @@
         "id": "o1",
         "text": "Nada: la captura y las pruebas lo cubren todo",
         "correct": false,
-        "feedback": "Cada verificación cubre solo lo suyo. Los casos que ninguna ejercita siguen sin probar.",
+        "feedback": "Cada verificación cubre solo su clase de error. Los casos que ninguna pone a prueba siguen sin probarse.",
         "misconceptionId": "m05-mc35"
       },
       {
         "id": "o2",
         "text": "Casos límite que ni la prueba ni la captura ejercitan",
         "correct": true,
-        "feedback": "Correcta. Por ejemplo, una oportunidad que cierre el mismo día del snapshot. Se agrega un caso con esos datos."
+        "feedback": "Correcta. Por ejemplo, una oportunidad que cierra el mismo día del snapshot. Para cubrirla se agrega un caso con esos datos."
       },
       {
         "id": "o3",
         "text": "Solo detalles de estilo sin importancia",
         "correct": false,
-        "feedback": "Lo que queda sin cubrir puede ser una cifra mal calculada en un caso límite, no solo estilo. Por eso se agregan casos con esos datos.",
+        "feedback": "Lo que queda sin cubrir puede ser una cifra mal calculada en un caso límite, no solo un detalle de estilo. Por eso se agregan casos con esos datos.",
         "misconceptionId": "m05-mc23"
       }
     ],
@@ -1477,13 +1477,13 @@
         "id": "o2",
         "text": "Que todavía hace falta mirar el diff, porque no lo encuentra todo",
         "correct": true,
-        "feedback": "Correcta. La revisión automática ayuda, pero no reemplaza la lectura del diff ni las verificaciones propias."
+        "feedback": "Correcta. La revisión automática ayuda, pero no reemplaza tu lectura del diff. Tampoco reemplaza las verificaciones propias."
       },
       {
         "id": "o3",
         "text": "Que ya no hace falta mirar el diff",
         "correct": false,
-        "feedback": "Que no comente no prueba que no haya problemas. El diff hay que leerlo igual.",
+        "feedback": "Que no deje comentarios no prueba que no haya problemas. El diff hay que leerlo igual.",
         "misconceptionId": "m05-mc40"
       }
     ],

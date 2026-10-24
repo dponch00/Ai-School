@@ -12,27 +12,27 @@
     ],
     "difficulty": "base",
     "process": "apply",
-    "scenario": "La tarea de las alertas necesita editar el repositorio, correr pruebas y quizá instalar una librería ya declarada.",
+    "scenario": "La tarea de las alertas necesita editar el repositorio, correr las pruebas y quizá instalar una librería que ya está declarada.",
     "stem": "¿Con qué configuración empieza la analista?",
     "options": [
       {
         "id": "o1",
         "text": "Aprobando a mano cada acción, para no correr ningún riesgo",
         "correct": false,
-        "feedback": "Con aprobaciones constantes llega la fatiga de aprobación. Un límite técnico protege mejor.",
+        "feedback": "Cuando hay que aprobar cada acción, llega la fatiga de aprobación y se termina aprobando sin leer. Un límite técnico protege mejor.",
         "misconceptionId": "m05-mc01"
       },
       {
         "id": "o2",
         "text": "Sandbox en el proyecto, red solo al registro y aprobación para enviar al servidor",
         "correct": true,
-        "feedback": "Correcta. Es el menor privilegio que deja trabajar al agente. Lo de alto impacto, enviar al servidor, sigue pidiendo aprobación."
+        "feedback": "Correcta. Es el menor privilegio con el que el agente puede trabajar. Lo de alto impacto, como enviar al servidor, sigue pidiendo aprobación."
       },
       {
         "id": "o3",
         "text": "Acceso total, porque la tarea toca muchas cosas a la vez",
         "correct": false,
-        "feedback": "El acceso total es para entornos aislados. Que la tarea sea amplia no lo justifica.",
+        "feedback": "El acceso total es para entornos aislados. Que la tarea toque muchas cosas no lo justifica.",
         "misconceptionId": "m05-mc06"
       }
     ],
@@ -64,20 +64,20 @@
         "id": "o1",
         "text": "Una regla de denegación de escritura sobre ese archivo",
         "correct": true,
-        "feedback": "Correcta. Una regla de denegación vale en cualquier modo. Lo dicho en el chat puede perderse."
+        "feedback": "Correcta. Una regla de denegación vale en cualquier modo y durante toda la tarea, mientras que lo dicho en el chat puede perderse."
       },
       {
         "id": "o2",
         "text": "Nada más: el sandbox ya impide que el agente toque ese archivo",
         "correct": false,
-        "feedback": "El sandbox deja escribir dentro del proyecto, y el archivo está dentro. No lo protege.",
+        "feedback": "El sandbox deja escribir dentro del proyecto, y el archivo está dentro. Por eso no lo protege.",
         "misconceptionId": "m05-mc04"
       },
       {
         "id": "o3",
         "text": "Repetírselo en cada mensaje para que no lo olvide",
         "correct": false,
-        "feedback": "Repetirlo lo deja igual de frágil. Hace falta una regla en la configuración.",
+        "feedback": "Repetirlo lo deja igual de frágil que decirlo una vez. Hace falta una regla en la configuración.",
         "misconceptionId": "m05-mc05"
       }
     ],
@@ -107,21 +107,21 @@
         "id": "o1",
         "text": "Lo aprueba, porque 90 días coincide con lo que ella pidió",
         "correct": false,
-        "feedback": "Coincide, pero el umbral lo fija FP&A. Que el agente lo dé por bueno con otra justificación no lo confirma.",
+        "feedback": "Coincide con lo que ella pidió, pero el umbral lo fija FP&A. Que el agente lo dé por bueno con otra justificación no lo confirma.",
         "misconceptionId": "m05-mc08"
       },
       {
         "id": "o2",
         "text": "Lo deja: el agente conoce las buenas prácticas del sector",
         "correct": false,
-        "feedback": "Las prácticas generales no son la regla de la empresa. La regla la decide FP&A.",
+        "feedback": "Las buenas prácticas del sector no son la regla de la empresa. Esa regla la decide FP&A.",
         "misconceptionId": "m05-mc10"
       },
       {
         "id": "o3",
         "text": "Pide que el umbral quede como regla confirmada por FP&A",
         "correct": true,
-        "feedback": "Correcta. Es lógica de negocio. El agente puede proponerla, pero la regla la decide FP&A."
+        "feedback": "Correcta. Es lógica de negocio. El agente puede proponer el umbral, pero la regla la confirma FP&A."
       }
     ],
     "fixedOrder": false,
@@ -150,20 +150,20 @@
         "id": "o1",
         "text": "Acotar la exploración y verificar cada paso",
         "correct": true,
-        "feedback": "Correcta. Leer todo llena el contexto y probar al final mezcla los errores. Se acota y se prueba por paso."
+        "feedback": "Correcta. Leer todo llena el contexto, y probar solo al final mezcla los errores de varios pasos. Se acota la exploración y se prueba cada paso."
       },
       {
         "id": "o2",
         "text": "Nada: explorar todo y probar al final es lo más ordenado",
         "correct": false,
-        "feedback": "Una exploración sin límites llena el contexto. Y probar al final deja trabajo a medias.",
+        "feedback": "Una exploración sin límites llena el contexto. Y si todo se prueba al final, quedan trabajos a medias y los errores de varios pasos se mezclan.",
         "misconceptionId": "m05-mc11"
       },
       {
         "id": "o3",
         "text": "Nada, porque el plan en conjunto suena razonable",
         "correct": false,
-        "feedback": "Un plan se revisa como una especificación, paso por paso. Aquí fallan la exploración y la verificación.",
+        "feedback": "Un plan se revisa como una especificación, paso por paso. Aquí fallan dos cosas: la exploración y la verificación.",
         "misconceptionId": "m05-mc08"
       }
     ],
@@ -187,27 +187,27 @@
     ],
     "difficulty": "base",
     "process": "evaluate",
-    "scenario": "El agente se detuvo: la prueba test_aging espera alertas desde los 60 días y el encargo dice 90. No la modificó.",
+    "scenario": "El agente se detuvo porque la prueba test_aging espera alertas desde los 60 días y el encargo dice 90. No la modificó.",
     "stem": "¿Qué concluye la analista?",
     "options": [
       {
         "id": "o1",
         "text": "Que el agente falló, porque debía hacer pasar todas las pruebas",
         "correct": false,
-        "feedback": "Hacerla pasar habría sido ajustar el check. Detenerse era lo correcto.",
+        "feedback": "Hacer pasar la prueba habría sido ajustar el check. Detenerse era justo lo que pedía el encargo.",
         "misconceptionId": "m05-mc14"
       },
       {
         "id": "o2",
         "text": "Que hizo bien: hay que decidir con FP&A cuál de los dos vale",
         "correct": true,
-        "feedback": "Correcta. La prueba y el encargo se contradicen. Quien define la regla decide cuál vale."
+        "feedback": "Correcta. La prueba y el encargo se contradicen, y cuál vale lo decide quien define la regla."
       },
       {
         "id": "o3",
         "text": "Que debe pedirle al agente que ajuste la prueba a 90",
         "correct": false,
-        "feedback": "Si el agente ajusta la prueba sin confirmar la regla, el check deja de proteger nada. Primero se decide qué regla vale.",
+        "feedback": "Si el agente ajusta la prueba sin que se confirme la regla, el check deja de proteger nada. Primero se decide qué regla vale.",
         "misconceptionId": "m05-mc14"
       }
     ],
@@ -237,21 +237,21 @@
         "id": "o1",
         "text": "«Asegúrate de que todas las pruebas pasen»",
         "correct": false,
-        "feedback": "Esa frase empuja a cambiar las pruebas. No a detenerse.",
+        "feedback": "Esa frase empuja a cambiar las pruebas para que pasen. No le da al agente ninguna razón para detenerse.",
         "misconceptionId": "m05-mc14"
       },
       {
         "id": "o2",
         "text": "«Ten mucho cuidado con las pruebas»",
         "correct": false,
-        "feedback": "Pedir cuidado no da una salida concreta. La instrucción de detenerse sí la da.",
+        "feedback": "Pedir cuidado no le da al agente una salida concreta. La instrucción de detenerse, en cambio, sí.",
         "misconceptionId": "m05-mc31"
       },
       {
         "id": "o3",
         "text": "«Si una prueba parece incorrecta, detente y explícalo»",
         "correct": true,
-        "feedback": "Correcta. Es la instrucción que más reduce los atajos. Y además obligó a revisar el paso 2: el umbral no estaba confirmado."
+        "feedback": "Correcta. Es la instrucción que más reduce los atajos. Además, obligó a volver sobre el paso 2, porque el umbral no estaba confirmado."
       }
     ],
     "fixedOrder": false,
@@ -274,27 +274,27 @@
     ],
     "difficulty": "base",
     "process": "apply",
-    "scenario": "Dos arreglos fallidos, contexto muy ocupado, y un comando mínimo muestra que Cuenta Ficticia Prisma tiene un pago parcial con la fecha vacía.",
+    "scenario": "Hubo dos arreglos fallidos, el contexto está muy ocupado y un comando mínimo muestra que Cuenta Ficticia Prisma tiene un pago parcial con la fecha vacía.",
     "stem": "¿Qué hace la analista?",
     "options": [
       {
         "id": "o1",
         "text": "Abre una sesión nueva con el comando, la causa y lo descartado",
         "correct": true,
-        "feedback": "Correcta. Tras dos correcciones fallidas se para. La sesión nueva parte con lo aprendido."
+        "feedback": "Correcta. Después de dos correcciones fallidas, conviene parar. La sesión nueva parte con lo aprendido y con el contexto limpio."
       },
       {
         "id": "o2",
         "text": "Le explica el problema otra vez en la misma sesión, con más detalle",
         "correct": false,
-        "feedback": "El contexto está contaminado por los intentos. Más detalle no lo limpia.",
+        "feedback": "El contexto está contaminado por los intentos anteriores. Explicar con más detalle no lo limpia.",
         "misconceptionId": "m05-mc16"
       },
       {
         "id": "o3",
         "text": "Le dice «Prisma no debería aparecer, arréglalo» y espera",
         "correct": false,
-        "feedback": "Describir el síntoma no basta. Tiene la causa probable y el comando: hay que darlos.",
+        "feedback": "Describir el síntoma no basta. La analista ya tiene el comando y la causa probable, y eso es lo que hay que darle al agente.",
         "misconceptionId": "m05-mc17"
       }
     ],
@@ -325,20 +325,20 @@
         "id": "o1",
         "text": "Limpiar la sesión y probar la regla desde cero",
         "correct": false,
-        "feedback": "Limpiar pierde lo hecho. Para probar sin perder, se bifurca.",
+        "feedback": "Limpiar haría perder lo hecho. Para probar otra regla sin perder nada, se bifurca.",
         "misconceptionId": "m05-mc19"
       },
       {
         "id": "o2",
         "text": "Bifurcar la sesión",
         "correct": true,
-        "feedback": "Correcta. La bifurcación conserva la sesión original. Si la otra regla no sirve, vuelve a la que funcionaba."
+        "feedback": "Correcta. La bifurcación conserva la sesión original. Si la otra regla no sirve, la analista vuelve a la que funcionaba."
       },
       {
         "id": "o3",
         "text": "Compactar, porque es lo más barato para seguir trabajando",
         "correct": false,
-        "feedback": "Compactar es una petición grande y no conserva un camino al que volver. Para probar sin perder, se bifurca.",
+        "feedback": "Compactar es una petición grande y no deja un camino al que volver. Para probar sin perder lo hecho, se bifurca.",
         "misconceptionId": "m05-mc18"
       }
     ],
@@ -369,21 +369,21 @@
         "id": "o1",
         "text": "Ninguna más: las pruebas ya pasaron",
         "correct": false,
-        "feedback": "Las pruebas no muestran la página. Lo visual hay que verlo.",
+        "feedback": "Las pruebas no muestran la página, así que no ven los errores visuales. Lo visual hay que verlo.",
         "misconceptionId": "m05-mc21"
       },
       {
         "id": "o2",
         "text": "Que el agente use su navegador de trabajo, con sus sesiones abiertas",
         "correct": false,
-        "feedback": "Con sus sesiones abiertas, el agente podría actuar como ella. Conviene un navegador sin ellas.",
+        "feedback": "Con sus sesiones abiertas, el agente podría actuar como ella. Conviene un navegador sin esas sesiones.",
         "misconceptionId": "m05-mc24"
       },
       {
         "id": "o3",
         "text": "Una captura en un navegador sin sus sesiones, comparada con el diseño",
         "correct": true,
-        "feedback": "Correcta. Lo visual se verifica viéndolo, y sin exponer las sesiones personales."
+        "feedback": "Correcta. Lo visual se verifica viéndolo, y en un navegador aparte las sesiones personales no quedan expuestas."
       }
     ],
     "fixedOrder": false,
@@ -413,20 +413,20 @@
         "id": "o1",
         "text": "Atiende la del cliente sin facturas",
         "correct": true,
-        "feedback": "Correcta. Afecta a la corrección. Las de estilo pueden quedar como opcionales."
+        "feedback": "Correcta. Esa observación afecta a la corrección del resultado. Las de estilo pueden quedar como opcionales."
       },
       {
         "id": "o2",
         "text": "Corrige las ocho, para dejar el cambio impecable",
         "correct": false,
-        "feedback": "Perseguir todas lleva a complicar de más. Se atiende lo que afecta a la corrección.",
+        "feedback": "Querer atenderlas todas lleva a complicar el cambio de más. Se atiende lo que afecta a la corrección.",
         "misconceptionId": "m05-mc23"
       },
       {
         "id": "o3",
         "text": "Le pide al mismo agente que lo hizo que revise de nuevo",
         "correct": false,
-        "feedback": "El mismo agente arrastra su razonamiento. La revisión limpia ya está hecha.",
+        "feedback": "El mismo agente arrastra el razonamiento que produjo el cambio. Además, la revisión en contexto limpio ya está hecha.",
         "misconceptionId": "m05-mc22"
       }
     ],
@@ -450,27 +450,27 @@
     ],
     "difficulty": "base",
     "process": "analyze",
-    "scenario": "La analista va a mandar a la nube las pruebas de pagos parciales y el README. El plan está en un archivo sin subir.",
+    "scenario": "La analista va a mandar a la nube las pruebas de pagos parciales y el README. El plan está en un archivo que todavía no subió.",
     "stem": "¿Qué necesita el entorno remoto?",
     "options": [
       {
         "id": "o1",
         "text": "Nada: la sesión en la nube ve su carpeta",
         "correct": false,
-        "feedback": "La nube clona el remoto. Lo que no se subió no está.",
+        "feedback": "La sesión en la nube clona el repositorio remoto. Lo que no se subió no está ahí.",
         "misconceptionId": "m05-mc25"
       },
       {
         "id": "o2",
         "text": "La rama con el plan subida y red hacia el registro de paquetes",
         "correct": true,
-        "feedback": "Correcta. La nube parte del remoto y tiene su propia red. Se sube lo que debe leer y se abre solo lo necesario."
+        "feedback": "Correcta. La nube parte del remoto y tiene su propia red. Se sube lo que el agente debe leer y se abre solo lo necesario."
       },
       {
         "id": "o3",
         "text": "Acceso total al entorno, para que no falle nada durante la noche",
         "correct": false,
-        "feedback": "Basta con la red necesaria. El acceso total es para entornos aislados y aquí no hace falta.",
+        "feedback": "Basta con la red que la tarea necesita. El acceso total es para entornos aislados y aquí no hace falta.",
         "misconceptionId": "m05-mc06"
       }
     ],
@@ -502,21 +502,21 @@
         "id": "o1",
         "text": "La memoria automática de la herramienta de la analista",
         "correct": false,
-        "feedback": "La memoria de una herramienta no la ve otra. Lo que viaja es lo escrito en el repositorio.",
+        "feedback": "La memoria de una herramienta no la ve otra. Lo que pasa de una a otra es lo escrito en el repositorio.",
         "misconceptionId": "m05-mc52"
       },
       {
         "id": "o2",
         "text": "La conversación de la sesión, que la otra herramienta recibe sola",
         "correct": false,
-        "feedback": "La conversación no viaja entre herramientas. Cada herramienta empieza sin ella.",
+        "feedback": "La conversación no viaja entre herramientas, y cada una empieza sin ella. Lo que sí llega es lo escrito en el repositorio.",
         "misconceptionId": "m05-mc28"
       },
       {
         "id": "o3",
         "text": "Lo escrito en el repositorio: plan, decisiones y traspaso",
         "correct": true,
-        "feedback": "Correcta. Entre herramientas solo viaja lo escrito. La regla de 90 días va al registro de decisiones."
+        "feedback": "Correcta. Entre herramientas solo viaja lo escrito. Por eso la regla de 90 días va al registro de decisiones."
       }
     ],
     "fixedOrder": false,
