@@ -48,7 +48,9 @@ course_shim = """
   window.fetch = (input, init) => {
     const url = typeof input === 'string' ? input : input.url;
     const path = new URL(url, location.href).pathname;
-    if (C[path] !== undefined) return Promise.resolve(new Response(C[path], { status: 200, headers: { 'Content-Type': 'application/json' } }));
+    // Desde file:// la ruta lleva delante la carpeta local, así que se compara por el final.
+    const key = C[path] !== undefined ? path : Object.keys(C).find((k) => path.endsWith(k));
+    if (key) return Promise.resolve(new Response(C[key], { status: 200, headers: { 'Content-Type': 'application/json' } }));
     return orig(input, init);
   };
 })();
