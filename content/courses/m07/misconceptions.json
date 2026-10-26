@@ -254,5 +254,24 @@
     "sourceIds": [
       "src-ietf-rfc9110"
     ]
+  },
+  {
+    "id": "m07-mc29",
+    "courseId": "m07",
+    "description": "Si el token viaja por un canal seguro, reenviarlo a otro servicio no tiene problema.",
+    "whyWrong": "El problema no es el canal: un servidor MCP solo acepta tokens emitidos para él y no los reenvía, porque reenviarlos salta los controles del destino.",
+    "sourceIds": [
+      "src-mcp-security-bp",
+      "src-mcp-authorization"
+    ]
+  },
+  {
+    "id": "m07-mc30",
+    "courseId": "m07",
+    "description": "Ninguna petición que se quedó sin respuesta se puede repetir con seguridad.",
+    "whyWrong": "Las operaciones idempotentes, como PUT o DELETE, se pueden repetir: hacerlas dos veces tiene el mismo efecto que una.",
+    "sourceIds": [
+      "src-ietf-rfc9110"
+    ]
   }
 ]

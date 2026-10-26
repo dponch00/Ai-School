@@ -54,7 +54,7 @@
     ],
     "difficulty": "base",
     "process": "understand",
-    "scenario": "El servicio de tipos de cambio responde con un código 425, que el agente no reconoce, y el agente concluye que no puede saber qué pasó.",
+    "scenario": "El servicio de tipos de cambio responde con un código 427, que no está registrado, y el agente concluye que no puede saber qué pasó.",
     "stem": "¿Cómo se interpreta ese código?",
     "options": [
       {
@@ -578,34 +578,34 @@
     ],
     "difficulty": "base",
     "process": "evaluate",
-    "scenario": "Un servidor MCP de un tercero, que el equipo no revisó, marca su herramienta create_invoice con idempotentHint: true.",
-    "stem": "¿Se puede reintentar sin más?",
+    "scenario": "Para marcar como hecha la tarea T-88, el agente envía PUT /v1/tasks/T-88 con el estado completo de la tarea. La conexión se corta antes de que llegue la respuesta.",
+    "stem": "¿Se puede repetir la petición?",
     "options": [
       {
         "id": "o1",
-        "text": "Sí: la propia herramienta declara que repetir no duplica nada",
+        "text": "No: sin respuesta, repetir cualquier petición puede duplicar algo",
         "correct": false,
-        "feedback": "Las anotaciones son pistas, y el esquema pide no decidir con ellas si el servidor no es de confianza. Este no se revisó.",
-        "misconceptionId": "m07-mc17"
+        "feedback": "Eso vale para un POST, no para un PUT. Repetir un PUT deja el recurso en el mismo estado que hacerlo una vez.",
+        "misconceptionId": "m07-mc30"
       },
       {
         "id": "o2",
-        "text": "No: es solo una pista; hace falta una clave o comprobar el resultado",
+        "text": "Sí: PUT es idempotente y repetirlo deja la tarea en el mismo estado",
         "correct": true,
-        "feedback": "Correcta. Con un servidor que no es de confianza, la anotación no garantiza nada. Antes de repetir, hace falta una clave de idempotencia o comprobar el resultado."
+        "feedback": "Correcta. PUT fija el estado del recurso, así que hacerlo dos veces tiene el mismo efecto que una. Por eso HTTP permite repetirlo si la conexión se corta."
       },
       {
         "id": "o3",
-        "text": "Sí, como cualquier llamada que se quedó sin respuesta del servidor",
+        "text": "Sí, igual que un POST que se quedó sin respuesta",
         "correct": false,
-        "feedback": "Solo las operaciones idempotentes se repiten sin más. Crear una factura no lo es por defecto.",
+        "feedback": "Un POST no es idempotente: repetirlo sin una clave puede crear dos veces lo mismo. Con PUT se puede porque fija un estado.",
         "misconceptionId": "m07-mc14"
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m07-l3#herramientas",
+    "sectionRef": "m07-l3#idempotencia",
     "sourceIds": [
-      "src-mcp-schema-2026-07-28"
+      "src-ietf-rfc9110"
     ],
     "status": "draft"
   },
@@ -666,34 +666,35 @@
     ],
     "difficulty": "base",
     "process": "evaluate",
-    "scenario": "Para que el agente lea las cuentas de clientes, alguien propone darle también accounts:export y escribir en el prompt «no exportes nada».",
+    "scenario": "Entre el agente y el CRM ficticio hay un servidor MCP. Para no pedir otro token, quien lo programó propone que el servidor reenvíe al CRM el token que recibe del agente.",
     "stem": "¿Qué decides?",
     "options": [
       {
         "id": "o1",
-        "text": "Aceptar, porque el agente sigue las instrucciones del prompt",
+        "text": "Aceptar: es lo más simple, y el usuario ya autorizó al agente",
         "correct": false,
-        "feedback": "Una instrucción se puede ignorar o burlar, por ejemplo con un texto malicioso en los datos. La autorización se hace cumplir en el destino.",
-        "misconceptionId": "m07-mc10"
+        "feedback": "Que el usuario haya autorizado al agente no habilita a reenviar su token. El servidor solo acepta tokens emitidos para él y no los pasa a otros servicios.",
+        "misconceptionId": "m07-mc09"
       },
       {
         "id": "o2",
-        "text": "Aceptar, si el registro de llamadas guarda todo lo que haga el agente",
-        "correct": false,
-        "feedback": "El registro permite ver después lo que pasó, pero no evita la exportación. El control es el permiso.",
-        "misconceptionId": "m07-mc27"
+        "text": "Rechazarlo: el servidor solo acepta tokens emitidos para él",
+        "correct": true,
+        "feedback": "Correcta. Reenviar el token del usuario a la API de destino está prohibido, porque se salta los controles del CRM y borra la trazabilidad. El servidor obtiene su propio token para el CRM."
       },
       {
         "id": "o3",
-        "text": "Quitar accounts:export: el control es el permiso, no el prompt",
-        "correct": true,
-        "feedback": "Correcta. Sin ese alcance, el agente no puede exportar aunque se lo pidan. La tarea solo necesita leer."
+        "text": "Aceptar, siempre que el token viaje en la cabecera y cifrado",
+        "correct": false,
+        "feedback": "El canal seguro protege el viaje, pero no resuelve el problema de fondo. El token sigue siendo de otra audiencia, y reenviarlo está prohibido.",
+        "misconceptionId": "m07-mc29"
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m07-l2#agencia",
+    "sectionRef": "m07-l2#servidor",
     "sourceIds": [
-      "src-owasp-llm06"
+      "src-mcp-authorization",
+      "src-mcp-security-bp"
     ],
     "status": "draft"
   }

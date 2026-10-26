@@ -9,10 +9,10 @@
       "web",
       "api"
     ],
-    "capability": "Claude Code (CLI): /mcp o claude mcp login abren el flujo OAuth en el navegador, la herramienta guarda y renueva los tokens, y oauth.scopes restringe los alcances que se piden; .mcp.json admite ${VAR} para no versionar secretos (GA). Codex (app, CLI e IDE, con configuración compartida): codex mcp login para OAuth, o un token portador leído de una variable con bearer_token_env_var, en ~/.codex/config.toml o en el .codex/config.toml de un proyecto de confianza (GA). Claude (web y escritorio), conectores personalizados: OAuth, de modo que el producto no ve la contraseña; se revocan desconectando el conector (la página no lo marca como beta). API de Claude, conector MCP: el integrador hace el flujo OAuth y pasa authorization_token (Beta). API de OpenAI (Responses), herramienta mcp: el token va en authorization en cada petición y OpenAI no lo guarda (la página no indica estado).",
+    "capability": "Claude Code (CLI): /mcp o claude mcp login abren el flujo OAuth en el navegador, la herramienta guarda y renueva los tokens, y oauth.scopes restringe los alcances que se piden; .mcp.json admite ${VAR} para no versionar secretos (la página no indica estado). Codex (app, CLI e IDE, con configuración compartida): codex mcp login para OAuth, o un token portador leído de una variable con bearer_token_env_var, en ~/.codex/config.toml o en el .codex/config.toml de un proyecto de confianza (la página no indica estado). Claude (web y escritorio), conectores personalizados: OAuth, de modo que el producto no ve la contraseña; se revocan desconectando el conector (la página no lo marca como beta). API de Claude, conector MCP: el integrador hace el flujo OAuth y pasa authorization_token (Beta). API de OpenAI (Responses), herramienta mcp: el token va en authorization en cada petición y OpenAI no lo guarda (la página no indica estado).",
     "kind": "capability",
     "maturity": "mixed",
-    "verifiedAt": "2026-10-23",
+    "verifiedAt": "2026-10-26",
     "sourceIds": [
       "src-anthropic-cc-mcp",
       "src-openai-codex-mcp",
@@ -32,7 +32,7 @@
     "capability": "Claude Code (CLI): tiempo límite por servidor (timeout en .mcp.json) o global (MCP_TOOL_TIMEOUT); cierra por inactividad a los 5 minutos los servidores remotos y a los 30 los locales; en modo no interactivo emite el evento system/api_retry, con el intento, el máximo y la espera, antes de reintentar la llamada a la API del modelo. Codex: startup_timeout_sec de 10 segundos y tool_timeout_sec de 60 segundos por defecto. Las páginas no indican un estado de lanzamiento para estas opciones.",
     "kind": "capability",
     "maturity": "unspecified",
-    "verifiedAt": "2026-10-23",
+    "verifiedAt": "2026-10-26",
     "sourceIds": [
       "src-anthropic-cc-mcp",
       "src-anthropic-cc-headless",

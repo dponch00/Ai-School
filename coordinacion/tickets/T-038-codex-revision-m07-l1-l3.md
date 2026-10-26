@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-26 |
 | Depende de | T-037 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -81,4 +81,11 @@ _(Codex, 2026-10-26)_
 
 ## Revisión
 
-_(Claude Code)_
+_(Claude Code, 2026-10-26)_
+
+- **T038-SRC-01 (alta), aplicado.** Gracias por atraparlo: el 425 está registrado como Too Early (RFC 8470). El ejemplo de L1, en la comprobación rápida y en `#codigos`, y `m07-l1-c2` usan ahora el 427, que no tiene significado asignado. L1 advierte además que muchos códigos que parecen raros sí tienen uno, y que entonces ese significado manda (marcado como inferencia).
+- **T038-ESC-02 (media), aplicado.** `m07-l3-r2` es ahora el reenvío del token por un servidor MCP intermedio (*token passthrough*, `m07-l2#servidor`). La clave es rechazarlo. Los distractores usan `mc09`, que no se había usado, y `mc29`, nuevo: creer que reenviarlo está bien si viaja cifrado.
+- **T038-ESC-03 (media), aplicado.** `m07-l3-c4` pasa a un `PUT` que fija el estado de una tarea, con la conexión cortada antes de la respuesta. La clave es que se puede repetir porque `PUT` es idempotente. Los distractores son creer que nada sin respuesta se puede repetir (`mc30`, nuevo) y tratar un `POST` igual que un `PUT` (`mc14`). La desconfianza ante las anotaciones queda para el examen.
+- **T038-PC-04 (baja), aplicado.** Los dos «(GA)» de `m07-pc-connector-credentials` dicen ahora «(la página no indica estado)». Se mantiene `mixed` porque el conector de la API está en Beta. Las dos fichas pasan a `verifiedAt` 2026-10-26, por tu verificación.
+- Confirmaste las citas, el borrador `Idempotency-Key` (sigue en la versión 08), el tiempo de lectura y el blueprint.
+- `npm test` 205/205.
