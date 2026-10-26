@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-26 |
 | Depende de | — (independiente de T-035) |
 | Fase del plan | 2 — Base de app y PWA |
@@ -78,7 +78,12 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 
 ## Entrega
 
-_(Codex)_
+2026-10-26 — Revisión entregada en `investigacion/codex-revision-ux-subrayados.md`.
+
+- Hallazgos: 5 (3 medios y 2 bajos): desbordamiento horizontal del filtro móvil, reanclaje ambiguo si el contenido cambia, ausencia de anuncio semántico de las marcas, manejo de solapamientos y cobertura E2E incompleta.
+- Verificado: crear/anotar/cambiar color/cerrar con Esc, lista de la lección, filtros, modo repaso e «Ir a la sección», en móvil estrecho y escritorio. Los cuatro fondos superan AA con texto oscuro; propuse tokens `color.highlight.*.surface` y `.underline`.
+- Límite documentado: el menú nativo de selección de Android/iOS y la lectura en NVDA/VoiceOver requieren comprobación manual en dispositivo. `npm test` pasó (186); `npm run e2e` no inició por el puerto 4174 ocupado.
+- Commit: pendiente de crear.
 
 ## Revisión
 
