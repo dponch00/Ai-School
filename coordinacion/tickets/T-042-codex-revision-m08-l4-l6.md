@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-26 |
 | Depende de | T-041 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -80,7 +80,12 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 
 ## Entrega
 
-_(Codex)_
+_(Codex, 2026-10-26)_
+
+- Informe: `investigacion/codex-revision-m08-l4-l6.md`.
+- Hallazgo: uno medio. No fue posible ejecutar el reconciliador exigido porque los alias de Python de WindowsApps no inician; las cifras quedan pendientes de esa comprobación explícita.
+- Verificación: `npm test` 219/219; claves únicas revisadas por script.
+- Commit: pendiente de registrar tras crear la entrega.
 
 ## Revisión
 
