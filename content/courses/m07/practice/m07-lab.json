@@ -1,0 +1,31 @@
+{
+  "id": "m07-lab",
+  "courseId": "m07",
+  "version": "0.1.0",
+  "title": "El informe del lunes que corre solo",
+  "evaluatedObjectiveIds": [
+    "m07-eo1",
+    "m07-eo2",
+    "m07-eo3",
+    "m07-eo4",
+    "m07-eo5",
+    "m07-eo6"
+  ],
+  "instructionsPath": "courses/m07/practice/m07-lab.md",
+  "estimatedMinutes": 30,
+  "questionIds": [
+    "m07-lab-q01",
+    "m07-lab-q02",
+    "m07-lab-q03",
+    "m07-lab-q04",
+    "m07-lab-q05",
+    "m07-lab-q06",
+    "m07-lab-q07",
+    "m07-lab-q08",
+    "m07-lab-q09",
+    "m07-lab-q10",
+    "m07-lab-q11",
+    "m07-lab-q12"
+  ],
+  "status": "draft"
+}

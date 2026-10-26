@@ -1,0 +1,520 @@
+[
+  {
+    "id": "m07-p01",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m07",
+    "evaluatedObjectiveId": "m07-eo1",
+    "competencyIds": [
+      "C09"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Repasas las clases de códigos de estado.",
+    "stem": "¿Qué indica un código 5xx?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que el servidor falló ante una petición que parecía válida",
+        "correct": true,
+        "feedback": "Correcta. Los 5xx son errores del servidor; los 4xx, de la petición. Un 5xx a veces se resuelve esperando y reintentando."
+      },
+      {
+        "id": "o2",
+        "text": "Que la petición está mal formada y hay que corregirla",
+        "correct": false,
+        "feedback": "Eso es un 400, de la clase 4xx. Un 5xx señala al servidor.",
+        "misconceptionId": "m07-mc25"
+      },
+      {
+        "id": "o3",
+        "text": "Que faltan credenciales y hay que pedir más alcances",
+        "correct": false,
+        "feedback": "La falta de credenciales es un 401, y la falta de permisos, un 403. Ninguno de los dos es un 5xx.",
+        "misconceptionId": "m07-mc20"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l1#codigos",
+    "sourceIds": [
+      "src-ietf-rfc9110"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-p02",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m07",
+    "evaluatedObjectiveId": "m07-eo1",
+    "competencyIds": [
+      "C09"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Le explicas a un colega qué significa que un método HTTP sea seguro.",
+    "stem": "¿Qué es un método seguro?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Cualquier GET, aunque lleve un parámetro que ejecute una acción",
+        "correct": false,
+        "feedback": "Un GET que ejecuta acciones rompe la garantía de los métodos seguros. El nombre del método no lo vuelve inofensivo.",
+        "misconceptionId": "m07-mc02"
+      },
+      {
+        "id": "o2",
+        "text": "Uno que, por definición, no pide cambiar nada, como GET",
+        "correct": true,
+        "feedback": "Correcta. Los métodos seguros, como GET y HEAD, son en esencia de solo lectura. Por eso merecen menos atención que un POST o un DELETE."
+      },
+      {
+        "id": "o3",
+        "text": "Uno que se puede reintentar sin pensar, como POST",
+        "correct": false,
+        "feedback": "POST no es seguro ni idempotente. Repetirlo puede crear dos veces lo mismo.",
+        "misconceptionId": "m07-mc14"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l1#metodos",
+    "sourceIds": [
+      "src-ietf-rfc9110"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-p03",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m07",
+    "evaluatedObjectiveId": "m07-eo2",
+    "competencyIds": [
+      "C09",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Repasas la diferencia entre autenticar y autorizar.",
+    "stem": "¿Qué hace cada una?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Autenticar dice quién llama; autorizar, qué puede hacer",
+        "correct": true,
+        "feedback": "Correcta. Por eso un 401 pide volver a autenticarse y un 403, otro permiso u otra petición."
+      },
+      {
+        "id": "o2",
+        "text": "Autenticar da los permisos; autorizar comprueba la contraseña",
+        "correct": false,
+        "feedback": "Es al revés: autenticar comprueba quién llama, y autorizar decide qué puede hacer. Por eso un 403 no se arregla renovando la credencial, sino con otro permiso.",
+        "misconceptionId": "m07-mc81"
+      },
+      {
+        "id": "o3",
+        "text": "Son lo mismo: un token válido sirve para cualquier servicio",
+        "correct": false,
+        "feedback": "Un token válido dice quién llama, pero cada token va dirigido a un servicio y lleva sus alcances. No sirve para todo.",
+        "misconceptionId": "m07-mc61"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l2#autenticar",
+    "sourceIds": [
+      "src-ietf-rfc9110"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-p04",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m07",
+    "evaluatedObjectiveId": "m07-eo2",
+    "competencyIds": [
+      "C09",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Lees las reglas de los tokens portadores.",
+    "stem": "¿Por qué un token no va en la URL?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En realidad puede ir, si la conexión está cifrada",
+        "correct": false,
+        "feedback": "El cifrado protege el viaje, pero la URL queda guardada en historiales y registros. Ahí el token queda expuesto.",
+        "misconceptionId": "m07-mc08"
+      },
+      {
+        "id": "o2",
+        "text": "Puede ir, si el token se rota cada semana",
+        "correct": false,
+        "feedback": "Rotarlo acorta el tiempo que sirve un token filtrado, pero no evita que se filtre. Sigue sin ir en la URL.",
+        "misconceptionId": "m07-mc22"
+      },
+      {
+        "id": "o3",
+        "text": "Porque las URLs quedan en historiales y registros",
+        "correct": true,
+        "feedback": "Correcta. Todo lo que queda guardado puede filtrarse. El token va en la cabecera de autorización."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l2#portador",
+    "sourceIds": [
+      "src-ietf-rfc6750"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-p05",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m07",
+    "evaluatedObjectiveId": "m07-eo3",
+    "competencyIds": [
+      "C09"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Repasas qué significa que una operación sea idempotente.",
+    "stem": "¿Qué quiere decir?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que repetirla tiene el mismo efecto que hacerla una vez",
+        "correct": true,
+        "feedback": "Correcta. GET, PUT y DELETE lo son; POST, no. Por eso un POST solo se repite con una clave de idempotencia."
+      },
+      {
+        "id": "o2",
+        "text": "Que se puede reintentar siempre, sea cual sea el método",
+        "correct": false,
+        "feedback": "Solo las operaciones idempotentes se repiten sin riesgo. Un POST no lo es.",
+        "misconceptionId": "m07-mc14"
+      },
+      {
+        "id": "o3",
+        "text": "Que si la llamada agotó el tiempo, no llegó a aplicarse",
+        "correct": false,
+        "feedback": "Un tiempo agotado no dice si la operación se aplicó. La idempotencia es otra cosa: que repetirla no cambie el efecto.",
+        "misconceptionId": "m07-mc13"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l3#idempotencia",
+    "sourceIds": [
+      "src-ietf-rfc9110"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-p06",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m07",
+    "evaluatedObjectiveId": "m07-eo3",
+    "competencyIds": [
+      "C09"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Lees la respuesta de un servicio que trae la cabecera Retry-After.",
+    "stem": "¿Qué indica esa cabecera?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que conviene reintentar enseguida",
+        "correct": false,
+        "feedback": "Es lo contrario: dice cuánto esperar antes de volver a intentar. Esa indicación manda sobre una fórmula propia.",
+        "misconceptionId": "m07-mc21"
+      },
+      {
+        "id": "o2",
+        "text": "Que el servicio está caído",
+        "correct": false,
+        "feedback": "Suele venir con un 429 o un 503. Esos códigos piden esperar, no dicen que el servicio esté caído.",
+        "misconceptionId": "m07-mc16"
+      },
+      {
+        "id": "o3",
+        "text": "Cuánto esperar antes de reintentar",
+        "correct": true,
+        "feedback": "Correcta. Puede venir en segundos o como una fecha. Si viene, se respeta."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l3#espera",
+    "sourceIds": [
+      "src-ietf-rfc9110",
+      "src-ietf-rfc6585"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-p07",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m07",
+    "evaluatedObjectiveId": "m07-eo4",
+    "competencyIds": [
+      "C09",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Repasas los papeles de MCP.",
+    "stem": "¿Qué hace el anfitrión?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Es la aplicación donde trabaja el modelo y hace cumplir la seguridad",
+        "correct": true,
+        "feedback": "Correcta. El anfitrión tiene un cliente por servidor, pide el consentimiento y decide qué contexto comparte con cada uno."
+      },
+      {
+        "id": "o2",
+        "text": "Es el servidor que ofrece las herramientas y decide qué contexto recibe",
+        "correct": false,
+        "feedback": "El servidor ofrece capacidades, pero no decide qué contexto recibe. Eso lo decide el anfitrión.",
+        "misconceptionId": "m07-mc38"
+      },
+      {
+        "id": "o3",
+        "text": "Es el protocolo mismo, que garantiza que todo sea seguro",
+        "correct": false,
+        "feedback": "El protocolo no puede hacer cumplir la seguridad. Lo hace quien implementa el anfitrión.",
+        "misconceptionId": "m07-mc32"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l4#arquitectura",
+    "sourceIds": [
+      "src-mcp-architecture",
+      "src-mcp-spec-2026-07-28"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-p08",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m07",
+    "evaluatedObjectiveId": "m07-eo4",
+    "competencyIds": [
+      "C09",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Le explicas a un colega cómo funciona un servidor MCP local.",
+    "stem": "¿Qué es un servidor MCP local?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Una línea de configuración, sin código detrás",
+        "correct": false,
+        "feedback": "La línea dice qué programa arrancar, y ese programa corre con tus permisos. Es código.",
+        "misconceptionId": "m07-mc31"
+      },
+      {
+        "id": "o2",
+        "text": "Un programa que corre en tu equipo con tus permisos",
+        "correct": true,
+        "feedback": "Correcta. Por eso se revisa el comando, se fija la versión y, si se puede, se ejecuta aislado."
+      },
+      {
+        "id": "o3",
+        "text": "Un servidor seguro por definición, porque usa MCP",
+        "correct": false,
+        "feedback": "Que use MCP no dice nada sobre su seguridad. El protocolo no puede hacerla cumplir.",
+        "misconceptionId": "m07-mc32"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l4#transportes",
+    "sourceIds": [
+      "src-mcp-transport-stdio",
+      "src-mcp-security-bp"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-p09",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m07",
+    "evaluatedObjectiveId": "m07-eo5",
+    "competencyIds": [
+      "C09",
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Repasas cómo funciona la recuperación de documentos.",
+    "stem": "¿Qué hace un sistema RAG?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Calcula cifras exactas a partir de los documentos",
+        "correct": false,
+        "feedback": "RAG recupera texto, que puede ser de otra fecha. Las cifras salen de una consulta y de un cálculo.",
+        "misconceptionId": "m07-mc40"
+      },
+      {
+        "id": "o2",
+        "text": "Recupera fragmentos de documentos y los agrega al prompt",
+        "correct": true,
+        "feedback": "Correcta. Sirve para definiciones, políticas y explicaciones. Con pocos documentos, a veces basta con pasarlos enteros."
+      },
+      {
+        "id": "o3",
+        "text": "Es imprescindible siempre que se usan documentos",
+        "correct": false,
+        "feedback": "Con una base pequeña, incluirla entera puede bastar. Montar un índice agrega sus propios puntos débiles, como fragmentos que pierden su contexto.",
+        "misconceptionId": "m07-mc43"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l5#rag",
+    "sourceIds": [
+      "src-arxiv-rag-lewis",
+      "src-anthropic-eng-contextual-retrieval"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-p10",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m07",
+    "evaluatedObjectiveId": "m07-eo5",
+    "competencyIds": [
+      "C09",
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Comparas dos formas de darle al agente acceso a los datos.",
+    "stem": "¿Por qué una herramienta con filtros fijos es más segura que una con SQL libre?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "No lo es: la base ya controla los permisos",
+        "correct": false,
+        "feedback": "Los permisos limitan qué tablas se leen, pero el SQL libre amplía lo que el modelo puede pedir dentro de ellas. Los filtros fijos lo acotan.",
+        "misconceptionId": "m07-mc46"
+      },
+      {
+        "id": "o2",
+        "text": "Porque el prompt le prohíbe al modelo pedir de más",
+        "correct": false,
+        "feedback": "Una instrucción no es un control. Lo que limita es la propia herramienta.",
+        "misconceptionId": "m07-mc10"
+      },
+      {
+        "id": "o3",
+        "text": "Porque limita lo que el modelo puede pedir",
+        "correct": true,
+        "feedback": "Correcta. Con parámetros como región y estado, el modelo solo puede pedir lo que la herramienta permite. Es más segura y más predecible."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l5#herramienta",
+    "sourceIds": [
+      "src-owasp-llm06"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-p11",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m07",
+    "evaluatedObjectiveId": "m07-eo6",
+    "competencyIds": [
+      "C09",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Repasas la escalera de validación de una integración.",
+    "stem": "¿Qué prueba la simulación con datos sintéticos?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que el flujo maneja lo que promete el contrato, incluidos los errores",
+        "correct": true,
+        "feedback": "Correcta. La simulación fuerza los casos feos sin riesgo. Lo que no prueba es si el servicio real cumple el contrato."
+      },
+      {
+        "id": "o2",
+        "text": "Que el servicio real funcionará igual que la simulación",
+        "correct": false,
+        "feedback": "La simulación sigue el contrato, y el servicio real puede comportarse distinto. Para eso están el entorno de prueba y la lectura real.",
+        "misconceptionId": "m07-mc48"
+      },
+      {
+        "id": "o3",
+        "text": "Nada útil: es mejor probar escribiendo en el servicio real",
+        "correct": false,
+        "feedback": "Escribir en real arriesga datos alterados, y los errores no se pueden provocar a voluntad. La simulación va primero.",
+        "misconceptionId": "m07-mc76"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l6#escalera",
+    "basis": "inference",
+    "sourceIds": [
+      "src-oas-3-2"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-p12",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m07",
+    "evaluatedObjectiveId": "m07-eo6",
+    "competencyIds": [
+      "C09",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Le explicas a un colega uno de los riesgos de las integraciones.",
+    "stem": "¿Qué es la inyección indirecta?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Algo que solo puede hacer el usuario desde el chat",
+        "correct": false,
+        "feedback": "La inyección indirecta no viene del usuario. Llega en datos que el agente lee, como una nota o un correo.",
+        "misconceptionId": "m07-mc77"
+      },
+      {
+        "id": "o2",
+        "text": "Instrucciones escondidas en datos que el agente va a leer",
+        "correct": true,
+        "feedback": "Correcta. Un texto en un campo libre o en un documento puede intentar dirigir al agente. Por eso todo contenido entrante se trata como no confiable."
+      },
+      {
+        "id": "o3",
+        "text": "Un ataque imposible si el texto viene de un sistema propio",
+        "correct": false,
+        "feedback": "Un sistema interno también guarda textos que puede escribir cualquiera. Que un texto venga de un sistema propio no lo vuelve confiable.",
+        "misconceptionId": "m07-mc54"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l6#inyeccion",
+    "sourceIds": [
+      "src-arxiv-greshake-indirect-injection",
+      "src-owasp-llm01"
+    ],
+    "status": "draft"
+  }
+]

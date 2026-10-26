@@ -502,5 +502,239 @@
     "whyWrong": "Los casos límite, los errores y los textos con instrucciones son los que hacen fallar una integración; la simulación existe para verlos antes.",
     "basis": "inference",
     "sourceIds": []
+  },
+  {
+    "id": "m07-mc57",
+    "courseId": "m07",
+    "description": "Pedir todo y filtrar después da lo mismo que filtrar en la petición.",
+    "whyWrong": "Traer todo mueve datos que no hacen falta, y con páginas pequeñas es fácil quedarse corto. El filtro va en la petición.",
+    "basis": "inference",
+    "sourceIds": []
+  },
+  {
+    "id": "m07-mc58",
+    "courseId": "m07",
+    "description": "Crear algo es una forma segura de averiguar si ya existe.",
+    "whyWrong": "El servidor puede crear un duplicado sin avisar. Para saber si algo existe, primero se consulta.",
+    "basis": "inference",
+    "sourceIds": []
+  },
+  {
+    "id": "m07-mc59",
+    "courseId": "m07",
+    "description": "Se puede pedir más de lo que el contrato permite si hace falta.",
+    "whyWrong": "El contrato fija los límites, como el tamaño máximo de página. Para traer más se recorren las páginas.",
+    "sourceIds": [
+      "src-oas-3-2"
+    ]
+  },
+  {
+    "id": "m07-mc60",
+    "courseId": "m07",
+    "description": "Si el servidor pide un alcance, hay que concederlo.",
+    "whyWrong": "El error dice qué alcance falta para esa acción, no que la tarea lo necesite. Si la tarea no la incluye, no se amplía.",
+    "sourceIds": [
+      "src-mcp-authorization",
+      "src-owasp-llm06"
+    ]
+  },
+  {
+    "id": "m07-mc61",
+    "courseId": "m07",
+    "description": "Un token válido para un servicio sirve para cualquier otro.",
+    "whyWrong": "Cada token se emite para una audiencia, el servicio al que va dirigido, y no debe usarse con otro.",
+    "sourceIds": [
+      "src-ietf-rfc6750",
+      "src-mcp-authorization"
+    ]
+  },
+  {
+    "id": "m07-mc62",
+    "courseId": "m07",
+    "description": "Un token de solo lectura no necesita caducar pronto.",
+    "whyWrong": "Un token de lectura filtrado expone todo lo que puede leer. La corta vida vale también para él.",
+    "sourceIds": [
+      "src-ietf-rfc6750"
+    ]
+  },
+  {
+    "id": "m07-mc63",
+    "courseId": "m07",
+    "description": "Un registro interno puede guardar credenciales sin riesgo.",
+    "whyWrong": "Los registros se guardan, se copian y los lee más gente de la que se piensa. Por la misma razón, el token no va en la URL.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-ietf-rfc6750"
+    ]
+  },
+  {
+    "id": "m07-mc64",
+    "courseId": "m07",
+    "description": "Si el agente no tiene motivo para usar una función, tenerla no es un riesgo.",
+    "whyWrong": "Un error o un texto malicioso pueden usar una función que la tarea no necesita. Por eso se quita.",
+    "sourceIds": [
+      "src-owasp-llm06"
+    ]
+  },
+  {
+    "id": "m07-mc65",
+    "courseId": "m07",
+    "description": "Un control en un servidor intermedio reemplaza el permiso en el sistema de destino.",
+    "whyWrong": "Si el intermediario falla o lo saltan, el destino tiene que negarse solo. La autorización se hace cumplir en el destino.",
+    "sourceIds": [
+      "src-owasp-llm06"
+    ]
+  },
+  {
+    "id": "m07-mc66",
+    "courseId": "m07",
+    "description": "Un 409 es un fallo pasajero del servidor.",
+    "whyWrong": "Un 409 indica que la petición choca con el estado actual del recurso. Se resuelve el conflicto, no se espera.",
+    "sourceIds": [
+      "src-ietf-rfc9110"
+    ]
+  },
+  {
+    "id": "m07-mc67",
+    "courseId": "m07",
+    "description": "Un 403 se arregla renovando el token.",
+    "whyWrong": "Un 403 dice que el servidor entendió y se niega con esas credenciales. Renovar el token no cambia sus permisos; eso es lo que pide un 401.",
+    "sourceIds": [
+      "src-ietf-rfc9110"
+    ]
+  },
+  {
+    "id": "m07-mc68",
+    "courseId": "m07",
+    "description": "Sin tiempo límite, una llamada lenta siempre termina bien.",
+    "whyWrong": "Una llamada puede quedarse colgada para siempre. Por eso toda llamada remota lleva un tiempo límite.",
+    "sourceIds": [
+      "src-aws-timeouts-retries-jitter"
+    ]
+  },
+  {
+    "id": "m07-mc69",
+    "courseId": "m07",
+    "description": "Si una clave de idempotencia no evitó un duplicado, el servidor falló.",
+    "whyWrong": "La clave tiene que ser la misma en cada intento. Con una clave nueva por intento, el servidor ve operaciones distintas.",
+    "sourceIds": [
+      "src-ietf-idempotency-key-draft"
+    ]
+  },
+  {
+    "id": "m07-mc70",
+    "courseId": "m07",
+    "description": "Un token compartido por todo el equipo es igual de seguro que uno por persona.",
+    "whyWrong": "Con un token compartido, todos actúan con los mismos permisos y no se sabe quién hizo qué.",
+    "basis": "inference",
+    "sourceIds": []
+  },
+  {
+    "id": "m07-mc71",
+    "courseId": "m07",
+    "description": "Un archivo exportado cada día reemplaza bien el acceso con los permisos de cada persona.",
+    "whyWrong": "Un archivo igual para todos no respeta los permisos de cada persona y queda desactualizado.",
+    "basis": "inference",
+    "sourceIds": []
+  },
+  {
+    "id": "m07-mc72",
+    "courseId": "m07",
+    "description": "La descripción de una herramienta solo documenta y no puede influir en el modelo.",
+    "whyWrong": "El modelo lee las descripciones para decidir cómo usar las herramientas. Por eso una descripción puede llevar instrucciones ocultas.",
+    "sourceIds": [
+      "src-owasp-mcp-cheatsheet"
+    ]
+  },
+  {
+    "id": "m07-mc73",
+    "courseId": "m07",
+    "description": "Si un servidor es muy usado, es seguro.",
+    "whyWrong": "Que muchos lo usen no prueba nada sobre lo que ejecuta. Se revisa igual, y se fija la versión.",
+    "sourceIds": [
+      "src-mcp-security-bp"
+    ]
+  },
+  {
+    "id": "m07-mc74",
+    "courseId": "m07",
+    "description": "Como los servidores MCP están aislados, uno no puede influir en cómo se usan las herramientas de otro.",
+    "whyWrong": "El aislamiento evita que un servidor lea a otro, pero el modelo lee las descripciones de todos. Así una puede alterar el uso de otra herramienta.",
+    "sourceIds": [
+      "src-owasp-mcp-cheatsheet",
+      "src-mcp-architecture"
+    ]
+  },
+  {
+    "id": "m07-mc75",
+    "courseId": "m07",
+    "description": "Los datos estructurados explican siempre por qué cambió una cifra.",
+    "whyWrong": "Los datos dicen qué cambió; los motivos suelen estar en textos. Una pregunta mixta necesita las dos vías.",
+    "basis": "inference",
+    "sourceIds": []
+  },
+  {
+    "id": "m07-mc76",
+    "courseId": "m07",
+    "description": "Probar escribiendo en el servicio real es mejor que simular.",
+    "whyWrong": "Escribir en real arriesga datos alterados o duplicados, y los errores no se pueden provocar a voluntad. La simulación va primero.",
+    "basis": "inference",
+    "sourceIds": []
+  },
+  {
+    "id": "m07-mc77",
+    "courseId": "m07",
+    "description": "Solo el usuario puede darle instrucciones al agente.",
+    "whyWrong": "El agente puede tomar como instrucción cualquier texto que llegue a su contexto, como una nota o un correo.",
+    "sourceIds": [
+      "src-arxiv-greshake-indirect-injection"
+    ]
+  },
+  {
+    "id": "m07-mc78",
+    "courseId": "m07",
+    "description": "Para una ejecución automática, lo más simple es usar la credencial personal de quien la creó.",
+    "whyWrong": "Así la ejecución actúa con todos los permisos de esa persona y no se distingue lo que hizo cada uno. Se usa una credencial de servicio limitada.",
+    "sourceIds": [
+      "src-owasp-llm06",
+      "src-github-actions-oidc"
+    ]
+  },
+  {
+    "id": "m07-mc79",
+    "courseId": "m07",
+    "description": "El archivo de configuración del proyecto es un buen lugar para un token.",
+    "whyWrong": "Lo leen todos los que acceden al repositorio y queda en su historial. Un servidor local toma sus credenciales del entorno.",
+    "sourceIds": [
+      "src-mcp-authorization",
+      "src-owasp-secrets-mgmt"
+    ]
+  },
+  {
+    "id": "m07-mc80",
+    "courseId": "m07",
+    "description": "Si una herramienta está permitida, cualquier uso que el agente le dé es seguro.",
+    "whyWrong": "Un texto malicioso puede usar una herramienta permitida para otra cosa. Además de permitirla, se acota su uso.",
+    "sourceIds": [
+      "src-owasp-mcp-cheatsheet"
+    ]
+  },
+  {
+    "id": "m07-mc81",
+    "courseId": "m07",
+    "description": "Autenticar es dar permisos, y autorizar es comprobar la contraseña.",
+    "whyWrong": "Es al revés: autenticar dice quién llama, y autorizar, qué puede hacer. Por eso un 401 y un 403 piden acciones distintas.",
+    "basis": "inference",
+    "sourceIds": []
+  },
+  {
+    "id": "m07-mc82",
+    "courseId": "m07",
+    "description": "El servidor de autorización recorta solo los alcances que no hacen falta.",
+    "whyWrong": "El servidor puede conceder lo que se le pide, y no sabe qué necesita la tarea. Quien pide tiene que pedir poco.",
+    "sourceIds": [
+      "src-ietf-rfc6749",
+      "src-mcp-security-bp"
+    ]
   }
 ]

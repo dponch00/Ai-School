@@ -1,0 +1,86 @@
+[
+  {
+    "family": "m07-f01",
+    "evaluatedObjectiveId": "m07-eo1",
+    "decision": "Decidir si una respuesta 2xx basta para usarla",
+    "equivalence": "Las tres variantes presentan una respuesta 200 con todas las páginas y piden si se usa tal como llegó. Cambia lo que falla: un monto vacío (a), monedas mezcladas (b) y un total declarado que no cuadra con las filas recibidas (c, más difícil porque el cursor nulo parece probar que llegó todo)."
+  },
+  {
+    "family": "m07-f02",
+    "evaluatedObjectiveId": "m07-eo1",
+    "decision": "Identificar la petición que cubre una necesidad según el contrato",
+    "equivalence": "Las tres variantes describen una necesidad con el contrato del CRM ficticio (GET /v1/opportunities con region, status, page_size de 10 a 100 y cursor) y piden la petición. Cambia la necesidad: las abiertas de una región (a), las cerradas de otra (b) y 230 oportunidades con un máximo de 100 por página (c, más difícil porque un 200 parece bastar)."
+  },
+  {
+    "family": "m07-f03",
+    "evaluatedObjectiveId": "m07-eo2",
+    "decision": "Elegir los alcances que se piden para una tarea",
+    "equivalence": "Las tres variantes describen una tarea y los alcances disponibles, y piden qué se pide. Cambia la situación: una pantalla con alcances de más (a), un cliente que pide un comodín por defecto (b) y un servidor que pide un alcance que la tarea no necesita (c, más difícil porque la regla general es pedir lo que el servidor indica)."
+  },
+  {
+    "family": "m07-f04",
+    "evaluatedObjectiveId": "m07-eo2",
+    "decision": "Proteger una credencial: su audiencia, su duración y dónde queda escrita",
+    "equivalence": "Las tres variantes presentan un uso de una credencial y piden qué hacer. Cambia el problema: un token usado con un servicio para el que no se emitió (a), un token que se quiere hacer durar un año (b) y un registro que guardaría la cabecera de autorización (c, más difícil porque el registro es interno y parece inofensivo)."
+  },
+  {
+    "family": "m07-f05",
+    "evaluatedObjectiveId": "m07-eo2",
+    "decision": "Hacer cumplir la autorización en el sistema de destino y no confiar en el prompt ni en un intermediario",
+    "equivalence": "Las tres variantes presentan una funcionalidad o un permiso de más y piden qué hacer. Cambia el caso: una cuenta de administración que «ya existe» (a), una extensión de lectura que también borra (b) y un servidor intermedio que bloquea la exportación mientras su token puede exportar (c, más difícil porque el bloqueo existe y funciona)."
+  },
+  {
+    "family": "m07-f06",
+    "evaluatedObjectiveId": "m07-eo3",
+    "decision": "Decidir qué hacer ante un código de error",
+    "equivalence": "Las tres variantes presentan un error con su código y piden qué hace la integración. Cambia el código: un 422 con detalle (a), un 409 por conflicto de versión (b) y un 403 con un token que sí sirve para leer (c, más difícil porque renovar el token parece la solución)."
+  },
+  {
+    "family": "m07-f07",
+    "evaluatedObjectiveId": "m07-eo3",
+    "decision": "Elegir cuánto esperar, cuándo cortar y cómo repartir los reintentos",
+    "equivalence": "Las tres variantes describen cómo reintenta una integración y piden qué cambiar. Cambia el problema: un 429 con Retry-After que no se respeta (a), llamadas sin tiempo límite (b) y muchos clientes que reintentan a la vez (c, más difícil porque cada cliente, por separado, espera bien)."
+  },
+  {
+    "family": "m07-f08",
+    "evaluatedObjectiveId": "m07-eo3",
+    "decision": "Decidir si repetir una operación es seguro y cómo hacerlo sin duplicar",
+    "equivalence": "Las tres variantes presentan una operación sin respuesta o rechazada y piden si se puede repetir. Cambia la operación: un DELETE (a), un POST sin clave de idempotencia (b) y una clave reutilizada con otro contenido (c, más difícil porque la clave parece hacer seguro cualquier reintento)."
+  },
+  {
+    "family": "m07-f09",
+    "evaluatedObjectiveId": "m07-eo4",
+    "decision": "Elegir entre CLI, un script con la API, MCP o ninguna integración",
+    "equivalence": "Las tres variantes describen un uso de un servicio y piden la vía. Cambia el uso: un agente de código con una CLI oficial (a), un proceso fijo sin decisiones (b) y varias aplicaciones de IA con los permisos de cada persona (c, más difícil porque las alternativas parecen más simples)."
+  },
+  {
+    "family": "m07-f10",
+    "evaluatedObjectiveId": "m07-eo4",
+    "decision": "Identificar el riesgo de confianza de un servidor MCP y la configuración que lo limita",
+    "equivalence": "Las tres variantes presentan una señal de un servidor MCP y piden el riesgo y qué hacer. Cambia la señal: una descripción que da órdenes (a), un comando de arranque que descarga código (b) y una descripción que altera cómo se usa la herramienta de otro servidor (c, más difícil porque la herramienta afectada ya fue aprobada)."
+  },
+  {
+    "family": "m07-f11",
+    "evaluatedObjectiveId": "m07-eo5",
+    "decision": "Elegir entre recuperar documentos y consultar los datos según la pregunta",
+    "equivalence": "Las tres variantes presentan una pregunta de negocio y piden de dónde sale la respuesta. Cambia la pregunta: una definición de política (a), una cifra actual (b) y una pregunta mixta sobre por qué cambió una cifra (c, más difícil porque cada vía, sola, parece bastar)."
+  },
+  {
+    "family": "m07-f12",
+    "evaluatedObjectiveId": "m07-eo5",
+    "decision": "Decidir cómo se comprueba una cifra y qué acceso a los datos se le da al agente",
+    "equivalence": "Las tres variantes presentan una cifra o una herramienta de consulta y piden qué decidir. Cambia el caso: un SQL generado con un error típico (a), una herramienta a la que se quiere agregar un filtro libre (b) y una cifra recuperada con cita y fecha (c, más difícil porque la cita parece respaldarla)."
+  },
+  {
+    "family": "m07-f13",
+    "evaluatedObjectiveId": "m07-eo6",
+    "decision": "Elegir el siguiente peldaño de la validación de una integración",
+    "equivalence": "Las tres variantes describen en qué punto está una integración y piden qué sigue. Cambia el punto: la simulación pasó (a), alguien quiere saltarse la simulación (b) y el entorno de prueba devuelve un formato distinto del contrato (c, más difícil porque la simulación ya pasó y el servicio es oficial)."
+  },
+  {
+    "family": "m07-f14",
+    "evaluatedObjectiveId": "m07-eo6",
+    "decision": "Elegir los controles de una ejecución desatendida e identificar el contenido que puede traer instrucciones",
+    "equivalence": "Las tres variantes describen una ejecución desatendida y piden un control o una identificación. Cambia el caso: un plan que aprueba todo (a), un servidor que no carga y una ejecución que sigue (b) y tres fuentes de datos entre las que hay que identificar la que puede inyectar instrucciones (c, más difícil porque las tres llegan de afuera del agente)."
+  }
+]

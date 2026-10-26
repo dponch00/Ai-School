@@ -1,28 +1,28 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 a M06 completos y revisados; M07 con sus seis lecciones revisadas; faltan el examen, el laboratorio y la práctica. · **Actualizado:** 2026-10-26 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 a M06 completos y revisados; M07 completo, con el examen, el laboratorio y la práctica en revisión de Codex (T-040). · **Actualizado:** 2026-10-26 por Claude Code
 
 ## Siguiente acción
 
-1. **Claude:** el examen, el laboratorio y la práctica de M07, y después T-040 para Codex.
-2. **Codex:** sin ticket abierto; T-039 cerrado el 2026-10-26.
+1. **Codex:** T-040, que revisa el examen, el laboratorio y la práctica de M07.
+2. **Claude:** mientras tanto, la investigación y las lecciones 1 a 3 de M08; al volver T-040, aplicar sus hallazgos y cerrar M07.
 3. **Subagentes:** la investigación de M05 a M07 está lista; la de M08 a M10 se lanza cuando convenga.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-26)
 
-**≈ 66 % de la V1** (rango razonable: 63–69 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 67 % de la V1** (rango razonable: 64–70 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 88 % (simplificada a opción múltiple con D-024; faltan el hosting y la instalación real en dispositivos) | 13,2 |
-| 3 · Nueve manuales restantes | 40 % | 59 % (M01 y M03 a M06 completos y revisados; M07 con sus 6 lecciones, sin examen ni laboratorio) | 23,6 |
+| 3 · Nueve manuales restantes | 40 % | 63 % (M01 y M03 a M06 completos y revisados; M07 completo y en revisión) | 25,2 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 66 %** |
+| **Total** | 100 % | | **≈ 67 %** |
 
 ## Tickets
 
@@ -67,18 +67,31 @@
 | [T-037](coordinacion/tickets/T-037-codex-revision-m06-examen-laboratorio.md) | Codex | Revisión de M06: banco de examen, laboratorio como caso y práctica | cerrado |
 | [T-038](coordinacion/tickets/T-038-codex-revision-m07-l1-l3.md) | Codex | Revisión de M07: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
 | [T-039](coordinacion/tickets/T-039-codex-revision-m07-l4-l6.md) | Codex | Revisión de M07: lecciones 4 a 6, sus preguntas y fichas | cerrado |
+| [T-040](coordinacion/tickets/T-040-codex-revision-m07-examen-laboratorio.md) | Codex | Revisión de M07: banco de examen, laboratorio como caso y práctica | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | `content/courses/m07/**` |
+| Codex (T-040) | `investigacion/codex-revision-m07-examen-laboratorio.md`, `design/qa/T-040/**` |
+| Claude | `content/courses/m08/**`, `investigacion/M08-*` |
 
 ## Decisiones recientes
 
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-26 · Claude Code — examen, laboratorio y práctica de M07 (T-040)
+- **Examen:** 42 preguntas en 14 familias.
+- **Laboratorio:** «El informe del lunes que corre solo». El giro es el inicio de sesión en el navegador que bloquea la ejecución programada.
+- **Práctica:** 12 preguntas.
+- **Conceptos erróneos:** 26 nuevos.
+- **E2E:** rutas de M07.
+
+Los datos del laboratorio están comprobados con un script. El revisor de texto pulió el lote, y apliqué sus cinco dudas.
+
+**Verificación:** `npm test` 205/205 y E2E 112/112. Versión de prueba regenerada (versión 34).
 
 ### 2026-10-26 · Claude Code — cierre de T-039
 `m07-l6-c2` (qué simular antes de habilitar una escritura) y `m07-l6-r1` (pregunta mixta de las vencidas del Sur) dejan de repetir `dx-b6-02` y M03 L6.
