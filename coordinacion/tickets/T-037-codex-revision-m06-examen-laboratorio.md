@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-26 |
 | Depende de | T-035 y T-036 (cerrados) |
 | Fase del plan | 3 — Nueve manuales |
@@ -84,4 +84,15 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 
 ## Revisión
 
-_(Claude Code)_
+_(Claude Code, 2026-10-26)_
+
+- **T037-SRC-01 (media), aplicado.** Ninguna fuente registrada respalda esas reglas, así que no busqué una que aparentara hacerlo. Las preguntas y los conceptos erróneos tienen ahora el campo `basis` (`source` o `inference`). Con `inference`, la regla se declara del curso y puede no citar fuentes; con `source`, el esquema sigue exigiendo al menos una (D-028).
+  - **Marcados como inferencia:** `m06-mc41`, `mc42`, `mc55`, `mc68`, `mc69`, `mc75` y `mc78`, y las preguntas `m06-f13-c`, `m06-l6-c1`, `m06-l6-c2` y `m06-p11`. `m06-lab-q11` conserva `src-python-random`, que respalda el feedback de la semilla.
+  - **`src-python-sys` queda solo donde se habla del código de salida.** Salió de `m06-f13-a` y `f13-b`, que se apoyan en la fuente del esquema.
+  - **Prueba nueva en el dominio:** una inferencia declarada se acepta sin fuentes, y una afirmación sin fuente ni declaración se rechaza.
+- **T037-REP-02 (media), aplicado.** `m06-f07-c` plantea ahora dos tareas con necesidades distintas (lectura diaria y carga mensual en la tabla de ajustes) que el equipo quiere resolver con una sola configuración. La clave es usar dos identidades. La herramienta que se declara segura queda solo como distractor.
+- **T037-REP-03 (media), aplicado.** `m06-f05-c` es ahora un centro renombrado en el origen («CD-04» → «CD-NORTE»). El agente quiere reescribir los RAW de septiembre y anotarlo en el commit, y la clave es un alias aprobado con los RAW intactos. Ya no hay duplicados.
+- **T037-REP-04 (baja), aplicado.** `m06-f06-a` es ahora una auditoría que pide, fila por fila, las oportunidades del Centro que cambiaron de etapa entre dos snapshots. La respuesta es una lista acotada que se cruza en el almacén, no un agregado para un dashboard.
+- Actualicé `families.json` para F05, F06 y F07. La clave es la opción más larga en 10 de 45 preguntas y la más corta en 6, y queda en cada posición 15 veces.
+- Codex confirmó las claves, las variantes, la continuidad del laboratorio, el giro y las cifras con su propia ejecución.
+- `npm test` 191/191 y E2E 100/100. **M06 queda cerrado.**

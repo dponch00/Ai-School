@@ -27,19 +27,19 @@
     "family": "m06-f05",
     "evaluatedObjectiveId": "m06-eo2",
     "decision": "Decidir dónde vive una corrección: el RAW se conserva y la corrección es una regla declarada",
-    "equivalence": "Las tres variantes presentan una corrección propuesta sobre el RAW y piden qué hacer. Cambia el caso: un nombre mal escrito (a), una corrección a mano que no se repitió (b) y un duplicado con política aprobada que el agente quiere borrar del RAW dejando constancia en el commit (c, más difícil porque la constancia parece cubrir la trazabilidad)."
+    "equivalence": "Las tres variantes presentan una corrección propuesta sobre el RAW y piden qué hacer. Cambia el caso: un nombre mal escrito (a), una corrección a mano que no se repitió (b) y un centro renombrado en el origen, que el agente quiere unificar reescribiendo los RAW viejos con constancia en el commit (c, más difícil porque el nombre viejo no era un error y la constancia parece cubrir la trazabilidad)."
   },
   {
     "family": "m06-f06",
     "evaluatedObjectiveId": "m06-eo3",
     "decision": "Elegir qué pedir al almacén según el paso siguiente: el agregado, un número exacto o un detalle acotado por lotes",
-    "equivalence": "Las tres variantes describen una necesidad y piden qué se le pide al almacén. Cambia la necesidad: un conteo por etapa (a, agregado en SQL), el total de filas tras un resultado sospechoso (b, COUNT en SQL ante un posible recorte) y el detalle para un pronóstico que se reentrena (c, más difícil porque el agregado parece siempre lo mejor)."
+    "equivalence": "Las tres variantes describen una necesidad y piden qué se le pide al almacén. Cambia la necesidad: una auditoría fila por fila (a, una lista acotada cruzada en el almacén), el total de filas tras un resultado sospechoso (b, COUNT en SQL ante un posible recorte) y el detalle para un pronóstico que se reentrena (c, más difícil porque el agregado parece siempre lo mejor)."
   },
   {
     "family": "m06-f07",
     "evaluatedObjectiveId": "m06-eo3",
     "decision": "Elegir la identidad, los permisos y el modo de acceso del agente según la tarea",
-    "equivalence": "Las tres variantes describen una tarea y la situación de acceso, y piden la configuración. Cambia la tarea: leer dos tablas con una usuaria administradora (a), guardar resultados intermedios (b) y una ejecución semanal sin supervisión con un permiso heredado y una herramienta que se declara de solo lectura (c, más difícil porque hay dos señales tranquilizadoras falsas)."
+    "equivalence": "Las tres variantes describen una tarea y la situación de acceso, y piden la configuración. Cambia la tarea: leer dos tablas con una usuaria administradora (a), guardar resultados intermedios (b) y dos tareas con necesidades distintas que se quieren resolver con una sola configuración (c, más difícil porque una de las tareas sí necesita escribir)."
   },
   {
     "family": "m06-f08",

@@ -632,28 +632,28 @@
     "process": "evaluate",
     "family": "m06-f05",
     "variant": "c",
-    "scenario": "La factura FAC-3318 aparece dos veces en el RAW, y hay una política aprobada: conservar la carga más reciente. El agente propone borrar del RAW la fila más antigua y explicarlo en el mensaje del commit.",
+    "scenario": "Desde octubre, el sistema de Inventario llama «CD-NORTE» al centro que antes se llamaba «CD-04», y FP&A aprobó tratarlos como el mismo. El agente propone reemplazar «CD-04» por «CD-NORTE» en los RAW de septiembre y explicarlo en el mensaje del commit.",
     "stem": "¿Qué propones?",
     "options": [
       {
         "id": "o1",
-        "text": "Sumar las dos filas, para no perder ningún monto de la factura",
-        "correct": false,
-        "feedback": "Sumar las filas cuenta dos veces la misma factura. La política aprobada dice cuál se conserva.",
-        "misconceptionId": "m06-mc29"
-      },
-      {
-        "id": "o2",
         "text": "Aceptar, porque el mensaje del commit deja constancia del cambio",
         "correct": false,
-        "feedback": "El mensaje explica el cambio, pero el RAW deja de mostrar lo que llegó del origen, y la limpieza no se repetirá sola. La política se aplica al limpiar los datos, en cada ejecución.",
+        "feedback": "El mensaje explica el cambio, pero los RAW de septiembre dejarían de mostrar lo que llegó del origen, que entonces era correcto. La equivalencia vive en una regla declarada.",
         "misconceptionId": "m06-mc09"
       },
       {
+        "id": "o2",
+        "text": "Tratarlos como centros distintos hasta que el origen corrija septiembre",
+        "correct": false,
+        "feedback": "Septiembre no tiene nada que corregir: el nombre viejo era el vigente. Y nada garantiza que el origen reescriba su historia.",
+        "misconceptionId": "m06-mc73"
+      },
+      {
         "id": "o3",
-        "text": "Dejar el RAW intacto y aplicar la política al limpiar, con el reporte",
+        "text": "Dejar los RAW como llegaron y declarar la equivalencia como alias aprobado",
         "correct": true,
-        "feedback": "Correcta. El RAW se conserva tal como llegó, y la política declarada elige la carga más reciente en cada ejecución. El duplicado queda en la lista de calidad."
+        "feedback": "Correcta. Cada RAW conserva el nombre que tenía al llegar, y el alias aprobado une los dos nombres al limpiar, en cada ejecución. La equivalencia queda registrada en los supuestos."
       }
     ],
     "fixedOrder": false,
@@ -677,28 +677,28 @@
     "process": "apply",
     "family": "m06-f06",
     "variant": "a",
-    "scenario": "Para proponer una alerta, el agente necesita saber cuántas oportunidades abiertas hay en cada etapa en el snapshot más reciente.",
+    "scenario": "Auditoría interna quiere revisar, una por una, las oportunidades del Centro que cambiaron de etapa entre los snapshots del 12 y del 19 de octubre.",
     "stem": "¿Qué le pides al almacén?",
     "options": [
       {
         "id": "o1",
-        "text": "Todas las filas de la tabla, para contar en local sin perder nada",
+        "text": "Los totales del Centro en las dos fechas, que muestran el cambio",
         "correct": false,
-        "feedback": "Traer todas las filas mueve datos que no hacen falta, y el resultado puede llegar recortado. El conteo se resuelve en el almacén.",
-        "misconceptionId": "m06-mc25"
+        "feedback": "Los totales dicen cuánto cambió, pero no qué oportunidades cambiaron. La auditoría necesita el detalle de esas filas.",
+        "misconceptionId": "m06-mc26"
       },
       {
         "id": "o2",
-        "text": "Todas las filas, porque lo que reciba el agente será la tabla completa",
+        "text": "Las filas completas de los dos snapshots, para cruzarlas en local",
         "correct": false,
-        "feedback": "El canal del agente puede recortar los resultados grandes. El agente contaría sobre una muestra creyendo que es el total.",
-        "misconceptionId": "m06-mc15"
+        "feedback": "Traer los dos snapshots completos mueve filas que la auditoría no necesita. El cruce y el filtro se hacen en el almacén.",
+        "misconceptionId": "m06-mc25"
       },
       {
         "id": "o3",
-        "text": "Un conteo agrupado por etapa en SQL, filtrado a ese snapshot",
+        "text": "La lista de las que cambiaron de etapa, con su etapa en cada fecha",
         "correct": true,
-        "feedback": "Correcta. El almacén filtra el snapshot, agrupa y cuenta cerca de los datos. Al agente le llega un número por etapa."
+        "feedback": "Correcta. El almacén cruza los dos snapshots y filtra las oportunidades del Centro que cambiaron. A la auditoría le llega solo esa lista, con lo necesario para revisarla."
       }
     ],
     "fixedOrder": false,
@@ -906,28 +906,28 @@
     "process": "evaluate",
     "family": "m06-f07",
     "variant": "c",
-    "scenario": "Un agente correrá cada lunes, sin supervisión, para regenerar en el repositorio el extracto local del dashboard. Su cuenta de servicio heredó escritura en producción de un permiso sobre el catálogo, y su herramienta de SQL se declara «de solo lectura».",
+    "scenario": "El equipo quiere una sola configuración del agente para dos tareas: leer cada día los snapshots para el dashboard y, una vez al mes, cargar en producción la tabla de ajustes aprobados.",
     "stem": "¿Qué configuración eliges?",
     "options": [
       {
         "id": "o1",
-        "text": "Dejarla así, porque la herramienta se declara de solo lectura",
+        "text": "Una sola, con escritura, porque una de las dos tareas la necesita",
         "correct": false,
-        "feedback": "Lo que una herramienta dice de sí misma no es un control: la especificación pide tratarlo como no confiable. El control real es el permiso y la política.",
-        "misconceptionId": "m06-mc14"
+        "feedback": "Con una sola configuración, la escritura queda disponible todos los días para una tarea que solo lee. Un permiso que no se usa sigue siendo un riesgo.",
+        "misconceptionId": "m06-mc49"
       },
       {
         "id": "o2",
-        "text": "Quitar el permiso heredado, leer solo sus tablas y activar la política",
+        "text": "Dos identidades: solo lectura a diario y escritura solo en ajustes",
         "correct": true,
-        "feedback": "Correcta. El permiso sobre el catálogo alcanza a todas sus tablas, así que hay que quitarlo. Con lectura solo en lo necesario y la política de solo lectura, el control no depende de la declaración."
+        "feedback": "Correcta. La tarea diaria solo lee, con la política de solo lectura. La carga mensual usa otra identidad, que solo puede escribir en la tabla de ajustes."
       },
       {
         "id": "o3",
-        "text": "Dejarla así, porque el agente nunca ha usado ese permiso de escritura",
+        "text": "Una sola de solo lectura, y la carga con una herramienta que se declara segura",
         "correct": false,
-        "feedback": "Un permiso sin usar sigue disponible, y sin supervisión nadie vería un error. Se quita lo que la tarea no necesita.",
-        "misconceptionId": "m06-mc49"
+        "feedback": "Lo que una herramienta dice de sí misma no es un control. La carga necesita su propio permiso, acotado a la tabla de ajustes.",
+        "misconceptionId": "m06-mc14"
       }
     ],
     "fixedOrder": false,
@@ -1651,7 +1651,6 @@
     "fixedOrder": false,
     "sectionRef": "m06-l6#independencia",
     "sourceIds": [
-      "src-python-sys",
       "src-jsonschema-validation-2020-12"
     ],
     "status": "draft"
@@ -1696,7 +1695,6 @@
     "fixedOrder": false,
     "sectionRef": "m06-l6#independencia",
     "sourceIds": [
-      "src-python-sys",
       "src-jsonschema-validation-2020-12"
     ],
     "status": "draft"
@@ -1740,9 +1738,8 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m06-l6#independencia",
-    "sourceIds": [
-      "src-python-sys"
-    ],
+    "basis": "inference",
+    "sourceIds": [],
     "status": "draft"
   },
   {

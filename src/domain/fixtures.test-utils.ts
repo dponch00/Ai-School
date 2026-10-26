@@ -23,6 +23,7 @@ export function makeQuestion(over: Partial<Question> = {}): Question {
     ],
     fixedOrder: false,
     sectionRef: 'm02-l2#supuestos',
+    basis: 'source',
     sourceIds: ['src-test-fixture'],
     status: 'published',
     publishedAt: '2026-10-21',

@@ -1,28 +1,28 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 a M05 completos y revisados; M06 completo, con el examen, el laboratorio y la práctica en revisión de Codex (T-037); M07 con su investigación lista. · **Actualizado:** 2026-10-26 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 a M06 completos y revisados; M07 en preparación, con su investigación lista. · **Actualizado:** 2026-10-26 por Claude Code
 
 ## Siguiente acción
 
-1. **Codex:** T-037, que revisa el examen, el laboratorio y la práctica de M06.
-2. **Claude:** mientras tanto, preparar M07 lección por lección (D-026), con la investigación ya lista; al volver T-037, aplicar sus hallazgos y cerrar M06.
+1. **Claude:** M07, lecciones 1 a 3 con sus preguntas y fichas, y después T-038 para Codex (D-026).
+2. **Codex:** sin ticket abierto; T-037 cerrado el 2026-10-26.
 3. **Subagentes:** la investigación de M05 a M07 está lista; la de M08 a M10 se lanza cuando convenga.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-26)
 
-**≈ 63 % de la V1** (rango razonable: 60–66 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 64 % de la V1** (rango razonable: 61–67 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 88 % (simplificada a opción múltiple con D-024; faltan el hosting y la instalación real en dispositivos) | 13,2 |
-| 3 · Nueve manuales restantes | 40 % | 52 % (M01 y M03 a M05 completos y revisados; M06 completo y en revisión; investigación de M07 lista) | 20,8 |
+| 3 · Nueve manuales restantes | 40 % | 55 % (M01 y M03 a M06 completos y revisados; investigación de M07 lista) | 22,0 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 63 %** |
+| **Total** | 100 % | | **≈ 64 %** |
 
 ## Tickets
 
@@ -64,13 +64,12 @@
 | [T-034](coordinacion/tickets/T-034-codex-revision-m06-l1-l3.md) | Codex | Revisión de M06: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
 | [T-035](coordinacion/tickets/T-035-codex-revision-m06-l4-l6.md) | Codex | Revisión de M06: lecciones 4 a 6, preguntas y fichas | cerrado |
 | [T-036](coordinacion/tickets/T-036-codex-revision-ux-subrayados.md) | Codex | Revisión de UX: subrayados con nota y página «Subrayados» | cerrado |
-| [T-037](coordinacion/tickets/T-037-codex-revision-m06-examen-laboratorio.md) | Codex | Revisión de M06: banco de examen, laboratorio como caso y práctica | abierto |
+| [T-037](coordinacion/tickets/T-037-codex-revision-m06-examen-laboratorio.md) | Codex | Revisión de M06: banco de examen, laboratorio como caso y práctica | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-037) | `investigacion/codex-revision-m06-examen-laboratorio.md`, `design/qa/T-037/**` |
 | Claude | `content/courses/m07/**` |
 
 ## Decisiones recientes
@@ -78,6 +77,13 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-26 · Claude Code — cierre de T-037: M06 completo y revisado
+- **SRC-01:** nuevo campo `basis` (D-028). Siete conceptos erróneos y cuatro preguntas quedan como inferencias declaradas del curso, en lugar de citar `src-python-sys`.
+- **REP-02 a REP-04:** reescribí los escenarios de `m06-f07-c`, `f05-c` y `f06-a`, que repetían comprobaciones o el diagnóstico.
+- La guía de uso y la versión de prueba quedaron al día: versión 33 de la versión de prueba y versión 7 de la guía.
+
+**Verificación:** `npm test` 191/191 y E2E 100/100.
 
 ### 2026-10-26 · Claude Code — examen, laboratorio y práctica de M06 (T-037)
 - **Examen:** 45 preguntas en 15 familias, con su `families.json`.

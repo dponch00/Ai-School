@@ -104,14 +104,29 @@ export type Lesson = z.infer<typeof Lesson>
 
 // ---------- Conceptos erróneos ----------
 
-export const Misconception = z.object({
-  id: Slug,
-  courseId: CourseId.nullable(),
-  description: z.string().min(10),
-  whyWrong: z.string().min(10),
-  /** Toda afirmación del catálogo es trazable (DX-01). */
-  sourceIds: z.array(SourceId).min(1),
-})
+/**
+ * De dónde sale una afirmación (T037-SRC-01): `source`, de las fuentes registradas; `inference`, de una regla
+ * del propio curso que ninguna fuente primaria documenta. Una inferencia puede no citar fuentes, pero lo declara.
+ */
+export const Basis = z.enum(['source', 'inference'])
+
+const needsSource = (x: { basis: 'source' | 'inference'; sourceIds: string[] }, ctx: z.RefinementCtx) => {
+  if (x.basis === 'source' && x.sourceIds.length === 0) {
+    ctx.addIssue({ code: 'custom', path: ['sourceIds'], message: 'cita al menos una fuente o declara basis: "inference"' })
+  }
+}
+
+export const Misconception = z
+  .object({
+    id: Slug,
+    courseId: CourseId.nullable(),
+    description: z.string().min(10),
+    whyWrong: z.string().min(10),
+    basis: Basis.default('source'),
+    /** Toda afirmación del catálogo es trazable (DX-01): a una fuente o a una inferencia declarada. */
+    sourceIds: z.array(SourceId),
+  })
+  .superRefine(needsSource)
 export type Misconception = z.infer<typeof Misconception>
 
 // ---------- Pregunta (ítem versionado) ----------
@@ -155,13 +170,15 @@ export const Question = z
     fixedOrder: z.boolean().default(false),
     /** Apartado que justifica la respuesta (plan §11). */
     sectionRef: z.string().min(1),
-    /** La clave y el feedback se apoyan en al menos una fuente registrada (DX-01). */
-    sourceIds: z.array(SourceId).min(1),
+    /** La clave se apoya en una fuente registrada o en una inferencia declarada del curso (DX-01, T037-SRC-01). */
+    basis: Basis.default('source'),
+    sourceIds: z.array(SourceId),
     status: PublicationStatus,
     publishedAt: IsoDate.optional(),
     replacedBy: z.object({ id: Slug, version: z.int().min(1) }).optional(),
   })
   .superRefine((q, ctx) => {
+    needsSource(q, ctx)
     const correct = q.options.filter((o) => o.correct)
     if (correct.length !== 1) {
       ctx.addIssue({ code: 'custom', path: ['options'], message: `debe haber exactamente una opción correcta (hay ${correct.length})` })

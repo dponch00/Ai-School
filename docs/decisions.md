@@ -199,3 +199,12 @@ Una entrada por decisión. Estados: **aceptada**, **propuesta** (espera a Daniel
   - una cita corta cuyo contexto cambió casi por completo se marca como ausente, en lugar de anclarse en otra frase igual;
   - el lector de pantalla anuncia el inicio y el fin de cada subrayado, y la nota se abre con un botón ✎ real;
   - los colores salen de los tokens `color.highlight*`.
+
+## D-028 · Inferencias del curso declaradas, no disfrazadas de fuente
+
+- **Estado:** aceptada · 2026-10-26 (a partir de T037-SRC-01)
+- **Decisión:** algunas reglas que enseña el curso son inferencias de diseño, sin una fuente primaria que las documente. Ejemplos: que un check sea independiente si no comparte código con el cálculo, o que cada clase de check atrape errores distintos. Esas reglas se declaran como tales en lugar de citar una fuente que solo trata un tema vecino.
+- **Cómo:** las preguntas y los conceptos erróneos tienen un campo `basis`.
+  - Con `source` (el valor por defecto), deben citar al menos una fuente registrada.
+  - Con `inference`, pueden no citarla y quedan marcados como regla del curso.
+- **Alcance:** M06 lo usa desde T-037. Los manuales anteriores se revisan en la fase 4 con el mismo criterio.

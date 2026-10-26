@@ -475,8 +475,8 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m06-l6#independencia",
+    "basis": "inference",
     "sourceIds": [
-      "src-python-sys",
       "src-python-random"
     ],
     "status": "draft"

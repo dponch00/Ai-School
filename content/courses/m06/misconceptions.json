@@ -367,18 +367,16 @@
     "courseId": "m06",
     "description": "Si la reconciliación pasa, el cálculo es correcto en todos los casos.",
     "whyWrong": "Un check solo detecta lo que sus datos ponen a prueba; los casos que faltan siguen sin probar.",
-    "sourceIds": [
-      "src-python-sys"
-    ]
+    "basis": "inference",
+    "sourceIds": []
   },
   {
     "id": "m06-mc42",
     "courseId": "m06",
     "description": "Reutilizar la función de cálculo en el check evita duplicar trabajo sin perder nada.",
     "whyWrong": "El check deja de ser independiente: el mismo error aparece en los dos lados y el check pasa.",
-    "sourceIds": [
-      "src-python-sys"
-    ]
+    "basis": "inference",
+    "sourceIds": []
   },
   {
     "id": "m06-mc43",
@@ -495,9 +493,8 @@
     "courseId": "m06",
     "description": "Si un check no detecta un caso, el check está mal hecho.",
     "whyWrong": "El check puede estar bien hecho y no tener datos para ese caso; la solución es agregar el caso a los datos de prueba.",
-    "sourceIds": [
-      "src-python-random"
-    ]
+    "basis": "inference",
+    "sourceIds": []
   },
   {
     "id": "m06-mc56",
@@ -613,18 +610,16 @@
     "courseId": "m06",
     "description": "Un solo tipo de check alcanza para atrapar cualquier error.",
     "whyWrong": "Cada clase de check atrapa errores distintos: esquema, calidad, reglas de sentido, reconciliación y texto.",
-    "sourceIds": [
-      "src-python-sys"
-    ]
+    "basis": "inference",
+    "sourceIds": []
   },
   {
     "id": "m06-mc69",
     "courseId": "m06",
     "description": "Si el check de texto pasa, las cifras del texto son correctas.",
     "whyWrong": "El check de texto solo confirma que el párrafo coincide con el contrato. Si el contrato está mal, los dos coinciden en el error; eso lo atrapa la reconciliación.",
-    "sourceIds": [
-      "src-python-sys"
-    ]
+    "basis": "inference",
+    "sourceIds": []
   },
   {
     "id": "m06-mc70",
@@ -676,9 +671,8 @@
     "courseId": "m06",
     "description": "Un check es independiente si corre en otra máquina.",
     "whyWrong": "La independencia está en el camino del cálculo: el check recalcula por su cuenta y no comparte código con el cálculo que verifica.",
-    "sourceIds": [
-      "src-python-sys"
-    ]
+    "basis": "inference",
+    "sourceIds": []
   },
   {
     "id": "m06-mc76",
@@ -704,9 +698,8 @@
     "courseId": "m06",
     "description": "El check de texto revisa también la forma del contrato.",
     "whyWrong": "El check de texto compara las cifras y las afirmaciones del párrafo con el contrato. La forma del contrato la revisa el check de esquema.",
-    "sourceIds": [
-      "src-python-sys"
-    ]
+    "basis": "inference",
+    "sourceIds": []
   },
   {
     "id": "m06-mc79",

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { Course, Question } from './content'
+import { Course, Misconception, Question } from './content'
 import { Attempt, finalSelection, Response } from './learner'
 import { bankIssues, diagnosticBlockSignal, scoreAttempt, selectExam } from './scoring'
 import { answer, makeAttempt, makeBank, makeQuestion, seededRng } from './fixtures.test-utils'
@@ -208,6 +208,13 @@ describe('casos reproducibles de la revisión T-004', () => {
 
   it('DX-01: preguntas y conceptos erróneos sin fuente se rechazan', () => {
     expect(Question.safeParse(makeQuestion({ sourceIds: [] })).success).toBe(false)
+  })
+
+  it('T037-SRC-01: una inferencia declarada del curso puede no citar fuentes', () => {
+    expect(Question.safeParse(makeQuestion({ basis: 'inference', sourceIds: [] })).success).toBe(true)
+    const base = { id: 'm06-mc99', courseId: 'm06', description: 'Un concepto erróneo de prueba.', whyWrong: 'Porque es una prueba del esquema.' }
+    expect(Misconception.safeParse({ ...base, sourceIds: [] }).success).toBe(false)
+    expect(Misconception.safeParse({ ...base, basis: 'inference', sourceIds: [] }).success).toBe(true)
   })
 })
 

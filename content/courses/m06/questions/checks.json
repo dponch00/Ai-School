@@ -1260,9 +1260,8 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m06-l6#independencia",
-    "sourceIds": [
-      "src-python-sys"
-    ],
+    "basis": "inference",
+    "sourceIds": [],
     "status": "draft"
   },
   {
@@ -1303,9 +1302,8 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m06-l6#independencia",
-    "sourceIds": [
-      "src-python-sys"
-    ],
+    "basis": "inference",
+    "sourceIds": [],
     "status": "draft"
   },
   {
