@@ -1,0 +1,700 @@
+[
+  {
+    "id": "m07-l1-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m07",
+    "lessonId": "m07-l1",
+    "evaluatedObjectiveId": "m07-eo1",
+    "competencyIds": [
+      "C09"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El agente pide las facturas abiertas de Cobranza y recibe un 200 con 100 facturas y \"next_cursor\": \"c_ficticio_08\". Con eso informa el saldo total.",
+    "stem": "¿Usas ese saldo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Sí: el código 200 confirma que llegaron todos los datos",
+        "correct": false,
+        "feedback": "Un 200 dice que el servidor aceptó la petición, no que trajo todo. El cursor no nulo avisa que falta al menos una página.",
+        "misconceptionId": "m07-mc01"
+      },
+      {
+        "id": "o2",
+        "text": "No: falta al menos una página y hay que seguir el cursor",
+        "correct": true,
+        "feedback": "Correcta. Mientras next_cursor tenga un valor, hay más datos por pedir. El saldo se calcula cuando están todas las páginas."
+      },
+      {
+        "id": "o3",
+        "text": "Sí, si el JSON es válido y los montos están bien escritos",
+        "correct": false,
+        "feedback": "Un JSON válido puede traer solo una parte de los datos. La paginación no produce errores de formato.",
+        "misconceptionId": "m07-mc05"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l1#exito",
+    "sourceIds": [
+      "src-ietf-rfc9110"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-l1-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m07",
+    "lessonId": "m07-l1",
+    "evaluatedObjectiveId": "m07-eo1",
+    "competencyIds": [
+      "C09"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "El servicio de tipos de cambio responde con un código 425, que el agente no reconoce, y el agente concluye que no puede saber qué pasó.",
+    "stem": "¿Cómo se interpreta ese código?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "No se puede interpretar sin la documentación de ese código",
+        "correct": false,
+        "feedback": "HTTP pide tratar un código desconocido como el x00 de su clase. El primer dígito ya dice de quién es el problema: un 4xx señala la petición.",
+        "misconceptionId": "m07-mc03"
+      },
+      {
+        "id": "o2",
+        "text": "Como un fallo del servidor, que se resuelve repitiendo la llamada",
+        "correct": false,
+        "feedback": "Un código que empieza con 4 indica un problema de la petición, no del servidor. Repetirla igual no lo arregla.",
+        "misconceptionId": "m07-mc28"
+      },
+      {
+        "id": "o3",
+        "text": "Como un 400: un problema de la petición que hay que revisar",
+        "correct": true,
+        "feedback": "Correcta. Un código desconocido se trata como el x00 de su clase. Un 4xx señala la petición, y lo primero es revisarla."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l1#codigos",
+    "sourceIds": [
+      "src-ietf-rfc9110"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-l1-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m07",
+    "lessonId": "m07-l1",
+    "evaluatedObjectiveId": "m07-eo1",
+    "competencyIds": [
+      "C09"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El contrato del CRM ficticio incluye GET /v1/opportunities/close?ids=…, que cierra las oportunidades indicadas. El agente lo trata como una lectura más.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Lo trato como una acción con efectos y aviso al dueño de la API",
+        "correct": true,
+        "feedback": "Correcta. Un GET no debería cambiar nada; este cierra oportunidades, así que merece el cuidado de una escritura. Su dueño debería corregirlo."
+      },
+      {
+        "id": "o2",
+        "text": "Nada: un GET nunca cambia nada en el servidor, por definición",
+        "correct": false,
+        "feedback": "Así debería ser, pero este endpoint cierra oportunidades según los parámetros que recibe. Que sea un GET no lo vuelve inofensivo; conviene repasar qué son los métodos seguros.",
+        "misconceptionId": "m07-mc02"
+      },
+      {
+        "id": "o3",
+        "text": "Lo dejo pasar como lectura, porque figura en el contrato oficial",
+        "correct": false,
+        "feedback": "El contrato dice qué existe, no qué es inofensivo. Un endpoint documentado puede tener efectos.",
+        "misconceptionId": "m07-mc24"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l1#metodos",
+    "sourceIds": [
+      "src-ietf-rfc9110"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-l1-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m07",
+    "lessonId": "m07-l1",
+    "evaluatedObjectiveId": "m07-eo1",
+    "competencyIds": [
+      "C09"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El servicio ficticio de tipos de cambio responde 200, pero el tipo del euro llega como \"rate\": null.",
+    "stem": "¿Qué hace el cálculo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Usa el tipo de la semana pasada, porque la API respondió bien",
+        "correct": false,
+        "feedback": "Que la API responda 200 no vuelve válido el dato. Y usar en silencio el tipo de otra semana altera todas las cifras en euros.",
+        "misconceptionId": "m07-mc04"
+      },
+      {
+        "id": "o2",
+        "text": "Lo toma como cero, porque el JSON es válido",
+        "correct": false,
+        "feedback": "Un vacío no es un cero. Con un tipo de cero, todos los montos en euros desaparecerían del total.",
+        "misconceptionId": "m07-mc05"
+      },
+      {
+        "id": "o3",
+        "text": "Valida el dato y se detiene o avisa; no calcula con un vacío",
+        "correct": true,
+        "feedback": "Correcta. Lo que llega de una API integrada se valida como cualquier entrada. Sin tipo de cambio, el cálculo se detiene o lo reporta."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l1#confianza",
+    "sourceIds": [
+      "src-owasp-api10-2023"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-l2-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m07",
+    "lessonId": "m07-l2",
+    "evaluatedObjectiveId": "m07-eo2",
+    "competencyIds": [
+      "C09",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Para que el agente lea las oportunidades del Centro para un informe, la pantalla de consentimiento ofrece opportunities:read, opportunities:write y admin:*.",
+    "stem": "¿Qué marcas?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Los tres, para que el agente no se trabe más adelante",
+        "correct": false,
+        "feedback": "Cada alcance de más amplía el daño si el token se filtra. Si más adelante hace falta otro, se pide entonces.",
+        "misconceptionId": "m07-mc07"
+      },
+      {
+        "id": "o2",
+        "text": "Solo opportunities:read, que es lo que la tarea necesita",
+        "correct": true,
+        "feedback": "Correcta. La tarea solo lee, así que basta el alcance de lectura. Se empieza con lo mínimo y se amplía si hace falta."
+      },
+      {
+        "id": "o3",
+        "text": "admin:*, con una instrucción en el prompt de no modificar nada",
+        "correct": false,
+        "feedback": "La instrucción se puede ignorar o burlar. La autorización se hace cumplir en el CRM, con el alcance mínimo.",
+        "misconceptionId": "m07-mc10"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l2#alcances",
+    "sourceIds": [
+      "src-mcp-security-bp",
+      "src-ietf-rfc9700"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-l2-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m07",
+    "lessonId": "m07-l2",
+    "evaluatedObjectiveId": "m07-eo2",
+    "competencyIds": [
+      "C09",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Al publicar el borrador del comentario en la wiki ficticia del equipo, el agente recibe 403 con error=\"insufficient_scope\" y scope=\"pages:write\".",
+    "stem": "¿Qué hace el agente?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Repite la petición con el mismo token, por si fue un fallo pasajero",
+        "correct": false,
+        "feedback": "Un 403 no se arregla repitiendo con las mismas credenciales. El servidor ya dijo qué alcance falta.",
+        "misconceptionId": "m07-mc06"
+      },
+      {
+        "id": "o2",
+        "text": "Pide permisos de administración para no volver a toparse con esto",
+        "correct": false,
+        "feedback": "Pedir de más es justo lo que la regla evita. El servidor indicó el alcance exacto que falta.",
+        "misconceptionId": "m07-mc07"
+      },
+      {
+        "id": "o3",
+        "text": "Pide pages:write y nada más, con un límite de intentos",
+        "correct": true,
+        "feedback": "Correcta. El error dice qué alcance falta, y se amplía solo eso. La especificación de MCP pide además limitar los intentos de ampliación."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l2#alcances",
+    "sourceIds": [
+      "src-mcp-authorization",
+      "src-ietf-rfc9110"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-l2-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m07",
+    "lessonId": "m07-l2",
+    "evaluatedObjectiveId": "m07-eo2",
+    "competencyIds": [
+      "C09",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Pediste para el agente solo opportunities:read. La respuesta del servidor de autorización lista opportunities:read opportunities:write.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "No uso ese token y reviso la configuración del cliente",
+        "correct": true,
+        "feedback": "Correcta. Lo que cuenta es el alcance concedido, y este trae escritura que nadie pidió. Antes de usarlo, se corrige la configuración."
+      },
+      {
+        "id": "o2",
+        "text": "Lo uso: el servidor solo puede dar lo que se le pidió",
+        "correct": false,
+        "feedback": "El servidor de autorización puede conceder otro alcance, y por eso lo informa. Aquí concedió escritura.",
+        "misconceptionId": "m07-mc11"
+      },
+      {
+        "id": "o3",
+        "text": "Lo uso: un permiso de más no estorba si el agente no lo usa",
+        "correct": false,
+        "feedback": "Un permiso que no se usa sigue disponible si el token se filtra o si el agente se equivoca. Se usa el mínimo.",
+        "misconceptionId": "m07-mc07"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l2#oauth",
+    "sourceIds": [
+      "src-ietf-rfc6749"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-l2-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m07",
+    "lessonId": "m07-l2",
+    "evaluatedObjectiveId": "m07-eo2",
+    "competencyIds": [
+      "C09",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "La cabecera de autorización le da problemas al agente, y propone mandar el token como parámetro: ?access_token=TOKEN_FICTICIO_CRM_LECTURA.",
+    "stem": "¿Qué le respondes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que sí, porque la conexión va cifrada y nadie puede leer la URL",
+        "correct": false,
+        "feedback": "El cifrado protege el viaje, pero la URL queda guardada en historiales y registros. Ahí el token queda expuesto.",
+        "misconceptionId": "m07-mc08"
+      },
+      {
+        "id": "o2",
+        "text": "Que no: el token va en la cabecera, porque la URL queda en registros",
+        "correct": true,
+        "feedback": "Correcta. El estándar de los tokens portadores pide no ponerlos en la URL. Hay que resolver el problema de la cabecera, no cambiar de canal."
+      },
+      {
+        "id": "o3",
+        "text": "Que sí, siempre que el token se rote cada semana",
+        "correct": false,
+        "feedback": "Rotarlo acorta el tiempo que sirve un token filtrado, pero no evita filtrarlo. El token sigue sin ir en la URL.",
+        "misconceptionId": "m07-mc22"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l2#portador",
+    "sourceIds": [
+      "src-ietf-rfc6750"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-l2-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m07",
+    "lessonId": "m07-l2",
+    "evaluatedObjectiveId": "m07-eo1",
+    "competencyIds": [
+      "C09"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Una petición al CRM ficticio devuelve 400 con un cuerpo application/problem+json cuyo campo detail dice «status debe ser open o closed».",
+    "stem": "¿Qué hace el agente?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Repite la misma petición más tarde, por si el servidor se recupera",
+        "correct": false,
+        "feedback": "Un 400 indica una petición mal formada; repetirla igual da el mismo error. El detalle dice qué corregir.",
+        "misconceptionId": "m07-mc23"
+      },
+      {
+        "id": "o2",
+        "text": "Pide más alcances, porque el servidor rechazó la petición",
+        "correct": false,
+        "feedback": "Un 400 no es un problema de permisos. El detalle señala el parámetro status.",
+        "misconceptionId": "m07-mc20"
+      },
+      {
+        "id": "o3",
+        "text": "Corrige el parámetro status según el detalle y vuelve a pedir",
+        "correct": true,
+        "feedback": "Correcta. El cuerpo de error dice exactamente qué está mal. Se corrige el parámetro y se envía la petición corregida."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l1#errores",
+    "sourceIds": [
+      "src-ietf-rfc9457",
+      "src-ietf-rfc9110"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-l2-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m07",
+    "lessonId": "m07-l2",
+    "evaluatedObjectiveId": "m07-eo1",
+    "competencyIds": [
+      "C09"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Para filtrar oportunidades, el agente propone llamar a POST /v1/opportunities/search. El contrato solo define GET /v1/opportunities con filtros.",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Usar el GET con filtros del contrato y revisar de dónde salió el otro",
+        "correct": true,
+        "feedback": "Correcta. El contrato es la fuente de verdad sobre qué endpoints existen. Un endpoint que no está ahí se revisa antes de llamarlo."
+      },
+      {
+        "id": "o2",
+        "text": "Probar el POST: si el agente lo propone, el endpoint debe existir",
+        "correct": false,
+        "feedback": "El agente puede proponer un endpoint que no existe. Lo que el servicio ofrece está en el contrato.",
+        "misconceptionId": "m07-mc19"
+      },
+      {
+        "id": "o3",
+        "text": "Probar el POST: si responde 200, los datos sirven",
+        "correct": false,
+        "feedback": "Un 200 no confirma que la respuesta sea la que necesitas. Y un POST no documentado puede tener efectos.",
+        "misconceptionId": "m07-mc01"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l1#contrato",
+    "sourceIds": [
+      "src-oas-3-2"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-l3-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m07",
+    "lessonId": "m07-l3",
+    "evaluatedObjectiveId": "m07-eo3",
+    "competencyIds": [
+      "C09"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El agente registra un pago en el sistema ficticio de Cobranza con un POST que lleva una clave de idempotencia. La llamada agota el tiempo sin respuesta, y el agente propone repetirla con una clave nueva, «por si acaso».",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Repetirla con una clave nueva: el pago no llegó a registrarse",
+        "correct": false,
+        "feedback": "Un tiempo agotado no dice si el servidor aplicó la petición. Con una clave nueva, el servidor no puede reconocer el reintento y el pago puede quedar registrado dos veces.",
+        "misconceptionId": "m07-mc13"
+      },
+      {
+        "id": "o2",
+        "text": "Repetirla con la misma clave, para que se reconozca el reintento",
+        "correct": true,
+        "feedback": "Correcta. Con la misma clave y el mismo contenido, el servidor reconoce que es la misma operación y no duplica el pago. Si la original sigue en curso, responde 409 y hay que esperar."
+      },
+      {
+        "id": "o3",
+        "text": "Repetirla hasta tres veces seguidas, sin esperar entre intentos",
+        "correct": false,
+        "feedback": "Más intentos con claves nuevas solo multiplican el riesgo de registrar el pago varias veces. Y reintentar sin esperar carga al servidor.",
+        "misconceptionId": "m07-mc12"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l3#clave",
+    "sourceIds": [
+      "src-ietf-rfc9110",
+      "src-ietf-idempotency-key-draft"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-l3-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m07",
+    "lessonId": "m07-l3",
+    "evaluatedObjectiveId": "m07-eo3",
+    "competencyIds": [
+      "C09"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El servicio ficticio de tipos de cambio responde 503 con la cabecera Retry-After: 300.",
+    "stem": "¿Qué hace la integración?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ignora la cabecera y aplica su propia fórmula de espera",
+        "correct": false,
+        "feedback": "Si el servicio dice cuánto esperar, eso manda sobre cualquier fórmula propia. Reintentar antes de tiempo solo suma carga a un servicio sobrecargado.",
+        "misconceptionId": "m07-mc21"
+      },
+      {
+        "id": "o2",
+        "text": "Cambia de credenciales, porque el servicio rechazó las actuales",
+        "correct": false,
+        "feedback": "Un 503 no es un problema de credenciales: el servicio no está disponible por ahora. Las credenciales no cambian nada.",
+        "misconceptionId": "m07-mc25"
+      },
+      {
+        "id": "o3",
+        "text": "Espera 300 segundos y reintenta, dentro de su tope de intentos",
+        "correct": true,
+        "feedback": "Correcta. Un 503 suele ser pasajero, y Retry-After dice cuánto esperar. Se reintenta sin pasar el tope."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l3#espera",
+    "sourceIds": [
+      "src-ietf-rfc9110"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-l3-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m07",
+    "lessonId": "m07-l3",
+    "evaluatedObjectiveId": "m07-eo3",
+    "competencyIds": [
+      "C09"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Ante una falla, el agente hace hasta tres intentos, la biblioteca que usa hace otros tres por cada uno y el script que lo llama también.",
+    "stem": "¿Qué cambias?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: más intentos dan más oportunidades de que funcione",
+        "correct": false,
+        "feedback": "Los intentos se multiplican: una sola falla puede convertirse en 27 llamadas. Eso sobrecarga al servicio.",
+        "misconceptionId": "m07-mc15"
+      },
+      {
+        "id": "o2",
+        "text": "Dejo los reintentos en un solo punto, con tope y espera creciente",
+        "correct": true,
+        "feedback": "Correcta. Se reintenta en un solo punto de la cadena, con un número máximo de intentos y esperas cada vez mayores. Las otras capas no reintentan."
+      },
+      {
+        "id": "o3",
+        "text": "Quito todos los reintentos: si algo falla una vez, falló",
+        "correct": false,
+        "feedback": "Los reintentos ayudan con los fallos pasajeros. Lo que hay que corregir es que se multipliquen.",
+        "misconceptionId": "m07-mc26"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l3#espera",
+    "sourceIds": [
+      "src-aws-timeouts-retries-jitter"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-l3-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m07",
+    "lessonId": "m07-l3",
+    "evaluatedObjectiveId": "m07-eo3",
+    "competencyIds": [
+      "C09"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Un servidor MCP de un tercero, que el equipo no revisó, marca su herramienta create_invoice con idempotentHint: true.",
+    "stem": "¿Se puede reintentar sin más?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Sí: la propia herramienta declara que repetir no duplica nada",
+        "correct": false,
+        "feedback": "Las anotaciones son pistas, y el esquema pide no decidir con ellas si el servidor no es de confianza. Este no se revisó.",
+        "misconceptionId": "m07-mc17"
+      },
+      {
+        "id": "o2",
+        "text": "No: es solo una pista; hace falta una clave o comprobar el resultado",
+        "correct": true,
+        "feedback": "Correcta. Con un servidor que no es de confianza, la anotación no garantiza nada. Antes de repetir, hace falta una clave de idempotencia o comprobar el resultado."
+      },
+      {
+        "id": "o3",
+        "text": "Sí, como cualquier llamada que se quedó sin respuesta del servidor",
+        "correct": false,
+        "feedback": "Solo las operaciones idempotentes se repiten sin más. Crear una factura no lo es por defecto.",
+        "misconceptionId": "m07-mc14"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l3#herramientas",
+    "sourceIds": [
+      "src-mcp-schema-2026-07-28"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-l3-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m07",
+    "lessonId": "m07-l3",
+    "evaluatedObjectiveId": "m07-eo2",
+    "competencyIds": [
+      "C09",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Después de una hora de trabajo, las llamadas del agente al CRM ficticio empiezan a responder 401: el token caducó.",
+    "stem": "¿Qué hace el agente?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Renueva el token o vuelve a autenticarse",
+        "correct": true,
+        "feedback": "Correcta. Un 401 indica que faltan credenciales válidas. Un token que caducó se renueva; los alcances no cambian."
+      },
+      {
+        "id": "o2",
+        "text": "Pide más alcances, porque el servidor dejó de autorizarlo",
+        "correct": false,
+        "feedback": "Un 401 no es falta de permisos, sino de credenciales válidas. Los alcances responden a un 403.",
+        "misconceptionId": "m07-mc20"
+      },
+      {
+        "id": "o3",
+        "text": "Repite cada llamada hasta que vuelva a funcionar",
+        "correct": false,
+        "feedback": "Con el token caducado, todas las llamadas fallarán igual. Hay que renovarlo.",
+        "misconceptionId": "m07-mc12"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l2#autenticar",
+    "sourceIds": [
+      "src-ietf-rfc9110"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m07-l3-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m07",
+    "lessonId": "m07-l3",
+    "evaluatedObjectiveId": "m07-eo2",
+    "competencyIds": [
+      "C09",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Para que el agente lea las cuentas de clientes, alguien propone darle también accounts:export y escribir en el prompt «no exportes nada».",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Aceptar, porque el agente sigue las instrucciones del prompt",
+        "correct": false,
+        "feedback": "Una instrucción se puede ignorar o burlar, por ejemplo con un texto malicioso en los datos. La autorización se hace cumplir en el destino.",
+        "misconceptionId": "m07-mc10"
+      },
+      {
+        "id": "o2",
+        "text": "Aceptar, si el registro de llamadas guarda todo lo que haga el agente",
+        "correct": false,
+        "feedback": "El registro permite ver después lo que pasó, pero no evita la exportación. El control es el permiso.",
+        "misconceptionId": "m07-mc27"
+      },
+      {
+        "id": "o3",
+        "text": "Quitar accounts:export: el control es el permiso, no el prompt",
+        "correct": true,
+        "feedback": "Correcta. Sin ese alcance, el agente no puede exportar aunque se lo pidan. La tarea solo necesita leer."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m07-l2#agencia",
+    "sourceIds": [
+      "src-owasp-llm06"
+    ],
+    "status": "draft"
+  }
+]

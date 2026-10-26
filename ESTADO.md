@@ -1,28 +1,28 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 a M06 completos y revisados; M07 en preparación, con su investigación lista. · **Actualizado:** 2026-10-26 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 a M06 completos y revisados; M07 con sus lecciones 1 a 3 en revisión de Codex (T-038). · **Actualizado:** 2026-10-26 por Claude Code
 
 ## Siguiente acción
 
-1. **Claude:** M07, lecciones 1 a 3 con sus preguntas y fichas, y después T-038 para Codex (D-026).
-2. **Codex:** sin ticket abierto; T-037 cerrado el 2026-10-26.
+1. **Codex:** T-038, que revisa el blueprint de M07, sus lecciones 1 a 3, las preguntas y las fichas.
+2. **Claude:** mientras tanto, las lecciones 4 a 6 de M07; al volver T-038, aplicar sus hallazgos.
 3. **Subagentes:** la investigación de M05 a M07 está lista; la de M08 a M10 se lanza cuando convenga.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-26)
 
-**≈ 64 % de la V1** (rango razonable: 61–67 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 65 % de la V1** (rango razonable: 62–68 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 88 % (simplificada a opción múltiple con D-024; faltan el hosting y la instalación real en dispositivos) | 13,2 |
-| 3 · Nueve manuales restantes | 40 % | 55 % (M01 y M03 a M06 completos y revisados; investigación de M07 lista) | 22,0 |
+| 3 · Nueve manuales restantes | 40 % | 57 % (M01 y M03 a M06 completos y revisados; M07 con 3 de 6 lecciones) | 22,8 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 64 %** |
+| **Total** | 100 % | | **≈ 65 %** |
 
 ## Tickets
 
@@ -65,11 +65,13 @@
 | [T-035](coordinacion/tickets/T-035-codex-revision-m06-l4-l6.md) | Codex | Revisión de M06: lecciones 4 a 6, preguntas y fichas | cerrado |
 | [T-036](coordinacion/tickets/T-036-codex-revision-ux-subrayados.md) | Codex | Revisión de UX: subrayados con nota y página «Subrayados» | cerrado |
 | [T-037](coordinacion/tickets/T-037-codex-revision-m06-examen-laboratorio.md) | Codex | Revisión de M06: banco de examen, laboratorio como caso y práctica | cerrado |
+| [T-038](coordinacion/tickets/T-038-codex-revision-m07-l1-l3.md) | Codex | Revisión de M07: blueprint, lecciones 1 a 3, preguntas y fichas | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
+| Codex (T-038) | `investigacion/codex-revision-m07-l1-l3.md` |
 | Claude | `content/courses/m07/**` |
 
 ## Decisiones recientes
@@ -77,6 +79,16 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-26 · Claude Code — M07, lecciones 1 a 3 (T-038)
+- **Blueprint:** seis objetivos evaluados.
+- **Lecciones:** L1 peticiones y JSON; L2 credenciales y alcances; L3 errores, reintentos e idempotencia.
+- **Preguntas y apoyos:** 16 preguntas, 28 conceptos erróneos, 2 fichas y 36 fuentes nuevas.
+- **Cifra de paginación:** regenerada con un script (1 208 000 en la primera página; falta OPP-1039).
+
+El revisor de texto explicó los términos técnicos y señaló cuatro dudas, que apliqué. «7:00» rompía el parser de directivas, así que las horas se escriben con letras.
+
+**Verificación:** `npm test` 205/205 y revisión en el navegador a 375 px.
 
 ### 2026-10-26 · Claude Code — cierre de T-037: M06 completo y revisado
 - **SRC-01:** nuevo campo `basis` (D-028). Siete conceptos erróneos y cuatro preguntas quedan como inferencias declaradas del curso, en lugar de citar `src-python-sys`.

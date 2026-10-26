@@ -1,0 +1,55 @@
+{
+  "id": "m07-l3",
+  "courseId": "m07",
+  "version": "0.1.0",
+  "order": 3,
+  "title": "Errores, límites, reintentos e idempotencia",
+  "objectives": [
+    {
+      "id": "m07-l3-o1",
+      "statement": "Decide, según el código de estado, si un error se arregla reintentando.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m07-eo3"
+    },
+    {
+      "id": "m07-l3-o2",
+      "statement": "Elige cuánto esperar y cómo limitar los reintentos.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m07-eo3"
+    },
+    {
+      "id": "m07-l3-o3",
+      "statement": "Decide si repetir una operación es seguro y cómo evitar los duplicados.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m07-eo3"
+    }
+  ],
+  "bodyPath": "courses/m07/lessons/m07-l3.md",
+  "reviewQuestionIds": [
+    "m07-l3-r1",
+    "m07-l3-r2"
+  ],
+  "checkQuestionIds": [
+    "m07-l3-c1",
+    "m07-l3-c2",
+    "m07-l3-c3",
+    "m07-l3-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m07-pc-tool-timeouts"
+  ],
+  "sourceIds": [
+    "src-ietf-rfc9110",
+    "src-ietf-rfc6585",
+    "src-aws-timeouts-retries-jitter",
+    "src-ietf-idempotency-key-draft",
+    "src-owasp-api4-2023",
+    "src-mcp-spec-tools",
+    "src-anthropic-eng-writing-tools",
+    "src-mcp-schema-2026-07-28",
+    "src-mcp-changelog-2026-07-28"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

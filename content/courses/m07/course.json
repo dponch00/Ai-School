@@ -1,0 +1,72 @@
+{
+  "id": "m07",
+  "version": "0.1.0",
+  "title": "APIs, MCP, conectores e integraciones",
+  "centralQuestion": "¿Quién se conecta a qué, con qué permisos y para qué?",
+  "competencyIds": [
+    "C09",
+    "C11",
+    "C08"
+  ],
+  "evaluatedObjectives": [
+    {
+      "id": "m07-eo1",
+      "statement": "Dado el contrato de un endpoint (método, ruta, parámetros y un ejemplo de respuesta JSON) y una necesidad del caso Altiplano, identifica la petición que la cubre y decide si la respuesta recibida basta para usarla, detectando paginación pendiente, nulos, moneda o unidad y un 2xx con datos incompletos.",
+      "competencyIds": [
+        "C09"
+      ]
+    },
+    {
+      "id": "m07-eo2",
+      "statement": "Dado un encargo que necesita acceso a un servicio, elige dónde vive la credencial y qué alcances conceder (mínimos, separados por tarea y de corta vida), y decide la primera acción ante un alcance de más, un alcance que falta o una credencial mal usada.",
+      "competencyIds": [
+        "C09",
+        "C11"
+      ]
+    },
+    {
+      "id": "m07-eo3",
+      "statement": "Dado un error de una API o de una herramienta (401, 403, 404, 409, 422, 429, 5xx o tiempo agotado), decide si reintentar, cómo (espera, tope, Retry-After) y si repetir es seguro (método idempotente o clave de idempotencia), sin duplicar efectos.",
+      "competencyIds": [
+        "C09"
+      ]
+    },
+    {
+      "id": "m07-eo4",
+      "statement": "Dado un flujo con un servicio externo, elige entre CLI, API directa o MCP según quién usa la integración, su costo de contexto y el control necesario, e identifica el riesgo de confianza de un servidor MCP (comando local, descripciones y anotaciones no confiables, cambio de herramientas) y la configuración que lo limita.",
+      "competencyIds": [
+        "C09",
+        "C11"
+      ]
+    },
+    {
+      "id": "m07-eo5",
+      "statement": "Dada una pregunta de negocio, elige entre recuperación documental (RAG) y consulta estructurada (SQL o una herramienta), e identifica cuándo una cifra debe venir de la consulta y no del texto recuperado.",
+      "competencyIds": [
+        "C09",
+        "C08"
+      ]
+    },
+    {
+      "id": "m07-eo6",
+      "statement": "Dado un plan de integración que correrá sin supervisión, elige la secuencia de validación (contrato y simulación con datos sintéticos, entorno de prueba y servicio real) y los controles de la ejecución desatendida, e identifica qué contenido entrante puede inyectar instrucciones y qué acción podría provocar.",
+      "competencyIds": [
+        "C09",
+        "C11"
+      ]
+    }
+  ],
+  "lessonIds": [
+    "m07-l1",
+    "m07-l2",
+    "m07-l3",
+    "m07-l4",
+    "m07-l5",
+    "m07-l6"
+  ],
+  "practiceId": "m07-lab",
+  "estimatedMinutes": 180,
+  "volatility": "high",
+  "reviewCadence": "quarterly",
+  "status": "draft"
+}

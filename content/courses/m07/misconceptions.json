@@ -1,0 +1,258 @@
+[
+  {
+    "id": "m07-mc01",
+    "courseId": "m07",
+    "description": "Si la API respondió 200, los datos están completos.",
+    "whyWrong": "Un 2xx dice que el servidor aceptó la petición. Una página parcial con un cursor pendiente también es un 200.",
+    "sourceIds": [
+      "src-ietf-rfc9110"
+    ]
+  },
+  {
+    "id": "m07-mc02",
+    "courseId": "m07",
+    "description": "Un GET con un parámetro de acción es tan inofensivo como cualquier GET.",
+    "whyWrong": "Los métodos seguros no deberían cambiar nada en el servidor; un recurso que ejecuta acciones según los parámetros de un GET rompe esa garantía.",
+    "sourceIds": [
+      "src-ietf-rfc9110"
+    ]
+  },
+  {
+    "id": "m07-mc03",
+    "courseId": "m07",
+    "description": "Un código de estado desconocido no se puede interpretar.",
+    "whyWrong": "Se interpreta por su clase, el primer dígito, como el x00 de esa clase.",
+    "sourceIds": [
+      "src-ietf-rfc9110"
+    ]
+  },
+  {
+    "id": "m07-mc04",
+    "courseId": "m07",
+    "description": "Lo que devuelve una API integrada ya viene validado.",
+    "whyWrong": "Los datos de servicios de terceros se validan y se sanean como cualquier otra entrada.",
+    "sourceIds": [
+      "src-owasp-api10-2023"
+    ]
+  },
+  {
+    "id": "m07-mc05",
+    "courseId": "m07",
+    "description": "Si el JSON es válido, sus montos se pueden sumar tal como vienen.",
+    "whyWrong": "Las monedas mezcladas, los vacíos y los valores fuera del catálogo no producen errores de formato: producen otra cifra.",
+    "basis": "inference",
+    "sourceIds": []
+  },
+  {
+    "id": "m07-mc06",
+    "courseId": "m07",
+    "description": "Un 403 se arregla repitiendo la petición con el mismo token.",
+    "whyWrong": "Un 403 dice que el servidor entendió y se niega con esas credenciales; repetirla igual no cambia nada.",
+    "sourceIds": [
+      "src-ietf-rfc9110"
+    ]
+  },
+  {
+    "id": "m07-mc07",
+    "courseId": "m07",
+    "description": "Conviene pedir todos los alcances de una vez para que el agente no se trabe.",
+    "whyWrong": "Cada alcance de más amplía el daño si el token se filtra; la práctica es empezar con lo mínimo y ampliar lo que falte, sin comodines.",
+    "sourceIds": [
+      "src-mcp-security-bp",
+      "src-ietf-rfc9700"
+    ]
+  },
+  {
+    "id": "m07-mc08",
+    "courseId": "m07",
+    "description": "Mandar el token en la URL es igual que en una cabecera si la conexión va cifrada.",
+    "whyWrong": "Las URLs quedan en historiales y registros. El token va en la cabecera de autorización.",
+    "sourceIds": [
+      "src-ietf-rfc6750"
+    ]
+  },
+  {
+    "id": "m07-mc09",
+    "courseId": "m07",
+    "description": "Si el servidor MCP recibe mi token, lo más simple es que lo reenvíe a la API de destino.",
+    "whyWrong": "Un servidor MCP solo acepta tokens emitidos para él y no los reenvía: reenviarlos salta los controles y borra la trazabilidad.",
+    "sourceIds": [
+      "src-mcp-authorization",
+      "src-mcp-security-bp"
+    ]
+  },
+  {
+    "id": "m07-mc10",
+    "courseId": "m07",
+    "description": "Si el prompt le prohíbe una acción al agente, se le pueden conceder todos los permisos.",
+    "whyWrong": "La autorización se hace cumplir en el sistema de destino, no en el modelo. Una instrucción no es un control.",
+    "sourceIds": [
+      "src-owasp-llm06"
+    ]
+  },
+  {
+    "id": "m07-mc11",
+    "courseId": "m07",
+    "description": "El alcance que pedí es el que tengo.",
+    "whyWrong": "El servidor de autorización puede conceder otro alcance y debe informarlo. Lo que cuenta es lo concedido.",
+    "sourceIds": [
+      "src-ietf-rfc6749"
+    ]
+  },
+  {
+    "id": "m07-mc12",
+    "courseId": "m07",
+    "description": "Ante cualquier error, lo mejor es reintentar hasta que funcione.",
+    "whyWrong": "Un 4xx casi nunca se arregla repitiendo, y los reintentos cargan al servidor: necesitan espera y tope.",
+    "sourceIds": [
+      "src-ietf-rfc9110",
+      "src-aws-timeouts-retries-jitter"
+    ]
+  },
+  {
+    "id": "m07-mc13",
+    "courseId": "m07",
+    "description": "Si la llamada agotó el tiempo, no pasó nada y se puede repetir.",
+    "whyWrong": "El servidor pudo aplicarla; lo que se perdió fue la respuesta. Repetir un POST sin idempotencia duplica el efecto.",
+    "sourceIds": [
+      "src-ietf-rfc9110",
+      "src-ietf-idempotency-key-draft"
+    ]
+  },
+  {
+    "id": "m07-mc14",
+    "courseId": "m07",
+    "description": "Cualquier petición se puede reintentar automáticamente.",
+    "whyWrong": "Solo se reintentan automáticamente las peticiones idempotentes. Un POST se repite solo si un mecanismo lo hace seguro, como una clave de idempotencia.",
+    "sourceIds": [
+      "src-ietf-rfc9110"
+    ]
+  },
+  {
+    "id": "m07-mc15",
+    "courseId": "m07",
+    "description": "Conviene que cada capa reintente por su cuenta.",
+    "whyWrong": "Los intentos se multiplican y sobrecargan al servicio. Se reintenta en un solo punto de la cadena.",
+    "sourceIds": [
+      "src-aws-timeouts-retries-jitter"
+    ]
+  },
+  {
+    "id": "m07-mc16",
+    "courseId": "m07",
+    "description": "Un 429 significa que el servicio está caído.",
+    "whyWrong": "Indica que se hicieron demasiadas peticiones en un periodo; hay que esperar, idealmente lo que diga Retry-After.",
+    "sourceIds": [
+      "src-ietf-rfc6585"
+    ]
+  },
+  {
+    "id": "m07-mc17",
+    "courseId": "m07",
+    "description": "Si la herramienta declara que es idempotente, se puede reintentar sin más.",
+    "whyWrong": "Las anotaciones de una herramienta MCP son pistas; no se confía en ellas salvo que el servidor sea de confianza.",
+    "sourceIds": [
+      "src-mcp-schema-2026-07-28"
+    ]
+  },
+  {
+    "id": "m07-mc18",
+    "courseId": "m07",
+    "description": "Un 404 prueba que el registro no existe.",
+    "whyWrong": "Un 404 también puede ocultar un recurso que esas credenciales no pueden ver.",
+    "sourceIds": [
+      "src-ietf-rfc9110"
+    ]
+  },
+  {
+    "id": "m07-mc19",
+    "courseId": "m07",
+    "description": "Si el agente propone un endpoint, existe aunque el contrato no lo mencione.",
+    "whyWrong": "El contrato es la descripción de lo que la API ofrece; un endpoint que no está ahí se revisa antes de llamarlo.",
+    "sourceIds": [
+      "src-oas-3-2"
+    ]
+  },
+  {
+    "id": "m07-mc20",
+    "courseId": "m07",
+    "description": "Un 401 o un 400 se arreglan pidiendo más alcances.",
+    "whyWrong": "Un 401 pide volver a autenticarse y un 400, corregir la petición. Los alcances responden a un 403 con insufficient_scope.",
+    "sourceIds": [
+      "src-ietf-rfc9110",
+      "src-mcp-authorization"
+    ]
+  },
+  {
+    "id": "m07-mc21",
+    "courseId": "m07",
+    "description": "Una fórmula de espera propia es mejor que el Retry-After del servicio.",
+    "whyWrong": "Retry-After es lo que el propio servicio dice que necesita; una fórmula propia no sabe cuándo podrá volver a atender.",
+    "basis": "inference",
+    "sourceIds": []
+  },
+  {
+    "id": "m07-mc22",
+    "courseId": "m07",
+    "description": "Rotar un token cada cierto tiempo permite mandarlo por cualquier canal.",
+    "whyWrong": "Un token filtrado sirve hasta que se rota. La corta vida reduce el daño, pero no reemplaza protegerlo ni sacarlo de la URL.",
+    "sourceIds": [
+      "src-ietf-rfc6750"
+    ]
+  },
+  {
+    "id": "m07-mc23",
+    "courseId": "m07",
+    "description": "Un 400 se arregla repitiendo la misma petición más tarde.",
+    "whyWrong": "Un 400 indica una petición mal formada; hay que corregirla, y el detalle del error suele decir qué.",
+    "sourceIds": [
+      "src-ietf-rfc9110",
+      "src-ietf-rfc9457"
+    ]
+  },
+  {
+    "id": "m07-mc24",
+    "courseId": "m07",
+    "description": "Si un endpoint figura en el contrato, cualquier llamada a él es segura.",
+    "whyWrong": "El contrato dice qué existe, no qué es inofensivo. Un GET que ejecuta acciones rompe la semántica de los métodos seguros, aunque esté documentado.",
+    "sourceIds": [
+      "src-ietf-rfc9110"
+    ]
+  },
+  {
+    "id": "m07-mc25",
+    "courseId": "m07",
+    "description": "Un 5xx significa que la petición o las credenciales están mal.",
+    "whyWrong": "Un 5xx indica que el servidor falló ante una petición que parecía válida. A veces se resuelve esperando y reintentando.",
+    "sourceIds": [
+      "src-ietf-rfc9110"
+    ]
+  },
+  {
+    "id": "m07-mc26",
+    "courseId": "m07",
+    "description": "Un fallo pasajero no se debe reintentar nunca.",
+    "whyWrong": "Los reintentos ayudan con los fallos pasajeros, siempre con tiempo límite, espera creciente y tope.",
+    "sourceIds": [
+      "src-aws-timeouts-retries-jitter"
+    ]
+  },
+  {
+    "id": "m07-mc27",
+    "courseId": "m07",
+    "description": "Registrar las llamadas del agente evita que haga algo indebido.",
+    "whyWrong": "El registro permite ver después lo que pasó, pero no impide la acción. El control es el permiso.",
+    "sourceIds": [
+      "src-owasp-llm06"
+    ]
+  },
+  {
+    "id": "m07-mc28",
+    "courseId": "m07",
+    "description": "Un código que empieza con 4 indica que falló el servidor.",
+    "whyWrong": "Los códigos 4xx señalan un problema de la petición; los 5xx, un fallo del servidor. Un 4xx casi nunca se arregla repitiendo igual.",
+    "sourceIds": [
+      "src-ietf-rfc9110"
+    ]
+  }
+]

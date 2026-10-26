@@ -1,0 +1,47 @@
+{
+  "id": "m07-l1",
+  "courseId": "m07",
+  "version": "0.1.0",
+  "order": 1,
+  "title": "Peticiones, respuestas y JSON: leer un contrato",
+  "objectives": [
+    {
+      "id": "m07-l1-o1",
+      "statement": "Identifica las cinco piezas que hay que leer en una petición y en su respuesta.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m07-eo1"
+    },
+    {
+      "id": "m07-l1-o2",
+      "statement": "Interpreta un código de estado por su clase.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m07-eo1"
+    },
+    {
+      "id": "m07-l1-o3",
+      "statement": "Decide si basta una respuesta 2xx, revisando la paginación, los vacíos, las monedas y los valores fuera del catálogo.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m07-eo1"
+    }
+  ],
+  "bodyPath": "courses/m07/lessons/m07-l1.md",
+  "reviewQuestionIds": [],
+  "checkQuestionIds": [
+    "m07-l1-c1",
+    "m07-l1-c2",
+    "m07-l1-c3",
+    "m07-l1-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [],
+  "sourceIds": [
+    "src-ietf-rfc9110",
+    "src-ietf-rfc8259",
+    "src-ietf-rfc9457",
+    "src-oas-3-2",
+    "src-mcp-spec-tools",
+    "src-owasp-api10-2023"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}
