@@ -80,7 +80,7 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 - Verificado: 45 claves únicas, variantes coherentes dentro de las 15 familias, 69 `sectionRef` existentes y `sourceIds` resolubles; laboratorio continuo y giro defendible. Las claves no presentan pistas de longitud de 1,5× o más.
 - Reproducción independiente: snapshot del 26 con seis avisos, Centro 1 330 500, total 3 772 000, vencidas Sur 3/total 7, salida 1 con el contrato del 19 y salida 2 sin `unknown_stage_policy`.
 - `npm test` pasó: 190 pruebas.
-- Commit: pendiente de crear.
+- Commit de entrega: `c1d1b3a` (`[codex] Entrega T-037: revisión de cierre M06`).
 
 ## Revisión
 
