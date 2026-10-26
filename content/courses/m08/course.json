@@ -1,0 +1,78 @@
+{
+  "id": "m08",
+  "version": "0.1.0",
+  "title": "Agentes, automatización y equipos",
+  "centralQuestion": "¿Qué autonomía aporta valor y qué complejidad introduce?",
+  "competencyIds": [
+    "C10",
+    "C03",
+    "C06",
+    "C02",
+    "C01",
+    "C11",
+    "C12"
+  ],
+  "evaluatedObjectives": [
+    {
+      "id": "m08-eo1",
+      "statement": "Dado un proceso del caso Altiplano o una propuesta de diseño para él, identifica qué pasos son deterministas y cuáles necesitan un modelo, reconoce el patrón que describe la propuesta (cadena, enrutamiento, paralelización, orquestador-trabajadores, evaluador-optimizador o agente) y elige el diseño más simple que cumple.",
+      "competencyIds": [
+        "C10"
+      ]
+    },
+    {
+      "id": "m08-eo2",
+      "statement": "Dado un encargo para un agente o un subagente, identifica la pieza que falta (objetivo, entregable, herramientas permitidas, estado que debe dejar escrito, criterio y condición de término) y elige una condición de término verificable frente a una que depende del juicio del propio agente.",
+      "competencyIds": [
+        "C10",
+        "C02"
+      ]
+    },
+    {
+      "id": "m08-eo3",
+      "statement": "Dado un trabajo divisible, decide si paralelizarlo con subagentes, sesiones en worktrees o un equipo de agentes, o mantenerlo en una sola sesión, según las dependencias, el contexto compartido, los archivos que se tocarían a la vez y el costo en tokens, e identifica el riesgo de integración que queda.",
+      "competencyIds": [
+        "C10",
+        "C03",
+        "C06"
+      ]
+    },
+    {
+      "id": "m08-eo4",
+      "statement": "Dado un trabajo que no debe esperar a la persona, elige dónde corre (nube, segundo plano local, tarea programada o integración continua) según qué archivos ve, si la máquina debe estar encendida, quién aprueba durante la ejecución y qué entregable revisable deja.",
+      "competencyIds": [
+        "C10",
+        "C01"
+      ]
+    },
+    {
+      "id": "m08-eo5",
+      "statement": "Dada una regla o un paso que debe ocurrir siempre, elige entre una instrucción, un hook (antes de una herramienta, después de una herramienta o al terminar) o una ejecución sin interfaz en un script o en la integración continua, e identifica el límite de ese control.",
+      "competencyIds": [
+        "C10",
+        "C11"
+      ]
+    },
+    {
+      "id": "m08-eo6",
+      "statement": "Dado el registro, el costo o el resultado de una automatización que falló o salió más cara de lo previsto, identifica la causa en la evidencia, decide la primera acción (detener o pausar antes de reintentar) y elige entre corregirla o volver a una alternativa más simple, con una verificación proporcional a lo que nadie supervisó.",
+      "competencyIds": [
+        "C10",
+        "C12"
+      ]
+    }
+  ],
+  "lessonIds": [
+    "m08-l1",
+    "m08-l2",
+    "m08-l3",
+    "m08-l4",
+    "m08-l5",
+    "m08-l6"
+  ],
+  "practiceId": "m08-lab",
+  "estimatedMinutes": 180,
+  "volatility": "high",
+  "reviewCadence": "quarterly",
+  "status": "draft"
+}

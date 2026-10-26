@@ -1,0 +1,41 @@
+[
+  {
+    "id": "m08-pc-termination-limits",
+    "product": "Claude Code y Codex · límites y condiciones de término",
+    "surfaces": [
+      "cli",
+      "ide"
+    ],
+    "capability": "Claude Code: en la definición de un subagente, maxTurns fija el máximo de turnos, y tools y disallowedTools son las listas de herramientas permitidas y denegadas; al alcanzar maxTurns, la salida vuelve marcada como parcial. En claude -p, --max-budget-usd fija un tope de gasto (el costo que informa es una estimación calculada en el propio cliente) y --json-schema restringe el formato de la salida. Un hook al terminar el turno puede bloquear el final hasta que se cumpla una condición; tras ocho bloqueos seguidos sin una llamada a herramienta, Claude Code deja que el turno termine, y el script del hook debe revisar el campo stop_hook_active. Los hooks de tipo agent son experimentales. Codex: codex exec --output-schema restringe la respuesta final a un esquema JSON. Complementa m05-pc-verification-gates.",
+    "kind": "capability",
+    "maturity": "mixed",
+    "verifiedAt": "2026-10-26",
+    "sourceIds": [
+      "src-anthropic-cc-subagents",
+      "src-anthropic-cc-headless",
+      "src-anthropic-cc-hooks-guide",
+      "src-openai-codex-noninteractive"
+    ],
+    "nextReview": "2027-01-26"
+  },
+  {
+    "id": "m08-pc-subagents-teams",
+    "product": "Claude Code y Codex · subagentes y equipos de agentes",
+    "surfaces": [
+      "cli",
+      "ide",
+      "desktop"
+    ],
+    "capability": "Claude Code, subagentes: se definen en .claude/agents/ o ~/.claude/agents/ (Markdown con name, description, tools, model…); trae Explore, Plan y general-purpose; corren en primer o segundo plano; isolation: worktree los hace trabajar en un worktree temporal. Arrancan con el contexto limpio, devuelven un resumen, cuentan contra los mismos límites de uso y pueden correr hasta 20 a la vez por defecto (sin etiqueta de vista previa). Claude Code, equipos de agentes: un líder y compañeros que son sesiones completas, con lista de tareas compartida y mensajes; son experimentales y vienen desactivados (CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1), no se crean en -p y usan unas 7 veces más tokens que una sesión estándar cuando los compañeros corren en modo plan. Codex, subagentes (app, CLI e IDE): agentes propios en TOML en ~/.codex/agents/ o .codex/agents/; heredan el sandbox y las aprobaciones de la sesión que los lanza y consumen más tokens que un solo agente (la página no indica estado).",
+    "kind": "capability",
+    "maturity": "mixed",
+    "verifiedAt": "2026-10-26",
+    "sourceIds": [
+      "src-anthropic-cc-subagents",
+      "src-anthropic-cc-agent-teams",
+      "src-anthropic-cc-costs",
+      "src-openai-codex-subagents"
+    ],
+    "nextReview": "2027-01-26"
+  }
+]

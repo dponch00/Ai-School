@@ -1,0 +1,261 @@
+[
+  {
+    "id": "m08-mc01",
+    "courseId": "m08",
+    "description": "Automatizar un proceso significa ponerle un agente.",
+    "whyWrong": "Programar una tarea fija cuándo corre; la diferencia entre flujo y agente está en quién elige los pasos. Un script programado ya automatiza sin ser un agente.",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ]
+  },
+  {
+    "id": "m08-mc02",
+    "courseId": "m08",
+    "description": "Un agente siempre da mejores resultados que un flujo fijo, porque se adapta.",
+    "whyWrong": "Un agente puede rendir más en tareas abiertas, a cambio de más costo y más tiempo; en pasos conocidos solo agrega variación y errores que se acumulan.",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ]
+  },
+  {
+    "id": "m08-mc03",
+    "courseId": "m08",
+    "description": "Si la tarea tiene varias partes, conviene un orquestador.",
+    "whyWrong": "Un orquestador sirve cuando las partes no se pueden prever; si se conocen, basta encadenarlas en un flujo.",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ]
+  },
+  {
+    "id": "m08-mc04",
+    "courseId": "m08",
+    "description": "Un segundo modelo que revise mejora cualquier resultado.",
+    "whyWrong": "El evaluador necesita criterios escritos y comprobables; una revisión sin señal externa no mejora de forma fiable.",
+    "sourceIds": [
+      "src-anthropic-building-agents",
+      "src-arxiv-self-correct"
+    ]
+  },
+  {
+    "id": "m08-mc05",
+    "courseId": "m08",
+    "description": "Un marco de trabajo para agentes ahorra trabajo de revisión.",
+    "whyWrong": "Puede esconder los prompts y las respuestas, y con eso dificulta revisar y depurar.",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ]
+  },
+  {
+    "id": "m08-mc06",
+    "courseId": "m08",
+    "description": "Un subagente sabe lo que se habló en la sesión.",
+    "whyWrong": "Arranca con el contexto limpio y recibe solo el mensaje con el que se le delega la tarea.",
+    "sourceIds": [
+      "src-anthropic-cc-subagents"
+    ]
+  },
+  {
+    "id": "m08-mc07",
+    "courseId": "m08",
+    "description": "Con un buen agente basta decirle el tema; él decide el alcance.",
+    "whyWrong": "Los encargos vagos produjeron tareas mal entendidas y trabajo repetido; el encargo necesita objetivo, formato de salida, herramientas y límites.",
+    "sourceIds": [
+      "src-anthropic-eng-multi-agent-research"
+    ]
+  },
+  {
+    "id": "m08-mc08",
+    "courseId": "m08",
+    "description": "La condición de término puede ser «cuando esté bien».",
+    "whyWrong": "Eso es una afirmación del agente, no una condición. No reconocer la condición de término y terminar antes de tiempo son fallos frecuentes de los sistemas con varios agentes.",
+    "sourceIds": [
+      "src-arxiv-mast-mas-failures"
+    ]
+  },
+  {
+    "id": "m08-mc09",
+    "courseId": "m08",
+    "description": "Un máximo de intentos garantiza un resultado correcto.",
+    "whyWrong": "El tope limita el daño; si se alcanza, el resultado es parcial y hay que marcarlo así.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ]
+  },
+  {
+    "id": "m08-mc10",
+    "courseId": "m08",
+    "description": "Si dos agentes se revisan entre sí, no hace falta un check.",
+    "whyWrong": "La verificación ausente o incorrecta es uno de los grupos de fallo de los sistemas con varios agentes.",
+    "sourceIds": [
+      "src-arxiv-mast-mas-failures"
+    ]
+  },
+  {
+    "id": "m08-mc11",
+    "courseId": "m08",
+    "description": "El agente recordará el avance en la sesión siguiente.",
+    "whyWrong": "Cada sesión empieza sin memoria de la anterior; el avance se escribe en archivos y commits.",
+    "sourceIds": [
+      "src-anthropic-eng-harnesses"
+    ]
+  },
+  {
+    "id": "m08-mc12",
+    "courseId": "m08",
+    "description": "Más agentes en paralelo terminan antes y mejor.",
+    "whyWrong": "El efecto depende de la tarea: mejora lo que se puede descomponer y empeora lo secuencial.",
+    "sourceIds": [
+      "src-arxiv-scaling-agent-systems",
+      "src-anthropic-eng-multi-agent-research"
+    ]
+  },
+  {
+    "id": "m08-mc13",
+    "courseId": "m08",
+    "description": "Un subagente es gratis porque no ocupa mi contexto.",
+    "whyWrong": "Gasta sus propios tokens y, en al menos un producto, se descuenta de los mismos límites de uso que la sesión principal.",
+    "sourceIds": [
+      "src-anthropic-cc-subagents",
+      "src-openai-codex-subagents"
+    ]
+  },
+  {
+    "id": "m08-mc14",
+    "courseId": "m08",
+    "description": "Con worktrees, los agentes en paralelo no pueden entrar en conflicto.",
+    "whyWrong": "Los worktrees aíslan los archivos mientras se trabaja; los conflictos aparecen al integrar las ramas.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-git-worktree"
+    ]
+  },
+  {
+    "id": "m08-mc15",
+    "courseId": "m08",
+    "description": "Repartir entre varios agentes es la opción por defecto para programar.",
+    "whyWrong": "La fuente que construyó un sistema así dice que la mayoría de las tareas de programación tienen pocas partes que se puedan repartir.",
+    "sourceIds": [
+      "src-anthropic-eng-multi-agent-research"
+    ]
+  },
+  {
+    "id": "m08-mc16",
+    "courseId": "m08",
+    "description": "Si cada agente hace bien su parte, el conjunto sale bien.",
+    "whyWrong": "Las partes hechas con supuestos distintos no encajan, y sin una verificación central los errores se propagan.",
+    "sourceIds": [
+      "src-cognition-dont-build-multi-agents",
+      "src-arxiv-scaling-agent-systems"
+    ]
+  },
+  {
+    "id": "m08-mc17",
+    "courseId": "m08",
+    "description": "Un worktree nuevo trae todo lo necesario para correr las pruebas.",
+    "whyWrong": "Es una copia limpia: no trae los archivos ignorados ni las dependencias instaladas.",
+    "sourceIds": [
+      "src-anthropic-cc-worktrees"
+    ]
+  },
+  {
+    "id": "m08-mc18",
+    "courseId": "m08",
+    "description": "Si un proceso usa un modelo en algún paso, ya es un agente.",
+    "whyWrong": "En un flujo, el modelo hace un paso que el código decidió; en un agente, el modelo decide los pasos.",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ]
+  },
+  {
+    "id": "m08-mc19",
+    "courseId": "m08",
+    "description": "Un evaluador que itera sin tope termina dando un buen resultado.",
+    "whyWrong": "Sin criterios claros ni tope, el ciclo puede no terminar o girar sin mejorar. Hacen falta criterios escritos y un máximo de ciclos.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ]
+  },
+  {
+    "id": "m08-mc20",
+    "courseId": "m08",
+    "description": "Un modelo más capaz compensa un encargo vago.",
+    "whyWrong": "El problema de un encargo vago es lo que no dice; ningún modelo adivina el objetivo, el formato ni los límites.",
+    "sourceIds": [
+      "src-anthropic-eng-multi-agent-research"
+    ]
+  },
+  {
+    "id": "m08-mc21",
+    "courseId": "m08",
+    "description": "Subir el tope de intentos hace que el resultado quede completo.",
+    "whyWrong": "Un tope más alto da más intentos, pero no prueba nada; el resultado se comprueba con un check o con la forma esperada del resultado.",
+    "basis": "inference",
+    "sourceIds": []
+  },
+  {
+    "id": "m08-mc22",
+    "courseId": "m08",
+    "description": "Pegar todo el historial en cada sesión reemplaza un registro escrito del avance.",
+    "whyWrong": "El historial completo llena el contexto y diluye lo importante; un registro breve del avance y los commits dicen dónde seguir.",
+    "sourceIds": [
+      "src-anthropic-eng-harnesses",
+      "src-anthropic-eng-context"
+    ]
+  },
+  {
+    "id": "m08-mc23",
+    "courseId": "m08",
+    "description": "Un flujo fijo sirve aunque no se sepa qué hay que mirar.",
+    "whyWrong": "Un flujo fija los pasos de antemano; si no se pueden prever, hace falta un agente con salvaguardas.",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ]
+  },
+  {
+    "id": "m08-mc24",
+    "courseId": "m08",
+    "description": "Cualquier diseño con dos modelos es un orquestador.",
+    "whyWrong": "En un orquestador, un modelo reparte partes que no se conocen de antemano; si uno genera y otro evalúa en ciclos, es un evaluador-optimizador.",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ]
+  },
+  {
+    "id": "m08-mc25",
+    "courseId": "m08",
+    "description": "Si un diseño repite pasos, es un agente.",
+    "whyWrong": "Un ciclo fijo de generar y evaluar lo decide el diseño, escrito en código; en un agente, el modelo decide qué hacer en cada paso.",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ]
+  },
+  {
+    "id": "m08-mc26",
+    "courseId": "m08",
+    "description": "Varias sesiones pueden editar en paralelo la misma carpeta sin problema.",
+    "whyWrong": "Se pisan los archivos. Para trabajar en paralelo, cada sesión va en su worktree.",
+    "sourceIds": [
+      "src-anthropic-cc-worktrees"
+    ]
+  },
+  {
+    "id": "m08-mc27",
+    "courseId": "m08",
+    "description": "Pedirle a un agente que no use una herramienta equivale a quitársela.",
+    "whyWrong": "Una instrucción se puede ignorar, o un texto malicioso puede hacer que no se cumpla; una herramienta que no se da no se puede usar.",
+    "sourceIds": [
+      "src-owasp-llm06"
+    ]
+  },
+  {
+    "id": "m08-mc28",
+    "courseId": "m08",
+    "description": "Si el agente no tiene motivo para usar un permiso, tenerlo no es un riesgo.",
+    "whyWrong": "Un error o un texto malicioso pueden usar un permiso que la tarea no necesita. Se da solo lo justo.",
+    "sourceIds": [
+      "src-owasp-llm06"
+    ]
+  }
+]

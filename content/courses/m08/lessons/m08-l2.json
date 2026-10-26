@@ -1,0 +1,53 @@
+{
+  "id": "m08-l2",
+  "courseId": "m08",
+  "version": "0.1.0",
+  "order": 2,
+  "title": "Delegar con entregable y condición de término",
+  "objectives": [
+    {
+      "id": "m08-l2-o1",
+      "statement": "Identifica la pieza que le falta al encargo de un agente.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m08-eo2"
+    },
+    {
+      "id": "m08-l2-o2",
+      "statement": "Elige una condición de término que se pueda comprobar.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m08-eo2"
+    },
+    {
+      "id": "m08-l2-o3",
+      "statement": "Decide qué tiene que quedar escrito para continuar el trabajo y qué decisiones no se delegan al agente.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m08-eo2"
+    }
+  ],
+  "bodyPath": "courses/m08/lessons/m08-l2.md",
+  "reviewQuestionIds": [
+    "m08-l2-r1",
+    "m08-l2-r2"
+  ],
+  "checkQuestionIds": [
+    "m08-l2-c1",
+    "m08-l2-c2",
+    "m08-l2-c3",
+    "m08-l2-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m08-pc-termination-limits"
+  ],
+  "sourceIds": [
+    "src-anthropic-cc-subagents",
+    "src-anthropic-eng-multi-agent-research",
+    "src-arxiv-mast-mas-failures",
+    "src-anthropic-building-agents",
+    "src-anthropic-eng-harnesses",
+    "src-anthropic-eng-context",
+    "src-github-copilot-agent-bp"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

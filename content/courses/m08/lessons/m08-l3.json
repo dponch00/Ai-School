@@ -1,0 +1,54 @@
+{
+  "id": "m08-l3",
+  "courseId": "m08",
+  "version": "0.1.0",
+  "order": 3,
+  "title": "Subagentes y trabajo en paralelo: cuándo conviene",
+  "objectives": [
+    {
+      "id": "m08-l3-o1",
+      "statement": "Distingue lo que aísla un subagente de lo que aísla un worktree.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m08-eo3"
+    },
+    {
+      "id": "m08-l3-o2",
+      "statement": "Decide si repartir un trabajo según sus dependencias, sus archivos y su costo.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m08-eo3"
+    },
+    {
+      "id": "m08-l3-o3",
+      "statement": "Identifica lo que queda por integrar y revisar después de trabajar en paralelo.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m08-eo3"
+    }
+  ],
+  "bodyPath": "courses/m08/lessons/m08-l3.md",
+  "reviewQuestionIds": [
+    "m08-l3-r1",
+    "m08-l3-r2"
+  ],
+  "checkQuestionIds": [
+    "m08-l3-c1",
+    "m08-l3-c2",
+    "m08-l3-c3",
+    "m08-l3-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m08-pc-subagents-teams"
+  ],
+  "sourceIds": [
+    "src-anthropic-eng-context",
+    "src-anthropic-cc-subagents",
+    "src-openai-codex-subagents",
+    "src-git-worktree",
+    "src-anthropic-cc-worktrees",
+    "src-anthropic-eng-multi-agent-research",
+    "src-arxiv-scaling-agent-systems",
+    "src-cognition-dont-build-multi-agents"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

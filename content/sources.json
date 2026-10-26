@@ -4328,5 +4328,225 @@
     "kind": "primary",
     "volatility": "medium",
     "nextReview": "2027-04-23"
+  },
+  {
+    "id": "src-anthropic-eng-multi-agent-research",
+    "title": "How we built our multi-agent research system (2025-06-13)",
+    "organization": "Anthropic",
+    "url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Orquestador-trabajadores",
+      "+90,2 % frente a un agente en evaluación interna",
+      "≈4× y ≈15× tokens frente a chat",
+      "tokens = 80 % de la varianza en BrowseComp",
+      "cuándo no conviene (contexto compartido, dependencias, programación)",
+      "encargos con objetivo, formato, herramientas y límites",
+      "reglas de esfuerzo",
+      "50 subagentes para preguntas simples",
+      "errores que se acumulan, reanudación, trazas",
+      "cuello de botella sincrónico"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-26"
+  },
+  {
+    "id": "src-arxiv-mast-mas-failures",
+    "title": "Why Do Multi-Agent LLM Systems Fail? (arXiv:2503.13657, v1 2025-03-17, v3 2025-10-26)",
+    "organization": "Cemri, Pan, Yang et al. (UC Berkeley, según la versión HTML)",
+    "url": "https://arxiv.org/abs/2503.13657",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Taxonomía MAST: 14 modos en tres grupos",
+      "1 600+ trazas, 7 marcos",
+      "κ = 0,88",
+      "porcentajes por modo",
+      "arreglos tácticos insuficientes",
+      "fallos no solo atribuibles al modelo"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-26"
+  },
+  {
+    "id": "src-arxiv-scaling-agent-systems",
+    "title": "Towards a Science of Scaling Agent Systems (arXiv:2512.08296, v1 2025-12-09, v3 2026-04-08)",
+    "organization": "Kim et al. (afiliación no verificada en la página del resumen)",
+    "url": "https://arxiv.org/abs/2512.08296",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "260 configuraciones, seis bancos, cinco arquitecturas, tres familias",
+      "de +80,8 % a −70,0 % frente a un agente",
+      "rendimientos decrecientes",
+      "más propagación de errores sin verificación central",
+      "acierta la arquitectura en el 87 % de casos reservados"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-26"
+  },
+  {
+    "id": "src-cognition-dont-build-multi-agents",
+    "title": "Don't Build Multi-Agents (2025-06-12)",
+    "organization": "Cognition (Walden Yan)",
+    "url": "https://cognition.com/blog/dont-build-multi-agents",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Compartir contexto y trazas completas",
+      "las acciones llevan decisiones implícitas",
+      "ejemplo de subagentes con piezas incompatibles",
+      "agente lineal por defecto (opinión de un proveedor)"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-26"
+  },
+  {
+    "id": "src-google-sre-cron",
+    "title": "Distributed Periodic Scheduling with Cron (Site Reliability Engineering, cap. 24)",
+    "organization": "Google (Štěpán Davidovič)",
+    "url": "https://sre.google/sre-book/distributed-periodic-scheduling/",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Idempotencia de tareas periódicas",
+      "tolerancia a saltos frente a dobles lanzamientos",
+      "preferencia por saltar",
+      "vigilar el resultado y monitoreo independiente",
+      "picos por horarios coincidentes"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-26"
+  },
+  {
+    "id": "src-anthropic-cc-agent-teams",
+    "title": "Orchestrate teams of Claude Code sessions",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/agent-teams",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Experimental y desactivado",
+      "líder, compañeros, lista de tareas y buzón",
+      "comparación con subagentes",
+      "más tokens",
+      "no en `-p`",
+      "3–5 compañeros",
+      "evitar editar el mismo archivo",
+      "limitaciones"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-26"
+  },
+  {
+    "id": "src-openai-codex-subagents",
+    "title": "Subagents (Codex)",
+    "organization": "OpenAI",
+    "url": "https://learn.chatgpt.com/codex/subagents",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Activados por defecto",
+      "delegación explícita o por AGENTS.md/skill",
+      "heredan sandbox y aprobaciones",
+      "más tokens",
+      "agentes en `.codex/agents/`",
+      "`agents.max_concurrent_threads_per_session`"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-26"
+  },
+  {
+    "id": "src-anthropic-cc-scheduled-tasks",
+    "title": "Run prompts on a schedule (Claude Code)",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/scheduled-tasks",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Tabla comparativa nube / escritorio / `/loop`",
+      "tareas de sesión: sesión abierta, sin recuperación, caducan a 7 días, 50 por sesión, mínimo 1 minuto"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-26"
+  },
+  {
+    "id": "src-openai-codex-scheduled-tasks",
+    "title": "Scheduled tasks (Codex / ChatGPT)",
+    "organization": "OpenAI",
+    "url": "https://learn.chatgpt.com/docs/automations?surface=app",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Superficies",
+      "app abierta y proyecto en disco",
+      "local o worktree",
+      "web sin carpetas locales",
+      "`approval_policy = \"never\"`",
+      "acceso total = riesgo elevado",
+      "probar el prompt antes y revisar las primeras ejecuciones",
+      "estados"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-26"
+  },
+  {
+    "id": "src-github-actions-schedule",
+    "title": "Events that trigger workflows — `schedule`",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Cron en UTC o zona IANA",
+      "mínimo 5 minutos",
+      "retrasos y pérdidas con carga",
+      "solo rama por defecto",
+      "desactivación a 60 días en repositorios públicos",
+      "actor"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-26"
+  },
+  {
+    "id": "src-anthropic-cc-hooks-guide",
+    "title": "Automate actions with hooks (Claude Code)",
+    "organization": "Anthropic",
+    "url": "https://code.claude.com/docs/en/hooks-guide",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Hooks deterministas",
+      "eventos",
+      "bloqueo con código 2 o JSON",
+      "`deny` en todos los modos",
+      "`PostToolUse` no deshace",
+      "shell escapa a matchers de edición",
+      "tope de 8 bloqueos de `Stop`",
+      "tipos y tiempos límite",
+      "ubicaciones"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-26"
+  },
+  {
+    "id": "src-github-copilot-hooks",
+    "title": "About hooks (Copilot cloud agent)",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-hooks",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "`.github/hooks/*.json`",
+      "eventos",
+      "`preToolUse` aprueba o deniega",
+      "subconjunto en el cloud agent",
+      "sincrónicos, 30 s",
+      "VS Code en vista previa",
+      "no suponer igualdad entre superficies (resultado de búsqueda de la misma documentación)"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2027-01-26"
   }
 ]

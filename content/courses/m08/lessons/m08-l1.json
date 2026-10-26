@@ -1,0 +1,43 @@
+{
+  "id": "m08-l1",
+  "courseId": "m08",
+  "version": "0.1.0",
+  "order": 1,
+  "title": "Flujo fijo o agente: empezar por lo simple",
+  "objectives": [
+    {
+      "id": "m08-l1-o1",
+      "statement": "Distingue un flujo fijo de un agente, y cuándo corre una tarea de quién decide sus pasos.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m08-eo1"
+    },
+    {
+      "id": "m08-l1-o2",
+      "statement": "Reconoce qué patrón describe una propuesta de diseño.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m08-eo1"
+    },
+    {
+      "id": "m08-l1-o3",
+      "statement": "Elige el diseño más simple que resuelve el pedido.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m08-eo1"
+    }
+  ],
+  "bodyPath": "courses/m08/lessons/m08-l1.md",
+  "reviewQuestionIds": [],
+  "checkQuestionIds": [
+    "m08-l1-c1",
+    "m08-l1-c2",
+    "m08-l1-c3",
+    "m08-l1-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [],
+  "sourceIds": [
+    "src-anthropic-building-agents",
+    "src-arxiv-self-correct"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

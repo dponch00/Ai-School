@@ -1,28 +1,28 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 a M07 completos y revisados; M08 en preparación, con su investigación lista. · **Actualizado:** 2026-10-26 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 a M07 completos y revisados; M08 con sus lecciones 1 a 3 en revisión de Codex (T-041). · **Actualizado:** 2026-10-26 por Claude Code
 
 ## Siguiente acción
 
-1. **Claude:** las lecciones 1 a 3 de M08, con sus preguntas y fichas, y después T-041 para Codex. Al escribir el laboratorio de M08, el giro no debe repetir el de M06 (las oportunidades «En pausa»).
-2. **Codex:** sin ticket abierto; T-040 cerrado el 2026-10-26.
+1. **Codex:** T-041, que revisa el blueprint de M08, sus lecciones 1 a 3, las preguntas y las fichas.
+2. **Claude:** mientras tanto, las lecciones 4 a 6 de M08. El giro del laboratorio de M08 no debe repetir el de M06 (las oportunidades «En pausa»), y el examen debe seguir el criterio de L1: clasificar en categorías conocidas es una sola llamada.
 3. **Subagentes:** la investigación de M05 a M07 está lista; la de M08 a M10 se lanza cuando convenga.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-26)
 
-**≈ 69 % de la V1** (rango razonable: 66–72 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 70 % de la V1** (rango razonable: 67–73 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 88 % (simplificada a opción múltiple con D-024; faltan el hosting y la instalación real en dispositivos) | 13,2 |
-| 3 · Nueve manuales restantes | 40 % | 67 % (M01 y M03 a M07 completos y revisados; investigación de M08 lista) | 26,8 |
+| 3 · Nueve manuales restantes | 40 % | 69 % (M01 y M03 a M07 completos y revisados; M08 con 3 de 6 lecciones) | 27,6 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 69 %** |
+| **Total** | 100 % | | **≈ 70 %** |
 
 ## Tickets
 
@@ -68,18 +68,29 @@
 | [T-038](coordinacion/tickets/T-038-codex-revision-m07-l1-l3.md) | Codex | Revisión de M07: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
 | [T-039](coordinacion/tickets/T-039-codex-revision-m07-l4-l6.md) | Codex | Revisión de M07: lecciones 4 a 6, sus preguntas y fichas | cerrado |
 | [T-040](coordinacion/tickets/T-040-codex-revision-m07-examen-laboratorio.md) | Codex | Revisión de M07: banco de examen, laboratorio como caso y práctica | cerrado |
+| [T-041](coordinacion/tickets/T-041-codex-revision-m08-l1-l3.md) | Codex | Revisión de M08: blueprint, lecciones 1 a 3, preguntas y fichas | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | `content/courses/m08/**`, `investigacion/M08-*` |
+| Codex (T-041) | `investigacion/codex-revision-m08-l1-l3.md` |
+| Claude | `content/courses/m08/**` |
 
 ## Decisiones recientes
 
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-26 · Claude Code — M08, lecciones 1 a 3 (T-041)
+- **Blueprint:** seis objetivos evaluados.
+- **Lecciones:** L1, flujo fijo o agente y los cinco patrones; L2, delegar con condición de término; L3, subagentes y paralelismo.
+- **Preguntas y apoyos:** 16 preguntas, 28 conceptos erróneos, 2 fichas y 12 fuentes nuevas.
+
+El revisor de texto corrigió referentes de citas y una contradicción entre el ejemplo de L1 y una pregunta.
+
+**Verificación:** `npm test` 219/219.
 
 ### 2026-10-26 · Claude Code — cierre de T-040: M07 completo y revisado
 - `m07-lab-q03` y `q04` combinan los permisos con condiciones nuevas del caso: una activación escalonada y un token expuesto en el registro.
