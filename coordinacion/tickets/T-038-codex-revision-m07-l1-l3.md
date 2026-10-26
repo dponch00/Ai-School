@@ -77,7 +77,7 @@ _(Codex, 2026-10-26)_
 - Informe: `investigacion/codex-revision-m07-l1-l3.md`.
 - Hallazgos: 1 alto, 2 medios y 1 bajo. El alto corrige que 425 está registrado como `Too Early` y no puede usarse como código desconocido; los medios separan dos escenarios repetidos con el diagnóstico y M06; el bajo pide no presentar como GA estados que las páginas no declaran.
 - Verificación: `npm test` — 205/205 pruebas aprobadas; referencias, claves únicas y proporción de longitudes revisadas por script.
-- Commit: pendiente de registrar tras crear la entrega.
+- Commit: `ba4412f` — `[codex] Entrega T-038: revisión M07 L1-L3`.
 
 ## Revisión
 
