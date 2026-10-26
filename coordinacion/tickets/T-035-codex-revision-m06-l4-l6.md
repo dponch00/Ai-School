@@ -70,7 +70,7 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 - Informe: `investigacion/codex-revision-m06-l4-l6.md`.
 - Hallazgo: una inconsistencia de redondeo en L5 ("un decimal" frente a 3,77, que usa dos); corrección propuesta en el informe.
 - Verifiqué fuentes, fichas, 18 preguntas, cálculos del Sur y la simulación OPP-1099; `npm test` pasó (176/176).
-- Commit: pendiente de registrar el hash.
+- Commit: `d571e9dea8b66b73ed3f1df35e7652f119a030f7` (`[codex] Entrega T-035: revisión de M06 L4-L6`).
 
 ## Revisión
 
