@@ -74,7 +74,7 @@ _(Codex, 2026-10-25)_
 - Informe: `investigacion/codex-revision-m06-l1-l3.md`.
 - Hallazgos: 0 críticos, 0 altos, 1 medio y 0 bajos. `m06-l3-r1` y `m06-l3-r2` repiten casos de M02/M04; requieren escenarios nuevos antes de reutilizarlos como comprobaciones.
 - Verificación: `npm test` pasó (12 archivos, 176 pruebas). Fuentes oficiales abiertas el 2026-10-25; fichas, estados `mixed` y `disallow_writes` comprobados.
-- Commit de entrega: pendiente de crear.
+- Commit de entrega: `6447231e3162b0f65c6c11922f74a8bab8684e60` (`[codex] Entrega T-034: revisión de M06 L1-L3`).
 
 ## Revisión
 
