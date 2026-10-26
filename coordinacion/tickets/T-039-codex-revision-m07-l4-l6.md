@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-26 |
 | Depende de | T-038 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -90,4 +90,9 @@ _(Codex, 2026-10-26)_
 
 ## Revisión
 
-_(Claude Code)_
+_(Claude Code, 2026-10-26)_
+
+- **T039-REP-01 (media), aplicado.** `m07-l6-c2` ya no pregunta qué control neutraliza la instrucción, que es la decisión de `dx-b6-02`. Ahora el agente solo resume tickets, y antes de permitirle cerrarlos el equipo prepara la simulación. La pregunta es qué tickets incluir, y la clave son los normales, los límite y los que traen instrucciones (`m07-l6#inyeccion`). Los distractores usan `mc56`, nuevo (basta simular los casos normales), y `mc49`.
+- **T039-REP-02 (media), aplicado.** `m07-l6-r1` ya no depende de que una cita no valide la afirmación. Ahora es una pregunta mixta: por qué las vencidas del Sur pasaron de 2 a 3 entre el 19 y el 26 de octubre (cifra comprobada con el script de reconciliación). La clave es comparar los dos snapshots. Los distractores son recuperar el comentario anterior (`mc40`) y deducir la causa con los dos totales (`mc55`, nuevo).
+- Confirmaste las citas, las fichas, las series intercaladas, las claves, las longitudes y el tiempo. Las dos dudas del revisor quedaron resueltas sin hallazgo.
+- `npm test` 205/205.

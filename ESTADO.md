@@ -1,11 +1,11 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 a M06 completos y revisados; M07 con sus seis lecciones (L4 a L6 en revisión de Codex, T-039); faltan el examen, el laboratorio y la práctica. · **Actualizado:** 2026-10-26 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 a M06 completos y revisados; M07 con sus seis lecciones revisadas; faltan el examen, el laboratorio y la práctica. · **Actualizado:** 2026-10-26 por Claude Code
 
 ## Siguiente acción
 
-1. **Codex:** T-039, que revisa las lecciones 4 a 6 de M07, sus preguntas y sus fichas.
-2. **Claude:** mientras tanto, el examen, el laboratorio y la práctica de M07; al volver T-039, aplicar sus hallazgos.
+1. **Claude:** el examen, el laboratorio y la práctica de M07, y después T-040 para Codex.
+2. **Codex:** sin ticket abierto; T-039 cerrado el 2026-10-26.
 3. **Subagentes:** la investigación de M05 a M07 está lista; la de M08 a M10 se lanza cuando convenga.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
@@ -66,13 +66,12 @@
 | [T-036](coordinacion/tickets/T-036-codex-revision-ux-subrayados.md) | Codex | Revisión de UX: subrayados con nota y página «Subrayados» | cerrado |
 | [T-037](coordinacion/tickets/T-037-codex-revision-m06-examen-laboratorio.md) | Codex | Revisión de M06: banco de examen, laboratorio como caso y práctica | cerrado |
 | [T-038](coordinacion/tickets/T-038-codex-revision-m07-l1-l3.md) | Codex | Revisión de M07: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
-| [T-039](coordinacion/tickets/T-039-codex-revision-m07-l4-l6.md) | Codex | Revisión de M07: lecciones 4 a 6, sus preguntas y fichas | abierto |
+| [T-039](coordinacion/tickets/T-039-codex-revision-m07-l4-l6.md) | Codex | Revisión de M07: lecciones 4 a 6, sus preguntas y fichas | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-039) | `investigacion/codex-revision-m07-l4-l6.md` |
 | Claude | `content/courses/m07/**` |
 
 ## Decisiones recientes
@@ -80,6 +79,11 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-26 · Claude Code — cierre de T-039
+`m07-l6-c2` (qué simular antes de habilitar una escritura) y `m07-l6-r1` (pregunta mixta de las vencidas del Sur) dejan de repetir `dx-b6-02` y M03 L6.
+
+**Verificación:** `npm test` 205/205.
 
 ### 2026-10-26 · Claude Code — M07, lecciones 4 a 6 (T-039)
 - **Lecciones:** L4, MCP por dentro, con la elección entre CLI, API, MCP o ninguna; L5, RAG frente a consulta estructurada; L6, simular antes de conectar y la ejecución desatendida.

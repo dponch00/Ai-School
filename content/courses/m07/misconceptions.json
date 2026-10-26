@@ -486,5 +486,21 @@
     "sourceIds": [
       "src-owasp-llm01"
     ]
+  },
+  {
+    "id": "m07-mc55",
+    "courseId": "m07",
+    "description": "Dos totales bastan para explicar qué cambió entre dos fechas.",
+    "whyWrong": "Los totales dicen cuánto cambió, no qué filas cambiaron ni por qué. Para eso hace falta el detalle de las dos fechas.",
+    "basis": "inference",
+    "sourceIds": []
+  },
+  {
+    "id": "m07-mc56",
+    "courseId": "m07",
+    "description": "Basta con simular los casos normales.",
+    "whyWrong": "Los casos límite, los errores y los textos con instrucciones son los que hacen fallar una integración; la simulación existe para verlos antes.",
+    "basis": "inference",
+    "sourceIds": []
   }
 ]
