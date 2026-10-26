@@ -81,7 +81,7 @@ _(Codex, 2026-10-26)_
 - Informe: `investigacion/codex-revision-m08-l1-l3.md`.
 - Hallazgo: uno bajo, por el uso de «entregable» como sustantivo en L2, contrario a la guía de estilo.
 - Verificación: `npm test` 219/219; claves únicas y longitudes comprobadas por script.
-- Commit: pendiente de registrar tras crear la entrega.
+- Commit: `928353a` — `[codex] Entrega T-041: revisión M08 L1-L3`.
 
 ## Revisión
 
