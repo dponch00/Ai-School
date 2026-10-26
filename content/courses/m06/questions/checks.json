@@ -622,27 +622,27 @@
     ],
     "difficulty": "base",
     "process": "evaluate",
-    "scenario": "En el snapshot del 26 de octubre, tres oportunidades llegan en la etapa «En pausa», que no tiene probabilidad aprobada. No hay política para etapas desconocidas.",
-    "stem": "¿Qué hace el cálculo?",
+    "scenario": "El extracto de facturas de Cobranza trae una columna con el tipo de descuento. Tres facturas tienen el código «DESC-ESP», que no figura en la tabla de descuentos aprobada, y no hay regla para códigos desconocidos.",
+    "stem": "¿Qué hace el cálculo del saldo neto?",
     "options": [
       {
         "id": "o1",
-        "text": "Se detiene, y se pide a FP&A la probabilidad o una política",
-        "correct": true,
-        "feedback": "Correcta. Sin una política aprobada, seguir obligaría a inventar una cifra. El cálculo se detiene y FP&A decide qué probabilidad usar o qué política aplicar."
+        "text": "Aplica el descuento del código que más se le parece y sigue",
+        "correct": false,
+        "feedback": "Eso inventa una regla que nadie aprobó, y el saldo neto cambia sin aviso. Sin regla, se detiene.",
+        "misconceptionId": "m06-mc30"
       },
       {
         "id": "o2",
-        "text": "Les asigna la probabilidad de la etapa más parecida y sigue",
-        "correct": false,
-        "feedback": "Eso inventa un supuesto que nadie aprobó, y el ponderado cambia sin aviso. Sin política aprobada, se detiene.",
-        "misconceptionId": "m06-mc10"
+        "text": "Se detiene y se pide a Cobranza la regla para ese código",
+        "correct": true,
+        "feedback": "Correcta. Sin una regla para códigos desconocidos, seguir inventaría una cifra. Se detiene y decide quien es responsable de los descuentos."
       },
       {
         "id": "o3",
-        "text": "Las excluye en silencio y sigue con el resto",
+        "text": "Deja esas facturas sin descuento y sigue sin avisar",
         "correct": false,
-        "feedback": "Excluir sin reportar cambia la cifra sin que nadie se entere. Además, aquí no hay una política que autorice excluirlas, así que el cálculo se detiene.",
+        "feedback": "Calcularlas sin descuento también inventa una cifra, y nadie se entera. Sin regla aprobada, se detiene.",
         "misconceptionId": "m06-mc28"
       }
     ],
@@ -665,28 +665,28 @@
     ],
     "difficulty": "base",
     "process": "apply",
-    "scenario": "OPP-1012 aparece dos veces, con 125 000 y 90 000. La política aprobada dice conservar la fila con la actividad más reciente, que es la de 90 000.",
+    "scenario": "La factura FAC-2210 aparece dos veces en el extracto: una versión cargada el 3 de octubre por 48 000 y otra cargada el 9 de octubre por 52 000. La política aprobada dice conservar el registro con la fecha de carga más reciente.",
     "stem": "¿Qué hace el cálculo?",
     "options": [
       {
         "id": "o1",
-        "text": "Suma las dos filas, porque las dos son datos del CRM",
+        "text": "Suma las dos versiones, porque las dos vienen del sistema",
         "correct": false,
-        "feedback": "Sumarlas cuenta dos veces la misma oportunidad: el pipeline del Norte subiría 125 000. Se aplica la política aprobada.",
+        "feedback": "Sumarlas cuenta dos veces la misma factura: el saldo subiría 48 000. Se aplica la política aprobada.",
         "misconceptionId": "m06-mc29"
       },
       {
         "id": "o2",
-        "text": "Conserva la fila de 90 000 y reporta el duplicado",
-        "correct": true,
-        "feedback": "Correcta. Hay una política aprobada, así que se aplica. Queda la fila de 90 000 y el duplicado se reporta en la lista de calidad de datos."
+        "text": "Se detiene igual, porque la factura está repetida",
+        "correct": false,
+        "feedback": "Con una política aprobada no hace falta detener. Se aplica la política y se reporta el duplicado.",
+        "misconceptionId": "m06-mc23"
       },
       {
         "id": "o3",
-        "text": "Se detiene igual, porque hay una fila repetida",
-        "correct": false,
-        "feedback": "Detener el cálculo es para cuando no hay política. Aquí hay una aprobada, así que se aplica y el duplicado se reporta.",
-        "misconceptionId": "m06-mc23"
+        "text": "Conserva la versión del 9 de octubre y reporta el duplicado",
+        "correct": true,
+        "feedback": "Correcta. Hay una política aprobada: se queda el registro con la carga más reciente y el duplicado queda reportado."
       }
     ],
     "fixedOrder": false,

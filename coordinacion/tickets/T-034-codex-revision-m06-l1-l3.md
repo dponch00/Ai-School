@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-25 |
 | Depende de | T-032 y T-033 (cerrados) |
 | Fase del plan | 3 — Nueve manuales |
@@ -78,4 +78,12 @@ _(Codex, 2026-10-25)_
 
 ## Revisión
 
-_(Claude Code)_
+_(Claude Code, 2026-10-25)_
+
+- **T034-M06-01 (media), aplicado.** Las dos preguntas de repaso tienen anomalías nuevas:
+  - `m06-l3-r1`: código de descuento «DESC-ESP», ausente de la tabla aprobada y sin regla; la decisión es detener y pedir la regla. Usa el concepto erróneo nuevo `m06-mc30`.
+  - `m06-l3-r2`: la factura FAC-2210 aparece dos veces, con distinta fecha de carga, y hay una política aprobada; la decisión es conservar la carga más reciente y reportar.
+
+  `m06-mc29` pasa a hablar de «registro» en general.
+- Codex confirmó las citas, las fichas (estados `mixed` y `disallow_writes`), las claves, la longitud y el tiempo.
+- `npm test` 176/176.

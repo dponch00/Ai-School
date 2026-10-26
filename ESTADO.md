@@ -4,8 +4,8 @@
 
 ## Siguiente acción
 
-1. **Codex:** T-034, revisión del blueprint y las lecciones 1 a 3 de M06.
-2. **Claude:** mientras tanto, M06 lecciones 4 a 6.
+1. **Claude:** M06 lecciones 4 a 6; luego T-035.
+2. **Codex:** sin ticket abierto hasta T-035.
 3. **Subagentes:** la investigación de M05 a M07 está lista; la de M08 a M10 se lanza cuando convenga.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
@@ -61,14 +61,13 @@
 | [T-031](coordinacion/tickets/T-031-codex-revision-m04-l4-l6.md) | Codex | Revisión de M04: lecciones 4 a 6, preguntas y fichas | cerrado |
 | [T-032](coordinacion/tickets/T-032-codex-revision-m04-examen-laboratorio.md) | Codex | Revisión de M04: banco de examen, laboratorio como caso y práctica | cerrado |
 | [T-033](coordinacion/tickets/T-033-codex-revision-m05-completo.md) | Codex | Revisión de M05 completo | cerrado |
-| [T-034](coordinacion/tickets/T-034-codex-revision-m06-l1-l3.md) | Codex | Revisión de M06: blueprint, lecciones 1 a 3, preguntas y fichas | abierto |
+| [T-034](coordinacion/tickets/T-034-codex-revision-m06-l1-l3.md) | Codex | Revisión de M06: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
 | Codex (T-032) | `investigacion/codex-revision-m04-examen-laboratorio.md`, `design/qa/T-032/**` |
-| Codex (T-034) | `investigacion/codex-revision-m06-l1-l3.md` |
 | Claude | `content/courses/m06/**` |
 
 ## Decisiones recientes
@@ -76,6 +75,11 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-25 · Claude Code — revisión de T-034
+- `m06-l3-r1` y `m06-l3-r2` dejan de repetir casos de M02 y M04: ahora tratan un código de descuento desconocido y una factura con dos cargas.
+
+`npm test` 176/176.
 
 ### 2026-10-25 · Claude Code — M06, lecciones 1 a 3
 **Lecciones:**

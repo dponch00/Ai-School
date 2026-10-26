@@ -256,10 +256,19 @@
   {
     "id": "m06-mc29",
     "courseId": "m06",
-    "description": "Si una oportunidad aparece dos veces, se suman sus filas.",
-    "whyWrong": "Sumar las dos filas cuenta dos veces la misma oportunidad; se aplica la política de duplicados aprobada.",
+    "description": "Si un registro aparece dos veces, se suman sus filas.",
+    "whyWrong": "Sumar las dos filas cuenta dos veces el mismo registro; se aplica la política de duplicados aprobada.",
     "sourceIds": [
       "src-postgres-constraints"
+    ]
+  },
+  {
+    "id": "m06-mc30",
+    "courseId": "m06",
+    "description": "Ante un código que no figura en la tabla aprobada, lo prudente es aplicar el del código más parecido.",
+    "whyWrong": "Eso inventa una regla que nadie aprobó; sin una regla para códigos desconocidos, el cálculo se detiene y se pide la regla.",
+    "sourceIds": [
+      "src-databricks-medallion"
     ]
   }
 ]
