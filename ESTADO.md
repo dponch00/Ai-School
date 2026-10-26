@@ -1,28 +1,28 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 a M05 completos y revisados; M06 con sus seis lecciones revisadas (faltan examen, laboratorio y práctica); M07 con su investigación lista. · **Actualizado:** 2026-10-26 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 a M05 completos y revisados; M06 completo, con el examen, el laboratorio y la práctica en revisión de Codex (T-037); M07 con su investigación lista. · **Actualizado:** 2026-10-26 por Claude Code
 
 ## Siguiente acción
 
-1. **Claude:** el banco de examen, el laboratorio y la práctica de M06; después, T-037 para Codex.
-2. **Codex:** sin ticket abierto; T-035 y T-036 cerrados el 2026-10-26.
+1. **Codex:** T-037, que revisa el examen, el laboratorio y la práctica de M06.
+2. **Claude:** mientras tanto, preparar M07 lección por lección (D-026), con la investigación ya lista; al volver T-037, aplicar sus hallazgos y cerrar M06.
 3. **Subagentes:** la investigación de M05 a M07 está lista; la de M08 a M10 se lanza cuando convenga.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
-## Avance estimado (2026-10-23)
+## Avance estimado (2026-10-26)
 
-**≈ 62 % de la V1** (rango razonable: 59–65 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 63 % de la V1** (rango razonable: 60–66 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 88 % (simplificada a opción múltiple con D-024; faltan el hosting y la instalación real en dispositivos) | 13,2 |
-| 3 · Nueve manuales restantes | 40 % | 48 % (M01 y M03 a M05 completos y revisados; M06 con sus 6 lecciones, sin examen ni laboratorio; investigación de M07 lista) | 19,2 |
+| 3 · Nueve manuales restantes | 40 % | 52 % (M01 y M03 a M05 completos y revisados; M06 completo y en revisión; investigación de M07 lista) | 20,8 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 62 %** |
+| **Total** | 100 % | | **≈ 63 %** |
 
 ## Tickets
 
@@ -64,18 +64,31 @@
 | [T-034](coordinacion/tickets/T-034-codex-revision-m06-l1-l3.md) | Codex | Revisión de M06: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
 | [T-035](coordinacion/tickets/T-035-codex-revision-m06-l4-l6.md) | Codex | Revisión de M06: lecciones 4 a 6, preguntas y fichas | cerrado |
 | [T-036](coordinacion/tickets/T-036-codex-revision-ux-subrayados.md) | Codex | Revisión de UX: subrayados con nota y página «Subrayados» | cerrado |
+| [T-037](coordinacion/tickets/T-037-codex-revision-m06-examen-laboratorio.md) | Codex | Revisión de M06: banco de examen, laboratorio como caso y práctica | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | `content/courses/m06/**` |
+| Codex (T-037) | `investigacion/codex-revision-m06-examen-laboratorio.md`, `design/qa/T-037/**` |
+| Claude | `content/courses/m07/**` |
 
 ## Decisiones recientes
 
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-26 · Claude Code — examen, laboratorio y práctica de M06 (T-037)
+- **Examen:** 45 preguntas en 15 familias, con su `families.json`.
+- **Laboratorio:** «La semana de las oportunidades en pausa», en seis pasos y 12 preguntas, sobre el snapshot sintético del 26 de octubre. El giro del paso 6 es una probabilidad aprobada después del corte.
+- **Práctica:** 12 preguntas.
+- **Conceptos erróneos:** 25 nuevos (`mc56` a `mc80`).
+- **E2E:** rutas nuevas de M06.
+
+Cifras comprobadas con `reconcile.py` sobre una copia. El revisor de texto corrigió errores de hecho y señaló conceptos erróneos mal asignados, que reasigné.
+
+**Verificación:** `npm test` 190/190 y E2E 100/100. En el examen, la clave es la opción más larga en 10 de 45 y la más corta en 7; en el laboratorio, en 2 y 1 de 12. Versión de prueba regenerada (versión 32).
 
 ### 2026-10-26 · Claude Code — cierre de T-035 y T-036
 **T-035:** un solo hallazgo. En L5, el redondeo 3 772 000 → 3,77 se hace con dos decimales de millones, no con uno. Codex confirmó lo demás.

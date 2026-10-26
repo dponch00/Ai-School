@@ -1,0 +1,31 @@
+{
+  "id": "m06-lab",
+  "courseId": "m06",
+  "version": "0.1.0",
+  "title": "La semana de las oportunidades en pausa",
+  "evaluatedObjectiveIds": [
+    "m06-eo1",
+    "m06-eo2",
+    "m06-eo3",
+    "m06-eo4",
+    "m06-eo5",
+    "m06-eo6"
+  ],
+  "instructionsPath": "courses/m06/practice/m06-lab.md",
+  "estimatedMinutes": 30,
+  "questionIds": [
+    "m06-lab-q01",
+    "m06-lab-q02",
+    "m06-lab-q03",
+    "m06-lab-q04",
+    "m06-lab-q05",
+    "m06-lab-q06",
+    "m06-lab-q07",
+    "m06-lab-q08",
+    "m06-lab-q09",
+    "m06-lab-q10",
+    "m06-lab-q11",
+    "m06-lab-q12"
+  ],
+  "status": "draft"
+}

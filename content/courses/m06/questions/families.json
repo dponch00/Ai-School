@@ -1,0 +1,92 @@
+[
+  {
+    "family": "m06-f01",
+    "evaluatedObjectiveId": "m06-eo1",
+    "decision": "Ubicar una operación en la capa que puede hacerla bien y comprobarla",
+    "equivalence": "Las tres variantes describen una operación y piden dónde se ejecuta. Cambia la operación: una conversión de moneda (a, código de cálculo), un conteo sobre la tabla histórica (b, motor de datos) y la elección de la fila buena de un duplicado con política aprobada (c, más difícil porque leer las notas parece más inteligente que una regla)."
+  },
+  {
+    "family": "m06-f02",
+    "evaluatedObjectiveId": "m06-eo1",
+    "decision": "Distinguir una regla de forma de una regla de sentido o de negocio, y decidir dónde se hace cumplir",
+    "equivalence": "Las tres variantes presentan una regla de un formulario y piden de qué clase es y dónde se hace cumplir. Cambia la regla: un formato de fecha (a, sintáctica), un tope de ajuste con firma (b, de negocio) y una fecha final posterior a la inicial que el formulario ya revisa (c, más difícil porque la revisión en el formulario parece suficiente)."
+  },
+  {
+    "family": "m06-f03",
+    "evaluatedObjectiveId": "m06-eo2",
+    "decision": "Decidir si un dato que rompe el contrato se normaliza, se reporta y excluye, o detiene el cálculo",
+    "equivalence": "Las tres variantes presentan un dato raro y piden qué hace el cálculo. Cambia el caso: una moneda distinta con tipo de cambio aprobado (a, normalizar), una fecha vacía con política de exclusión (b, reportar y excluir) y una región que no existe, sin regla (c, más difícil porque la región parecida invita a reasignar)."
+  },
+  {
+    "family": "m06-f04",
+    "evaluatedObjectiveId": "m06-eo2",
+    "decision": "Reconocer lo que una llave, una restricción o el esquema no garantizan",
+    "equivalence": "Las tres variantes presentan una regla declarada y piden qué se puede concluir. Cambia la regla: una llave foránea informativa (a), un CHECK de rango con NOT NULL (b) y un esquema con format: date que deja pasar una fecha imposible (c, más difícil porque el validador sí rechazó otro error del mismo archivo)."
+  },
+  {
+    "family": "m06-f05",
+    "evaluatedObjectiveId": "m06-eo2",
+    "decision": "Decidir dónde vive una corrección: el RAW se conserva y la corrección es una regla declarada",
+    "equivalence": "Las tres variantes presentan una corrección propuesta sobre el RAW y piden qué hacer. Cambia el caso: un nombre mal escrito (a), una corrección a mano que no se repitió (b) y un duplicado con política aprobada que el agente quiere borrar del RAW dejando constancia en el commit (c, más difícil porque la constancia parece cubrir la trazabilidad)."
+  },
+  {
+    "family": "m06-f06",
+    "evaluatedObjectiveId": "m06-eo3",
+    "decision": "Elegir qué pedir al almacén según el paso siguiente: el agregado, un número exacto o un detalle acotado por lotes",
+    "equivalence": "Las tres variantes describen una necesidad y piden qué se le pide al almacén. Cambia la necesidad: un conteo por etapa (a, agregado en SQL), el total de filas tras un resultado sospechoso (b, COUNT en SQL ante un posible recorte) y el detalle para un pronóstico que se reentrena (c, más difícil porque el agregado parece siempre lo mejor)."
+  },
+  {
+    "family": "m06-f07",
+    "evaluatedObjectiveId": "m06-eo3",
+    "decision": "Elegir la identidad, los permisos y el modo de acceso del agente según la tarea",
+    "equivalence": "Las tres variantes describen una tarea y la situación de acceso, y piden la configuración. Cambia la tarea: leer dos tablas con una usuaria administradora (a), guardar resultados intermedios (b) y una ejecución semanal sin supervisión con un permiso heredado y una herramienta que se declara de solo lectura (c, más difícil porque hay dos señales tranquilizadoras falsas)."
+  },
+  {
+    "family": "m06-f08",
+    "evaluatedObjectiveId": "m06-eo3",
+    "decision": "Identificar el riesgo que deja abierto una configuración de acceso del agente",
+    "equivalence": "Las tres variantes presentan una configuración y piden el riesgo que queda. Cambia la configuración: lectura amplia con política de solo lectura (a), escritura sin usar mientras el agente lee texto libre (b) y permisos bien acotados con una consulta de todas las filas (c, más difícil porque los permisos ya están bien)."
+  },
+  {
+    "family": "m06-f09",
+    "evaluatedObjectiveId": "m06-eo4",
+    "decision": "Elegir la herramienta para un paso del análisis: SQL en el almacén, motor embebido o Python",
+    "equivalence": "Las tres variantes describen un paso y piden la herramienta. Cambia el paso: reglas de negocio con montos exactos (a, Python), un cruce local de dos archivos (b, motor embebido) y un filtro sobre la tabla histórica que después se explorará varias veces (c, más difícil porque combina SQL remoto con un extracto local)."
+  },
+  {
+    "family": "m06-f10",
+    "evaluatedObjectiveId": "m06-eo4",
+    "decision": "Elegir el formato según quién lo lee y qué tipos debe conservar",
+    "equivalence": "Las tres variantes describen un archivo y piden el formato. Cambia el uso: un resultado intermedio para otro script (a, Parquet con tipos), una lista para una hoja de cálculo (b, CSV con descripción aparte) y un extracto semanal en CSV cuyos tipos se adivinaron bien una vez (c, más difícil porque la prueba salió bien)."
+  },
+  {
+    "family": "m06-f11",
+    "evaluatedObjectiveId": "m06-eo5",
+    "decision": "Clasificar una salida como determinista, estadística o generativa, y elegir cómo se verifica",
+    "equivalence": "Las tres variantes describen una salida del dashboard y piden su clase y su verificación. Cambia la salida: un conteo de facturas vencidas (a, determinista), un rango esperado del pipeline (b, estadística) y etiquetas propuestas por un modelo que después se cuentan (c, más difícil porque el conteo final parece determinista)."
+  },
+  {
+    "family": "m06-f12",
+    "evaluatedObjectiveId": "m06-eo5",
+    "decision": "Decidir qué hacer con un texto generado antes de enviarlo: comprobarlo contra el contrato con un check independiente",
+    "equivalence": "Las tres variantes presentan un texto generado y piden qué hacer antes de enviarlo. Cambia el problema: una cifra que no coincide tras el redondeo (a), una propuesta de que el modelo se revise a sí mismo (b) y un texto con todas las cifras bien y una región equivocada (c, más difícil porque las cifras coinciden)."
+  },
+  {
+    "family": "m06-f13",
+    "evaluatedObjectiveId": "m06-eo6",
+    "decision": "Elegir la clase de check que atrapa un error sembrado",
+    "equivalence": "Las tres variantes presentan un error sembrado y piden qué check lo detecta. Cambia el error: un valor fuera de la lista permitida con cifras correctas (a, esquema), regiones que no suman el total en un archivo que valida (b, reglas de sentido) y una cifra inflada en el contrato que el texto copió (c, más difícil porque el check de texto ya pasó)."
+  },
+  {
+    "family": "m06-f14",
+    "evaluatedObjectiveId": "m06-eo6",
+    "decision": "Diseñar datos de prueba sintéticos que pongan a prueba un caso y se puedan reproducir",
+    "equivalence": "Las tres variantes presentan un problema con los datos de prueba y piden qué cambiar. Cambia el problema: un caso límite que falta (a), datos que cambiaron con la versión de Python pese a la semilla (b) y un generador que aprende de datos reales y promete anonimato (c, más difícil porque parece resolver la privacidad)."
+  },
+  {
+    "family": "m06-f15",
+    "evaluatedObjectiveId": "m06-eo6",
+    "decision": "Reunir lo necesario para reproducir una cifra y reconocer los límites del linaje y de la historia de la tabla",
+    "equivalence": "Las tres variantes presentan una cifra que alguien quiere reproducir y piden qué hace falta. Cambia lo que falta: la consulta, el extracto y el commit (a), un extracto guardado en vez de la historia de la tabla (b) y el tramo local que el linaje no ve (c, más difícil porque el catálogo ya muestra un linaje)."
+  }
+]

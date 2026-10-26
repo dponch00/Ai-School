@@ -447,8 +447,8 @@
   {
     "id": "m06-mc50",
     "courseId": "m06",
-    "description": "Toda proyección hecha por un sistema es una salida generativa.",
-    "whyWrong": "Una proyección hecha con un método y unos supuestos es una salida estadística; la salida generativa es el texto que produce un modelo de lenguaje.",
+    "description": "Cualquier salida que produce un sistema automático, como una proyección o un conteo, es generativa.",
+    "whyWrong": "Un conteo con los mismos datos es determinista, y una proyección hecha con un método y unos supuestos es estadística. La salida generativa es el texto que produce un modelo de lenguaje.",
     "sourceIds": [
       "src-python-statistics"
     ]
@@ -497,6 +497,233 @@
     "whyWrong": "El check puede estar bien hecho y no tener datos para ese caso; la solución es agregar el caso a los datos de prueba.",
     "sourceIds": [
       "src-python-random"
+    ]
+  },
+  {
+    "id": "m06-mc56",
+    "courseId": "m06",
+    "description": "Que un dato tenga el formato correcto significa que tiene sentido para la operación.",
+    "whyWrong": "La validación sintáctica revisa la forma; dos fechas bien escritas pueden estar en el orden equivocado. Eso lo revisa la validación semántica.",
+    "sourceIds": [
+      "src-owasp-input-validation"
+    ]
+  },
+  {
+    "id": "m06-mc57",
+    "courseId": "m06",
+    "description": "Una regla de formato es una regla de negocio y solo va en el código de cálculo.",
+    "whyWrong": "El formato de un dato es una regla sintáctica: el formulario puede avisar y el servidor la repite. El código de cálculo se ocupa de las reglas que deciden cifras.",
+    "sourceIds": [
+      "src-owasp-input-validation"
+    ]
+  },
+  {
+    "id": "m06-mc58",
+    "courseId": "m06",
+    "description": "Un valor que falta se puede completar con el valor más común de la columna.",
+    "whyWrong": "Completar un vacío con el valor más común es inventar un dato que nadie aprobó. Se aplica la política declarada o se detiene el cálculo.",
+    "sourceIds": [
+      "src-databricks-medallion"
+    ]
+  },
+  {
+    "id": "m06-mc59",
+    "courseId": "m06",
+    "description": "Una llave foránea declarada impide siempre los valores que no existen en la tabla de referencia.",
+    "whyWrong": "En algunos almacenes las llaves son informativas: documentan la relación, pero no impiden escribir una fila que la rompa.",
+    "sourceIds": [
+      "src-databricks-constraints"
+    ]
+  },
+  {
+    "id": "m06-mc60",
+    "courseId": "m06",
+    "description": "Si una restricción acepta un valor, el valor es correcto para el negocio.",
+    "whyWrong": "Una restricción revisa una condición, como un rango; un valor dentro del rango puede seguir siendo el equivocado. Las reglas de sentido se comprueban en el código.",
+    "sourceIds": [
+      "src-postgres-constraints"
+    ]
+  },
+  {
+    "id": "m06-mc61",
+    "courseId": "m06",
+    "description": "Traer el agregado es siempre lo mejor, sea cual sea el paso siguiente.",
+    "whyWrong": "La granularidad la decide el paso siguiente: un dashboard necesita el agregado, pero un pronóstico o una reconciliación necesitan detalle acotado.",
+    "sourceIds": [
+      "src-databricks-perf",
+      "src-databricks-sql-connector-python"
+    ]
+  },
+  {
+    "id": "m06-mc62",
+    "courseId": "m06",
+    "description": "Si el agente solo va a crear tablas nuevas, darle escritura en producción no tiene riesgo.",
+    "whyWrong": "Con escritura en producción, un error o una instrucción maliciosa puede afectar las tablas que usa el negocio. Lo intermedio va en un esquema de trabajo propio.",
+    "sourceIds": [
+      "src-databricks-uc-privileges"
+    ]
+  },
+  {
+    "id": "m06-mc63",
+    "courseId": "m06",
+    "description": "Cualquier permiso de lectura se hereda a las tablas que se creen después.",
+    "whyWrong": "Solo se heredan los permisos concedidos sobre un esquema o un catálogo. Un permiso dado sobre una tabla vale para esa tabla.",
+    "sourceIds": [
+      "src-databricks-uc-privileges"
+    ]
+  },
+  {
+    "id": "m06-mc64",
+    "courseId": "m06",
+    "description": "Un texto que viene de un sistema interno es confiable aunque traiga instrucciones.",
+    "whyWrong": "Cualquiera que escriba en un campo libre puede incluir instrucciones. El texto que llega al agente se trata como contenido no confiable.",
+    "sourceIds": [
+      "src-owasp-llm01"
+    ]
+  },
+  {
+    "id": "m06-mc65",
+    "courseId": "m06",
+    "description": "CSV no sirve para ningún uso; siempre conviene Parquet.",
+    "whyWrong": "CSV sigue siendo una buena forma de entregar un archivo para una hoja de cálculo, con la descripción de las columnas aparte.",
+    "sourceIds": [
+      "src-ietf-rfc4180"
+    ]
+  },
+  {
+    "id": "m06-mc66",
+    "courseId": "m06",
+    "description": "Toda cifra calculada por un programa es una estimación estadística.",
+    "whyWrong": "Un conteo o una suma con los mismos datos da siempre lo mismo: es determinista y se comprueba con igualdad. Una estimación depende de un método y de supuestos.",
+    "sourceIds": [
+      "src-python-statistics"
+    ]
+  },
+  {
+    "id": "m06-mc67",
+    "courseId": "m06",
+    "description": "Si las cifras de un texto coinciden con el contrato, el texto es correcto.",
+    "whyWrong": "Un texto puede citar bien todas las cifras y equivocarse en la afirmación, por ejemplo en la región. El check revisa también lo que se afirma.",
+    "sourceIds": [
+      "src-anthropic-reduce-hallucinations"
+    ]
+  },
+  {
+    "id": "m06-mc68",
+    "courseId": "m06",
+    "description": "Un solo tipo de check alcanza para atrapar cualquier error.",
+    "whyWrong": "Cada clase de check atrapa errores distintos: esquema, calidad, reglas de sentido, reconciliación y texto.",
+    "sourceIds": [
+      "src-python-sys"
+    ]
+  },
+  {
+    "id": "m06-mc69",
+    "courseId": "m06",
+    "description": "Si el check de texto pasa, las cifras del texto son correctas.",
+    "whyWrong": "El check de texto solo confirma que el párrafo coincide con el contrato. Si el contrato está mal, los dos coinciden en el error; eso lo atrapa la reconciliación.",
+    "sourceIds": [
+      "src-python-sys"
+    ]
+  },
+  {
+    "id": "m06-mc70",
+    "courseId": "m06",
+    "description": "Con la misma semilla, el generador repite la secuencia en cualquier versión de Python.",
+    "whyWrong": "La documentación garantiza esa repetición entre versiones solo para algunas funciones. Por eso se anota la versión y se guarda el archivo generado.",
+    "sourceIds": [
+      "src-python-random"
+    ]
+  },
+  {
+    "id": "m06-mc71",
+    "courseId": "m06",
+    "description": "Con la fecha de corte y los supuestos ya se puede reproducir una cifra.",
+    "whyWrong": "Hacen falta también la fuente, con su consulta y su extracto, la versión del código y los problemas de calidad reportados.",
+    "sourceIds": [
+      "src-databricks-delta-history"
+    ]
+  },
+  {
+    "id": "m06-mc72",
+    "courseId": "m06",
+    "description": "Una cifra del texto generado que resulta correcta puede quedarse aunque no esté en el contrato.",
+    "whyWrong": "El texto solo cita cifras del contrato, porque solo esas pasaron por el cálculo y el check. Una cifra nueva se calcula en el código y entra al contrato, o se quita.",
+    "sourceIds": [
+      "src-anthropic-reduce-hallucinations"
+    ]
+  },
+  {
+    "id": "m06-mc73",
+    "courseId": "m06",
+    "description": "Si un dato llega mal una vez, el sistema de origen lo corregirá solo.",
+    "whyWrong": "Nada garantiza que el origen se corrija. Si el dato vuelve a llegar igual, solo una regla declarada repite la corrección.",
+    "sourceIds": [
+      "src-databricks-medallion"
+    ]
+  },
+  {
+    "id": "m06-mc74",
+    "courseId": "m06",
+    "description": "Parquet deja los tipos a cargo de quien lee el archivo, como CSV.",
+    "whyWrong": "Parquet guarda en sus metadatos el esquema con el tipo de cada columna. Adivinar los tipos es el problema de CSV.",
+    "sourceIds": [
+      "src-parquet-thrift"
+    ]
+  },
+  {
+    "id": "m06-mc75",
+    "courseId": "m06",
+    "description": "Un check es independiente si corre en otra máquina.",
+    "whyWrong": "La independencia está en el camino del cálculo: el check recalcula por su cuenta y no comparte código con el cálculo que verifica.",
+    "sourceIds": [
+      "src-python-sys"
+    ]
+  },
+  {
+    "id": "m06-mc76",
+    "courseId": "m06",
+    "description": "Un generador pseudoaleatorio con semilla sirve también para usos de seguridad.",
+    "whyWrong": "La documentación aclara que el generador de Python no sirve para usos de seguridad. La semilla solo hace repetible la secuencia.",
+    "sourceIds": [
+      "src-python-random"
+    ]
+  },
+  {
+    "id": "m06-mc77",
+    "courseId": "m06",
+    "description": "Una llave foránea también impide que haya filas repetidas.",
+    "whyWrong": "La llave foránea exige que el valor exista en la tabla a la que apunta; la unicidad es cosa de la llave primaria. Y en algunos almacenes ninguna de las dos se hace cumplir.",
+    "sourceIds": [
+      "src-postgres-constraints",
+      "src-databricks-constraints"
+    ]
+  },
+  {
+    "id": "m06-mc78",
+    "courseId": "m06",
+    "description": "El check de texto revisa también la forma del contrato.",
+    "whyWrong": "El check de texto compara las cifras y las afirmaciones del párrafo con el contrato. La forma del contrato la revisa el check de esquema.",
+    "sourceIds": [
+      "src-python-sys"
+    ]
+  },
+  {
+    "id": "m06-mc79",
+    "courseId": "m06",
+    "description": "Un validador de esquema rechaza siempre las fechas imposibles marcadas con format: date.",
+    "whyWrong": "En la versión del estándar que usa el contrato, format es por defecto una anotación, y el validador no está obligado a hacerla cumplir.",
+    "sourceIds": [
+      "src-jsonschema-validation-2020-12"
+    ]
+  },
+  {
+    "id": "m06-mc80",
+    "courseId": "m06",
+    "description": "Un validador de esquema corrige los valores que no cumplen.",
+    "whyWrong": "Un validador compara el documento con el esquema y dice si cumple; no modifica los valores. Las correcciones viven en reglas declaradas del código.",
+    "sourceIds": [
+      "src-jsonschema-validation-2020-12"
     ]
   }
 ]
