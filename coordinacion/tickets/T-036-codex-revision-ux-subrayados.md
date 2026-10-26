@@ -83,7 +83,7 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 - Hallazgos: 5 (3 medios y 2 bajos): desbordamiento horizontal del filtro móvil, reanclaje ambiguo si el contenido cambia, ausencia de anuncio semántico de las marcas, manejo de solapamientos y cobertura E2E incompleta.
 - Verificado: crear/anotar/cambiar color/cerrar con Esc, lista de la lección, filtros, modo repaso e «Ir a la sección», en móvil estrecho y escritorio. Los cuatro fondos superan AA con texto oscuro; propuse tokens `color.highlight.*.surface` y `.underline`.
 - Límite documentado: el menú nativo de selección de Android/iOS y la lectura en NVDA/VoiceOver requieren comprobación manual en dispositivo. `npm test` pasó (186); `npm run e2e` no inició por el puerto 4174 ocupado.
-- Commit: pendiente de crear.
+- Commit de entrega: `ae9e33b` (`[codex] Entrega T-036: revisión UX de subrayados`).
 
 ## Revisión
 
