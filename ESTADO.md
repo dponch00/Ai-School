@@ -1,11 +1,12 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 a M07 completos y revisados; M08 con sus lecciones 1 a 3 en revisión de Codex (T-041). · **Actualizado:** 2026-10-26 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 a M07 completos y revisados; M08 con sus lecciones 1 a 3 revisadas; faltan L4 a L6, el examen y el laboratorio. · **Actualizado:** 2026-10-26 por Claude Code
 
 ## Siguiente acción
 
-1. **Codex:** T-041, que revisa el blueprint de M08, sus lecciones 1 a 3, las preguntas y las fichas.
-2. **Claude:** mientras tanto, las lecciones 4 a 6 de M08. El giro del laboratorio de M08 no debe repetir el de M06 (las oportunidades «En pausa»), y el examen debe seguir el criterio de L1: clasificar en categorías conocidas es una sola llamada.
+1. **Claude:** las lecciones 4 a 6 de M08, y después T-042 para Codex.
+2. **Codex:** sin ticket abierto; T-041 cerrado el 2026-10-26.
+3. **Recordatorio para M08:** El giro del laboratorio de M08 no debe repetir el de M06 (las oportunidades «En pausa»), y el examen debe seguir el criterio de L1: clasificar en categorías conocidas es una sola llamada.
 3. **Subagentes:** la investigación de M05 a M07 está lista; la de M08 a M10 se lanza cuando convenga.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
@@ -68,13 +69,12 @@
 | [T-038](coordinacion/tickets/T-038-codex-revision-m07-l1-l3.md) | Codex | Revisión de M07: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
 | [T-039](coordinacion/tickets/T-039-codex-revision-m07-l4-l6.md) | Codex | Revisión de M07: lecciones 4 a 6, sus preguntas y fichas | cerrado |
 | [T-040](coordinacion/tickets/T-040-codex-revision-m07-examen-laboratorio.md) | Codex | Revisión de M07: banco de examen, laboratorio como caso y práctica | cerrado |
-| [T-041](coordinacion/tickets/T-041-codex-revision-m08-l1-l3.md) | Codex | Revisión de M08: blueprint, lecciones 1 a 3, preguntas y fichas | abierto |
+| [T-041](coordinacion/tickets/T-041-codex-revision-m08-l1-l3.md) | Codex | Revisión de M08: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-041) | `investigacion/codex-revision-m08-l1-l3.md` |
 | Claude | `content/courses/m08/**` |
 
 ## Decisiones recientes
@@ -82,6 +82,11 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-26 · Claude Code — cierre de T-041
+El título de L2 de M08 pasa a «Delegar con resultado y condición de término», y M08 ya no usa «entregable».
+
+**Verificación:** `npm test` 219/219.
 
 ### 2026-10-26 · Claude Code — M08, lecciones 1 a 3 (T-041)
 - **Blueprint:** seis objetivos evaluados.

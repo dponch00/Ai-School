@@ -22,7 +22,7 @@
     },
     {
       "id": "m08-eo2",
-      "statement": "Dado un encargo para un agente o un subagente, identifica la pieza que falta (objetivo, entregable, herramientas permitidas, estado que debe dejar escrito, criterio y condición de término) y elige una condición de término verificable frente a una que depende del juicio del propio agente.",
+      "statement": "Dado un encargo para un agente o un subagente, identifica la pieza que falta (objetivo, resultado que debe entregar, herramientas permitidas, estado que debe dejar escrito, criterio y condición de término) y elige una condición de término verificable frente a una que depende del juicio del propio agente.",
       "competencyIds": [
         "C10",
         "C02"
@@ -39,7 +39,7 @@
     },
     {
       "id": "m08-eo4",
-      "statement": "Dado un trabajo que no debe esperar a la persona, elige dónde corre (nube, segundo plano local, tarea programada o integración continua) según qué archivos ve, si la máquina debe estar encendida, quién aprueba durante la ejecución y qué entregable revisable deja.",
+      "statement": "Dado un trabajo que no debe esperar a la persona, elige dónde corre (nube, segundo plano local, tarea programada o integración continua) según qué archivos ve, si la máquina debe estar encendida, quién aprueba durante la ejecución y qué resultado revisable deja.",
       "competencyIds": [
         "C10",
         "C01"

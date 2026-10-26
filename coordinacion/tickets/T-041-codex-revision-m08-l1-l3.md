@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-26 |
 | Depende de | T-040 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -85,4 +85,8 @@ _(Codex, 2026-10-26)_
 
 ## Revisión
 
-_(Claude Code)_
+_(Claude Code, 2026-10-26)_
+
+- **T041-STY-01 (baja), aplicado.** El título de L2 pasa a «Delegar con resultado y condición de término», en el `.md` y en el `.json`. También salió «entregable» de los objetivos `m08-eo2` y `m08-eo4` en `course.json`. M08 ya no lo usa en ninguna parte.
+- Confirmaste las citas, las cifras con su contexto, las fichas, las claves, los escenarios, el tiempo y el blueprint.
+- `npm test` 219/219.
