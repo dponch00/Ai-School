@@ -1,11 +1,11 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 a M07 completos y revisados; M08 con sus lecciones 1 a 3 revisadas; faltan L4 a L6, el examen y el laboratorio. · **Actualizado:** 2026-10-26 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 a M07 completos y revisados; M08 con sus seis lecciones (L4 a L6 en revisión de Codex, T-042); faltan el examen, el laboratorio y la práctica. · **Actualizado:** 2026-10-26 por Claude Code
 
 ## Siguiente acción
 
-1. **Claude:** las lecciones 4 a 6 de M08, y después T-042 para Codex.
-2. **Codex:** sin ticket abierto; T-041 cerrado el 2026-10-26.
+1. **Codex:** T-042, que revisa las lecciones 4 a 6 de M08, sus preguntas y sus fichas.
+2. **Claude:** mientras tanto, el examen, el laboratorio y la práctica de M08, usando «PR» como en las lecciones.
 3. **Recordatorio para M08:** El giro del laboratorio de M08 no debe repetir el de M06 (las oportunidades «En pausa»), y el examen debe seguir el criterio de L1: clasificar en categorías conocidas es una sola llamada.
 3. **Subagentes:** la investigación de M05 a M07 está lista; la de M08 a M10 se lanza cuando convenga.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
@@ -13,17 +13,17 @@
 
 ## Avance estimado (2026-10-26)
 
-**≈ 70 % de la V1** (rango razonable: 67–73 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 71 % de la V1** (rango razonable: 68–74 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 88 % (simplificada a opción múltiple con D-024; faltan el hosting y la instalación real en dispositivos) | 13,2 |
-| 3 · Nueve manuales restantes | 40 % | 69 % (M01 y M03 a M07 completos y revisados; M08 con 3 de 6 lecciones) | 27,6 |
+| 3 · Nueve manuales restantes | 40 % | 71 % (M01 y M03 a M07 completos y revisados; M08 con sus 6 lecciones, sin examen ni laboratorio) | 28,4 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 70 %** |
+| **Total** | 100 % | | **≈ 71 %** |
 
 ## Tickets
 
@@ -70,11 +70,13 @@
 | [T-039](coordinacion/tickets/T-039-codex-revision-m07-l4-l6.md) | Codex | Revisión de M07: lecciones 4 a 6, sus preguntas y fichas | cerrado |
 | [T-040](coordinacion/tickets/T-040-codex-revision-m07-examen-laboratorio.md) | Codex | Revisión de M07: banco de examen, laboratorio como caso y práctica | cerrado |
 | [T-041](coordinacion/tickets/T-041-codex-revision-m08-l1-l3.md) | Codex | Revisión de M08: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
+| [T-042](coordinacion/tickets/T-042-codex-revision-m08-l4-l6.md) | Codex | Revisión de M08: lecciones 4 a 6, sus preguntas y fichas | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
+| Codex (T-042) | `investigacion/codex-revision-m08-l4-l6.md` |
 | Claude | `content/courses/m08/**` |
 
 ## Decisiones recientes
@@ -82,6 +84,14 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-26 · Claude Code — M08, lecciones 4 a 6 (T-042)
+- **Lecciones:** L4, dónde corre el trabajo que no espera; L5, hooks y ejecución sin interfaz; L6, costos, registros y fallos, con el caso de transferencia de la tarea que reporta éxito.
+- **Preguntas y apoyos:** 18 preguntas, 27 conceptos erróneos y 3 fichas.
+
+El revisor de texto explicó los términos y corrigió una contradicción en L6.
+
+**Verificación:** `npm test` 219/219.
 
 ### 2026-10-26 · Claude Code — cierre de T-041
 El título de L2 de M08 pasa a «Delegar con resultado y condición de término», y M08 ya no usa «entregable».

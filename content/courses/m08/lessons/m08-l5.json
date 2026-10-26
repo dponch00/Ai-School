@@ -1,0 +1,53 @@
+{
+  "id": "m08-l5",
+  "courseId": "m08",
+  "version": "0.1.0",
+  "order": 5,
+  "title": "Automatizar el arnés: hooks y ejecución sin interfaz",
+  "objectives": [
+    {
+      "id": "m08-l5-o1",
+      "statement": "Elige entre una instrucción y un hook y, si es un hook, en qué momento corre.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m08-eo5"
+    },
+    {
+      "id": "m08-l5-o2",
+      "statement": "Identifica los límites de un hook: no deshace, puede encerrar al agente en un ciclo y no vigila todo.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m08-eo5"
+    },
+    {
+      "id": "m08-l5-o3",
+      "statement": "Decide cómo correr un agente sin interfaz y cómo comprobar su salida.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m08-eo5"
+    }
+  ],
+  "bodyPath": "courses/m08/lessons/m08-l5.md",
+  "reviewQuestionIds": [
+    "m08-l5-r1",
+    "m08-l5-r2"
+  ],
+  "checkQuestionIds": [
+    "m08-l5-c1",
+    "m08-l5-c2",
+    "m08-l5-c3",
+    "m08-l5-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m08-pc-hooks"
+  ],
+  "sourceIds": [
+    "src-anthropic-cc-hooks-guide",
+    "src-anthropic-cc-features",
+    "src-arxiv-impossiblebench",
+    "src-openai-codex-hooks",
+    "src-anthropic-cc-headless",
+    "src-github-copilot-hooks",
+    "src-openai-codex-noninteractive"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

@@ -37,5 +37,68 @@
       "src-openai-codex-subagents"
     ],
     "nextReview": "2027-01-26"
+  },
+  {
+    "id": "m08-pc-scheduling-options",
+    "product": "Claude Code, Codex y GitHub Actions · programar trabajo",
+    "surfaces": [
+      "cloud",
+      "cli",
+      "desktop",
+      "web"
+    ],
+    "capability": "Claude Code, tareas programadas en la nube (/schedule, web y app de escritorio): corren en la infraestructura del proveedor o en un entorno de la organización, con disparadores por horario, API o eventos del repositorio; arrancan en un modo en que un clasificador permite o bloquea acciones; intervalo mínimo de una hora; consumen el uso del plan; suben sus cambios a ramas con prefijo claude/; en vista previa de investigación. Claude Code, tareas dentro de la sesión (/loop): necesitan la sesión abierta, caducan a los 7 días y no recuperan las ejecuciones perdidas. Codex, tareas programadas: locales (app de escritorio abierta y proyecto en disco, en la copia o en un worktree) o en la web (sin carpetas locales); pueden correr sin pedir aprobación si la organización lo permite (la página no indica si la función es estable o está en vista previa). GitHub Actions, evento schedule: horario en formato cron, en UTC o en la zona horaria que se indique, mínimo 5 minutos; puede retrasarse o perderse con mucha carga y se desactiva a los 60 días sin actividad en repositorios públicos. Claude Code también tiene tareas programadas de escritorio, que corren en tu equipo, necesitan la máquina encendida y ven archivos locales (dato de la tabla comparativa de la documentación; la página propia no se verificó).",
+    "kind": "capability",
+    "maturity": "mixed",
+    "verifiedAt": "2026-10-26",
+    "sourceIds": [
+      "src-anthropic-cc-routines",
+      "src-anthropic-cc-scheduled-tasks",
+      "src-openai-codex-scheduled-tasks",
+      "src-github-actions-schedule"
+    ],
+    "nextReview": "2027-01-26"
+  },
+  {
+    "id": "m08-pc-hooks",
+    "product": "Claude Code, Codex y GitHub Copilot · hooks",
+    "surfaces": [
+      "cli",
+      "ide",
+      "desktop",
+      "cloud"
+    ],
+    "capability": "Claude Code: se configuran en ~/.claude/settings.json, .claude/settings.json (versionable) o .claude/settings.local.json; eventos como PreToolUse, PostToolUse, Stop, SubagentStop y SessionStart; bloquean con el código de salida 2 o con permissionDecision: \"deny\", que vale en todos los modos de permiso; PostToolUse no deshace; Stop deja parar al agente tras ocho bloqueos seguidos, y el campo stop_hook_active avisa al hook de que ya forzó una continuación; los hooks de tipo agent son experimentales. Codex: hooks.json o [hooks] en config.toml, de usuario o del repositorio (.codex/); PreToolUse puede denegar; cubre la terminal, apply_patch, MCP y las herramientas locales, no las alojadas como la búsqueda web; «no es una frontera de control completa»; los hooks que no gestiona la organización requieren una aprobación ligada a su contenido. GitHub Copilot: .github/hooks/*.json en el repositorio; preToolUse aprueba o deniega; en el agente en la nube solo hay un subconjunto de eventos; en VS Code está en vista previa pública.",
+    "kind": "capability",
+    "maturity": "mixed",
+    "verifiedAt": "2026-10-26",
+    "sourceIds": [
+      "src-anthropic-cc-hooks-guide",
+      "src-openai-codex-hooks",
+      "src-github-copilot-hooks"
+    ],
+    "nextReview": "2027-01-26"
+  },
+  {
+    "id": "m08-pc-run-logs",
+    "product": "Claude Code, Codex y GitHub Actions · costos, historial y registros de ejecuciones",
+    "surfaces": [
+      "cli",
+      "cloud",
+      "desktop"
+    ],
+    "capability": "Claude Code: /usage atribuye el uso reciente a skills, subagentes, plugins y servidores MCP; el costo en dólares es una estimación local a precio de lista; en claude -p, la salida JSON trae total_cost_usd. El historial de las tareas programadas usa «Succeeded», «Failed» y «Cancelled», que describen cómo terminó la sesión, no si se cumplió el encargo; las tareas se pausan con un interruptor que conserva la configuración. Codex: codex exec --json emite eventos como turn.failed y error; las tareas programadas tienen estados activa, pausada y completada. GitHub Actions: registros por paso, con los pasos fallidos expandidos, búsqueda y descarga. Las páginas no indican un estado de lanzamiento para estas funciones.",
+    "kind": "capability",
+    "maturity": "unspecified",
+    "verifiedAt": "2026-10-26",
+    "sourceIds": [
+      "src-anthropic-cc-costs",
+      "src-anthropic-cc-headless",
+      "src-anthropic-cc-routines",
+      "src-openai-codex-noninteractive",
+      "src-openai-codex-scheduled-tasks",
+      "src-github-actions-logs"
+    ],
+    "nextReview": "2027-01-26"
   }
 ]

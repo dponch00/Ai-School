@@ -243,8 +243,8 @@
   {
     "id": "m08-mc27",
     "courseId": "m08",
-    "description": "Pedirle a un agente que no use una herramienta equivale a quitársela.",
-    "whyWrong": "Una instrucción se puede ignorar, o un texto malicioso puede hacer que no se cumpla; una herramienta que no se da no se puede usar.",
+    "description": "Pedirle algo a un agente en el encargo equivale a impedírselo.",
+    "whyWrong": "Una instrucción se puede ignorar u olvidar. Lo que no debe pasar se impide con permisos, herramientas que no se dan o aislamiento.",
     "sourceIds": [
       "src-owasp-llm06"
     ]
@@ -256,6 +256,263 @@
     "whyWrong": "Un error o un texto malicioso pueden usar un permiso que la tarea no necesita. Se da solo lo justo.",
     "sourceIds": [
       "src-owasp-llm06"
+    ]
+  },
+  {
+    "id": "m08-mc29",
+    "courseId": "m08",
+    "description": "Una tarea programada en la nube ve la carpeta de trabajo de quien la creó.",
+    "whyWrong": "Parte de una copia nueva del repositorio en cada ejecución; lo que solo está en una computadora no llega.",
+    "sourceIds": [
+      "src-anthropic-cc-scheduled-tasks",
+      "src-anthropic-cc-routines"
+    ]
+  },
+  {
+    "id": "m08-mc30",
+    "courseId": "m08",
+    "description": "Una tarea en la nube depende de que la computadora de quien la creó esté encendida.",
+    "whyWrong": "Corre fuera de tu computadora y no depende de ella; tampoco ve sus archivos.",
+    "sourceIds": [
+      "src-anthropic-cc-scheduled-tasks"
+    ]
+  },
+  {
+    "id": "m08-mc31",
+    "courseId": "m08",
+    "description": "Una tarea programada en mi equipo corre aunque apague la computadora.",
+    "whyWrong": "Las opciones locales necesitan la máquina encendida, y a veces la aplicación o la sesión abiertas.",
+    "sourceIds": [
+      "src-anthropic-cc-scheduled-tasks",
+      "src-openai-codex-scheduled-tasks"
+    ]
+  },
+  {
+    "id": "m08-mc32",
+    "courseId": "m08",
+    "description": "Las ejecuciones perdidas se recuperan solas, sin consecuencias.",
+    "whyWrong": "Algunas opciones no recuperan las ejecuciones perdidas, y las que se recuperan pueden correr fuera de tiempo o duplicarse.",
+    "sourceIds": [
+      "src-anthropic-cc-scheduled-tasks",
+      "src-google-sre-cron"
+    ]
+  },
+  {
+    "id": "m08-mc33",
+    "courseId": "m08",
+    "description": "Si una tarea falla, lo seguro es que se vuelva a lanzar sola.",
+    "whyWrong": "Para trabajos que no se pueden repetir sin daño, es preferible saltarse una ejecución que lanzarla dos veces.",
+    "sourceIds": [
+      "src-google-sre-cron"
+    ]
+  },
+  {
+    "id": "m08-mc34",
+    "courseId": "m08",
+    "description": "Programar una tarea a la hora en punto la hace más puntual, porque hay menos carga.",
+    "whyWrong": "A la hora en punto es cuando más carga hay, y las ejecuciones pueden retrasarse; se aconseja elegir otro minuto.",
+    "sourceIds": [
+      "src-anthropic-cc-routines",
+      "src-github-actions-schedule",
+      "src-google-sre-cron"
+    ]
+  },
+  {
+    "id": "m08-mc35",
+    "courseId": "m08",
+    "description": "La tarea programada actúa con una cuenta neutra, no con la mía.",
+    "whyWrong": "En los productos revisados, actúa con la identidad y las conexiones de quien la creó.",
+    "sourceIds": [
+      "src-anthropic-cc-routines",
+      "src-github-cloud-agent-risks"
+    ]
+  },
+  {
+    "id": "m08-mc36",
+    "courseId": "m08",
+    "description": "Si nadie aprueba durante la ejecución, conviene darle todos los permisos para que no se trabe.",
+    "whyWrong": "Lo que pediría aprobación se deniega o la herramienta no está disponible; se dan solo los permisos y las conexiones del encargo.",
+    "sourceIds": [
+      "src-owasp-llm06"
+    ]
+  },
+  {
+    "id": "m08-mc37",
+    "courseId": "m08",
+    "description": "Un hook que corre después de la herramienta puede impedir lo que hizo.",
+    "whyWrong": "Corre cuando la herramienta ya actuó, y no deshace. Para impedir algo, el hook va antes de la herramienta.",
+    "sourceIds": [
+      "src-anthropic-cc-hooks-guide"
+    ]
+  },
+  {
+    "id": "m08-mc38",
+    "courseId": "m08",
+    "description": "Una instrucción en el archivo del proyecto garantiza que una regla se cumpla.",
+    "whyWrong": "Una instrucción orienta, pero el agente puede ignorarla u olvidarla; lo que tiene que pasar siempre va en un hook.",
+    "sourceIds": [
+      "src-anthropic-cc-hooks-guide",
+      "src-anthropic-cc-features"
+    ]
+  },
+  {
+    "id": "m08-mc39",
+    "courseId": "m08",
+    "description": "Con un hook sobre las herramientas de edición, ningún archivo protegido puede cambiar.",
+    "whyWrong": "Los comandos de la terminal también escriben, y los hooks de herramientas no son un control completo.",
+    "sourceIds": [
+      "src-anthropic-cc-hooks-guide",
+      "src-openai-codex-hooks"
+    ]
+  },
+  {
+    "id": "m08-mc40",
+    "courseId": "m08",
+    "description": "Si un archivo protegido cambió, el hook estaba mal escrito.",
+    "whyWrong": "El hook puede funcionar bien y no ver el cambio, porque se hizo por otra vía, como un comando de la terminal.",
+    "sourceIds": [
+      "src-anthropic-cc-hooks-guide"
+    ]
+  },
+  {
+    "id": "m08-mc41",
+    "courseId": "m08",
+    "description": "Una compuerta al terminar garantiza que el agente acabe bien.",
+    "whyWrong": "Si la condición no se cumple, puede encerrar al agente en un ciclo; necesita un tope y una salida para lo imposible.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-cc-hooks-guide"
+    ]
+  },
+  {
+    "id": "m08-mc42",
+    "courseId": "m08",
+    "description": "Si una condición es imposible de cumplir, el agente puede inventar lo que falta para terminar.",
+    "whyWrong": "Un supuesto que nadie aprobó cambia las cifras; la salida correcta es parar y reportar lo que falta.",
+    "sourceIds": [
+      "src-arxiv-impossiblebench"
+    ]
+  },
+  {
+    "id": "m08-mc43",
+    "courseId": "m08",
+    "description": "Si el agente sin interfaz terminó con código 0, el resultado es el esperado.",
+    "whyWrong": "El código dice cómo terminó la ejecución; la salida estructurada puede faltar, y hay que comprobarla.",
+    "sourceIds": [
+      "src-anthropic-cc-headless"
+    ]
+  },
+  {
+    "id": "m08-mc44",
+    "courseId": "m08",
+    "description": "Si falta un dato de la salida, usar un valor por defecto es seguro.",
+    "whyWrong": "Un valor por defecto esconde que la ejecución falló; el script tiene que detenerse y avisar.",
+    "basis": "inference",
+    "sourceIds": []
+  },
+  {
+    "id": "m08-mc45",
+    "courseId": "m08",
+    "description": "La nube es siempre la mejor opción para lo que corre solo.",
+    "whyWrong": "Depende de lo que el trabajo necesite: la nube no ve archivos locales, y para vigilar algo mientras trabajas basta una tarea dentro de la sesión.",
+    "sourceIds": [
+      "src-anthropic-cc-scheduled-tasks"
+    ]
+  },
+  {
+    "id": "m08-mc46",
+    "courseId": "m08",
+    "description": "Si el historial dice que la ejecución terminó bien, el trabajo está hecho.",
+    "whyWrong": "El estado describe cómo terminó la sesión; el trabajo se comprueba en la transcripción y contra un check.",
+    "sourceIds": [
+      "src-anthropic-cc-routines",
+      "src-google-sre-cron"
+    ]
+  },
+  {
+    "id": "m08-mc47",
+    "courseId": "m08",
+    "description": "Ante una automatización que falla, lo primero es relanzarla.",
+    "whyWrong": "Relanzar repite el fallo y el gasto; primero se detiene y se lee el registro.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-google-sre-cron"
+    ]
+  },
+  {
+    "id": "m08-mc48",
+    "courseId": "m08",
+    "description": "Borrar una tarea que falla equivale a pausarla.",
+    "whyWrong": "Pausar conserva la configuración para corregirla; borrar la pierde.",
+    "sourceIds": [
+      "src-anthropic-cc-routines"
+    ]
+  },
+  {
+    "id": "m08-mc49",
+    "courseId": "m08",
+    "description": "Mejorar los prompts de los agentes resuelve los fallos del sistema.",
+    "whyWrong": "Los arreglos de superficie ayudan pero no bastan; hacen falta verificación y manejo del estado.",
+    "sourceIds": [
+      "src-arxiv-mast-mas-failures"
+    ]
+  },
+  {
+    "id": "m08-mc50",
+    "courseId": "m08",
+    "description": "Volver a un flujo fijo es un retroceso.",
+    "whyWrong": "Los agentes se agregan solo cuando lo simple se queda corto; si lo simple detiene el fallo, es el diseño correcto.",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ]
+  },
+  {
+    "id": "m08-mc51",
+    "courseId": "m08",
+    "description": "Lo que corre sin supervisión necesita la misma revisión que lo que se hace acompañado.",
+    "whyWrong": "Cuanto menos se supervisa, más firme tiene que ser el check: una compuerta automática y la revisión del resultado.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m08-mc52",
+    "courseId": "m08",
+    "description": "Si un agente revisor aprobó el resultado, está verificado.",
+    "whyWrong": "Verificar mal es un fallo frecuente de los sistemas con varios agentes; hace falta un check independiente.",
+    "sourceIds": [
+      "src-arxiv-mast-mas-failures",
+      "src-arxiv-scaling-agent-systems"
+    ]
+  },
+  {
+    "id": "m08-mc53",
+    "courseId": "m08",
+    "description": "Un hook escrito para una herramienta funciona igual en otra.",
+    "whyWrong": "Los momentos, los nombres y los formatos cambian entre productos, y a veces entre las versiones de un mismo producto.",
+    "sourceIds": [
+      "src-github-copilot-hooks",
+      "src-openai-codex-hooks"
+    ]
+  },
+  {
+    "id": "m08-mc54",
+    "courseId": "m08",
+    "description": "Un hook que está en el repositorio funciona en cualquier herramienta que lo abra.",
+    "whyWrong": "Cada herramienta lee su propio formato y su propia ubicación de hooks.",
+    "sourceIds": [
+      "src-github-copilot-hooks"
+    ]
+  },
+  {
+    "id": "m08-mc55",
+    "courseId": "m08",
+    "description": "Si el encargo es claro, una tarea programada no necesita probarse antes.",
+    "whyWrong": "Las guías piden probar el encargo en una conversación normal y revisar las primeras ejecuciones.",
+    "sourceIds": [
+      "src-openai-codex-scheduled-tasks",
+      "src-anthropic-cc-routines"
     ]
   }
 ]

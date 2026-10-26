@@ -707,5 +707,815 @@
       "src-owasp-llm06"
     ],
     "status": "draft"
+  },
+  {
+    "id": "m08-l4-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m08",
+    "lessonId": "m08-l4",
+    "evaluatedObjectiveId": "m08-eo4",
+    "competencyIds": [
+      "C10",
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Una tarea programada en la nube debe leer cada día una planilla que la analista guarda en el escritorio de su computadora.",
+    "stem": "¿Puede leerla?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Sí, porque la tarea la creó la propia analista",
+        "correct": false,
+        "feedback": "Que la haya creado ella no le da a la tarea acceso a su computadora. La tarea parte de una copia nueva del repositorio, donde la planilla no está.",
+        "misconceptionId": "m08-mc29"
+      },
+      {
+        "id": "o2",
+        "text": "No: parte de una copia del repositorio, sin esa planilla",
+        "correct": true,
+        "feedback": "Correcta. Lo que solo está en una computadora no llega a la nube. La planilla tiene que publicarse en un lugar que la tarea pueda leer."
+      },
+      {
+        "id": "o3",
+        "text": "Sí, si se programa a una hora con la computadora encendida",
+        "correct": false,
+        "feedback": "Una tarea en la nube no depende de la computadora de la analista, ni para correr ni para leer. Aunque la máquina esté encendida, no ve sus archivos.",
+        "misconceptionId": "m08-mc30"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l4#opciones",
+    "sourceIds": [
+      "src-anthropic-cc-scheduled-tasks",
+      "src-anthropic-cc-routines"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-l4-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m08",
+    "lessonId": "m08-l4",
+    "evaluatedObjectiveId": "m08-eo4",
+    "competencyIds": [
+      "C10",
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Una tarea programada en la computadora de la analista debe correr los sábados. La analista apaga la computadora los viernes por la tarde.",
+    "stem": "¿Qué pasa el sábado?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "No corre: necesita la máquina encendida",
+        "correct": true,
+        "feedback": "Correcta. Las tareas programadas en tu equipo necesitan la computadora encendida. Si el trabajo debe correr el sábado, conviene llevarlo a la nube o a la integración continua."
+      },
+      {
+        "id": "o2",
+        "text": "Corre igual, porque está programada",
+        "correct": false,
+        "feedback": "Programarla no la hace correr con la máquina apagada. Las tareas programadas en tu equipo necesitan la computadora encendida.",
+        "misconceptionId": "m08-mc31"
+      },
+      {
+        "id": "o3",
+        "text": "Se recupera sola el lunes, sin ninguna consecuencia",
+        "correct": false,
+        "feedback": "Algunas opciones no recuperan las ejecuciones perdidas, y las que sí lo hacen pueden correr fuera de tiempo. No es algo que se pueda dar por hecho.",
+        "misconceptionId": "m08-mc32"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l4#opciones",
+    "sourceIds": [
+      "src-anthropic-cc-scheduled-tasks",
+      "src-openai-codex-scheduled-tasks"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-l4-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m08",
+    "lessonId": "m08-l4",
+    "evaluatedObjectiveId": "m08-eo4",
+    "competencyIds": [
+      "C10",
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Una tarea que registra en el sistema ficticio de Cobranza los recargos por mora del mes falló a la mitad. Alguien propone que, cuando falle, se vuelva a lanzar sola.",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que se relance sola siempre, porque es lo más seguro",
+        "correct": false,
+        "feedback": "Si la mitad de los recargos ya se registró, relanzarla puede registrar dos veces los mismos. Para trabajos que no se pueden repetir sin daño, es preferible saltarse una ejecución.",
+        "misconceptionId": "m08-mc33"
+      },
+      {
+        "id": "o2",
+        "text": "Que no se relance: se revisa primero qué se registró",
+        "correct": true,
+        "feedback": "Correcta. Registrar recargos no se puede repetir sin daño. Se revisa qué quedó hecho, y solo entonces se completa lo que falta."
+      },
+      {
+        "id": "o3",
+        "text": "Que se relance a la hora en punto, cuando hay menos carga",
+        "correct": false,
+        "feedback": "La hora en punto es justamente cuando más carga hay, y la ejecución puede retrasarse. Además, cambiar la hora no evita el riesgo de registrar dos veces los recargos.",
+        "misconceptionId": "m08-mc34"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l4#hora",
+    "sourceIds": [
+      "src-google-sre-cron"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-l4-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m08",
+    "lessonId": "m08-l4",
+    "evaluatedObjectiveId": "m08-eo4",
+    "competencyIds": [
+      "C10",
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "La tarea programada que actualiza un borrador en el repositorio tiene conectados, por defecto, el correo y el calendario de la analista.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: la tarea usa una cuenta neutra, no la de la analista",
+        "correct": false,
+        "feedback": "En los productos revisados, la tarea actúa con la identidad y las conexiones de quien la creó. Lo que haga con el correo saldrá a nombre de la analista.",
+        "misconceptionId": "m08-mc35"
+      },
+      {
+        "id": "o2",
+        "text": "Le quito el correo y el calendario, que el encargo no usa",
+        "correct": true,
+        "feedback": "Correcta. Lo que hace la tarea lo hace en nombre de la analista. Se le dejan solo las conexiones del encargo, como en el manual 7."
+      },
+      {
+        "id": "o3",
+        "text": "Nada: como nadie aprueba, conviene que tenga todo para no trabarse",
+        "correct": false,
+        "feedback": "Sin nadie que apruebe, cada conexión que sobra es más peligrosa, no menos. La tarea recibe solo las conexiones que su encargo necesita.",
+        "misconceptionId": "m08-mc36"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l4#identidad",
+    "sourceIds": [
+      "src-anthropic-cc-routines",
+      "src-github-cloud-agent-risks"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-l4-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m08",
+    "lessonId": "m08-l4",
+    "evaluatedObjectiveId": "m08-eo3",
+    "competencyIds": [
+      "C10",
+      "C03",
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "La tarea programada local de los lunes corre en la misma carpeta donde la analista edita el script de cálculo esos mismos lunes temprano.",
+    "stem": "¿Qué cambias?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: la tarea y la analista no se pisan",
+        "correct": false,
+        "feedback": "Las dos trabajan sobre los mismos archivos, y una puede sobrescribir los cambios de la otra. Para evitarlo existen los worktrees.",
+        "misconceptionId": "m08-mc26"
+      },
+      {
+        "id": "o2",
+        "text": "Que la tarea corra en un worktree aparte",
+        "correct": true,
+        "feedback": "Correcta. La tarea trabaja en su propia copia y la analista en la suya. Lo que haga la tarea se integra después, revisado."
+      },
+      {
+        "id": "o3",
+        "text": "Pedirle a la tarea que no toque lo que esté editando la analista",
+        "correct": false,
+        "feedback": "Una instrucción no garantiza nada, y la tarea no sabe qué está editando la analista. El worktree sí lo resuelve, porque separa los archivos.",
+        "misconceptionId": "m08-mc27"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l3#worktree",
+    "sourceIds": [
+      "src-openai-codex-scheduled-tasks",
+      "src-anthropic-cc-worktrees"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-l4-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m08",
+    "lessonId": "m08-l4",
+    "evaluatedObjectiveId": "m08-eo2",
+    "competencyIds": [
+      "C10",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El encargo de una tarea programada dice: «Revisa el pipeline y avisa si ves algo raro».",
+    "stem": "¿Qué le falta?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Qué cuenta como raro, qué debe entregar y cuándo termina",
+        "correct": true,
+        "feedback": "Correcta. Una tarea programada no tiene a nadie al lado para aclarar dudas. El encargo tiene que decir qué buscar, qué dejar y cuándo parar."
+      },
+      {
+        "id": "o2",
+        "text": "Nada: el agente sabrá reconocer lo que es raro",
+        "correct": false,
+        "feedback": "Lo que no dice el encargo no existe para el agente. «Raro» puede significar cualquier cosa.",
+        "misconceptionId": "m08-mc07"
+      },
+      {
+        "id": "o3",
+        "text": "Que termine cuando el agente esté conforme con su revisión",
+        "correct": false,
+        "feedback": "Eso depende solo de lo que el agente diga de su propio trabajo, así que no es una condición de término. Falta algo que se pueda comprobar.",
+        "misconceptionId": "m08-mc08"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l2#termino",
+    "sourceIds": [
+      "src-anthropic-cc-routines",
+      "src-anthropic-eng-multi-agent-research"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-l5-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m08",
+    "lessonId": "m08-l5",
+    "evaluatedObjectiveId": "m08-eo5",
+    "competencyIds": [
+      "C10",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Se quiere impedir que el agente borre la carpeta con los datos sintéticos de prueba.",
+    "stem": "¿Qué control eliges?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Un hook después de la herramienta, que detecte el borrado",
+        "correct": false,
+        "feedback": "Ese hook corre cuando la carpeta ya se borró, y no deshace lo hecho. Para impedir algo, el hook va antes de la herramienta.",
+        "misconceptionId": "m08-mc37"
+      },
+      {
+        "id": "o2",
+        "text": "Una línea en el archivo de instrucciones del proyecto",
+        "correct": false,
+        "feedback": "Una instrucción orienta, pero el agente puede ignorarla u olvidarla. Para lo que no puede pasar nunca, hace falta un control.",
+        "misconceptionId": "m08-mc38"
+      },
+      {
+        "id": "o3",
+        "text": "Un hook antes de la herramienta, junto con permisos",
+        "correct": true,
+        "feedback": "Correcta. Ese hook puede bloquear la llamada antes de que ocurra. Los permisos cubren además lo que el hook no vea, como un borrado hecho por otra vía."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l5#momentos",
+    "sourceIds": [
+      "src-anthropic-cc-hooks-guide"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-l5-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m08",
+    "lessonId": "m08-l5",
+    "evaluatedObjectiveId": "m08-eo5",
+    "competencyIds": [
+      "C10",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "Un hook bloquea que el agente edite la carpeta expected/ con su herramienta de edición. Aun así, el agente cambió un archivo de esa carpeta con un comando de copia.",
+    "stem": "¿Qué explica lo que pasó?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El comando de copia no pasa por la herramienta que vigila el hook",
+        "correct": true,
+        "feedback": "Correcta. Los comandos de la terminal también escriben, y un hook sobre la herramienta de edición no los ve. Hay que vigilar también los comandos o proteger la carpeta con permisos."
+      },
+      {
+        "id": "o2",
+        "text": "Es imposible, porque el hook protege la carpeta entera",
+        "correct": false,
+        "feedback": "El hook vigila una vía de acceso, no la carpeta. Por eso no es un control completo.",
+        "misconceptionId": "m08-mc39"
+      },
+      {
+        "id": "o3",
+        "text": "El hook estaba mal escrito, y basta con corregirlo",
+        "correct": false,
+        "feedback": "El hook puede haber funcionado bien con lo que vigila. El cambio entró por otra vía, que el hook no ve.",
+        "misconceptionId": "m08-mc40"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l5#limites",
+    "sourceIds": [
+      "src-anthropic-cc-hooks-guide",
+      "src-openai-codex-hooks"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-l5-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m08",
+    "lessonId": "m08-l5",
+    "evaluatedObjectiveId": "m08-eo5",
+    "competencyIds": [
+      "C10",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Un hook al terminar, usado como compuerta, exige que pase un check que depende del tipo de cambio del día, y el servicio no lo publica este fin de semana. El agente lleva 40 minutos intentando.",
+    "stem": "¿Qué cambias?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: la compuerta garantiza que termine bien",
+        "correct": false,
+        "feedback": "Con una condición que no se puede cumplir, la compuerta encierra al agente en un ciclo. No garantiza nada.",
+        "misconceptionId": "m08-mc41"
+      },
+      {
+        "id": "o2",
+        "text": "Le permito usar un tipo de cambio parecido para que termine",
+        "correct": false,
+        "feedback": "Un tipo de cambio que nadie aprobó altera todas las cifras convertidas. Lo que falta se reporta, no se inventa.",
+        "misconceptionId": "m08-mc42"
+      },
+      {
+        "id": "o3",
+        "text": "Le agrego un tope y una salida que reporte lo que falta",
+        "correct": true,
+        "feedback": "Correcta. Una compuerta necesita tope, y una condición imposible necesita una salida. El agente para y deja dicho qué dato falta."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l5#limites",
+    "sourceIds": [
+      "src-anthropic-cc-hooks-guide",
+      "src-arxiv-impossiblebench"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-l5-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m08",
+    "lessonId": "m08-l5",
+    "evaluatedObjectiveId": "m08-eo5",
+    "competencyIds": [
+      "C10",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "En la integración continua, el agente corre sin interfaz y termina con código 0. El paso siguiente intenta leer el resultado estructurado y el campo no existe.",
+    "stem": "¿Qué debería hacer el script?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Seguir: si terminó con 0, el resultado es el esperado",
+        "correct": false,
+        "feedback": "El código dice cómo terminó la ejecución, no que haya un resultado válido. Aquí el campo falta, y el paso siguiente no tiene qué leer.",
+        "misconceptionId": "m08-mc43"
+      },
+      {
+        "id": "o2",
+        "text": "Comprobar que el campo exista, y detenerse si falta",
+        "correct": true,
+        "feedback": "Correcta. Si la ejecución termina sin un resultado válido, el campo estructurado no aparece. El script lo comprueba y se detiene con un error si falta."
+      },
+      {
+        "id": "o3",
+        "text": "Usar un valor por defecto en lugar del campo que falta",
+        "correct": false,
+        "feedback": "Un valor por defecto esconde que la ejecución falló. El paso siguiente trabajaría con un dato inventado.",
+        "misconceptionId": "m08-mc44"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l5#sin-interfaz",
+    "sourceIds": [
+      "src-anthropic-cc-headless"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-l5-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m08",
+    "lessonId": "m08-l5",
+    "evaluatedObjectiveId": "m08-eo4",
+    "competencyIds": [
+      "C10",
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Mientras trabajas, quieres que algo revise cada diez minutos si terminó la integración continua y te avise.",
+    "stem": "¿Dónde lo corres?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En una tarea programada en la nube",
+        "correct": false,
+        "feedback": "La nube no siempre es la mejor opción. Para vigilar algo un rato mientras trabajas, basta una tarea dentro de la sesión.",
+        "misconceptionId": "m08-mc45"
+      },
+      {
+        "id": "o2",
+        "text": "En una tarea dentro de la sesión abierta",
+        "correct": true,
+        "feedback": "Correcta. Es una vigilancia corta mientras trabajas. Si cierras la sesión, ya no la necesitas."
+      },
+      {
+        "id": "o3",
+        "text": "En una tarea local que siga aunque apagues la computadora",
+        "correct": false,
+        "feedback": "Una tarea local necesita la máquina encendida. Además, para vigilar algo mientras trabajas, basta la sesión.",
+        "misconceptionId": "m08-mc31"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l4#opciones",
+    "sourceIds": [
+      "src-anthropic-cc-scheduled-tasks"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-l5-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m08",
+    "lessonId": "m08-l5",
+    "evaluatedObjectiveId": "m08-eo3",
+    "competencyIds": [
+      "C10",
+      "C03",
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "La directora hace tres preguntas que comparten casi todo el contexto: las tres son sobre el pipeline del Centro esta semana. Alguien propone tres subagentes en paralelo.",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Tres subagentes, porque en paralelo se termina antes y mejor",
+        "correct": false,
+        "feedback": "Si las tres preguntas comparten el contexto, repartirlas obliga a cada subagente a reunirlo de nuevo. No mejora el resultado.",
+        "misconceptionId": "m08-mc12"
+      },
+      {
+        "id": "o2",
+        "text": "Tres subagentes, porque no ocupan el contexto principal",
+        "correct": false,
+        "feedback": "Cada subagente gasta sus propios tokens. Y los tres repetirían el mismo trabajo de reunir el contexto.",
+        "misconceptionId": "m08-mc13"
+      },
+      {
+        "id": "o3",
+        "text": "Una sola sesión, porque comparten el contexto",
+        "correct": true,
+        "feedback": "Correcta. Cuando las tareas comparten mucho contexto, conviene quedarse en una sola conversación. Los subagentes rinden con partes independientes."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l3#cuando",
+    "sourceIds": [
+      "src-anthropic-cc-subagents",
+      "src-anthropic-eng-multi-agent-research"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-l6-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m08",
+    "lessonId": "m08-l6",
+    "evaluatedObjectiveId": "m08-eo6",
+    "competencyIds": [
+      "C10",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "El historial de una tarea programada dice que la ejecución de anoche terminó con éxito, pero el reporte no aparece en la carpeta.",
+    "stem": "¿Cómo averiguas qué pasó?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: si terminó con éxito, el reporte tiene que estar",
+        "correct": false,
+        "feedback": "El estado describe cómo terminó la sesión, no si se cumplió el encargo. Lo que no se pudo hacer está en la transcripción.",
+        "misconceptionId": "m08-mc46"
+      },
+      {
+        "id": "o2",
+        "text": "Relanzarla para que esta vez genere el reporte",
+        "correct": false,
+        "feedback": "Si la causa sigue ahí, relanzarla repite el fallo y el gasto. Primero se lee el registro.",
+        "misconceptionId": "m08-mc47"
+      },
+      {
+        "id": "o3",
+        "text": "Leer la transcripción y correr el check independiente",
+        "correct": true,
+        "feedback": "Correcta. La transcripción dice qué hizo el agente, y el check, qué produjo. Ahí aparece por qué no hay reporte."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l6#estado",
+    "sourceIds": [
+      "src-anthropic-cc-routines",
+      "src-google-sre-cron"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-l6-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m08",
+    "lessonId": "m08-l6",
+    "evaluatedObjectiveId": "m08-eo6",
+    "competencyIds": [
+      "C10",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Una tarea programada que publica el resumen de Cobranza en la wiki ficticia falló dos lunes seguidos por un supuesto que falta.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La relanzo cada lunes hasta que funcione bien",
+        "correct": false,
+        "feedback": "Mientras falte el supuesto, va a fallar igual, y cada intento cuesta. Relanzar no es la primera acción.",
+        "misconceptionId": "m08-mc47"
+      },
+      {
+        "id": "o2",
+        "text": "La pauso, leo el registro y pido el supuesto antes de seguir",
+        "correct": true,
+        "feedback": "Correcta. Pausarla evita que el lunes próximo repita el fallo. Con la causa clara, se pide el supuesto a quien corresponde."
+      },
+      {
+        "id": "o3",
+        "text": "La borro y creo otra igual, empezando desde cero",
+        "correct": false,
+        "feedback": "Borrarla pierde la configuración, y la nueva fallaría por la misma causa. Pausar conserva lo que hay para corregirlo.",
+        "misconceptionId": "m08-mc48"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l6#detener",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-cc-routines",
+      "src-google-sre-cron"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-l6-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m08",
+    "lessonId": "m08-l6",
+    "evaluatedObjectiveId": "m08-eo6",
+    "competencyIds": [
+      "C10",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Un orquestador con tres agentes arma la conciliación mensual de Cobranza. Cuesta mucho más que el script anterior y en un mes falló dos veces por archivos que no llegaron, algo que el script detenía con un error.",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Mejorar los prompts de los agentes para que detecten el archivo faltante",
+        "correct": false,
+        "feedback": "Mejorar los prompts ayuda, pero no basta ante un fallo de diseño. Además, el script ya detenía ese fallo sin necesidad de un modelo.",
+        "misconceptionId": "m08-mc49"
+      },
+      {
+        "id": "o2",
+        "text": "Volver al script anterior, con un check como compuerta",
+        "correct": true,
+        "feedback": "Correcta. Los agentes se agregan solo cuando lo simple se queda corto, y aquí lo simple detenía el fallo. Para este tramo, el script es el diseño correcto."
+      },
+      {
+        "id": "o3",
+        "text": "Mantener los agentes, porque volver al script sería retroceder",
+        "correct": false,
+        "feedback": "Volver a lo simple no es retroceder cuando lo simple hace mejor el trabajo. El costo y los fallos ya lo mostraron.",
+        "misconceptionId": "m08-mc50"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l6#detener",
+    "sourceIds": [
+      "src-anthropic-building-agents",
+      "src-arxiv-mast-mas-failures"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-l6-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m08",
+    "lessonId": "m08-l6",
+    "evaluatedObjectiveId": "m08-eo6",
+    "competencyIds": [
+      "C10",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Un borrador se genera cada lunes temprano, sin que nadie mire, y se envía al comité a las nueve.",
+    "stem": "¿Qué verificación corresponde?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La misma revisión rápida que cuando se hace acompañado",
+        "correct": false,
+        "feedback": "Lo que nadie mira necesita un check más firme, no el mismo. Aquí nadie vio cómo se generó el borrador.",
+        "misconceptionId": "m08-mc51"
+      },
+      {
+        "id": "o2",
+        "text": "Que un agente revisor lo apruebe antes de enviarlo",
+        "correct": false,
+        "feedback": "La aprobación de otro agente no es un check independiente. Verificar mal es uno de los fallos frecuentes de los sistemas con varios agentes.",
+        "misconceptionId": "m08-mc52"
+      },
+      {
+        "id": "o3",
+        "text": "Una compuerta automática, una alerta y revisión humana",
+        "correct": true,
+        "feedback": "Correcta. Cuanto menos se supervisa, más firme el check. La compuerta automática frena lo que está mal, y una persona revisa antes del comité."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l6#proporcion",
+    "basis": "inference",
+    "sourceIds": [
+      "src-arxiv-mast-mas-failures",
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-l6-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m08",
+    "lessonId": "m08-l6",
+    "evaluatedObjectiveId": "m08-eo5",
+    "competencyIds": [
+      "C10",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El equipo copia sin cambios a otra herramienta de agentes los hooks que usa en la suya.",
+    "stem": "¿Qué esperas que pase?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que funcionen igual, porque los hooks son un estándar",
+        "correct": false,
+        "feedback": "Los momentos, los nombres y los formatos cambian entre herramientas. Un hook no se puede llevar a otra sin revisarlo.",
+        "misconceptionId": "m08-mc53"
+      },
+      {
+        "id": "o2",
+        "text": "Que funcionen, porque están guardados en el repositorio",
+        "correct": false,
+        "feedback": "Cada herramienta lee su propio formato y su propia ubicación. Estar en el repositorio no basta.",
+        "misconceptionId": "m08-mc54"
+      },
+      {
+        "id": "o3",
+        "text": "Que haya que revisarlos y adaptarlos a su formato",
+        "correct": true,
+        "feedback": "Correcta. Una documentación pide expresamente no suponer que los hooks funcionen igual en todas partes. Se revisan y se adaptan."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l5#limites",
+    "sourceIds": [
+      "src-github-copilot-hooks",
+      "src-openai-codex-hooks"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-l6-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m08",
+    "lessonId": "m08-l6",
+    "evaluatedObjectiveId": "m08-eo4",
+    "competencyIds": [
+      "C10",
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Una tarea programada nueva se activa directamente para todos los lunes, sin haberla probado antes.",
+    "stem": "¿Qué cambias?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: si el encargo es claro, va a funcionar",
+        "correct": false,
+        "feedback": "Un encargo que parece claro puede fallar en la primera ejecución real. Las guías piden probarlo antes.",
+        "misconceptionId": "m08-mc55"
+      },
+      {
+        "id": "o2",
+        "text": "Probarla antes y revisar las primeras ejecuciones",
+        "correct": true,
+        "feedback": "Correcta. El encargo se prueba antes en una conversación normal. Después se revisan las primeras ejecuciones para ajustarlo."
+      },
+      {
+        "id": "o3",
+        "text": "Activarla con acceso total, para que no falle nunca",
+        "correct": false,
+        "feedback": "Más permisos no hacen que el encargo funcione. Y sin nadie que apruebe, son un riesgo mayor.",
+        "misconceptionId": "m08-mc36"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l4#encargo",
+    "sourceIds": [
+      "src-openai-codex-scheduled-tasks",
+      "src-anthropic-cc-routines"
+    ],
+    "status": "draft"
   }
 ]

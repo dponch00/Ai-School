@@ -1,0 +1,54 @@
+{
+  "id": "m08-l6",
+  "courseId": "m08",
+  "version": "0.1.0",
+  "order": 6,
+  "title": "Costos, registros y fallos: detener, leer y simplificar",
+  "objectives": [
+    {
+      "id": "m08-l6-o1",
+      "statement": "Identifica la causa de un fallo en las tres capas del registro.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m08-eo6"
+    },
+    {
+      "id": "m08-l6-o2",
+      "statement": "Decide la primera acción ante una automatización que falla.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m08-eo6"
+    },
+    {
+      "id": "m08-l6-o3",
+      "statement": "Elige entre corregir una automatización o volver a algo más simple, y qué verificación corresponde según cuánto se supervisa.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m08-eo6"
+    }
+  ],
+  "bodyPath": "courses/m08/lessons/m08-l6.md",
+  "reviewQuestionIds": [
+    "m08-l6-r1",
+    "m08-l6-r2"
+  ],
+  "checkQuestionIds": [
+    "m08-l6-c1",
+    "m08-l6-c2",
+    "m08-l6-c3",
+    "m08-l6-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m08-pc-run-logs"
+  ],
+  "sourceIds": [
+    "src-anthropic-eng-multi-agent-research",
+    "src-anthropic-cc-routines",
+    "src-anthropic-cc-costs",
+    "src-arxiv-metr-productivity",
+    "src-google-sre-cron",
+    "src-arxiv-mast-mas-failures",
+    "src-anthropic-building-agents",
+    "src-arxiv-scaling-agent-systems"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

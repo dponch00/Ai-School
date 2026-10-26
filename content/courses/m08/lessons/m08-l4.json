@@ -1,0 +1,54 @@
+{
+  "id": "m08-l4",
+  "courseId": "m08",
+  "version": "0.1.0",
+  "order": 4,
+  "title": "Trabajo que no te espera: nube, segundo plano o tarea programada",
+  "objectives": [
+    {
+      "id": "m08-l4-o1",
+      "statement": "Elige dónde corre un trabajo según qué archivos necesita, si depende de tu computadora o de una sesión abierta y quién aprueba mientras corre.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m08-eo4"
+    },
+    {
+      "id": "m08-l4-o2",
+      "statement": "Reconoce que una tarea programada actúa en tu nombre y que debe dejar un resultado que alguien revise.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m08-eo4"
+    },
+    {
+      "id": "m08-l4-o3",
+      "statement": "Decide cómo programar un trabajo que puede retrasarse o que no se puede repetir sin daño.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m08-eo4"
+    }
+  ],
+  "bodyPath": "courses/m08/lessons/m08-l4.md",
+  "reviewQuestionIds": [
+    "m08-l4-r1",
+    "m08-l4-r2"
+  ],
+  "checkQuestionIds": [
+    "m08-l4-c1",
+    "m08-l4-c2",
+    "m08-l4-c3",
+    "m08-l4-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m08-pc-scheduling-options"
+  ],
+  "sourceIds": [
+    "src-anthropic-cc-scheduled-tasks",
+    "src-anthropic-cc-cloud",
+    "src-anthropic-cc-routines",
+    "src-openai-codex-scheduled-tasks",
+    "src-github-cloud-agent-risks",
+    "src-github-cloud-agent",
+    "src-github-actions-schedule",
+    "src-google-sre-cron"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}
