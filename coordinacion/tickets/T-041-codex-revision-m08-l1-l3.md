@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-26 |
 | Depende de | T-040 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -76,7 +76,12 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 
 ## Entrega
 
-_(Codex)_
+_(Codex, 2026-10-26)_
+
+- Informe: `investigacion/codex-revision-m08-l1-l3.md`.
+- Hallazgo: uno bajo, por el uso de «entregable» como sustantivo en L2, contrario a la guía de estilo.
+- Verificación: `npm test` 219/219; claves únicas y longitudes comprobadas por script.
+- Commit: pendiente de registrar tras crear la entrega.
 
 ## Revisión
 
