@@ -11,7 +11,7 @@ import { now } from './progress'
 export const MAX_BACKUP_BYTES = 20 * 1024 * 1024
 
 export async function exportBackup(db: LearnerDb, appVersion: string, contentVersions: Record<string, string>, at = now()): Promise<Backup> {
-  return db.transaction('r', [db.profile, db.attempts, db.responses, db.practiceSubmissions, db.feedback, db.adjustments, db.notes, db.bookmarks, db.lessonProgress, db.reports], async () =>
+  return db.transaction('r', [db.profile, db.attempts, db.responses, db.practiceSubmissions, db.feedback, db.adjustments, db.notes, db.bookmarks, db.lessonProgress, db.reports, db.highlights], async () =>
     Backup.parse({
       schemaVersion: SCHEMA_VERSION,
       exportedAt: at,
@@ -27,6 +27,7 @@ export async function exportBackup(db: LearnerDb, appVersion: string, contentVer
       bookmarks: await db.bookmarks.toArray(),
       lessonProgress: await db.lessonProgress.toArray(),
       reports: await db.reports.toArray(),
+      highlights: await db.highlights.toArray(),
     }),
   )
 }
@@ -36,7 +37,7 @@ export function backupFileName(at: string): string {
 }
 
 /**
- * Lee y valida un respaldo. Los de versiones anteriores se migran (la v1 no tenía reportes).
+ * Lee y valida un respaldo. Los de versiones anteriores se migran (la v1 no tenía reportes; la v2, subrayados).
  * Lanza un error en español si el archivo no sirve; nunca devuelve algo a medio validar.
  */
 export function parseBackup(text: string): Backup {
@@ -51,7 +52,7 @@ export function parseBackup(text: string): Backup {
   const obj = raw as Record<string, unknown>
   if (typeof obj.schemaVersion !== 'number') throw new Error('Al archivo le falta la versión de esquema: no parece un respaldo de AI School.')
   if (obj.schemaVersion > SCHEMA_VERSION) throw new Error(`El respaldo es de una versión más nueva de la app (esquema ${obj.schemaVersion}). Actualiza la app antes de restaurarlo.`)
-  const migrated = obj.schemaVersion === 1 ? { ...obj, schemaVersion: 2, reports: [] } : obj
+  const migrated = obj.schemaVersion < SCHEMA_VERSION ? { reports: [], highlights: [], ...obj, schemaVersion: SCHEMA_VERSION } : obj
   const parsed = Backup.safeParse(migrated)
   if (!parsed.success) {
     const first = parsed.error.issues[0]
@@ -81,7 +82,7 @@ export function backupSummary(b: Backup) {
 
 /** Restaura un respaldo ya validado: reemplaza todo lo guardado en este navegador, en una sola transacción. */
 export async function restoreBackup(db: LearnerDb, b: Backup): Promise<void> {
-  const tables = [db.profile, db.attempts, db.responses, db.practiceSubmissions, db.feedback, db.adjustments, db.notes, db.bookmarks, db.lessonProgress, db.reports]
+  const tables = [db.profile, db.attempts, db.responses, db.practiceSubmissions, db.feedback, db.adjustments, db.notes, db.bookmarks, db.lessonProgress, db.reports, db.highlights]
   await db.transaction('rw', tables, async () => {
     for (const t of tables) await t.clear()
     if (b.profile) await db.profile.put(b.profile)
@@ -94,5 +95,6 @@ export async function restoreBackup(db: LearnerDb, b: Backup): Promise<void> {
     await db.bookmarks.bulkPut(b.bookmarks)
     await db.lessonProgress.bulkPut(b.lessonProgress)
     await db.reports.bulkPut(b.reports)
+    await db.highlights.bulkPut(b.highlights)
   })
 }

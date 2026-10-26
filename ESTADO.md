@@ -4,7 +4,7 @@
 
 ## Siguiente acción
 
-1. **Codex:** T-035, revisión de M06 lecciones 4 a 6.
+1. **Codex:** T-035 (M06 lecciones 4 a 6) y T-036 (UX de los subrayados), independientes entre sí.
 2. **Claude:** mientras tanto, el banco de examen, el laboratorio y la práctica de M06.
 3. **Subagentes:** la investigación de M05 a M07 está lista; la de M08 a M10 se lanza cuando convenga.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
@@ -63,6 +63,7 @@
 | [T-033](coordinacion/tickets/T-033-codex-revision-m05-completo.md) | Codex | Revisión de M05 completo | cerrado |
 | [T-034](coordinacion/tickets/T-034-codex-revision-m06-l1-l3.md) | Codex | Revisión de M06: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
 | [T-035](coordinacion/tickets/T-035-codex-revision-m06-l4-l6.md) | Codex | Revisión de M06: lecciones 4 a 6, preguntas y fichas | abierto |
+| [T-036](coordinacion/tickets/T-036-codex-revision-ux-subrayados.md) | Codex | Revisión de UX: subrayados con nota y página «Subrayados» | abierto |
 
 ## En curso (no tocar estos archivos)
 
@@ -70,6 +71,7 @@
 | --- | --- |
 | Codex (T-032) | `investigacion/codex-revision-m04-examen-laboratorio.md`, `design/qa/T-032/**` |
 | Codex (T-035) | `investigacion/codex-revision-m06-l4-l6.md` |
+| Codex (T-036) | `investigacion/codex-revision-ux-subrayados.md`, `design/qa/T-036/**` |
 | Claude | `content/courses/m06/**` |
 
 ## Decisiones recientes
@@ -77,6 +79,24 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-26 · Claude Code — subrayados con nota (D-027)
+Pedido de Daniel: subrayar, anotar y repasar las notas junto con su sección.
+
+**En la lección:**
+- seleccionar un texto lo subraya en cuatro colores;
+- se puede agregar una nota;
+- la barra y el editor van fijos abajo (celular primero).
+
+**Página «Subrayados»:**
+- agrupa por manual, lección y sección;
+- tiene filtros y un modo repaso;
+- «Ir a la sección» lleva al punto exacto.
+
+**Datos y pruebas:**
+- los subrayados se anclan por cita y viajan en el respaldo (esquema 3);
+- `npm test` 186/186 y e2e 90/90, con axe;
+- abierto T-036 para que Codex revise la UX.
 
 ### 2026-10-25 · Claude Code — M06, lecciones 4 a 6
 **Lecciones:**

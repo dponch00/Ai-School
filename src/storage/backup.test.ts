@@ -67,8 +67,18 @@ describe('respaldo', () => {
     const v1 = { ...(await exportBackup(a, '0.1.0', {})), schemaVersion: 1 } as Record<string, unknown>
     delete v1.reports
     const parsed = parseBackup(JSON.stringify(v1))
-    expect(parsed.schemaVersion).toBe(2)
+    expect(parsed.schemaVersion).toBe(3)
     expect(parsed.reports).toEqual([])
+    expect(parsed.highlights).toEqual([])
+  })
+
+  it('migra un respaldo de la versión 2, que no tenía subrayados', async () => {
+    await seed(a)
+    const v2 = { ...(await exportBackup(a, '0.1.0', {})), schemaVersion: 2 } as Record<string, unknown>
+    delete v2.highlights
+    const parsed = parseBackup(JSON.stringify(v2))
+    expect(parsed.schemaVersion).toBe(3)
+    expect(parsed.highlights).toEqual([])
   })
   it('un archivo más grande que el límite se rechaza sin leerlo (T014-S04)', async () => {
     const text = vi.fn(async () => '{}')

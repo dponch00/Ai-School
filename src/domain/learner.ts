@@ -8,8 +8,8 @@
 import { z } from 'zod'
 import { CompetencyId, CourseId, IsoDate, Question, SemVer, Slug } from './content'
 
-/** 2: tabla de reportes de evaluación (F1-09). */
-export const SCHEMA_VERSION = 2
+/** 2: tabla de reportes de evaluación (F1-09). 3: subrayados con nota (pedido de Daniel, 2026-10-25). */
+export const SCHEMA_VERSION = 3
 
 const Timestamp = z.iso.datetime({ offset: true })
 const LocalId = z.string().regex(/^[a-z0-9-]{8,64}$/)
@@ -284,6 +284,35 @@ export const ReportRecord = z.object({
 })
 export type ReportRecord = z.infer<typeof ReportRecord>
 
+// ---------- Subrayados (pedido de Daniel, 2026-10-25) ----------
+
+export const HighlightColor = z.enum(['amarillo', 'verde', 'rosa', 'azul'])
+export type HighlightColor = z.infer<typeof HighlightColor>
+
+/**
+ * Un subrayado se ancla por su texto, no por su posición: la cita exacta más unos caracteres de antes
+ * y de después. Así se vuelve a encontrar aunque el párrafo cambie un poco en una versión nueva.
+ */
+export const Highlight = z.object({
+  id: LocalId,
+  courseId: CourseId,
+  lessonId: z.string().min(1).max(64),
+  /** Ancla del h2 bajo el que está y su título al subrayar, para agrupar y enlazar sin cargar el curso. */
+  sectionId: z.string().max(80).nullable(),
+  sectionTitle: z.string().max(200).nullable(),
+  quote: z.string().min(1).max(2000),
+  prefix: z.string().max(40),
+  suffix: z.string().max(40),
+  /** Posición aproximada en el texto de la lección, solo para ordenar. */
+  position: z.int().min(0),
+  color: HighlightColor,
+  note: z.string().max(4000).optional(),
+  contentVersion: SemVer,
+  createdAt: Timestamp,
+  updatedAt: Timestamp,
+})
+export type Highlight = z.infer<typeof Highlight>
+
 // ---------- Respaldo completo (plan §9) ----------
 
 export const Backup = z.object({
@@ -302,5 +331,6 @@ export const Backup = z.object({
   bookmarks: z.array(z.object({ id: LocalId, targetId: z.string().max(64), createdAt: Timestamp })),
   lessonProgress: z.array(LessonProgress).default([]),
   reports: z.array(ReportRecord).default([]),
+  highlights: z.array(Highlight).default([]),
 })
 export type Backup = z.infer<typeof Backup>

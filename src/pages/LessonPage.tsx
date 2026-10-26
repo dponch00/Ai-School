@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router'
 import { content, getCourse, getLesson, useCoursePackage } from '../content'
 import LessonBlocks from '../components/LessonBlocks'
@@ -6,6 +6,7 @@ import { scrollToAnchor } from '../components/anchors'
 import QuestionCheck from '../components/QuestionCheck'
 import Toc from '../components/Toc'
 import LessonNotes from '../components/LessonNotes'
+import HighlightLayer from '../components/HighlightLayer'
 import NotFound from './NotFound'
 import { db } from '../storage/db'
 import { lessonProgress, markLessonVisited } from '../storage/progress'
@@ -27,6 +28,7 @@ export default function LessonPage() {
   const recordReview = useCheckRound({ ...ids, purpose: 'review', size: lesson?.reviewQuestionIds.length ?? 0 })
   // Marca el inicio de la visita para distinguir la ronda anterior de la que se acaba de responder.
   const [visitStart] = useState(() => new Date().toISOString())
+  const bodyRef = useRef<HTMLDivElement>(null)
   const progress = useLive(() => lessonProgress(db, ids.courseId, ids.lessonId), [ids.courseId, ids.lessonId], undefined)
 
   useEffect(() => {
@@ -75,6 +77,7 @@ export default function LessonPage() {
             <ul>{lesson.objectives.map((o) => <li key={o.id}>{o.statement}</li>)}</ul>
           </section>
 
+          <div ref={bodyRef}>
           <LessonBlocks
             blocks={body.blocks}
             productCards={pkg!.productCards}
@@ -97,6 +100,7 @@ export default function LessonPage() {
               </section>
             }
           />
+          </div>
 
           {sources.length > 0 && (
             <section className="sources" aria-labelledby="fuentes">
@@ -113,6 +117,8 @@ export default function LessonPage() {
 
             </>
           )}
+
+          <HighlightLayer rootRef={bodyRef} courseId={course.id} lessonId={lesson.id} contentVersion={course.version} ready={!!body} focusId={params.get('hl')} />
 
           <LessonNotes lessonId={lesson.id} />
 

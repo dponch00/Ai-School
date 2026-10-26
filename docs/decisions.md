@@ -183,3 +183,14 @@ Una entrada por decisión. Estados: **aceptada**, **propuesta** (espera a Daniel
   - **Investigación:** sigue en paralelo, porque no afecta la calidad.
   - **Trabajo fijo por ronda:** las pruebas E2E y la versión de prueba se siguen actualizando al cerrar cada manual.
 - **M04 y M05:** quedan como están. Sus tickets (T-032 y T-033) se cierran con la revisión de Codex.
+
+## D-027 · Subrayados con nota y un apartado para repasarlos
+
+- **Estado:** aceptada por Daniel · 2026-10-26 (pedido del 2026-10-25)
+- **Decisión:** en las lecciones se puede seleccionar texto, subrayarlo en cuatro colores y agregarle una nota.
+  - **Anclaje:** cada subrayado se guarda por su cita, con unos caracteres de antes y de después, para que siga ubicándose aunque el párrafo cambie un poco en una versión nueva. Si la cita ya no aparece, el subrayado y su nota se conservan y se avisa en la lista de la lección.
+  - **Página «Subrayados»** (`#/notas`, antes «Notas»): reúne todos los subrayados agrupados por manual, lección y sección, junto con la nota general de cada lección. Tiene filtros por manual, color y «solo con nota», y un **modo repaso** que oculta el texto subrayado hasta destaparlo, para practicar el recuerdo. «Ir a la sección» abre la lección en el punto exacto y resalta el subrayado.
+  - **Celular primero:** la barra para subrayar y el editor de la nota van fijos abajo, para no chocar con el menú de selección del sistema.
+  - **Teclado:** al final de cada lección hay una lista de sus subrayados con «Ver en el texto» y «Editar la nota».
+- **Datos:** la tabla `highlights` (esquema 3 de IndexedDB) viaja en el respaldo; los respaldos de las versiones 1 y 2 se migran con la lista vacía.
+- **Alcance:** solo se subraya el texto de las lecciones (bloques `.prose`). Las fichas, las preguntas y el laboratorio quedan fuera por ahora.

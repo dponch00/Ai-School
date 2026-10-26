@@ -27,7 +27,7 @@ export default function HowItWorksPage() {
           <li>
             <h3>Lee las lecciones <span className="how__tag how__tag--counts">cuenta</span></h3>
             <p className="how__where">Portada del curso · Lecciones</p>
-            <p>Cada una abre con un repaso de la anterior y cierra con una comprobación. Una lección cuenta como completada cuando respondes todas sus preguntas. Puedes dejar notas y marcadores, que solo ves tú.</p>
+            <p>Cada una abre con un repaso de la anterior y cierra con una comprobación. Una lección cuenta como completada cuando respondes todas sus preguntas. Mientras lees, selecciona un texto para subrayarlo en cuatro colores y agregarle una nota. Todo queda en «Subrayados», ordenado por manual, lección y sección, con un modo repaso que oculta el texto hasta que lo recuerdas. Solo lo ves tú, y viaja en tu respaldo.</p>
           </li>
           <li>
             <h3>Resuelve el laboratorio <span className="how__tag how__tag--counts">cuenta</span></h3>

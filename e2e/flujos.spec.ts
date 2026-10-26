@@ -1,4 +1,5 @@
 // Flujos principales con teclado, persistencia y modo sin conexión.
+import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
 
 test('una comprobación se responde con teclado y la lección queda completada tras recargar', async ({ page }) => {
@@ -124,3 +125,39 @@ test('la búsqueda lleva al término del glosario, que recibe el foco, y sus ref
   await expect(page.locator('#forma-verdad')).toBeVisible()
 })
 
+
+test('se subraya un texto con nota, se ve en «Subrayados» y el enlace vuelve al punto de la lección', async ({ page }) => {
+  await page.goto('/#/cursos/m02/lecciones/m02-l1')
+  await expect(page.locator('.lesson-body .prose p').first()).toBeVisible()
+  // Selecciona el comienzo de un párrafo largo de la lección.
+  await page.evaluate(() => {
+    const p = [...document.querySelectorAll('.lesson-body .prose p')].find((x) => (x.textContent ?? '').length > 120)!
+    const t = document.createTreeWalker(p, NodeFilter.SHOW_TEXT).nextNode() as Text
+    const r = document.createRange()
+    r.setStart(t, 0)
+    r.setEnd(t, Math.min(30, t.data.length))
+    getSelection()!.removeAllRanges()
+    getSelection()!.addRange(r)
+  })
+  await page.getByRole('toolbar', { name: 'Subrayar la selección' }).getByRole('button', { name: 'Subrayar y anotar' }).click()
+  const editor = page.getByRole('dialog', { name: 'Subrayado' })
+  await editor.getByLabel(/Tu nota/).fill('Nota de prueba del subrayado')
+  const axeEditor = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze()
+  expect(axeEditor.violations.map((v) => v.id)).toEqual([])
+  await editor.getByRole('button', { name: 'Listo' }).click()
+  const mark = page.locator('.lesson-body mark[data-hl-id]').first()
+  await expect(mark).toBeVisible()
+  await expect(page.locator('.hl-list__note')).toHaveText('Nota de prueba del subrayado')
+
+  await page.goto('/#/notas')
+  await expect(page.locator('.notes-lesson .hl-list__note')).toHaveText('Nota de prueba del subrayado')
+  const axeNotes = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze()
+  expect(axeNotes.violations.map((v) => v.id)).toEqual([])
+  // Modo repaso: el texto subrayado queda oculto hasta destaparlo.
+  await page.getByLabel('Modo repaso').check()
+  await expect(page.locator('.notes-lesson mark')).toHaveCount(0)
+  await page.getByRole('button', { name: 'Mostrar el subrayado' }).click()
+  await expect(page.locator('.notes-lesson mark')).toHaveCount(1)
+  await page.getByRole('link', { name: 'Ir a la sección' }).click()
+  await expect(page.locator('.lesson-body mark[data-hl-id]').first()).toBeInViewport()
+})
