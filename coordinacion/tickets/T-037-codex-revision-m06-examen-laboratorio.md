@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-26 |
 | Depende de | T-035 y T-036 (cerrados) |
 | Fase del plan | 3 — Nueve manuales |
@@ -74,7 +74,13 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 
 ## Entrega
 
-_(Codex)_
+2026-10-26 — Revisión entregada en `investigacion/codex-revision-m06-examen-laboratorio.md`.
+
+- Hallazgos: 4 (3 medios, 1 bajo): la fuente de tres conceptos sobre checks no respalda lo que se le atribuye, y se repiten los escenarios de `m06-f07-c`, `m06-f05-c` y `m06-f06-a` con comprobaciones o diagnóstico previos.
+- Verificado: 45 claves únicas, variantes coherentes dentro de las 15 familias, 69 `sectionRef` existentes y `sourceIds` resolubles; laboratorio continuo y giro defendible. Las claves no presentan pistas de longitud de 1,5× o más.
+- Reproducción independiente: snapshot del 26 con seis avisos, Centro 1 330 500, total 3 772 000, vencidas Sur 3/total 7, salida 1 con el contrato del 19 y salida 2 sin `unknown_stage_policy`.
+- `npm test` pasó: 190 pruebas.
+- Commit: pendiente de crear.
 
 ## Revisión
 
