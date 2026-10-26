@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-26 |
 | Depende de | T-037 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -72,7 +72,12 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 
 ## Entrega
 
-_(Codex)_
+_(Codex, 2026-10-26)_
+
+- Informe: `investigacion/codex-revision-m07-l1-l3.md`.
+- Hallazgos: 1 alto, 2 medios y 1 bajo. El alto corrige que 425 está registrado como `Too Early` y no puede usarse como código desconocido; los medios separan dos escenarios repetidos con el diagnóstico y M06; el bajo pide no presentar como GA estados que las páginas no declaran.
+- Verificación: `npm test` — 205/205 pruebas aprobadas; referencias, claves únicas y proporción de longitudes revisadas por script.
+- Commit: pendiente de registrar tras crear la entrega.
 
 ## Revisión
 
