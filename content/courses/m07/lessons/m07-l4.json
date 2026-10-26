@@ -1,0 +1,60 @@
+{
+  "id": "m07-l4",
+  "courseId": "m07",
+  "version": "0.1.0",
+  "order": 4,
+  "title": "MCP por dentro: confianza y cuándo usarlo",
+  "objectives": [
+    {
+      "id": "m07-l4-o1",
+      "statement": "Distingue anfitrión, cliente y servidor, y un servidor local de uno remoto.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m07-eo4"
+    },
+    {
+      "id": "m07-l4-o2",
+      "statement": "Identifica qué riesgos trae conectar un servidor ajeno y qué configuración los limita.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m07-eo4"
+    },
+    {
+      "id": "m07-l4-o3",
+      "statement": "Elige entre una CLI, un script que llama a la API, MCP o ninguna integración, según quién la usa y cuánto cuesta.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m07-eo4"
+    }
+  ],
+  "bodyPath": "courses/m07/lessons/m07-l4.md",
+  "reviewQuestionIds": [
+    "m07-l4-r1",
+    "m07-l4-r2"
+  ],
+  "checkQuestionIds": [
+    "m07-l4-c1",
+    "m07-l4-c2",
+    "m07-l4-c3",
+    "m07-l4-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m07-pc-mcp-config"
+  ],
+  "sourceIds": [
+    "src-mcp-spec-2026-07-28",
+    "src-mcp-architecture",
+    "src-mcp-spec-tools",
+    "src-mcp-changelog-2026-07-28",
+    "src-mcp-transports",
+    "src-mcp-transport-stdio",
+    "src-mcp-transport-http",
+    "src-mcp-security-bp",
+    "src-mcp-schema-2026-07-28",
+    "src-owasp-mcp-cheatsheet",
+    "src-anthropic-eng-writing-tools",
+    "src-anthropic-cc-best-practices",
+    "src-anthropic-cc-mcp",
+    "src-anthropic-eng-code-execution-mcp"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

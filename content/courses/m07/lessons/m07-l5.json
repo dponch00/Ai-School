@@ -1,0 +1,50 @@
+{
+  "id": "m07-l5",
+  "courseId": "m07",
+  "version": "0.1.0",
+  "order": 5,
+  "title": "Documentos o datos: RAG frente a consulta estructurada",
+  "objectives": [
+    {
+      "id": "m07-l5-o1",
+      "statement": "Distingue lo que responde la recuperación de documentos de lo que responde una consulta.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m07-eo5"
+    },
+    {
+      "id": "m07-l5-o2",
+      "statement": "Elige la vía para una pregunta de negocio, incluidas las preguntas mixtas.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m07-eo5"
+    },
+    {
+      "id": "m07-l5-o3",
+      "statement": "Decide cómo se comprueba una cifra y reconoce por qué una herramienta acotada es más segura.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m07-eo5"
+    }
+  ],
+  "bodyPath": "courses/m07/lessons/m07-l5.md",
+  "reviewQuestionIds": [
+    "m07-l5-r1",
+    "m07-l5-r2"
+  ],
+  "checkQuestionIds": [
+    "m07-l5-c1",
+    "m07-l5-c2",
+    "m07-l5-c3",
+    "m07-l5-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [],
+  "sourceIds": [
+    "src-arxiv-rag-lewis",
+    "src-anthropic-eng-contextual-retrieval",
+    "src-arxiv-bird-text2sql",
+    "src-owasp-llm06",
+    "src-owasp-llm01",
+    "src-arxiv-verifiability"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

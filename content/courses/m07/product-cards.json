@@ -39,5 +39,57 @@
       "src-openai-codex-mcp"
     ],
     "nextReview": "2027-01-23"
+  },
+  {
+    "id": "m07-pc-mcp-config",
+    "product": "Claude Code y Codex · configuración de servidores MCP",
+    "surfaces": [
+      "cli",
+      "ide",
+      "desktop"
+    ],
+    "capability": "Claude Code (CLI): servidores con alcance local (por proyecto, en ~/.claude.json, el valor por defecto), de proyecto (.mcp.json, compartido por Git) o de usuario; si un nombre se repite, gana la definición de mayor precedencia sin mezclar campos (local, proyecto, usuario, plugins, conectores), y los servidores gestionados por la organización están por encima. Transportes: HTTP (recomendado para remotos) y stdio; SSE está marcado como obsoleto. Pide aprobación en sesiones interactivas para los servidores de .mcp.json, y las reglas de permisos usan nombres mcp__<servidor>__<herramienta>, evaluadas en el orden deny, ask, allow. Codex (app de escritorio, CLI e IDE, con una configuración compartida): [mcp_servers.<nombre>] en ~/.codex/config.toml o en el .codex/config.toml de un proyecto de confianza; stdio y Streamable HTTP; enabled_tools como lista permitida y disabled_tools como lista denegada, con modo de aprobación por servidor y por herramienta. Las páginas no indican un estado de lanzamiento.",
+    "kind": "capability",
+    "maturity": "unspecified",
+    "verifiedAt": "2026-10-23",
+    "sourceIds": [
+      "src-anthropic-cc-mcp",
+      "src-anthropic-cc-permissions",
+      "src-openai-codex-mcp"
+    ],
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "m07-pc-mcp-inspector",
+    "product": "MCP Inspector (proyecto Model Context Protocol)",
+    "surfaces": [
+      "cli",
+      "web"
+    ],
+    "capability": "Herramienta oficial para probar y depurar servidores MCP sin un agente: interfaz web por defecto, modo --cli (útil en integración continua) y modo --tui. Requiere Node 22.19.0 o superior y es compatible con las revisiones anteriores y con la 2026-07-28. Guarda tokens y secretos en el llavero del sistema o, si no hay llavero, en un archivo sin cifrar (~/.mcp-inspector/secrets.json). La página no indica un estado de lanzamiento.",
+    "kind": "capability",
+    "maturity": "unspecified",
+    "verifiedAt": "2026-10-23",
+    "sourceIds": [
+      "src-mcp-inspector"
+    ],
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "m07-pc-headless-integrations",
+    "product": "Claude Code y Codex · integraciones en ejecuciones no interactivas",
+    "surfaces": [
+      "cli"
+    ],
+    "capability": "Claude Code (claude -p y Agent SDK): desde la versión 2.1.302 arranca en modo manual si no se configura otro modo, y una llamada que pide aprobación se deniega salvo que la resuelva un hook o una herramienta de permisos; --allowedTools predefine las herramientas. Sin --bare, conecta los servidores de .mcp.json y ejecuta los hooks del proyecto sin diálogo de confianza ni aprobación por servidor; con --bare solo conecta los de --mcp-config. El evento system/init informa mcp_server_errors para que la integración continua falle. No puede completar un flujo OAuth: hay que iniciar sesión antes. Codex (codex exec): sandbox de solo lectura por defecto; un servidor marcado required = true que no arranca hace terminar la ejecución con error; si el flujo ejecuta código del repositorio, CODEX_API_KEY se define solo para esa ejecución y no para todo el trabajo. Las páginas no indican un estado de lanzamiento.",
+    "kind": "capability",
+    "maturity": "unspecified",
+    "verifiedAt": "2026-10-23",
+    "sourceIds": [
+      "src-anthropic-cc-headless",
+      "src-anthropic-cc-mcp",
+      "src-openai-codex-noninteractive"
+    ],
+    "nextReview": "2027-01-23"
   }
 ]

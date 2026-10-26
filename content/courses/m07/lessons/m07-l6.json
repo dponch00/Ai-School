@@ -1,0 +1,59 @@
+{
+  "id": "m07-l6",
+  "courseId": "m07",
+  "version": "0.1.0",
+  "order": 6,
+  "title": "Simular antes de conectar y dejarlo correr solo",
+  "objectives": [
+    {
+      "id": "m07-l6-o1",
+      "statement": "Elige en qué orden se valida una integración antes de dejarla correr sola.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m07-eo6"
+    },
+    {
+      "id": "m07-l6-o2",
+      "statement": "Identifica qué contenido entrante puede traer instrucciones para el agente y qué control impide que se cumplan.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m07-eo6"
+    },
+    {
+      "id": "m07-l6-o3",
+      "statement": "Elige los controles de una ejecución que corre sin nadie que apruebe.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m07-eo6"
+    }
+  ],
+  "bodyPath": "courses/m07/lessons/m07-l6.md",
+  "reviewQuestionIds": [
+    "m07-l6-r1",
+    "m07-l6-r2"
+  ],
+  "checkQuestionIds": [
+    "m07-l6-c1",
+    "m07-l6-c2",
+    "m07-l6-c3",
+    "m07-l6-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m07-pc-mcp-inspector",
+    "m07-pc-headless-integrations"
+  ],
+  "sourceIds": [
+    "src-oas-3-2",
+    "src-mcp-inspector",
+    "src-arxiv-greshake-indirect-injection",
+    "src-owasp-llm01",
+    "src-arxiv-agentdojo",
+    "src-owasp-llm06",
+    "src-mcp-spec-tools",
+    "src-owasp-mcp-cheatsheet",
+    "src-anthropic-cc-headless",
+    "src-anthropic-cc-mcp",
+    "src-github-actions-oidc",
+    "src-owasp-api4-2023"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

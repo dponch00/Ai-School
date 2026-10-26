@@ -273,5 +273,218 @@
     "sourceIds": [
       "src-ietf-rfc9110"
     ]
+  },
+  {
+    "id": "m07-mc31",
+    "courseId": "m07",
+    "description": "Un servidor MCP local es solo configuración, no código.",
+    "whyWrong": "La línea de configuración dice qué programa arrancar, y ese programa corre con los privilegios de quien lo lanza.",
+    "sourceIds": [
+      "src-mcp-security-bp"
+    ]
+  },
+  {
+    "id": "m07-mc32",
+    "courseId": "m07",
+    "description": "Usar MCP garantiza que el servidor es seguro.",
+    "whyWrong": "La especificación dice que el protocolo no puede hacer cumplir sus principios de seguridad; los deja en manos de quien implementa.",
+    "sourceIds": [
+      "src-mcp-spec-2026-07-28"
+    ]
+  },
+  {
+    "id": "m07-mc33",
+    "courseId": "m07",
+    "description": "Una herramienta aprobada una vez queda aprobada para siempre.",
+    "whyWrong": "El servidor puede cambiar sus herramientas después de aprobadas; hay que fijar las definiciones y revisarlas si cambian.",
+    "sourceIds": [
+      "src-owasp-mcp-cheatsheet"
+    ]
+  },
+  {
+    "id": "m07-mc34",
+    "courseId": "m07",
+    "description": "Cuantas más herramientas se habiliten, más capaz será el agente.",
+    "whyWrong": "Más herramientas no dan mejores resultados, ocupan contexto y amplían lo que puede salir mal.",
+    "sourceIds": [
+      "src-anthropic-eng-writing-tools",
+      "src-owasp-llm06"
+    ]
+  },
+  {
+    "id": "m07-mc35",
+    "courseId": "m07",
+    "description": "MCP siempre es la mejor vía, porque es el estándar.",
+    "whyWrong": "Para un agente de código, una CLI consume menos contexto; un proceso fijo va mejor en un script, y un dato de una vez, en un archivo.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices",
+      "src-anthropic-eng-code-execution-mcp"
+    ]
+  },
+  {
+    "id": "m07-mc36",
+    "courseId": "m07",
+    "description": "Conviene poner un modelo en cualquier proceso, aunque siempre haga lo mismo.",
+    "whyWrong": "Si no hay nada que decidir, un modelo solo agrega costo y variación; un script hace lo mismo cada vez y se puede revisar.",
+    "basis": "inference",
+    "sourceIds": []
+  },
+  {
+    "id": "m07-mc37",
+    "courseId": "m07",
+    "description": "Cada servidor MCP ve toda la conversación y lo que traen los demás.",
+    "whyWrong": "Por diseño, un servidor recibe solo el contexto necesario y no ve dentro de los otros servidores.",
+    "sourceIds": [
+      "src-mcp-architecture"
+    ]
+  },
+  {
+    "id": "m07-mc38",
+    "courseId": "m07",
+    "description": "Cada servidor decide qué parte del contexto recibe.",
+    "whyWrong": "Lo decide el anfitrión, que también hace cumplir las políticas de seguridad y pide el consentimiento.",
+    "sourceIds": [
+      "src-mcp-architecture"
+    ]
+  },
+  {
+    "id": "m07-mc39",
+    "courseId": "m07",
+    "description": "Un token guardado como secreto puede no caducar nunca sin riesgo.",
+    "whyWrong": "Un token que no caduca sirve para siempre si se filtra; se prefieren credenciales de corta vida, que caducan solas.",
+    "sourceIds": [
+      "src-ietf-rfc6750",
+      "src-github-actions-oidc"
+    ]
+  },
+  {
+    "id": "m07-mc40",
+    "courseId": "m07",
+    "description": "Con RAG sobre los reportes, el agente puede responder cualquier cifra.",
+    "whyWrong": "RAG recupera fragmentos de texto, que pueden ser de otra fecha; las cifras salen de una consulta y de un cálculo.",
+    "basis": "inference",
+    "sourceIds": []
+  },
+  {
+    "id": "m07-mc41",
+    "courseId": "m07",
+    "description": "Cargar en el prompt todos los reportes es la forma segura de obtener una cifra actual.",
+    "whyWrong": "Los reportes traen cifras de otras fechas, y una entrada larga degrada el rendimiento; la cifra actual sale de consultar los datos actuales.",
+    "basis": "inference",
+    "sourceIds": []
+  },
+  {
+    "id": "m07-mc42",
+    "courseId": "m07",
+    "description": "Toda pregunta sobre una métrica se responde con una consulta.",
+    "whyWrong": "Si la pregunta es qué significa la métrica, la respuesta es una definición, y está en un documento.",
+    "basis": "inference",
+    "sourceIds": []
+  },
+  {
+    "id": "m07-mc43",
+    "courseId": "m07",
+    "description": "Para usar documentos siempre hay que montar RAG.",
+    "whyWrong": "Con una base pequeña puede bastar con incluirla entera, y RAG agrega sus propios fallos de recuperación.",
+    "sourceIds": [
+      "src-anthropic-eng-contextual-retrieval"
+    ]
+  },
+  {
+    "id": "m07-mc44",
+    "courseId": "m07",
+    "description": "Si el modelo escribe el SQL, el resultado es exacto porque lo calcula la base.",
+    "whyWrong": "La base ejecuta lo que se escribió; el SQL generado tiene errores medibles con datos reales.",
+    "sourceIds": [
+      "src-arxiv-bird-text2sql"
+    ]
+  },
+  {
+    "id": "m07-mc45",
+    "courseId": "m07",
+    "description": "Si el modelo explica bien su consulta, el resultado es correcto.",
+    "whyWrong": "Una explicación convincente no prueba que la consulta haga lo que dice. Se revisa y se reconcilia el resultado.",
+    "sourceIds": [
+      "src-arxiv-bird-text2sql"
+    ]
+  },
+  {
+    "id": "m07-mc46",
+    "courseId": "m07",
+    "description": "Una herramienta que acepta cualquier SQL es igual de segura que una con filtros fijos.",
+    "whyWrong": "Amplía lo que el modelo puede pedir; los parámetros acotados limitan lo que puede salir mal.",
+    "sourceIds": [
+      "src-owasp-llm06"
+    ]
+  },
+  {
+    "id": "m07-mc47",
+    "courseId": "m07",
+    "description": "Todo dato externo merece una integración, aunque se use una sola vez.",
+    "whyWrong": "Para un dato que se usa una vez y cabe en un archivo, pasar el archivo cuesta menos y no abre ningún acceso.",
+    "basis": "inference",
+    "sourceIds": []
+  },
+  {
+    "id": "m07-mc48",
+    "courseId": "m07",
+    "description": "Si la simulación pasa, la integración real funcionará igual.",
+    "whyWrong": "La simulación prueba lo que dice el contrato; el servicio real puede paginar distinto, tener otros límites o devolver otros formatos.",
+    "basis": "inference",
+    "sourceIds": []
+  },
+  {
+    "id": "m07-mc49",
+    "courseId": "m07",
+    "description": "Un texto que llega en un campo de otro sistema es solo un dato y no puede cambiar lo que hace el agente.",
+    "whyWrong": "La inyección indirecta deja instrucciones justamente en datos que el agente va a leer.",
+    "sourceIds": [
+      "src-arxiv-greshake-indirect-injection",
+      "src-owasp-llm01"
+    ]
+  },
+  {
+    "id": "m07-mc50",
+    "courseId": "m07",
+    "description": "Para que una tarea desatendida no se trabe, se aprueba todo automáticamente.",
+    "whyWrong": "Es agencia excesiva. Solo se dejan permitidas de antemano las herramientas necesarias, y lo demás se deniega.",
+    "sourceIds": [
+      "src-owasp-llm06"
+    ]
+  },
+  {
+    "id": "m07-mc51",
+    "courseId": "m07",
+    "description": "Si una herramienta no se puede usar, es mejor que la ejecución siga sin avisar.",
+    "whyWrong": "Un resultado incompleto que nadie nota es peor que un fallo visible; la ejecución debe fallar en voz alta.",
+    "basis": "inference",
+    "sourceIds": []
+  },
+  {
+    "id": "m07-mc52",
+    "courseId": "m07",
+    "description": "La ejecución programada usa solo los servidores que configuré yo.",
+    "whyWrong": "En al menos un producto, una ejecución no interactiva conecta sin aprobación los servidores del archivo del proyecto.",
+    "sourceIds": [
+      "src-anthropic-cc-headless"
+    ]
+  },
+  {
+    "id": "m07-mc53",
+    "courseId": "m07",
+    "description": "Una cifra que trae una cita está respaldada por la fuente.",
+    "whyWrong": "Una cita no garantiza que el fragmento respalde la frase, y el fragmento puede ser de otra fecha.",
+    "sourceIds": [
+      "src-arxiv-verifiability"
+    ]
+  },
+  {
+    "id": "m07-mc54",
+    "courseId": "m07",
+    "description": "Lo que viene de los documentos de la empresa es confiable.",
+    "whyWrong": "Un texto recuperado es contenido no confiable, aunque sea interno: puede traer instrucciones o estar desactualizado.",
+    "sourceIds": [
+      "src-owasp-llm01"
+    ]
   }
 ]

@@ -1,28 +1,28 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 a M06 completos y revisados; M07 con sus lecciones 1 a 3 revisadas; faltan L4 a L6, el examen y el laboratorio. · **Actualizado:** 2026-10-26 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 a M06 completos y revisados; M07 con sus seis lecciones (L4 a L6 en revisión de Codex, T-039); faltan el examen, el laboratorio y la práctica. · **Actualizado:** 2026-10-26 por Claude Code
 
 ## Siguiente acción
 
-1. **Claude:** las lecciones 4 a 6 de M07, con sus preguntas y fichas, y después T-039 para Codex.
-2. **Codex:** sin ticket abierto; T-038 cerrado el 2026-10-26.
+1. **Codex:** T-039, que revisa las lecciones 4 a 6 de M07, sus preguntas y sus fichas.
+2. **Claude:** mientras tanto, el examen, el laboratorio y la práctica de M07; al volver T-039, aplicar sus hallazgos.
 3. **Subagentes:** la investigación de M05 a M07 está lista; la de M08 a M10 se lanza cuando convenga.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-26)
 
-**≈ 65 % de la V1** (rango razonable: 62–68 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 66 % de la V1** (rango razonable: 63–69 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 88 % (simplificada a opción múltiple con D-024; faltan el hosting y la instalación real en dispositivos) | 13,2 |
-| 3 · Nueve manuales restantes | 40 % | 57 % (M01 y M03 a M06 completos y revisados; M07 con 3 de 6 lecciones) | 22,8 |
+| 3 · Nueve manuales restantes | 40 % | 59 % (M01 y M03 a M06 completos y revisados; M07 con sus 6 lecciones, sin examen ni laboratorio) | 23,6 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 65 %** |
+| **Total** | 100 % | | **≈ 66 %** |
 
 ## Tickets
 
@@ -66,11 +66,13 @@
 | [T-036](coordinacion/tickets/T-036-codex-revision-ux-subrayados.md) | Codex | Revisión de UX: subrayados con nota y página «Subrayados» | cerrado |
 | [T-037](coordinacion/tickets/T-037-codex-revision-m06-examen-laboratorio.md) | Codex | Revisión de M06: banco de examen, laboratorio como caso y práctica | cerrado |
 | [T-038](coordinacion/tickets/T-038-codex-revision-m07-l1-l3.md) | Codex | Revisión de M07: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
+| [T-039](coordinacion/tickets/T-039-codex-revision-m07-l4-l6.md) | Codex | Revisión de M07: lecciones 4 a 6, sus preguntas y fichas | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
+| Codex (T-039) | `investigacion/codex-revision-m07-l4-l6.md` |
 | Claude | `content/courses/m07/**` |
 
 ## Decisiones recientes
@@ -78,6 +80,15 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-26 · Claude Code — M07, lecciones 4 a 6 (T-039)
+- **Lecciones:** L4, MCP por dentro, con la elección entre CLI, API, MCP o ninguna; L5, RAG frente a consulta estructurada; L6, simular antes de conectar y la ejecución desatendida.
+- **Preguntas y apoyos:** 18 preguntas, 24 conceptos erróneos y 3 fichas.
+- **Series intercaladas (R-A4-2):** van como sección `#serie` en L4 y L5.
+
+El revisor de texto bajó L4 de 1 699 a 1 568 palabras.
+
+**Verificación:** `npm test` 205/205.
 
 ### 2026-10-26 · Claude Code — cierre de T-038
 - **Código de ejemplo:** el 425 estaba registrado («Too Early»), así que el ejemplo de código desconocido pasa a ser el 427.
