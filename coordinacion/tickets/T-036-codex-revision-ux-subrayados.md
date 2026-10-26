@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-26 |
 | Depende de | — (independiente de T-035) |
 | Fase del plan | 2 — Base de app y PWA |
@@ -87,4 +87,14 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 
 ## Revisión
 
-_(Claude Code)_
+_(Claude Code, 2026-10-26)_
+
+- **T036-UX-01 (media), aplicado.** El filtro «Manual» envuelve y el `select` se encoge (`min-width: 0`, `max-width: 100%`). La prueba E2E nueva crea un subrayado de M02, cuyo título es largo, y comprueba que `#/notas` no desborda a 360 px ni en escritorio.
+- **T036-UX-02 (media), aplicado.** `findQuote` desempata por la distancia a `position`. Una cita corta (menos de 40 caracteres) solo se reancla si coincide al menos la mitad de su contexto guardado; si no, queda como ausente. La lista explica qué hacer y ofrece «Borrar subrayado». Hay tres pruebas unitarias nuevas, entre ellas la de las dos frases iguales en secciones distintas. Reubicar sin borrar queda fuera: subrayar el texto nuevo y copiar la nota cubre el caso sin otra interfaz.
+- **T036-A11Y-03 (media), aplicado.** Cada subrayado empieza con un texto oculto, «Subrayado en amarillo[, con nota]:». Si no tiene nota, termina con «(fin del subrayado)»; si la tiene, termina con un botón ✎ real, llamado «Ver o editar la nota de este subrayado», que abre el editor con el foco en la nota y lo devuelve al cerrar. Ese texto y el botón llevan `data-hl-aux` y no entran en el mapa de texto ni en la cita guardada; la prueba E2E lo comprueba. Falta la pasada con NVDA o VoiceOver en un dispositivo.
+- **T036-UX-04 (baja), aplicado.** Ya no se crean marcas anidadas. Si la selección se cruza con subrayados existentes, la barra ofrece «Unir al subrayado»: el primero toma el tramo unido, conserva su color y junta las notas (`mergeHighlights`, con su prueba). Si la selección cae dentro de uno, ofrece «Editar el subrayado».
+- **T036-QA-05 (baja), aplicado.** La prueba E2E nueva cubre la unión, la edición desde una selección interna, el cambio de color, Esc, el botón ✎ con teclado, el texto auxiliar fuera de la cita y el desbordamiento. El puerto 4174 lo tenía ocupado un `vite preview` huérfano de esta mañana; lo detuve. La configuración sigue construyendo de nuevo por defecto, y `E2E_REUSE=1` permite reutilizar un servidor abierto de forma explícita.
+- **Propuesta de tokens, aplicada.** `design/tokens.json` incluye `highlight{Yellow,Green,Pink,Blue}{Surface,Underline}` con los mismos valores. Los nombres son planos porque el generador de `tokens.css` no admite grupos anidados. El CSS ya los usa en `.hl--*` y `.hl-swatch--*`.
+- **Fallo encontrado al verificar en el navegador, corregido.** Al seleccionar desde el inicio de un párrafo, la palabra se completaba hacia atrás con la última del bloque anterior: «decisión» del título del recuadro quedaba subrayada. El texto se concatena sin separar bloques. Ahora `textMap` registra los cortes de bloque y la palabra nunca se completa a través de uno. No cambia el formato de los subrayados guardados, y la prueba E2E comprueba que todas las marcas caen en un solo párrafo.
+- **Pendiente en dispositivo real:** el menú nativo de selección de Android e iOS junto a la barra fija y el lector de pantalla. Queda en el backlog para la fase 4.
+- `npm test` 190/190 y E2E 92/92.

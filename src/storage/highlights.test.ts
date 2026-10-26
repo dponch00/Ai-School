@@ -2,7 +2,7 @@
 import 'fake-indexeddb/auto'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { openDb, type LearnerDb } from './db'
-import { addHighlight, deleteHighlight, lessonHighlights, MAX_HIGHLIGHT_NOTE, updateHighlight, type NewHighlight } from './highlights'
+import { addHighlight, deleteHighlight, lessonHighlights, MAX_HIGHLIGHT_NOTE, mergeHighlights, updateHighlight, type NewHighlight } from './highlights'
 import { exportBackup, parseBackup, restoreBackup } from './backup'
 
 let db: LearnerDb
@@ -55,6 +55,15 @@ describe('subrayados', () => {
     const h = await addHighlight(db, base())
     await deleteHighlight(db, h.id)
     expect(await lessonHighlights(db, 'm02-l1')).toEqual([])
+  })
+
+  it('dos subrayados que se cruzan se unen en uno, con las dos notas', async () => {
+    const a = await addHighlight(db, base({ position: 100, quote: 'el objetivo', color: 'verde', note: 'primera' }))
+    const b = await addHighlight(db, base({ position: 104, quote: 'objetivo dice quién', note: 'segunda' }))
+    const anchor = { quote: 'el objetivo dice quién', prefix: 'Un buen ', suffix: ', para qué', position: 100, sectionId: 'objetivo', sectionTitle: 'Un buen objetivo', contentVersion: '1.0.0' }
+    const merged = await mergeHighlights(db, a.id, [b.id], anchor)
+    expect(merged).toMatchObject({ id: a.id, color: 'verde', quote: 'el objetivo dice quién', note: 'primera\n\nsegunda' })
+    expect((await lessonHighlights(db, 'm02-l1')).map((h) => h.id)).toEqual([a.id])
   })
 
   it('viaja en el respaldo y se restaura', async () => {

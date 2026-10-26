@@ -26,6 +26,30 @@ describe('anclaje por cita', () => {
     expect(edited.slice(at!.start, at!.end)).toBe('razón equivocada')
   })
 
+  it('si dos ocurrencias empatan en contexto, elige la más cercana a la posición guardada', () => {
+    const t = 'Uno. La regla vale aquí. Dos. La regla vale aquí. Tres.'
+    const second = t.lastIndexOf('La regla vale')
+    expect(findQuote(t, { quote: 'La regla vale', prefix: 'xx', suffix: 'zz', position: second })).toBeNull()
+    expect(findQuote(t, { quote: 'La regla vale', prefix: '', suffix: '', position: second })!.start).toBe(second)
+  })
+
+  it('una cita corta cuyo entorno desapareció no se ancla en otra frase igual (T036-UX-02)', () => {
+    const original = 'En la primera sección, un check pasa o falla. En la segunda sección, un check pasa o falla.'
+    const first = original.indexOf('un check')
+    const sel = { ...quoteAt(original, first, first + 'un check'.length), position: first }
+    // La primera sección se reescribió entera: la única «un check» que queda tiene otro contexto.
+    const edited = 'Texto nuevo sin la frase. En la segunda sección, un check pasa o falla.'
+    expect(findQuote(edited, sel)).toBeNull()
+    // Un cambio menor (una palabra antes de la cita) sí conserva el anclaje.
+    const minor = original.replace('primera sección', 'primera parte')
+    expect(findQuote(minor, sel)!.start).toBe(minor.indexOf('un check'))
+  })
+
+  it('una cita larga se reconoce aunque cambie su entorno', () => {
+    const quote = 'un check que pasa por la razón equivocada no prueba nada'
+    expect(findQuote(`Otro principio. ${quote}, y punto.`, { quote, prefix: 'xxxxxxxx', suffix: 'yyyyyyyy' })).not.toBeNull()
+  })
+
   it('devuelve null si la cita ya no está', () => {
     expect(findQuote(text, { quote: 'texto que no existe', prefix: '', suffix: '' })).toBeNull()
   })

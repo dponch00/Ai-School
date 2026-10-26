@@ -2,9 +2,9 @@ import { useEffect, useRef, useState, type RefObject } from 'react'
 import { Link } from 'react-router'
 import type { Highlight, HighlightColor } from '../domain/learner'
 import { db } from '../storage/db'
-import { addHighlight, deleteHighlight, lessonHighlights, MAX_HIGHLIGHT_NOTE, updateHighlight } from '../storage/highlights'
+import { addHighlight, deleteHighlight, lessonHighlights, MAX_HIGHLIGHT_NOTE, mergeHighlights, updateHighlight } from '../storage/highlights'
 import { useLive } from '../storage/useLive'
-import { drawHighlights, HIGHLIGHT_COLORS, sectionOf, selectionQuote, type TextQuote } from './highlighting'
+import { drawHighlights, drawnRanges, HIGHLIGHT_COLORS, quoteAt, sectionOf, selectionQuote, textMap, type TextQuote } from './highlighting'
 
 interface Props {
   /** Contenedor del cuerpo de la lección (los bloques `.prose`). */
@@ -18,7 +18,13 @@ interface Props {
   focusId?: string | null
 }
 
-type Pending = TextQuote & { position: number; sectionId: string | null; sectionTitle: string | null }
+type Anchor = TextQuote & { position: number; sectionId: string | null; sectionTitle: string | null }
+
+/**
+ * La selección pendiente de subrayar. Si se cruza con subrayados existentes, `overlap` dice cuáles
+ * y cómo quedaría el tramo unido: no se crean marcas anidadas (T036-UX-04).
+ */
+type Pending = Anchor & { overlap: { ids: string[]; inside: boolean; merged: Anchor } | null }
 
 const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
@@ -40,6 +46,8 @@ export default function HighlightLayer({ rootRef, courseId, lessonId, contentVer
   const [pending, setPending] = useState<Pending | null>(null)
   const [editing, setEditing] = useState<{ id: string; focusNote: boolean } | null>(null)
   const focused = useRef<string | null>(null)
+  const listRef = useRef(list)
+  listRef.current = list
 
   // Dibuja los subrayados cada vez que cambian o que llega el cuerpo de la lección.
   const drawKey = list.map((h) => `${h.id}:${h.color}:${h.note ? 1 : 0}`).join('|')
@@ -69,7 +77,17 @@ export default function HighlightLayer({ rootRef, courseId, lessonId, contentVer
         const q = selectionQuote(root, range)
         if (!q) return setPending(null)
         const section = sectionOf(root, range.startContainer)
-        setPending({ ...q, sectionId: section.id, sectionTitle: section.title })
+        const anchor = { ...q, sectionId: section.id, sectionTitle: section.title }
+        const map = textMap(root)
+        const end = q.position + q.quote.length
+        const hits = [...drawnRanges(map)].filter(([, r]) => r.start < end && q.position < r.end).sort((a, b) => a[1].start - b[1].start)
+        if (hits.length === 0) return setPending({ ...anchor, overlap: null })
+        const start = Math.min(q.position, hits[0][1].start)
+        const stop = Math.max(end, ...hits.map(([, r]) => r.end))
+        const first = hits[0][1].start <= q.position ? listRef.current.find((h) => h.id === hits[0][0]) : undefined
+        const merged = { ...quoteAt(map.text, start, stop), position: start, sectionId: first ? first.sectionId : anchor.sectionId, sectionTitle: first ? first.sectionTitle : anchor.sectionTitle }
+        const inside = hits.length === 1 && hits[0][1].start <= q.position && end <= hits[0][1].end
+        setPending({ ...anchor, overlap: { ids: hits.map(([id]) => id), inside, merged } })
       }, 150)
     }
     document.addEventListener('selectionchange', onChange)
@@ -84,10 +102,13 @@ export default function HighlightLayer({ rootRef, courseId, lessonId, contentVer
     const root = rootRef.current
     if (!root) return
     const onClick = (e: MouseEvent) => {
-      const mark = (e.target as HTMLElement).closest<HTMLElement>('mark[data-hl-id]')
+      const target = e.target as HTMLElement
+      // La marca o su botón ✎ de nota.
+      const el = target.closest<HTMLElement>('[data-hl-id]')
       // Un enlace dentro del subrayado (una cita, por ejemplo) conserva su función.
-      if (!mark || (e.target as HTMLElement).closest('a') || !window.getSelection()?.isCollapsed) return
-      setEditing({ id: mark.dataset.hlId!, focusNote: false })
+      if (!el || target.closest('a')) return
+      if (el.tagName === 'MARK' && !window.getSelection()?.isCollapsed) return
+      setEditing({ id: el.dataset.hlId!, focusNote: el.tagName === 'BUTTON' })
     }
     root.addEventListener('click', onClick)
     return () => root.removeEventListener('click', onClick)
@@ -95,10 +116,26 @@ export default function HighlightLayer({ rootRef, courseId, lessonId, contentVer
 
   const create = async (color: HighlightColor, withNote: boolean) => {
     if (!pending) return
-    const h = await addHighlight(db, { courseId, lessonId, contentVersion, color, ...pending })
+    const { overlap: _, ...anchor } = pending
+    const h = await addHighlight(db, { courseId, lessonId, contentVersion, color, ...anchor })
     window.getSelection()?.removeAllRanges()
     setPending(null)
     if (withNote) setEditing({ id: h.id, focusNote: true })
+  }
+
+  const merge = async () => {
+    if (!pending?.overlap) return
+    const [keep, ...rest] = pending.overlap.ids
+    await mergeHighlights(db, keep, rest, { ...pending.overlap.merged, contentVersion })
+    window.getSelection()?.removeAllRanges()
+    setPending(null)
+    window.setTimeout(() => flash(rootRef.current, keep, false), 50)
+  }
+
+  const editExisting = (id: string) => {
+    window.getSelection()?.removeAllRanges()
+    setPending(null)
+    setEditing({ id, focusNote: false })
   }
 
   const current = editing ? list.find((h) => h.id === editing.id) : undefined
@@ -115,12 +152,19 @@ export default function HighlightLayer({ rootRef, courseId, lessonId, contentVer
               <li key={h.id} className="hl-list__item">
                 <p className="hl-list__quote"><mark className={`hl hl--${h.color}`}>{h.quote.length > 220 ? `${h.quote.slice(0, 220)}…` : h.quote}</mark></p>
                 {h.note && <p className="hl-list__note">{h.note}</p>}
-                {missing.includes(h.id) && <p className="hl-list__missing">Este texto cambió en la lección y ya no se encuentra; el subrayado y su nota se conservan.</p>}
+                {missing.includes(h.id) && (
+                  <p className="hl-list__missing">
+                    Este texto cambió en la lección y ya no se encuentra con seguridad; el subrayado y su nota se conservan. Si quieres, subraya el texto nuevo, copia ahí la nota y borra este.
+                  </p>
+                )}
                 <p className="hl-list__actions">
                   {!missing.includes(h.id) && (
                     <button type="button" className="button button--small" onClick={() => flash(rootRef.current, h.id, 'smooth')}>Ver en el texto</button>
                   )}
                   <button type="button" className="button button--small" onClick={() => setEditing({ id: h.id, focusNote: true })}>{h.note ? 'Editar la nota' : 'Agregar una nota'}</button>
+                  {missing.includes(h.id) && (
+                    <button type="button" className="button button--small button--quiet" onClick={() => void deleteHighlight(db, h.id)}>Borrar subrayado</button>
+                  )}
                 </p>
               </li>
             ))}
@@ -129,7 +173,27 @@ export default function HighlightLayer({ rootRef, courseId, lessonId, contentVer
         <p className="muted"><Link to="/notas">Ver todos mis subrayados y notas</Link></p>
       </section>
 
-      {pending && !editing && (
+      {pending?.overlap && !editing && (
+        <div className="hl-bar" role="toolbar" aria-label="Subrayar la selección">
+          {pending.overlap.inside ? (
+            <>
+              <span className="hl-bar__label">Este texto ya está subrayado.</span>
+              <button type="button" className="button button--small" onPointerDown={(e) => e.preventDefault()} onClick={() => editExisting(pending.overlap!.ids[0])}>
+                Editar el subrayado
+              </button>
+            </>
+          ) : (
+            <>
+              <span className="hl-bar__label">{pending.overlap.ids.length > 1 ? 'Se cruza con subrayados tuyos.' : 'Se cruza con un subrayado tuyo.'}</span>
+              <button type="button" className="button button--small" onPointerDown={(e) => e.preventDefault()} onClick={() => void merge()}>
+                Unir al subrayado
+              </button>
+            </>
+          )}
+        </div>
+      )}
+
+      {pending && !pending.overlap && !editing && (
         <div className="hl-bar" role="toolbar" aria-label="Subrayar la selección">
           <span className="hl-bar__label">Subrayar</span>
           {HIGHLIGHT_COLORS.map((c) => (
@@ -164,8 +228,12 @@ function Editor({ h, focusNote, onClose }: { h: Highlight; focusNote: boolean; o
     const previous = document.activeElement as HTMLElement | null
     if (focusNote) noteRef.current?.focus()
     else panel.current?.querySelector<HTMLElement>('button')?.focus()
-    return () => previous?.focus?.()
-  }, [focusNote])
+    // Si el foco venía del botón ✎, al redibujar las marcas ese botón se recreó: se busca el nuevo.
+    return () => {
+      if (previous?.isConnected) previous.focus()
+      else document.querySelector<HTMLElement>(`button[data-hl-id="${h.id}"]`)?.focus()
+    }
+  }, [focusNote, h.id])
 
   const saveNote = async () => {
     if ((h.note ?? '') === note.trim()) return

@@ -1,11 +1,11 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 y M03 completos y revisados; M01 a M05 completos y revisados; M06 en preparación (6 de 6 lecciones; faltan examen y laboratorio); M07 con su investigación lista. · **Actualizado:** 2026-10-23 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 a M05 completos y revisados; M06 con sus seis lecciones revisadas (faltan examen, laboratorio y práctica); M07 con su investigación lista. · **Actualizado:** 2026-10-26 por Claude Code
 
 ## Siguiente acción
 
-1. **Codex:** T-035 (M06 lecciones 4 a 6) y T-036 (UX de los subrayados), independientes entre sí.
-2. **Claude:** mientras tanto, el banco de examen, el laboratorio y la práctica de M06.
+1. **Claude:** el banco de examen, el laboratorio y la práctica de M06; después, T-037 para Codex.
+2. **Codex:** sin ticket abierto; T-035 y T-036 cerrados el 2026-10-26.
 3. **Subagentes:** la investigación de M05 a M07 está lista; la de M08 a M10 se lanza cuando convenga.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
@@ -62,16 +62,13 @@
 | [T-032](coordinacion/tickets/T-032-codex-revision-m04-examen-laboratorio.md) | Codex | Revisión de M04: banco de examen, laboratorio como caso y práctica | cerrado |
 | [T-033](coordinacion/tickets/T-033-codex-revision-m05-completo.md) | Codex | Revisión de M05 completo | cerrado |
 | [T-034](coordinacion/tickets/T-034-codex-revision-m06-l1-l3.md) | Codex | Revisión de M06: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
-| [T-035](coordinacion/tickets/T-035-codex-revision-m06-l4-l6.md) | Codex | Revisión de M06: lecciones 4 a 6, preguntas y fichas | abierto |
-| [T-036](coordinacion/tickets/T-036-codex-revision-ux-subrayados.md) | Codex | Revisión de UX: subrayados con nota y página «Subrayados» | abierto |
+| [T-035](coordinacion/tickets/T-035-codex-revision-m06-l4-l6.md) | Codex | Revisión de M06: lecciones 4 a 6, preguntas y fichas | cerrado |
+| [T-036](coordinacion/tickets/T-036-codex-revision-ux-subrayados.md) | Codex | Revisión de UX: subrayados con nota y página «Subrayados» | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-032) | `investigacion/codex-revision-m04-examen-laboratorio.md`, `design/qa/T-032/**` |
-| Codex (T-035) | `investigacion/codex-revision-m06-l4-l6.md` |
-| Codex (T-036) | `investigacion/codex-revision-ux-subrayados.md`, `design/qa/T-036/**` |
 | Claude | `content/courses/m06/**` |
 
 ## Decisiones recientes
@@ -79,6 +76,21 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-26 · Claude Code — cierre de T-035 y T-036
+**T-035:** un solo hallazgo. En L5, el redondeo 3 772 000 → 3,77 se hace con dos decimales de millones, no con uno. Codex confirmó lo demás.
+
+**T-036:** los cinco hallazgos están aplicados.
+- el filtro de `#/notas` ya no desborda en el celular;
+- reanclaje prudente: desempata por posición y marca como ausente una cita corta cuyo contexto se perdió;
+- el lector de pantalla oye el inicio y el fin de cada subrayado, y la nota se abre con un botón ✎ real;
+- las selecciones que se cruzan se unen en un solo subrayado;
+- una prueba E2E nueva;
+- tokens `color.highlight*`.
+
+Al verificar en el navegador apareció un fallo de la versión original: al seleccionar desde el inicio de un párrafo, se subrayaba también la última palabra del título anterior. Ya está corregido. Detalle en la Revisión de T-036.
+
+**Verificación:** `npm test` 190/190, E2E 92/92 y revisión en el navegador a 375 px. Versión de prueba regenerada (artifact, versión 31).
 
 ### 2026-10-26 · Claude Code — subrayados con nota (D-027)
 Pedido de Daniel: subrayar, anotar y repasar las notas junto con su sección.

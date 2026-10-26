@@ -321,13 +321,15 @@ main:focus { outline: none; }
 .question__confidence { display: flex; align-items: flex-start; gap: var(--ais-space-2); min-height: var(--ais-layout-touch-target); margin: var(--ais-space-3) 0; font-size: var(--ais-font-size-sm); cursor: pointer; }
 .question__confidence input { margin-top: 0.2rem; width: 1.1rem; height: 1.1rem; flex: none; }
 
-/* Subrayados (pedido de Daniel, 2026-10-25). Colores suaves: el texto conserva su contraste. */
+/* Subrayados (pedido de Daniel, 2026-10-25). Colores suaves (tokens color.highlight*): el texto conserva su contraste. */
 .hl { color: inherit; border-radius: 2px; padding: 0.05em 0; box-decoration-break: clone; -webkit-box-decoration-break: clone; cursor: pointer; }
-.hl--amarillo { background: #FFEE9E; box-shadow: inset 0 -2px 0 #D9B200; }
-.hl--verde { background: #CFEBD5; box-shadow: inset 0 -2px 0 #3E8E5B; }
-.hl--rosa { background: #F9D2DB; box-shadow: inset 0 -2px 0 #C2546E; }
-.hl--azul { background: #D2E5F5; box-shadow: inset 0 -2px 0 #3A78A8; }
-.hl--note::after { content: "✎"; font-size: 0.75em; margin-left: 0.15em; vertical-align: super; color: var(--ais-color-muted); }
+.hl--amarillo { background: var(--ais-color-highlight-yellow-surface); box-shadow: inset 0 -2px 0 var(--ais-color-highlight-yellow-underline); }
+.hl--verde { background: var(--ais-color-highlight-green-surface); box-shadow: inset 0 -2px 0 var(--ais-color-highlight-green-underline); }
+.hl--rosa { background: var(--ais-color-highlight-pink-surface); box-shadow: inset 0 -2px 0 var(--ais-color-highlight-pink-underline); }
+.hl--azul { background: var(--ais-color-highlight-blue-surface); box-shadow: inset 0 -2px 0 var(--ais-color-highlight-blue-underline); }
+/* Botón ✎ al final de un subrayado con nota: abre el editor; es un objetivo en línea dentro del texto. */
+.hl-note { font: inherit; font-size: 0.8em; line-height: 1; vertical-align: super; color: var(--ais-color-muted); background: none; border: 0; padding: 0.1em 0.3em; margin-left: 0.05em; cursor: pointer; border-radius: var(--ais-radius-sm); }
+.hl-note:hover { color: var(--ais-color-ink); }
 .hl--flash { outline: 3px solid var(--ais-color-focus); outline-offset: 2px; }
 @media (prefers-reduced-motion: no-preference) { .hl--flash { transition: outline-color 0.4s; } }
 .hl-bar {
@@ -338,10 +340,10 @@ main:focus { outline: none; }
 }
 .hl-bar__label { font-weight: 600; margin-right: var(--ais-space-1); }
 .hl-swatch { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--ais-color-border); cursor: pointer; }
-.hl-swatch--amarillo { background: #FFEE9E; }
-.hl-swatch--verde { background: #CFEBD5; }
-.hl-swatch--rosa { background: #F9D2DB; }
-.hl-swatch--azul { background: #D2E5F5; }
+.hl-swatch--amarillo { background: var(--ais-color-highlight-yellow-surface); }
+.hl-swatch--verde { background: var(--ais-color-highlight-green-surface); }
+.hl-swatch--rosa { background: var(--ais-color-highlight-pink-surface); }
+.hl-swatch--azul { background: var(--ais-color-highlight-blue-surface); }
 .hl-swatch[aria-pressed="true"] { border: 3px solid var(--ais-color-ink); }
 .hl-swatch:focus-visible { outline: 3px solid var(--ais-color-focus); outline-offset: 2px; }
 .hl-editor { display: block; max-height: 70vh; overflow-y: auto; }
@@ -361,5 +363,8 @@ main:focus { outline: none; }
 .hl-list__actions { display: flex; flex-wrap: wrap; gap: var(--ais-space-2); }
 .notes-filters { display: flex; flex-wrap: wrap; gap: var(--ais-space-3); align-items: center; padding: var(--ais-space-3); background: var(--ais-color-surface); border: 1px solid var(--ais-color-disabled-surface); border-radius: var(--ais-radius-sm); margin-bottom: var(--ais-space-4); }
 .notes-filters__colors { display: flex; gap: var(--ais-space-2); }
+/* El título largo de un manual no debe ensanchar la página en el celular (T036-UX-01). */
+.notes-filters__course { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ais-space-1) var(--ais-space-2); min-width: 0; max-width: 100%; }
+.notes-filters__course select { flex: 1 1 12rem; min-width: 0; max-width: 100%; }
 .notes-section h3 { font-size: 1em; margin-top: var(--ais-space-4); color: var(--ais-color-muted); }
 .notes-filters select { font: inherit; padding: var(--ais-space-1) var(--ais-space-2); min-height: 44px; }

@@ -62,8 +62,8 @@ export default function NotesPage() {
         ) : (
           <>
             <section className="notes-filters" aria-label="Filtros">
-              <label>
-                Manual{' '}
+              <label className="notes-filters__course">
+                Manual
                 <select value={course} onChange={(e) => setCourse(e.target.value)}>
                   <option value="todos">Todos</option>
                   {coursesWithData.map((c) => <option key={c.id} value={c.id}>{c.id.toUpperCase()} · {c.title}</option>)}

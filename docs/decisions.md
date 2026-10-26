@@ -194,3 +194,8 @@ Una entrada por decisión. Estados: **aceptada**, **propuesta** (espera a Daniel
   - **Teclado:** al final de cada lección hay una lista de sus subrayados con «Ver en el texto» y «Editar la nota».
 - **Datos:** la tabla `highlights` (esquema 3 de IndexedDB) viaja en el respaldo; los respaldos de las versiones 1 y 2 se migran con la lista vacía.
 - **Alcance:** solo se subraya el texto de las lecciones (bloques `.prose`). Las fichas, las preguntas y el laboratorio quedan fuera por ahora.
+- **Ajustes tras T-036 (2026-10-26):**
+  - los subrayados que se cruzan se unen en uno y nunca quedan anidados;
+  - una cita corta cuyo contexto cambió casi por completo se marca como ausente, en lugar de anclarse en otra frase igual;
+  - el lector de pantalla anuncia el inicio y el fin de cada subrayado, y la nota se abre con un botón ✎ real;
+  - los colores salen de los tokens `color.highlight*`.

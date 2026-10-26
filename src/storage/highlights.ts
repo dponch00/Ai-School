@@ -33,6 +33,26 @@ export async function updateHighlight(
   })
 }
 
+export type HighlightAnchor = Pick<Highlight, 'quote' | 'prefix' | 'suffix' | 'position' | 'sectionId' | 'sectionTitle' | 'contentVersion'>
+
+/**
+ * Une subrayados que se cruzan (T036-UX-04): `keepId` toma el tramo unido y conserva su color; las
+ * notas de todos se juntan en orden y los demás se borran. Así nunca quedan marcas anidadas.
+ */
+export async function mergeHighlights(db: LearnerDb, keepId: string, removeIds: string[], anchor: HighlightAnchor, at = now()): Promise<Highlight | undefined> {
+  return db.transaction('rw', db.highlights, async () => {
+    const keep = await db.highlights.get(keepId)
+    if (!keep) return undefined
+    const others = (await db.highlights.bulkGet(removeIds)).filter((h): h is Highlight => !!h)
+    const notes = [keep, ...others].map((h) => h.note).filter(Boolean)
+    const note = notes.join('\n\n').slice(0, MAX_HIGHLIGHT_NOTE).trim() || undefined
+    const next = Highlight.parse({ ...keep, ...anchor, note, updatedAt: at })
+    await db.highlights.put(next)
+    await db.highlights.bulkDelete(others.map((h) => h.id))
+    return next
+  })
+}
+
 export async function deleteHighlight(db: LearnerDb, id: string): Promise<void> {
   await db.highlights.delete(id)
 }
