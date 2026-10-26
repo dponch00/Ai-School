@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-25 |
 | Depende de | T-032 y T-033 (cerrados) |
 | Fase del plan | 3 — Nueve manuales |
@@ -69,7 +69,12 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 
 ## Entrega
 
-_(Codex)_
+_(Codex, 2026-10-25)_
+
+- Informe: `investigacion/codex-revision-m06-l1-l3.md`.
+- Hallazgos: 0 críticos, 0 altos, 1 medio y 0 bajos. `m06-l3-r1` y `m06-l3-r2` repiten casos de M02/M04; requieren escenarios nuevos antes de reutilizarlos como comprobaciones.
+- Verificación: `npm test` pasó (12 archivos, 176 pruebas). Fuentes oficiales abiertas el 2026-10-25; fichas, estados `mixed` y `disallow_writes` comprobados.
+- Commit de entrega: pendiente de crear.
 
 ## Revisión
 
