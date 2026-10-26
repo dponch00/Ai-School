@@ -85,7 +85,7 @@ _(Codex, 2026-10-26)_
 - Informe: `investigacion/codex-revision-m08-l4-l6.md`.
 - Hallazgo: uno medio. No fue posible ejecutar el reconciliador exigido porque los alias de Python de WindowsApps no inician; las cifras quedan pendientes de esa comprobación explícita.
 - Verificación: `npm test` 219/219; claves únicas revisadas por script.
-- Commit: pendiente de registrar tras crear la entrega.
+- Commit: `7f471a6` — `[codex] Entrega T-042: revisión M08 L4-L6`.
 
 ## Revisión
 
