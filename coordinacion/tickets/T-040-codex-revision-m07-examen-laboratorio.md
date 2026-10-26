@@ -87,7 +87,7 @@ _(Codex, 2026-10-26)_
 - Informe: `investigacion/codex-revision-m07-examen-laboratorio.md`.
 - Hallazgo: uno medio; `lab-q03` y `lab-q04` repiten las decisiones de alcances mínimos y credenciales efímeras ya comprobadas.
 - Verificación: CSV contrastado; `npm test` 205/205; claves únicas comprobadas por script.
-- Commit: pendiente de registrar tras crear la entrega.
+- Commit: `40cccf3` — `[codex] Entrega T-040: revisión cierre M07`.
 
 ## Revisión
 
