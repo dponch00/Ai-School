@@ -86,7 +86,7 @@ _(Codex, 2026-10-26)_
 - Informe: `investigacion/codex-revision-m07-l4-l6.md`.
 - Hallazgos: 2 medios. `m07-l6-c2` repite la decisión del diagnóstico sobre inyección indirecta; `m07-l6-r1` recicla la comprobación de M03 sobre una cita que no valida la afirmación. Las demás fuentes, fichas, series, claves y longitudes quedaron verificadas.
 - Verificación: `npm test` — 205/205 pruebas aprobadas; claves únicas y longitudes revisadas por script.
-- Commit: pendiente de registrar tras crear la entrega.
+- Commit: `9d42fb3` — `[codex] Entrega T-039: revisión M07 L4-L6`.
 
 ## Revisión
 
