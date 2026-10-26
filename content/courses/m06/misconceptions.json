@@ -1,0 +1,265 @@
+[
+  {
+    "id": "m06-mc01",
+    "courseId": "m06",
+    "description": "Si la interfaz valida el dato, el servidor no necesita validarlo.",
+    "whyWrong": "La validación en el navegador se puede saltar, así que la misma regla se repite en el servidor.",
+    "sourceIds": [
+      "src-owasp-input-validation"
+    ]
+  },
+  {
+    "id": "m06-mc02",
+    "courseId": "m06",
+    "description": "Filtrar por región en la interfaz restringe quién ve cada región.",
+    "whyWrong": "El dato ya viajó al navegador. Filtrar en la pantalla cambia lo que se muestra, pero no decide quién tiene acceso.",
+    "sourceIds": [
+      "src-mdn-client-server"
+    ]
+  },
+  {
+    "id": "m06-mc03",
+    "courseId": "m06",
+    "description": "Si el agente ejecutó la consulta, los datos se procesaron en su computadora.",
+    "whyWrong": "La consulta la ejecuta el cómputo del almacén; quien la envía solo recibe el resultado.",
+    "sourceIds": [
+      "src-databricks-sql-warehouse",
+      "src-databricks-sql-connector-python"
+    ]
+  },
+  {
+    "id": "m06-mc04",
+    "courseId": "m06",
+    "description": "Da igual calcular en el navegador o en el servidor si el resultado se ve bien.",
+    "whyWrong": "Si se calcula en el navegador, el check no verifica ese cálculo, los montos se manejan con números binarios en lugar de decimales exactos y las filas de detalle quedan a la vista del usuario.",
+    "sourceIds": [
+      "src-ietf-rfc8259"
+    ]
+  },
+  {
+    "id": "m06-mc05",
+    "courseId": "m06",
+    "description": "Recalcular con valores ya redondeados para mostrar da la misma cifra.",
+    "whyWrong": "Cada valor redondeado ya perdió decimales; al recalcular, las diferencias se acumulan y la cifra puede no coincidir con la del contrato.",
+    "sourceIds": [
+      "src-ietf-rfc8259"
+    ]
+  },
+  {
+    "id": "m06-mc06",
+    "courseId": "m06",
+    "description": "Si la tabla declara una llave primaria, no puede haber filas repetidas.",
+    "whyWrong": "En algunos almacenes las llaves son solo informativas y nadie las hace cumplir, así que la unicidad se comprueba en el código.",
+    "sourceIds": [
+      "src-databricks-constraints"
+    ]
+  },
+  {
+    "id": "m06-mc07",
+    "courseId": "m06",
+    "description": "Una restricción CHECK (amount > 0) impide los montos vacíos.",
+    "whyWrong": "Un CHECK deja pasar la fila cuando el valor es nulo; para exigir el monto hace falta además NOT NULL.",
+    "sourceIds": [
+      "src-postgres-constraints"
+    ]
+  },
+  {
+    "id": "m06-mc08",
+    "courseId": "m06",
+    "description": "Si el JSON valida contra el esquema, las cifras son correctas.",
+    "whyWrong": "El esquema fija la forma. Las reglas de sentido, como que el ponderado no supere al abierto, se comprueban en el código.",
+    "sourceIds": [
+      "src-jsonschema-validation-2020-12"
+    ]
+  },
+  {
+    "id": "m06-mc09",
+    "courseId": "m06",
+    "description": "Lo más limpio es corregir el error directamente en el archivo RAW.",
+    "whyWrong": "Se pierde la evidencia de que el origen venía mal y la corrección no se repite; va en una regla declarada que se aplica en cada ejecución.",
+    "sourceIds": [
+      "src-databricks-medallion"
+    ]
+  },
+  {
+    "id": "m06-mc10",
+    "courseId": "m06",
+    "description": "Ante una etapa desconocida, lo prudente es asignarle la probabilidad de la etapa más parecida.",
+    "whyWrong": "Eso inventa un supuesto que nadie aprobó; sin política, el cálculo se detiene.",
+    "sourceIds": [
+      "src-databricks-medallion"
+    ]
+  },
+  {
+    "id": "m06-mc11",
+    "courseId": "m06",
+    "description": "Un número en JSON conserva cualquier cantidad de decimales.",
+    "whyWrong": "Cada programa que lee el JSON puede limitar la precisión; lo prudente es no esperar más que la de los números binarios de doble precisión.",
+    "sourceIds": [
+      "src-ietf-rfc8259"
+    ]
+  },
+  {
+    "id": "m06-mc12",
+    "courseId": "m06",
+    "description": "Si conecto al agente con el almacén, solo puede leer.",
+    "whyWrong": "El servidor consultado permite leer y escribir por defecto; el modo de solo lectura hay que activarlo con una política.",
+    "sourceIds": [
+      "src-databricks-dbsql-mcp"
+    ]
+  },
+  {
+    "id": "m06-mc13",
+    "courseId": "m06",
+    "description": "El agente tiene sus propios permisos, distintos de los míos.",
+    "whyWrong": "Los servidores gestionados ejecutan las consultas con los permisos de quien llama.",
+    "sourceIds": [
+      "src-databricks-managed-mcp"
+    ]
+  },
+  {
+    "id": "m06-mc14",
+    "courseId": "m06",
+    "description": "Si la herramienta se declara de solo lectura, no puede escribir.",
+    "whyWrong": "Lo que una herramienta dice de sí misma no es confiable; el control real es el permiso y la política.",
+    "sourceIds": [
+      "src-mcp-spec-tools"
+    ]
+  },
+  {
+    "id": "m06-mc15",
+    "courseId": "m06",
+    "description": "Cuando el agente pide todas las filas, recibe siempre la tabla completa.",
+    "whyWrong": "El canal del agente puede recortar los resultados grandes, y entonces lo que ve es una muestra.",
+    "sourceIds": [
+      "src-databricks-dbsql-mcp"
+    ]
+  },
+  {
+    "id": "m06-mc16",
+    "courseId": "m06",
+    "description": "Dar permiso de lectura sobre todo el catálogo es lo mismo que darlo sobre una tabla.",
+    "whyWrong": "El permiso sobre el catálogo se hereda a todas sus tablas, también a las que se creen después.",
+    "sourceIds": [
+      "src-databricks-uc-privileges"
+    ]
+  },
+  {
+    "id": "m06-mc17",
+    "courseId": "m06",
+    "description": "Una vez configurado, cualquier agente consulta el almacén por su cuenta.",
+    "whyWrong": "Alguien tiene que elegir la conexión, la identidad, los permisos y el cómputo que ejecuta la consulta; nada se conecta solo.",
+    "sourceIds": [
+      "src-databricks-managed-mcp"
+    ]
+  },
+  {
+    "id": "m06-mc18",
+    "courseId": "m06",
+    "description": "La validación del formulario cubre también las reglas de negocio.",
+    "whyWrong": "Validar la forma de un dato no dice si tiene sentido para el negocio; esas reglas viven en el código de cálculo.",
+    "sourceIds": [
+      "src-owasp-input-validation"
+    ]
+  },
+  {
+    "id": "m06-mc19",
+    "courseId": "m06",
+    "description": "El modelo generativo puede aplicar las reglas de negocio a las cifras.",
+    "whyWrong": "Las reglas con montos exactos se aplican en el código de cálculo, que se puede verificar; el modelo redacta sobre cifras ya calculadas.",
+    "sourceIds": [
+      "src-anthropic-reduce-hallucinations"
+    ]
+  },
+  {
+    "id": "m06-mc20",
+    "courseId": "m06",
+    "description": "Una restricción CHECK puede hacer cumplir que no haya filas repetidas.",
+    "whyWrong": "Un CHECK evalúa una condición en cada fila por separado; la unicidad es otra restricción, y en algunos almacenes no se hace cumplir.",
+    "sourceIds": [
+      "src-postgres-constraints",
+      "src-databricks-constraints"
+    ]
+  },
+  {
+    "id": "m06-mc21",
+    "courseId": "m06",
+    "description": "Un valor vacío se trata como cero en una restricción.",
+    "whyWrong": "Un valor vacío es nulo, no cero, y una restricción CHECK lo deja pasar porque la condición no da falso.",
+    "sourceIds": [
+      "src-postgres-constraints"
+    ]
+  },
+  {
+    "id": "m06-mc22",
+    "courseId": "m06",
+    "description": "Si el esquema no detecta un error, el esquema está mal escrito.",
+    "whyWrong": "El esquema solo garantiza la forma; las reglas de sentido nunca fueron su trabajo.",
+    "sourceIds": [
+      "src-jsonschema-validation-2020-12"
+    ]
+  },
+  {
+    "id": "m06-mc23",
+    "courseId": "m06",
+    "description": "Cualquier dato raro debe detener el cálculo.",
+    "whyWrong": "Si hay una regla o una política aprobada, se normaliza o se reporta y se excluye; se detiene solo cuando seguir inventaría una cifra.",
+    "sourceIds": [
+      "src-databricks-medallion"
+    ]
+  },
+  {
+    "id": "m06-mc24",
+    "courseId": "m06",
+    "description": "Un sitio estático puede consultar y calcular las cifras por su cuenta.",
+    "whyWrong": "Un sitio estático devuelve siempre el mismo contenido; las cifras las calculó alguien antes en otro lugar.",
+    "sourceIds": [
+      "src-mdn-client-server"
+    ]
+  },
+  {
+    "id": "m06-mc25",
+    "courseId": "m06",
+    "description": "Descargar todas las filas es lo más seguro para no perder nada.",
+    "whyWrong": "Se descarga el nivel de detalle que pide el paso siguiente; traer todo mueve datos que no hacen falta, y el canal puede recortarlo.",
+    "sourceIds": [
+      "src-databricks-dbsql-mcp"
+    ]
+  },
+  {
+    "id": "m06-mc26",
+    "courseId": "m06",
+    "description": "El total de una región alcanza para encontrar qué fila causa una diferencia.",
+    "whyWrong": "El total dice que hay una diferencia, no dónde está; hace falta el detalle de esa región.",
+    "sourceIds": [
+      "src-databricks-perf"
+    ]
+  },
+  {
+    "id": "m06-mc27",
+    "courseId": "m06",
+    "description": "Un permiso de lectura nunca es riesgoso.",
+    "whyWrong": "Leer de más expone datos que no hacían falta, y un permiso amplio se hereda a tablas futuras.",
+    "sourceIds": [
+      "src-databricks-uc-privileges"
+    ]
+  },
+  {
+    "id": "m06-mc28",
+    "courseId": "m06",
+    "description": "Excluir un dato sin reportarlo es una forma segura de seguir.",
+    "whyWrong": "Lo que se excluye se reporta en la lista de calidad de datos, y sin una política aprobada el cálculo se detiene; excluir en silencio cambia la cifra sin aviso.",
+    "sourceIds": [
+      "src-databricks-medallion"
+    ]
+  },
+  {
+    "id": "m06-mc29",
+    "courseId": "m06",
+    "description": "Si una oportunidad aparece dos veces, se suman sus filas.",
+    "whyWrong": "Sumar las dos filas cuenta dos veces la misma oportunidad; se aplica la política de duplicados aprobada.",
+    "sourceIds": [
+      "src-postgres-constraints"
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "id": "m06-l2",
+  "courseId": "m06",
+  "version": "0.1.0",
+  "order": 2,
+  "title": "RAW, llaves y contratos de datos",
+  "objectives": [
+    {
+      "id": "m06-l2-o1",
+      "statement": "Reconoce por qué el RAW se conserva y se corrige con reglas declaradas.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m06-eo2"
+    },
+    {
+      "id": "m06-l2-o2",
+      "statement": "Identifica la llave y la regla que viola un dato, y lo que el esquema no garantiza.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m06-eo2"
+    },
+    {
+      "id": "m06-l2-o3",
+      "statement": "Decide si un dato se normaliza, se reporta y excluye, o detiene el cálculo.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m06-eo2"
+    }
+  ],
+  "bodyPath": "courses/m06/lessons/m06-l2.md",
+  "reviewQuestionIds": [
+    "m06-l2-r1",
+    "m06-l2-r2"
+  ],
+  "checkQuestionIds": [
+    "m06-l2-c1",
+    "m06-l2-c2",
+    "m06-l2-c3",
+    "m06-l2-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m06-pc-medallion",
+    "m06-pc-constraints"
+  ],
+  "sourceIds": [
+    "src-databricks-medallion",
+    "src-postgres-constraints",
+    "src-databricks-constraints",
+    "src-jsonschema-validation-2020-12"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

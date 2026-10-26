@@ -1,28 +1,28 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 y M03 completos y revisados; M01 a M05 completos y revisados; M06 y M07 con su investigación lista. · **Actualizado:** 2026-10-23 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 y M03 completos y revisados; M01 a M05 completos y revisados; M06 en preparación (3 de 6 lecciones); M07 con su investigación lista. · **Actualizado:** 2026-10-23 por Claude Code
 
 ## Siguiente acción
 
-1. **Claude:** M06 lecciones 1 a 3 (D-026: tandas pequeñas), luego T-034 para Codex.
-2. **Codex:** sin ticket abierto hasta T-034.
+1. **Codex:** T-034, revisión del blueprint y las lecciones 1 a 3 de M06.
+2. **Claude:** mientras tanto, M06 lecciones 4 a 6.
 3. **Subagentes:** la investigación de M05 a M07 está lista; la de M08 a M10 se lanza cuando convenga.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-23)
 
-**≈ 60 % de la V1** (rango razonable: 57–63 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 61 % de la V1** (rango razonable: 58–64 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 88 % (simplificada a opción múltiple con D-024; faltan el hosting y la instalación real en dispositivos) | 13,2 |
-| 3 · Nueve manuales restantes | 40 % | 44 % (M01, M03, M04 y M05 completos y revisados; investigación de M06 y M07 lista) | 17,6 |
+| 3 · Nueve manuales restantes | 40 % | 46 % (M01, M03, M04 y M05 completos y revisados; M06 con 3 de 6 lecciones; investigación de M07 lista) | 18,4 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 60 %** |
+| **Total** | 100 % | | **≈ 61 %** |
 
 ## Tickets
 
@@ -61,12 +61,14 @@
 | [T-031](coordinacion/tickets/T-031-codex-revision-m04-l4-l6.md) | Codex | Revisión de M04: lecciones 4 a 6, preguntas y fichas | cerrado |
 | [T-032](coordinacion/tickets/T-032-codex-revision-m04-examen-laboratorio.md) | Codex | Revisión de M04: banco de examen, laboratorio como caso y práctica | cerrado |
 | [T-033](coordinacion/tickets/T-033-codex-revision-m05-completo.md) | Codex | Revisión de M05 completo | cerrado |
+| [T-034](coordinacion/tickets/T-034-codex-revision-m06-l1-l3.md) | Codex | Revisión de M06: blueprint, lecciones 1 a 3, preguntas y fichas | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
 | Codex (T-032) | `investigacion/codex-revision-m04-examen-laboratorio.md`, `design/qa/T-032/**` |
+| Codex (T-034) | `investigacion/codex-revision-m06-l1-l3.md` |
 | Claude | `content/courses/m06/**` |
 
 ## Decisiones recientes
@@ -74,6 +76,23 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-25 · Claude Code — M06, lecciones 1 a 3
+**Lecciones:**
+- L1: capas de un dashboard.
+- L2: RAW, llaves y contratos.
+- L3: consultar cerca de los datos y la conexión del agente.
+
+**Preguntas, conceptos y fichas:**
+- 16 preguntas;
+- 29 conceptos erróneos;
+- 4 fichas.
+
+**Fuentes y prueba:**
+- se sumaron 32 fuentes;
+- la prueba de nombres de producto incluye ahora Databricks, DuckDB y Unity Catalog.
+
+Abierto T-034. `npm test` 176/176. Avance: ≈ 61 %.
 
 ### 2026-10-25 · Claude Code — revisión de T-032 y T-033
 **T-032:** `m04-p11` deja de repetir `dx-b4-03`.

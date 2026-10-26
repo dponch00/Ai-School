@@ -1,0 +1,68 @@
+{
+  "id": "m06",
+  "version": "0.1.0",
+  "title": "Datos y arquitectura de herramientas analíticas",
+  "centralQuestion": "¿Dónde se ejecuta cada operación y cómo sé que los números son correctos?",
+  "competencyIds": [
+    "C08",
+    "C09"
+  ],
+  "evaluatedObjectives": [
+    {
+      "id": "m06-eo1",
+      "statement": "Dada una operación del flujo de Altiplano (filtrar, agregar, aplicar una regla de negocio, validar, mostrar o redactar), identifica en qué capa debe ejecutarse (motor de datos, código de cálculo, interfaz o modelo generativo) y descarta la ubicación que la deja sin verificar o la confía solo al navegador.",
+      "competencyIds": [
+        "C08"
+      ]
+    },
+    {
+      "id": "m06-eo2",
+      "statement": "Dado un extracto RAW y el contrato que debe cumplir, identifica la llave y la regla violada (duplicado, nulo, valor fuera de dominio, tipo o unidad) y decide si se normaliza con una regla declarada, se reporta y se excluye, o se detiene el cálculo.",
+      "competencyIds": [
+        "C08"
+      ]
+    },
+    {
+      "id": "m06-eo3",
+      "statement": "Dada una necesidad de datos de un agente o de un análisis sobre el almacén, decide la granularidad que se consulta en remoto y la que se descarga, y elige la conexión, la identidad y el modo (lectura o escritura) con mínimo privilegio, sin suponer que algo se conecta solo.",
+      "competencyIds": [
+        "C08",
+        "C09"
+      ]
+    },
+    {
+      "id": "m06-eo4",
+      "statement": "Dado un paso analítico (consultar un extracto local, aplicar una regla con importes, guardar un resultado intermedio o comparar snapshots), elige la herramienta y el formato (SQL remoto, motor embebido, Python, Parquet o CSV) según el volumen, los tipos y la reproducibilidad.",
+      "competencyIds": [
+        "C08"
+      ]
+    },
+    {
+      "id": "m06-eo5",
+      "statement": "Dada una salida del flujo (KPI, alerta, proyección o comentario), identifica si es determinista, estadística o generativa, decide qué cifra nunca debe producir un modelo generativo y elige cómo verificar el texto generado contra el contrato.",
+      "competencyIds": [
+        "C08"
+      ]
+    },
+    {
+      "id": "m06-eo6",
+      "statement": "Dada una diferencia sembrada o un check propuesto, decide qué check de reconciliación o de trazabilidad la detecta y cuál no, por falta de independencia o de casos, y elige cómo generar datos sintéticos que ejerciten los casos límite sin usar datos reales.",
+      "competencyIds": [
+        "C08"
+      ]
+    }
+  ],
+  "lessonIds": [
+    "m06-l1",
+    "m06-l2",
+    "m06-l3",
+    "m06-l4",
+    "m06-l5",
+    "m06-l6"
+  ],
+  "practiceId": "m06-lab",
+  "estimatedMinutes": 180,
+  "volatility": "low",
+  "reviewCadence": "annual",
+  "status": "draft"
+}

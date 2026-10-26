@@ -1,0 +1,54 @@
+{
+  "id": "m06-l3",
+  "courseId": "m06",
+  "version": "0.1.0",
+  "order": 3,
+  "title": "Consultar cerca de los datos y conectar al agente",
+  "objectives": [
+    {
+      "id": "m06-l3-o1",
+      "statement": "Decide la granularidad que se consulta en remoto y la que se descarga.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m06-eo3"
+    },
+    {
+      "id": "m06-l3-o2",
+      "statement": "Reconoce que el canal del agente puede recortar resultados.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m06-eo3"
+    },
+    {
+      "id": "m06-l3-o3",
+      "statement": "Elige conexión, identidad, permisos y modo de lectura con mínimo privilegio.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m06-eo3"
+    }
+  ],
+  "bodyPath": "courses/m06/lessons/m06-l3.md",
+  "reviewQuestionIds": [
+    "m06-l3-r1",
+    "m06-l3-r2"
+  ],
+  "checkQuestionIds": [
+    "m06-l3-c1",
+    "m06-l3-c2",
+    "m06-l3-c3",
+    "m06-l3-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m06-pc-managed-mcp"
+  ],
+  "sourceIds": [
+    "src-databricks-perf",
+    "src-postgres-tutorial-agg",
+    "src-databricks-dbsql-mcp",
+    "src-databricks-sql-connector-python",
+    "src-databricks-managed-mcp",
+    "src-databricks-uc-privileges",
+    "src-mcp-spec-tools",
+    "src-owasp-llm01"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

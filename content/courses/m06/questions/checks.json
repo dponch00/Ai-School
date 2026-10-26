@@ -1,0 +1,700 @@
+[
+  {
+    "id": "m06-l1-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l1",
+    "evaluatedObjectiveId": "m06-eo1",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Para que cada gerente vea solo su región, el agente propone enviar al navegador los datos de las tres regiones y ocultar con un filtro de la pantalla las que no le corresponden.",
+    "stem": "¿Protege eso los datos de las otras regiones?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Sí, porque el usuario no puede ver lo que el filtro oculta en la pantalla",
+        "correct": false,
+        "feedback": "El dato ya llegó al navegador, y ahí cualquiera puede verlo aunque la pantalla no lo muestre. Ocultar una región cambia lo que se ve, pero no decide quién tiene acceso.",
+        "misconceptionId": "m06-mc02"
+      },
+      {
+        "id": "o2",
+        "text": "No: los datos ya llegaron al navegador; hay que filtrar en el servidor",
+        "correct": true,
+        "feedback": "Correcta. Lo que llega al navegador queda en manos del usuario. Por eso el filtro va en el servidor, que envía a cada gerente solo los datos de su región."
+      },
+      {
+        "id": "o3",
+        "text": "Sí, siempre que el filtro también valide la región elegida",
+        "correct": false,
+        "feedback": "La validación en el navegador se puede saltar, y además no resuelve lo principal. El dato de las otras regiones ya viajó al navegador.",
+        "misconceptionId": "m06-mc01"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l1#cliente-servidor",
+    "sourceIds": [
+      "src-mdn-client-server",
+      "src-owasp-input-validation"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l1-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l1",
+    "evaluatedObjectiveId": "m06-eo1",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "La regla dice: «una oportunidad abierta con cierre anterior al snapshot está vencida».",
+    "stem": "¿En qué capa va?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En la interfaz, que ya valida las fechas que se ingresan",
+        "correct": false,
+        "feedback": "La interfaz puede revisar que la fecha tenga la forma correcta, pero decidir si una oportunidad está vencida es una regla de negocio. Esas reglas van en el código de cálculo.",
+        "misconceptionId": "m06-mc18"
+      },
+      {
+        "id": "o2",
+        "text": "En el modelo generativo, que entiende bien la regla escrita",
+        "correct": false,
+        "feedback": "El modelo generativo redacta sobre cifras ya calculadas; no es el lugar donde se producen. Una regla que decide una cifra va en el código de cálculo, donde un check puede verificarla.",
+        "misconceptionId": "m06-mc19"
+      },
+      {
+        "id": "o3",
+        "text": "En el código de cálculo, que aplica las reglas de negocio",
+        "correct": true,
+        "feedback": "Correcta. Es una regla de negocio que decide una cifra, la cantidad de oportunidades vencidas. Por eso va en el código de cálculo, donde el check puede verificarla."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l1#validacion",
+    "sourceIds": [
+      "src-owasp-input-validation"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l1-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l1",
+    "evaluatedObjectiveId": "m06-eo1",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "El agente informa: «corrí la consulta de totales por región sobre la tabla de snapshots». La envió desde un script local, con un conector al almacén.",
+    "stem": "¿Dónde se procesaron las filas?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En el almacén; el script solo recibió el resultado",
+        "correct": true,
+        "feedback": "Correcta. El conector envía el SQL al cómputo del almacén, que lo ejecuta. Al script solo vuelven las filas del resultado."
+      },
+      {
+        "id": "o2",
+        "text": "En la computadora del agente, que fue la que corrió el script",
+        "correct": false,
+        "feedback": "El script envió la consulta, pero quien la ejecutó fue el cómputo del almacén. A la computadora solo volvieron las filas del resultado.",
+        "misconceptionId": "m06-mc03"
+      },
+      {
+        "id": "o3",
+        "text": "En el navegador del dashboard, donde después se muestran los totales",
+        "correct": false,
+        "feedback": "El navegador muestra los totales después, pero no intervino en la consulta. La ejecutó el almacén, y el script recibió el resultado.",
+        "misconceptionId": "m06-mc03"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l1#motor",
+    "sourceIds": [
+      "src-databricks-sql-warehouse",
+      "src-databricks-sql-connector-python"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l1-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l1",
+    "evaluatedObjectiveId": "m06-eo1",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "La interfaz muestra el pipeline abierto de cada región redondeado a miles (1 202 000 se ve como «1 202 mil»). Para una fila de total, el agente propone sumar esos valores redondeados.",
+    "stem": "¿Qué problema hay?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguno, porque redondear antes o después da el mismo resultado",
+        "correct": false,
+        "feedback": "Cada valor redondeado ya perdió unidades, y al sumarlos esas diferencias se acumulan. Por eso el total puede no coincidir con el del contrato.",
+        "misconceptionId": "m06-mc05"
+      },
+      {
+        "id": "o2",
+        "text": "Que el total puede no coincidir con el del contrato",
+        "correct": true,
+        "feedback": "Correcta. El redondeo sirve para mostrar, no para calcular. El total se toma del contrato, que se calculó con los valores completos."
+      },
+      {
+        "id": "o3",
+        "text": "Ninguno, si la interfaz usa números de doble precisión para el cálculo",
+        "correct": false,
+        "feedback": "La doble precisión no recupera los decimales que se perdieron al redondear. Además, ese cálculo no debería estar en la interfaz, sino en el código de cálculo.",
+        "misconceptionId": "m06-mc04"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l1#formato",
+    "sourceIds": [
+      "src-ietf-rfc8259"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l2-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l2",
+    "evaluatedObjectiveId": "m06-eo2",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "La tabla de oportunidades del almacén declara opp_id como llave primaria. El agente da por hecho que no puede haber filas repetidas.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: si la llave está declarada, el almacén rechaza los duplicados",
+        "correct": false,
+        "feedback": "En algunos almacenes la llave declarada es solo informativa y nadie impide escribir una fila repetida. Por eso puede haber duplicados aunque la tabla tenga llave.",
+        "misconceptionId": "m06-mc06"
+      },
+      {
+        "id": "o2",
+        "text": "Comprobar la unicidad en el código: la llave puede no hacerse cumplir",
+        "correct": true,
+        "feedback": "Correcta. Una llave declarada no siempre se hace cumplir, así que el check de unicidad va en el código de cálculo."
+      },
+      {
+        "id": "o3",
+        "text": "Agregar una restricción CHECK para que el almacén garantice la unicidad",
+        "correct": false,
+        "feedback": "Un CHECK evalúa una condición en cada fila por separado, así que no puede saber si una fila se repite. La unicidad es otra restricción, y en algunos almacenes tampoco se hace cumplir.",
+        "misconceptionId": "m06-mc20"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l2#llaves",
+    "sourceIds": [
+      "src-databricks-constraints"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l2-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l2",
+    "evaluatedObjectiveId": "m06-eo2",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "La columna amount tiene la restricción CHECK (amount > 0) y admite valores vacíos.",
+    "stem": "¿Qué pasa con una fila sin monto?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Se acepta: un CHECK pasa cuando el valor es nulo",
+        "correct": true,
+        "feedback": "Correcta. Con el monto vacío, la condición no da falso sino nulo, y el CHECK deja pasar la fila. Para impedirlo hace falta además NOT NULL."
+      },
+      {
+        "id": "o2",
+        "text": "Se rechaza, porque no cumple la condición amount > 0",
+        "correct": false,
+        "feedback": "Con el monto vacío, la condición no da falso sino nulo, y un CHECK solo rechaza la fila cuando la condición da falso. Para exigir el monto hace falta NOT NULL.",
+        "misconceptionId": "m06-mc07"
+      },
+      {
+        "id": "o3",
+        "text": "Se guarda con el monto convertido en cero",
+        "correct": false,
+        "feedback": "La base no convierte un vacío en cero, sino que lo guarda vacío. El CHECK lo deja pasar porque la condición da nulo, no falso.",
+        "misconceptionId": "m06-mc21"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l2#llaves",
+    "sourceIds": [
+      "src-postgres-constraints"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l2-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l2",
+    "evaluatedObjectiveId": "m06-eo2",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "El JSON de salida valida contra el esquema de pipeline_kpis, pero el ponderado del Sur es mayor que su pipeline abierto.",
+    "stem": "¿Qué concluyes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que las cifras están bien, porque el JSON valida contra el esquema",
+        "correct": false,
+        "feedback": "Que el JSON valide contra el esquema garantiza la forma, no que las cifras tengan sentido. Que el ponderado no supere al abierto es una regla de sentido, y se comprueba en el código.",
+        "misconceptionId": "m06-mc08"
+      },
+      {
+        "id": "o2",
+        "text": "Que el esquema está mal escrito, porque no detectó el problema",
+        "correct": false,
+        "feedback": "El esquema hizo su trabajo, que es revisar la forma; comprobar que el ponderado no supere al abierto nunca le tocó. Esa regla de sentido se comprueba en el código.",
+        "misconceptionId": "m06-mc22"
+      },
+      {
+        "id": "o3",
+        "text": "Que hay un error, y esa regla la comprueba el código, no el esquema",
+        "correct": true,
+        "feedback": "Correcta. El ponderado no puede superar al abierto, así que hay un error en las cifras. Es una regla de sentido, y la comprueba el código, no el esquema."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l2#contrato",
+    "sourceIds": [
+      "src-jsonschema-validation-2020-12"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l2-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l2",
+    "evaluatedObjectiveId": "m06-eo2",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "En el RAW de esta semana, una etapa llega como «Propuesta » con un espacio al final. La corrección es inequívoca y FP&A ya aprobó limpiar los espacios.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Corregirla a mano en el archivo RAW antes de calcular",
+        "correct": false,
+        "feedback": "Corregir a mano borra la evidencia de que el origen venía mal, y si la semana próxima el dato llega igual, habrá que corregirlo otra vez. La corrección va en una regla declarada.",
+        "misconceptionId": "m06-mc09"
+      },
+      {
+        "id": "o2",
+        "text": "Normalizarla con una regla declarada",
+        "correct": true,
+        "feedback": "Correcta. La corrección es inequívoca y está aprobada. Una regla declarada la aplica en cada ejecución y deja constancia."
+      },
+      {
+        "id": "o3",
+        "text": "Detener el cálculo hasta que el origen corrija el dato",
+        "correct": false,
+        "feedback": "Con una corrección inequívoca y aprobada no hace falta detener nada. El cálculo se detiene solo cuando seguir obligaría a inventar una cifra.",
+        "misconceptionId": "m06-mc23"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l2#respuestas",
+    "sourceIds": [
+      "src-databricks-medallion"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l2-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l2",
+    "evaluatedObjectiveId": "m06-eo1",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El formulario de ajustes de la app valida que el monto sea un número. El agente propone no validarlo otra vez en el servidor.",
+    "stem": "¿Qué le respondes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que tiene razón, porque el formulario ya lo valida",
+        "correct": false,
+        "feedback": "La validación del formulario corre en el navegador, y ahí se puede saltar. Por eso la misma regla se repite en el servidor.",
+        "misconceptionId": "m06-mc01"
+      },
+      {
+        "id": "o2",
+        "text": "Que hay que validarlo también en el servidor",
+        "correct": true,
+        "feedback": "Correcta. La validación en el navegador sirve para avisar rápido al usuario, pero se puede saltar. Por eso el servidor vuelve a validar el monto."
+      },
+      {
+        "id": "o3",
+        "text": "Que basta con ocultar el campo a quien no deba usarlo",
+        "correct": false,
+        "feedback": "Ocultar un campo en la pantalla no protege nada, porque lo que llega al navegador queda en manos del usuario. Además, no reemplaza la validación en el servidor.",
+        "misconceptionId": "m06-mc02"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l1#cliente-servidor",
+    "sourceIds": [
+      "src-owasp-input-validation"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l2-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l2",
+    "evaluatedObjectiveId": "m06-eo1",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "El dashboard se publica como un sitio estático.",
+    "stem": "¿Qué cifras puede mostrar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Cifras que calcula al momento con los datos del almacén",
+        "correct": false,
+        "feedback": "Un sitio estático devuelve siempre el mismo contenido, así que no consulta el almacén ni calcula por su cuenta. Muestra cifras que alguien calculó antes.",
+        "misconceptionId": "m06-mc24"
+      },
+      {
+        "id": "o2",
+        "text": "Cifras que el usuario modifique y guarde desde la pantalla",
+        "correct": false,
+        "feedback": "Un sitio estático no guarda datos que el usuario pueda modificar. Muestra lo que alguien calculó antes en otro lugar.",
+        "misconceptionId": "m06-mc24"
+      },
+      {
+        "id": "o3",
+        "text": "Cifras que alguien calculó antes en otro lugar",
+        "correct": true,
+        "feedback": "Correcta. Un sitio estático solo muestra lo que se calculó antes. Por eso el cálculo y su check viven en otra capa."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l1#cliente-servidor",
+    "sourceIds": [
+      "src-mdn-client-server"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l3-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l3",
+    "evaluatedObjectiveId": "m06-eo3",
+    "competencyIds": [
+      "C08",
+      "C09"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Para reconciliar el Centro, que falla en el snapshot del 19 de octubre, el agente propone descargar las 160 semanas de la tabla.",
+    "stem": "¿Qué conviene descargar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Las 160 semanas, para tener todo a mano",
+        "correct": false,
+        "feedback": "Traer todo mueve datos que no hacen falta y puede llegar recortado. Para encontrar la diferencia basta el detalle de esa región en ese snapshot.",
+        "misconceptionId": "m06-mc25"
+      },
+      {
+        "id": "o2",
+        "text": "El detalle del Centro en ese snapshot",
+        "correct": true,
+        "feedback": "Correcta. Para encontrar qué fila causa la diferencia hace falta el detalle, pero solo de la región y el snapshot que fallan."
+      },
+      {
+        "id": "o3",
+        "text": "Solo el total del Centro en ese snapshot",
+        "correct": false,
+        "feedback": "El total confirma que hay una diferencia, pero no dice qué fila la causa. Hace falta el detalle de esa región.",
+        "misconceptionId": "m06-mc26"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l3#granularidad",
+    "sourceIds": [
+      "src-databricks-perf",
+      "src-databricks-sql-connector-python"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l3-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l3",
+    "evaluatedObjectiveId": "m06-eo3",
+    "competencyIds": [
+      "C08",
+      "C09"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El agente pidió todas las filas de la tabla de snapshots y te presenta un análisis completo de la tendencia.",
+    "stem": "¿Qué riesgo tiene ese análisis?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que el resultado llegara recortado: sería una muestra",
+        "correct": true,
+        "feedback": "Correcta. El canal puede recortar los resultados grandes, y entonces el agente analizó una muestra creyendo que veía la tabla entera."
+      },
+      {
+        "id": "o2",
+        "text": "Ninguno, porque el agente siempre recibe la tabla completa",
+        "correct": false,
+        "feedback": "El canal del agente puede recortar los resultados grandes. Lo que vio puede ser una muestra, aunque el análisis la presente como la tabla completa.",
+        "misconceptionId": "m06-mc15"
+      },
+      {
+        "id": "o3",
+        "text": "Solo que la consulta tarde bastante más de lo normal",
+        "correct": false,
+        "feedback": "La demora es lo de menos. El resultado puede haber llegado recortado, y entonces el análisis describe una muestra, no la tabla.",
+        "misconceptionId": "m06-mc15"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l3#recorte",
+    "sourceIds": [
+      "src-databricks-dbsql-mcp"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l3-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l3",
+    "evaluatedObjectiveId": "m06-eo3",
+    "competencyIds": [
+      "C08",
+      "C09"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El servidor que conecta al agente con el almacén actúa con tu identidad, y tú tienes permiso de escritura en producción. El agente va a construir el dashboard.",
+    "stem": "¿Qué haces antes de dejarlo trabajar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: el agente trabaja con sus propios permisos",
+        "correct": false,
+        "feedback": "El servidor actúa con tu identidad, no con permisos propios del agente. Si tú puedes escribir en producción, el agente también puede.",
+        "misconceptionId": "m06-mc13"
+      },
+      {
+        "id": "o2",
+        "text": "Activar el modo de solo lectura y limitar la identidad",
+        "correct": true,
+        "feedback": "Correcta. Para un dashboard basta con leer. Con la política de solo lectura y una identidad que solo pueda leer lo necesario, el agente no puede tocar producción."
+      },
+      {
+        "id": "o3",
+        "text": "Nada, porque la herramienta dice que es de solo lectura",
+        "correct": false,
+        "feedback": "Lo que una herramienta dice de sí misma no es un control. El modo por defecto de ese servidor permite escribir.",
+        "misconceptionId": "m06-mc14"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l3#modo",
+    "sourceIds": [
+      "src-databricks-managed-mcp",
+      "src-databricks-dbsql-mcp",
+      "src-mcp-spec-tools"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l3-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l3",
+    "evaluatedObjectiveId": "m06-eo3",
+    "competencyIds": [
+      "C08",
+      "C09"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Para que el agente no falle por falta de permisos, alguien propone darle lectura sobre todo el catálogo de producción.",
+    "stem": "¿Qué problema tiene?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguno, porque un permiso de lectura no es riesgoso",
+        "correct": false,
+        "feedback": "Un permiso de lectura también expone datos, y este expone mucho más de lo que la tarea necesita. Además, se hereda a las tablas que se creen después.",
+        "misconceptionId": "m06-mc27"
+      },
+      {
+        "id": "o2",
+        "text": "Ninguno, porque es lo mismo que darlo sobre la tabla",
+        "correct": false,
+        "feedback": "No es lo mismo, porque el permiso sobre el catálogo se hereda a todas sus tablas, incluso a las futuras. Lo prudente es darlo solo sobre las tablas necesarias.",
+        "misconceptionId": "m06-mc16"
+      },
+      {
+        "id": "o3",
+        "text": "Que se hereda a todas las tablas, también a las futuras",
+        "correct": true,
+        "feedback": "Correcta. Un permiso sobre el catálogo alcanza a lo que hay hoy y a lo que se cree mañana. Se da sobre las tablas necesarias."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l3#modo",
+    "sourceIds": [
+      "src-databricks-uc-privileges"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l3-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l3",
+    "evaluatedObjectiveId": "m06-eo2",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "En el snapshot del 26 de octubre, tres oportunidades llegan en la etapa «En pausa», que no tiene probabilidad aprobada. No hay política para etapas desconocidas.",
+    "stem": "¿Qué hace el cálculo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Se detiene, y se pide a FP&A la probabilidad o una política",
+        "correct": true,
+        "feedback": "Correcta. Sin una política aprobada, seguir obligaría a inventar una cifra. El cálculo se detiene y FP&A decide qué probabilidad usar o qué política aplicar."
+      },
+      {
+        "id": "o2",
+        "text": "Les asigna la probabilidad de la etapa más parecida y sigue",
+        "correct": false,
+        "feedback": "Eso inventa un supuesto que nadie aprobó, y el ponderado cambia sin aviso. Sin política aprobada, se detiene.",
+        "misconceptionId": "m06-mc10"
+      },
+      {
+        "id": "o3",
+        "text": "Las excluye en silencio y sigue con el resto",
+        "correct": false,
+        "feedback": "Excluir sin reportar cambia la cifra sin que nadie se entere. Además, aquí no hay una política que autorice excluirlas, así que el cálculo se detiene.",
+        "misconceptionId": "m06-mc28"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l2#respuestas",
+    "sourceIds": [
+      "src-databricks-medallion"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l3-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l3",
+    "evaluatedObjectiveId": "m06-eo2",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "OPP-1012 aparece dos veces, con 125 000 y 90 000. La política aprobada dice conservar la fila con la actividad más reciente, que es la de 90 000.",
+    "stem": "¿Qué hace el cálculo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Suma las dos filas, porque las dos son datos del CRM",
+        "correct": false,
+        "feedback": "Sumarlas cuenta dos veces la misma oportunidad: el pipeline del Norte subiría 125 000. Se aplica la política aprobada.",
+        "misconceptionId": "m06-mc29"
+      },
+      {
+        "id": "o2",
+        "text": "Conserva la fila de 90 000 y reporta el duplicado",
+        "correct": true,
+        "feedback": "Correcta. Hay una política aprobada, así que se aplica. Queda la fila de 90 000 y el duplicado se reporta en la lista de calidad de datos."
+      },
+      {
+        "id": "o3",
+        "text": "Se detiene igual, porque hay una fila repetida",
+        "correct": false,
+        "feedback": "Detener el cálculo es para cuando no hay política. Aquí hay una aprobada, así que se aplica y el duplicado se reporta.",
+        "misconceptionId": "m06-mc23"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l2#respuestas",
+    "sourceIds": [
+      "src-databricks-medallion",
+      "src-postgres-constraints"
+    ],
+    "status": "draft"
+  }
+]

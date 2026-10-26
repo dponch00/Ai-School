@@ -1,0 +1,69 @@
+[
+  {
+    "id": "m06-pc-sql-warehouse",
+    "product": "Databricks · SQL warehouse",
+    "surfaces": [
+      "cloud",
+      "api"
+    ],
+    "capability": "Un SQL warehouse es el recurso de cómputo que ejecuta las consultas SQL. Hay tipos serverless, pro y clásico, con serverless recomendado cuando está disponible; arrancar uno detenido exige al menos el permiso CAN MONITOR. Su conector para Python (PEP 249) envía SQL desde un script local y recibe las filas; admite token personal y OAuth, y recomienda leer los resultados grandes por lotes.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-23",
+    "sourceIds": [
+      "src-databricks-sql-warehouse",
+      "src-databricks-sql-connector-python"
+    ],
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "m06-pc-medallion",
+    "product": "Databricks · arquitectura en capas (medallion)",
+    "surfaces": [
+      "cloud"
+    ],
+    "capability": "La guía llama bronce a la capa cruda, plata a la limpia y oro a la agregada. Recomienda guardar casi todo como texto en bronce, manejar la evolución del esquema en plata y no al ingerir, y la presenta como una práctica recomendada, no obligatoria.",
+    "kind": "guidance",
+    "verifiedAt": "2026-10-23",
+    "sourceIds": [
+      "src-databricks-medallion"
+    ],
+    "nextReview": "2027-04-23"
+  },
+  {
+    "id": "m06-pc-constraints",
+    "product": "Databricks · tablas Delta",
+    "surfaces": [
+      "cloud"
+    ],
+    "capability": "NOT NULL y CHECK se hacen cumplir: la escritura que los viola falla. PRIMARY KEY y FOREIGN KEY son informativas (GA desde Databricks Runtime 15.2) y UNIQUE informativa está en vista previa pública (Databricks SQL y Runtime 18.2 o posterior): documentan relaciones y ayudan al optimizador, pero no se verifican.",
+    "kind": "capability",
+    "maturity": "mixed",
+    "verifiedAt": "2026-10-23",
+    "sourceIds": [
+      "src-databricks-constraints"
+    ],
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "m06-pc-managed-mcp",
+    "product": "Databricks · servidores MCP gestionados y Unity Catalog",
+    "surfaces": [
+      "cloud",
+      "api",
+      "cli"
+    ],
+    "capability": "Unity Gateway ofrece servidores MCP gestionados: system.ai.genie_one_mcp (GA, analítica en lenguaje natural) y system.ai.dbsql (Beta, habilitada por un administrador de cuenta), que ejecuta SQL con los permisos de catálogo y de almacén de quien llama, autenticado con OAuth. dbsql permite leer y escribir por defecto; disallow_writes: true en su política lo vuelve de solo lectura; recorta los resultados grandes. Invocarlo exige EXECUTE más USE CATALOG y USE SCHEMA; las políticas por llamada están en Beta. En Unity Catalog, leer exige SELECT más USE CATALOG y USE SCHEMA, escribir exige MODIFY, y los permisos se heredan a los objetos futuros. La página de agentes compatibles lista, entre otros, Claude Code, Codex y GitHub Copilot CLI.",
+    "kind": "capability",
+    "maturity": "mixed",
+    "verifiedAt": "2026-10-23",
+    "sourceIds": [
+      "src-databricks-managed-mcp",
+      "src-databricks-dbsql-mcp",
+      "src-databricks-govern-mcp",
+      "src-databricks-uc-privileges",
+      "src-databricks-ug-coding-agents"
+    ],
+    "nextReview": "2027-01-23"
+  }
+]

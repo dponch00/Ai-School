@@ -1,0 +1,49 @@
+{
+  "id": "m06-l1",
+  "courseId": "m06",
+  "version": "0.1.0",
+  "order": 1,
+  "title": "Dónde ocurre cada operación",
+  "objectives": [
+    {
+      "id": "m06-l1-o1",
+      "statement": "Distingue lo que hace el navegador de lo que hacen el servidor y el motor de datos.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m06-eo1"
+    },
+    {
+      "id": "m06-l1-o2",
+      "statement": "Ubica cada operación en su capa: motor de datos, código de cálculo, interfaz o modelo generativo.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m06-eo1"
+    },
+    {
+      "id": "m06-l1-o3",
+      "statement": "Reconoce por qué un filtro o un cálculo en la interfaz no protege ni verifica una cifra.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m06-eo1"
+    }
+  ],
+  "bodyPath": "courses/m06/lessons/m06-l1.md",
+  "reviewQuestionIds": [],
+  "checkQuestionIds": [
+    "m06-l1-c1",
+    "m06-l1-c2",
+    "m06-l1-c3",
+    "m06-l1-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m06-pc-sql-warehouse"
+  ],
+  "sourceIds": [
+    "src-mdn-client-server",
+    "src-owasp-input-validation",
+    "src-vite-env",
+    "src-databricks-sql-warehouse",
+    "src-databricks-sql-connector-python",
+    "src-ietf-rfc8259"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

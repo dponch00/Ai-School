@@ -3236,5 +3236,502 @@
     "kind": "primary",
     "volatility": "medium",
     "nextReview": "2027-04-23"
+  },
+  {
+    "id": "src-databricks-managed-mcp",
+    "title": "Databricks-managed MCP servers (act. 2026-10-21)",
+    "organization": "Databricks",
+    "url": "https://docs.databricks.com/aws/en/agents/mcp/managed-mcp",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Servidores MCP de Unity Gateway y estados (Genie One GA",
+      "dbsql, web_search, sandbox en Beta)",
+      "permisos del que llama",
+      "OAuth y alcances",
+      "endpoints heredados sin trazas ni políticas",
+      "enlaza guía de agentes de código",
+      "no nombra Copilot"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-databricks-dbsql-mcp",
+    "title": "Databricks SQL MCP (act. 2026-10-16)",
+    "organization": "Databricks",
+    "url": "https://docs.databricks.com/aws/en/agents/mcp-tools/databricks-sql",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "`execute_sql`",
+      "lecturas y escrituras por defecto",
+      "`disallow_writes` en `system.ai.dbsql_policy`",
+      "permisos de Unity Catalog",
+      "resultados grandes truncados",
+      "consultas asíncronas",
+      "sin contexto semántico"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-databricks-ug-coding-agents",
+    "title": "Supported coding agents (act. 2026-10-07)",
+    "organization": "Databricks",
+    "url": "https://docs.databricks.com/aws/en/ai-gateway/coding-agent-supported-agents",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Agentes y superficies compatibles con Unity Gateway (incluye Copilot CLI y Cursor)",
+      "capacidades por agente",
+      "sin estado de lanzamiento"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-databricks-govern-mcp",
+    "title": "Govern MCP services (act. 2026-10-19)",
+    "organization": "Databricks",
+    "url": "https://docs.databricks.com/aws/en/ai-gateway/govern-mcp-service",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "`EXECUTE` sobre el MCP",
+      "políticas por llamada en Beta",
+      "selección de herramientas",
+      "límites de frecuencia",
+      "auditoría y trazas"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-databricks-uc-privileges",
+    "title": "Unity Catalog privileges reference (act. 2026-10-12)",
+    "organization": "Databricks",
+    "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/manage-privileges/privileges",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "`SELECT`, `USE CATALOG`, `USE SCHEMA` para leer",
+      "`MODIFY` para escribir",
+      "herencia a objetos futuros",
+      "privilegios finos en Beta",
+      "recomendaciones de mínimo privilegio"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-databricks-constraints",
+    "title": "Constraints on Databricks (act. 2026-09-11)",
+    "organization": "Databricks",
+    "url": "https://docs.databricks.com/aws/en/tables/constraints",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "`NOT NULL` y `CHECK` se hacen cumplir",
+      "PK, FK y UNIQUE informativas",
+      "versiones de runtime"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-databricks-medallion",
+    "title": "What is the medallion lakehouse architecture? (act. 2026-09-11)",
+    "organization": "Databricks",
+    "url": "https://docs.databricks.com/aws/en/lakehouse/medallion",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Capas bronce, plata y oro",
+      "RAW con historia para reprocesar y auditar",
+      "validación y esquema en plata",
+      "recomendación no obligatoria"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-23"
+  },
+  {
+    "id": "src-databricks-sql-warehouse",
+    "title": "Connect to a SQL warehouse (act. 2026-10-09)",
+    "organization": "Databricks",
+    "url": "https://docs.databricks.com/aws/en/compute/sql-warehouse/",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "El almacén SQL es el recurso de cómputo de las consultas",
+      "tipos serverless, pro y clásico",
+      "CAN MONITOR para arrancar"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-databricks-sql-connector-python",
+    "title": "Databricks SQL Connector for Python (act. 2026-09-29)",
+    "organization": "Databricks",
+    "url": "https://docs.databricks.com/aws/en/dev-tools/python-sql-connector",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "SQL desde Python local en cómputo del almacén",
+      "PEP 249",
+      "token personal, OAuth M2M y U2M",
+      "lectura por lotes para resultados grandes"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-23"
+  },
+  {
+    "id": "src-databricks-delta-history",
+    "title": "Work with table history (act. 2026-09-11)",
+    "organization": "Databricks",
+    "url": "https://docs.databricks.com/aws/en/delta/history",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "`DESCRIBE HISTORY`",
+      "viaje en el tiempo",
+      "retención 30 / 7 días",
+      "VACUUM",
+      "no usar como respaldo"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-databricks-uc-lineage",
+    "title": "View data lineage using Unity Catalog (act. 2026-10-19)",
+    "organization": "Databricks",
+    "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/data-lineage",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Linaje automático de tabla y columna",
+      "límites (renombres, operaciones no cubiertas, desde 2024-09-01)",
+      "retención",
+      "permisos para verlo"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-duckdb-why",
+    "title": "Why DuckDB",
+    "organization": "DuckDB Foundation",
+    "url": "https://duckdb.org/why_duckdb",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Embebido sin servidor",
+      "sin dependencias",
+      "motor columnar vectorizado para análisis",
+      "portabilidad"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-23"
+  },
+  {
+    "id": "src-duckdb-parquet",
+    "title": "Reading and Writing Parquet Files (docs 2.0)",
+    "organization": "DuckDB Foundation",
+    "url": "https://duckdb.org/docs/2.0/data/parquet/overview.html",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Consulta directa de Parquet",
+      "proyección y filtros empujados con mapas de zona",
+      "`COPY … (FORMAT parquet)`",
+      "compresión Snappy por defecto"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-duckdb-csv",
+    "title": "CSV Import (docs 2.0)",
+    "organization": "DuckDB Foundation",
+    "url": "https://duckdb.org/docs/2.0/data/csv/overview.html",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Detección automática por muestra (20 480 líneas)",
+      "riesgo de tipos fuera de la muestra",
+      "tipos explícitos con `columns`/`types`"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-duckdb-python",
+    "title": "Python API (docs 2.0)",
+    "organization": "DuckDB Foundation",
+    "url": "https://duckdb.org/docs/2.0/clients/python/overview.html",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Versión 2.0.0",
+      "Python 3.11+",
+      "consulta DataFrames por nombre (solo lectura)",
+      "base en memoria o en archivo"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-duckdb-concurrency",
+    "title": "Concurrency (docs 2.0)",
+    "organization": "DuckDB Foundation",
+    "url": "https://duckdb.org/docs/2.0/connect/concurrency.html",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Un proceso lector-escritor o varios solo lectores",
+      "hilos con MVCC",
+      "escritura multiproceso con otro protocolo",
+      "cuidado con carpetas de red"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "src-parquet-overview",
+    "title": "Overview (act. 2026-10-11)",
+    "organization": "Apache Software Foundation",
+    "url": "https://parquet.apache.org/docs/overview/",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Formato abierto orientado a columnas",
+      "compresión y codificación",
+      "especificación separada de las bibliotecas"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-23"
+  },
+  {
+    "id": "src-parquet-file-format",
+    "title": "File Format (act. 2024-07-07)",
+    "organization": "Apache Software Foundation",
+    "url": "https://parquet.apache.org/docs/file-format/",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Grupos de filas y fragmentos de columna",
+      "metadatos al final del archivo",
+      "lectura de metadatos primero"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-23"
+  },
+  {
+    "id": "src-parquet-thrift",
+    "title": "parquet.thrift (`FileMetaData`)",
+    "organization": "Apache Software Foundation",
+    "url": "https://github.com/apache/parquet-format/blob/master/src/main/thrift/parquet.thrift",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "`FileMetaData` incluye el esquema del archivo, número de filas, grupos de filas y metadatos clave-valor"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-23"
+  },
+  {
+    "id": "src-parquet-readme",
+    "title": "parquet-format README",
+    "organization": "Apache Software Foundation",
+    "url": "https://github.com/apache/parquet-format/blob/master/README.md",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Estadísticas min/max a varios niveles",
+      "codificación anidada tipo Dremel",
+      "compresión por columna",
+      "tamaños recomendados"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-23"
+  },
+  {
+    "id": "src-parquet-logical-types",
+    "title": "Parquet Logical Type Definitions (LogicalTypes.md)",
+    "organization": "Apache Software Foundation",
+    "url": "https://github.com/apache/parquet-format/blob/master/LogicalTypes.md",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Tipo lógico `DECIMAL` con precisión y escala"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-23"
+  },
+  {
+    "id": "src-postgres-constraints",
+    "title": "PostgreSQL 18: 5.5 Constraints",
+    "organization": "PostgreSQL Global Development Group",
+    "url": "https://www.postgresql.org/docs/current/ddl-constraints.html",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "`CHECK` pasa con verdadero o nulo",
+      "`NOT NULL`",
+      "`UNIQUE` con nulos distintos por defecto",
+      "PK = UNIQUE NOT NULL, una por tabla",
+      "FK e integridad referencial"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-23"
+  },
+  {
+    "id": "src-mdn-client-server",
+    "title": "Client-Server overview (act. 2026-09-10)",
+    "organization": "Mozilla (MDN)",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Client-Server_overview",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Papel del navegador y del servidor",
+      "sitios estáticos frente a dinámicos",
+      "el servidor consulta la base y arma la respuesta"
+    ],
+    "kind": "secondary",
+    "volatility": "low",
+    "nextReview": "2027-10-23"
+  },
+  {
+    "id": "src-owasp-input-validation",
+    "title": "Input Validation Cheat Sheet",
+    "organization": "OWASP",
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "La validación del cliente se puede saltar y se repite en el servidor",
+      "validación sintáctica y semántica"
+    ],
+    "kind": "secondary",
+    "volatility": "medium",
+    "nextReview": "2027-04-23"
+  },
+  {
+    "id": "src-jsonschema-validation-2020-12",
+    "title": "JSON Schema Validation (draft-bhutton-json-schema-validation-01, 2020-12)",
+    "organization": "JSON Schema (IETF Internet-Draft)",
+    "url": "https://json-schema.org/draft/2020-12/json-schema-validation",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "`format` es anotación por defecto y la aserción es opcional",
+      "`enum` y `required`"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-23"
+  },
+  {
+    "id": "src-ietf-rfc4180",
+    "title": "RFC 4180: Common Format and MIME Type for CSV Files (oct. 2005)",
+    "organization": "IETF",
+    "url": "https://www.rfc-editor.org/rfc/rfc4180",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "CSV informativo, no estándar",
+      "encabezado opcional",
+      "comillas",
+      "sin tipos de datos"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-23"
+  },
+  {
+    "id": "src-python-csv",
+    "title": "csv — CSV File Reading and Writing (3.15)",
+    "organization": "Python Software Foundation",
+    "url": "https://docs.python.org/3/library/csv.html",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "El lector devuelve texto sin conversión salvo opciones",
+      "`DictReader` y encabezado"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-23"
+  },
+  {
+    "id": "src-python-random",
+    "title": "random — Generate pseudo-random numbers (3.15)",
+    "organization": "Python Software Foundation",
+    "url": "https://docs.python.org/3/library/random.html",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Generador determinista con semilla",
+      "garantías de compatibilidad entre versiones limitadas",
+      "no apto para seguridad (`secrets`)"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-23"
+  },
+  {
+    "id": "src-python-statistics",
+    "title": "statistics — Mathematical statistics functions (3.15)",
+    "organization": "Python Software Foundation",
+    "url": "https://docs.python.org/3/library/statistics.html",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Estadística básica, no compite con paquetes especializados",
+      "media sensible a atípicos, mediana robusta",
+      "advertencia sobre NaN",
+      "admite `Decimal`"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-23"
+  },
+  {
+    "id": "src-arxiv-pal",
+    "title": "PAL: Program-aided Language Models (Gao et al., 2022–2023)",
+    "organization": "Carnegie Mellon University y otros (arXiv)",
+    "url": "https://arxiv.org/abs/2211.10435",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Los modelos fallan en aritmética aunque descompongan bien",
+      "ejecutar código mejora la exactitud frente a razonar en texto"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-23"
+  },
+  {
+    "id": "src-arxiv-synthetic-groundhog",
+    "title": "Synthetic Data – Anonymisation Groundhog Day (Stadler, Oprisanu, Troncoso)",
+    "organization": "EPFL y otros (arXiv)",
+    "url": "https://arxiv.org/abs/2011.07018",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Los datos sintéticos derivados de reales no ofrecen mejor equilibrio privacidad-utilidad que la anonimización",
+      "privacidad impredecible"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-23"
+  },
+  {
+    "id": "src-mcp-spec-tools",
+    "title": "MCP Specification 2026-07-28: Tools",
+    "organization": "Model Context Protocol (Agentic AI Foundation)",
+    "url": "https://modelcontextprotocol.io/specification/latest/server/tools",
+    "accessedAt": "2026-10-23",
+    "supports": [
+      "Anotaciones de herramientas no confiables salvo servidores de confianza",
+      "humano capaz de denegar",
+      "servidores validan entradas y controlan acceso"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-23"
   }
 ]
