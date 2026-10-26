@@ -1,0 +1,48 @@
+{
+  "id": "m06-l5",
+  "courseId": "m06",
+  "version": "0.1.0",
+  "order": 5,
+  "title": "Determinista, estadístico y generativo",
+  "objectives": [
+    {
+      "id": "m06-l5-o1",
+      "statement": "Clasifica una salida como determinista, estadística o generativa.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m06-eo5"
+    },
+    {
+      "id": "m06-l5-o2",
+      "statement": "Decide qué cifras nunca produce un modelo generativo.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m06-eo5"
+    },
+    {
+      "id": "m06-l5-o3",
+      "statement": "Elige cómo verificar un texto generado contra el contrato.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m06-eo5"
+    }
+  ],
+  "bodyPath": "courses/m06/lessons/m06-l5.md",
+  "reviewQuestionIds": [
+    "m06-l5-r1",
+    "m06-l5-r2"
+  ],
+  "checkQuestionIds": [
+    "m06-l5-c1",
+    "m06-l5-c2",
+    "m06-l5-c3",
+    "m06-l5-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [],
+  "sourceIds": [
+    "src-python-statistics",
+    "src-anthropic-glossary",
+    "src-anthropic-reduce-hallucinations",
+    "src-arxiv-pal"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

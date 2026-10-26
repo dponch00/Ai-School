@@ -65,5 +65,41 @@
       "src-databricks-ug-coding-agents"
     ],
     "nextReview": "2027-01-23"
+  },
+  {
+    "id": "m06-pc-embedded-engine",
+    "product": "DuckDB 2.0",
+    "surfaces": [
+      "cli",
+      "api"
+    ],
+    "capability": "Motor analítico embebido: se instala en Python con pip install duckdb (Python 3.11 o posterior) y trabaja en memoria o sobre un archivo. En modo embebido, un proceso lee y escribe, o varios procesos solo leen. Consulta Parquet directamente por su ruta, lee solo las columnas pedidas y empuja los filtros a la lectura; al escribir Parquet comprime con Snappy por defecto. Con CSV, detecta delimitador, encabezado y tipos a partir de una muestra de 20 480 líneas, y los tipos se pueden fijar con columns o types.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-23",
+    "sourceIds": [
+      "src-duckdb-why",
+      "src-duckdb-python",
+      "src-duckdb-concurrency",
+      "src-duckdb-parquet",
+      "src-duckdb-csv"
+    ],
+    "nextReview": "2027-01-23"
+  },
+  {
+    "id": "m06-pc-lineage-history",
+    "product": "Databricks · Unity Catalog y tablas Delta",
+    "surfaces": [
+      "cloud"
+    ],
+    "capability": "Unity Catalog registra automáticamente el linaje de tablas y columnas para las consultas que se ejecutan en la plataforma; no hay datos anteriores al 2024-09-01, el linaje no se conserva al renombrar objetos, las tablas de sistema guardan un año móvil y verlo exige BROWSE en el catálogo. Las tablas Delta permiten DESCRIBE HISTORY y consultar versiones anteriores (VERSION AS OF, TIMESTAMP AS OF); por defecto conservan 30 días de registro y 7 de archivos borrados, y la documentación desaconseja usarlas como respaldo.",
+    "kind": "capability",
+    "maturity": "unspecified",
+    "verifiedAt": "2026-10-23",
+    "sourceIds": [
+      "src-databricks-uc-lineage",
+      "src-databricks-delta-history"
+    ],
+    "nextReview": "2027-01-23"
   }
 ]

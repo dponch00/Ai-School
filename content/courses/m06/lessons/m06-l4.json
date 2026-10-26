@@ -1,0 +1,60 @@
+{
+  "id": "m06-l4",
+  "courseId": "m06",
+  "version": "0.1.0",
+  "order": 4,
+  "title": "Cada herramienta en su función: SQL, motor local, Python y formatos",
+  "objectives": [
+    {
+      "id": "m06-l4-o1",
+      "statement": "Reconoce qué hace un motor embebido y su límite de escritura.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m06-eo4"
+    },
+    {
+      "id": "m06-l4-o2",
+      "statement": "Elige entre Parquet y CSV según los tipos y la reproducibilidad.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m06-eo4"
+    },
+    {
+      "id": "m06-l4-o3",
+      "statement": "Elige la herramienta para cada paso del análisis: SQL remoto, motor embebido o Python.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m06-eo4"
+    }
+  ],
+  "bodyPath": "courses/m06/lessons/m06-l4.md",
+  "reviewQuestionIds": [
+    "m06-l4-r1",
+    "m06-l4-r2"
+  ],
+  "checkQuestionIds": [
+    "m06-l4-c1",
+    "m06-l4-c2",
+    "m06-l4-c3",
+    "m06-l4-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m06-pc-embedded-engine"
+  ],
+  "sourceIds": [
+    "src-duckdb-why",
+    "src-duckdb-python",
+    "src-duckdb-concurrency",
+    "src-duckdb-parquet",
+    "src-parquet-overview",
+    "src-parquet-file-format",
+    "src-parquet-thrift",
+    "src-parquet-readme",
+    "src-parquet-logical-types",
+    "src-ietf-rfc4180",
+    "src-python-csv",
+    "src-duckdb-csv",
+    "src-python-floatingpoint",
+    "src-python-sys"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

@@ -696,5 +696,791 @@
       "src-postgres-constraints"
     ],
     "status": "draft"
+  },
+  {
+    "id": "m06-l4-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l4",
+    "evaluatedObjectiveId": "m06-eo4",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Quieres consultar con SQL un extracto Parquet guardado en tu computadora. El agente dice que antes hay que instalar un servidor de base de datos.",
+    "stem": "¿Qué le respondes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que tiene razón, porque SQL siempre necesita un servidor",
+        "correct": false,
+        "feedback": "SQL no siempre necesita un servidor. Un motor embebido corre dentro del mismo programa que lo usa y consulta el archivo directamente.",
+        "misconceptionId": "m06-mc31"
+      },
+      {
+        "id": "o2",
+        "text": "Que no hace falta: un motor embebido lo consulta sin servidor",
+        "correct": true,
+        "feedback": "Correcta. El motor embebido consulta el Parquet escribiendo su ruta en el SELECT, sin instalar ni mantener un servidor."
+      },
+      {
+        "id": "o3",
+        "text": "Que mejor se suba el archivo al almacén para consultarlo",
+        "correct": false,
+        "feedback": "No hace falta subir nada al almacén. Un motor embebido consulta el archivo ahí mismo, en tu computadora.",
+        "misconceptionId": "m06-mc47"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l4#embebido",
+    "sourceIds": [
+      "src-duckdb-why",
+      "src-duckdb-parquet"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l4-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l4",
+    "evaluatedObjectiveId": "m06-eo4",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "Un extracto se guardó como CSV. Al volver a leerlo, la columna amount llega como texto, y una fecha vacía cambió el tipo que el lector adivinó para la columna de cierre.",
+    "stem": "¿En qué formato conviene guardar el extracto?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En Parquet, que guarda el esquema y los tipos",
+        "correct": true,
+        "feedback": "Correcta. Parquet lleva el esquema dentro del archivo, así que el monto y la fecha vuelven con su tipo, sin adivinar nada."
+      },
+      {
+        "id": "o2",
+        "text": "En CSV, pero haciendo que el lector mire más filas de muestra",
+        "correct": false,
+        "feedback": "Una muestra más grande puede volver a fallar con el próximo valor que no encaje. El problema de fondo es que CSV no guarda tipos.",
+        "misconceptionId": "m06-mc33"
+      },
+      {
+        "id": "o3",
+        "text": "Da igual el formato, porque solo cambia el tamaño del archivo",
+        "correct": false,
+        "feedback": "Los dos formatos no guardan lo mismo. CSV no tiene tipos y Parquet guarda el esquema dentro del archivo; por eso, desde el CSV, el monto vuelve como texto.",
+        "misconceptionId": "m06-mc32"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l4#formatos",
+    "sourceIds": [
+      "src-parquet-thrift",
+      "src-ietf-rfc4180",
+      "src-duckdb-csv"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l4-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l4",
+    "evaluatedObjectiveId": "m06-eo4",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Tres analistas quieren escribir al mismo tiempo en el mismo archivo de base de datos del motor embebido, cada uno desde su propio programa.",
+    "stem": "¿Es buena idea?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Sí, porque es una base de datos y admite varios usuarios",
+        "correct": false,
+        "feedback": "En modo embebido, un solo programa puede escribir en el archivo de base de datos. Varios pueden abrirlo a la vez, pero solo para leer.",
+        "misconceptionId": "m06-mc34"
+      },
+      {
+        "id": "o2",
+        "text": "Sí, siempre que cada uno abra su propia sesión del motor",
+        "correct": false,
+        "feedback": "Abrir sesiones distintas no cambia el límite, porque en modo embebido un solo programa escribe. Los demás solo pueden leer a la vez.",
+        "misconceptionId": "m06-mc34"
+      },
+      {
+        "id": "o3",
+        "text": "No: en modo embebido, solo un programa escribe",
+        "correct": true,
+        "feedback": "Correcta. El motor embebido sirve para el análisis de una persona o de un agente. No está pensado para que varias personas escriban al mismo tiempo."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l4#embebido",
+    "sourceIds": [
+      "src-duckdb-concurrency"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l4-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l4",
+    "evaluatedObjectiveId": "m06-eo4",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Para un análisis que se repetirá varios días sobre las doce semanas del trimestre, el agente propone consultar el almacén de nuevo cada vez que preguntes algo.",
+    "stem": "¿Qué conviene?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Consultar cada vez, para trabajar siempre con lo último",
+        "correct": false,
+        "feedback": "Si la tabla cambia entre una consulta y otra, dos exploraciones verían datos distintos sin saberlo. Además, cada consulta gasta cómputo.",
+        "misconceptionId": "m06-mc48"
+      },
+      {
+        "id": "o2",
+        "text": "Consultar una vez, guardar el extracto fechado en Parquet y explorar en local",
+        "correct": true,
+        "feedback": "Correcta. Basta una consulta y un extracto guardado con su fecha y su consulta al lado. Todas las exploraciones se hacen sobre ese archivo."
+      },
+      {
+        "id": "o3",
+        "text": "Descargar las 160 semanas como CSV para no volver a consultar",
+        "correct": false,
+        "feedback": "Para este análisis bastan las doce semanas del trimestre, no las 160. Además, guardadas como CSV perderían sus tipos, así que conviene Parquet.",
+        "misconceptionId": "m06-mc25"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l4#eleccion",
+    "sourceIds": [
+      "src-duckdb-parquet",
+      "src-parquet-overview"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l4-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l4",
+    "evaluatedObjectiveId": "m06-eo3",
+    "competencyIds": [
+      "C08",
+      "C09"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El agente se conecta al almacén con una cuenta de servicio que tiene permiso de escritura en producción «por si acaso». Solo va a leer para el dashboard.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: si no la usa, la escritura no hace daño",
+        "correct": false,
+        "feedback": "Lo que el agente puede hacer, lo puede hacer por error o siguiendo una instrucción escondida en los datos. Por eso se le da solo lo necesario.",
+        "misconceptionId": "m06-mc49"
+      },
+      {
+        "id": "o2",
+        "text": "Dejarle solo lectura sobre las tablas que necesita",
+        "correct": true,
+        "feedback": "Correcta. Para construir un dashboard basta con leer. Es el mínimo privilegio: acceso solo a las tablas necesarias y sin escritura."
+      },
+      {
+        "id": "o3",
+        "text": "Nada, porque el agente ya tiene sus propios permisos",
+        "correct": false,
+        "feedback": "La cuenta de servicio es la identidad con la que actúa el agente. Sus permisos son, en la práctica, los del agente.",
+        "misconceptionId": "m06-mc13"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l3#modo",
+    "sourceIds": [
+      "src-databricks-uc-privileges",
+      "src-owasp-llm01"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l4-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l4",
+    "evaluatedObjectiveId": "m06-eo3",
+    "competencyIds": [
+      "C08",
+      "C09"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El servidor de herramientas declara que su herramienta para ejecutar SQL es de solo lectura. El agente propone confiar en esa declaración y no configurar nada más.",
+    "stem": "¿Qué le respondes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que no basta: el control real es el permiso y la política",
+        "correct": true,
+        "feedback": "Correcta. Lo que una herramienta dice de sí misma no es confiable si el servidor no lo es. El control está en el permiso y en la política de solo lectura."
+      },
+      {
+        "id": "o2",
+        "text": "Que está bien, porque la herramienta ya dice ser de solo lectura",
+        "correct": false,
+        "feedback": "La especificación del protocolo pide tratar esas declaraciones como no confiables. Además, el modo por defecto del servidor que revisamos permite escribir.",
+        "misconceptionId": "m06-mc14"
+      },
+      {
+        "id": "o3",
+        "text": "Que está bien si el agente promete no escribir nada",
+        "correct": false,
+        "feedback": "Una promesa del agente no es un control. Lo que de verdad limita lo que puede hacer es el permiso y la política.",
+        "misconceptionId": "m06-mc14"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l3#anotaciones",
+    "sourceIds": [
+      "src-mcp-spec-tools",
+      "src-databricks-dbsql-mcp"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l5-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l5",
+    "evaluatedObjectiveId": "m06-eo5",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Para que el comentario semanal salga siempre igual, alguien propone poner la temperatura del modelo en 0.",
+    "stem": "¿Garantiza eso la misma respuesta?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Sí: con temperatura 0, el modelo es determinista",
+        "correct": false,
+        "feedback": "Incluso con temperatura 0, dos llamadas idénticas pueden dar respuestas distintas. Ese ajuste las vuelve más predecibles, no iguales.",
+        "misconceptionId": "m06-mc36"
+      },
+      {
+        "id": "o2",
+        "text": "No: incluso con temperatura 0, la respuesta puede variar",
+        "correct": true,
+        "feedback": "Correcta. La temperatura 0 hace las respuestas más predecibles, pero no idénticas. Por eso el texto se sigue comprobando contra el contrato."
+      },
+      {
+        "id": "o3",
+        "text": "Sí, siempre que el prompt sea exactamente el mismo",
+        "correct": false,
+        "feedback": "Un prompt idéntico con temperatura 0 todavía puede dar respuestas distintas. Esa variación se controla comprobando cada texto contra el contrato.",
+        "misconceptionId": "m06-mc36"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l5#generativo",
+    "sourceIds": [
+      "src-anthropic-glossary"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l5-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l5",
+    "evaluatedObjectiveId": "m06-eo5",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Una alerta debe marcar las oportunidades con montos muy por encima de lo habitual en su región.",
+    "stem": "¿Contra qué referencia conviene compararlos?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La media de la región, porque usa todos los montos",
+        "correct": false,
+        "feedback": "La media se mueve con los mismos montos grandes que se quieren detectar. Por eso conviene la mediana, que los extremos mueven poco.",
+        "misconceptionId": "m06-mc38"
+      },
+      {
+        "id": "o2",
+        "text": "Cualquiera de las dos, porque la media y la mediana coinciden",
+        "correct": false,
+        "feedback": "En el Sur no coinciden: la media es 121 818 y la mediana 112 000. Cuando hay montos extremos, la media se aleja de la mediana y deja de ser una buena referencia.",
+        "misconceptionId": "m06-mc38"
+      },
+      {
+        "id": "o3",
+        "text": "La mediana de la región, que los extremos mueven poco",
+        "correct": true,
+        "feedback": "Correcta. La mediana es robusta, es decir, se mueve poco con los valores extremos. La alerta se presenta como una estimación para revisar."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l5#estadistico",
+    "sourceIds": [
+      "src-python-statistics"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l5-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l5",
+    "evaluatedObjectiveId": "m06-eo5",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "El dashboard tendrá una proyección del cierre del trimestre calculada con la tendencia de las últimas semanas.",
+    "stem": "¿Qué clase de salida es y cómo se verifica?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Estadística: se revisan su método y sus supuestos",
+        "correct": true,
+        "feedback": "Correcta. Es una estimación con supuestos. Se verifica revisando el método y cuánto cambia el resultado si cambian los supuestos, no con una igualdad al centavo."
+      },
+      {
+        "id": "o2",
+        "text": "Determinista: se compara al centavo con un valor esperado",
+        "correct": false,
+        "feedback": "Una proyección depende de supuestos sobre el futuro. No hay un valor exacto contra el cual compararla al centavo.",
+        "misconceptionId": "m06-mc39"
+      },
+      {
+        "id": "o3",
+        "text": "Generativa: la redacta el modelo, que es quien proyecta",
+        "correct": false,
+        "feedback": "Una proyección hecha con un método y unos supuestos es estadística. Generativo es el texto que produce un modelo de lenguaje.",
+        "misconceptionId": "m06-mc50"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l5#estadistico",
+    "sourceIds": [
+      "src-python-statistics"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l5-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l5",
+    "evaluatedObjectiveId": "m06-eo5",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El párrafo para dirección dice «el Centro tiene 1,34 millones de pipeline abierto». El contrato dice 1 330 500, que con dos decimales de millones es 1,33.",
+    "stem": "¿Qué hace el check del texto?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La acepta, porque la diferencia es muy pequeña",
+        "correct": false,
+        "feedback": "El texto solo puede citar cifras del contrato. Una diferencia, por pequeña que sea, significa que esa cifra no sale de él.",
+        "misconceptionId": "m06-mc51"
+      },
+      {
+        "id": "o2",
+        "text": "Le pide al modelo que confirme si su cifra es correcta",
+        "correct": false,
+        "feedback": "La confirmación del mismo modelo no es independiente. El check compara la cifra con el contrato, no con la opinión del modelo.",
+        "misconceptionId": "m06-mc52"
+      },
+      {
+        "id": "o3",
+        "text": "Marca la cifra, porque no coincide con el contrato",
+        "correct": true,
+        "feedback": "Correcta. Con el mismo redondeo, el contrato da 1,33. El check marca la diferencia y el párrafo se corrige antes de enviarse."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l5#verificar",
+    "sourceIds": [
+      "src-anthropic-reduce-hallucinations"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l5-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l5",
+    "evaluatedObjectiveId": "m06-eo4",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El agente propone guardar el monto como número de coma flotante en el Parquet, «para que el archivo pese menos».",
+    "stem": "¿Qué le pides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El tipo decimal, con dos posiciones para los centavos",
+        "correct": true,
+        "feedback": "Correcta. La coma flotante no representa con exactitud los montos decimales. Parquet tiene un tipo decimal justamente para eso."
+      },
+      {
+        "id": "o2",
+        "text": "Que lo haga, porque el archivo pesará menos",
+        "correct": false,
+        "feedback": "Ahorrar espacio no compensa perder exactitud en los montos. Para ellos se usa el tipo decimal.",
+        "misconceptionId": "m06-mc53"
+      },
+      {
+        "id": "o3",
+        "text": "Que guarde el monto como texto, para evitar problemas de tipo",
+        "correct": false,
+        "feedback": "Como texto, el monto deja de ser un número y cada lector tiene que adivinar cómo convertirlo. Parquet tiene un tipo decimal para eso.",
+        "misconceptionId": "m06-mc54"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l4#formatos",
+    "sourceIds": [
+      "src-parquet-logical-types",
+      "src-python-floatingpoint"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l5-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l5",
+    "evaluatedObjectiveId": "m06-eo4",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Un extracto Parquet de doce semanas es grande, y para una consulta solo necesitas dos de sus columnas.",
+    "stem": "¿El motor lee el archivo entero?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Sí, porque un archivo siempre se lee de principio a fin",
+        "correct": false,
+        "feedback": "El motor lee solo las columnas que pide la consulta, y los filtros le permiten saltarse partes del archivo. Así evita leer lo que no hace falta.",
+        "misconceptionId": "m06-mc35"
+      },
+      {
+        "id": "o2",
+        "text": "No: lee solo las dos columnas que pide la consulta",
+        "correct": true,
+        "feedback": "Correcta. Parquet guarda los datos por columnas, y el motor lee solo las que pide la consulta. Así no recorre lo que no va a usar."
+      },
+      {
+        "id": "o3",
+        "text": "Sí, salvo que antes conviertas el archivo a CSV",
+        "correct": false,
+        "feedback": "Es al revés. CSV guarda los datos fila por fila, como texto, mientras que Parquet permite leer solo las columnas necesarias.",
+        "misconceptionId": "m06-mc35"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l4#embebido",
+    "sourceIds": [
+      "src-duckdb-parquet"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l6-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l6",
+    "evaluatedObjectiveId": "m06-eo6",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El agente escribe el check de reconciliación importando la función de cálculo del dashboard, «para no duplicar código».",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Aceptarlo, porque evita duplicar trabajo",
+        "correct": false,
+        "feedback": "Si el check usa la misma función, un error en ella aparece en los dos lados y el check pasa. Por eso el check recalcula por otro camino.",
+        "misconceptionId": "m06-mc42"
+      },
+      {
+        "id": "o2",
+        "text": "Rechazarlo: el check deja de ser independiente",
+        "correct": true,
+        "feedback": "Correcta. Si usara la misma función, un error en ella aparecería en los dos lados. El check puede compartir el contrato y los supuestos, pero recalcula por otro camino."
+      },
+      {
+        "id": "o3",
+        "text": "Aceptarlo si la reconciliación pasa con los datos actuales",
+        "correct": false,
+        "feedback": "La reconciliación pasaría aunque la función estuviera mal, porque se compararía consigo misma. En ese caso, que pase no prueba nada.",
+        "misconceptionId": "m06-mc41"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l6#independencia",
+    "sourceIds": [
+      "src-python-sys"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l6-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l6",
+    "evaluatedObjectiveId": "m06-eo6",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "La reconciliación pasa, pero en los datos de prueba no hay ninguna oportunidad que cierre el mismo día del snapshot.",
+    "stem": "¿Qué dice ese resultado sobre la regla de vencidas en ese día?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada sobre ese caso, porque no está en los datos",
+        "correct": true,
+        "feedback": "Correcta. Un check solo detecta lo que sus datos ponen a prueba. Hay que agregar un caso que cierre ese día."
+      },
+      {
+        "id": "o2",
+        "text": "Que la regla es correcta en todos los casos",
+        "correct": false,
+        "feedback": "Que la reconciliación pase solo dice que cuadran los casos presentes en los datos. El día del snapshot nunca se probó.",
+        "misconceptionId": "m06-mc41"
+      },
+      {
+        "id": "o3",
+        "text": "Que el check de reconciliación está mal hecho",
+        "correct": false,
+        "feedback": "El check puede estar bien hecho y simplemente no tener datos para ese caso. Lo que falta es agregar ese caso a los datos de prueba.",
+        "misconceptionId": "m06-mc55"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l6#independencia",
+    "sourceIds": [
+      "src-python-sys"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l6-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l6",
+    "evaluatedObjectiveId": "m06-eo6",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Dentro de un trimestre tendrás que reproducir la cifra que hoy se presentó al comité.",
+    "stem": "¿Qué guardas hoy?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: la historia de la tabla permite volver a cualquier día",
+        "correct": false,
+        "feedback": "La historia de la tabla se conserva por tiempo limitado y no está pensada como respaldo. Para reproducir la cifra hay que guardar el extracto.",
+        "misconceptionId": "m06-mc43"
+      },
+      {
+        "id": "o2",
+        "text": "El extracto con su fecha, la consulta, los supuestos y el commit",
+        "correct": true,
+        "feedback": "Correcta. Con eso la cifra es trazable y se puede reproducir sin depender de lo que la plataforma conserve."
+      },
+      {
+        "id": "o3",
+        "text": "Nada: el linaje automático registra todo el recorrido",
+        "correct": false,
+        "feedback": "El linaje cubre lo que pasa en la plataforma, con límites, y no ve lo que pasa después de descargar. El tramo local se documenta en el repositorio.",
+        "misconceptionId": "m06-mc44"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l6#trazabilidad",
+    "sourceIds": [
+      "src-databricks-delta-history",
+      "src-databricks-uc-lineage"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l6-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l6",
+    "evaluatedObjectiveId": "m06-eo6",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Para probar el cálculo, alguien propone generar datos de prueba al azar, sin semilla, a partir del CRM real, «para que se parezcan a la realidad».",
+    "stem": "¿Qué cambias?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: sin semilla se prueban más casos distintos",
+        "correct": false,
+        "feedback": "Sin semilla, los datos no se pueden volver a generar iguales, y el azar no asegura que aparezcan los casos límite. Se fija la semilla y esos casos se agregan a propósito.",
+        "misconceptionId": "m06-mc46"
+      },
+      {
+        "id": "o2",
+        "text": "Nada, porque los datos sintéticos de origen real son anónimos",
+        "correct": false,
+        "feedback": "Aunque sean sintéticos, todavía pueden permitir deducir información de los datos reales de origen. Por eso los datos del curso se inventan desde cero.",
+        "misconceptionId": "m06-mc45"
+      },
+      {
+        "id": "o3",
+        "text": "Inventarlos desde cero, con semilla fija y casos límite a propósito",
+        "correct": true,
+        "feedback": "Correcta. Así los datos se pueden reproducir, no exponen información real y ponen a prueba justo las fronteras que importan."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l6#sinteticos",
+    "sourceIds": [
+      "src-python-random",
+      "src-arxiv-synthetic-groundhog"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l6-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l6",
+    "evaluatedObjectiveId": "m06-eo5",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El prompt del comentario semanal dice: «usa solo las cifras del contrato».",
+    "stem": "¿Puedes saltarte el check del texto?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Sí, porque el prompt ya prohíbe usar otras cifras",
+        "correct": false,
+        "feedback": "Las técnicas del prompt reducen los errores, pero no los eliminan. El check del texto sigue haciendo falta.",
+        "misconceptionId": "m06-mc37"
+      },
+      {
+        "id": "o2",
+        "text": "No: el prompt reduce los errores, pero no los elimina",
+        "correct": true,
+        "feedback": "Correcta. La información crítica se valida, y para eso el check compara cada cifra del texto con el contrato."
+      },
+      {
+        "id": "o3",
+        "text": "Sí, si además pones la temperatura en 0",
+        "correct": false,
+        "feedback": "Con temperatura 0 la respuesta todavía puede variar, y los errores no desaparecen. El check del texto sigue haciendo falta.",
+        "misconceptionId": "m06-mc36"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l5#generativo",
+    "sourceIds": [
+      "src-anthropic-reduce-hallucinations",
+      "src-anthropic-glossary"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m06-l6-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m06",
+    "lessonId": "m06-l6",
+    "evaluatedObjectiveId": "m06-eo5",
+    "competencyIds": [
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El modelo explica con claridad los pasos para calcular el ponderado del Norte y termina con una cifra.",
+    "stem": "¿Usas esa cifra en el dashboard?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Sí, porque los pasos que describe están bien",
+        "correct": false,
+        "feedback": "Un modelo puede plantear bien el problema y aun así equivocarse en la aritmética. La cifra sale de ejecutar el cálculo.",
+        "misconceptionId": "m06-mc40"
+      },
+      {
+        "id": "o2",
+        "text": "Sí, si se parece a la de la semana pasada",
+        "correct": false,
+        "feedback": "Parecerse a la cifra de la semana pasada no la vuelve correcta. Las cifras del dashboard salen del código de cálculo.",
+        "misconceptionId": "m06-mc51"
+      },
+      {
+        "id": "o3",
+        "text": "No: la cifra sale de ejecutar el cálculo, no del texto",
+        "correct": true,
+        "feedback": "Correcta. El modelo puede proponer el código, pero la cifra sale de ejecutarlo y de comprobarla con el check."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m06-l5#generativo",
+    "sourceIds": [
+      "src-arxiv-pal"
+    ],
+    "status": "draft"
   }
 ]

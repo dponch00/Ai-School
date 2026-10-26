@@ -1,0 +1,51 @@
+{
+  "id": "m06-l6",
+  "courseId": "m06",
+  "version": "0.1.0",
+  "order": 6,
+  "title": "Reconciliación, trazabilidad y datos sintéticos",
+  "objectives": [
+    {
+      "id": "m06-l6-o1",
+      "statement": "Decide si un check de reconciliación es independiente y si sus datos cubren el caso.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m06-eo6"
+    },
+    {
+      "id": "m06-l6-o2",
+      "statement": "Identifica lo que hace falta para reproducir una cifra y los límites del linaje y la historia.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m06-eo6"
+    },
+    {
+      "id": "m06-l6-o3",
+      "statement": "Elige cómo generar datos sintéticos reproducibles que cubran los casos límite.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m06-eo6"
+    }
+  ],
+  "bodyPath": "courses/m06/lessons/m06-l6.md",
+  "reviewQuestionIds": [
+    "m06-l6-r1",
+    "m06-l6-r2"
+  ],
+  "checkQuestionIds": [
+    "m06-l6-c1",
+    "m06-l6-c2",
+    "m06-l6-c3",
+    "m06-l6-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m06-pc-lineage-history"
+  ],
+  "sourceIds": [
+    "src-python-sys",
+    "src-databricks-uc-lineage",
+    "src-databricks-delta-history",
+    "src-python-random",
+    "src-arxiv-synthetic-groundhog"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

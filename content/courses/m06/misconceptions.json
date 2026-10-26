@@ -270,5 +270,233 @@
     "sourceIds": [
       "src-databricks-medallion"
     ]
+  },
+  {
+    "id": "m06-mc31",
+    "courseId": "m06",
+    "description": "Para consultar con SQL en tu computadora hace falta instalar un servidor de base de datos.",
+    "whyWrong": "Un motor embebido corre dentro del mismo programa, sin servidor, y consulta los archivos directamente.",
+    "sourceIds": [
+      "src-duckdb-why"
+    ]
+  },
+  {
+    "id": "m06-mc32",
+    "courseId": "m06",
+    "description": "CSV y Parquet guardan lo mismo; solo cambia el tamaño.",
+    "whyWrong": "CSV no guarda tipos ni esquema; Parquet guarda el esquema, los tipos y los valores mínimo y máximo de cada bloque.",
+    "sourceIds": [
+      "src-ietf-rfc4180",
+      "src-parquet-thrift"
+    ]
+  },
+  {
+    "id": "m06-mc33",
+    "courseId": "m06",
+    "description": "Si el motor adivinó bien los tipos de un CSV una vez, siempre los adivinará bien.",
+    "whyWrong": "El motor adivina los tipos a partir de una muestra, y un valor que aparece después puede no encajar en el tipo adivinado.",
+    "sourceIds": [
+      "src-duckdb-csv"
+    ]
+  },
+  {
+    "id": "m06-mc34",
+    "courseId": "m06",
+    "description": "Un archivo de base del motor embebido sirve para que todo el equipo escriba a la vez.",
+    "whyWrong": "En modo embebido, un solo programa escribe; varios pueden leer al mismo tiempo.",
+    "sourceIds": [
+      "src-duckdb-concurrency"
+    ]
+  },
+  {
+    "id": "m06-mc35",
+    "courseId": "m06",
+    "description": "Leer un archivo Parquet obliga a leerlo entero.",
+    "whyWrong": "Se leen solo las columnas que pide la consulta, y los filtros permiten saltarse partes del archivo.",
+    "sourceIds": [
+      "src-duckdb-parquet"
+    ]
+  },
+  {
+    "id": "m06-mc36",
+    "courseId": "m06",
+    "description": "Con la temperatura en 0, un modelo de lenguaje da siempre la misma respuesta.",
+    "whyWrong": "Incluso con temperatura 0, las respuestas pueden variar entre llamadas idénticas.",
+    "sourceIds": [
+      "src-anthropic-glossary"
+    ]
+  },
+  {
+    "id": "m06-mc37",
+    "courseId": "m06",
+    "description": "Si el prompt dice «usa solo los datos dados», el texto no tendrá errores.",
+    "whyWrong": "Las técnicas reducen los errores, pero no los eliminan; la información crítica se valida.",
+    "sourceIds": [
+      "src-anthropic-reduce-hallucinations"
+    ]
+  },
+  {
+    "id": "m06-mc38",
+    "courseId": "m06",
+    "description": "La media es la mejor referencia para detectar montos atípicos.",
+    "whyWrong": "La media se mueve con los mismos valores grandes que se quieren detectar; la mediana es robusta.",
+    "sourceIds": [
+      "src-python-statistics"
+    ]
+  },
+  {
+    "id": "m06-mc39",
+    "courseId": "m06",
+    "description": "Una estimación estadística se verifica igual que un KPI: al centavo.",
+    "whyWrong": "Una estimación se verifica revisando el método, los supuestos y cuánto cambia el resultado si cambian, no con una igualdad exacta.",
+    "sourceIds": [
+      "src-python-statistics"
+    ]
+  },
+  {
+    "id": "m06-mc40",
+    "courseId": "m06",
+    "description": "Si el modelo describe bien los pasos del cálculo, el resultado será correcto.",
+    "whyWrong": "Los modelos pueden plantear bien un problema y fallar en la aritmética; hacer que el modelo escriba código y ejecutarlo dio mejores resultados.",
+    "sourceIds": [
+      "src-arxiv-pal"
+    ]
+  },
+  {
+    "id": "m06-mc41",
+    "courseId": "m06",
+    "description": "Si la reconciliación pasa, el cálculo es correcto en todos los casos.",
+    "whyWrong": "Un check solo detecta lo que sus datos ponen a prueba; los casos que faltan siguen sin probar.",
+    "sourceIds": [
+      "src-python-sys"
+    ]
+  },
+  {
+    "id": "m06-mc42",
+    "courseId": "m06",
+    "description": "Reutilizar la función de cálculo en el check evita duplicar trabajo sin perder nada.",
+    "whyWrong": "El check deja de ser independiente: el mismo error aparece en los dos lados y el check pasa.",
+    "sourceIds": [
+      "src-python-sys"
+    ]
+  },
+  {
+    "id": "m06-mc43",
+    "courseId": "m06",
+    "description": "La historia de la tabla permite reconstruir cualquier cifra pasada.",
+    "whyWrong": "Por defecto, la plataforma conserva la historia por un tiempo limitado, y su documentación desaconseja usarla como respaldo.",
+    "sourceIds": [
+      "src-databricks-delta-history"
+    ]
+  },
+  {
+    "id": "m06-mc44",
+    "courseId": "m06",
+    "description": "El linaje automático cubre todo el recorrido hasta el dashboard.",
+    "whyWrong": "Cubre lo que se ejecuta en la plataforma, con límites; el tramo local se documenta aparte, en el repositorio.",
+    "sourceIds": [
+      "src-databricks-uc-lineage"
+    ]
+  },
+  {
+    "id": "m06-mc45",
+    "courseId": "m06",
+    "description": "Los datos sintéticos generados a partir de datos reales son anónimos.",
+    "whyWrong": "Todavía pueden permitir deducir información de los datos de origen, y cuánta privacidad ganan es difícil de predecir.",
+    "sourceIds": [
+      "src-arxiv-synthetic-groundhog"
+    ]
+  },
+  {
+    "id": "m06-mc46",
+    "courseId": "m06",
+    "description": "Los datos de prueba al azar, sin semilla, son mejores porque prueban más casos.",
+    "whyWrong": "Sin semilla no se pueden volver a generar iguales, y el azar no asegura que aparezcan los casos límite que importan.",
+    "sourceIds": [
+      "src-python-random"
+    ]
+  },
+  {
+    "id": "m06-mc47",
+    "courseId": "m06",
+    "description": "Para consultar con SQL hay que subir los datos al almacén.",
+    "whyWrong": "Un motor embebido consulta con SQL los archivos locales, sin subirlos a ningún lado.",
+    "sourceIds": [
+      "src-duckdb-why"
+    ]
+  },
+  {
+    "id": "m06-mc48",
+    "courseId": "m06",
+    "description": "Repetir la consulta al almacén en cada exploración es más confiable.",
+    "whyWrong": "Si la tabla cambia entre consultas, dos exploraciones ven datos distintos sin saberlo; un extracto fechado es reproducible.",
+    "sourceIds": [
+      "src-databricks-perf"
+    ]
+  },
+  {
+    "id": "m06-mc49",
+    "courseId": "m06",
+    "description": "Un permiso que no se usa no tiene riesgo.",
+    "whyWrong": "Lo que el agente puede hacer, lo puede hacer por error o siguiendo una instrucción escondida en los datos; por eso se da solo lo necesario.",
+    "sourceIds": [
+      "src-databricks-uc-privileges",
+      "src-owasp-llm01"
+    ]
+  },
+  {
+    "id": "m06-mc50",
+    "courseId": "m06",
+    "description": "Toda proyección hecha por un sistema es una salida generativa.",
+    "whyWrong": "Una proyección hecha con un método y unos supuestos es una salida estadística; la salida generativa es el texto que produce un modelo de lenguaje.",
+    "sourceIds": [
+      "src-python-statistics"
+    ]
+  },
+  {
+    "id": "m06-mc51",
+    "courseId": "m06",
+    "description": "Una diferencia pequeña entre el texto generado y el contrato no importa.",
+    "whyWrong": "El texto solo puede citar cifras del contrato; cualquier diferencia significa que esa cifra no sale de él.",
+    "sourceIds": [
+      "src-anthropic-reduce-hallucinations"
+    ]
+  },
+  {
+    "id": "m06-mc52",
+    "courseId": "m06",
+    "description": "Pedirle al modelo que confirme su cifra sirve como check.",
+    "whyWrong": "La confirmación del mismo modelo no es independiente; el check compara con el contrato.",
+    "sourceIds": [
+      "src-anthropic-reduce-hallucinations"
+    ]
+  },
+  {
+    "id": "m06-mc53",
+    "courseId": "m06",
+    "description": "La coma flotante sirve para los montos si así el archivo pesa menos.",
+    "whyWrong": "La coma flotante no representa con exactitud los montos decimales; para eso existe el tipo decimal.",
+    "sourceIds": [
+      "src-python-floatingpoint",
+      "src-parquet-logical-types"
+    ]
+  },
+  {
+    "id": "m06-mc54",
+    "courseId": "m06",
+    "description": "Guardar los montos como texto evita los problemas de tipos.",
+    "whyWrong": "Como texto, los montos dejan de ser números, y cada lector tiene que adivinar cómo convertirlos.",
+    "sourceIds": [
+      "src-parquet-logical-types"
+    ]
+  },
+  {
+    "id": "m06-mc55",
+    "courseId": "m06",
+    "description": "Si un check no detecta un caso, el check está mal hecho.",
+    "whyWrong": "El check puede estar bien hecho y no tener datos para ese caso; la solución es agregar el caso a los datos de prueba.",
+    "sourceIds": [
+      "src-python-random"
+    ]
   }
 ]
