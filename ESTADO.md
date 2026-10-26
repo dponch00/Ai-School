@@ -1,28 +1,28 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 a M06 completos y revisados; M07 completo, con el examen, el laboratorio y la práctica en revisión de Codex (T-040). · **Actualizado:** 2026-10-26 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 a M07 completos y revisados; M08 en preparación, con su investigación lista. · **Actualizado:** 2026-10-26 por Claude Code
 
 ## Siguiente acción
 
-1. **Codex:** T-040, que revisa el examen, el laboratorio y la práctica de M07.
-2. **Claude:** mientras tanto, la investigación y las lecciones 1 a 3 de M08; al volver T-040, aplicar sus hallazgos y cerrar M07.
+1. **Claude:** las lecciones 1 a 3 de M08, con sus preguntas y fichas, y después T-041 para Codex. Al escribir el laboratorio de M08, el giro no debe repetir el de M06 (las oportunidades «En pausa»).
+2. **Codex:** sin ticket abierto; T-040 cerrado el 2026-10-26.
 3. **Subagentes:** la investigación de M05 a M07 está lista; la de M08 a M10 se lanza cuando convenga.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-26)
 
-**≈ 67 % de la V1** (rango razonable: 64–70 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 69 % de la V1** (rango razonable: 66–72 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 88 % (simplificada a opción múltiple con D-024; faltan el hosting y la instalación real en dispositivos) | 13,2 |
-| 3 · Nueve manuales restantes | 40 % | 63 % (M01 y M03 a M06 completos y revisados; M07 completo y en revisión) | 25,2 |
+| 3 · Nueve manuales restantes | 40 % | 67 % (M01 y M03 a M07 completos y revisados; investigación de M08 lista) | 26,8 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 67 %** |
+| **Total** | 100 % | | **≈ 69 %** |
 
 ## Tickets
 
@@ -67,13 +67,12 @@
 | [T-037](coordinacion/tickets/T-037-codex-revision-m06-examen-laboratorio.md) | Codex | Revisión de M06: banco de examen, laboratorio como caso y práctica | cerrado |
 | [T-038](coordinacion/tickets/T-038-codex-revision-m07-l1-l3.md) | Codex | Revisión de M07: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
 | [T-039](coordinacion/tickets/T-039-codex-revision-m07-l4-l6.md) | Codex | Revisión de M07: lecciones 4 a 6, sus preguntas y fichas | cerrado |
-| [T-040](coordinacion/tickets/T-040-codex-revision-m07-examen-laboratorio.md) | Codex | Revisión de M07: banco de examen, laboratorio como caso y práctica | abierto |
+| [T-040](coordinacion/tickets/T-040-codex-revision-m07-examen-laboratorio.md) | Codex | Revisión de M07: banco de examen, laboratorio como caso y práctica | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-040) | `investigacion/codex-revision-m07-examen-laboratorio.md`, `design/qa/T-040/**` |
 | Claude | `content/courses/m08/**`, `investigacion/M08-*` |
 
 ## Decisiones recientes
@@ -81,6 +80,13 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-26 · Claude Code — cierre de T-040: M07 completo y revisado
+- `m07-lab-q03` y `q04` combinan los permisos con condiciones nuevas del caso: una activación escalonada y un token expuesto en el registro.
+- La investigación de M08 quedó lista (37 fuentes; commit 19f1ef3).
+- Versión de prueba en la versión 35 y guía de uso en la versión 8, con M07 completo.
+
+**Verificación:** `npm test` 205/205.
 
 ### 2026-10-26 · Claude Code — examen, laboratorio y práctica de M07 (T-040)
 - **Examen:** 42 preguntas en 14 familias.

@@ -20,7 +20,7 @@ En la primera prueba, el agente pide las oportunidades abiertas del Centro con `
 
 ## Paso 2 · Los permisos {#paso-2}
 
-Para conectar el agente, el CRM muestra una pantalla de consentimiento con cinco alcances: `opportunities:read`, `opportunities:write`, `tasks:write`, `accounts:export` y `admin:*`. La ejecución de los lunes correrá en el servidor de integración continua del equipo, no en la computadora de la analista.
+Para conectar el agente, el CRM muestra una pantalla de consentimiento con cinco alcances: `opportunities:read`, `opportunities:write`, `tasks:write`, `accounts:export` y `admin:*`. La lectura para el borrador correrá desde el primer lunes; la creación de tareas se activará recién cuando FP&A apruebe su formato, dentro de dos semanas. La ejecución correrá en el servidor de integración continua del equipo, con una credencial de servicio, y en la primera prueba allí el registro de la ejecución guardó completa la cabecera de autorización.
 
 ::lab-questions{step="paso-2"}
 

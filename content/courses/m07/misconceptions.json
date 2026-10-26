@@ -736,5 +736,14 @@
       "src-ietf-rfc6749",
       "src-mcp-security-bp"
     ]
+  },
+  {
+    "id": "m07-mc83",
+    "courseId": "m07",
+    "description": "Si se borra el rastro de una credencial expuesta, no hace falta revocarla.",
+    "whyWrong": "La credencial pudo copiarse o leerse antes de borrar el rastro. Lo primero es revocarla o rotarla.",
+    "sourceIds": [
+      "src-owasp-secrets-mgmt"
+    ]
   }
 ]

@@ -99,28 +99,28 @@
     ],
     "difficulty": "base",
     "process": "apply",
-    "scenario": "La ejecución de los lunes lee oportunidades para el borrador y crea tareas de seguimiento. La pantalla ofrece cinco alcances.",
-    "stem": "¿Qué alcances pides?",
+    "scenario": "La lectura para el borrador corre desde el primer lunes. La creación de tareas se activará en dos semanas, cuando FP&A apruebe su formato. Alguien propone pedir ya un solo token con opportunities:read y tasks:write.",
+    "stem": "¿Cómo organizas las credenciales?",
     "options": [
       {
         "id": "o1",
-        "text": "Los cinco, para que la ejecución no se trabe un lunes temprano",
+        "text": "Un solo token con los dos alcances desde ya, para no repetir el trámite",
         "correct": false,
-        "feedback": "Cada alcance de más amplía el daño si el token se filtra. La ejecución necesita dos.",
+        "feedback": "Durante dos semanas, el token podría crear tareas sin que nadie lo necesite. Un alcance que no se usa sigue disponible si el token se filtra.",
         "misconceptionId": "m07-mc07"
       },
       {
         "id": "o2",
-        "text": "admin:*, con una instrucción en el prompt de no exportar nada",
+        "text": "Un solo token, y que el prompt prohíba crear tareas por ahora",
         "correct": false,
-        "feedback": "La instrucción se puede ignorar o burlar. La autorización se hace cumplir en el CRM, con los alcances mínimos.",
+        "feedback": "Una instrucción no limita lo que el token permite. Hasta que la creación de tareas se active, el permiso no debería existir.",
         "misconceptionId": "m07-mc10"
       },
       {
         "id": "o3",
-        "text": "Solo opportunities:read y tasks:write, que es lo que hace la ejecución",
+        "text": "Dos credenciales: lectura desde ya, y la de tareas cuando se active",
         "correct": true,
-        "feedback": "Correcta. Son las dos cosas que hace la ejecución: leer oportunidades y crear tareas. Exportar cuentas o administrar el CRM no forman parte del encargo."
+        "feedback": "Correcta. Cada tarea tiene su credencial, y cada una se pide cuando hace falta. Así la lectura de los lunes nunca puede crear tareas."
       }
     ],
     "fixedOrder": false,
@@ -144,34 +144,34 @@
     ],
     "difficulty": "advanced",
     "process": "evaluate",
-    "scenario": "La ejecución correrá en el servidor de integración continua del equipo. Alguien propone usar la credencial personal de la analista, «que ya tiene todos los permisos».",
-    "stem": "¿Qué credencial usa la ejecución?",
+    "scenario": "En la primera prueba en el servidor de integración continua, el registro de la ejecución guardó completa la cabecera de autorización con el token de servicio.",
+    "stem": "¿Qué haces primero?",
     "options": [
       {
         "id": "o1",
-        "text": "La personal de la analista, porque ya funciona",
+        "text": "Borrar esa línea del registro y seguir con el mismo token",
         "correct": false,
-        "feedback": "Con la credencial personal, la ejecución actúa con todos los permisos de la analista. Además, no se distingue lo que hizo ella de lo que hizo el agente.",
-        "misconceptionId": "m07-mc78"
+        "feedback": "Borrar la línea no deshace la exposición: el registro pudo copiarse o leerse antes. El token se revoca primero.",
+        "misconceptionId": "m07-mc83"
       },
       {
         "id": "o2",
-        "text": "Una de servicio con los dos alcances, de corta vida, para cada ejecución",
+        "text": "Revocar ese token, emitir otro y ocultar la credencial en el registro",
         "correct": true,
-        "feedback": "Correcta. La ejecución tiene su propia credencial, limitada a lo que necesita. Si el sistema lo permite, cada ejecución recibe una que caduca al terminar."
+        "feedback": "Correcta. Ante una credencial expuesta, lo primero es revocarla o rotarla. Después se corrige el registro para que no vuelva a guardarla."
       },
       {
         "id": "o3",
-        "text": "Un token de servicio que no caduca, guardado como secreto",
+        "text": "Nada: el registro es interno y solo lo ve el equipo",
         "correct": false,
-        "feedback": "Guardarlo como secreto no reduce el daño si se filtra. Un token que no caduca sirve para siempre.",
-        "misconceptionId": "m07-mc39"
+        "feedback": "Un registro interno se guarda, se copia y lo lee más gente de la que se piensa. El token quedó expuesto.",
+        "misconceptionId": "m07-mc63"
       }
     ],
     "fixedOrder": false,
     "sectionRef": "m07-l2#corta-vida",
     "sourceIds": [
-      "src-github-actions-oidc",
+      "src-owasp-secrets-mgmt",
       "src-ietf-rfc6750"
     ],
     "status": "draft"
