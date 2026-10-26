@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-25 |
 | Depende de | T-034 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -67,7 +67,10 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 
 ## Entrega
 
-_(Codex)_
+- Informe: `investigacion/codex-revision-m06-l4-l6.md`.
+- Hallazgo: una inconsistencia de redondeo en L5 ("un decimal" frente a 3,77, que usa dos); corrección propuesta en el informe.
+- Verifiqué fuentes, fichas, 18 preguntas, cálculos del Sur y la simulación OPP-1099; `npm test` pasó (176/176).
+- Commit: pendiente de registrar el hash.
 
 ## Revisión
 
