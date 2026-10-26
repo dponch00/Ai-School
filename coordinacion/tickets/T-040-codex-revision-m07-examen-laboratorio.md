@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-26 |
 | Depende de | T-039 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -82,7 +82,12 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 
 ## Entrega
 
-_(Codex)_
+_(Codex, 2026-10-26)_
+
+- Informe: `investigacion/codex-revision-m07-examen-laboratorio.md`.
+- Hallazgo: uno medio; `lab-q03` y `lab-q04` repiten las decisiones de alcances mínimos y credenciales efímeras ya comprobadas.
+- Verificación: CSV contrastado; `npm test` 205/205; claves únicas comprobadas por script.
+- Commit: pendiente de registrar tras crear la entrega.
 
 ## Revisión
 
