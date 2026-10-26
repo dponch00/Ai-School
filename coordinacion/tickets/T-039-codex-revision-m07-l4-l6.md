@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-26 |
 | Depende de | T-038 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -81,7 +81,12 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 
 ## Entrega
 
-_(Codex)_
+_(Codex, 2026-10-26)_
+
+- Informe: `investigacion/codex-revision-m07-l4-l6.md`.
+- Hallazgos: 2 medios. `m07-l6-c2` repite la decisión del diagnóstico sobre inyección indirecta; `m07-l6-r1` recicla la comprobación de M03 sobre una cita que no valida la afirmación. Las demás fuentes, fichas, series, claves y longitudes quedaron verificadas.
+- Verificación: `npm test` — 205/205 pruebas aprobadas; claves únicas y longitudes revisadas por script.
+- Commit: pendiente de registrar tras crear la entrega.
 
 ## Revisión
 
