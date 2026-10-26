@@ -4,7 +4,7 @@ import { isProductCardStale } from '../domain/content'
 const SURFACE: Record<string, string> = {
   chat: 'chat', api: 'API', cli: 'CLI', ide: 'IDE', desktop: 'app de escritorio', web: 'web', cloud: 'nube', mobile: 'móvil',
 }
-const MATURITY: Record<string, string> = { ga: 'disponible (GA)', beta: 'beta', preview: 'vista previa', deprecated: 'en retiro' }
+const MATURITY: Record<string, string> = { ga: 'disponible (GA)', beta: 'beta', preview: 'vista previa', deprecated: 'en retiro', unspecified: 'estado no indicado por el proveedor', mixed: 'estados distintos según la capacidad' }
 
 interface Props {
   card: ProductCard

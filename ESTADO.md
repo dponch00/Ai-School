@@ -1,28 +1,28 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 y M03 completos y revisados; M04 y M05 completos, en revisión de Codex (T-032 y T-033); M06 y M07 con su investigación lista. · **Actualizado:** 2026-10-23 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 y M03 completos y revisados; M01 a M05 completos y revisados; M06 y M07 con su investigación lista. · **Actualizado:** 2026-10-23 por Claude Code
 
 ## Siguiente acción
 
-1. **Codex:** T-032 (M04: examen, laboratorio y práctica; la primera entrega no llegó al repositorio) y T-033 (M05 completo).
-2. **Claude:** al retomar, aplicar T-032 (Codex entregó: `m04-p11` repite `dx-b4-03`) y T-033 (Codex ya entregó; ver `investigacion/codex-revision-m05.md`). Después, M06 lección por lección, con un ticket por cada tanda (D-026).
+1. **Claude:** M06 lecciones 1 a 3 (D-026: tandas pequeñas), luego T-034 para Codex.
+2. **Codex:** sin ticket abierto hasta T-034.
 3. **Subagentes:** la investigación de M05 a M07 está lista; la de M08 a M10 se lanza cuando convenga.
 3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-23)
 
-**≈ 59 % de la V1** (rango razonable: 56–62 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 60 % de la V1** (rango razonable: 57–63 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 88 % (simplificada a opción múltiple con D-024; faltan el hosting y la instalación real en dispositivos) | 13,2 |
-| 3 · Nueve manuales restantes | 40 % | 42 % (M01 y M03 revisados; M04 y M05 completos, en revisión; investigación de M06 y M07 lista) | 16,8 |
+| 3 · Nueve manuales restantes | 40 % | 44 % (M01, M03, M04 y M05 completos y revisados; investigación de M06 y M07 lista) | 17,6 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 59 %** |
+| **Total** | 100 % | | **≈ 60 %** |
 
 ## Tickets
 
@@ -59,15 +59,14 @@
 | [T-029](coordinacion/tickets/T-029-codex-revision-m03-examen-laboratorio.md) | Codex | Revisión de M03: banco de examen, laboratorio como caso y práctica | cerrado |
 | [T-030](coordinacion/tickets/T-030-codex-revision-m04-l1-l3.md) | Codex | Revisión de M04: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
 | [T-031](coordinacion/tickets/T-031-codex-revision-m04-l4-l6.md) | Codex | Revisión de M04: lecciones 4 a 6, preguntas y fichas | cerrado |
-| [T-032](coordinacion/tickets/T-032-codex-revision-m04-examen-laboratorio.md) | Codex | Revisión de M04: banco de examen, laboratorio como caso y práctica | abierto |
-| [T-033](coordinacion/tickets/T-033-codex-revision-m05-completo.md) | Codex | Revisión de M05 completo | abierto |
+| [T-032](coordinacion/tickets/T-032-codex-revision-m04-examen-laboratorio.md) | Codex | Revisión de M04: banco de examen, laboratorio como caso y práctica | cerrado |
+| [T-033](coordinacion/tickets/T-033-codex-revision-m05-completo.md) | Codex | Revisión de M05 completo | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
 | Codex (T-032) | `investigacion/codex-revision-m04-examen-laboratorio.md`, `design/qa/T-032/**` |
-| Codex (T-033) | `investigacion/codex-revision-m05.md`, `design/qa/T-033/**` |
 | Claude | `content/courses/m06/**` |
 
 ## Decisiones recientes
@@ -75,6 +74,19 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-25 · Claude Code — revisión de T-032 y T-033
+**T-032:** `m04-p11` deja de repetir `dx-b4-03`.
+
+**T-033:**
+- las fichas de M05 dejan de dar por GA lo que la fuente no dice (estados nuevos `unspecified` y `mixed`);
+- se corrigieron 16 claves con longitud desproporcionada;
+- `m05-f05-c` ajusta el alcance de su cita;
+- `m05-f08-a` cambia de caso para no repetir M03.
+
+**Versión de prueba:** carga los cursos también desde `file://`.
+
+M04 y M05 quedan revisados. `npm test` 162/162.
 
 ### 2026-10-23 · Claude Code — cierre del día
 - La guía de uso privada se actualizó: cinco manuales, 59 %, orden sugerido M01 a M05.

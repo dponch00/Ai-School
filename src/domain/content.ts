@@ -274,7 +274,8 @@ export const ProductCard = z.object({
    * 'guidance' = una recomendación documentada del proveedor; no tiene estado de lanzamiento (M02-R-04).
    */
   kind: z.enum(['capability', 'guidance']),
-  maturity: z.enum(['ga', 'beta', 'preview', 'deprecated']).optional(),
+  /** 'unspecified' = la página oficial no indica el estado; 'mixed' = la ficha reúne capacidades con estados distintos (T033-M05-01). */
+  maturity: z.enum(['ga', 'beta', 'preview', 'deprecated', 'unspecified', 'mixed']).optional(),
   verifiedAt: IsoDate,
   sourceIds: z.array(SourceId).min(1),
   nextReview: IsoDate,

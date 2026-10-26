@@ -7,9 +7,9 @@
       "ide",
       "desktop"
     ],
-    "capability": "Claude Code tiene seis modos de permiso (manual, aceptar ediciones, plan, auto, no preguntar y omitir permisos); el modo auto delega la aprobación en un clasificador y es el inicial en la terminal y VS Code desde la v2.1.283. Las reglas de denegación bloquean en todos los modos. Su sandbox de comandos está desactivado por defecto (/sandbox), funciona en macOS, Linux y WSL2, y su lista de dominios empieza vacía. Codex ofrece «Ask for approval», «Approve for me», «Full access» y modos personalizados; con escritura limitada al espacio de trabajo, la red está apagada y .git queda de solo lectura; la página no indica cuál es el predeterminado. Copilot CLI aprueba una vez o para la sesión y admite --deny-tool (la denegación gana); en VS Code, los niveles son Manual (predeterminado), Assisted (experimental) y Allow all, y la autoaprobación de comandos se describe como una comodidad, no una barrera.",
+    "capability": "Claude Code tiene seis modos de permiso (manual, aceptar ediciones, plan, auto, no preguntar y omitir permisos); el modo auto delega la aprobación en un clasificador y es el inicial en la terminal y VS Code desde la v2.1.283. Las reglas de denegación bloquean en todos los modos. Su sandbox de comandos está desactivado por defecto (/sandbox), funciona en macOS, Linux y WSL2, y su lista de dominios empieza vacía. Codex ofrece «Ask for approval», «Approve for me», «Full access» y modos personalizados; con escritura limitada al espacio de trabajo, la red está apagada y .git queda de solo lectura; la página no indica cuál es el predeterminado. Copilot CLI aprueba una vez o para la sesión y admite --deny-tool (la denegación gana); en VS Code, los niveles son Manual (predeterminado), Assisted (experimental según su página) y Allow all, y la autoaprobación de comandos se describe como una comodidad, no una barrera. Las demás páginas no indican el estado de cada modo.",
     "kind": "capability",
-    "maturity": "ga",
+    "maturity": "mixed",
     "verifiedAt": "2026-10-23",
     "sourceIds": [
       "src-anthropic-cc-permission-modes",
@@ -31,7 +31,7 @@
     ],
     "capability": "Claude Code entra en modo plan con Shift+Tab, --permission-mode plan o /plan; Ctrl+G abre el plan en el editor, y tiene una herramienta para hacer preguntas al usuario y un prompt de entrevista que termina en SPEC.md. Codex usa /plan o Shift+Tab y propone una plantilla PLANS.md para trabajos largos. Copilot CLI entra en modo plan con Shift+Tab y hace preguntas aclaratorias antes de escribir código.",
     "kind": "capability",
-    "maturity": "ga",
+    "maturity": "unspecified",
     "verifiedAt": "2026-10-23",
     "sourceIds": [
       "src-anthropic-cc-permission-modes",
@@ -69,7 +69,7 @@
     ],
     "capability": "Claude Code: Esc detiene; Esc Esc o /rewind vuelve a un checkpoint; /clear limpia; /compact con un foco compacta; /branch o --fork-session bifurca; --continue y --resume retoman; /context muestra qué ocupa el contexto y /usage, el consumo de la sesión. Codex: /new, /compact, /fork, /status (contexto y límites) y /usage. Copilot CLI: /compact (compacta sola cerca del 95 % del límite) y /context; no se encontró documentada una bifurcación.",
     "kind": "capability",
-    "maturity": "ga",
+    "maturity": "unspecified",
     "verifiedAt": "2026-10-23",
     "sourceIds": [
       "src-anthropic-cc-sessions",
@@ -89,7 +89,7 @@
     ],
     "capability": "Claude Code se conecta a Chrome y otros navegadores Chromium con una extensión que comparte el estado de sesión del navegador y se pausa ante inicios de sesión o CAPTCHA; /code-review revisa el diff con un subagente de contexto limpio. Codex tiene un navegador integrado, con perfil separado, solo en la app de escritorio, y /review contra la rama base, los cambios sin confirmar o un commit. En VS Code, el agente tiene herramientas de navegador activas por defecto y las páginas que abre usan sesiones aisladas.",
     "kind": "capability",
-    "maturity": "ga",
+    "maturity": "unspecified",
     "verifiedAt": "2026-10-23",
     "sourceIds": [
       "src-anthropic-cc-chrome",
@@ -110,9 +110,9 @@
       "desktop",
       "mobile"
     ],
-    "capability": "Claude Code en la nube (web, móvil, escritorio y claude --cloud) usa por defecto la red «Trusted» y --teleport trae la sesión a la terminal (solo en esa dirección en la CLI). Codex Cloud usa entornos con script de instalación, red y secretos; la página no indica la red por defecto. El agente en la nube de Copilot trabaja en un entorno efímero, en una rama y con una PR por tarea, con una sesión máxima de 59 minutos; copilot --cloud está en vista previa pública. La app de Codex pasa una conversación entre la carpeta local y un worktree con «Hand off».",
+    "capability": "Claude Code en la nube (web, móvil, escritorio y claude --cloud) usa por defecto la red «Trusted» y --teleport trae la sesión a la terminal (solo en esa dirección en la CLI). Codex Cloud usa entornos con script de instalación, red y secretos; la página no indica la red por defecto. El agente en la nube de Copilot trabaja en un entorno efímero, en una rama y con una PR por tarea, con una sesión máxima de 59 minutos; copilot --cloud está en vista previa pública. La app de Codex pasa una conversación entre la carpeta local y un worktree con «Hand off». Salvo copilot --cloud, las páginas no indican el estado de lanzamiento.",
     "kind": "capability",
-    "maturity": "ga",
+    "maturity": "mixed",
     "verifiedAt": "2026-10-23",
     "sourceIds": [
       "src-anthropic-cc-cloud",

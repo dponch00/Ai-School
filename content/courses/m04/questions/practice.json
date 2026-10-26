@@ -433,27 +433,27 @@
     ],
     "difficulty": "base",
     "process": "evaluate",
-    "scenario": "Pediste corregir un texto del reporte. El diff también cambia la probabilidad de una etapa en stage_probability.csv.",
-    "stem": "¿Qué haces con ese cambio?",
+    "scenario": "Pediste corregir un texto del reporte. El diff también cambia, en config/logging.yaml, la retención de los registros de 90 a 7 días.",
+    "stem": "¿Qué haces con ese cambio en la configuración?",
     "options": [
       {
         "id": "o1",
-        "text": "Aceptarlo si la reconciliación pasa",
+        "text": "Aceptarlo, porque es solo configuración y no código",
         "correct": false,
-        "feedback": "Que la reconciliación pase no justifica el cambio. La tabla de probabilidades es una política de FP&A, y el encargo no la incluía.",
-        "misconceptionId": "m04-mc37"
+        "feedback": "La configuración también decide el comportamiento: con 7 días se pierden registros que antes se conservaban. Y no era parte del encargo.",
+        "misconceptionId": "m04-mc17"
       },
       {
         "id": "o2",
-        "text": "Pedir que lo retire: está fuera de lo pedido y es una política de FP&A",
+        "text": "Pedir que se retire config/logging.yaml del cambio",
         "correct": true,
-        "feedback": "Correcta. El cambio está fuera de lo pedido y toca una política del negocio, así que no se acepta. Esa tabla la decide FP&A, no el agente."
+        "feedback": "Correcta. El cambio está fuera de lo pedido y toca un archivo que nadie mencionó. Se pide retirarlo y, si hace falta, se discute aparte."
       },
       {
         "id": "o3",
-        "text": "Aceptarlo, porque probablemente el agente tenía un motivo",
+        "text": "Aceptarlo, porque el agente seguramente tenía un buen motivo",
         "correct": false,
-        "feedback": "Un motivo que nadie explicó ni pidió no alcanza para aceptar el cambio. Además, la tabla no le corresponde al agente.",
+        "feedback": "Un motivo que no se explicó no justifica un cambio que no se pidió. Lo que queda fuera del encargo se retira.",
         "misconceptionId": "m04-mc70"
       }
     ],

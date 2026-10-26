@@ -195,7 +195,7 @@
     "options": [
       {
         "id": "o1",
-        "text": "Directo, sin plan",
+        "text": "Directo, porque el cambio cabe en una frase",
         "correct": true,
         "feedback": "Correcta. El cambio cabe en una frase, así que un plan solo agregaría costo."
       },
@@ -326,7 +326,7 @@
     "options": [
       {
         "id": "o1",
-        "text": "Una verificación por paso",
+        "text": "Que verifique cada paso antes de seguir",
         "correct": true,
         "feedback": "Correcta. Con una prueba por paso, los errores de un cambio no se mezclan con los de otro y se puede volver atrás. Hacerlo todo de una vez suele dejar trabajo a medias."
       },
@@ -429,7 +429,7 @@
       },
       {
         "id": "o3",
-        "text": "Que es para entornos aislados",
+        "text": "Que ese modo es para entornos aislados, no para el portátil",
         "correct": true,
         "feedback": "Correcta. Las tres herramientas revisadas lo reservan para contenedores o máquinas virtuales aisladas. En un portátil de trabajo hay mucho más que el repositorio."
       }
@@ -810,7 +810,7 @@
     "options": [
       {
         "id": "o1",
-        "text": "Bifurcar la sesión",
+        "text": "Bifurcar, para conservar la sesión actual",
         "correct": true,
         "feedback": "Correcta. La bifurcación copia la conversación y deja intacta la original. Puedes probar el enfoque nuevo y volver si no sirve."
       },
@@ -1293,7 +1293,7 @@
     "options": [
       {
         "id": "o1",
-        "text": "Las cuatro, para terminar antes",
+        "text": "Las cuatro a la vez, para terminar todo antes",
         "correct": false,
         "feedback": "Las dos que dependen de las otras empezarían sin lo que necesitan. Paralelizar solo sirve con tareas independientes.",
         "misconceptionId": "m05-mc27"
@@ -1381,7 +1381,7 @@
     "options": [
       {
         "id": "o1",
-        "text": "Revisarla como cualquier cambio, con la ayuda de otra persona para aprobarla",
+        "text": "Revisarla como cualquier cambio y que la apruebe otra persona",
         "correct": true,
         "feedback": "Correcta. Los registros de la sesión no reemplazan la revisión ni tus propias pruebas. Y quien pidió el cambio no debería aprobarlo solo."
       },
@@ -1475,7 +1475,7 @@
       },
       {
         "id": "o2",
-        "text": "Que todavía hace falta mirar el diff, porque no lo encuentra todo",
+        "text": "Que igual hay que mirar el diff",
         "correct": true,
         "feedback": "Correcta. La revisión automática ayuda, pero no reemplaza tu lectura del diff. Tampoco reemplaza las verificaciones propias."
       },

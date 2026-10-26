@@ -291,7 +291,7 @@
     "options": [
       {
         "id": "o1",
-        "text": "Directo",
+        "text": "Directo, porque el cambio cabe en una sola frase",
         "correct": true,
         "feedback": "Correcta. El cambio se describe en una frase, así que se pide directo. Planearlo solo agregaría costo."
       },
@@ -655,7 +655,7 @@
         "id": "o2",
         "text": "«Lo mismo, y si una prueba parece incorrecta, detente y explícalo»",
         "correct": true,
-        "feedback": "Correcta. Sin nadie que mire, la instrucción de detenerse es la que más reduce los atajos. Si se suma una compuerta, el agente tampoco puede terminar sin pasar el check."
+        "feedback": "Correcta. En el estudio, agregar la instrucción de detenerse y explicar el conflicto redujo mucho los atajos. Una compuerta que impida terminar sin pasar el check es un control adicional."
       },
       {
         "id": "o3",
@@ -952,27 +952,27 @@
     "process": "apply",
     "family": "m05-f08",
     "variant": "a",
-    "scenario": "Es la tercera corrección fallida del agente sobre el mismo cálculo de comisiones, y el contexto está lleno de intentos.",
+    "scenario": "Tras tres correcciones fallidas sobre el formato de las comisiones, un comando mínimo muestra por fin la causa: una columna usa la coma como separador decimal. El contexto está lleno de intentos fallidos.",
     "stem": "¿Qué movimiento eliges?",
     "options": [
       {
         "id": "o1",
-        "text": "Explicarle el problema otra vez, ahora con todos los detalles",
+        "text": "Darle la causa en la misma sesión, a continuación de los intentos",
         "correct": false,
-        "feedback": "Después de varias correcciones fallidas, el contexto está contaminado por los intentos. Más detalle en la misma sesión no lo limpia.",
+        "feedback": "La causa es buena, pero llega a un contexto contaminado por tres intentos fallidos. Rinde más una sesión nueva con lo aprendido.",
         "misconceptionId": "m05-mc16"
       },
       {
         "id": "o2",
-        "text": "Una sesión nueva con lo aprendido, sin el historial",
+        "text": "Una sesión nueva con el comando, la causa y lo descartado",
         "correct": true,
-        "feedback": "Correcta. A la sesión nueva se llevan el comando, lo que ya se descartó y la hipótesis que sigue en pie, pero no el historial."
+        "feedback": "Correcta. La causa nueva vale más en un contexto limpio que encima de tres intentos fallidos. Se lleva lo aprendido, no el historial."
       },
       {
         "id": "o3",
-        "text": "Compactar para que el resumen olvide los intentos fallidos",
+        "text": "Compactar con el foco puesto en la causa recién encontrada",
         "correct": false,
-        "feedback": "El resumen arrastra la misma confusión que los intentos. Cuando el historial está contaminado, conviene empezar limpio.",
+        "feedback": "El resumen arrastra también la confusión de los intentos. Cuando el historial está contaminado, se empieza limpio con la causa.",
         "misconceptionId": "m05-mc33"
       }
     ],
@@ -1062,7 +1062,7 @@
       },
       {
         "id": "o3",
-        "text": "Bifurcar",
+        "text": "Bifurcar, para volver si la regla no sirve",
         "correct": true,
         "feedback": "Correcta. La bifurcación copia la conversación y deja intacta la original. Si la regla nueva no sirve, vuelves a la sesión de antes."
       }
@@ -1548,7 +1548,7 @@
       },
       {
         "id": "o2",
-        "text": "En local",
+        "text": "En local, cuando ya tengas las decisiones",
         "correct": true,
         "feedback": "Correcta. La tarea depende de decisiones que se toman en vivo, así que se hace en local cuando ya las tengas."
       },

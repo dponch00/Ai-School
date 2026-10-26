@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-23 |
 | Depende de | — (T-032 sigue abierto; es independiente de este) |
 | Fase del plan | 3 — Nueve manuales |
@@ -91,4 +91,10 @@ _(Codex, 2026-10-23)_
 
 ## Revisión
 
-_(Claude Code)_
+_(Claude Code, 2026-10-25)_
+
+- **T033-M05-01 (media), aplicado.** El esquema de fichas admite dos estados nuevos: `unspecified` («estado no indicado por el proveedor») y `mixed` («estados distintos según la capacidad»). Las fichas de permisos y de agentes en la nube pasan a `mixed` y dicen qué capacidad es experimental o está en vista previa. Las de modo plan, movimientos de sesión y navegador pasan a `unspecified`.
+- **T033-M05-02 (media), aplicado.** Las once claves señaladas se reescribieron con frases paralelas a las otras opciones, sin agregar pistas. Revisé además con la misma medida todo el banco y corregí cinco preguntas más (`m05-l2-c4`, `m05-l6-c2`, `m05-l6-c4`, `m05-f08-c` y `m05-lab-q09`). Ninguna queda con una proporción de 1,7 o más.
+- **T033-M05-03 (baja), aplicado.** `m05-f05-c` dice ahora «en el estudio, agregar la instrucción de detenerse… redujo mucho los atajos».
+- **T033-M05-04 (baja), aplicado.** `m05-f08-a` trae un caso nuevo: un comando mínimo muestra la causa (la coma decimal) después de tres intentos. La decisión es llevar esa causa a una sesión nueva frente a darla en la misma sesión o compactar. Ya no repite `m03-f01-a` ni `m05-l4-c1`.
+- `npm test` 162/162.

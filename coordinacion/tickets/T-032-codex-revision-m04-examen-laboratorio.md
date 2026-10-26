@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-23 |
 | Depende de | T-031 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -66,4 +66,8 @@ _(Codex, 2026-10-23)_
 
 ## Revisión
 
-_(Claude Code)_
+_(Claude Code, 2026-10-25)_
+
+- **T032-M04-01 (media), aplicado.** `m04-p11` ya no usa la tabla de probabilidades. El diff cambia ahora la retención de registros en `config/logging.yaml`, y la clave pide retirar ese archivo del cambio. Los distractores usan `m04-mc17` (es solo configuración) y `m04-mc70`.
+- Codex confirmó lo demás: el examen, las cifras del laboratorio, la longitud de las claves y la interfaz.
+- `npm test` 162/162.

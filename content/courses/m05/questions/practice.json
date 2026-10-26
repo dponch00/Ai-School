@@ -66,7 +66,7 @@
       },
       {
         "id": "o2",
-        "text": "Apagada",
+        "text": "Apagada, porque la tarea no la usa",
         "correct": true,
         "feedback": "Correcta. La red se abre solo hacia lo que la tarea necesita, y esta no necesita nada."
       },
@@ -101,7 +101,7 @@
     "options": [
       {
         "id": "o1",
-        "text": "Directo",
+        "text": "Directo, sin plan ni entrevista",
         "correct": true,
         "feedback": "Correcta. El cambio cabe en una frase, así que se pide directo. Planear solo agregaría costo."
       },
@@ -397,7 +397,7 @@
     "options": [
       {
         "id": "o1",
-        "text": "La de corrección",
+        "text": "La de corrección, que afecta al resultado",
         "correct": true,
         "feedback": "Correcta. Lo que afecta a la corrección y a los requisitos va primero. El estilo puede esperar."
       },
@@ -447,7 +447,7 @@
       },
       {
         "id": "o2",
-        "text": "Desde la rama remota",
+        "text": "Desde la rama del repositorio remoto",
         "correct": true,
         "feedback": "Correcta. Por eso hay que subir antes todo lo que el agente debe leer."
       },

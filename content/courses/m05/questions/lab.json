@@ -330,7 +330,7 @@
       },
       {
         "id": "o2",
-        "text": "Bifurcar la sesión",
+        "text": "Bifurcar, para conservar lo que ya funciona",
         "correct": true,
         "feedback": "Correcta. La bifurcación conserva la sesión original. Si la otra regla no sirve, la analista vuelve a la que funcionaba."
       },
@@ -367,7 +367,7 @@
     "options": [
       {
         "id": "o1",
-        "text": "Ninguna más: las pruebas ya pasaron",
+        "text": "Ninguna más, porque las pruebas ya pasaron todas",
         "correct": false,
         "feedback": "Las pruebas no muestran la página, así que no ven los errores visuales. Lo visual hay que verlo.",
         "misconceptionId": "m05-mc21"
