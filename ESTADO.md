@@ -4,14 +4,16 @@
 
 ## Siguiente acción
 
-1. **Codex:** T-051, que revisa F4-04 (22 preguntas de M01 a M05 marcadas como inferencia) y F4-05 (reflujo con letra grande).
-2. **Claude:** mientras tanto, F4-03 (consistencia de términos), F4-06 (modo sin conexión, respaldo y actualizaciones, y el plan §13 según D-029) y F4-08 (fichas que vencen el 2026-11-30). En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
+1. **Codex:** T-052, la última revisión independiente: la candidata de entrega (`docs/entrega-v1.md`) y el `README.md` nuevo, siguiéndolo de principio a fin.
+2. **Daniel (cuando pueda):** en el celular, descargar un respaldo desde «Respaldo», aceptar el aviso de versión nueva cuando aparezca y comprobar que el progreso se conserva (F4-06).
+3. **Claude:** al volver T-052, aplicar sus hallazgos y cerrar la fase 4. El 2026-12-01, revisar las fichas que vencen (`python scripts/fichas-por-revisar.py`).
+4. **Pendiente de Daniel (sin prisa):** decidir la licencia del repositorio público. En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
 3. **Daniel (a su ritmo):** estudiar los manuales en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
-4. **Daniel (a su ritmo):** estudiar en la app instalada y contar lo que no se entienda o tome demasiado tiempo.
+5. **Daniel (a su ritmo):** estudiar en la app instalada y contar lo que no se entienda o tome demasiado tiempo.
 
 ## Avance estimado (2026-10-26)
 
-**≈ 88 % de la V1** (rango razonable: 85–91 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 92 % de la V1** (rango razonable: 90–94 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
@@ -19,9 +21,9 @@
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 100 % (publicada con D-029 e instalada en el celular de Daniel) | 15,0 |
 | 3 · Nueve manuales restantes | 40 % | 100 % (los diez completos y revisados) | 40,0 |
-| 4 · Integración y revisión | 10 % | 35 % (F4-01 y F4-02 cerrados; F4-04 y F4-05 en revisión) | 3,5 |
+| 4 · Integración y revisión | 10 % | 80 % (F4-01 a F4-05 y F4-07 cerrados; candidata de entrega en revisión; falta el recorrido de Daniel en el celular) | 8,0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 88 %** |
+| **Total** | 100 % | | **≈ 92 %** |
 
 ## Tickets
 
@@ -77,19 +79,28 @@
 | [T-048](coordinacion/tickets/T-048-codex-revision-m10-l4-l6.md) | Codex | Revisión de M10: lecciones 4 a 6, sus preguntas y fichas | cerrado |
 | [T-049](coordinacion/tickets/T-049-codex-revision-m10-examen-laboratorio.md) | Codex | Revisión de M10: banco de examen, laboratorio como caso y práctica | cerrado |
 | [T-050](coordinacion/tickets/T-050-codex-recorrido-alumno-referencias.md) | Codex | Fase 4: recorrido como alumno y referencias cruzadas entre manuales | cerrado |
-| [T-051](coordinacion/tickets/T-051-codex-revision-f4-inferencias-reflow.md) | Codex | Fase 4: inferencias declaradas en M01 a M05 y reflujo con letra grande | abierto |
+| [T-051](coordinacion/tickets/T-051-codex-revision-f4-inferencias-reflow.md) | Codex | Fase 4: inferencias declaradas en M01 a M05 y reflujo con letra grande | cerrado |
+| [T-052](coordinacion/tickets/T-052-codex-revision-candidata-entrega.md) | Codex | Fase 4: revisión de la candidata de entrega y del README | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-051) | `investigacion/codex-f4-inferencias-reflow.md`, `design/qa/T-051/**` |
+| Codex (T-052) | `investigacion/codex-f4-candidata-entrega.md` |
 
 ## Decisiones recientes
 
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-27 · Claude Code — T-051 cerrado; candidata de entrega
+- **T-051:** se quitaron 3 marcas de inferencia y se agregó 1 (`m04-f06-b`); F4-04 queda en 20.
+- **F4-03:** los términos son consistentes; dos retoques («biblioteca» en M05 y «PR» en M01 L1).
+- **F4-06 a F4-08:** D-029 reemplaza dos criterios del plan §13; las imágenes pesan 712 KB; `scripts/fichas-por-revisar.py` lista lo que vence.
+- **F4-09:** `docs/entrega-v1.md` con la evidencia y los límites, y un `README.md` que el repositorio no tenía.
+
+**Verificación:** `npm test` 247/247.
 
 ### 2026-10-27 · Claude Code — T-050 cerrado; F4-04 y F4-05
 - **T-050:** sin hallazgos. El recorrido como alumno no mostró problemas y las 110 referencias cruzadas son correctas.

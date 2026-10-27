@@ -74,11 +74,11 @@ Salida: candidata de entrega con evidencias y limitaciones explícitas.
 | --- | --- | --- | --- | --- |
 | F4-01 | Recorrido como alumno de los diez manuales en la app publicada: portada, una lección por manual, laboratorio y examen; claridad, tiempos, saltos entre manuales | Codex (T-050) | — | ✅ sin hallazgos |
 | F4-02 | Referencias cruzadas entre manuales: que cada «como viste en el manual N» apunte a algo que de verdad se enseña allí, y que las referencias hacia adelante sean avisos. Insumo: `investigacion/f4-referencias-cruzadas.md` (`scripts/cross-refs.py`) | Codex (T-050); aplica Claude | — | ✅ 110/110 correctas |
-| F4-03 | Consistencia de términos entre manuales (glosario, variantes como «biblioteca», «entregable», «grader», «snapshot») | Claude; revisa Codex | F4-01 | ⬜ |
-| F4-04 | D-028 hacia atrás: revisar en M01 a M05 las preguntas y conceptos erróneos que deberían llevar `basis: inference` | Claude; revisa Codex (T-051) | — | 🔶 22 preguntas marcadas; en revisión |
-| F4-05 | Móvil, escritorio, teclado y ampliación: recorridos críticos a 360 px, con teclado y con el texto al 200 % | Claude; revisa Codex (T-051) | — | 🔶 90 rutas sin desborde a 320 px y con la letra al 200 % a 360 px; en revisión |
-| F4-06 | Sin conexión, reinicio, respaldo y actualizaciones en la app publicada. Actualizar el plan §13, que pide no descargar todos los cursos al inicio, con lo que decidió D-029 | Claude + Daniel (celular) | — | ⬜ |
-| F4-07 | Peso de imágenes, carga inicial y legibilidad | Claude; revisa Codex | — | ⬜ |
-| F4-08 | Fichas con fechas que vencen pronto: `m09-pc-eval-platforms` y `m10-pc-model-retirement` (2026-11-30); revisión antes del 2026-12-01 | Claude | — | ⬜ |
-| F4-09 | Cerrar los hallazgos críticos y altos, documentar los menores y preparar la candidata de entrega | Claude | F4-01 a F4-08 | ⬜ |
+| F4-03 | Consistencia de términos entre manuales (glosario, variantes como «biblioteca», «entregable», «grader», «snapshot») | Claude; revisa Codex (T-052) | F4-01 | ✅ términos consistentes; dos retoques (M05, M01) |
+| F4-04 | D-028 hacia atrás: revisar en M01 a M05 las preguntas y conceptos erróneos que deberían llevar `basis: inference` | Claude; revisa Codex (T-051) | — | ✅ 20 preguntas marcadas tras T-051 |
+| F4-05 | Móvil, escritorio, teclado y ampliación: recorridos críticos a 360 px, con teclado y con el texto al 200 % | Claude; revisa Codex (T-051) | — | ✅ 90 rutas sin desborde; 6 E2E con letra grande. Pendiente: lector de pantalla y teclado manual completo |
+| F4-06 | Sin conexión, reinicio, respaldo y actualizaciones en la app publicada. Actualizar el plan §13, que pide no descargar todos los cursos al inicio, con lo que decidió D-029 | Claude + Daniel (celular) | — | 🔶 cubierto por pruebas automáticas y plan §13 resuelto en D-029; falta el recorrido de Daniel en el celular |
+| F4-07 | Peso de imágenes, carga inicial y legibilidad | Claude; revisa Codex | — | ✅ 712 KB de imágenes; la app guarda solo las de 480 y 960 px |
+| F4-08 | Fichas con fechas que vencen pronto: `m09-pc-eval-platforms` y `m10-pc-model-retirement` (2026-11-30); revisión antes del 2026-12-01 | Claude | — | 🔶 `scripts/fichas-por-revisar.py` las lista; revisión agendada para el 2026-12-01 |
+| F4-09 | Cerrar los hallazgos críticos y altos, documentar los menores y preparar la candidata de entrega | Claude; revisa Codex (T-052) | F4-01 a F4-08 | 🔶 `docs/entrega-v1.md` y `README.md`; en revisión |
 

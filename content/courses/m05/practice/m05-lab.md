@@ -8,7 +8,7 @@ Calcula unos 30 minutos [H]. Cada paso tiene dos preguntas, y cada respuesta tra
 
 ## Paso 1 · Antes de empezar {#paso-1}
 
-El repositorio del dashboard está en Git, con la carpeta limpia (sin cambios pendientes) y una rama nueva para el trabajo. La tarea necesita leer y editar el repositorio, correr las pruebas y la reconciliación, y quizá instalar una librería que ya está declarada en las dependencias. No debe tocar `data/clientes.csv`, el archivo sintético de clientes que usan las pruebas, ni enviar nada al servidor sin que la analista lo apruebe.
+El repositorio del dashboard está en Git, con la carpeta limpia (sin cambios pendientes) y una rama nueva para el trabajo. La tarea necesita leer y editar el repositorio, correr las pruebas y la reconciliación, y quizá instalar una biblioteca que ya está declarada en las dependencias. No debe tocar `data/clientes.csv`, el archivo sintético de clientes que usan las pruebas, ni enviar nada al servidor sin que la analista lo apruebe.
 
 ::lab-questions{step="paso-1"}
 

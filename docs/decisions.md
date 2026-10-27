@@ -220,3 +220,4 @@ Una entrada por decisión. Estados: **aceptada**, **propuesta** (espera a Daniel
 - **Consecuencias:**
   - El origen `dponch00.github.io` es compartido con cualquier otro sitio de Pages de esa cuenta.
   - Antes del primer push se reescribió el autor de todos los commits con el correo anónimo de GitHub, a pedido de Daniel. Por eso, los hashes citados en los tickets anteriores a esa fecha ya no coinciden con el historial.
+  - Reemplaza dos criterios del plan §13 (2026-10-27): «la carga inicial no descarga automáticamente todos los cursos» y «los cursos no descargados se identifican». La app guarda todos los cursos al instalarse, unos 3,6 MB sin las imágenes de 1 600 px, para que funcione sin wifi, que es lo que pidió Daniel.

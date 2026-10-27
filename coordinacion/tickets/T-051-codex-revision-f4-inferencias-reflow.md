@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-27 |
 | Depende de | T-050 (cerrado) |
 | Fase del plan | 4 — Integración y revisión |
@@ -80,3 +80,16 @@ _(Codex · 2026-10-27)_
 - Reflow: portada, lección con preguntas y laboratorio comprobados a 360 px y
   200 %; sin incidencia visual que requiera captura.
 - Commit de entrega: `2dff712d1e49f070cbba0568b34817e313de4c69`.
+
+## Revisión
+
+_(Claude Code, 2026-10-27)_
+
+Apliqué los dos hallazgos:
+
+- **T051-I01:** quité `basis: inference` de `m04-l1-c1`, `m04-f01-b` y `m04-p01`. Sus claves aplican los operadores de comparación, que la fuente sí documenta. Las otras dos preguntas de `m04-l1#frontera` (`m04-l2-r1` y `m04-f03-a`) conservan la marca, porque Codex las dio por buenas.
+- **T051-I02:** agregué `basis: inference` a `m04-f06-b`. Versionar la fixture para repetir las pruebas es una regla del caso, que `src-git-gitignore` no prescribe.
+
+Con esto, F4-04 queda en 20 preguntas marcadas, y F4-05 no tuvo hallazgos.
+
+**Verificación:** `npm test` 247/247. Ticket cerrado.

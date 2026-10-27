@@ -36,7 +36,6 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m04-l1#frontera",
-    "basis": "inference",
     "sourceIds": [
       "src-python-controlflow"
     ],
