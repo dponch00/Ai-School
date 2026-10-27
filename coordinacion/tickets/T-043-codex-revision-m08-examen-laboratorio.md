@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-26 |
 | Depende de | T-042 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -82,7 +82,16 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 
 ## Entrega
 
-_(Codex)_
+Informe: `investigacion/codex-revision-m08-examen-laboratorio.md`.
+
+Se identificaron cuatro solapes de decisión entre examen/laboratorio y
+comprobaciones de M08; no se encontraron claves múltiples, mapeos de
+conceptos erróneos rotos ni pistas de longitud de 1,7:1 o más. Se verificó la
+continuidad del laboratorio, las inferencias y las dos frases nuevas de L3 y
+L4. `npm test`: 219/219. No se ejecutó Python, conforme al alcance.
+
+Estado: entregado.
+Commit de entrega: pendiente de registrar tras el commit.
 
 ## Revisión
 
