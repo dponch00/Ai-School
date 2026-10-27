@@ -39,9 +39,8 @@ test('sin conexión, la app y una lección cargan desde la caché del service wo
   // La primera visita instala el SW; la segunda ya queda controlada por él.
   await page.reload()
   await expect.poll(() => page.evaluate(() => !!navigator.serviceWorker.controller)).toBe(true)
-  // F2-05: el curso se descarga para usarlo sin conexión desde su portada.
+  // D-029: el service worker guarda al instalarse los paquetes de todos los cursos; no hace falta descargarlos.
   await page.goto('/#/cursos/m02')
-  await page.getByRole('button', { name: /Descargar para usar sin conexión/ }).click()
   await expect(page.getByText('Disponible sin conexión en este dispositivo')).toBeVisible()
   await context.setOffline(true)
   await page.goto('/#/cursos/m02/lecciones/m02-l2')

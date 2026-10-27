@@ -347,8 +347,8 @@
   {
     "id": "m09-mc37",
     "courseId": "m09",
-    "description": "Si la fuente citada está entre las entregadas, la afirmación está respaldada.",
-    "whyWrong": "La fuente puede existir y no decir lo que se afirma; además de comprobar que esté, se lee el pasaje.",
+    "description": "Si la fuente citada existe, la afirmación está respaldada.",
+    "whyWrong": "La fuente tiene que estar entre las entradas que se entregaron y, además, decir lo que se afirma; que exista en algún lado no basta.",
     "sourceIds": [
       "src-arxiv-verifiability"
     ]
@@ -469,8 +469,8 @@
   {
     "id": "m09-mc50",
     "courseId": "m09",
-    "description": "Toda inyección llega escondida en un documento externo.",
-    "whyWrong": "También es directa cuando viene en el mensaje de quien usa el sistema.",
+    "description": "La vía de una inyección se decide por su forma o por quién parece enviarla.",
+    "whyWrong": "Es directa si viene en el mensaje de quien usa el sistema e indirecta si llega en contenido externo que el modelo lee, sea texto o imagen.",
     "sourceIds": [
       "src-owasp-llm01"
     ]
@@ -576,6 +576,183 @@
     "sourceIds": [
       "src-owasp-llm01",
       "src-ncsc-prompt-injection"
+    ]
+  },
+  {
+    "id": "m09-mc62",
+    "courseId": "m09",
+    "description": "La respuesta que más se repite entre los ensayos es la correcta.",
+    "whyWrong": "Un sistema puede equivocarse siempre igual; la respuesta esperada sale de un camino independiente o de una persona.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc63",
+    "courseId": "m09",
+    "description": "Una autorización en el código se salta reformulando la pregunta.",
+    "whyWrong": "Lo que el código no devuelve, el modelo no lo tiene; reformular cambia el texto de la pregunta, no lo que la consulta entrega.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-owasp-llm06"
+    ]
+  },
+  {
+    "id": "m09-mc64",
+    "courseId": "m09",
+    "description": "Los casos que estaban mal etiquetados se quitan del conjunto.",
+    "whyWrong": "Se corrigen sus etiquetas y se quedan, porque son justo los que mostraron el hueco y sirven como regresión.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc65",
+    "courseId": "m09",
+    "description": "Si hay reconciliación, las reglas de sentido no aportan nada.",
+    "whyWrong": "Son baratas y atrapan al instante las incoherencias internas, como un total escrito a mano; se suman a la reconciliación.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-hypothesis-docs"
+    ]
+  },
+  {
+    "id": "m09-mc66",
+    "courseId": "m09",
+    "description": "Parafrasear los casos de prueba antes de usarlos como ejemplos en el prompt evita la contaminación.",
+    "whyWrong": "Un caso parafraseado sigue enseñándole al prompt la respuesta de ese caso; los ejemplos se toman de casos que no están en el conjunto de prueba.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-google-mlcc-datasets"
+    ]
+  },
+  {
+    "id": "m09-mc67",
+    "courseId": "m09",
+    "description": "Si una versión gana en la mayoría de los pares, gana aunque falle un criterio crítico.",
+    "whyWrong": "Un criterio crítico no se compensa con estilo; una versión que lo empeora en algún caso no gana.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc68",
+    "courseId": "m09",
+    "description": "Con 50 casos no se puede concluir nada, aunque la diferencia sea grande y estable.",
+    "whyWrong": "Una muestra moderada detecta diferencias grandes; la conclusión dice en qué casos, con qué ensayos y en qué condiciones.",
+    "sourceIds": [
+      "src-anthropic-stat-evals"
+    ]
+  },
+  {
+    "id": "m09-mc69",
+    "courseId": "m09",
+    "description": "Si el sistema procesó todos los casos, la tarea está bien hecha.",
+    "whyWrong": "Procesar no es acertar; el grader compara cada resultado con el esperado.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc70",
+    "courseId": "m09",
+    "description": "Si al final se usa un solo resultado, la cifra es la de un intento, aunque se haya elegido entre varios.",
+    "whyWrong": "Lo que importa es si hay quien elija: una persona o una prueba que filtra hace que baste un intento bueno entre varios.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc71",
+    "courseId": "m09",
+    "description": "Cualquier criterio se puede calificar con código si se le busca una medida.",
+    "whyWrong": "Una medida de código, como contar palabras, no capta un criterio de juicio; ese criterio lo califica un juez calibrado o una persona.",
+    "sourceIds": [
+      "src-anthropic-develop-tests",
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc72",
+    "courseId": "m09",
+    "description": "Al calibrar un juez, lo primero que se mira es su velocidad.",
+    "whyWrong": "Primero se mira si detecta los casos malos que marcó una persona; un juez rápido que los deja pasar no sirve.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-openai-eval-best-practices"
+    ]
+  },
+  {
+    "id": "m09-mc73",
+    "courseId": "m09",
+    "description": "Unos pocos casos corridos una vez bastan para validar un cambio.",
+    "whyWrong": "Un cambio se valida con el conjunto de regresión completo y varios ensayos por caso, comparando con la versión actual.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc74",
+    "courseId": "m09",
+    "description": "Si los casos son difíciles, el tamaño del conjunto no importa.",
+    "whyWrong": "El tamaño decide qué diferencias se pueden ver, sean los casos fáciles o difíciles.",
+    "sourceIds": [
+      "src-anthropic-stat-evals"
+    ]
+  },
+  {
+    "id": "m09-mc75",
+    "courseId": "m09",
+    "description": "Si la reconciliación del contrato pasa, las cifras del texto también están bien.",
+    "whyWrong": "La reconciliación comprueba el contrato; una cifra correcta puede aparecer en el texto con la etiqueta equivocada.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc76",
+    "courseId": "m09",
+    "description": "Las reglas de sentido fallan porque las aplica el modelo.",
+    "whyWrong": "Las aplica el código; su límite es que no ven un error que se arrastra de forma coherente a todas las sumas.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-arxiv-pal"
+    ]
+  },
+  {
+    "id": "m09-mc77",
+    "courseId": "m09",
+    "description": "Leer contenido no confiable ya reúne las tres propiedades de la regla de dos.",
+    "whyWrong": "Es una sola de las tres; las otras son acceder a datos sensibles y cambiar algo o comunicarse hacia afuera.",
+    "sourceIds": [
+      "src-meta-agents-rule-of-two"
+    ]
+  },
+  {
+    "id": "m09-mc78",
+    "courseId": "m09",
+    "description": "Un control de código sobre las cifras no detiene las que cambia un atacante.",
+    "whyWrong": "Las detiene: compara cada cifra con el contrato. Lo que deja pasar es lo cualitativo, como el tono.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-owasp-llm01"
+    ]
+  },
+  {
+    "id": "m09-mc79",
+    "courseId": "m09",
+    "description": "Un error aislado en el uso no pone en duda la evidencia con que se adoptó una versión.",
+    "whyWrong": "Un error en el uso puede destapar un problema de la evidencia entera; se investiga su origen antes de descartarlo.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
     ]
   }
 ]

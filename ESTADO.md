@@ -1,27 +1,27 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 a M08 completos y revisados; M09, lecciones 1 a 3 revisadas (T-044 cerrado); lecciones 4 a 6 revisadas (T-045 cerrado); examen, laboratorio y práctica en redacción. App publicada en https://dponch00.github.io/Ai-School/ (D-029). · **Actualizado:** 2026-10-26 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 a M08 completos y revisados; M09, lecciones 1 a 3 revisadas (T-044 cerrado); lecciones 4 a 6 revisadas (T-045 cerrado); examen, laboratorio y práctica en revisión de Codex (T-046). App publicada en https://dponch00.github.io/Ai-School/ (D-029). · **Actualizado:** 2026-10-26 por Claude Code
 
 ## Siguiente acción
 
-1. **Claude:** examen, laboratorio (un caso nuevo, distinto de los ejemplos de las lecciones) y práctica de M09; después, T-046 para Codex.
-2. **Codex:** sin ticket abierto hasta T-046. En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
+1. **Codex:** T-046, que revisa el examen, el laboratorio y la práctica de M09.
+2. **Claude:** al volver T-046, aplicar sus hallazgos y cerrar M09; después, la investigación de M10. En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
 3. **Daniel (a su ritmo):** estudiar los manuales en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Daniel:** instalar la app desde Chrome en el celular (⋮ → Instalar app) y contar si funciona sin wifi.
 
 ## Avance estimado (2026-10-26)
 
-**≈ 78 % de la V1** (rango razonable: 75–81 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 79 % de la V1** (rango razonable: 76–82 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 100 % (hosting resuelto con D-029) | 8,0 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 95 % (publicada en GitHub Pages con D-029; falta confirmar la instalación en el celular de Daniel) | 14,3 |
-| 3 · Nueve manuales restantes | 40 % | 84 % (M01 y M03 a M08 completos y revisados; M09 con las seis lecciones; faltan su examen, su laboratorio y M10) | 33,6 |
+| 3 · Nueve manuales restantes | 40 % | 87 % (M01 y M03 a M08 completos y revisados; M09 completo, con examen y laboratorio en revisión; falta M10) | 34,8 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 78 %** |
+| **Total** | 100 % | | **≈ 79 %** |
 
 ## Tickets
 
@@ -72,18 +72,28 @@
 | [T-043](coordinacion/tickets/T-043-codex-revision-m08-examen-laboratorio.md) | Codex | Revisión de M08: banco de examen, laboratorio como caso y práctica | cerrado |
 | [T-044](coordinacion/tickets/T-044-codex-revision-m09-l1-l3.md) | Codex | Revisión de M09: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
 | [T-045](coordinacion/tickets/T-045-codex-revision-m09-l4-l6.md) | Codex | Revisión de M09: lecciones 4 a 6, sus preguntas y fichas | cerrado |
+| [T-046](coordinacion/tickets/T-046-codex-revision-m09-examen-laboratorio.md) | Codex | Revisión de M09: banco de examen, laboratorio como caso y práctica | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | `content/courses/m09/**`, `e2e/rutas.spec.ts` |
+| Codex (T-046) | `investigacion/codex-revision-m09-examen-laboratorio.md`, `design/qa/T-046/**` |
 
 ## Decisiones recientes
 
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-27 · Claude Code — examen, laboratorio y práctica de M09 (T-046)
+- **Examen:** 42 preguntas en 14 familias.
+- **Laboratorio:** «El asistente de consultas del pipeline», un caso nuevo. El de la investigación reutilizaba los ejemplos de las lecciones. El giro es que las respuestas esperadas las dio la propia versión que se evaluaba.
+- **Práctica:** 12 preguntas.
+- **Conceptos erróneos:** 18 nuevos.
+- **E2E:** rutas de M09. La prueba de modo sin conexión se ajustó a D-029: los cursos ya vienen guardados.
+
+**Verificación:** `npm test` 233/233 y E2E 134/134.
 
 ### 2026-10-27 · Claude Code — cierre de T-045
 Tres hallazgos de Codex aplicados: la regla de dos en el ejemplo de L5 (guardar el borrador cuenta como [C]), los modos auto y manual en la ficha de protecciones, y la aprobación de PR presentada como política del equipo en L6.

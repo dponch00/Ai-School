@@ -1,0 +1,31 @@
+{
+  "id": "m09-lab",
+  "courseId": "m09",
+  "version": "0.1.0",
+  "title": "El asistente de consultas del pipeline",
+  "evaluatedObjectiveIds": [
+    "m09-eo1",
+    "m09-eo2",
+    "m09-eo3",
+    "m09-eo4",
+    "m09-eo5",
+    "m09-eo6"
+  ],
+  "instructionsPath": "courses/m09/practice/m09-lab.md",
+  "estimatedMinutes": 30,
+  "questionIds": [
+    "m09-lab-q01",
+    "m09-lab-q02",
+    "m09-lab-q03",
+    "m09-lab-q04",
+    "m09-lab-q05",
+    "m09-lab-q06",
+    "m09-lab-q07",
+    "m09-lab-q08",
+    "m09-lab-q09",
+    "m09-lab-q10",
+    "m09-lab-q11",
+    "m09-lab-q12"
+  ],
+  "status": "draft"
+}

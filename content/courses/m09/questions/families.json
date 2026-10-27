@@ -1,0 +1,86 @@
+[
+  {
+    "family": "m09-f01",
+    "evaluatedObjectiveId": "m09-eo1",
+    "decision": "Identificar que se califica el resultado que quedó, no lo que el sistema afirma ni el camino que siguió",
+    "equivalence": "Las tres variantes describen una tarea con su eval y piden qué calificar. Cambia la trampa: una afirmación de haber terminado (a), un conteo que reporta el propio sistema (b) y un grader que exige un camino fijo (c, más difícil porque el camino esperado parece razonable)."
+  },
+  {
+    "family": "m09-f02",
+    "evaluatedObjectiveId": "m09-eo1",
+    "decision": "Elegir entre pass@k y pass^k según si alguien elige entre varios intentos o el resultado se usa tal cual",
+    "equivalence": "Las tres variantes describen un uso del modelo y piden la cifra. Cambia el uso: una persona que elige entre borradores (a, pass@k), un dato que entra solo al libro (b, pass^k) y una prueba automática que elige el primer intento válido (c, más difícil porque quien elige no es una persona)."
+  },
+  {
+    "family": "m09-f03",
+    "evaluatedObjectiveId": "m09-eo2",
+    "decision": "Identificar qué tipo de caso falta en un conjunto de evaluación",
+    "equivalence": "Las tres variantes describen un conjunto y piden qué falta. Cambia lo ausente: casos límite (a), casos donde la conducta no debe ocurrir (b) y soluciones de referencia (c, más difícil porque el conjunto parece completo en tipos de caso)."
+  },
+  {
+    "family": "m09-f04",
+    "evaluatedObjectiveId": "m09-eo2",
+    "decision": "Incorporar un fallo real al conjunto: reproducido con datos sintéticos, con su procedencia anotada, como caso de regresión",
+    "equivalence": "Las tres variantes describen un fallo real y piden cómo incorporarlo. Cambia el fallo: una fecha mal leída (a), una omisión en un resumen (b) y un fallo con datos de un cliente real (c, más difícil porque copiarlo parece la forma más fiel)."
+  },
+  {
+    "family": "m09-f05",
+    "evaluatedObjectiveId": "m09-eo2",
+    "decision": "Reconocer un caso roto o un conjunto contaminado antes de concluir sobre el sistema",
+    "equivalence": "Las tres variantes describen un resultado de la eval y piden qué indica. Cambia la causa: un caso sin solución (a), una versión ajustada mirando el conjunto (b) y ejemplos del prompt parafraseados del conjunto (c, más difícil porque la paráfrasis parece evitar el problema)."
+  },
+  {
+    "family": "m09-f06",
+    "evaluatedObjectiveId": "m09-eo3",
+    "decision": "Elegir el grader según el criterio: código si se comprueba sin interpretar, modelo calibrado si exige juicio, persona si nadie más puede decidir",
+    "equivalence": "Las tres variantes dan un criterio de rúbrica y piden el grader. Cambia el criterio: uno exacto (a, código), uno de claridad (b, juez calibrado o persona) y uno de criterio profesional (c, más difícil porque un juez parece suficiente)."
+  },
+  {
+    "family": "m09-f07",
+    "evaluatedObjectiveId": "m09-eo3",
+    "decision": "Identificar la falta de calibración o el sesgo de un juez y decidir qué hacer antes de usarlo",
+    "equivalence": "Las tres variantes describen un juez y piden qué hacer. Cambia el problema: poco acuerdo con los casos malos (a), sesgo de posición (b) y autopreferencia (c, más difícil porque el juez parece calibrado en otros textos)."
+  },
+  {
+    "family": "m09-f08",
+    "evaluatedObjectiveId": "m09-eo3",
+    "decision": "Concluir solo lo que la comparación sostiene: tamaño de la diferencia, casos, ensayos, criterio crítico",
+    "equivalence": "Las tres variantes describen una comparación y piden la conclusión. Cambia lo que permite concluir: una diferencia pequeña en pocos casos (a, no se sostiene), una diferencia grande y estable (b, sí se concluye, con sus condiciones) y una versión que gana en estilo pero falla un criterio crítico (c, más difícil porque gana en la mayoría de los pares)."
+  },
+  {
+    "family": "m09-f09",
+    "evaluatedObjectiveId": "m09-eo4",
+    "decision": "Elegir el control que atrapa cada error de cifras: reglas de sentido para lo incoherente, reconciliación para lo coherente, ligar cada cifra a su etiqueta",
+    "equivalence": "Las tres variantes describen un error en las cifras y piden el control. Cambia el error: un total incoherente (a, reglas de sentido), un error coherente en todas las filas (b, reconciliación) y una cifra correcta en la etiqueta equivocada (c, más difícil porque la cifra existe en el contrato)."
+  },
+  {
+    "family": "m09-f10",
+    "evaluatedObjectiveId": "m09-eo4",
+    "decision": "Comprobar fuentes, ejecuciones y al propio grader antes de aceptar un resultado o de usarlo para comparar",
+    "equivalence": "Las tres variantes describen un resultado o un grader y piden qué hacer antes de aceptarlo. Cambia lo que falta comprobar: una fuente que no se entregó (a), una ejecución que no aparece (b) y un grader que nadie probó (c, más difícil porque el grader es código)."
+  },
+  {
+    "family": "m09-f11",
+    "evaluatedObjectiveId": "m09-eo5",
+    "decision": "Identificar si una inyección es directa o indirecta y si su daño es una acción, una filtración o un análisis alterado",
+    "equivalence": "Las tres variantes describen un intento de inyección y piden vía y daño. Cambia la combinación: indirecta con análisis alterado (a), directa con una acción (b) e indirecta en una imagen con filtración (c, más difícil porque la vía no es texto)."
+  },
+  {
+    "family": "m09-f12",
+    "evaluatedObjectiveId": "m09-eo5",
+    "decision": "Identificar qué deja pasar cada capa de defensa contra la inyección",
+    "equivalence": "Las tres variantes describen una defensa y piden qué deja pasar. Cambia la capa: una instrucción en el prompt (a), controles de código sobre las cifras (b) y el mínimo privilegio (c, más difícil porque quitar permisos parece cubrirlo todo)."
+  },
+  {
+    "family": "m09-f13",
+    "evaluatedObjectiveId": "m09-eo6",
+    "decision": "Decidir quién revisa y cómo, considerando los límites de la segunda opinión",
+    "equivalence": "Las tres variantes describen una revisión propuesta y piden cómo organizarla. Cambia el límite: un revisor del mismo modelo (a), dos modelos que coinciden (b) y un revisor que devuelve muchos hallazgos de estilo (c, más difícil porque parece una revisión exhaustiva)."
+  },
+  {
+    "family": "m09-f14",
+    "evaluatedObjectiveId": "m09-eo6",
+    "decision": "Decidir cuándo volver a evaluar, qué registrar y qué hace falta para elegir entre versiones",
+    "equivalence": "Las tres variantes describen un cambio y piden qué hacer. Cambia el disparador: una versión nueva del modelo (a), un registro sin evidencia (b) y una regresión al 100 % con dos versiones (c, más difícil porque las dos parecen igual de buenas)."
+  }
+]

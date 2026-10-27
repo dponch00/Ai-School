@@ -1,0 +1,517 @@
+[
+  {
+    "id": "m09-p01",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m09",
+    "evaluatedObjectiveId": "m09-eo1",
+    "competencyIds": [
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Le explicas a un colega por qué un prompt no se prueba como una función de código.",
+    "stem": "¿Qué los distingue?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ante la misma entrada, la respuesta puede variar",
+        "correct": true,
+        "feedback": "Correcta. Por eso se mide con casos fijos y varios ensayos, y el resultado es una tasa."
+      },
+      {
+        "id": "o2",
+        "text": "El prompt no se puede probar de ninguna forma",
+        "correct": false,
+        "feedback": "Sí se puede: con una eval. Lo que cambia es la forma de medir.",
+        "misconceptionId": "m09-mc01"
+      },
+      {
+        "id": "o3",
+        "text": "La función de código también varía en cada ejecución",
+        "correct": false,
+        "feedback": "Una función determinista da siempre lo mismo. Por eso una ejecución basta.",
+        "misconceptionId": "m09-mc07"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l1#test-eval",
+    "sourceIds": [
+      "src-anthropic-evals-agents",
+      "src-anthropic-glossary"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-p02",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m09",
+    "evaluatedObjectiveId": "m09-eo1",
+    "competencyIds": [
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Con un 90 % de acierto por ensayo, calculas cuántas veces acertaría tres veces seguidas si todos los casos fueran iguales.",
+    "stem": "¿Cuánto da, aproximadamente?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Alrededor del 90 %",
+        "correct": false,
+        "feedback": "Esa es la tasa de un ensayo. Acertar los tres es menos probable.",
+        "misconceptionId": "m09-mc09"
+      },
+      {
+        "id": "o2",
+        "text": "Alrededor del 73 %",
+        "correct": true,
+        "feedback": "Correcta. 0,9 × 0,9 × 0,9 = 0,729. Con casos de distinta dificultad, eso se cuenta caso por caso."
+      },
+      {
+        "id": "o3",
+        "text": "Alrededor del 99,9 %",
+        "correct": false,
+        "feedback": "Eso se acerca a acertar al menos una vez. Acertar las tres es lo contrario.",
+        "misconceptionId": "m09-mc03"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l1#metricas",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-p03",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m09",
+    "evaluatedObjectiveId": "m09-eo2",
+    "competencyIds": [
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Tu conjunto tiene 25 casos bien elegidos. Un colega dice que no vale la pena evaluar hasta tener 500.",
+    "stem": "¿Qué le respondes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que tiene razón: con menos casos no se ve nada",
+        "correct": false,
+        "feedback": "Al principio los cambios tienen efectos grandes. Una muestra pequeña alcanza para verlos.",
+        "misconceptionId": "m09-mc10"
+      },
+      {
+        "id": "o2",
+        "text": "Que el tamaño da igual si los casos son difíciles",
+        "correct": false,
+        "feedback": "El tamaño importa. Decide qué diferencias se pueden ver.",
+        "misconceptionId": "m09-mc74"
+      },
+      {
+        "id": "o3",
+        "text": "Que 25 casos bastan para ver los cambios grandes",
+        "correct": true,
+        "feedback": "Correcta. Se empieza con pocos casos y se amplía con el tiempo, cuando hace falta ver efectos menores."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l2#pronto",
+    "sourceIds": [
+      "src-anthropic-evals-agents",
+      "src-anthropic-stat-evals"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-p04",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m09",
+    "evaluatedObjectiveId": "m09-eo2",
+    "competencyIds": [
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Los tres ensayos de cada caso usan la misma carpeta de trabajo, sin limpiarla entre uno y otro.",
+    "stem": "¿Qué cambias?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que cada ensayo empiece en un entorno limpio",
+        "correct": true,
+        "feedback": "Correcta. Lo que deja un ensayo puede ayudar o perjudicar al siguiente. Cada uno parte de cero."
+      },
+      {
+        "id": "o2",
+        "text": "Nada: así los ensayos se ayudan entre sí",
+        "correct": false,
+        "feedback": "Si se ayudan, ya no miden la tarea sola. Los resultados se inflan.",
+        "misconceptionId": "m09-mc32"
+      },
+      {
+        "id": "o3",
+        "text": "Correr diez ensayos en vez de tres",
+        "correct": false,
+        "feedback": "Más ensayos con estado compartido repiten el mismo problema. Primero hay que aislarlos.",
+        "misconceptionId": "m09-mc33"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l2#aislados",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-p05",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m09",
+    "evaluatedObjectiveId": "m09-eo3",
+    "competencyIds": [
+      "C12",
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Un colega te pregunta qué ventaja tiene un grader de código frente a un juez.",
+    "stem": "¿Qué le respondes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Capta los matices que un juez no llega a ver",
+        "correct": false,
+        "feedback": "Es al revés: los matices son la ventaja del juez. El código no los capta.",
+        "misconceptionId": "m09-mc71"
+      },
+      {
+        "id": "o2",
+        "text": "Es rápido, barato y da siempre el mismo veredicto",
+        "correct": true,
+        "feedback": "Correcta. Su límite es que es frágil ante variantes válidas y no capta matices."
+      },
+      {
+        "id": "o3",
+        "text": "No necesita casos conocidos para probarlo",
+        "correct": false,
+        "feedback": "También se prueba. Un grader de código puede equivocarse.",
+        "misconceptionId": "m09-mc36"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l3#graders",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-p06",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m09",
+    "evaluatedObjectiveId": "m09-eo3",
+    "competencyIds": [
+      "C12",
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Vas a calibrar un juez contra las etiquetas de la analista.",
+    "stem": "¿Qué cifra miras primero?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Qué porcentaje de casos aprueba",
+        "correct": false,
+        "feedback": "Aprobar mucho no dice si acierta. Puede estar aprobando los malos.",
+        "misconceptionId": "m09-mc21"
+      },
+      {
+        "id": "o2",
+        "text": "Cuánto tarda en dar cada veredicto",
+        "correct": false,
+        "feedback": "La velocidad importa, pero no dice si el juez sirve. Primero, si detecta los malos.",
+        "misconceptionId": "m09-mc72"
+      },
+      {
+        "id": "o3",
+        "text": "Cuántos de los casos malos detecta",
+        "correct": true,
+        "feedback": "Correcta. Un juez que aprueba casi todo puede tener un acuerdo alto y dejar pasar los errores que importan."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l3#calibrar",
+    "sourceIds": [
+      "src-openai-eval-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-p07",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m09",
+    "evaluatedObjectiveId": "m09-eo4",
+    "competencyIds": [
+      "C12",
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Le explicas a un colega por qué las reglas de sentido no bastan para aceptar un contrato de KPI.",
+    "stem": "¿Qué le dices?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "No ven un error que se arrastra a todas las sumas",
+        "correct": true,
+        "feedback": "Correcta. Si el error viene de los datos de origen, las sumas siguen cuadrando. Hace falta reconciliar."
+      },
+      {
+        "id": "o2",
+        "text": "Nunca atrapan ningún error, así que no sirven",
+        "correct": false,
+        "feedback": "Atrapan incoherencias, como un total escrito a mano. Son útiles, pero no suficientes.",
+        "misconceptionId": "m09-mc65"
+      },
+      {
+        "id": "o3",
+        "text": "Las calcula el mismo modelo que hace el informe",
+        "correct": false,
+        "feedback": "Las reglas de sentido las aplica el código. Su límite es otro: los errores coherentes.",
+        "misconceptionId": "m09-mc76"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l4#invariantes",
+    "basis": "inference",
+    "sourceIds": [
+      "src-arxiv-pal"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-p08",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m09",
+    "evaluatedObjectiveId": "m09-eo4",
+    "competencyIds": [
+      "C12",
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Un informe del agente cita «la base de clientes de marketing», que no estaba entre sus entradas.",
+    "stem": "¿Qué control lo atrapa?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguno: la base de clientes existe",
+        "correct": false,
+        "feedback": "Que exista no la pone entre las entradas del agente. No pudo leerla.",
+        "misconceptionId": "m09-mc37"
+      },
+      {
+        "id": "o2",
+        "text": "Código que compare fuentes y entradas",
+        "correct": true,
+        "feedback": "Correcta. La fuente citada no está entre las entregadas. Se detecta sin leer más."
+      },
+      {
+        "id": "o3",
+        "text": "Pedirle al agente que confirme su fuente",
+        "correct": false,
+        "feedback": "Que el agente se confirme a sí mismo no es una señal externa. Se compara con la lista de entradas.",
+        "misconceptionId": "m09-mc58"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l4#citas",
+    "basis": "inference",
+    "sourceIds": [
+      "src-arxiv-verifiability"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-p09",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m09",
+    "evaluatedObjectiveId": "m09-eo5",
+    "competencyIds": [
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Le explicas a un colega por qué la inyección de instrucciones no se resuelve como la inyección SQL.",
+    "stem": "¿Qué le dices?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Sí se resuelve igual, con consultas parametrizadas",
+        "correct": false,
+        "feedback": "Esa técnica no existe para un modelo. El riesgo se reduce, pero no se elimina.",
+        "misconceptionId": "m09-mc43"
+      },
+      {
+        "id": "o2",
+        "text": "Porque los modelos nuevos ya no la sufren",
+        "correct": false,
+        "feedback": "No es así. Las defensas siguen cayendo ante ataques que se adaptan.",
+        "misconceptionId": "m09-mc45"
+      },
+      {
+        "id": "o3",
+        "text": "Un modelo no separa órdenes de datos: todo es texto",
+        "correct": true,
+        "feedback": "Correcta. En SQL, las consultas parametrizadas separan código y datos. En un modelo, esa frontera no existe."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l5#sin-solucion",
+    "sourceIds": [
+      "src-ncsc-prompt-injection"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-p10",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m09",
+    "evaluatedObjectiveId": "m09-eo5",
+    "competencyIds": [
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Un flujo lee correos externos, accede a la base de clientes y no puede enviar ni escribir nada.",
+    "stem": "¿Cuántas propiedades de la regla de dos reúne?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Dos: entradas no confiables y datos sensibles",
+        "correct": true,
+        "feedback": "Correcta. Lee contenido no confiable y accede a datos sensibles, pero no cambia nada ni se comunica hacia afuera."
+      },
+      {
+        "id": "o2",
+        "text": "Las tres, porque lee correos que vienen de fuera",
+        "correct": false,
+        "feedback": "Leer correos es una sola propiedad. Sin escribir ni enviar, no tiene la tercera.",
+        "misconceptionId": "m09-mc77"
+      },
+      {
+        "id": "o3",
+        "text": "Ninguna, porque no puede enviar ni escribir nada",
+        "correct": false,
+        "feedback": "Enviar es solo una de las tres. Leer correos externos y acceder a la base de clientes ya son dos.",
+        "misconceptionId": "m09-mc44"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l5#regla-dos",
+    "sourceIds": [
+      "src-meta-agents-rule-of-two"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-p11",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m09",
+    "evaluatedObjectiveId": "m09-eo6",
+    "competencyIds": [
+      "C05",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Le explicas a un colega para qué sirve un conjunto de regresión.",
+    "stem": "¿Qué le dices?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Para elegir la mejor de dos versiones nuevas",
+        "correct": false,
+        "feedback": "Si las dos lo pasan entero, no las distingue. Para elegir hacen falta otros casos.",
+        "misconceptionId": "m09-mc55"
+      },
+      {
+        "id": "o2",
+        "text": "Para avisar si algo que funcionaba empeora",
+        "correct": true,
+        "feedback": "Correcta. Debe pasar cerca del 100 %, y se corre con cada cambio."
+      },
+      {
+        "id": "o3",
+        "text": "Para reemplazar la revisión de una persona",
+        "correct": false,
+        "feedback": "La regresión es una capa más. La revisión sigue haciendo falta.",
+        "misconceptionId": "m09-mc06"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l6#regresion",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-p12",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m09",
+    "evaluatedObjectiveId": "m09-eo6",
+    "competencyIds": [
+      "C05",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Le pides a un revisor que evalúe tu versión nueva del prompt.",
+    "stem": "¿Qué encargo escribes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "«Creo que es mejor; confírmalo, por favor»",
+        "correct": false,
+        "feedback": "Adelanta la respuesta. Los asistentes tienden a darle la razón a quien pregunta.",
+        "misconceptionId": "m09-mc51"
+      },
+      {
+        "id": "o2",
+        "text": "«Encuentra todos los problemas que puedas»",
+        "correct": false,
+        "feedback": "Si se le piden huecos, casi siempre encuentra alguno. Muchos no cambian la decisión.",
+        "misconceptionId": "m09-mc53"
+      },
+      {
+        "id": "o3",
+        "text": "«¿Qué evidencia hay a favor y en contra?»",
+        "correct": true,
+        "feedback": "Correcta. Es neutral: no adelanta la respuesta ni pide encontrar huecos a toda costa."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l6#buena-revision",
+    "sourceIds": [
+      "src-arxiv-sycophancy",
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  }
+]
