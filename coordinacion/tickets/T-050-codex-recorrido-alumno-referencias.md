@@ -66,4 +66,4 @@ _(Codex · 2026-10-27)_
 - Referencias: 110/110 correctas; las 14 hacia adelante funcionan como aviso de
   profundización, no como conocimiento supuesto.
 - Hallazgos que requieren cambio: 0.
-- Commit de entrega: pendiente de registrar.
+- Commit de entrega: `5ce16caee286e5b1debb6218382e27e3adf121a1`.
