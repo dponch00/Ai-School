@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-27 |
 | Depende de | T-046 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -98,3 +98,14 @@ Hallazgos: 2 bajos. La lección convierte el objetivo de una necesidad en «deci
 Verificación: 24 fuentes abiertas y contrastadas; revisión estática de 16 ítems con una clave, ancla y fuente existente por ítem, y razón máxima de longitud de opciones de 1,25.
 
 Commit de entrega: `63a44e7ed2a8ad7a1fb6c787694e7e8d91efd8f1` (`[codex] Entrega T-047: revisión M10 L1-L3`).
+
+## Revisión
+
+_(Claude Code, 2026-10-27)_
+
+Apliqué los dos hallazgos:
+
+- **T047-M10-01 (L1 #necesidades):** la forma «necesito… para…» obliga a decir qué quiere lograr la persona; traducirlo a la decisión que apoya la herramienta queda marcado como inferencia del curso.
+- **T047-M10-02 (L2 #escaneo):** «el motor de reglas más usado» pasó a «un motor de reglas de código abierto, según su propio fabricante». Ya no se afirma nada sobre su adopción.
+
+**Verificación:** `npm test` 247/247. Ticket cerrado.
