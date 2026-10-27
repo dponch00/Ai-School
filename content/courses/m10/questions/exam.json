@@ -106,27 +106,27 @@
     "process": "evaluate",
     "family": "m10-f01",
     "variant": "c",
-    "scenario": "Contabilidad pide una app para saber qué facturas de proveedores faltan por aprobar. En las entrevistas, la analista ve que el reporte semanal que ya reciben resolvería el problema con una columna más, la del estado de cada factura.",
+    "scenario": "El área de seguridad pide una app para registrar los incidentes de la planta. En las entrevistas, la analista ve que bastaría con agregar una pregunta al formulario de inspección diaria, que ya es obligatorio.",
     "stem": "¿Qué alcance eliges para la versión 1?",
     "options": [
       {
         "id": "o1",
-        "text": "Agregar la columna al reporte y no construir la app",
+        "text": "Agregar la pregunta al formulario y no hacer la app",
         "correct": true,
         "feedback": "Correcta. El alcance mínimo útil puede no ser software. Entender el problema puede terminar en no construir."
       },
       {
         "id": "o2",
-        "text": "Construir la app, porque contabilidad ya la pidió",
+        "text": "Construir la app, porque seguridad ya la pidió",
         "correct": false,
         "feedback": "Que se haya pedido no obliga a construirla. A veces otra solución resuelve mejor el problema.",
         "misconceptionId": "m10-mc05"
       },
       {
         "id": "o3",
-        "text": "Construir la app y además agregar la columna al reporte",
+        "text": "Construir la app y además cambiar el formulario",
         "correct": false,
-        "feedback": "La app no resuelve nada que la columna no resuelva. Solo agrega algo más que revisar, documentar y mantener.",
+        "feedback": "La app no resuelve nada que la pregunta en el formulario no resuelva. Solo agrega algo más que revisar, documentar y mantener.",
         "misconceptionId": "m10-mc01"
       }
     ],
@@ -619,7 +619,7 @@
         "text": "Ponerle un título más grande encima de la tabla",
         "correct": false,
         "feedback": "El título no dice qué columna corresponde a cada celda. Un lector de pantalla necesita los encabezados marcados para asociar cada cifra con su columna.",
-        "misconceptionId": "m10-mc25"
+        "misconceptionId": "m10-mc82"
       },
       {
         "id": "o3",
@@ -1792,27 +1792,27 @@
     "process": "evaluate",
     "family": "m10-f14",
     "variant": "a",
-    "scenario": "Hallazgo: «el contraste de la etiqueta de sobregiro es de 3,8 a 1». El equipo cambió el color y lo marcó cerrado, sin medir el contraste nuevo.",
+    "scenario": "Hallazgo: «el runbook no dice cómo volver a la versión anterior». Se agregó el paso, pero todavía nadie que no lo escribió lo siguió, y el equipo marcó el hallazgo como cerrado.",
     "stem": "¿El hallazgo está cerrado?",
     "options": [
       {
         "id": "o1",
-        "text": "Sí, porque el color ya se cambió",
+        "text": "Sí, porque el paso ya se agregó al runbook",
         "correct": false,
-        "feedback": "Cambiarlo no prueba que el nuevo cumpla. Falta medirlo.",
+        "feedback": "Agregar el paso no prueba que se pueda seguir. Quien lo escribió completa sin darse cuenta lo que falta.",
         "misconceptionId": "m10-mc72"
       },
       {
         "id": "o2",
-        "text": "No: falta medir el contraste nuevo",
+        "text": "No: falta que otra persona siga el runbook",
         "correct": true,
-        "feedback": "Correcta. Se cierra con evidencia: el contraste nuevo medido, de 4,5 a 1 o más."
+        "feedback": "Correcta. Se cierra con evidencia: alguien que no lo escribió sigue el runbook y vuelve a la versión anterior sin ayuda. Esa prueba queda anotada."
       },
       {
         "id": "o3",
-        "text": "Sí, porque alguien ya lo marcó",
+        "text": "Sí, porque el equipo ya lo marcó cerrado",
         "correct": false,
-        "feedback": "Marcarlo no lo corrige. Se cierra con evidencia.",
+        "feedback": "Marcarlo no lo corrige. Se cierra con la evidencia de que otra persona pudo seguirlo.",
         "misconceptionId": "m10-mc47"
       }
     ],
@@ -1821,7 +1821,7 @@
     "basis": "inference",
     "sourceIds": [
       "src-github-dependabot-alerts",
-      "src-w3c-wcag22"
+      "src-cisa-backup-business"
     ],
     "status": "draft"
   },

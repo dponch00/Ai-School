@@ -62,3 +62,23 @@ Salida: base funcional y comprobada que permite integrar los cursos restantes (p
 | F2-11 | **D-024:** todo de opción múltiple. Quitar perfil, evaluación, Mi ruta, entrega del laboratorio y microtareas; laboratorio de M02 como caso con 12 preguntas; respaldo en pantalla propia | Claude; revisa Codex (T-023) | — | ✅ |
 | F2-12 | **D-027:** subrayados con nota y página «Subrayados» con modo repaso; ajustes de T-036 (unión de solapamientos, reanclaje prudente, lector de pantalla, tokens) | Claude; revisa Codex (T-036) | — | ✅ (pendiente en dispositivo real: menú nativo de selección y NVDA/VoiceOver, con F2-10) |
 
+## Fase 3 — Diez manuales
+
+Salida cumplida el 2026-10-27: los diez manuales completos, cada uno revisado por Codex en tres tandas (lecciones 1 a 3, lecciones 4 a 6, y examen con laboratorio y práctica). Los tickets van de T-024 a T-049; el detalle está en `ESTADO.md` y en cada ticket.
+
+## Fase 4 — Integración y revisión (plan §12)
+
+Salida: candidata de entrega con evidencias y limitaciones explícitas.
+
+| ID | Tarea | Quién | Depende de | Estado |
+| --- | --- | --- | --- | --- |
+| F4-01 | Recorrido como alumno de los diez manuales en la app publicada: portada, una lección por manual, laboratorio y examen; claridad, tiempos, saltos entre manuales | Codex (T-050) | — | ⬜ |
+| F4-02 | Referencias cruzadas entre manuales: que cada «como viste en el manual N» apunte a algo que de verdad se enseña allí, y que las referencias hacia adelante sean avisos. Insumo: `investigacion/f4-referencias-cruzadas.md` (`scripts/cross-refs.py`) | Codex (T-050); aplica Claude | — | ⬜ |
+| F4-03 | Consistencia de términos entre manuales (glosario, variantes como «biblioteca», «entregable», «grader», «snapshot») | Claude; revisa Codex | F4-01 | ⬜ |
+| F4-04 | D-028 hacia atrás: revisar en M01 a M05 las preguntas y conceptos erróneos que deberían llevar `basis: inference` | Claude; revisa Codex | — | ⬜ |
+| F4-05 | Móvil, escritorio, teclado y ampliación: recorridos críticos a 360 px, con teclado y con el texto al 200 % | Claude; revisa Codex | — | ⬜ |
+| F4-06 | Sin conexión, reinicio, respaldo y actualizaciones en la app publicada. Actualizar el plan §13, que pide no descargar todos los cursos al inicio, con lo que decidió D-029 | Claude + Daniel (celular) | — | ⬜ |
+| F4-07 | Peso de imágenes, carga inicial y legibilidad | Claude; revisa Codex | — | ⬜ |
+| F4-08 | Fichas con fechas que vencen pronto: `m09-pc-eval-platforms` y `m10-pc-model-retirement` (2026-11-30); revisión antes del 2026-12-01 | Claude | — | ⬜ |
+| F4-09 | Cerrar los hallazgos críticos y altos, documentar los menores y preparar la candidata de entrega | Claude | F4-01 a F4-08 | ⬜ |
+

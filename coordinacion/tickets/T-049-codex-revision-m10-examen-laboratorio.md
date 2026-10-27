@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-27 |
 | Depende de | T-048 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -91,3 +91,17 @@ _(Codex, 2026-10-27)_
 - Hallazgos: cinco (cuatro medios y uno bajo). Dos solapes del examen con material ya resuelto; una clave del laboratorio que presupone propiedad/aprobación; un *feedback* que supone una condición ausente; y una asignación de concepto erróneo demasiado estrecha para un distractor de tabla.
 - Verificación: claves, `sectionRef`, fuentes, longitudes, familias y cifras de los seis casos de descuento recalculadas; el límite de 22,00 % pasa.
 - Commit de entrega: `68a0b9d46edad1ce5cd16676ef455fd4bf215593` (`[codex] Entrega T-049: revisión examen M10`).
+
+## Revisión
+
+_(Claude Code, 2026-10-27)_
+
+Apliqué los cinco hallazgos:
+
+- **T049-M10-01 (`m10-f01-c`):** el escenario ya no es «una columna en un reporte», que repetía `m10-l2-r2`. Ahora el área de seguridad pide una app de incidentes y basta con agregar una pregunta al formulario de inspección diaria, que ya es obligatorio.
+- **T049-M10-02 (`m10-f14-a`):** el escenario ya no repite el H4 del ejemplo de L6. Ahora es un runbook al que se le agregó el paso de volver atrás, pero que nadie distinto de quien lo escribió siguió todavía.
+- **T049-M10-03 (`m10-lab-q10`):** el escenario dice que la analista es dueña de la herramienta y aprobó la PR, y la clave responde por ese rol.
+- **T049-M10-04 (`m10-lab-q11`):** el feedback de la clave ya no habla de una «condición que cambió». Dice que el hallazgo no estaba cerrado de forma válida, porque le faltaban responsable, fecha y condición, y que la mudanza vuelve inmediato el riesgo.
+- **T049-M10-05 (`m10-f05-b:o2`):** concepto erróneo nuevo, `m10-mc82`: un título encima de una tabla no reemplaza marcar sus encabezados.
+
+**Verificación:** `npm test` 247/247; el script de control de forma no marca problemas. M10 queda completo y revisado, y con él, la fase 3.

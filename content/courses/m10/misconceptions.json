@@ -768,5 +768,14 @@
     "sourceIds": [
       "src-w3c-wcag22"
     ]
+  },
+  {
+    "id": "m10-mc82",
+    "courseId": "m10",
+    "description": "Un título visible encima de una tabla reemplaza marcar sus encabezados.",
+    "whyWrong": "El título dice de qué trata la tabla; los encabezados marcados en el código son los que permiten asociar cada celda con su columna.",
+    "sourceIds": [
+      "src-w3c-tables-tutorial"
+    ]
   }
 ]

@@ -415,7 +415,7 @@
     ],
     "difficulty": "base",
     "process": "evaluate",
-    "scenario": "El director pregunta quién responde si un margen sale mal y se da un descuento que no correspondía. El código lo escribió un agente.",
+    "scenario": "La analista, dueña de la herramienta, aprobó la PR del agente y prepara la publicación. El director pregunta quién responde si un margen sale mal y se da un descuento que no correspondía.",
     "stem": "¿Qué le responde la analista?",
     "options": [
       {
@@ -427,9 +427,9 @@
       },
       {
         "id": "o2",
-        "text": "Que responde ella, con evidencia y un suplente",
+        "text": "Ella, como dueña que aprobó, con evidencia y suplente",
         "correct": true,
-        "feedback": "Correcta. Como dueña de la herramienta, responde ella, y la entrega va con sus pruebas, su revisión y un suplente nombrado."
+        "feedback": "Correcta. Responde quien es dueña de la herramienta y aprobó la publicación, aunque el código lo haya escrito un agente. La entrega va con sus pruebas, su revisión y un suplente nombrado."
       },
       {
         "id": "o3",
@@ -476,14 +476,14 @@
         "id": "o2",
         "text": "Nada: el hallazgo se cerró, y reabrirlo es rehacer la revisión",
         "correct": false,
-        "feedback": "Un riesgo aceptado se reabre cuando cambia lo que lo justificaba, y aquí cambió. No se rehace la revisión, se decide de nuevo ese punto.",
+        "feedback": "Un riesgo aceptado sin responsable, fecha ni condición no quedó bien cerrado. Además, la mudanza cambia el riesgo: no se rehace la revisión, se decide de nuevo ese punto.",
         "misconceptionId": "m10-mc71"
       },
       {
         "id": "o3",
         "text": "El hallazgo y la decisión del paso 3, y exportar antes de mudar",
         "correct": true,
-        "feedback": "Correcta. Cambió la condición que justificaba aceptarlo. Antes de mudar hay que exportar en la dirección vieja, importar en la nueva y probarlo."
+        "feedback": "Correcta. El hallazgo no estaba cerrado de forma válida: le faltaban responsable, fecha y condición para reabrirlo. La mudanza vuelve inmediato el riesgo, así que se reabre junto con la decisión del paso 3, se exporta en la dirección vieja, se importa en la nueva y se prueba."
       }
     ],
     "fixedOrder": false,

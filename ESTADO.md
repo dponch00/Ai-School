@@ -1,27 +1,27 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. Los diez manuales están completos; M01 a M09 revisados y el examen y el laboratorio de M10 en revisión de Codex (T-049). App publicada en https://dponch00.github.io/Ai-School/ (D-029). · **Actualizado:** 2026-10-27 por Claude Code
+**Fase actual:** 4 — Integración y revisión. Los diez manuales están completos y revisados (fase 3 cerrada con T-049). App publicada en https://dponch00.github.io/Ai-School/ (D-029). · **Actualizado:** 2026-10-27 por Claude Code
 
 ## Siguiente acción
 
-1. **Codex:** T-049, que revisa el examen, el laboratorio y la práctica de M10.
-2. **Claude:** al volver T-049, aplicar sus hallazgos y cerrar M10 y la fase 3; después, planificar la fase 4 (integración y revisión de los diez manuales juntos). En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
+1. **Codex:** T-050, recorrido como alumno de los diez manuales y verificación de las referencias cruzadas (F4-01 y F4-02).
+2. **Claude:** mientras tanto, F4-04 (D-028 en M01 a M05) y F4-05 (móvil, teclado y ampliación). Al volver T-050, aplicar sus hallazgos. En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
 3. **Daniel (a su ritmo):** estudiar los manuales en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Daniel (a su ritmo):** estudiar en la app instalada y contar lo que no se entienda o tome demasiado tiempo.
 
 ## Avance estimado (2026-10-26)
 
-**≈ 83 % de la V1** (rango razonable: 80–86 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 84 % de la V1** (rango razonable: 81–87 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 100 % (hosting resuelto con D-029) | 8,0 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 100 % (publicada con D-029 e instalada en el celular de Daniel) | 15,0 |
-| 3 · Nueve manuales restantes | 40 % | 97 % (los diez completos; falta cerrar la revisión del examen y el laboratorio de M10) | 38,8 |
+| 3 · Nueve manuales restantes | 40 % | 100 % (los diez completos y revisados) | 40,0 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 83 %** |
+| **Total** | 100 % | | **≈ 84 %** |
 
 ## Tickets
 
@@ -75,19 +75,25 @@
 | [T-046](coordinacion/tickets/T-046-codex-revision-m09-examen-laboratorio.md) | Codex | Revisión de M09: banco de examen, laboratorio como caso y práctica | cerrado |
 | [T-047](coordinacion/tickets/T-047-codex-revision-m10-l1-l3.md) | Codex | Revisión de M10: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
 | [T-048](coordinacion/tickets/T-048-codex-revision-m10-l4-l6.md) | Codex | Revisión de M10: lecciones 4 a 6, sus preguntas y fichas | cerrado |
-| [T-049](coordinacion/tickets/T-049-codex-revision-m10-examen-laboratorio.md) | Codex | Revisión de M10: banco de examen, laboratorio como caso y práctica | abierto |
+| [T-049](coordinacion/tickets/T-049-codex-revision-m10-examen-laboratorio.md) | Codex | Revisión de M10: banco de examen, laboratorio como caso y práctica | cerrado |
+| [T-050](coordinacion/tickets/T-050-codex-recorrido-alumno-referencias.md) | Codex | Fase 4: recorrido como alumno y referencias cruzadas entre manuales | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-049) | `investigacion/codex-revision-m10-examen-laboratorio.md`, `design/qa/T-049/**` |
+| Codex (T-050) | `investigacion/codex-f4-recorrido-referencias.md`, `design/qa/T-050/**` |
 
 ## Decisiones recientes
 
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-27 · Claude Code — cierre de T-049 y de la fase 3; plan de la fase 4
+- **T-049:** cinco hallazgos de Codex aplicados: dos escenarios que repetían otros (`f01-c`, `f14-a`), la responsabilidad en `lab-q10`, el feedback del hallazgo aceptado sin condición en `lab-q11` y un concepto erróneo nuevo (`mc82`).
+- **Fase 3 cerrada:** los diez manuales están completos y revisados.
+- **Fase 4:** plan en `docs/backlog.md` (F4-01 a F4-09). `scripts/cross-refs.py` lista las 110 referencias cruzadas entre manuales; 14 citan un manual igual o posterior al propio.
 
 ### 2026-10-27 · Claude Code — examen, laboratorio y práctica de M10 (T-049): los diez manuales completos
 - **Examen:** 42 preguntas en 14 familias, cada una con una sola decisión.
