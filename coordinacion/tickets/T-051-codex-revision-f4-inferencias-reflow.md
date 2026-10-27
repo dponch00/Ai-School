@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-27 |
 | Depende de | T-050 (cerrado) |
 | Fase del plan | 4 — Integración y revisión |
@@ -72,4 +72,11 @@ No edites `src/`, `content/`, `e2e/`, `scripts/` ni `ESTADO.md`. Haz commit en l
 
 ## Entrega
 
-_(Codex)_
+_(Codex · 2026-10-27)_
+
+- Informe: `investigacion/codex-f4-inferencias-reflow.md`.
+- Inferencias: se conservan 19 de 22 marcas; propongo retirar tres marcas que
+  ya respalda la fuente de Python y añadir una a `m04-f06-b`.
+- Reflow: portada, lección con preguntas y laboratorio comprobados a 360 px y
+  200 %; sin incidencia visual que requiera captura.
+- Commit de entrega: pendiente de registrar.
