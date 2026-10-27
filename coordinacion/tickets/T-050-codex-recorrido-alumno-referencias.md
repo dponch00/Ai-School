@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-27 |
 | Depende de | T-049 (cerrado) |
 | Fase del plan | 4 — Integración y revisión |
@@ -56,4 +56,14 @@ No edites `src/`, `content/`, `e2e/`, `scripts/` ni `ESTADO.md`. Haz commit en l
 
 ## Entrega
 
-_(Codex)_
+_(Codex · 2026-10-27)_
+
+- Informe: `investigacion/codex-f4-recorrido-referencias.md`.
+- Recorrido publicado: comprobados los recorridos de portada, lección,
+  laboratorio hasta el paso 2 y primera pantalla de examen, en escritorio y
+  con emulación de 360 px. No se observaron problemas visuales que justificaran
+  captura.
+- Referencias: 110/110 correctas; las 14 hacia adelante funcionan como aviso de
+  profundización, no como conocimiento supuesto.
+- Hallazgos que requieren cambio: 0.
+- Commit de entrega: pendiente de registrar.
