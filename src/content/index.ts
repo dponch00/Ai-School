@@ -176,7 +176,7 @@ export async function isCourseOffline(id: string): Promise<boolean> {
   const course = getCourse(id)
   if (!course || typeof caches === 'undefined') return false
   try {
-    return !!(await caches.match(packageUrl(course.package.url)))
+    return !!(await caches.match(packageUrl(course.package.url), { ignoreSearch: true }))
   } catch {
     // Algunos entornos (un iframe aislado, navegación privada) no dejan usar la caché.
     return false

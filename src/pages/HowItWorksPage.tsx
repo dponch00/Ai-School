@@ -59,7 +59,7 @@ export default function HowItWorksPage() {
         <ul>
           <li><strong>Tu progreso vive solo en este navegador.</strong> No hay cuentas: otro navegador o dispositivo empieza vacío.</li>
           <li><strong>Haz un respaldo de vez en cuando</strong> en <Link to="/respaldo">Respaldo</Link>. Ahí también puedes pedir que el navegador no borre tus datos.</li>
-          <li><strong>Sin conexión:</strong> en la portada de cada curso, «Descargar para usar sin conexión».</li>
+          <li><strong>Sin conexión:</strong> al abrir la app por primera vez se guardan todos los cursos en el dispositivo; desde ahí funciona sin internet. Instálala desde el menú de Chrome (⋮ → Instalar app).</li>
           <li><strong>Solo datos ficticios.</strong> Los casos usan una empresa inventada.</li>
         </ul>
       </article>

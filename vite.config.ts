@@ -49,8 +49,9 @@ export default defineConfig({
         ],
       },
       injectManifest: {
-        // Shell completo para el celular: las imágenes de 1600 px solo se piden en pantallas anchas.
-        globPatterns: ['**/*.{js,css,html,woff2,svg}', 'images/*-480.webp', 'images/*-960.webp', 'icons/*.png'],
+        // Shell completo para el celular, con los paquetes de todos los cursos (unos 2 MB): al instalarse, la app
+        // queda entera sin conexión. Las imágenes de 1600 px solo se piden en pantallas anchas.
+        globPatterns: ['**/*.{js,css,html,woff2,svg}', 'courses/*.json', 'images/*-480.webp', 'images/*-960.webp', 'icons/*.png'],
         globIgnores: ['ai-school-m02-prueba.html'],
         maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
       },
