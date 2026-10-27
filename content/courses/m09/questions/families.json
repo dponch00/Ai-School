@@ -51,7 +51,7 @@
     "family": "m09-f09",
     "evaluatedObjectiveId": "m09-eo4",
     "decision": "Elegir el control que atrapa cada error de cifras: reglas de sentido para lo incoherente, reconciliación para lo coherente, ligar cada cifra a su etiqueta",
-    "equivalence": "Las tres variantes describen un error en las cifras y piden el control. Cambia el error: un total incoherente (a, reglas de sentido), un error coherente en todas las filas (b, reconciliación) y una cifra correcta en la etiqueta equivocada (c, más difícil porque la cifra existe en el contrato)."
+    "equivalence": "Las tres variantes describen un error en las cifras y piden el control. Cambia el error: un total incoherente (a, reglas de sentido), una regla de carga que excluye lo mismo en todas las regiones (b, reconciliación) y una cifra correcta en la etiqueta equivocada (c, más difícil porque la cifra existe en el contrato)."
   },
   {
     "family": "m09-f10",
@@ -80,7 +80,7 @@
   {
     "family": "m09-f14",
     "evaluatedObjectiveId": "m09-eo6",
-    "decision": "Decidir cuándo volver a evaluar, qué registrar y qué hace falta para elegir entre versiones",
-    "equivalence": "Las tres variantes describen un cambio y piden qué hacer. Cambia el disparador: una versión nueva del modelo (a), un registro sin evidencia (b) y una regresión al 100 % con dos versiones (c, más difícil porque las dos parecen igual de buenas)."
+    "decision": "Reconocer que cambiar una pieza de lo evaluado obliga a volver a evaluar antes de usar la versión",
+    "equivalence": "Las tres variantes describen un cambio en una pieza de lo que se evaluó y piden qué hacer; la clave es siempre volver a evaluar. Cambia la pieza: la versión del modelo (a), los permisos del agente (b) y la rúbrica (c, más difícil porque la versión ya había aprobado la regresión)."
   }
 ]

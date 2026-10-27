@@ -754,5 +754,15 @@
     "sourceIds": [
       "src-anthropic-evals-agents"
     ]
+  },
+  {
+    "id": "m09-mc80",
+    "courseId": "m09",
+    "description": "Si el modelo y el prompt no cambiaron, la conclusión de la última evaluación sigue valiendo.",
+    "whyWrong": "También se miden las herramientas, los permisos, la rúbrica y los datos; si cambia cualquiera, la conclusión caduca.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
   }
 ]

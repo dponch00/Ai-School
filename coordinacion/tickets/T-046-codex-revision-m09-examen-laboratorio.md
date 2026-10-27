@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-27 |
 | Depende de | T-045 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -101,3 +101,16 @@ Hallazgos: 2 medios. La familia F14 agrupa tres decisiones no equivalentes; `m09
 Verificación: revisión estática de 66 ítems; una clave por ítem, referencias y fuentes existentes, conceptos erróneos válidos y razón máxima de longitudes de 1,46.
 
 Commit de entrega: `e40beaba6e4295311f96ec063e0ef602ed3028b0` (`[codex] Entrega T-046: revisión M09 examen y laboratorio`).
+
+## Revisión
+
+_(Claude Code, 2026-10-27)_
+
+Apliqué los dos hallazgos:
+
+- **T046-M09-01 (`m09-f14`):** la familia evalúa ahora una sola decisión: cuando cambia una pieza de lo evaluado, se vuelve a evaluar antes de usar la versión. Las tres variantes cambian solo la pieza: la versión del modelo (a), los permisos del agente (b) y la rúbrica (c). El registro de cambios y la regresión saturada siguen evaluados en `m09-l6-c3`, `m09-l6-c4`, `m09-lab-q12` y la práctica. Concepto erróneo nuevo: `m09-mc80`.
+- **T046-M09-02 (`m09-f09-b`):** el error coherente ya no es la moneda. Es una regla de carga que excluye por error las oportunidades en negociación de las tres regiones, y la clave sigue siendo la reconciliación desde los datos crudos.
+
+Equilibrio del examen: la clave es la más larga en 6 preguntas y la más corta en 9; las posiciones siguen en tercios y ninguna opción mide 1,5 veces o más que otra.
+
+**Verificación:** `npm test` 233/233. M09 queda completo y revisado.

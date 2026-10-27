@@ -58,7 +58,7 @@ Salida: base funcional y comprobada que permite integrar los cursos restantes (p
 | F2-07 | Búsqueda (MiniSearch con stemmer español), glosario, notas y marcadores | Claude | — | ✅ |
 | F2-08 | Pruebas de interacción y accesibilidad (Playwright + axe) en las rutas principales | Claude; revisa Codex | — | ✅ `npm run e2e` |
 | F2-09 | Manejo de errores: aviso visible si IndexedDB no está disponible, cuota y `navigator.storage.persist()` | Claude | — | ✅ (prueba manual en ventana privada pendiente) |
-| F2-10 | Prueba de hosting en origen propio (F0-11) y revisión antes de publicar (F1-14) | Claude + Daniel | Organización de GitHub creada por Daniel | ⛔ espera a Daniel |
+| F2-10 | Prueba de hosting en origen propio (F0-11) y revisión antes de publicar (F1-14) | Claude + Daniel | Repositorio de Daniel (D-029) | ✅ (2026-10-27: Daniel la instaló en su celular y funciona sin wifi) |
 | F2-11 | **D-024:** todo de opción múltiple. Quitar perfil, evaluación, Mi ruta, entrega del laboratorio y microtareas; laboratorio de M02 como caso con 12 preguntas; respaldo en pantalla propia | Claude; revisa Codex (T-023) | — | ✅ |
 | F2-12 | **D-027:** subrayados con nota y página «Subrayados» con modo repaso; ajustes de T-036 (unión de solapamientos, reanclaje prudente, lector de pantalla, tokens) | Claude; revisa Codex (T-036) | — | ✅ (pendiente en dispositivo real: menú nativo de selección y NVDA/VoiceOver, con F2-10) |
 

@@ -1146,25 +1146,25 @@
     "process": "analyze",
     "family": "m09-f09",
     "variant": "b",
-    "scenario": "Un cambio en la carga tomó como dólares los montos en euros de todas las filas. El kpis.json pasa las reglas de sentido.",
+    "scenario": "Una regla nueva de la carga excluye por error todas las oportunidades en etapa de negociación, en las tres regiones. El kpis.json pasa las reglas de sentido.",
     "stem": "¿Qué control atrapa este error?",
     "options": [
       {
         "id": "o1",
         "text": "Las reglas de sentido, si se agregan más",
         "correct": false,
-        "feedback": "El error es coherente: afecta a todo por igual y las sumas cuadran. Más reglas de sentido no lo ven.",
+        "feedback": "El error es coherente: falta lo mismo en todas las regiones y las sumas cuadran. Más reglas de sentido no lo ven.",
         "misconceptionId": "m09-mc35"
       },
       {
         "id": "o2",
         "text": "La reconciliación desde los datos crudos",
         "correct": true,
-        "feedback": "Correcta. Solo un recálculo por otro camino, con la moneda correcta, ve un error que se arrastró a todas las sumas."
+        "feedback": "Correcta. Solo un recálculo por otro camino, desde el snapshot, ve que faltan oportunidades que deberían sumar."
       },
       {
         "id": "o3",
-        "text": "Que el modelo revise los montos",
+        "text": "Que el modelo revise la regla de la carga",
         "correct": false,
         "feedback": "Revisarse a sí mismo no es una señal independiente. Hace falta recalcular.",
         "misconceptionId": "m09-mc58"
@@ -1799,7 +1799,7 @@
       },
       {
         "id": "o3",
-        "text": "Probar diez casos y, si salen bien, seguir",
+        "text": "Probar diez casos y, si salen bien, usarlo",
         "correct": false,
         "feedback": "Diez casos con un solo ensayo solo mostrarían un cambio grande. Lo que corresponde es correr la regresión completa, con varios ensayos.",
         "misconceptionId": "m09-mc73"
@@ -1827,35 +1827,35 @@
     "process": "apply",
     "family": "m09-f14",
     "variant": "b",
-    "scenario": "La entrada del registro de cambios de la versión 4 del prompt dice solo: «Mejoras al prompt».",
+    "scenario": "El agente de conciliación ahora también puede leer la carpeta de contratos. El modelo y el prompt no cambiaron, y su última evaluación fue buena.",
     "stem": "¿Qué corresponde hacer?",
     "options": [
       {
         "id": "o1",
-        "text": "Basta: el detalle está en los commits",
+        "text": "Nada: el modelo y el prompt siguen iguales",
         "correct": false,
-        "feedback": "Los commits dicen qué líneas cambiaron. No dicen con qué evidencia se aceptó la versión.",
-        "misconceptionId": "m09-mc56"
+        "feedback": "Las herramientas y los permisos también son parte de lo que se midió. Al cambiar, la conclusión anterior caduca.",
+        "misconceptionId": "m09-mc80"
       },
       {
         "id": "o2",
-        "text": "Agregar conjuntos, resultados y revisor",
+        "text": "Volver a correr la evaluación antes de usarlo",
         "correct": true,
-        "feedback": "Correcta. Sin evidencia, en tres meses nadie sabrá por qué se adoptó. La entrada anota qué se probó, cómo y quién decidió."
+        "feedback": "Correcta. Lo que rodea al modelo también se mide. Con un permiso nuevo, se vuelve a evaluar antes de usarlo."
       },
       {
         "id": "o3",
-        "text": "Pegar la conversación con el agente que lo escribió",
+        "text": "Probar un caso con la carpeta nueva y seguir",
         "correct": false,
-        "feedback": "La conversación tiene pasos y opiniones. La decisión se documenta con evidencia.",
-        "misconceptionId": "m09-mc60"
+        "feedback": "Un caso con un solo ensayo no muestra si algo empeoró. Se corre la evaluación completa.",
+        "misconceptionId": "m09-mc73"
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m09-l6#registro",
+    "sectionRef": "m09-l6#cuando",
     "basis": "inference",
     "sourceIds": [
-      "src-keepachangelog"
+      "src-anthropic-evals-agents"
     ],
     "status": "draft"
   },
@@ -1873,35 +1873,36 @@
     "process": "evaluate",
     "family": "m09-f14",
     "variant": "c",
-    "scenario": "Las dos versiones candidatas pasan al 100 % el conjunto de regresión de 30 casos. Hay que elegir una.",
+    "scenario": "Se cambió la rúbrica: ahora R3 exige mencionar también las oportunidades sin fecha de cierre. El prompt y el modelo son los mismos, y la versión aprobó la regresión el mes pasado.",
     "stem": "¿Qué corresponde hacer?",
     "options": [
       {
         "id": "o1",
-        "text": "Elegir cualquiera, porque las dos pasan el 100 %",
+        "text": "Nada: la versión ya aprobó la regresión",
         "correct": false,
-        "feedback": "La regresión dice que ninguna empeoró. No dice cuál es mejor.",
-        "misconceptionId": "m09-mc55"
+        "feedback": "Aprobó con la rúbrica anterior. Si cambia el criterio, cambia lo que se mide.",
+        "misconceptionId": "m09-mc80"
       },
       {
         "id": "o2",
-        "text": "Borrar la regresión, que ya no distingue",
+        "text": "Agregar un caso nuevo sin tocar los demás",
         "correct": false,
-        "feedback": "Sigue sirviendo para avisar si algo empeora. Para elegir hacen falta otros casos.",
-        "misconceptionId": "m09-mc59"
+        "feedback": "El criterio nuevo vale para todos los casos. Hay que recalificarlos todos.",
+        "misconceptionId": "m09-mc73"
       },
       {
         "id": "o3",
-        "text": "Compararlas en casos difíciles o reservados",
+        "text": "Volver a correr la evaluación con la rúbrica nueva",
         "correct": true,
-        "feedback": "Correcta. Un conjunto saturado no distingue. Para elegir hacen falta casos de capacidad o reservados."
+        "feedback": "Correcta. Cambiar el grader o la rúbrica obliga a volver a evaluar. La conclusión anterior se obtuvo con otro criterio."
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m09-l6#regresion",
+    "sectionRef": "m09-l6#cuando",
     "sourceIds": [
       "src-anthropic-evals-agents"
     ],
-    "status": "draft"
+    "status": "draft",
+    "basis": "inference"
   }
 ]
