@@ -1,0 +1,31 @@
+{
+  "id": "m08-lab",
+  "courseId": "m08",
+  "version": "0.1.0",
+  "title": "Los riesgos de las oportunidades grandes",
+  "evaluatedObjectiveIds": [
+    "m08-eo1",
+    "m08-eo2",
+    "m08-eo3",
+    "m08-eo4",
+    "m08-eo5",
+    "m08-eo6"
+  ],
+  "instructionsPath": "courses/m08/practice/m08-lab.md",
+  "estimatedMinutes": 30,
+  "questionIds": [
+    "m08-lab-q01",
+    "m08-lab-q02",
+    "m08-lab-q03",
+    "m08-lab-q04",
+    "m08-lab-q05",
+    "m08-lab-q06",
+    "m08-lab-q07",
+    "m08-lab-q08",
+    "m08-lab-q09",
+    "m08-lab-q10",
+    "m08-lab-q11",
+    "m08-lab-q12"
+  ],
+  "status": "draft"
+}

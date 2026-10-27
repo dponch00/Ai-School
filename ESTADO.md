@@ -1,29 +1,27 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 a M07 completos y revisados; M08 con sus seis lecciones revisadas; faltan el examen, el laboratorio y la práctica. · **Actualizado:** 2026-10-26 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 a M07 completos y revisados; M08 completo, con el examen, el laboratorio y la práctica en revisión de Codex (T-043). · **Actualizado:** 2026-10-26 por Claude Code
 
 ## Siguiente acción
 
-1. **Claude:** el examen, el laboratorio y la práctica de M08, usando «PR» como en las lecciones, y después T-043 para Codex.
-2. **Codex:** sin ticket abierto; T-042 cerrado el 2026-10-26. En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude o se le indica una ruta a un Python real.
-3. **Recordatorio para M08:** El giro del laboratorio de M08 no debe repetir el de M06 (las oportunidades «En pausa»), y el examen debe seguir el criterio de L1: clasificar en categorías conocidas es una sola llamada.
-3. **Subagentes:** la investigación de M05 a M07 está lista; la de M08 a M10 se lanza cuando convenga.
-3. **Daniel (a su ritmo):** estudiar M02 en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
+1. **Codex:** T-043, que revisa el examen, el laboratorio y la práctica de M08. En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude o se le indica una ruta a un Python real.
+2. **Claude:** mientras tanto, la investigación de M09 (evaluación, confiabilidad y control), que se puede lanzar en paralelo. Al volver T-043, aplicar sus hallazgos y cerrar M08.
+3. **Daniel (a su ritmo):** estudiar los manuales en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
 ## Avance estimado (2026-10-26)
 
-**≈ 71 % de la V1** (rango razonable: 68–74 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 72 % de la V1** (rango razonable: 69–75 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 88 % (simplificada a opción múltiple con D-024; faltan el hosting y la instalación real en dispositivos) | 13,2 |
-| 3 · Nueve manuales restantes | 40 % | 71 % (M01 y M03 a M07 completos y revisados; M08 con sus 6 lecciones, sin examen ni laboratorio) | 28,4 |
+| 3 · Nueve manuales restantes | 40 % | 75 % (M01 y M03 a M07 completos y revisados; M08 completo y en revisión) | 30,0 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 71 %** |
+| **Total** | 100 % | | **≈ 72 %** |
 
 ## Tickets
 
@@ -71,18 +69,29 @@
 | [T-040](coordinacion/tickets/T-040-codex-revision-m07-examen-laboratorio.md) | Codex | Revisión de M07: banco de examen, laboratorio como caso y práctica | cerrado |
 | [T-041](coordinacion/tickets/T-041-codex-revision-m08-l1-l3.md) | Codex | Revisión de M08: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
 | [T-042](coordinacion/tickets/T-042-codex-revision-m08-l4-l6.md) | Codex | Revisión de M08: lecciones 4 a 6, sus preguntas y fichas | cerrado |
+| [T-043](coordinacion/tickets/T-043-codex-revision-m08-examen-laboratorio.md) | Codex | Revisión de M08: banco de examen, laboratorio como caso y práctica | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | `content/courses/m08/**` |
+| Codex (T-043) | `investigacion/codex-revision-m08-examen-laboratorio.md`, `design/qa/T-043/**` |
+| Claude | `investigacion/M09-*` |
 
 ## Decisiones recientes
 
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-26 · Claude Code — examen, laboratorio y práctica de M08 (T-043)
+- **Examen:** 42 preguntas en 14 familias.
+- **Laboratorio:** «Los riesgos de las oportunidades grandes», un caso nuevo. El de la investigación reciclaba los ejemplos de las lecciones y el giro de M06. El giro es que diez agentes clasifican con criterios distintos, porque el encargo no traía la rúbrica.
+- **Práctica:** 12 preguntas.
+- **Conceptos erróneos:** 20 nuevos.
+- **E2E:** rutas de M08.
+
+**Verificación:** `npm test` 219/219 y E2E 122/122. Versión de prueba regenerada (versión 36).
 
 ### 2026-10-26 · Claude Code — cierre de T-042
 Codex no pudo correr `reconcile.py` porque Python no arranca en su sesión. Lo ejecuté yo sobre una copia: código 1 y seis líneas FAIL, que coinciden con el ejemplo de L6. No hubo cambios de contenido.

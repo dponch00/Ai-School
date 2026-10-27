@@ -1,0 +1,86 @@
+[
+  {
+    "family": "m08-f01",
+    "evaluatedObjectiveId": "m08-eo1",
+    "decision": "Identificar qué tramo de un proceso necesita un modelo y elegir el diseño más simple que cumple",
+    "equivalence": "Las tres variantes describen un proceso y piden el diseño. Cambia el proceso: un cálculo con un párrafo (a, script y una llamada), una clasificación acotada (b, una sola llamada revisada) y una investigación abierta (c, más difícil porque la respuesta correcta sí es un agente)."
+  },
+  {
+    "family": "m08-f02",
+    "evaluatedObjectiveId": "m08-eo1",
+    "decision": "Reconocer el patrón que describe una propuesta de diseño",
+    "equivalence": "Las tres variantes describen una propuesta y piden su patrón. Cambia la propuesta: clasificar y derivar (a, enrutamiento), partir en partes fijas que corren a la vez (b, paralelización) y un modelo que decide las partes según lo que encuentra (c, más difícil porque también corre en paralelo)."
+  },
+  {
+    "family": "m08-f03",
+    "evaluatedObjectiveId": "m08-eo2",
+    "decision": "Identificar la pieza que le falta a un encargo para un agente o un subagente",
+    "equivalence": "Las tres variantes presentan un encargo incompleto y piden la pieza que falta. Cambia lo que falta: la entrada y la forma del resultado (a), las herramientas justas (b) y el estado que debe dejar escrito (c, más difícil porque el encargo ya tiene objetivo, herramientas y criterio)."
+  },
+  {
+    "family": "m08-f04",
+    "evaluatedObjectiveId": "m08-eo2",
+    "decision": "Elegir una condición de término comprobable",
+    "equivalence": "Las tres variantes describen un trabajo para un agente y piden la condición de término. Cambia el trabajo: una conciliación con check (a), un conjunto de archivos que deben existir (b) y un ciclo de redacción y revisión que no termina (c, más difícil porque una opción sube el tope sin agregar un criterio)."
+  },
+  {
+    "family": "m08-f05",
+    "evaluatedObjectiveId": "m08-eo2",
+    "decision": "Decidir qué resultado debe dejar escrito un agente y qué decisiones no se le delegan para poder terminar",
+    "equivalence": "Las tres variantes presentan un agente que quiere resolver algo para terminar o que devuelve poco, y piden qué decidir. Cambia el caso: una región que falta (a), un subagente que no deja escrito lo que encontró (b) y un encargo que autoriza a suponer (c, más difícil porque la regla está escrita en el propio encargo)."
+  },
+  {
+    "family": "m08-f06",
+    "evaluatedObjectiveId": "m08-eo3",
+    "decision": "Decidir entre delegar en un subagente o seguir en la sesión principal",
+    "equivalence": "Las tres variantes describen un trabajo y piden dónde hacerlo. Cambia el trabajo: una lectura amplia que no se volverá a consultar (a, subagente), una búsqueda voluminosa de la que solo interesa una lista (b, subagente) y un diseño con mucho ida y vuelta (c, más difícil porque delegar parece ahorrar contexto)."
+  },
+  {
+    "family": "m08-f07",
+    "evaluatedObjectiveId": "m08-eo3",
+    "decision": "Identificar lo que queda por integrar y el riesgo de trabajar en paralelo",
+    "equivalence": "Las tres variantes presentan trabajo en paralelo y piden qué queda pendiente o qué riesgo hay. Cambia el caso: dos ramas con cambios que se tocan (a), dos sesiones en la misma carpeta (b) y dos ramas que se integraron sin conflictos de Git (c, más difícil porque la integración parece terminada)."
+  },
+  {
+    "family": "m08-f08",
+    "evaluatedObjectiveId": "m08-eo3",
+    "decision": "Decidir si conviene repartir un trabajo entre varios agentes, según sus partes y su costo",
+    "equivalence": "Las tres variantes presentan una propuesta de repartir o no un trabajo, y piden qué decidir. Cambia el caso: partes independientes y largas (a, repartir), una afirmación sobre el costo (b) y un agente solo que ya rinde bien (c, más difícil porque la propuesta promete robustez)."
+  },
+  {
+    "family": "m08-f09",
+    "evaluatedObjectiveId": "m08-eo4",
+    "decision": "Elegir dónde corre un trabajo que no espera a la persona",
+    "equivalence": "Las tres variantes describen un trabajo asíncrono y piden dónde corre. Cambia el trabajo: uno que usa solo el repositorio y debe correr con la máquina apagada (a, nube), uno que necesita una herramienta local (b, equipo) y uno fijo que hoy hace un agente (c, más difícil porque la respuesta es quitar el agente)."
+  },
+  {
+    "family": "m08-f10",
+    "evaluatedObjectiveId": "m08-eo4",
+    "decision": "Decidir qué deja un trabajo programado, con qué identidad corre y qué pasa si corre dos veces",
+    "equivalence": "Las tres variantes describen una tarea programada y piden qué cambiar. Cambia el problema: publica sin revisión (a), corre con una cuenta con permisos de más (b) y una segunda ejecución pisa a la primera (c, más difícil porque el reintento parece inofensivo)."
+  },
+  {
+    "family": "m08-f11",
+    "evaluatedObjectiveId": "m08-eo5",
+    "decision": "Elegir el control y el momento del hook para una regla que debe cumplirse siempre",
+    "equivalence": "Las tres variantes describen una regla y piden el control. Cambia la regla: algo que debe ocurrir después de cada cambio (a, hook después), no terminar sin cumplir un criterio (b, hook al terminar) y una compuerta que no puede cumplirse por una causa ajena (c, más difícil porque la compuerta está bien elegida y le falta la salida)."
+  },
+  {
+    "family": "m08-f12",
+    "evaluatedObjectiveId": "m08-eo5",
+    "decision": "Identificar el límite de un hook o de una ejecución sin interfaz",
+    "equivalence": "Las tres variantes presentan un control y piden su límite. Cambia el control: un hook sobre la herramienta de edición (a), una ejecución sin interfaz sin configuración fijada (b) y un hook posterior que borra lo indebido (c, más difícil porque parece equivaler a impedir)."
+  },
+  {
+    "family": "m08-f13",
+    "evaluatedObjectiveId": "m08-eo6",
+    "decision": "Identificar la causa de un fallo en el registro y decidir la primera acción",
+    "equivalence": "Las tres variantes presentan una automatización que falló y piden qué hacer. Cambia el caso: un estado de éxito con una salida vacía (a), el mismo error tres noches (b) y un registro donde el agente siguió con valores por defecto (c, más difícil porque hay que combinar pausar, invalidar y corregir)."
+  },
+  {
+    "family": "m08-f14",
+    "evaluatedObjectiveId": "m08-eo6",
+    "decision": "Elegir entre corregir o simplificar una automatización, con una verificación proporcional a lo no supervisado",
+    "equivalence": "Las tres variantes describen una automatización y piden qué decidir. Cambia el caso: un informe que pasó a correr sin supervisión (a, verificación más firme), un sistema que se intenta arreglar con prompts (b) y un ahorro que nadie midió (c, más difícil porque el equipo está convencido)."
+  }
+]

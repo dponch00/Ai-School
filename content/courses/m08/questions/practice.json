@@ -1,0 +1,520 @@
+[
+  {
+    "id": "m08-p01",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo1",
+    "competencyIds": [
+      "C10"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Le explicas a un colega la diferencia entre un flujo y un agente.",
+    "stem": "¿Qué los distingue?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En el agente decide el modelo; en el flujo, el código",
+        "correct": true,
+        "feedback": "Correcta. Esa es la pregunta que separa los dos: quién decide el siguiente paso. Un flujo puede usar un modelo en algún paso sin dejar de ser un flujo."
+      },
+      {
+        "id": "o2",
+        "text": "El agente usa un modelo y el flujo nunca lo usa",
+        "correct": false,
+        "feedback": "Un flujo puede usar un modelo, por ejemplo para redactar. Lo que cambia es quién decide los pasos.",
+        "misconceptionId": "m08-mc18"
+      },
+      {
+        "id": "o3",
+        "text": "El agente corre programado y el flujo se lanza a mano",
+        "correct": false,
+        "feedback": "Programar decide cuándo corre algo, no quién decide sus pasos. Un flujo fijo también se puede programar.",
+        "misconceptionId": "m08-mc01"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l1#flujo-agente",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-p02",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo1",
+    "competencyIds": [
+      "C10"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Repasas los patrones intermedios entre una llamada y un agente.",
+    "stem": "¿Cuándo conviene el evaluador-optimizador?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Siempre: un segundo modelo mejora cualquier resultado",
+        "correct": false,
+        "feedback": "Un modelo que revisa sin criterios ni una señal externa no mejora de forma fiable. No conviene siempre.",
+        "misconceptionId": "m08-mc04"
+      },
+      {
+        "id": "o2",
+        "text": "Con criterios claros y una mejora medible",
+        "correct": true,
+        "feedback": "Correcta. El evaluador necesita criterios comprobables, y el ciclo, un tope. Así se puede comprobar si cada ronda mejora el resultado."
+      },
+      {
+        "id": "o3",
+        "text": "Cuando las partes de la tarea no se conocen de antemano",
+        "correct": false,
+        "feedback": "Ese es el caso del orquestador-trabajadores. El evaluador-optimizador genera y evalúa en ciclos.",
+        "misconceptionId": "m08-mc75"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l1#patrones",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-p03",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo2",
+    "competencyIds": [
+      "C10",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Repasas cómo arranca un subagente.",
+    "stem": "¿Qué sabe un subagente al empezar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Todo lo que se conversó en la sesión principal",
+        "correct": false,
+        "feedback": "Arranca con el contexto limpio. No hereda la conversación.",
+        "misconceptionId": "m08-mc06"
+      },
+      {
+        "id": "o2",
+        "text": "Solo lo que dice el mensaje con que se le delega la tarea",
+        "correct": true,
+        "feedback": "Correcta. El encargo es todo lo que el subagente sabe. Por eso tiene que ser completo."
+      },
+      {
+        "id": "o3",
+        "text": "Lo que hizo en sesiones anteriores",
+        "correct": false,
+        "feedback": "Cada sesión empieza sin memoria de la anterior. El avance se escribe en archivos y commits.",
+        "misconceptionId": "m08-mc11"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l2#encargo",
+    "sourceIds": [
+      "src-anthropic-cc-subagents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-p04",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo2",
+    "competencyIds": [
+      "C10",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Le explicas a un colega qué hace buena a una condición de término.",
+    "stem": "¿Qué es una buena condición de término?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que el propio agente diga que ya terminó",
+        "correct": false,
+        "feedback": "Eso es una afirmación del agente. Terminar antes de tiempo es un fallo frecuente.",
+        "misconceptionId": "m08-mc08"
+      },
+      {
+        "id": "o2",
+        "text": "Un tope de intentos, que asegura el resultado",
+        "correct": false,
+        "feedback": "Un tope limita el daño, pero no prueba nada. Si se alcanza, el resultado es parcial.",
+        "misconceptionId": "m08-mc09"
+      },
+      {
+        "id": "o3",
+        "text": "Algo comprobable, como un check",
+        "correct": true,
+        "feedback": "Correcta. La mejor condición de término no depende del juicio del agente. Un check o un resultado con forma concreta se pueden comprobar."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l2#termino",
+    "sourceIds": [
+      "src-arxiv-mast-mas-failures"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-p05",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo3",
+    "competencyIds": [
+      "C10",
+      "C03",
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Repasas qué hace un worktree.",
+    "stem": "¿Qué aísla?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Los archivos de trabajo y la rama de cada sesión",
+        "correct": true,
+        "feedback": "Correcta. Cada worktree tiene sus archivos y su rama, así que las sesiones no se pisan mientras trabajan. Lo que se trabajó por separado se integra después."
+      },
+      {
+        "id": "o2",
+        "text": "El contexto del modelo, como un subagente",
+        "correct": false,
+        "feedback": "El contexto lo aísla un subagente. El worktree aísla los archivos.",
+        "misconceptionId": "m08-mc73"
+      },
+      {
+        "id": "o3",
+        "text": "Todo, incluso los conflictos al integrar",
+        "correct": false,
+        "feedback": "Los conflictos no desaparecen. Aparecen al integrar las ramas.",
+        "misconceptionId": "m08-mc14"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l3#worktree",
+    "sourceIds": [
+      "src-git-worktree"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-p06",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo3",
+    "competencyIds": [
+      "C10",
+      "C03",
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Repasas cuándo conviene repartir un trabajo entre varios agentes.",
+    "stem": "¿Cuándo rinde repartir?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Siempre: más agentes terminan antes y mejor",
+        "correct": false,
+        "feedback": "El efecto depende de la tarea, y en lo secuencial repartir empeora el resultado. No rinde siempre.",
+        "misconceptionId": "m08-mc12"
+      },
+      {
+        "id": "o2",
+        "text": "En la mayoría de las tareas de programación",
+        "correct": false,
+        "feedback": "Es al revés. La mayoría de las tareas de programación tienen pocas partes que se puedan repartir.",
+        "misconceptionId": "m08-mc15"
+      },
+      {
+        "id": "o3",
+        "text": "Si las partes no dependen entre sí",
+        "correct": true,
+        "feedback": "Correcta. Repartir rinde en lo que se puede hacer sin que las partes se hablen. Lo dependiente va en una sola sesión."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l3#cuando",
+    "sourceIds": [
+      "src-anthropic-eng-multi-agent-research"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-p07",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo4",
+    "competencyIds": [
+      "C10",
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Repasas cómo corre una tarea programada en la nube.",
+    "stem": "¿Qué ve una tarea programada en la nube?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La carpeta de trabajo de quien la creó",
+        "correct": false,
+        "feedback": "No ve tu computadora. Parte de una copia del repositorio.",
+        "misconceptionId": "m08-mc29"
+      },
+      {
+        "id": "o2",
+        "text": "Una copia nueva del repositorio, sin los archivos locales",
+        "correct": true,
+        "feedback": "Correcta. En cada ejecución clona el repositorio. Lo que solo está en tu computadora no llega."
+      },
+      {
+        "id": "o3",
+        "text": "Lo mismo que tu computadora, siempre que esté encendida",
+        "correct": false,
+        "feedback": "La nube no depende de tu computadora, ni para correr ni para leer. Tampoco ve sus archivos.",
+        "misconceptionId": "m08-mc30"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l4#opciones",
+    "sourceIds": [
+      "src-anthropic-cc-scheduled-tasks"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-p08",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo4",
+    "competencyIds": [
+      "C10",
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Repasas en nombre de quién actúa una tarea programada.",
+    "stem": "¿Con qué identidad actúa, en los productos revisados?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Con una cuenta neutra, distinta de la tuya",
+        "correct": false,
+        "feedback": "En los productos revisados, actúa con la identidad de quien la creó. Lo que hace sale a su nombre.",
+        "misconceptionId": "m08-mc35"
+      },
+      {
+        "id": "o2",
+        "text": "Con permisos totales, porque nadie aprueba durante la ejecución",
+        "correct": false,
+        "feedback": "Sin nadie que apruebe, se dan solo los permisos del encargo. Lo que sobra es más peligroso.",
+        "misconceptionId": "m08-mc36"
+      },
+      {
+        "id": "o3",
+        "text": "Con la de quien la creó, y con sus conexiones",
+        "correct": true,
+        "feedback": "Correcta. Lo que hace la tarea sale a tu nombre. Por eso se le dejan solo las conexiones del encargo."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l4#identidad",
+    "sourceIds": [
+      "src-anthropic-cc-routines",
+      "src-github-cloud-agent-risks"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-p09",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo5",
+    "competencyIds": [
+      "C10",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Le explicas a un colega qué es un hook.",
+    "stem": "¿Qué hace un hook?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Corre un comando en un momento fijo",
+        "correct": true,
+        "feedback": "Correcta. Por eso sirve para lo que tiene que ocurrir siempre. Una instrucción, en cambio, solo orienta."
+      },
+      {
+        "id": "o2",
+        "text": "Le recuerda una regla al agente, que puede ignorarla",
+        "correct": false,
+        "feedback": "Eso es una instrucción. El hook se ejecuta siempre, decida lo que decida el modelo.",
+        "misconceptionId": "m08-mc38"
+      },
+      {
+        "id": "o3",
+        "text": "Protege los archivos de cualquier forma de cambio",
+        "correct": false,
+        "feedback": "Un hook vigila la herramienta a la que está atado. Los comandos de la terminal pueden pasar por fuera.",
+        "misconceptionId": "m08-mc39"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l5#hook",
+    "sourceIds": [
+      "src-anthropic-cc-hooks-guide"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-p10",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo5",
+    "competencyIds": [
+      "C10",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Repasas los momentos de un hook.",
+    "stem": "¿Qué pasa con un hook que corre después de la herramienta?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Puede impedir la acción que acaba de pasar",
+        "correct": false,
+        "feedback": "Corre cuando la acción ya pasó, y no la deshace. Para impedir, el hook va antes.",
+        "misconceptionId": "m08-mc37"
+      },
+      {
+        "id": "o2",
+        "text": "Corre cuando la herramienta ya actuó, y no deshace",
+        "correct": true,
+        "feedback": "Correcta. Sirve para revisar, formatear o correr un check después de cada cambio. No sirve para impedir."
+      },
+      {
+        "id": "o3",
+        "text": "Impide que el agente dé el trabajo por terminado",
+        "correct": false,
+        "feedback": "Eso lo hace el hook al terminar, no el que corre después de cada herramienta. Son momentos distintos.",
+        "misconceptionId": "m08-mc69"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l5#momentos",
+    "sourceIds": [
+      "src-anthropic-cc-hooks-guide"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-p11",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo6",
+    "competencyIds": [
+      "C10",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Lees el historial de una tarea programada.",
+    "stem": "¿Qué describe el estado «terminó con éxito», en al menos un producto?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que el trabajo quedó hecho tal como se pidió",
+        "correct": false,
+        "feedback": "El estado no dice si se cumplió el encargo. Eso se ve en la transcripción y en el check.",
+        "misconceptionId": "m08-mc46"
+      },
+      {
+        "id": "o2",
+        "text": "Que un agente revisor aprobó el resultado",
+        "correct": false,
+        "feedback": "El estado no tiene que ver con ninguna aprobación. Y la aprobación de un agente no es un check.",
+        "misconceptionId": "m08-mc52"
+      },
+      {
+        "id": "o3",
+        "text": "Cómo terminó la sesión, no si se cumplió el encargo",
+        "correct": true,
+        "feedback": "Correcta. Lo que no se pudo hacer aparece en la transcripción, no en el historial. Por eso se lee el registro completo."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l6#estado",
+    "sourceIds": [
+      "src-anthropic-cc-routines"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-p12",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo6",
+    "competencyIds": [
+      "C10",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Repasas qué hacer ante una automatización que falla.",
+    "stem": "¿En qué orden se actúa?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Pausar, leer el registro y después decidir",
+        "correct": true,
+        "feedback": "Correcta. Pausar evita repetir el daño, y el registro muestra la causa. Con eso se decide si se corrige o se simplifica."
+      },
+      {
+        "id": "o2",
+        "text": "Relanzarla primero, por si fue un fallo pasajero",
+        "correct": false,
+        "feedback": "Si la causa sigue ahí, relanzar repite el fallo y el gasto. Primero se lee el registro.",
+        "misconceptionId": "m08-mc47"
+      },
+      {
+        "id": "o3",
+        "text": "Borrarla y crear otra igual desde cero",
+        "correct": false,
+        "feedback": "Borrarla pierde la configuración, y la nueva podría fallar igual. Pausar conserva lo que hay.",
+        "misconceptionId": "m08-mc48"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l6#detener",
+    "basis": "inference",
+    "sourceIds": [
+      "src-google-sre-cron"
+    ],
+    "status": "draft"
+  }
+]

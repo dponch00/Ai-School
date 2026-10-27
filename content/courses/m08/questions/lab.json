@@ -1,0 +1,537 @@
+[
+  {
+    "id": "m08-lab-q01",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m08",
+    "labStep": "paso-1",
+    "evaluatedObjectiveId": "m08-eo1",
+    "competencyIds": [
+      "C10"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "En la propuesta del compañero, cada agente lee la nota de su oportunidad y además calcula su monto, su etapa y si está vencida.",
+    "stem": "¿Qué parte del memo necesita de verdad un modelo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Todas, para que el memo se adapte a cada oportunidad",
+        "correct": false,
+        "feedback": "Las cifras siguen reglas fijas, y un modelo solo les agregaría variación. Que se adapte no las hace mejores.",
+        "misconceptionId": "m08-mc02"
+      },
+      {
+        "id": "o2",
+        "text": "Las cifras, para que el modelo entienda cada caso",
+        "correct": false,
+        "feedback": "Las cifras salen del snapshot con una regla, como viste en el manual 6. Entender el contexto no las vuelve más exactas.",
+        "misconceptionId": "m08-mc72"
+      },
+      {
+        "id": "o3",
+        "text": "Clasificar las notas; las cifras, un script",
+        "correct": true,
+        "feedback": "Correcta. El monto, la etapa y el vencimiento salen del snapshot con reglas fijas. El modelo entra solo donde hace falta leer lenguaje: las notas."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l1#simple",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-lab-q02",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m08",
+    "labStep": "paso-1",
+    "evaluatedObjectiveId": "m08-eo1",
+    "competencyIds": [
+      "C10"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "Las diez notas son cortas, de tres o cuatro líneas, y no dependen unas de otras. Hay una rúbrica que define cada tipo de riesgo.",
+    "stem": "¿Qué diseño cumple con lo mínimo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Una llamada con la rúbrica para las diez, y revisión",
+        "correct": true,
+        "feedback": "Correcta. Diez notas cortas caben en una sola llamada, y la rúbrica hace la clasificación comparable. Una persona revisa el resultado."
+      },
+      {
+        "id": "o2",
+        "text": "Un orquestador que lance un agente por cada nota",
+        "correct": false,
+        "feedback": "Las partes se conocen de antemano y son siempre diez notas. No hay nada que un orquestador tenga que descubrir.",
+        "misconceptionId": "m08-mc03"
+      },
+      {
+        "id": "o3",
+        "text": "Un agente que investigue cada cuenta en todo el CRM",
+        "correct": false,
+        "feedback": "Automatizar no exige un agente, y nadie pidió investigar todo el CRM. La tarea es clasificar diez notas.",
+        "misconceptionId": "m08-mc01"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l1#simple",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-lab-q03",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m08",
+    "labStep": "paso-2",
+    "evaluatedObjectiveId": "m08-eo2",
+    "competencyIds": [
+      "C10",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El encargo para clasificar dice solo: «Clasifica el riesgo de cada nota».",
+    "stem": "¿Qué le falta?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: el modelo ya sabe qué es un riesgo comercial",
+        "correct": false,
+        "feedback": "Lo que el encargo no dice no existe para el modelo. Cada uno entendería «riesgo» a su manera.",
+        "misconceptionId": "m08-mc07"
+      },
+      {
+        "id": "o2",
+        "text": "La rúbrica, el formato y qué hacer con una nota ambigua",
+        "correct": true,
+        "feedback": "Correcta. Con la rúbrica, todas las notas se clasifican con el mismo criterio, y el formato permite comprobar el resultado. Falta también decir qué hacer con una nota que no basta para decidir."
+      },
+      {
+        "id": "o3",
+        "text": "Que use un modelo más capaz, que entienda mejor el riesgo",
+        "correct": false,
+        "feedback": "Ningún modelo adivina la rúbrica de FP&A. Falta información, no capacidad.",
+        "misconceptionId": "m08-mc20"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l2#piezas",
+    "sourceIds": [
+      "src-anthropic-eng-multi-agent-research"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-lab-q04",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m08",
+    "labStep": "paso-2",
+    "evaluatedObjectiveId": "m08-eo2",
+    "competencyIds": [
+      "C10",
+      "C02"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "El encargo del revisor dice: «Aprueba el memo cuando te parezca correcto».",
+    "stem": "¿Qué condición de término le das?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguna otra: el revisor sabe cuándo el memo está bien",
+        "correct": false,
+        "feedback": "Eso es el juicio del propio revisor, no una condición. Un revisor puede aprobar un memo con un error.",
+        "misconceptionId": "m08-mc08"
+      },
+      {
+        "id": "o2",
+        "text": "Que dos revisores se aprueben entre sí, para estar seguros",
+        "correct": false,
+        "feedback": "La aprobación entre agentes no es un check. Verificar mal o no verificar es uno de los fallos frecuentes de los sistemas con varios agentes.",
+        "misconceptionId": "m08-mc10"
+      },
+      {
+        "id": "o3",
+        "text": "Un check de cifras y riesgos; si no lo pasa, queda sin aprobar",
+        "correct": true,
+        "feedback": "Correcta. Cada cifra se compara con el snapshot y se comprueba que cada oportunidad tenga un riesgo de la rúbrica. Si algo no cumple, el memo queda marcado como no aprobado."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l2#termino",
+    "sourceIds": [
+      "src-arxiv-mast-mas-failures"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-lab-q05",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m08",
+    "labStep": "paso-3",
+    "evaluatedObjectiveId": "m08-eo3",
+    "competencyIds": [
+      "C10",
+      "C03",
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El compañero insiste: «Diez agentes, uno por nota, cuestan lo mismo que uno y terminan antes».",
+    "stem": "¿Qué le respondes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que tiene razón: el trabajo total es el mismo",
+        "correct": false,
+        "feedback": "Cada agente gasta sus propios tokens y necesita su contexto. Repartir no deja el costo igual.",
+        "misconceptionId": "m08-mc64"
+      },
+      {
+        "id": "o2",
+        "text": "Que no conviene: diez notas cortas caben en una sesión",
+        "correct": true,
+        "feedback": "Correcta. Repartir rinde cuando las partes son independientes y largas. Para diez notas cortas, diez agentes solo multiplican el costo."
+      },
+      {
+        "id": "o3",
+        "text": "Que tiene razón, porque los subagentes no ocupan contexto",
+        "correct": false,
+        "feedback": "No ocupan el contexto principal, pero gastan sus propios tokens. No son gratis.",
+        "misconceptionId": "m08-mc13"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l3#costo",
+    "sourceIds": [
+      "src-anthropic-eng-multi-agent-research",
+      "src-anthropic-cc-subagents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-lab-q06",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m08",
+    "labStep": "paso-3",
+    "evaluatedObjectiveId": "m08-eo3",
+    "competencyIds": [
+      "C10",
+      "C03",
+      "C06"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "scenario": "Supón que algún día las notas son largas y se reparten entre varios agentes, cada uno con una parte.",
+    "stem": "¿Qué habría que asegurar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: si cada agente hace bien su parte, el conjunto sale bien",
+        "correct": false,
+        "feedback": "Agentes que trabajan por separado toman decisiones distintas, y sus piezas pueden no encajar. Hace falta un criterio común.",
+        "misconceptionId": "m08-mc16"
+      },
+      {
+        "id": "o2",
+        "text": "La misma rúbrica para todos, y una sola sesión que junte y revise",
+        "correct": true,
+        "feedback": "Correcta. Con una rúbrica común, las clasificaciones son comparables. Y una sola sesión integra el memo y lo revisa."
+      },
+      {
+        "id": "o3",
+        "text": "Que cada uno escriba su parte directamente en el archivo del memo",
+        "correct": false,
+        "feedback": "Varios agentes escribiendo el mismo archivo se pisan. Una sola sesión escribe el memo.",
+        "misconceptionId": "m08-mc26"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l3#cuando",
+    "sourceIds": [
+      "src-cognition-dont-build-multi-agents",
+      "src-anthropic-cc-agent-teams"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-lab-q07",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m08",
+    "labStep": "paso-4",
+    "evaluatedObjectiveId": "m08-eo4",
+    "competencyIds": [
+      "C10",
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El memo debe estar listo el viernes a las siete de la tarde, y la computadora de la analista está apagada desde las cinco. Todo lo que necesita está en el repositorio o en la API del CRM.",
+    "stem": "¿Dónde corre?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En una tarea programada en la computadora de la analista",
+        "correct": false,
+        "feedback": "Con la computadora apagada, no corre. Las tareas locales necesitan la máquina encendida.",
+        "misconceptionId": "m08-mc31"
+      },
+      {
+        "id": "o2",
+        "text": "En la nube o en la integración continua",
+        "correct": true,
+        "feedback": "Correcta. No necesita archivos locales y no puede depender de la computadora de la analista. Las dos opciones corren con la máquina apagada."
+      },
+      {
+        "id": "o3",
+        "text": "En una tarea dentro de una sesión que quede abierta",
+        "correct": false,
+        "feedback": "Una tarea de sesión termina con la sesión. Y la computadora estará apagada.",
+        "misconceptionId": "m08-mc65"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l4#opciones",
+    "sourceIds": [
+      "src-anthropic-cc-scheduled-tasks"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-lab-q08",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m08",
+    "labStep": "paso-4",
+    "evaluatedObjectiveId": "m08-eo4",
+    "competencyIds": [
+      "C10",
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "La ejecución del viernes por la noche produce el memo.",
+    "stem": "¿Qué debe dejar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El memo publicado directamente para dirección, sin esperar a nadie",
+        "correct": false,
+        "feedback": "Lo que corre solo deja un resultado que alguien revisa. Nadie vio cómo se generó este memo.",
+        "misconceptionId": "m08-mc66"
+      },
+      {
+        "id": "o2",
+        "text": "El memo encima del de la semana pasada: si corre dos veces, da igual",
+        "correct": false,
+        "feedback": "Una segunda ejecución a medio hacer pisaría la primera. Repetir no siempre da lo mismo.",
+        "misconceptionId": "m08-mc67"
+      },
+      {
+        "id": "o3",
+        "text": "Un borrador en una PR, con su fecha, para revisar antes de enviar",
+        "correct": true,
+        "feedback": "Correcta. Un borrador con fecha deja la decisión en manos de la analista y no pisa el de la semana anterior. Se revisa antes de enviarlo."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l4#encargo",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-cloud-agent",
+      "src-google-sre-cron"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-lab-q09",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m08",
+    "labStep": "paso-5",
+    "evaluatedObjectiveId": "m08-eo5",
+    "competencyIds": [
+      "C10",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "La segunda regla de FP&A dice que ningún agente puede editar el archivo con la rúbrica de riesgo.",
+    "stem": "¿Qué control la hace cumplir?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Un hook previo y permisos que impidan la edición",
+        "correct": true,
+        "feedback": "Correcta. El hook antes de la herramienta impide la edición. Como un comando de la terminal también escribe, se suman permisos y la vigilancia de los comandos."
+      },
+      {
+        "id": "o2",
+        "text": "Un hook después de la edición que avise si cambió",
+        "correct": false,
+        "feedback": "Ese hook corre cuando la rúbrica ya cambió, y no deshace. Para impedir, el hook va antes.",
+        "misconceptionId": "m08-mc37"
+      },
+      {
+        "id": "o3",
+        "text": "Una línea en el encargo que lo prohíba expresamente",
+        "correct": false,
+        "feedback": "Una instrucción se puede ignorar u olvidar. Para lo que no puede pasar, hace falta un control.",
+        "misconceptionId": "m08-mc38"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l5#momentos",
+    "sourceIds": [
+      "src-anthropic-cc-hooks-guide"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-lab-q10",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m08",
+    "labStep": "paso-5",
+    "evaluatedObjectiveId": "m08-eo5",
+    "competencyIds": [
+      "C10",
+      "C11"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "Para la primera regla, alguien propone una compuerta al terminar: el agente no puede dar el memo por terminado mientras haya un monto que no esté en el snapshot.",
+    "stem": "¿Qué le agregas?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: sin tope, la compuerta garantiza un memo correcto",
+        "correct": false,
+        "feedback": "Si la condición no se puede cumplir, la compuerta encierra al agente en un ciclo. Necesita un tope.",
+        "misconceptionId": "m08-mc41"
+      },
+      {
+        "id": "o2",
+        "text": "Un tope y una salida que deje el memo marcado como no aprobado",
+        "correct": true,
+        "feedback": "Correcta. La compuerta es el control adecuado, pero necesita un límite. Si no se cumple, el memo queda marcado y la analista lo ve."
+      },
+      {
+        "id": "o3",
+        "text": "Nada: mejor reemplazarla por una instrucción en el encargo",
+        "correct": false,
+        "feedback": "Una instrucción no hace cumplir nada. La compuerta está bien elegida; le falta el tope.",
+        "misconceptionId": "m08-mc38"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l5#limites",
+    "sourceIds": [
+      "src-anthropic-cc-hooks-guide"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-lab-q11",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m08",
+    "labStep": "paso-6",
+    "evaluatedObjectiveId": "m08-eo6",
+    "competencyIds": [
+      "C10",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El historial muestra tres ejecuciones terminadas con éxito, y el revisor aprobó el tercer memo. Pero dos oportunidades con notas casi iguales a otras dos tienen riesgos opuestos.",
+    "stem": "¿Qué haces primero?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: terminó con éxito y el revisor lo aprobó",
+        "correct": false,
+        "feedback": "El estado describe cómo terminó la sesión, y la aprobación de otro agente no es un check independiente. El memo tiene un error a la vista.",
+        "misconceptionId": "m08-mc52"
+      },
+      {
+        "id": "o2",
+        "text": "Pausar la tarea, invalidar el memo y leer el registro",
+        "correct": true,
+        "feedback": "Correcta. Pausar evita que el viernes próximo repita el error, y el memo no debe usarse. Después se lee la transcripción para entender la causa."
+      },
+      {
+        "id": "o3",
+        "text": "Relanzarla para que esta vez clasifique bien",
+        "correct": false,
+        "feedback": "Si la causa sigue ahí, relanzar repite el error y el gasto. Primero se detiene y se lee el registro.",
+        "misconceptionId": "m08-mc47"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l6#detener",
+    "sourceIds": [
+      "src-anthropic-cc-routines",
+      "src-arxiv-mast-mas-failures"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-lab-q12",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m08",
+    "labStep": "paso-6",
+    "evaluatedObjectiveId": "m08-eo6",
+    "competencyIds": [
+      "C10",
+      "C12"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "La transcripción muestra que cada agente usó su propia idea de riesgo, porque el encargo no traía la rúbrica. El costo estimado de cada ejecución fue de unas doce veces el de la prueba de una sola llamada.",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Volver a una llamada con rúbrica, check y revisión",
+        "correct": true,
+        "feedback": "Correcta. El diseño con diez agentes costó unas doce veces más y produjo clasificaciones que no encajan, los riesgos que ya se veían en los pasos 2 y 3. Lo simple, con la rúbrica y un check, cumple mejor."
+      },
+      {
+        "id": "o2",
+        "text": "Mejorar los prompts de los diez agentes y seguir",
+        "correct": false,
+        "feedback": "Mejores prompts ayudan, pero no bastan contra un fallo de diseño. Y el costo seguiría siendo doce veces mayor.",
+        "misconceptionId": "m08-mc49"
+      },
+      {
+        "id": "o3",
+        "text": "Mantenerlo: volver a una sola llamada sería retroceder",
+        "correct": false,
+        "feedback": "Volver a lo simple no es retroceder cuando lo simple hace mejor el trabajo. La evidencia de tres viernes lo muestra.",
+        "misconceptionId": "m08-mc50"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l6#detener",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-building-agents",
+      "src-cognition-dont-build-multi-agents"
+    ],
+    "status": "draft"
+  }
+]

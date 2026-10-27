@@ -1,0 +1,1923 @@
+[
+  {
+    "id": "m08-f01-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo1",
+    "competencyIds": [
+      "C10"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m08-f01",
+    "variant": "a",
+    "scenario": "Tesorería quiere que cada mañana se calcule el saldo de caja proyectado a 30 días con las facturas por cobrar y por pagar, y que un párrafo lo explique.",
+    "stem": "¿Qué diseño eliges?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Un agente que calcule y redacte, porque se adapta a cada día",
+        "correct": false,
+        "feedback": "El cálculo sigue siempre la misma regla. Un agente solo agregaría variación y costo a un paso que un script hace exacto.",
+        "misconceptionId": "m08-mc02"
+      },
+      {
+        "id": "o2",
+        "text": "Un script que calcula y un modelo que solo redacta el párrafo",
+        "correct": true,
+        "feedback": "Correcta. El cálculo es una regla fija y lo hace el código. El modelo entra solo donde hace falta lenguaje, con las cifras ya calculadas."
+      },
+      {
+        "id": "o3",
+        "text": "Un orquestador que reparta el cálculo y la redacción cada día",
+        "correct": false,
+        "feedback": "Las partes se conocen de antemano y son siempre las mismas. No hay nada que un orquestador tenga que descubrir.",
+        "misconceptionId": "m08-mc03"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l1#simple",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f01-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo1",
+    "competencyIds": [
+      "C10"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m08-f01",
+    "variant": "b",
+    "scenario": "Compras recibe cada día unos 30 correos de proveedores y quiere marcar cuáles piden un cambio de precio. Después, una persona revisa los marcados.",
+    "stem": "¿Qué diseño eliges?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Un marco de agentes con memoria, para que aprenda solo",
+        "correct": false,
+        "feedback": "Es una clasificación acotada, que no necesita un marco de agentes. Además, un marco puede esconder los prompts y las respuestas, y con eso cuesta más revisar qué pasó.",
+        "misconceptionId": "m08-mc05"
+      },
+      {
+        "id": "o2",
+        "text": "Un agente autónomo, porque automatizar es ponerle un agente",
+        "correct": false,
+        "feedback": "Automatizar no exige un agente. Aquí basta una llamada por correo, sin que el modelo decida pasos.",
+        "misconceptionId": "m08-mc01"
+      },
+      {
+        "id": "o3",
+        "text": "Una llamada por correo, con ejemplos y revisión humana",
+        "correct": true,
+        "feedback": "Correcta. La categoría es una sola y se conoce. Se empieza por lo más simple, y la persona revisa lo que marca el modelo."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l1#simple",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f01-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo1",
+    "competencyIds": [
+      "C10"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m08-f01",
+    "variant": "c",
+    "scenario": "Cobranza quiere entender por qué tres clientes que pagaban a tiempo empezaron a atrasarse este trimestre. Nadie sabe si mirar las facturas, las notas, los correos o los cambios de condiciones.",
+    "stem": "¿Qué diseño eliges?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Un agente que solo puede leer esas fuentes, con un tope",
+        "correct": true,
+        "feedback": "Correcta. Es un problema abierto, porque no se sabe de antemano qué hay que mirar. En un caso así un agente puede valer lo que cuesta, siempre que solo pueda leer y tenga un tope de pasos."
+      },
+      {
+        "id": "o2",
+        "text": "Un script que recorra los pasos de siempre",
+        "correct": false,
+        "feedback": "Un script fija los pasos de antemano, y aquí no se sabe cuáles son. No hay camino que codificar.",
+        "misconceptionId": "m08-mc23"
+      },
+      {
+        "id": "o3",
+        "text": "Cinco agentes en paralelo, uno por fuente, para cubrir todo",
+        "correct": false,
+        "feedback": "Más agentes no garantizan una mejor respuesta y multiplican el costo. Un agente basta para empezar.",
+        "misconceptionId": "m08-mc12"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l1#agente",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f02-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo1",
+    "competencyIds": [
+      "C10"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "family": "m08-f02",
+    "variant": "a",
+    "scenario": "Un modelo clasifica cada consulta de un cliente como reclamo, pedido de factura o consulta de saldo, y cada tipo va a un tratamiento distinto, con su propia fuente.",
+    "stem": "¿Qué patrón describe la propuesta?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Orquestador-trabajadores, porque intervienen varios modelos",
+        "correct": false,
+        "feedback": "En un orquestador, un modelo reparte partes que no se conocen de antemano. Aquí los tipos son fijos y conocidos.",
+        "misconceptionId": "m08-mc24"
+      },
+      {
+        "id": "o2",
+        "text": "Enrutamiento: clasificar y mandar cada tipo a su vía",
+        "correct": true,
+        "feedback": "Correcta. Hay pocas categorías conocidas, cada una con su tratamiento. Clasificar y derivar es el patrón de enrutamiento."
+      },
+      {
+        "id": "o3",
+        "text": "Un agente, porque usa un modelo para decidir",
+        "correct": false,
+        "feedback": "Que un modelo clasifique en un paso no convierte el diseño en un agente. El camino de cada tipo está fijado de antemano.",
+        "misconceptionId": "m08-mc18"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l1#patrones",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f02-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo1",
+    "competencyIds": [
+      "C10"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "family": "m08-f02",
+    "variant": "b",
+    "scenario": "Un script parte el informe anual en sus doce meses, manda cada mes a una llamada distinta al mismo tiempo y después junta los resúmenes.",
+    "stem": "¿Qué patrón describe la propuesta?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Orquestador-trabajadores, porque la tarea tiene varias partes",
+        "correct": false,
+        "feedback": "Las partes las fija el script de antemano: los doce meses. Un orquestador decide las partes según lo que encuentra.",
+        "misconceptionId": "m08-mc03"
+      },
+      {
+        "id": "o2",
+        "text": "Evaluador-optimizador, porque intervienen varias llamadas",
+        "correct": false,
+        "feedback": "Ninguna llamada evalúa a otra. Cada una resume su mes, y el script junta los resultados.",
+        "misconceptionId": "m08-mc74"
+      },
+      {
+        "id": "o3",
+        "text": "Paralelización por partes, fijadas de antemano",
+        "correct": true,
+        "feedback": "Correcta. Las partes son independientes y conocidas, y corren a la vez. Es el patrón de paralelización."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l1#patrones",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f02-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo1",
+    "competencyIds": [
+      "C10"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "family": "m08-f02",
+    "variant": "c",
+    "scenario": "Un modelo recibe un pedido de análisis abierto, decide en qué subtareas partirlo según lo que va encontrando, las reparte entre otros modelos y junta lo que le devuelven.",
+    "stem": "¿Qué patrón describe la propuesta?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Paralelización, porque las subtareas corren a la vez",
+        "correct": false,
+        "feedback": "En la paralelización, las partes se fijan de antemano. Aquí las decide un modelo según lo que encuentra.",
+        "misconceptionId": "m08-mc56"
+      },
+      {
+        "id": "o2",
+        "text": "Orquestador-trabajadores: un modelo decide las partes",
+        "correct": true,
+        "feedback": "Correcta. Un modelo central decide las subtareas, las reparte y junta lo que le devuelven. Es el patrón indicado cuando las partes no se pueden prever."
+      },
+      {
+        "id": "o3",
+        "text": "Cadena de prompts, porque los pasos se suceden",
+        "correct": false,
+        "feedback": "En una cadena, los pasos son fijos y van en orden. Aquí el modelo decide qué pasos hacen falta.",
+        "misconceptionId": "m08-mc57"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l1#patrones",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f03-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo2",
+    "competencyIds": [
+      "C10",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m08-f03",
+    "variant": "a",
+    "scenario": "El agente principal delega en un subagente: «Resume las notas de las cuentas del Norte en un archivo». No dice de dónde salen las notas ni cómo debe ser el resumen.",
+    "stem": "¿Qué le falta al encargo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: el subagente conoce las notas que se vieron en la sesión",
+        "correct": false,
+        "feedback": "El subagente arranca con el contexto limpio. Lo que se vio en la sesión no está en su encargo.",
+        "misconceptionId": "m08-mc06"
+      },
+      {
+        "id": "o2",
+        "text": "Que use un modelo más capaz, que sabrá dónde buscar",
+        "correct": false,
+        "feedback": "Ningún modelo adivina lo que el encargo no dice. Falta información, no capacidad.",
+        "misconceptionId": "m08-mc20"
+      },
+      {
+        "id": "o3",
+        "text": "De dónde salen las notas y qué forma tiene el resumen",
+        "correct": true,
+        "feedback": "Correcta. El encargo es todo lo que el subagente sabe. Tiene que decir qué leer y qué entregar, en qué forma y dónde."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l2#encargo",
+    "sourceIds": [
+      "src-anthropic-cc-subagents",
+      "src-anthropic-eng-multi-agent-research"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f03-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo2",
+    "competencyIds": [
+      "C10",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m08-f03",
+    "variant": "b",
+    "scenario": "Encargo: «Revisa las facturas vencidas y márcalas en el sistema de Cobranza». El agente tiene permiso de escritura en todo el sistema.",
+    "stem": "¿Qué le falta al encargo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Limitar sus herramientas a marcar facturas vencidas",
+        "correct": true,
+        "feedback": "Correcta. Las herramientas son parte del encargo. Quitar lo que sobra es más firme que pedir que no se use."
+      },
+      {
+        "id": "o2",
+        "text": "Pedirle en el encargo que no toque nada más",
+        "correct": false,
+        "feedback": "Una instrucción se puede ignorar u olvidar. Lo firme es no darle más permiso del que necesita.",
+        "misconceptionId": "m08-mc27"
+      },
+      {
+        "id": "o3",
+        "text": "Nada: no tiene ningún motivo para tocar otra cosa",
+        "correct": false,
+        "feedback": "Un error o un texto malicioso pueden usar ese permiso. Se da solo lo que la tarea necesita.",
+        "misconceptionId": "m08-mc28"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l2#piezas",
+    "sourceIds": [
+      "src-owasp-llm06"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f03-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo2",
+    "competencyIds": [
+      "C10",
+      "C02"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m08-f03",
+    "variant": "c",
+    "scenario": "Un agente correrá toda la noche con este encargo: «Actualiza los pronósticos de las tres regiones con los datos nuevos». El encargo dice el objetivo, las herramientas y el criterio de éxito.",
+    "stem": "¿Qué le falta al encargo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: si se interrumpe, recordará dónde quedó",
+        "correct": false,
+        "feedback": "Una sesión nueva empieza sin memoria de la anterior. Lo que no quedó escrito se pierde.",
+        "misconceptionId": "m08-mc11"
+      },
+      {
+        "id": "o2",
+        "text": "Qué debe dejar escrito si se corta a mitad",
+        "correct": true,
+        "feedback": "Correcta. El estado se escribe fuera de la conversación: qué hizo, qué falta y por qué. Así otra sesión o una persona pueden seguir."
+      },
+      {
+        "id": "o3",
+        "text": "Que al retomar se le pegue el historial completo de la noche",
+        "correct": false,
+        "feedback": "El historial completo llena el contexto y diluye lo importante. Un registro breve del avance dice mejor dónde seguir.",
+        "misconceptionId": "m08-mc22"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l2#estado",
+    "sourceIds": [
+      "src-anthropic-eng-harnesses",
+      "src-anthropic-eng-context"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f04-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo2",
+    "competencyIds": [
+      "C10",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m08-f04",
+    "variant": "a",
+    "scenario": "Un agente debe conciliar los pagos de octubre con las facturas del sistema ficticio de Cobranza.",
+    "stem": "¿Qué condición de término eliges?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Cuando el agente considere que ya quedó todo conciliado",
+        "correct": false,
+        "feedback": "Eso es una afirmación del agente, no una condición. Terminar antes de tiempo es un fallo frecuente.",
+        "misconceptionId": "m08-mc08"
+      },
+      {
+        "id": "o2",
+        "text": "Que el check dé código 0, o un reporte de lo que no cuadra",
+        "correct": true,
+        "feedback": "Correcta. El resultado del check se comprueba sin preguntarle al agente. Y si no lo logra, el agente deja dicho qué no cuadró."
+      },
+      {
+        "id": "o3",
+        "text": "Un máximo de 30 intentos, sin otra condición",
+        "correct": false,
+        "feedback": "Un tope limita el daño, pero no dice si la conciliación quedó hecha. Falta algo comprobable.",
+        "misconceptionId": "m08-mc09"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l2#termino",
+    "sourceIds": [
+      "src-arxiv-mast-mas-failures",
+      "src-anthropic-building-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f04-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo2",
+    "competencyIds": [
+      "C10",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m08-f04",
+    "variant": "b",
+    "scenario": "Un agente traduce al inglés, para la casa matriz, los doce comentarios mensuales del año.",
+    "stem": "¿Qué condición de término eliges?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que otro agente diga que las traducciones están bien",
+        "correct": false,
+        "feedback": "La aprobación de otro agente no es un check. Verificar mal o no verificar es uno de los fallos frecuentes de los sistemas con varios agentes.",
+        "misconceptionId": "m08-mc10"
+      },
+      {
+        "id": "o2",
+        "text": "Doce archivos con su mes, y un check que lo confirme",
+        "correct": true,
+        "feedback": "Correcta. El resultado tiene una forma concreta que se puede comprobar: doce archivos con su mes. Lo que no se cumple queda a la vista."
+      },
+      {
+        "id": "o3",
+        "text": "Cuando las traducciones le parezcan bien al propio agente",
+        "correct": false,
+        "feedback": "Eso es el juicio del propio agente, no una condición. Puede declararse listo con un mes sin traducir.",
+        "misconceptionId": "m08-mc08"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l2#termino",
+    "sourceIds": [
+      "src-arxiv-mast-mas-failures"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f04-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo2",
+    "competencyIds": [
+      "C10",
+      "C02"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m08-f04",
+    "variant": "c",
+    "scenario": "Un ciclo de redactor y revisor mejora un resumen para dirección. El revisor nunca queda conforme, y ya van doce rondas.",
+    "stem": "¿Qué condición de término eliges?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Dejarlo seguir: tarde o temprano el resumen mejorará",
+        "correct": false,
+        "feedback": "Sin criterios ni tope, el ciclo puede no terminar o girar sin mejorar. «Conforme» no es un criterio.",
+        "misconceptionId": "m08-mc19"
+      },
+      {
+        "id": "o2",
+        "text": "Subir el tope a 50 rondas y quedarse con lo que salga",
+        "correct": false,
+        "feedback": "Más rondas no prueban nada. Falta un criterio que el revisor pueda comprobar.",
+        "misconceptionId": "m08-mc21"
+      },
+      {
+        "id": "o3",
+        "text": "Criterios escritos y dos rondas como máximo",
+        "correct": true,
+        "feedback": "Correcta. El revisor necesita criterios comprobables, y el ciclo, un tope. Si no se cumplen, el resumen queda marcado como no aprobado."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l2#termino",
+    "sourceIds": [
+      "src-anthropic-building-agents",
+      "src-arxiv-self-correct"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f05-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo2",
+    "competencyIds": [
+      "C10",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m08-f05",
+    "variant": "a",
+    "scenario": "Un agente que prepara el cierre del trimestre encuentra una oportunidad sin región y propone asignarla al Norte para poder terminar.",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Aceptarlo: lo importante es que el cierre termine",
+        "correct": false,
+        "feedback": "Asignar una región cambia las cifras de esa región, y esa decisión no es del agente. Terminar no la justifica.",
+        "misconceptionId": "m08-mc58"
+      },
+      {
+        "id": "o2",
+        "text": "Que se detenga y deje el caso reportado para FP&A",
+        "correct": true,
+        "feedback": "Correcta. Las decisiones de negocio no se delegan para llegar al final. El agente deja reportado lo que falta y FP&A decide."
+      },
+      {
+        "id": "o3",
+        "text": "Aceptarlo, porque una condición imposible autoriza a inventar lo que falta",
+        "correct": false,
+        "feedback": "Un supuesto que nadie aprobó cambia las cifras. Lo que falta se reporta, no se inventa.",
+        "misconceptionId": "m08-mc42"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l2#estado",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-copilot-agent-bp"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f05-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo2",
+    "competencyIds": [
+      "C10",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m08-f05",
+    "variant": "b",
+    "scenario": "Un subagente investigó durante una hora las causas de una diferencia y devuelve solo esto: «Encontré varias cosas; te cuento si quieres».",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Aceptarlo: el agente principal le preguntará después",
+        "correct": false,
+        "feedback": "Al agente principal solo le llega lo que el subagente devuelve, y esta respuesta no trae nada que se pueda usar ni revisar. Lo que importa tiene que venir escrito.",
+        "misconceptionId": "m08-mc59"
+      },
+      {
+        "id": "o2",
+        "text": "Pedirle a otros dos subagentes lo mismo, para comparar",
+        "correct": false,
+        "feedback": "Más agentes no arreglan un encargo que no pidió un resultado escrito. Solo triplican el costo.",
+        "misconceptionId": "m08-mc12"
+      },
+      {
+        "id": "o3",
+        "text": "Pedir lo encontrado por escrito, con su evidencia",
+        "correct": true,
+        "feedback": "Correcta. El resultado de un subagente es lo que devuelve por escrito. El encargo debe pedirlo en esa forma."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l2#estado",
+    "sourceIds": [
+      "src-anthropic-cc-subagents",
+      "src-anthropic-eng-context"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f05-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo2",
+    "competencyIds": [
+      "C10",
+      "C02"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m08-f05",
+    "variant": "c",
+    "scenario": "El encargo de un agente de cierre dice: «Si falta la probabilidad de una etapa, usa la de la etapa más parecida y sigue».",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que se detenga y lo reporte: eso lo fija FP&A",
+        "correct": true,
+        "feedback": "Correcta. Una probabilidad elegida por parecido es un supuesto que nadie aprobó y cambia el ponderado. El encargo no puede autorizar eso."
+      },
+      {
+        "id": "o2",
+        "text": "Mantenerlo, porque así el agente siempre termina",
+        "correct": false,
+        "feedback": "Terminar con un supuesto inventado es peor que detenerse. Esa decisión no se delega.",
+        "misconceptionId": "m08-mc58"
+      },
+      {
+        "id": "o3",
+        "text": "Mantenerlo, siempre que el agente lo anote en su reporte",
+        "correct": false,
+        "feedback": "Anotar un supuesto inventado no lo vuelve aprobado. La cifra sigue saliendo mal.",
+        "misconceptionId": "m08-mc60"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l2#estado",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-copilot-agent-bp"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f06-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo3",
+    "competencyIds": [
+      "C10",
+      "C03",
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m08-f06",
+    "variant": "a",
+    "scenario": "Para entender un módulo antiguo, el agente tendría que leer 40 archivos cuyo contenido no va a volver a consultar.",
+    "stem": "¿Dónde lo haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En un subagente que lea y devuelva un resumen",
+        "correct": true,
+        "feedback": "Correcta. La lectura voluminosa queda fuera de la conversación principal, que recibe solo el resumen. Es el uso típico de un subagente."
+      },
+      {
+        "id": "o2",
+        "text": "En la sesión principal, para tener todo a mano por si acaso",
+        "correct": false,
+        "feedback": "Cargar 40 archivos llena el contexto con algo que no se va a volver a mirar. Lo útil es el resumen.",
+        "misconceptionId": "m08-mc61"
+      },
+      {
+        "id": "o3",
+        "text": "En 40 subagentes distintos, uno para cada archivo",
+        "correct": false,
+        "feedback": "Cuarenta agentes multiplican el costo sin mejorar el resumen. Uno basta para esta lectura.",
+        "misconceptionId": "m08-mc12"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l3#subagente",
+    "sourceIds": [
+      "src-anthropic-eng-context",
+      "src-anthropic-cc-subagents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f06-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo3",
+    "competencyIds": [
+      "C10",
+      "C03",
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m08-f06",
+    "variant": "b",
+    "scenario": "Hay que buscar en tres meses de registros de ejecución qué noches falló la descarga. Solo interesa la lista de fechas.",
+    "stem": "¿Dónde lo haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En la sesión principal: más contexto da mejores respuestas",
+        "correct": false,
+        "feedback": "Tres meses de registros llenarían el contexto con detalle que nadie va a mirar. Solo hace falta la lista.",
+        "misconceptionId": "m08-mc61"
+      },
+      {
+        "id": "o2",
+        "text": "En un subagente que busque y devuelva la lista de fechas",
+        "correct": true,
+        "feedback": "Correcta. La salida voluminosa queda en el subagente, y a la conversación principal llega solo la lista."
+      },
+      {
+        "id": "o3",
+        "text": "En un agente distinto para cada noche de los tres meses",
+        "correct": false,
+        "feedback": "Noventa agentes para una búsqueda simple multiplican el costo. Un subagente la resuelve.",
+        "misconceptionId": "m08-mc12"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l3#subagente",
+    "sourceIds": [
+      "src-anthropic-cc-subagents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f06-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo3",
+    "competencyIds": [
+      "C10",
+      "C03",
+      "C06"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m08-f06",
+    "variant": "c",
+    "scenario": "Con la analista se está diseñando, en muchas idas y vueltas cortas, la estructura del informe nuevo. Alguien propone delegar cada idea en un subagente para no llenar el contexto.",
+    "stem": "¿Dónde lo haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En subagentes: no cuestan nada y protegen el contexto",
+        "correct": false,
+        "feedback": "Cada subagente gasta sus propios tokens y tiene que ponerse al día. Con ida y vuelta frecuente no compensa.",
+        "misconceptionId": "m08-mc13"
+      },
+      {
+        "id": "o2",
+        "text": "En subagentes, que ya conocen lo conversado",
+        "correct": false,
+        "feedback": "Un subagente arranca con el contexto limpio. Habría que contarle todo de nuevo en cada idea.",
+        "misconceptionId": "m08-mc06"
+      },
+      {
+        "id": "o3",
+        "text": "En la sesión principal, con todo el contexto",
+        "correct": true,
+        "feedback": "Correcta. La documentación de un producto recomienda quedarse en la conversación principal cuando hay mucho ida y vuelta y las fases comparten contexto. Un subagente nuevo, además, tardaría en ponerse al día."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l3#subagente",
+    "sourceIds": [
+      "src-anthropic-cc-subagents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f07-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo3",
+    "competencyIds": [
+      "C10",
+      "C03",
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "family": "m08-f07",
+    "variant": "a",
+    "scenario": "Dos sesiones trabajaron en worktrees distintos: una cambió el formato de las fechas del contrato y otra agregó un campo nuevo que usa fechas.",
+    "stem": "¿Qué riesgo queda?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que los dos cambios no encajen al juntar las ramas",
+        "correct": true,
+        "feedback": "Correcta. Los worktrees evitaron que se pisaran mientras trabajaban, pero los cambios se encuentran al integrar. Hay que juntar las ramas y probar el conjunto."
+      },
+      {
+        "id": "o2",
+        "text": "Ninguno: con worktrees no puede haber conflictos",
+        "correct": false,
+        "feedback": "Los worktrees aíslan mientras se trabaja. Al integrar, dos cambios que tocan las fechas pueden chocar.",
+        "misconceptionId": "m08-mc14"
+      },
+      {
+        "id": "o3",
+        "text": "Ninguno: cada sesión pasó sus propias pruebas",
+        "correct": false,
+        "feedback": "Que cada parte funcione sola no garantiza que funcionen juntas. Hay que probar el conjunto.",
+        "misconceptionId": "m08-mc16"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l3#worktree",
+    "basis": "inference",
+    "sourceIds": [
+      "src-git-worktree"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f07-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo3",
+    "competencyIds": [
+      "C10",
+      "C03",
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "family": "m08-f07",
+    "variant": "b",
+    "scenario": "Para avanzar más rápido, dos sesiones van a trabajar a la vez en la misma carpeta del repositorio.",
+    "stem": "¿Qué riesgo queda?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguno, si cada una toca solo sus archivos",
+        "correct": false,
+        "feedback": "Aunque se repartan los archivos, comparten la carpeta y la rama, y nada impide que una toque lo que la otra está editando. Cada sesión va en su worktree.",
+        "misconceptionId": "m08-mc26"
+      },
+      {
+        "id": "o2",
+        "text": "Que se pisen los archivos; cada una debería ir en su worktree",
+        "correct": true,
+        "feedback": "Correcta. En la misma carpeta, las dos sesiones editan los mismos archivos. Un worktree por sesión las aísla mientras trabajan."
+      },
+      {
+        "id": "o3",
+        "text": "Ninguno, si se les pide en el encargo que no se estorben",
+        "correct": false,
+        "feedback": "Una instrucción no impide nada. El aislamiento lo da el worktree.",
+        "misconceptionId": "m08-mc27"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l3#worktree",
+    "sourceIds": [
+      "src-anthropic-cc-worktrees"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f07-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo3",
+    "competencyIds": [
+      "C10",
+      "C03",
+      "C06"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m08-f07",
+    "variant": "c",
+    "scenario": "Dos sesiones terminaron en sus worktrees. Las ramas se juntaron sin conflictos de Git, y las pruebas de cada una pasan, pero ninguna prueba cubre las dos partes juntas.",
+    "stem": "¿Qué riesgo queda?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguno: sin conflictos de Git, el código está integrado",
+        "correct": false,
+        "feedback": "Git no detecta que dos cambios correctos por separado fallen juntos. Eso lo muestran las pruebas del conjunto.",
+        "misconceptionId": "m08-mc62"
+      },
+      {
+        "id": "o2",
+        "text": "Ninguno: cada sesión pasó sus pruebas",
+        "correct": false,
+        "feedback": "Las pruebas de cada parte no prueban la combinación. Falta probar el conjunto.",
+        "misconceptionId": "m08-mc16"
+      },
+      {
+        "id": "o3",
+        "text": "Que no funcionen juntas: falta probar el conjunto",
+        "correct": true,
+        "feedback": "Correcta. Integrar no es solo juntar las ramas sin conflictos. Hace falta comprobar que las dos partes funcionan juntas."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l3#worktree",
+    "basis": "inference",
+    "sourceIds": [
+      "src-git-worktree",
+      "src-cognition-dont-build-multi-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f08-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo3",
+    "competencyIds": [
+      "C10",
+      "C03",
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m08-f08",
+    "variant": "a",
+    "scenario": "Hay que resumir los contratos de 8 proveedores, de unas 40 páginas cada uno e independientes entre sí.",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Una sola sesión que lea los 8 contratos completos",
+        "correct": false,
+        "feedback": "Ocho contratos largos llenarían el contexto principal. Las partes son independientes y se pueden repartir.",
+        "misconceptionId": "m08-mc61"
+      },
+      {
+        "id": "o2",
+        "text": "Subagentes de solo lectura en paralelo",
+        "correct": true,
+        "feedback": "Correcta. Las partes no dependen unas de otras ni tocan archivos compartidos. Repartir rinde justo en este caso."
+      },
+      {
+        "id": "o3",
+        "text": "Ningún agente, porque repartir siempre empeora el resultado",
+        "correct": false,
+        "feedback": "Repartir empeora lo secuencial, no lo independiente. Aquí los contratos no dependen unos de otros.",
+        "misconceptionId": "m08-mc63"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l3#cuando",
+    "sourceIds": [
+      "src-anthropic-eng-multi-agent-research"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f08-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo3",
+    "competencyIds": [
+      "C10",
+      "C03",
+      "C06"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "family": "m08-f08",
+    "variant": "b",
+    "scenario": "Un compañero dice que un equipo de cinco agentes «cuesta lo mismo que uno solo, porque cada uno hace una parte».",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que tiene razón: el trabajo total es el mismo",
+        "correct": false,
+        "feedback": "Cada agente gasta sus propios tokens y necesita su contexto. Repartir no deja el costo igual.",
+        "misconceptionId": "m08-mc64"
+      },
+      {
+        "id": "o2",
+        "text": "Que tiene razón, y además el resultado sale mejor",
+        "correct": false,
+        "feedback": "Más agentes no garantizan un mejor resultado. Y el costo sube.",
+        "misconceptionId": "m08-mc12"
+      },
+      {
+        "id": "o3",
+        "text": "Que no: varios agentes consumen muchos más tokens que uno",
+        "correct": true,
+        "feedback": "Correcta. En las mediciones de un proveedor, un sistema de varios agentes consume unas 15 veces los tokens de una conversación. Repartir encarece."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l3#costo",
+    "sourceIds": [
+      "src-anthropic-eng-multi-agent-research"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f08-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo3",
+    "competencyIds": [
+      "C10",
+      "C03",
+      "C06"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m08-f08",
+    "variant": "c",
+    "scenario": "Un agente solo ya resuelve bien la conciliación mensual. Alguien propone pasarla a un sistema de tres agentes «para que sea más robusta».",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Mantener uno, porque sumar agentes aportaría poco",
+        "correct": true,
+        "feedback": "Correcta. Un estudio que comparó un agente solo con varias arquitecturas observó que sumar agentes aporta cada vez menos cuando uno solo ya rinde bien. Tres agentes costarían más sin una mejora clara."
+      },
+      {
+        "id": "o2",
+        "text": "Pasar a tres: más agentes dan más robustez",
+        "correct": false,
+        "feedback": "El efecto de repartir depende de la tarea, y aquí uno ya rinde bien. Más agentes también suman puntos de fallo.",
+        "misconceptionId": "m08-mc12"
+      },
+      {
+        "id": "o3",
+        "text": "Pasar a tres, porque programar es lo que mejor se reparte",
+        "correct": false,
+        "feedback": "Es al revés. La mayoría de las tareas de programación tienen pocas partes que se puedan repartir.",
+        "misconceptionId": "m08-mc15"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l3#cuando",
+    "sourceIds": [
+      "src-arxiv-scaling-agent-systems",
+      "src-anthropic-eng-multi-agent-research"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f09-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo4",
+    "competencyIds": [
+      "C10",
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m08-f09",
+    "variant": "a",
+    "scenario": "Un trabajo semanal lee solo el repositorio y deja una PR. Debe correr aunque la analista esté de vacaciones, con su computadora apagada.",
+    "stem": "¿Dónde lo corres?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En una tarea programada en la nube",
+        "correct": true,
+        "feedback": "Correcta. Usa solo el repositorio, que la nube copia en cada ejecución, y no depende de la computadora de la analista."
+      },
+      {
+        "id": "o2",
+        "text": "En una tarea programada en la computadora de la analista",
+        "correct": false,
+        "feedback": "Con la computadora apagada, no corre. Las tareas locales necesitan la máquina encendida.",
+        "misconceptionId": "m08-mc31"
+      },
+      {
+        "id": "o3",
+        "text": "En una tarea dentro de una sesión que quede abierta",
+        "correct": false,
+        "feedback": "Una tarea de sesión termina con la sesión y caduca a los pocos días. No sirve para semanas de vacaciones.",
+        "misconceptionId": "m08-mc65"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l4#opciones",
+    "sourceIds": [
+      "src-anthropic-cc-scheduled-tasks"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f09-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo4",
+    "competencyIds": [
+      "C10",
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m08-f09",
+    "variant": "b",
+    "scenario": "Un trabajo diario necesita una herramienta de análisis que solo está instalada en la computadora de la analista, que queda encendida en la oficina.",
+    "stem": "¿Dónde lo corres?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En la nube, que siempre es la mejor opción",
+        "correct": false,
+        "feedback": "La nube parte de una copia del repositorio y no tiene la herramienta instalada en la computadora. No siempre es la mejor opción.",
+        "misconceptionId": "m08-mc45"
+      },
+      {
+        "id": "o2",
+        "text": "En una tarea de la sesión, que sigue aunque se cierre",
+        "correct": false,
+        "feedback": "Una tarea de sesión deja de correr cuando la sesión se cierra. No sirve para un trabajo diario.",
+        "misconceptionId": "m08-mc65"
+      },
+      {
+        "id": "o3",
+        "text": "En una tarea programada en esa computadora, en un worktree",
+        "correct": true,
+        "feedback": "Correcta. La herramienta solo está en esa máquina, que queda encendida. El worktree evita que la tarea pise lo que edita la analista."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l4#opciones",
+    "sourceIds": [
+      "src-openai-codex-scheduled-tasks",
+      "src-anthropic-cc-scheduled-tasks"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f09-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo4",
+    "competencyIds": [
+      "C10",
+      "C01"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m08-f09",
+    "variant": "c",
+    "scenario": "Un proceso fijo, sin decisiones, descarga cada día los tipos de cambio y corre la reconciliación. Hoy lo hace un agente programado en la nube.",
+    "stem": "¿Dónde lo corres?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En el agente en la nube, como ahora: lo programado necesita uno",
+        "correct": false,
+        "feedback": "Programar decide cuándo corre algo, no exige un agente. Un proceso fijo lo hace mejor un script.",
+        "misconceptionId": "m08-mc01"
+      },
+      {
+        "id": "o2",
+        "text": "Un script en la integración continua, sin agente",
+        "correct": true,
+        "feedback": "Correcta. No hay nada que decidir, así que no hace falta un modelo. El script corre igual cada día, y se vigila que el resultado llegue."
+      },
+      {
+        "id": "o3",
+        "text": "En una tarea dentro de la sesión de la analista",
+        "correct": false,
+        "feedback": "Una tarea de sesión termina con la sesión. Y el problema no es dónde corre, sino que no necesita un agente.",
+        "misconceptionId": "m08-mc65"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l4#preguntas",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-actions-schedule",
+      "src-anthropic-building-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f10-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo4",
+    "competencyIds": [
+      "C10",
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m08-f10",
+    "variant": "a",
+    "scenario": "La tarea programada de los viernes publica el resumen de riesgos directamente en el canal de dirección.",
+    "stem": "¿Qué cambias?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que deje un borrador o una PR para revisar antes de publicar",
+        "correct": true,
+        "feedback": "Correcta. Lo que corre solo deja un resultado que alguien revisa. Publicar directamente deja fuera a la persona que debía revisarlo."
+      },
+      {
+        "id": "o2",
+        "text": "Nada: para eso se automatizó, para que publique sola",
+        "correct": false,
+        "feedback": "Automatizar el trabajo no quita la revisión del resultado. Nadie vio cómo se generó.",
+        "misconceptionId": "m08-mc66"
+      },
+      {
+        "id": "o3",
+        "text": "Que publique dos veces, por si falla una",
+        "correct": false,
+        "feedback": "Publicar dos veces no protege de nada y puede confundir. Lo que falta es la revisión.",
+        "misconceptionId": "m08-mc33"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l4#encargo",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-cloud-agent",
+      "src-anthropic-cc-routines"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f10-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo4",
+    "competencyIds": [
+      "C10",
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m08-f10",
+    "variant": "b",
+    "scenario": "Para leer el pipeline, la tarea programada usa la cuenta personal del jefe de FP&A, que también tiene acceso a los sueldos.",
+    "stem": "¿Qué cambias?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: lo que haga la tarea no quedará a nombre del jefe",
+        "correct": false,
+        "feedback": "La tarea usa la cuenta del jefe, así que todo lo que haga sale a su nombre. En los productos revisados, además, actúa con la identidad de quien la creó.",
+        "misconceptionId": "m08-mc35"
+      },
+      {
+        "id": "o2",
+        "text": "Que use solo los permisos que el encargo necesita",
+        "correct": true,
+        "feedback": "Correcta. Lo que hace la tarea lo hace en nombre de quien la creó. Para leer el pipeline no hace falta acceso a los sueldos."
+      },
+      {
+        "id": "o3",
+        "text": "Nada: como nadie aprueba, conviene que tenga todo",
+        "correct": false,
+        "feedback": "Sin nadie que apruebe, un permiso de más es más peligroso, no menos. Se da solo lo justo.",
+        "misconceptionId": "m08-mc36"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l4#identidad",
+    "sourceIds": [
+      "src-anthropic-cc-routines",
+      "src-github-cloud-agent-risks"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f10-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo4",
+    "competencyIds": [
+      "C10",
+      "C01"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m08-f10",
+    "variant": "c",
+    "scenario": "La tarea de los lunes guarda el borrador siempre con el mismo nombre. Esta semana corrió dos veces por un reintento, y el segundo borrador, a medio hacer, pisó al primero.",
+    "stem": "¿Qué cambias?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: si corre dos veces, el resultado es el mismo",
+        "correct": false,
+        "feedback": "Aquí no fue el mismo: el segundo quedó a medio hacer y borró al primero. Repetir puede dañar lo que ya estaba bien.",
+        "misconceptionId": "m08-mc67"
+      },
+      {
+        "id": "o2",
+        "text": "Programarla en punto, cuando hay menos carga y no falla",
+        "correct": false,
+        "feedback": "Las ejecuciones en punto pueden empezar tarde, y por eso se aconseja otro minuto. Además, la hora no evita que un reintento pise el borrador.",
+        "misconceptionId": "m08-mc34"
+      },
+      {
+        "id": "o3",
+        "text": "Que no sobrescriba un borrador ya hecho ni se relance sola",
+        "correct": true,
+        "feedback": "Correcta. Una segunda ejecución no debe pisar la primera. Si el borrador ya existe, la tarea no lo sobrescribe, y solo se vuelve a lanzar después de revisar lo que quedó."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l4#hora",
+    "sourceIds": [
+      "src-google-sre-cron"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f11-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo5",
+    "competencyIds": [
+      "C10",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m08-f11",
+    "variant": "a",
+    "scenario": "Se quiere que, después de cada cambio en el script de cálculo, se corran las pruebas y el agente vea qué falló.",
+    "stem": "¿Qué control eliges?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Un hook antes de la herramienta, que revise el cambio",
+        "correct": false,
+        "feedback": "Antes de la herramienta, el cambio todavía no existe. Para revisar el resultado de un cambio, el hook va después.",
+        "misconceptionId": "m08-mc68"
+      },
+      {
+        "id": "o2",
+        "text": "Una línea en el archivo de instrucciones del proyecto",
+        "correct": false,
+        "feedback": "Una instrucción orienta, pero el agente puede olvidarla. Lo que tiene que pasar siempre va en un hook.",
+        "misconceptionId": "m08-mc38"
+      },
+      {
+        "id": "o3",
+        "text": "Un hook después de la herramienta que corra las pruebas",
+        "correct": true,
+        "feedback": "Correcta. El hook posterior corre cada vez que el agente cambia el script, y le devuelve los fallos para que los corrija."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l5#momentos",
+    "sourceIds": [
+      "src-anthropic-cc-hooks-guide"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f11-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo5",
+    "competencyIds": [
+      "C10",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m08-f11",
+    "variant": "b",
+    "scenario": "Se quiere que el agente no dé por terminado el informe mientras queden cifras sin cotejar con el contrato.",
+    "stem": "¿Qué control eliges?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Un hook al terminar el turno, con un tope",
+        "correct": true,
+        "feedback": "Correcta. Es una compuerta: impide dar por terminado el trabajo hasta que se cumpla el criterio. Y lleva un tope para no encerrar al agente en un ciclo."
+      },
+      {
+        "id": "o2",
+        "text": "Un hook después de cada edición, que impida terminar",
+        "correct": false,
+        "feedback": "Un hook posterior corre tras cada herramienta, no al final. El que puede impedir que el agente termine es el hook al terminar.",
+        "misconceptionId": "m08-mc69"
+      },
+      {
+        "id": "o3",
+        "text": "Una instrucción en el encargo que lo pida",
+        "correct": false,
+        "feedback": "La instrucción puede ignorarse u olvidarse. La compuerta lo hace cumplir.",
+        "misconceptionId": "m08-mc38"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l5#momentos",
+    "sourceIds": [
+      "src-anthropic-cc-hooks-guide"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f11-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo5",
+    "competencyIds": [
+      "C10",
+      "C11"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m08-f11",
+    "variant": "c",
+    "scenario": "Un hook al terminar exige que pasen todas las pruebas. Una de ellas falla porque un servicio externo está caído, algo que el agente no puede arreglar.",
+    "stem": "¿Qué control eliges?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La misma compuerta, sin tope: así garantiza que termine bien",
+        "correct": false,
+        "feedback": "Con una condición que el agente no puede cumplir, la compuerta lo encierra en un ciclo. No garantiza nada.",
+        "misconceptionId": "m08-mc41"
+      },
+      {
+        "id": "o2",
+        "text": "Una compuerta que le deje desactivar esa prueba para terminar",
+        "correct": false,
+        "feedback": "Desactivar la prueba para pasar es justo el atajo que se quiere evitar. Lo que falta se reporta.",
+        "misconceptionId": "m08-mc42"
+      },
+      {
+        "id": "o3",
+        "text": "Un tope y una salida que deje reportado el servicio caído",
+        "correct": true,
+        "feedback": "Correcta. La compuerta necesita tope y una salida para lo imposible. El agente para y deja dicho qué no pudo comprobar."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l5#limites",
+    "sourceIds": [
+      "src-anthropic-cc-hooks-guide",
+      "src-arxiv-impossiblebench"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f12-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo5",
+    "competencyIds": [
+      "C10",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "family": "m08-f12",
+    "variant": "a",
+    "scenario": "Un hook bloquea cualquier edición del archivo de supuestos que el agente intente con su herramienta de edición.",
+    "stem": "¿Qué límite tiene?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguno: con ese hook, el archivo queda protegido",
+        "correct": false,
+        "feedback": "El hook protege una vía de acceso, no el archivo. Un comando de la terminal también puede cambiarlo.",
+        "misconceptionId": "m08-mc39"
+      },
+      {
+        "id": "o2",
+        "text": "No ve los cambios que se hagan con comandos de la terminal",
+        "correct": true,
+        "feedback": "Correcta. Un hook atado a una herramienta no vigila las demás vías de cambio. Para lo que no puede fallar, se suman permisos y un check posterior."
+      },
+      {
+        "id": "o3",
+        "text": "Ninguno, y además funciona igual en cualquier otra herramienta",
+        "correct": false,
+        "feedback": "Tiene un límite. Y tampoco es portable, porque cada herramienta tiene su formato de hooks.",
+        "misconceptionId": "m08-mc53"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l5#limites",
+    "sourceIds": [
+      "src-anthropic-cc-hooks-guide",
+      "src-openai-codex-hooks"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f12-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo5",
+    "competencyIds": [
+      "C10",
+      "C11"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "family": "m08-f12",
+    "variant": "b",
+    "scenario": "El agente corre sin interfaz en la integración continua, sobre la rama de quien lanza el trabajo, sin fijar su configuración.",
+    "stem": "¿Qué límite tiene?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguno: sin interfaz, no carga nada del proyecto",
+        "correct": false,
+        "feedback": "Sin fijar la configuración, carga lo que encuentra en la carpeta, incluidos los hooks del proyecto. Una rama ajena puede traer uno nuevo.",
+        "misconceptionId": "m08-mc70"
+      },
+      {
+        "id": "o2",
+        "text": "Ninguno: si termina con código 0, el resultado es el esperado",
+        "correct": false,
+        "feedback": "El código dice cómo terminó, no que el resultado sea válido. Y el problema aquí es lo que carga.",
+        "misconceptionId": "m08-mc43"
+      },
+      {
+        "id": "o3",
+        "text": "Puede cargar hooks y servidores MCP que traiga esa rama",
+        "correct": true,
+        "feedback": "Correcta. Sin fijar la configuración, la ejecución depende de lo que haya en la carpeta. Una rama ajena puede traer un hook nuevo."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l5#sin-interfaz",
+    "sourceIds": [
+      "src-anthropic-cc-headless"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f12-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo5",
+    "competencyIds": [
+      "C10",
+      "C11"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m08-f12",
+    "variant": "c",
+    "scenario": "Un hook después de la herramienta borra automáticamente cualquier archivo que el agente cree fuera de la carpeta drafts/.",
+    "stem": "¿Qué límite tiene?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Llega tarde: el archivo ya existió",
+        "correct": true,
+        "feedback": "Correcta. El hook posterior corre cuando la herramienta ya actuó. Borrar después no es impedir: el archivo existió, aunque fuera un momento."
+      },
+      {
+        "id": "o2",
+        "text": "Ninguno: borrar después equivale a impedir que se cree",
+        "correct": false,
+        "feedback": "El archivo se creó antes de que el hook corriera. Para impedirlo, el hook va antes de la herramienta.",
+        "misconceptionId": "m08-mc37"
+      },
+      {
+        "id": "o3",
+        "text": "Ninguno, porque vigila cualquier forma de crear archivos",
+        "correct": false,
+        "feedback": "Vigila la herramienta a la que está atado. Un comando de la terminal también crea archivos.",
+        "misconceptionId": "m08-mc39"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l5#limites",
+    "sourceIds": [
+      "src-anthropic-cc-hooks-guide"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f13-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo6",
+    "competencyIds": [
+      "C10",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "family": "m08-f13",
+    "variant": "a",
+    "scenario": "La tarea programada nocturna de inventario figura como terminada con éxito, pero su archivo de salida tiene cero filas.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La doy por buena, porque terminó con éxito",
+        "correct": false,
+        "feedback": "El estado describe cómo terminó la sesión, no si el trabajo quedó bien. Cero filas es una señal clara de que no.",
+        "misconceptionId": "m08-mc46"
+      },
+      {
+        "id": "o2",
+        "text": "Antes de usar la salida, leo la transcripción y corro el check",
+        "correct": true,
+        "feedback": "Correcta. La transcripción dice qué hizo el agente, y el check compara lo que produjo. Ahí aparece por qué la salida está vacía."
+      },
+      {
+        "id": "o3",
+        "text": "La relanzo para que esta vez genere las filas",
+        "correct": false,
+        "feedback": "Si la causa sigue ahí, relanzar repite el fallo. Primero se lee el registro.",
+        "misconceptionId": "m08-mc47"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l6#estado",
+    "sourceIds": [
+      "src-anthropic-cc-routines",
+      "src-google-sre-cron"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f13-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo6",
+    "competencyIds": [
+      "C10",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m08-f13",
+    "variant": "b",
+    "scenario": "Una tarea programada falló tres noches seguidas con el mismo error de permiso.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La relanzo esta noche de nuevo, a ver si pasa",
+        "correct": false,
+        "feedback": "El mismo error tres veces dice que la causa sigue ahí. Relanzar solo repite el fallo y el gasto.",
+        "misconceptionId": "m08-mc47"
+      },
+      {
+        "id": "o2",
+        "text": "La borro, para que no siga fallando",
+        "correct": false,
+        "feedback": "Borrarla pierde la configuración. Pausarla evita el próximo fallo y conserva lo que hay para corregir.",
+        "misconceptionId": "m08-mc48"
+      },
+      {
+        "id": "o3",
+        "text": "La pauso y leo el registro antes de la próxima noche",
+        "correct": true,
+        "feedback": "Correcta. Pausar evita que la próxima ejecución repita el fallo. Con el registro a la vista, se corrige el permiso."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l6#detener",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-cc-routines"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f13-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo6",
+    "competencyIds": [
+      "C10",
+      "C12"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m08-f13",
+    "variant": "c",
+    "scenario": "Registro de una tarea programada: estado, terminada con éxito; transcripción, «no pude leer el archivo de supuestos; uso valores por defecto»; el check no se corrió.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Uso el resultado, porque la tarea terminó con éxito",
+        "correct": false,
+        "feedback": "El estado no dice nada del trabajo. La transcripción muestra que calculó con supuestos que nadie aprobó.",
+        "misconceptionId": "m08-mc46"
+      },
+      {
+        "id": "o2",
+        "text": "La relanzo para que esta vez lea los supuestos",
+        "correct": false,
+        "feedback": "Si no se sabe por qué no los leyó, relanzar puede repetir lo mismo. Primero se pausa y se corrige.",
+        "misconceptionId": "m08-mc47"
+      },
+      {
+        "id": "o3",
+        "text": "La pauso, invalido el resultado y la corrijo",
+        "correct": true,
+        "feedback": "Correcta. El resultado no vale porque salió de valores por defecto. Se pausa, y el diseño cambia para fallar a la vista en lugar de seguir con datos inventados."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l6#detener",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-cc-routines",
+      "src-google-sre-cron"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f14-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo6",
+    "competencyIds": [
+      "C10",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m08-f14",
+    "variant": "a",
+    "scenario": "Un informe que antes se generaba con la analista al lado ahora corre solo, de madrugada, y se envía a dirección a primera hora.",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Mantener la misma revisión rápida que antes",
+        "correct": false,
+        "feedback": "Antes alguien miraba mientras se hacía; ahora nadie. Lo que no se supervisa necesita un check más firme.",
+        "misconceptionId": "m08-mc51"
+      },
+      {
+        "id": "o2",
+        "text": "Que un agente revisor lo apruebe antes de enviarlo",
+        "correct": false,
+        "feedback": "La aprobación de otro agente no es un check independiente. Verificar mal o no verificar es uno de los fallos frecuentes de los sistemas con varios agentes.",
+        "misconceptionId": "m08-mc52"
+      },
+      {
+        "id": "o3",
+        "text": "Una compuerta automática, una alerta si falla y revisión humana",
+        "correct": true,
+        "feedback": "Correcta. Cuanto menos se supervisa, más firme el check. La compuerta frena lo que está mal, y una persona revisa antes de que llegue a dirección."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l6#proporcion",
+    "basis": "inference",
+    "sourceIds": [
+      "src-arxiv-mast-mas-failures",
+      "src-anthropic-cc-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f14-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo6",
+    "competencyIds": [
+      "C10",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "family": "m08-f14",
+    "variant": "b",
+    "scenario": "Para que el sistema de agentes del reporte deje de fallar, alguien propone reescribir sus prompts por tercera vez.",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Revisar el diseño o volver a algo más simple",
+        "correct": true,
+        "feedback": "Correcta. Según el estudio de fallos, mejores prompts ayudan pero no bastan, y hace falta verificar mejor y manejar mejor el estado. Si eso no alcanza, conviene volver a un diseño más simple."
+      },
+      {
+        "id": "o2",
+        "text": "Reescribirlos: los fallos se resuelven con mejores prompts",
+        "correct": false,
+        "feedback": "Mejores prompts ayudan, pero el estudio de fallos concluye que no bastan. Ya van dos intentos.",
+        "misconceptionId": "m08-mc49"
+      },
+      {
+        "id": "o3",
+        "text": "Sumar dos agentes revisores, para que se vigilen entre sí",
+        "correct": false,
+        "feedback": "Que los agentes se revisen entre sí no es verificación independiente. Hace falta un check.",
+        "misconceptionId": "m08-mc52"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l6#fallos",
+    "sourceIds": [
+      "src-arxiv-mast-mas-failures"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m08-f14-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m08",
+    "evaluatedObjectiveId": "m08-eo6",
+    "competencyIds": [
+      "C10",
+      "C12"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m08-f14",
+    "variant": "c",
+    "scenario": "El equipo asegura que el sistema de agentes les «ahorra la mañana del lunes», pero nadie midió el costo ni el tiempo que lleva revisar lo que entrega.",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Creerle al equipo, que es el que lo usa todos los días",
+        "correct": false,
+        "feedback": "La sensación de ahorro y el tiempo medido pueden ir en sentidos opuestos, como en el estudio del manual 5. Hace falta medirlo.",
+        "misconceptionId": "m08-mc71"
+      },
+      {
+        "id": "o2",
+        "text": "Medir costo y tiempos, y comparar con lo simple",
+        "correct": true,
+        "feedback": "Correcta. Para comparar dos diseños hace falta el mismo dato para los dos. Sin medirlo, el ahorro es una impresión."
+      },
+      {
+        "id": "o3",
+        "text": "Mantenerlo, porque volver al flujo fijo sería retroceder",
+        "correct": false,
+        "feedback": "Volver a lo simple no es retroceder si lo simple hace mejor el trabajo. Primero hay que medirlo.",
+        "misconceptionId": "m08-mc50"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m08-l6#costo",
+    "basis": "inference",
+    "sourceIds": [
+      "src-arxiv-metr-productivity",
+      "src-anthropic-cc-costs"
+    ],
+    "status": "draft"
+  }
+]

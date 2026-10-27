@@ -310,7 +310,7 @@
     "id": "m08-mc34",
     "courseId": "m08",
     "description": "Programar una tarea a la hora en punto la hace más puntual, porque hay menos carga.",
-    "whyWrong": "A la hora en punto es cuando más carga hay, y las ejecuciones pueden retrasarse; se aconseja elegir otro minuto.",
+    "whyWrong": "El comienzo de cada hora es uno de los momentos de más carga, y las ejecuciones en punto pueden empezar tarde; se aconseja elegir otro minuto.",
     "sourceIds": [
       "src-anthropic-cc-routines",
       "src-github-actions-schedule",
@@ -513,6 +513,192 @@
     "sourceIds": [
       "src-openai-codex-scheduled-tasks",
       "src-anthropic-cc-routines"
+    ]
+  },
+  {
+    "id": "m08-mc56",
+    "courseId": "m08",
+    "description": "Si las partes de una tarea corren a la vez, el patrón es paralelización.",
+    "whyWrong": "En la paralelización, las partes se fijan de antemano; si un modelo las decide según lo que encuentra, es un orquestador.",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ]
+  },
+  {
+    "id": "m08-mc57",
+    "courseId": "m08",
+    "description": "Si los pasos se suceden uno tras otro, el patrón es una cadena de prompts.",
+    "whyWrong": "En una cadena, los pasos son fijos y conocidos; si un modelo decide qué pasos hacen falta, es otro patrón.",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ]
+  },
+  {
+    "id": "m08-mc58",
+    "courseId": "m08",
+    "description": "Para terminar su encargo, el agente puede decidir lo que falta.",
+    "whyWrong": "Las decisiones de negocio no se delegan para llegar al final; lo que falta se reporta.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-copilot-agent-bp"
+    ]
+  },
+  {
+    "id": "m08-mc59",
+    "courseId": "m08",
+    "description": "Lo que un subagente no devolvió se puede pedir después, cuando haga falta.",
+    "whyWrong": "Al agente principal solo le llega lo que el subagente devuelve; si el resultado no viene escrito ahí, con su evidencia, no llega a la conversación principal.",
+    "sourceIds": [
+      "src-anthropic-cc-subagents"
+    ]
+  },
+  {
+    "id": "m08-mc60",
+    "courseId": "m08",
+    "description": "Un supuesto inventado deja de ser un problema si el agente lo anota.",
+    "whyWrong": "Anotarlo no lo vuelve aprobado: la cifra sigue saliendo de un supuesto que nadie fijó.",
+    "basis": "inference",
+    "sourceIds": []
+  },
+  {
+    "id": "m08-mc61",
+    "courseId": "m08",
+    "description": "Conviene cargar todo en el contexto principal, por si hace falta.",
+    "whyWrong": "Lo que no se va a volver a consultar llena el contexto y diluye lo importante; para eso sirve un subagente que devuelve un resumen.",
+    "sourceIds": [
+      "src-anthropic-eng-context",
+      "src-anthropic-cc-subagents"
+    ]
+  },
+  {
+    "id": "m08-mc62",
+    "courseId": "m08",
+    "description": "Si las ramas se juntan sin conflictos de Git, el código está integrado.",
+    "whyWrong": "Git no detecta que dos cambios correctos por separado fallen juntos; eso lo muestran las pruebas del conjunto.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-git-worktree"
+    ]
+  },
+  {
+    "id": "m08-mc63",
+    "courseId": "m08",
+    "description": "Repartir un trabajo entre agentes siempre empeora el resultado.",
+    "whyWrong": "Repartir empeora lo secuencial, pero rinde con partes independientes que no se hablan.",
+    "sourceIds": [
+      "src-anthropic-eng-multi-agent-research",
+      "src-arxiv-scaling-agent-systems"
+    ]
+  },
+  {
+    "id": "m08-mc64",
+    "courseId": "m08",
+    "description": "Repartir un trabajo entre más agentes no cambia su costo total.",
+    "whyWrong": "Cada agente gasta sus propios tokens y necesita su contexto; varios agentes consumen muchos más tokens que uno.",
+    "sourceIds": [
+      "src-anthropic-eng-multi-agent-research"
+    ]
+  },
+  {
+    "id": "m08-mc65",
+    "courseId": "m08",
+    "description": "Una tarea dentro de una sesión sirve para un trabajo recurrente que tiene que correr sin ti.",
+    "whyWrong": "Las tareas de sesión solo se disparan mientras la sesión está abierta, no recuperan las ejecuciones perdidas y caducan a los pocos días; sirven para vigilar algo mientras trabajas.",
+    "sourceIds": [
+      "src-anthropic-cc-scheduled-tasks"
+    ]
+  },
+  {
+    "id": "m08-mc66",
+    "courseId": "m08",
+    "description": "Lo que corre solo puede publicarse directamente; para eso se automatizó.",
+    "whyWrong": "Automatizar el trabajo no quita la revisión: lo que corre solo deja un borrador o una PR que alguien revisa.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-cloud-agent"
+    ]
+  },
+  {
+    "id": "m08-mc67",
+    "courseId": "m08",
+    "description": "Si una tarea corre dos veces, el resultado es el mismo.",
+    "whyWrong": "Una segunda ejecución puede duplicar efectos o pisar lo que la primera dejó bien; por eso conviene saltarse una antes que repetirla sin revisar.",
+    "sourceIds": [
+      "src-google-sre-cron"
+    ]
+  },
+  {
+    "id": "m08-mc68",
+    "courseId": "m08",
+    "description": "Un hook antes de la herramienta sirve para revisar el resultado de un cambio.",
+    "whyWrong": "Antes de la herramienta, el cambio todavía no existe; para revisar su resultado, el hook va después.",
+    "sourceIds": [
+      "src-anthropic-cc-hooks-guide"
+    ]
+  },
+  {
+    "id": "m08-mc69",
+    "courseId": "m08",
+    "description": "Un hook que corre después de una herramienta puede impedir que el agente termine.",
+    "whyWrong": "El que puede impedir que el agente dé el trabajo por terminado es el hook al terminar el turno.",
+    "sourceIds": [
+      "src-anthropic-cc-hooks-guide"
+    ]
+  },
+  {
+    "id": "m08-mc70",
+    "courseId": "m08",
+    "description": "Una ejecución sin interfaz no carga nada del proyecto.",
+    "whyWrong": "Sin fijar la configuración, carga lo que encuentra en la carpeta, incluidos los hooks y los servidores del proyecto.",
+    "sourceIds": [
+      "src-anthropic-cc-headless"
+    ]
+  },
+  {
+    "id": "m08-mc71",
+    "courseId": "m08",
+    "description": "La sensación de ahorro del equipo basta para decidir si una automatización conviene.",
+    "whyWrong": "La percepción y el tiempo medido pueden ir en sentidos opuestos; se miden el costo, el tiempo y la revisión.",
+    "sourceIds": [
+      "src-arxiv-metr-productivity"
+    ]
+  },
+  {
+    "id": "m08-mc72",
+    "courseId": "m08",
+    "description": "Un modelo calcula mejor las cifras si entiende el contexto.",
+    "whyWrong": "Las cifras que siguen una regla las calcula el código; un modelo solo les agrega variación.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ]
+  },
+  {
+    "id": "m08-mc73",
+    "courseId": "m08",
+    "description": "Un worktree aísla el contexto del agente, como un subagente.",
+    "whyWrong": "El worktree aísla los archivos y la rama; el contexto lo aísla un subagente.",
+    "sourceIds": [
+      "src-git-worktree",
+      "src-anthropic-cc-subagents"
+    ]
+  },
+  {
+    "id": "m08-mc74",
+    "courseId": "m08",
+    "description": "Si una propuesta tiene varias llamadas a un modelo, es un evaluador-optimizador.",
+    "whyWrong": "En el evaluador-optimizador, un modelo evalúa lo que genera otro, en ciclos. Varias llamadas que hacen cada una su parte son otro patrón.",
+    "sourceIds": [
+      "src-anthropic-building-agents"
+    ]
+  },
+  {
+    "id": "m08-mc75",
+    "courseId": "m08",
+    "description": "El evaluador-optimizador sirve cuando las partes de una tarea no se conocen de antemano.",
+    "whyWrong": "Ese es el caso del orquestador-trabajadores. El evaluador-optimizador sirve cuando hay criterios claros y la iteración mejora de forma medible.",
+    "sourceIds": [
+      "src-anthropic-building-agents"
     ]
   }
 ]
