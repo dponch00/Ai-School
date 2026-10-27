@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-26 |
 | Depende de | T-043 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -89,4 +89,13 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 
 ## Entrega
 
-_(Codex)_
+Informe: `investigacion/codex-revision-m09-l1-l3.md`.
+
+Se encontraron dos hallazgos: `m09-l2-r1` mezcla una métrica adecuada con un
+umbral no declarado, y `m09-l3-c1` alcanza exactamente la relación de
+longitud 1,5:1 que el ticket prohíbe. Las citas, objetivos, fichas, escenarios
+y el alcance de las lecciones se contrastaron; no se detectaron cambios en las
+fichas. `npm test`: 233/233.
+
+Estado: entregado.
+Commit de entrega: pendiente de registrar tras el commit.
