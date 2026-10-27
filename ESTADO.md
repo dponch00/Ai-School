@@ -1,27 +1,27 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 a M08 completos y revisados; M09, lecciones 1 a 3 revisadas por Codex (T-044 entregado; hallazgos sin aplicar). · **Actualizado:** 2026-10-26 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 a M08 completos y revisados; M09, lecciones 1 a 3 revisadas (T-044 cerrado); lecciones 4 a 6 en redacción. App publicada en https://dponch00.github.io/Ai-School/ (D-029). · **Actualizado:** 2026-10-26 por Claude Code
 
 ## Siguiente acción
 
-1. **Claude (pausa por créditos, se retoma cuando se reinicien):** leer `investigacion/codex-revision-m09-l1-l3.md`, aplicar los hallazgos de T-044 y cerrarlo; después, las lecciones 4 a 6 de M09.
+1. **Claude:** M09, lecciones 4 a 6; después, T-045 para Codex.
 2. **Codex:** sin ticket abierto hasta T-045. En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
 3. **Daniel (a su ritmo):** estudiar los manuales en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
-4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
+4. **Daniel:** instalar la app desde Chrome en el celular (⋮ → Instalar app) y contar si funciona sin wifi.
 
 ## Avance estimado (2026-10-26)
 
-**≈ 75 % de la V1** (rango razonable: 72–78 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 77 % de la V1** (rango razonable: 74–80 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
-| 0 · Definición | 8 % | 95 % (falta la prueba de hosting) | 7,6 |
+| 0 · Definición | 8 % | 100 % (hosting resuelto con D-029) | 8,0 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
-| 2 · Base de app y PWA | 15 % | 88 % (simplificada a opción múltiple con D-024; faltan el hosting y la instalación real en dispositivos) | 13,2 |
+| 2 · Base de app y PWA | 15 % | 95 % (publicada en GitHub Pages con D-029; falta confirmar la instalación en el celular de Daniel) | 14,3 |
 | 3 · Nueve manuales restantes | 40 % | 82 % (M01 y M03 a M08 completos y revisados; M09, L1 a L3 en revisión; falta M10) | 32,8 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 75 %** |
+| **Total** | 100 % | | **≈ 77 %** |
 
 ## Tickets
 
@@ -70,19 +70,23 @@
 | [T-041](coordinacion/tickets/T-041-codex-revision-m08-l1-l3.md) | Codex | Revisión de M08: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
 | [T-042](coordinacion/tickets/T-042-codex-revision-m08-l4-l6.md) | Codex | Revisión de M08: lecciones 4 a 6, sus preguntas y fichas | cerrado |
 | [T-043](coordinacion/tickets/T-043-codex-revision-m08-examen-laboratorio.md) | Codex | Revisión de M08: banco de examen, laboratorio como caso y práctica | cerrado |
-| [T-044](coordinacion/tickets/T-044-codex-revision-m09-l1-l3.md) | Codex | Revisión de M09: blueprint, lecciones 1 a 3, preguntas y fichas | entregado |
+| [T-044](coordinacion/tickets/T-044-codex-revision-m09-l1-l3.md) | Codex | Revisión de M09: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| — | — |
+| Claude | `content/courses/m09/**` |
 
 ## Decisiones recientes
 
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-27 · Claude Code — cierre de T-044 y publicación de la app
+- **T-044:** dos hallazgos menores aplicados (`m09-l2-r1` pregunta por la cifra y no por el umbral; longitudes de `m09-l3-c1`).
+- **App publicada (D-029):** https://dponch00.github.io/Ai-School/, con despliegue automático por GitHub Actions. Comprobado en el sitio: service worker activo y los 9 cursos guardados sin conexión desde la primera carga.
 
 ### 2026-10-26 · Claude Code — respaldo antes de la pausa
 Codex entregó T-044; sus hallazgos quedan sin aplicar hasta la próxima sesión. Versión de prueba regenerada con M09 L1 a L3 (versión 38). En la guía se quitó el anuncio «visto en un poste de luz» (versión 10); su fuente queda respaldada en `docs/guia-ai-school.html`.

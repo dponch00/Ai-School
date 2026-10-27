@@ -208,3 +208,15 @@ Una entrada por decisión. Estados: **aceptada**, **propuesta** (espera a Daniel
   - Con `source` (el valor por defecto), deben citar al menos una fuente registrada.
   - Con `inference`, pueden no citarla y quedan marcados como regla del curso.
 - **Alcance:** M06 lo usa desde T-037. Los manuales anteriores se revisan en la fase 4 con el mismo criterio.
+
+## D-029 · La PWA se publica en la cuenta de Daniel, con GitHub Actions
+
+- **Estado:** aceptada · 2026-10-26 (Daniel creó el repositorio y autorizó la publicación en el chat)
+- **Decisión:** la app se publica en `https://dponch00.github.io/Ai-School/`, desde el repositorio público `dponch00/Ai-School`. Reemplaza a D-013, que preveía una organización propia con `base: '/'`.
+- **Cómo:**
+  - La ruta base es `/Ai-School/` y la fija `AIS_BASE` en el flujo `.github/workflows/deploy.yml`; en local sigue siendo `/`.
+  - El flujo corre `npm run content`, las pruebas y la compilación en cada push a `main`. Si una prueba falla, no publica.
+  - El service worker guarda al instalarse la app y los paquetes de todos los cursos, así que la app funciona entera sin conexión.
+- **Consecuencias:**
+  - El origen `dponch00.github.io` es compartido con cualquier otro sitio de Pages de esa cuenta.
+  - Antes del primer push se reescribió el autor de todos los commits con el correo anónimo de GitHub, a pedido de Daniel. Por eso, los hashes citados en los tickets anteriores a esa fecha ya no coinciden con el historial.

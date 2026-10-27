@@ -363,24 +363,24 @@
     "difficulty": "base",
     "process": "evaluate",
     "scenario": "El modelo genera cinco nombres posibles para una columna del dashboard y la analista elige uno. En la eval de la versión nueva, en el 98 % de los casos al menos uno de los cinco nombres es aceptable.",
-    "stem": "¿Es una buena cifra para este uso?",
+    "stem": "¿Qué cifra describe este uso?",
     "options": [
       {
         "id": "o1",
-        "text": "No: solo vale pass^5, que es la más exigente",
+        "text": "pass^5, porque es siempre la cifra más exigente",
         "correct": false,
         "feedback": "La cifra se elige por el uso, no por lo exigente que sea. Aquí alguien elige entre cinco nombres, así que basta con que uno sirva, y eso lo mide pass@5.",
         "misconceptionId": "m09-mc08"
       },
       {
         "id": "o2",
-        "text": "Sí: basta uno bueno y hay una persona que elige",
+        "text": "pass@5: basta uno bueno y una persona elige",
         "correct": true,
-        "feedback": "Correcta. La cifra es un pass@5, que describe justo este uso: varios intentos y una persona que se queda con el bueno. Con un 98 %, casi siempre habrá un nombre que sirva."
+        "feedback": "Correcta. pass@5 describe justo este uso: varios intentos y una persona que se queda con el bueno. Si un 98 % alcanza o no, depende del umbral que se fije para este uso."
       },
       {
         "id": "o3",
-        "text": "No: hay que medir que siga una secuencia fija de pasos",
+        "text": "Ninguna tasa: hay que revisar el orden de sus pasos",
         "correct": false,
         "feedback": "Se califica el resultado, no el camino que siguió el modelo. Y el resultado aquí es si entre los cinco hay un nombre que sirva.",
         "misconceptionId": "m09-mc05"
@@ -455,7 +455,7 @@
     "options": [
       {
         "id": "o1",
-        "text": "Un modelo como juez, porque es más flexible que el código",
+        "text": "Un modelo como juez, por ser más flexible",
         "correct": false,
         "feedback": "El criterio no pide interpretar nada, porque cada ID y su región se pueden comprobar. Donde hay una respuesta verificable, el código es más rápido, más barato y da siempre el mismo veredicto.",
         "misconceptionId": "m09-mc24"
@@ -468,7 +468,7 @@
       },
       {
         "id": "o3",
-        "text": "Una persona que revise cada comentario",
+        "text": "Una persona que revise cada uno de los comentarios",
         "correct": false,
         "feedback": "Una persona es la referencia de calidad, pero es cara y lenta. Para un criterio que se comprueba sin interpretar, basta con código.",
         "misconceptionId": "m09-mc27"

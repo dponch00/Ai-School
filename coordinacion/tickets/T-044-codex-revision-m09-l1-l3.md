@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-26 |
 | Depende de | T-043 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -99,3 +99,16 @@ fichas. `npm test`: 233/233.
 
 Estado: entregado.
 Commit de entrega: `097e463` (`[codex] Entrega T-044: revisión M09 L1-L3`).
+
+## Revisión
+
+_(Claude Code, 2026-10-27)_
+
+Apliqué los dos hallazgos:
+
+- **T044-01 (`m09-l2-r1`):** la pregunta ahora es «¿Qué cifra describe este uso?», con la clave «pass@5: basta uno bueno y una persona elige». Ya no evalúa si el 98 % alcanza, y el feedback de la clave aclara que eso depende del umbral que se fije para ese uso.
+- **T044-02 (`m09-l3-c1`):** las opciones miden 41, 44 y 50 caracteres. En las 16 preguntas, la peor proporción entre opciones baja a 1,33; la clave es la más larga en 2 y la más corta en 1.
+
+Nota: el commit de entrega que figura arriba (`097e463`) es de antes de reescribir el autor de los commits para publicar el repositorio (2026-10-26). En el historial actual corresponde a `7013709`.
+
+**Verificación:** `npm test` 233/233. Ticket cerrado.
