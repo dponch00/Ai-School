@@ -90,4 +90,4 @@ _(Codex, 2026-10-27)_
 - Alcance revisado: 42 ítems en 14 familias, laboratorio de 12 preguntas, práctica de 12 preguntas y conceptos erróneos asociados.
 - Hallazgos: cinco (cuatro medios y uno bajo). Dos solapes del examen con material ya resuelto; una clave del laboratorio que presupone propiedad/aprobación; un *feedback* que supone una condición ausente; y una asignación de concepto erróneo demasiado estrecha para un distractor de tabla.
 - Verificación: claves, `sectionRef`, fuentes, longitudes, familias y cifras de los seis casos de descuento recalculadas; el límite de 22,00 % pasa.
-- Commit: pendiente de crear; se anotará el hash en el siguiente commit de registro.
+- Commit de entrega: `68a0b9d46edad1ce5cd16676ef455fd4bf215593` (`[codex] Entrega T-049: revisión examen M10`).
