@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-27 |
 | Depende de | T-051 (cerrado) |
 | Fase del plan | 4 — Integración y revisión |
@@ -54,4 +54,16 @@ No edites `src/`, `content/`, `e2e/`, `scripts/`, `docs/`, `README.md` ni `ESTAD
 
 ## Entrega
 
-_(Codex)_
+Entregado por Codex el 2026-10-27.
+
+- Informe: `investigacion/codex-f4-candidata-entrega.md`.
+- Verificado: Node 24.17.0; `npm ci`; `npm test` 247/247; `npm run build`;
+  `npm run e2e` 158/158.
+- Hallazgos: 3 medios (ventana de 30 días frente a vencimientos del 1 de
+  diciembre, tamaño offline desactualizado y requisito de navegador Playwright
+  ausente en README) y 1 bajo (el script `dev` no abre el navegador por sí
+  mismo). Los conteos, flujo de despliegue, scripts y retoques terminológicos
+  se comprobaron sin otro hallazgo.
+- Python quedó bloqueado por el alias de Windows sin acceso; los scripts se
+  revisaron estáticamente y sus conteos se reprodujeron con PowerShell.
+- Commit de entrega: pendiente de registrar.
