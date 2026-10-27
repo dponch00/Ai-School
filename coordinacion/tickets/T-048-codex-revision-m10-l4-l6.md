@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-27 |
 | Depende de | T-047 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -90,4 +90,10 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 
 ## Entrega
 
-_(Codex)_
+_(Codex, 2026-10-27)_
+
+- Informe: `investigacion/codex-revision-m10-l4-l6.md`.
+- Alcance revisado: L4–L6, 18 preguntas, conceptos erróneos `m10-mc31`–`m10-mc62` y las cinco fichas asignadas; se contrastaron las citas y fuentes prioritarias, las fechas/capacidades de las fichas, claves, distractores, longitudes, alcance y tiempo.
+- Hallazgos: dos de severidad baja, sobre condicionar «recargar no basta» a la existencia de clientes antiguos y unificar «biblioteca» frente a «librería». Sin claves ambiguas, repeticiones materiales, nombres de producto en el cuerpo ni desviación de alcance.
+- Verificación: el informe documenta fuentes abiertas, incluido el contraste alternativo oficial de CISA por 403 del URL registrado.
+- Commit: pendiente de crear; se anotará el hash en el siguiente commit de registro.
