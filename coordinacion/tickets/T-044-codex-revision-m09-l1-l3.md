@@ -98,4 +98,4 @@ y el alcance de las lecciones se contrastaron; no se detectaron cambios en las
 fichas. `npm test`: 233/233.
 
 Estado: entregado.
-Commit de entrega: pendiente de registrar tras el commit.
+Commit de entrega: `097e463` (`[codex] Entrega T-044: revisión M09 L1-L3`).
