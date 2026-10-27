@@ -37,6 +37,7 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m04-l1#frontera",
+    "basis": "inference",
     "sourceIds": [
       "src-python-controlflow"
     ],
@@ -381,6 +382,7 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m04-l1#frontera",
+    "basis": "inference",
     "sourceIds": [
       "src-python-controlflow"
     ],
@@ -1258,6 +1260,7 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m04-l6#lista",
+    "basis": "inference",
     "sourceIds": [
       "src-anthropic-cc-best-practices"
     ],

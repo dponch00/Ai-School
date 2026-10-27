@@ -428,6 +428,7 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m04-l4#deshacer",
+    "basis": "inference",
     "sourceIds": [
       "src-progit-what-is-git"
     ],
@@ -471,6 +472,7 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m04-l6#lista",
+    "basis": "inference",
     "sourceIds": [
       "src-anthropic-cc-best-practices"
     ],
@@ -514,6 +516,7 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m04-l6#lista",
+    "basis": "inference",
     "sourceIds": [
       "src-github-reviewing-prs"
     ],

@@ -4,14 +4,14 @@
 
 ## Siguiente acción
 
-1. **Codex:** T-050, recorrido como alumno de los diez manuales y verificación de las referencias cruzadas (F4-01 y F4-02).
-2. **Claude:** mientras tanto, F4-04 (D-028 en M01 a M05) y F4-05 (móvil, teclado y ampliación). Al volver T-050, aplicar sus hallazgos. En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
+1. **Codex:** T-051, que revisa F4-04 (22 preguntas de M01 a M05 marcadas como inferencia) y F4-05 (reflujo con letra grande).
+2. **Claude:** mientras tanto, F4-03 (consistencia de términos), F4-06 (modo sin conexión, respaldo y actualizaciones, y el plan §13 según D-029) y F4-08 (fichas que vencen el 2026-11-30). En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
 3. **Daniel (a su ritmo):** estudiar los manuales en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Daniel (a su ritmo):** estudiar en la app instalada y contar lo que no se entienda o tome demasiado tiempo.
 
 ## Avance estimado (2026-10-26)
 
-**≈ 84 % de la V1** (rango razonable: 81–87 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 88 % de la V1** (rango razonable: 85–91 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
@@ -19,9 +19,9 @@
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 100 % (publicada con D-029 e instalada en el celular de Daniel) | 15,0 |
 | 3 · Nueve manuales restantes | 40 % | 100 % (los diez completos y revisados) | 40,0 |
-| 4 · Integración y revisión | 10 % | 0 % | 0 |
+| 4 · Integración y revisión | 10 % | 35 % (F4-01 y F4-02 cerrados; F4-04 y F4-05 en revisión) | 3,5 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 84 %** |
+| **Total** | 100 % | | **≈ 88 %** |
 
 ## Tickets
 
@@ -76,19 +76,27 @@
 | [T-047](coordinacion/tickets/T-047-codex-revision-m10-l1-l3.md) | Codex | Revisión de M10: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
 | [T-048](coordinacion/tickets/T-048-codex-revision-m10-l4-l6.md) | Codex | Revisión de M10: lecciones 4 a 6, sus preguntas y fichas | cerrado |
 | [T-049](coordinacion/tickets/T-049-codex-revision-m10-examen-laboratorio.md) | Codex | Revisión de M10: banco de examen, laboratorio como caso y práctica | cerrado |
-| [T-050](coordinacion/tickets/T-050-codex-recorrido-alumno-referencias.md) | Codex | Fase 4: recorrido como alumno y referencias cruzadas entre manuales | abierto |
+| [T-050](coordinacion/tickets/T-050-codex-recorrido-alumno-referencias.md) | Codex | Fase 4: recorrido como alumno y referencias cruzadas entre manuales | cerrado |
+| [T-051](coordinacion/tickets/T-051-codex-revision-f4-inferencias-reflow.md) | Codex | Fase 4: inferencias declaradas en M01 a M05 y reflujo con letra grande | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-050) | `investigacion/codex-f4-recorrido-referencias.md`, `design/qa/T-050/**` |
+| Codex (T-051) | `investigacion/codex-f4-inferencias-reflow.md`, `design/qa/T-051/**` |
 
 ## Decisiones recientes
 
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-27 · Claude Code — T-050 cerrado; F4-04 y F4-05
+- **T-050:** sin hallazgos. El recorrido como alumno no mostró problemas y las 110 referencias cruzadas son correctas.
+- **F4-04:** 22 preguntas de M01 a M05 pasan a `basis: inference` (D-028 hacia atrás).
+- **F4-05:** las 90 rutas, a 320 px y con la letra al 200 % a 360 px. Arreglos en `app.css`: una cadena larga en `m07-l2-c4`, cuadrículas sin `minmax(0, 1fr)` y el ancho máximo de los botones. Seis pruebas E2E nuevas con letra grande.
+
+**Verificación:** `npm test` 247/247 y E2E 158/158.
 
 ### 2026-10-27 · Claude Code — cierre de T-049 y de la fase 3; plan de la fase 4
 - **T-049:** cinco hallazgos de Codex aplicados: dos escenarios que repetían otros (`f01-c`, `f14-a`), la responsabilidad en `lab-q10`, el feedback del hallazgo aceptado sin condición en `lab-q11` y un concepto erróneo nuevo (`mc82`).

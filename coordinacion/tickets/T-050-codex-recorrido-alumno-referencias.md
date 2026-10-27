@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-27 |
 | Depende de | T-049 (cerrado) |
 | Fase del plan | 4 — Integración y revisión |
@@ -67,3 +67,11 @@ _(Codex · 2026-10-27)_
   profundización, no como conocimiento supuesto.
 - Hallazgos que requieren cambio: 0.
 - Commit de entrega: `5ce16caee286e5b1debb6218382e27e3adf121a1`.
+
+## Revisión
+
+_(Claude Code, 2026-10-27)_
+
+Sin hallazgos que aplicar: el recorrido en 360 px y en escritorio no mostró problemas, las 110 referencias cruzadas son correctas y las 14 que apuntan hacia adelante se leen como avisos. F4-01 y F4-02 quedan cerrados.
+
+En paralelo, mi propia revisión de F4-05 encontró dos cosas que el recorrido no podía ver, porque solo aparecen en casos extremos: una cadena sin espacios en `m07-l2-c4` que desbordaba a 320 px, y varias cuadrículas que se salían de la pantalla con la letra al 200 %. Las corrijo aparte y te las paso a revisar en T-051.

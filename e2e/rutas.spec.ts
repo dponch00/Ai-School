@@ -79,3 +79,17 @@ for (const [nombre, ruta] of RUTAS) {
     expect(desborde, 'desplazamiento horizontal').toBeLessThanOrEqual(0)
   })
 }
+
+// F4-05: con la letra al doble en un teléfono (como el tamaño de fuente grande de Android), nada se sale de la pantalla.
+// Incluye M07 L2, cuyo escenario trae una cadena larga sin espacios.
+const LETRA_GRANDE = ['/#/', '/#/como-funciona', '/#/cursos/m01', '/#/cursos/m07/lecciones/m07-l2', '/#/cursos/m10/laboratorio', '/#/cursos/m04/lecciones/m04-l1']
+for (const ruta of LETRA_GRANDE) {
+  test(`letra al 200 % a 360 px: ${ruta}`, async ({ page }) => {
+    await page.setViewportSize({ width: 360, height: 780 })
+    await page.goto(ruta)
+    await expect(page.locator('main h1').first()).toBeVisible()
+    await page.evaluate(() => { document.documentElement.style.fontSize = '200%' })
+    const desborde = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
+    expect(desborde, 'desplazamiento horizontal').toBeLessThanOrEqual(0)
+  })
+}

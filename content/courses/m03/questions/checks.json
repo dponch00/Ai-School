@@ -1246,6 +1246,7 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m03-l5#traspaso",
+    "basis": "inference",
     "sourceIds": [
       "src-anthropic-eng-harnesses"
     ],

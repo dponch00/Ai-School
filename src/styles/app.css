@@ -44,14 +44,15 @@ main:focus { outline: none; }
 .site-header nav { display: flex; gap: var(--ais-space-2); }
 .site-header nav a { display: inline-flex; align-items: center; min-height: var(--ais-layout-touch-target); padding-inline: var(--ais-space-3); color: var(--ais-color-ink); text-decoration: none; border-radius: var(--ais-radius-sm); }
 .site-header nav a.active { box-shadow: inset 0 -3px 0 var(--ais-color-accent); }
-.page { padding-block: var(--ais-space-5) var(--ais-space-8); }
+/* Con la letra agrandada en un teléfono, las palabras largas se cortan con guion en vez de desbordar la página. */
+.page { padding-block: var(--ais-space-5) var(--ais-space-8); overflow-wrap: break-word; hyphens: auto; }
 .site-footer { padding-block: var(--ais-space-5); color: var(--ais-color-muted); font-size: var(--ais-font-size-sm); border-top: 1px solid var(--ais-color-border); }
 .section { max-width: var(--ais-layout-reading); }
 .breadcrumb { font-size: var(--ais-font-size-sm); color: var(--ais-color-muted); margin-bottom: var(--ais-space-4); }
 
 /* ---------- Botones ---------- */
 .button {
-  display: inline-flex; align-items: center; justify-content: center; min-height: var(--ais-layout-touch-target);
+  display: inline-flex; align-items: center; justify-content: center; min-height: var(--ais-layout-touch-target); max-width: 100%;
   padding: var(--ais-space-2) var(--ais-space-5); border: 2px solid var(--ais-color-ink); border-radius: var(--ais-radius-pill);
   background: var(--ais-color-surface); color: var(--ais-color-ink); font: inherit; font-weight: 600; cursor: pointer; text-decoration: none;
 }
@@ -59,7 +60,7 @@ main:focus { outline: none; }
 .button--primary:hover { background: var(--ais-color-accent-hover); color: var(--ais-color-on-accent); }
 
 /* ---------- Inicio ---------- */
-.hero { display: grid; gap: var(--ais-space-5); margin-bottom: var(--ais-space-7); }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--ais-space-5); margin-bottom: var(--ais-space-7); }
 .hero__image { border-radius: var(--ais-radius-lg); box-shadow: var(--ais-shadow-paper); aspect-ratio: 16 / 9; object-fit: cover; width: 100%; }
 .hero__text h1 { margin-top: 0; }
 @media (min-width: 960px) {
@@ -67,8 +68,8 @@ main:focus { outline: none; }
   .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); align-items: center; gap: var(--ais-space-7); }
   .hero__text { order: -1; }
 }
-.route { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--ais-space-2); }
-.route__item { display: grid; grid-template-columns: 3rem 1fr; align-items: baseline; gap: var(--ais-space-1) var(--ais-space-3); padding: var(--ais-space-3) var(--ais-space-4); background: var(--ais-color-surface); border: 1px solid var(--ais-color-disabled-surface); border-radius: var(--ais-radius-md); color: var(--ais-color-muted); }
+.route { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--ais-space-2); }
+.route__item { display: grid; grid-template-columns: 3rem minmax(0, 1fr); align-items: baseline; gap: var(--ais-space-1) var(--ais-space-3); padding: var(--ais-space-3) var(--ais-space-4); background: var(--ais-color-surface); border: 1px solid var(--ais-color-disabled-surface); border-radius: var(--ais-radius-md); color: var(--ais-color-muted); }
 .route__item--available { border-color: var(--ais-color-accent); color: var(--ais-color-ink); }
 .route__code { font-family: var(--ais-font-mono); font-size: var(--ais-font-size-sm); }
 .route__status { grid-column: 2; font-size: var(--ais-font-size-sm); }
@@ -94,8 +95,8 @@ main:focus { outline: none; }
 /* ---------- Curso ---------- */
 .objectives { padding-left: 1.2em; }
 .objectives li { margin-bottom: var(--ais-space-2); }
-.lesson-list { list-style: none; padding: 0; display: grid; gap: var(--ais-space-2); }
-.lesson-list__link, .lesson-list__pending { display: grid; grid-template-columns: 2.5rem 1fr auto; align-items: center; gap: var(--ais-space-3); min-height: var(--ais-layout-touch-target); padding: var(--ais-space-3) var(--ais-space-4); background: var(--ais-color-surface); border: 1px solid var(--ais-color-border); border-radius: var(--ais-radius-md); color: var(--ais-color-ink); text-decoration: none; }
+.lesson-list { list-style: none; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--ais-space-2); }
+.lesson-list__link, .lesson-list__pending { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr) auto; align-items: center; gap: var(--ais-space-3); min-height: var(--ais-layout-touch-target); padding: var(--ais-space-3) var(--ais-space-4); background: var(--ais-color-surface); border: 1px solid var(--ais-color-border); border-radius: var(--ais-radius-md); color: var(--ais-color-ink); text-decoration: none; }
 .lesson-list__pending { border-style: dashed; color: var(--ais-color-muted); }
 .lesson-list__link:hover { border-color: var(--ais-color-accent); }
 .lesson-list__order { font-family: var(--ais-font-display); font-weight: 700; color: var(--ais-color-accent); text-align: center; }
@@ -186,7 +187,7 @@ main:focus { outline: none; }
 .question__label { font-family: var(--ais-font-mono); font-size: var(--ais-font-size-sm); color: var(--ais-color-muted); padding: 0 var(--ais-space-2); }
 .question__scenario { margin-top: var(--ais-space-2); }
 .question__stem { font-weight: 600; }
-.question__options { display: grid; gap: var(--ais-space-2); margin-bottom: var(--ais-space-4); }
+.question__options { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--ais-space-2); margin-bottom: var(--ais-space-4); }
 .option { border: 2px solid var(--ais-color-disabled-surface); border-radius: var(--ais-radius-md); background: var(--ais-color-canvas); }
 .option__label { display: flex; gap: var(--ais-space-3); align-items: flex-start; padding: var(--ais-space-3); min-height: var(--ais-layout-touch-target); cursor: pointer; }
 .option__label input { margin-top: 0.35em; width: 1.1rem; height: 1.1rem; flex: none; accent-color: var(--ais-color-accent); }
@@ -224,6 +225,7 @@ main:focus { outline: none; }
 .exam__objectives li { margin-bottom: var(--ais-space-2); }
 .exam__objective--zero strong { color: var(--ais-color-danger); }
 .option__label > span[aria-hidden] { flex: none; width: 1.1rem; text-align: center; font-weight: 700; }
+.option__label > span:not([aria-hidden]) { min-width: 0; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* Formularios: respaldo y notas */
@@ -307,7 +309,7 @@ main:focus { outline: none; }
 .offline-toggle { margin: 0 0 var(--ais-space-4); }
 
 /* Cómo funciona */
-.how__steps { list-style: none; padding: 0; counter-reset: step; display: grid; gap: var(--ais-space-4); }
+.how__steps { list-style: none; padding: 0; counter-reset: step; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--ais-space-4); }
 .how__steps > li { counter-increment: step; position: relative; padding-left: 3rem; }
 .how__steps > li::before { content: counter(step); position: absolute; left: 0; top: 0.1rem; width: 2rem; height: 2rem; border-radius: 50%; border: 2px solid var(--ais-color-product); color: var(--ais-color-product); font-family: var(--ais-font-mono); font-weight: 600; line-height: 1.75rem; text-align: center; background: var(--ais-color-surface); }
 .how__steps h3 { margin: 0.25rem 0 var(--ais-space-1); }
@@ -315,7 +317,7 @@ main:focus { outline: none; }
 .how__where { font-size: var(--ais-font-size-sm); color: var(--ais-color-muted); }
 .how__tag { display: inline-block; font-family: var(--ais-font-mono); font-size: 0.72rem; font-weight: 500; padding: 0.1rem 0.45rem; border-radius: 999px; vertical-align: 0.15em; background: var(--ais-color-info-surface); color: var(--ais-color-info); }
 .how__tag--counts { background: var(--ais-color-success-surface); color: var(--ais-color-on-success-surface); }
-.how__flow { display: grid; gap: var(--ais-space-2); }
+.how__flow { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--ais-space-2); }
 
 /* Confianza opcional antes de comprobar (D-024): un solo clic, sin campos de texto */
 .question__confidence { display: flex; align-items: flex-start; gap: var(--ais-space-2); min-height: var(--ais-layout-touch-target); margin: var(--ais-space-3) 0; font-size: var(--ais-font-size-sm); cursor: pointer; }

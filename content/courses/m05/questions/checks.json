@@ -1446,6 +1446,7 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m05-l5#coberturas",
+    "basis": "inference",
     "sourceIds": [
       "src-anthropic-cc-workflows"
     ],

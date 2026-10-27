@@ -1794,6 +1794,7 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m01-l6#conclusion",
+    "basis": "inference",
     "sourceIds": [
       "src-anthropic-choosing-model"
     ],

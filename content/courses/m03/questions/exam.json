@@ -1575,6 +1575,7 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m03-l5#traspaso",
+    "basis": "inference",
     "sourceIds": [
       "src-anthropic-eng-harnesses",
       "src-openai-codex-memories"
@@ -1886,6 +1887,7 @@
     ],
     "fixedOrder": false,
     "sectionRef": "m03-l6#cifras",
+    "basis": "inference",
     "sourceIds": [
       "src-anthropic-citations"
     ],
