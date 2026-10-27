@@ -1,0 +1,706 @@
+[
+  {
+    "id": "m09-l1-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m09",
+    "lessonId": "m09-l1",
+    "evaluatedObjectiveId": "m09-eo1",
+    "competencyIds": [
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "El script que arma el prompt del comentario y llama al modelo tiene pruebas unitarias, y todas pasan. Alguien propone dar por evaluado el prompt nuevo con eso.",
+    "stem": "¿Basta con eso?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Sí: si las pruebas pasan, el prompt nuevo está probado",
+        "correct": false,
+        "feedback": "Las pruebas comprueban el código del script, que es determinista. No dicen nada de lo que redacta el modelo con el prompt nuevo, que cambia de una vez a otra y se mide con una eval.",
+        "misconceptionId": "m09-mc01"
+      },
+      {
+        "id": "o2",
+        "text": "No: el texto varía y se mide con casos fijos y ensayos",
+        "correct": true,
+        "feedback": "Correcta. Las pruebas cubren el código del script, que da siempre el mismo resultado. El texto que produce el modelo cambia de una vez a otra, y eso se mide con una eval: casos fijos, varios ensayos y una tasa de acierto."
+      },
+      {
+        "id": "o3",
+        "text": "Sí, si se corren las pruebas tres veces seguidas",
+        "correct": false,
+        "feedback": "Las pruebas del script dan siempre el mismo resultado, así que repetirlas no aporta nada nuevo. Lo que varía es el texto del modelo, y eso se mide corriendo el prompt varias veces sobre casos fijos.",
+        "misconceptionId": "m09-mc07"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l1#test-eval",
+    "sourceIds": [
+      "src-anthropic-evals-agents",
+      "src-anthropic-glossary"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-l1-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m09",
+    "lessonId": "m09-l1",
+    "evaluatedObjectiveId": "m09-eo1",
+    "competencyIds": [
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "En la eval del agente que corrige kpis.json, el grader lee la última línea de la transcripción y aprueba el ensayo si dice «reconciliación completa: todo PASS».",
+    "stem": "¿Qué cambias en el grader?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que mire el kpis.json y la salida del comando",
+        "correct": true,
+        "feedback": "Correcta. Se califica el resultado, es decir, el kpis.json que quedó y la salida del comando registrada en la transcripción. Lo que el agente dice al final es solo una afirmación."
+      },
+      {
+        "id": "o2",
+        "text": "Nada: si el agente reporta PASS, la tarea está hecha",
+        "correct": false,
+        "feedback": "Esa línea es lo que el agente dice que pasó, no la prueba de que pasó. El grader tiene que mirar lo que quedó hecho: el kpis.json y la salida real del comando.",
+        "misconceptionId": "m09-mc02"
+      },
+      {
+        "id": "o3",
+        "text": "Que exija además la secuencia exacta de pasos",
+        "correct": false,
+        "feedback": "Exigir un camino fijo castiga soluciones válidas que nadie había previsto. Además, sigue sin comprobar el resultado, que es el kpis.json que quedó.",
+        "misconceptionId": "m09-mc05"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l1#resultado",
+    "sourceIds": [
+      "src-anthropic-evals-agents",
+      "src-arxiv-tau-bench"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-l1-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m09",
+    "lessonId": "m09-l1",
+    "evaluatedObjectiveId": "m09-eo1",
+    "competencyIds": [
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El modelo propone tres titulares para el comentario y la analista elige uno. Además, cada lunes clasifica en lote las notas libres de las oportunidades, y esa clasificación entra tal cual al reporte.",
+    "stem": "¿Qué cifra describe mejor cada uso?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "pass^3 para los dos usos, porque es la cifra más exigente",
+        "correct": false,
+        "feedback": "Para los titulares basta uno bueno, porque hay una persona que elige. Exigir pass^3 ahí mediría un uso que no existe, ya que la cifra se elige por el uso y no por lo exigente que sea.",
+        "misconceptionId": "m09-mc08"
+      },
+      {
+        "id": "o2",
+        "text": "pass@3 para los titulares y pass^3 para la clasificación",
+        "correct": true,
+        "feedback": "Correcta. En los titulares alguien elige entre tres, así que basta con que uno sirva. La clasificación corre una vez y se usa sin elegir, así que importa que acierte cada vez, y eso lo describe pass^3 junto con la tasa por ensayo."
+      },
+      {
+        "id": "o3",
+        "text": "pass@3 para los dos usos, porque es la cifra más alta",
+        "correct": false,
+        "feedback": "Que una cifra sea alta no la hace adecuada. La clasificación se usa tal como sale, y pass@3 no dice nada de si acierta cada vez.",
+        "misconceptionId": "m09-mc03"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l1#uso",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-l1-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m09",
+    "lessonId": "m09-l1",
+    "evaluatedObjectiveId": "m09-eo1",
+    "competencyIds": [
+      "C12"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "scenario": "Un clasificador acierta 54 de 60 ensayos en 20 casos, tres por caso. Para reportar su pass^3, un compañero eleva 0,9 al cubo y obtiene 0,73. Algunos casos son mucho más difíciles que otros.",
+    "stem": "¿Qué haces con esa cifra?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Reportarla: elevar 0,9 al cubo es calcular pass^3",
+        "correct": false,
+        "feedback": "Esa cuenta supone que todos los casos son igual de difíciles, y aquí no lo son. Cuando los fallos se concentran en algunos casos, pass^3 se cuenta caso por caso.",
+        "misconceptionId": "m09-mc04"
+      },
+      {
+        "id": "o2",
+        "text": "Reportar 0,9, porque la tasa ya lo resume",
+        "correct": false,
+        "feedback": "La tasa por ensayo es un promedio de todos los ensayos. No dice qué casos fallan seguido, que es justo lo que mide pass^3.",
+        "misconceptionId": "m09-mc09"
+      },
+      {
+        "id": "o3",
+        "text": "Contar los casos que acertaron los tres ensayos",
+        "correct": true,
+        "feedback": "Correcta. Con casos de dificultad distinta, pass^3 se cuenta caso por caso: cuántos de los 20 acertaron en los tres ensayos. Elevar la tasa al cubo solo vale si todos los casos son igual de difíciles."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l1#por-caso",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-l2-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m09",
+    "lessonId": "m09-l2",
+    "evaluatedObjectiveId": "m09-eo2",
+    "competencyIds": [
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "Para evaluar un clasificador que marca las notas con un posible riesgo legal, el conjunto tiene 30 notas sintéticas, y todas tienen algún riesgo.",
+    "stem": "¿Qué agregas antes de comparar versiones?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Más notas con riesgo, para que la muestra sea más grande",
+        "correct": false,
+        "feedback": "Más casos del mismo tipo repiten el mismo sesgo, porque todos piden marcar. Lo que falta es otro tipo de caso, uno en que lo correcto sea no marcar.",
+        "misconceptionId": "m09-mc16"
+      },
+      {
+        "id": "o2",
+        "text": "Notas sin riesgo, que el clasificador no debe marcar",
+        "correct": true,
+        "feedback": "Correcta. Una eval de un solo lado premia al clasificador que marca todo. Hacen falta casos en los que lo correcto es no marcar, para probar la conducta en los dos sentidos."
+      },
+      {
+        "id": "o3",
+        "text": "Nada: si detecta todos los riesgos, ya cumple",
+        "correct": false,
+        "feedback": "Un clasificador que marca todas las notas también detectaría todos los riesgos. Sin notas limpias, la eval no distingue ese clasificador de uno bueno.",
+        "misconceptionId": "m09-mc11"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l2#dos-sentidos",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-l2-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m09",
+    "lessonId": "m09-l2",
+    "evaluatedObjectiveId": "m09-eo2",
+    "competencyIds": [
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "En 30 ensayos, ni v1 ni v2 aprueban el caso EV-17. Pide la cobertura del Centro frente a una cuota que no está en ningún archivo de entrada.",
+    "stem": "¿Qué haces primero?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Concluir que el modelo no sirve para calcular coberturas",
+        "correct": false,
+        "feedback": "Una tasa de cero en muchos ensayos suele indicar un caso roto, no un modelo inútil. Aquí falta la cuota, que es el dato necesario para resolverlo.",
+        "misconceptionId": "m09-mc12"
+      },
+      {
+        "id": "o2",
+        "text": "Probar con un modelo más capaz hasta que lo apruebe",
+        "correct": false,
+        "feedback": "Sin la cuota, ningún modelo puede dar la cifra correcta, y si alguno la da, la está inventando. Lo que hay que corregir es el caso.",
+        "misconceptionId": "m09-mc17"
+      },
+      {
+        "id": "o3",
+        "text": "Revisar el caso: no tiene solución con lo que se entrega",
+        "correct": true,
+        "feedback": "Correcta. Un buen caso tiene una solución de referencia que pasa los graders, y este no puede tenerla porque falta la cuota. Se corrige el caso, entregando la cuota o cambiando la etiqueta esperada para que sea pedirla."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l2#buen-caso",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-l2-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m09",
+    "lessonId": "m09-l2",
+    "evaluatedObjectiveId": "m09-eo2",
+    "competencyIds": [
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "En el uso real, el comentario de una semana mostró el pipeline ponderado de la semana anterior. Lo detectó la controller al presentarlo.",
+    "stem": "¿Cómo entra ese fallo al conjunto?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Reproducido con datos sintéticos, como caso de regresión",
+        "correct": true,
+        "feedback": "Correcta. Se reproduce el error con datos sintéticos, se anota de dónde vino y queda como caso de regresión. Así, si una versión futura vuelve a cometerlo, la eval lo detecta."
+      },
+      {
+        "id": "o2",
+        "text": "Copiando el comentario y el snapshot reales al repositorio",
+        "correct": false,
+        "feedback": "En el repositorio no entran datos reales. El fallo se reproduce con datos sintéticos que provocan el mismo error, y se anota su procedencia.",
+        "misconceptionId": "m09-mc13"
+      },
+      {
+        "id": "o3",
+        "text": "No entra: fue un error aislado que ya se corrigió",
+        "correct": false,
+        "feedback": "Los fallos reales son la mejor fuente de casos, aunque ya se hayan corregido. El caso de regresión sirve justamente para avisar si el error vuelve con otra versión.",
+        "misconceptionId": "m09-mc18"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l2#fallo-real",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-evals-agents",
+      "src-openai-eval-best-practices"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-l2-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m09",
+    "lessonId": "m09-l2",
+    "evaluatedObjectiveId": "m09-eo2",
+    "competencyIds": [
+      "C12"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "Para mejorar v2, su autor copió en el prompt cuatro casos del conjunto de evaluación como ejemplos. Ahora v2 aprueba esos cuatro casos en todos los ensayos.",
+    "stem": "¿Qué dice ese resultado?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Poco, porque v2 ya los vio; hacen falta casos nuevos",
+        "correct": true,
+        "feedback": "Correcta. La prueba justa es con casos que el prompt no conoce. Hace falta un grupo de casos reservado, que no vea quien cambia el prompt, para saber si v2 de verdad mejoró."
+      },
+      {
+        "id": "o2",
+        "text": "Que v2 mejoró: aprueba casos que antes fallaba",
+        "correct": false,
+        "feedback": "v2 ya conoce esos cuatro casos porque los lleva como ejemplos. Aprobarlos mide memoria, no la capacidad de hacer la tarea con casos nuevos.",
+        "misconceptionId": "m09-mc14"
+      },
+      {
+        "id": "o3",
+        "text": "Nada malo: los casos son sintéticos, así que no contaminan",
+        "correct": false,
+        "feedback": "Que un caso sea sintético no cambia que el prompt ya lo vio. Con esos casos dentro del prompt, la eval deja de medir la tarea y mide memoria.",
+        "misconceptionId": "m09-mc19"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l2#contaminacion",
+    "basis": "inference",
+    "sourceIds": [
+      "src-google-mlcc-datasets"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-l2-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m09",
+    "lessonId": "m09-l2",
+    "evaluatedObjectiveId": "m09-eo1",
+    "competencyIds": [
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El modelo genera cinco nombres posibles para una columna del dashboard y la analista elige uno. En la eval de la versión nueva, en el 98 % de los casos al menos uno de los cinco nombres es aceptable.",
+    "stem": "¿Es una buena cifra para este uso?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "No: solo vale pass^5, que es la más exigente",
+        "correct": false,
+        "feedback": "La cifra se elige por el uso, no por lo exigente que sea. Aquí alguien elige entre cinco nombres, así que basta con que uno sirva, y eso lo mide pass@5.",
+        "misconceptionId": "m09-mc08"
+      },
+      {
+        "id": "o2",
+        "text": "Sí: basta uno bueno y hay una persona que elige",
+        "correct": true,
+        "feedback": "Correcta. La cifra es un pass@5, que describe justo este uso: varios intentos y una persona que se queda con el bueno. Con un 98 %, casi siempre habrá un nombre que sirva."
+      },
+      {
+        "id": "o3",
+        "text": "No: hay que medir que siga una secuencia fija de pasos",
+        "correct": false,
+        "feedback": "Se califica el resultado, no el camino que siguió el modelo. Y el resultado aquí es si entre los cinco hay un nombre que sirva.",
+        "misconceptionId": "m09-mc05"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l1#uso",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-l2-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m09",
+    "lessonId": "m09-l2",
+    "evaluatedObjectiveId": "m09-eo1",
+    "competencyIds": [
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El grader exige que el agente lea primero el snapshot, después el script y al final el README. Un ensayo llegó al kpis.json correcto leyendo primero el script, y el grader lo reprobó.",
+    "stem": "¿Qué corriges?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: si no siguió los pasos, no cumple la tarea",
+        "correct": false,
+        "feedback": "La tarea es dejar el kpis.json correcto, y el ensayo lo dejó. Exigir un orden fijo castiga una solución válida que nadie había previsto.",
+        "misconceptionId": "m09-mc05"
+      },
+      {
+        "id": "o2",
+        "text": "Al agente, para que siga siempre ese orden",
+        "correct": false,
+        "feedback": "El agente resolvió la tarea por un camino válido. El que se equivoca es el grader, que califica el orden de los pasos en vez del resultado.",
+        "misconceptionId": "m09-mc20"
+      },
+      {
+        "id": "o3",
+        "text": "El grader, para que califique el resultado",
+        "correct": true,
+        "feedback": "Correcta. Los agentes encuentran caminos válidos que nadie previó. El grader debe calificar lo que quedó hecho, en este caso el kpis.json, y no el orden en que se leyeron los archivos."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l1#resultado",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-l3-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m09",
+    "lessonId": "m09-l3",
+    "evaluatedObjectiveId": "m09-eo3",
+    "competencyIds": [
+      "C12",
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Un criterio de la rúbrica dice: «cada oportunidad vencida que menciona el comentario existe en el snapshot y tiene la región correcta».",
+    "stem": "¿Qué grader corresponde?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Un modelo como juez, porque es más flexible que el código",
+        "correct": false,
+        "feedback": "El criterio no pide interpretar nada, porque cada ID y su región se pueden comprobar. Donde hay una respuesta verificable, el código es más rápido, más barato y da siempre el mismo veredicto.",
+        "misconceptionId": "m09-mc24"
+      },
+      {
+        "id": "o2",
+        "text": "Código que contrasta cada ID con el snapshot",
+        "correct": true,
+        "feedback": "Correcta. Cada ID y su región se pueden contrastar con el snapshot sin interpretar nada. Es trabajo de código, que es rápido, barato y da siempre el mismo veredicto."
+      },
+      {
+        "id": "o3",
+        "text": "Una persona que revise cada comentario",
+        "correct": false,
+        "feedback": "Una persona es la referencia de calidad, pero es cara y lenta. Para un criterio que se comprueba sin interpretar, basta con código.",
+        "misconceptionId": "m09-mc27"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l3#orden",
+    "sourceIds": [
+      "src-anthropic-develop-tests",
+      "src-anthropic-evals-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-l3-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m09",
+    "lessonId": "m09-l3",
+    "evaluatedObjectiveId": "m09-eo3",
+    "competencyIds": [
+      "C12",
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Un juez para el criterio de causas aprueba 27 de 30 comentarios. Coincide con las etiquetas de la analista en 25 de 30, pero de los 6 que ella marcó como malos solo detecta 2.",
+    "stem": "¿Lo usas para comparar versiones?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Sí: coincide con ella en más del 80 % de los casos",
+        "correct": false,
+        "feedback": "El acuerdo es alto porque casi todos los comentarios son buenos, no porque el juez detecte errores. Deja pasar 4 de los 6 malos, que son justamente los que importan.",
+        "misconceptionId": "m09-mc21"
+      },
+      {
+        "id": "o2",
+        "text": "Lo cambio por un modelo más capaz y lo uso tal cual",
+        "correct": false,
+        "feedback": "Un juez más capaz también se calibra antes de usarse. Sin volver a medirlo contra las etiquetas de la analista, no se sabe si detecta los comentarios malos.",
+        "misconceptionId": "m09-mc28"
+      },
+      {
+        "id": "o3",
+        "text": "No todavía: deja pasar 4 de los 6 comentarios malos",
+        "correct": true,
+        "feedback": "Correcta. Lo que importa es cuántos comentarios malos detecta, y este solo detecta 2 de 6. Se ajusta la rúbrica y se vuelve a medir contra las etiquetas antes de usarlo."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l3#calibrar",
+    "sourceIds": [
+      "src-openai-eval-best-practices",
+      "src-anthropic-evals-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-l3-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m09",
+    "lessonId": "m09-l3",
+    "evaluatedObjectiveId": "m09-eo3",
+    "competencyIds": [
+      "C12",
+      "C05"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "scenario": "Al comparar por pares dos versiones del prompt de alertas, el juez prefiere la versión A en 19 de 25 casos. Al invertir el orden de presentación, su veredicto cambia en 11 de los 25.",
+    "stem": "¿Qué concluyes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que hay sesgo: solo valen las victorias que se mantienen",
+        "correct": true,
+        "feedback": "Correcta. El veredicto depende del orden en 11 de los 25 casos, lo que indica sesgo de posición. Solo cuentan las victorias que se mantienen al invertir el orden; las demás son empates."
+      },
+      {
+        "id": "o2",
+        "text": "Que A es mejor: ganó en 19 de los 25 casos",
+        "correct": false,
+        "feedback": "Muchas de esas 19 victorias dependen del orden en que el juez vio las respuestas. Contarlas todas mide el sesgo de posición del juez, no la calidad de A.",
+        "misconceptionId": "m09-mc22"
+      },
+      {
+        "id": "o3",
+        "text": "Que el juez es imparcial, porque es un modelo",
+        "correct": false,
+        "feedback": "Que el veredicto cambie con el orden muestra justamente un sesgo. Los jueces tienen sesgos documentados de posición, de longitud y de autopreferencia.",
+        "misconceptionId": "m09-mc29"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l3#sesgos",
+    "sourceIds": [
+      "src-arxiv-fair-evaluators",
+      "src-arxiv-llm-judge"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-l3-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m09",
+    "lessonId": "m09-l3",
+    "evaluatedObjectiveId": "m09-eo3",
+    "competencyIds": [
+      "C12",
+      "C05"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Con 20 casos fijos y tres ensayos, la versión B cumplió los criterios críticos en los tres ensayos en 15 casos, y la A en 13.",
+    "stem": "¿Qué conclusión escribes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "B en 15 y A en 13 de 20: aún no basta para cambiar",
+        "correct": true,
+        "feedback": "Correcta. La conclusión nombra los casos, los ensayos y el tamaño de la diferencia. Dos casos en veinte pueden deberse al azar, así que todavía no bastan para cambiar de versión."
+      },
+      {
+        "id": "o2",
+        "text": "B es mejor que A, y conviene cambiar a B ya mismo",
+        "correct": false,
+        "feedback": "Una diferencia de dos casos en veinte puede deberse al azar. Con una muestra así solo se distinguen diferencias grandes, y la conclusión debe decir el tamaño de la diferencia.",
+        "misconceptionId": "m09-mc25"
+      },
+      {
+        "id": "o3",
+        "text": "Ninguna: con menos de cien casos no se concluye",
+        "correct": false,
+        "feedback": "Una muestra pequeña sí permite ver diferencias grandes. Lo que no permite es afirmar que una diferencia de dos casos es real.",
+        "misconceptionId": "m09-mc30"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l3#concluir",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-stat-evals"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-l3-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m09",
+    "lessonId": "m09-l3",
+    "evaluatedObjectiveId": "m09-eo2",
+    "competencyIds": [
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Cinco casos nuevos del conjunto no tienen solución de referencia. Su autor dice que los resultados de cada versión mostrarán qué casos sirven.",
+    "stem": "¿Qué falta antes de usarlos?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Una solución de referencia que pase los graders",
+        "correct": true,
+        "feedback": "Correcta. La solución de referencia prueba que el caso tiene solución y que el grader está bien configurado. Sin ella, si nadie aprueba el caso, no se sabe si falla el sistema o el caso."
+      },
+      {
+        "id": "o2",
+        "text": "Nada: los resultados dirán si los casos sirven",
+        "correct": false,
+        "feedback": "Si nadie aprueba un caso, no se sabrá si falla el sistema o el caso. La solución de referencia lo aclara antes de comparar versiones.",
+        "misconceptionId": "m09-mc31"
+      },
+      {
+        "id": "o3",
+        "text": "Que el modelo evaluado escriba las respuestas esperadas",
+        "correct": false,
+        "feedback": "La etiqueta esperada no puede salir del sistema que se evalúa, sino de un camino independiente o de una persona. Si no, el grader daría por buenos los errores del sistema.",
+        "misconceptionId": "m09-mc15"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l2#buen-caso",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m09-l3-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m09",
+    "lessonId": "m09-l3",
+    "evaluatedObjectiveId": "m09-eo2",
+    "competencyIds": [
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Los tres ensayos de cada caso corren uno tras otro en la misma carpeta, y el segundo y el tercero encuentran el borrador que dejó el primero.",
+    "stem": "¿Qué problema hay?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguno: así cada ensayo aprovecha lo que hizo el anterior",
+        "correct": false,
+        "feedback": "Si un ensayo aprovecha lo que dejó otro, ya no mide la tarea por sí sola. Cada ensayo debe partir de un entorno limpio.",
+        "misconceptionId": "m09-mc32"
+      },
+      {
+        "id": "o2",
+        "text": "Que no son independientes: cada ensayo debe partir de cero",
+        "correct": true,
+        "feedback": "Correcta. Lo que deja un ensayo puede inflar o arruinar el siguiente, y los fallos dejan de ser independientes. Cada ensayo empieza en un entorno limpio."
+      },
+      {
+        "id": "o3",
+        "text": "Que tres ensayos son pocos; harían falta por lo menos diez",
+        "correct": false,
+        "feedback": "Sumar ensayos que comparten estado repite el mismo problema en cada uno. Primero hay que aislarlos, y después se decide cuántos hacen falta.",
+        "misconceptionId": "m09-mc33"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m09-l2#aislados",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ],
+    "status": "draft"
+  }
+]

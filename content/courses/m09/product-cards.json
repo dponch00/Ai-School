@@ -1,0 +1,39 @@
+[
+  {
+    "id": "m09-pc-eval-platforms",
+    "product": "Plataformas y herramientas para correr evals",
+    "surfaces": [
+      "api",
+      "web",
+      "cli"
+    ],
+    "capability": "OpenAI, plataforma Evals (panel y API): cada eval se define con data_source_config, testing_criteria (los graders) y sus ejecuciones. El 2026-06-03, OpenAI anunció su cierre: las evals existentes pasan a solo lectura el 2026-10-31, y el panel y la API cierran el 2026-11-30; la página advierte que las fechas pueden cambiar. OpenAI, Datasets (panel): guarda filas de casos, prompts versionados, comparaciones de prompts, anotaciones y graders de texto, de similitud, de modelo o en Python. La página muestra el aviso de cierre de Evals y no dice si Datasets sigue después. OpenAI publica una guía para recrear las evals a mano en Promptfoo, pero las ejecuciones anteriores no se trasladan. Promptfoo (código abierto, licencia MIT): ofrece aserciones, es decir, comprobaciones automáticas, de dos clases. Unas son deterministas (igualdad, contiene, expresión regular, JSON válido, funciones propias en JavaScript o Python) y otras las califica un modelo (rúbrica, factualidad, comparación). Corre en local o en integración continua. Su README dice que el proyecto ahora es parte de OpenAI; la página no indica estado de lanzamiento. Lo duradero es tener los casos, los graders y los resultados en archivos propios, versionados con el proyecto.",
+    "kind": "capability",
+    "maturity": "mixed",
+    "verifiedAt": "2026-10-26",
+    "sourceIds": [
+      "src-openai-deprecations",
+      "src-openai-evals-guide",
+      "src-openai-datasets-guide",
+      "src-openai-evals-to-promptfoo",
+      "src-promptfoo-assertions",
+      "src-promptfoo-github"
+    ],
+    "nextReview": "2026-12-01"
+  },
+  {
+    "id": "m09-pc-judge-guidance",
+    "product": "Anthropic y OpenAI · recomendaciones para el juez",
+    "surfaces": [
+      "api"
+    ],
+    "capability": "Anthropic recomienda rúbricas detalladas, una salida acotada (correcto o incorrecto, o una escala de 1 a 5), que el juez razone antes del veredicto y que sea un modelo distinto del que generó la salida. OpenAI recomienda usar como juez el modelo más capaz disponible, y menciona uno de su catálogo; prefiere la comparación por pares o el veredicto de pasa o no pasa antes que el puntaje de una sola respuesta, y pide calibrar el juez contra etiquetas humanas antes de usarlo a escala. Son recomendaciones de cada proveedor, no una norma; el juez que se elija se calibra igual con la tarea propia.",
+    "kind": "guidance",
+    "verifiedAt": "2026-10-26",
+    "sourceIds": [
+      "src-anthropic-develop-tests",
+      "src-openai-eval-best-practices"
+    ],
+    "nextReview": "2027-01-26"
+  }
+]

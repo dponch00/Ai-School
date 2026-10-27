@@ -1,0 +1,318 @@
+[
+  {
+    "id": "m09-mc01",
+    "courseId": "m09",
+    "description": "Si las pruebas unitarias pasan, el prompt está evaluado.",
+    "whyWrong": "Las pruebas comprueban el código, que es determinista; el texto que redacta el modelo varía y se mide con casos fijos y varios ensayos.",
+    "sourceIds": [
+      "src-anthropic-evals-agents",
+      "src-anthropic-glossary"
+    ]
+  },
+  {
+    "id": "m09-mc02",
+    "courseId": "m09",
+    "description": "Lo que el agente reporta al terminar es el resultado de la tarea.",
+    "whyWrong": "El resultado es lo que quedó hecho en el entorno; el reporte del agente es una afirmación que se contrasta con el archivo o con la transcripción.",
+    "sourceIds": [
+      "src-anthropic-evals-agents",
+      "src-arxiv-tau-bench"
+    ]
+  },
+  {
+    "id": "m09-mc03",
+    "courseId": "m09",
+    "description": "Un pass@3 alto significa que el sistema es confiable.",
+    "whyWrong": "pass@3 mide si acierta al menos una vez en tres intentos, lo que basta cuando alguien elige entre ellos; la consistencia la mide pass^k.",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc04",
+    "courseId": "m09",
+    "description": "pass^k se obtiene elevando la tasa media de acierto a la k.",
+    "whyWrong": "Esa cuenta vale solo si todos los casos tienen la misma dificultad; con casos distintos, pass^k se cuenta caso por caso.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc05",
+    "courseId": "m09",
+    "description": "Para evaluar un agente basta comprobar que siga los pasos esperados.",
+    "whyWrong": "Se califica el resultado; exigir un camino fijo castiga soluciones válidas que nadie había previsto.",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc06",
+    "courseId": "m09",
+    "description": "Con una buena eval ya no hace falta monitorear ni leer transcripciones.",
+    "whyWrong": "La eval es una capa más; el monitoreo, la lectura de transcripciones y la revisión de personas atrapan lo que ella no ve.",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc07",
+    "courseId": "m09",
+    "description": "Correr varias veces un test determinista mide cuánto varía el modelo.",
+    "whyWrong": "Un test determinista da siempre el mismo resultado; la variación del texto se mide corriendo el prompt varias veces sobre casos fijos.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-evals-agents",
+      "src-anthropic-glossary"
+    ]
+  },
+  {
+    "id": "m09-mc08",
+    "courseId": "m09",
+    "description": "pass^k es siempre la cifra correcta porque es la más exigente.",
+    "whyWrong": "La cifra se elige por el uso: si alguien elige entre varios intentos, basta con que uno sea bueno, y ese uso lo describe pass@k.",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc09",
+    "courseId": "m09",
+    "description": "La tasa de acierto por ensayo dice si el sistema acierta siempre en cada caso.",
+    "whyWrong": "Una tasa media alta puede esconder casos que fallan una y otra vez; la consistencia por caso se cuenta con pass^k.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc10",
+    "courseId": "m09",
+    "description": "Hasta tener cientos de casos no vale la pena evaluar.",
+    "whyWrong": "Al principio los cambios tienen efectos grandes, y entre 20 y 50 casos bien elegidos bastan para verlos.",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc11",
+    "courseId": "m09",
+    "description": "Basta con probar los casos en que la conducta debe aparecer.",
+    "whyWrong": "Si la eval solo mira un lado, el sistema se ajusta para hacerlo siempre; hacen falta casos en que la conducta no debe ocurrir.",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc12",
+    "courseId": "m09",
+    "description": "Si ninguna versión aprueba un caso, el modelo no sirve para esa tarea.",
+    "whyWrong": "Una tasa de cero en muchos ensayos suele indicar un caso roto; primero se revisa la tarea y su solución de referencia.",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc13",
+    "courseId": "m09",
+    "description": "Un fallo real se copia tal cual al repositorio de evals.",
+    "whyWrong": "Se reproduce con datos sintéticos que provocan el mismo error y se anota su procedencia; en el repositorio no entran datos reales.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc14",
+    "courseId": "m09",
+    "description": "Usar casos de la eval como ejemplos del prompt mejora la eval.",
+    "whyWrong": "Convierte la eval en una prueba de memoria; la prueba justa es con casos que el prompt no conoce.",
+    "sourceIds": [
+      "src-google-mlcc-datasets"
+    ]
+  },
+  {
+    "id": "m09-mc15",
+    "courseId": "m09",
+    "description": "La etiqueta esperada la puede dar el mismo sistema que se evalúa.",
+    "whyWrong": "La etiqueta esperada, lo que el grader da por bueno, sale de un camino independiente o de una persona; si no, el grader da por buenos los errores del sistema.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc16",
+    "courseId": "m09",
+    "description": "Agregar más casos del mismo tipo corrige lo que le falta a un conjunto.",
+    "whyWrong": "Más casos del mismo tipo repiten el mismo sesgo; lo que falta son los tipos de caso ausentes.",
+    "sourceIds": [
+      "src-anthropic-evals-agents",
+      "src-openai-eval-best-practices"
+    ]
+  },
+  {
+    "id": "m09-mc17",
+    "courseId": "m09",
+    "description": "Un modelo más capaz termina aprobando un caso que ninguna versión aprueba.",
+    "whyWrong": "Si el caso no tiene solución con lo que se entrega, ningún modelo lo resuelve bien, y el que da una cifra la inventa; se corrige el caso.",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc18",
+    "courseId": "m09",
+    "description": "Un fallo que ya se corrigió no necesita un caso en el conjunto.",
+    "whyWrong": "Los fallos reales son la mejor fuente de casos; el caso de regresión avisa si el error vuelve con otra versión.",
+    "sourceIds": [
+      "src-anthropic-evals-agents",
+      "src-openai-eval-best-practices"
+    ]
+  },
+  {
+    "id": "m09-mc19",
+    "courseId": "m09",
+    "description": "Si los casos son sintéticos, usarlos como ejemplos del prompt no contamina la eval.",
+    "whyWrong": "Que un caso sea sintético no cambia que el prompt ya lo conoce; la eval deja de medir la tarea.",
+    "sourceIds": [
+      "src-google-mlcc-datasets"
+    ]
+  },
+  {
+    "id": "m09-mc20",
+    "courseId": "m09",
+    "description": "Si el grader rechaza un camino válido, lo que se corrige es el agente.",
+    "whyWrong": "El error está en el grader, que debe calificar el resultado y no el orden de los pasos.",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc21",
+    "courseId": "m09",
+    "description": "Si un juez coincide con las personas en un porcentaje alto, ya se puede confiar en él.",
+    "whyWrong": "El acuerdo alto de los estudios se midió en otras tareas, y en la propia puede deberse solo a que casi todos los casos son buenos; el juez se valida contra etiquetas humanas mirando cuántos casos malos detecta.",
+    "sourceIds": [
+      "src-arxiv-llm-judge",
+      "src-openai-eval-best-practices"
+    ]
+  },
+  {
+    "id": "m09-mc22",
+    "courseId": "m09",
+    "description": "Si el juez prefiere la versión B, B es mejor.",
+    "whyWrong": "El orden y la longitud pueden cambiar el veredicto; una victoria cuenta si se mantiene al invertir el orden.",
+    "sourceIds": [
+      "src-arxiv-fair-evaluators",
+      "src-arxiv-llm-judge"
+    ]
+  },
+  {
+    "id": "m09-mc23",
+    "courseId": "m09",
+    "description": "Conviene que juzgue el mismo modelo que generó la salida, porque entiende la tarea.",
+    "whyWrong": "Los jueces favorecen sus propios textos y los de modelos parecidos a ellos; conviene un juez distinto del modelo que generó la salida.",
+    "sourceIds": [
+      "src-arxiv-self-preference",
+      "src-arxiv-models-think-alike",
+      "src-anthropic-develop-tests"
+    ]
+  },
+  {
+    "id": "m09-mc24",
+    "courseId": "m09",
+    "description": "Para criterios exactos conviene más un modelo como juez, porque es más flexible.",
+    "whyWrong": "Donde hay una respuesta verificable, el código es más rápido, más barato y da siempre el mismo veredicto.",
+    "sourceIds": [
+      "src-anthropic-develop-tests",
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc25",
+    "courseId": "m09",
+    "description": "Si una versión cumple en más casos que la otra, es mejor.",
+    "whyWrong": "Con pocos casos solo se distinguen diferencias grandes; se mira la diferencia caso por caso, cuánto puede deberse al azar y si se repite en casos nuevos.",
+    "sourceIds": [
+      "src-anthropic-stat-evals"
+    ]
+  },
+  {
+    "id": "m09-mc26",
+    "courseId": "m09",
+    "description": "Una pregunta general como «¿es correcto?» basta como rúbrica.",
+    "whyWrong": "Una rúbrica útil es específica, con salida acotada, un criterio por juez y la opción de decir que no se puede determinar.",
+    "sourceIds": [
+      "src-anthropic-develop-tests",
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc27",
+    "courseId": "m09",
+    "description": "La revisión de una persona es siempre el mejor grader.",
+    "whyWrong": "Es la referencia de calidad, pero cara y lenta; lo que se comprueba sin interpretar se califica con código.",
+    "sourceIds": [
+      "src-anthropic-develop-tests",
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc28",
+    "courseId": "m09",
+    "description": "Un juez más capaz no necesita calibrarse.",
+    "whyWrong": "Cualquier juez se valida contra etiquetas humanas en la tarea propia antes de usarlo.",
+    "sourceIds": [
+      "src-openai-eval-best-practices"
+    ]
+  },
+  {
+    "id": "m09-mc29",
+    "courseId": "m09",
+    "description": "Un modelo como juez es imparcial, porque no tiene preferencias.",
+    "whyWrong": "Los jueces muestran sesgos de posición, de longitud y de autopreferencia documentados.",
+    "sourceIds": [
+      "src-arxiv-llm-judge",
+      "src-arxiv-llm-judge-biases"
+    ]
+  },
+  {
+    "id": "m09-mc30",
+    "courseId": "m09",
+    "description": "Con una muestra pequeña no se puede concluir nada.",
+    "whyWrong": "Una muestra pequeña detecta diferencias grandes, aunque no las pequeñas; la conclusión dice qué tamaño de diferencia se podía ver.",
+    "sourceIds": [
+      "src-anthropic-stat-evals"
+    ]
+  },
+  {
+    "id": "m09-mc31",
+    "courseId": "m09",
+    "description": "Los resultados de las versiones dicen si un caso está bien hecho.",
+    "whyWrong": "Si nadie aprueba un caso, no se sabe si falla el sistema o el caso; la solución de referencia lo aclara antes de comparar.",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc32",
+    "courseId": "m09",
+    "description": "Que los ensayos compartan carpeta o historial no afecta a la eval.",
+    "whyWrong": "Lo que deja un ensayo puede ayudar o perjudicar al siguiente; cada ensayo debe partir de un entorno limpio.",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc33",
+    "courseId": "m09",
+    "description": "Más ensayos compensan que los ensayos no sean independientes.",
+    "whyWrong": "Si los ensayos comparten estado, sumar más repite el mismo problema; primero se aísla cada ensayo.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  }
+]

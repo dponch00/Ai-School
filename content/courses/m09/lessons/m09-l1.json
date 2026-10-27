@@ -1,0 +1,45 @@
+{
+  "id": "m09-l1",
+  "courseId": "m09",
+  "version": "0.1.0",
+  "order": 1,
+  "title": "Tests y evals: qué se mide y con qué cifra",
+  "objectives": [
+    {
+      "id": "m09-l1-o1",
+      "statement": "Distingue lo que se comprueba con un test de software de lo que se mide con una eval.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m09-eo1"
+    },
+    {
+      "id": "m09-l1-o2",
+      "statement": "Identifica la tarea, el ensayo, el grader y el resultado de una eval.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m09-eo1"
+    },
+    {
+      "id": "m09-l1-o3",
+      "statement": "Elige entre pass@k y pass^k según cómo se usará el resultado.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m09-eo1"
+    }
+  ],
+  "bodyPath": "courses/m09/lessons/m09-l1.md",
+  "reviewQuestionIds": [],
+  "checkQuestionIds": [
+    "m09-l1-c1",
+    "m09-l1-c2",
+    "m09-l1-c3",
+    "m09-l1-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [],
+  "sourceIds": [
+    "src-anthropic-glossary",
+    "src-anthropic-evals-agents",
+    "src-openai-eval-best-practices",
+    "src-arxiv-tau-bench"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

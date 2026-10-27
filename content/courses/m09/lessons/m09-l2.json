@@ -1,0 +1,50 @@
+{
+  "id": "m09-l2",
+  "courseId": "m09",
+  "version": "0.1.0",
+  "order": 2,
+  "title": "Casos normales, límite y adversariales",
+  "objectives": [
+    {
+      "id": "m09-l2-o1",
+      "statement": "Identifica qué tipos de caso le faltan a un conjunto.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m09-eo2"
+    },
+    {
+      "id": "m09-l2-o2",
+      "statement": "Decide cómo incorporar un fallo real al conjunto.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m09-eo2"
+    },
+    {
+      "id": "m09-l2-o3",
+      "statement": "Reconoce un caso roto o un conjunto contaminado.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m09-eo2"
+    }
+  ],
+  "bodyPath": "courses/m09/lessons/m09-l2.md",
+  "reviewQuestionIds": [
+    "m09-l2-r1",
+    "m09-l2-r2"
+  ],
+  "checkQuestionIds": [
+    "m09-l2-c1",
+    "m09-l2-c2",
+    "m09-l2-c3",
+    "m09-l2-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [],
+  "sourceIds": [
+    "src-anthropic-evals-agents",
+    "src-anthropic-stat-evals",
+    "src-openai-eval-best-practices",
+    "src-anthropic-develop-tests",
+    "src-arxiv-synthetic-groundhog",
+    "src-google-mlcc-datasets"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

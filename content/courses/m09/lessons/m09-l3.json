@@ -1,0 +1,56 @@
+{
+  "id": "m09-l3",
+  "courseId": "m09",
+  "version": "0.1.0",
+  "order": 3,
+  "title": "Rúbricas, juez calibrado y comparación de versiones",
+  "objectives": [
+    {
+      "id": "m09-l3-o1",
+      "statement": "Elige el grader adecuado para cada criterio de una rúbrica.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m09-eo3"
+    },
+    {
+      "id": "m09-l3-o2",
+      "statement": "Identifica el sesgo o la falta de calibración de un juez.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m09-eo3"
+    },
+    {
+      "id": "m09-l3-o3",
+      "statement": "Concluye solo lo que una comparación de versiones sostiene.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m09-eo3"
+    }
+  ],
+  "bodyPath": "courses/m09/lessons/m09-l3.md",
+  "reviewQuestionIds": [
+    "m09-l3-r1",
+    "m09-l3-r2"
+  ],
+  "checkQuestionIds": [
+    "m09-l3-c1",
+    "m09-l3-c2",
+    "m09-l3-c3",
+    "m09-l3-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m09-pc-eval-platforms",
+    "m09-pc-judge-guidance"
+  ],
+  "sourceIds": [
+    "src-anthropic-evals-agents",
+    "src-anthropic-develop-tests",
+    "src-openai-eval-best-practices",
+    "src-arxiv-llm-judge",
+    "src-arxiv-fair-evaluators",
+    "src-arxiv-self-preference",
+    "src-arxiv-models-think-alike",
+    "src-arxiv-llm-judge-biases",
+    "src-anthropic-stat-evals"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

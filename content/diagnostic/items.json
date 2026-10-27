@@ -1015,7 +1015,7 @@
     "fixedOrder": false,
     "sectionRef": "m09-l3",
     "sourceIds": [
-      "src-anthropic-eng-evals",
+      "src-anthropic-evals-agents",
       "src-openai-eval-best-practices",
       "src-arxiv-llm-judge"
     ],
@@ -1060,7 +1060,7 @@
     "fixedOrder": false,
     "sectionRef": "m09-l1",
     "sourceIds": [
-      "src-anthropic-eng-evals"
+      "src-anthropic-evals-agents"
     ],
     "status": "draft"
   }

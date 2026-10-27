@@ -424,7 +424,7 @@
     "description": "Unos pocos ejemplos probados una vez bastan para decidir qué versión de un prompt es mejor.",
     "whyWrong": "Los modelos no son deterministas y tres ejemplos no cubren casos límite; hacen falta casos fijos y varios ensayos.",
     "sourceIds": [
-      "src-anthropic-eng-evals",
+      "src-anthropic-evals-agents",
       "src-openai-eval-best-practices",
       "src-arxiv-llm-judge"
     ]
@@ -435,7 +435,7 @@
     "description": "Pedirle a un modelo una sola vez que elija la mejor versión es una evaluación suficiente.",
     "whyWrong": "Un juez LLM sin rúbrica ni calibración tiene sesgos (orden, longitud) y su juicio varía entre corridas.",
     "sourceIds": [
-      "src-anthropic-eng-evals",
+      "src-anthropic-evals-agents",
       "src-openai-eval-best-practices",
       "src-arxiv-llm-judge"
     ]
@@ -446,7 +446,7 @@
     "description": "Si una tarea sale bien al menos una vez en varios intentos, es fiable para producción.",
     "whyWrong": "Acertar alguna vez mide capacidad, no consistencia; un proceso que corre solo debe acertar en cada ejecución.",
     "sourceIds": [
-      "src-anthropic-eng-evals"
+      "src-anthropic-evals-agents"
     ]
   },
   {
@@ -455,7 +455,7 @@
     "description": "Reintentar más veces convierte una tarea inestable en fiable.",
     "whyWrong": "Los reintentos esconden la inestabilidad y no indican cuándo un resultado es correcto si no hay una comprobación.",
     "sourceIds": [
-      "src-anthropic-eng-evals"
+      "src-anthropic-evals-agents"
     ]
   }
 ]

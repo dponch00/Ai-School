@@ -58,13 +58,17 @@
     "title": "Define success criteria and build evaluations",
     "organization": "Anthropic",
     "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
-    "accessedAt": "2026-10-21",
+    "accessedAt": "2026-10-26",
     "supports": [
-      "Definir criterios de éxito medibles y evaluar con casos antes de elegir una configuración"
+      "Definir criterios de éxito medibles y evaluar con casos antes de elegir una configuración",
+      "Reflejar la distribución real de la tarea e incluir casos límite",
+      "Orden de graders: código primero, persona si no hay otra opción, modelo probado antes",
+      "Rúbricas detalladas, salida acotada y razonamiento del juez antes del veredicto",
+      "Evaluar con un modelo distinto del que generó la salida"
     ],
     "kind": "primary",
     "volatility": "medium",
-    "nextReview": "2027-04-21"
+    "nextReview": "2027-04-26"
   },
   {
     "id": "src-anthropic-cc-security",
@@ -323,44 +327,39 @@
     "nextReview": "2027-04-21"
   },
   {
-    "id": "src-anthropic-eng-evals",
-    "title": "Demystifying evals for AI agents",
-    "organization": "Anthropic",
-    "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
-    "accessedAt": "2026-10-21",
-    "supports": [
-      "Evaluar con conjuntos fijos de tareas y varios intentos",
-      "pass@k mide acertar al menos una vez; pass^k, acertar en todos los intentos"
-    ],
-    "kind": "primary",
-    "volatility": "medium",
-    "nextReview": "2027-04-21"
-  },
-  {
     "id": "src-openai-eval-best-practices",
     "title": "Evaluation best practices",
     "organization": "OpenAI",
     "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
-    "accessedAt": "2026-10-21",
+    "accessedAt": "2026-10-26",
     "supports": [
-      "Comparar versiones con casos representativos y jueces calibrados"
+      "Comparar versiones con casos representativos y jueces calibrados",
+      "Tres usos de la palabra «evals»",
+      "Casos típicos, límite y adversariales; evitar conjuntos que no reflejan el uso real",
+      "Preferir comparación por pares o pasa/no pasa",
+      "Calibrar el juez contra etiquetas humanas antes de escalarlo",
+      "Controlar posición y longitud al comparar",
+      "Registrar todo y extraer casos de los registros",
+      "Recomienda el modelo más capaz como juez"
     ],
     "kind": "primary",
     "volatility": "medium",
-    "nextReview": "2027-04-21"
+    "nextReview": "2027-04-26"
   },
   {
     "id": "src-arxiv-llm-judge",
     "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
     "organization": "Zheng et al. (2023)",
     "url": "https://arxiv.org/abs/2306.05685",
-    "accessedAt": "2026-10-21",
+    "accessedAt": "2026-10-26",
     "supports": [
-      "Los jueces LLM muestran sesgos de posición y de longitud"
+      "Los jueces LLM muestran sesgos de posición y de longitud",
+      "Un juez fuerte superó el 80 % de acuerdo con personas, el mismo nivel que entre personas",
+      "Sesgos de posición, verbosidad y autopreferencia, y razonamiento limitado"
     ],
     "kind": "primary",
     "volatility": "low",
-    "nextReview": "2027-10-21"
+    "nextReview": "2027-10-26"
   },
   {
     "id": "src-anthropic-cc-headless",
@@ -464,7 +463,7 @@
     "title": "Demystifying evals for AI agents (2026-01-09)",
     "organization": "Anthropic",
     "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
-    "accessedAt": "2026-10-21",
+    "accessedAt": "2026-10-26",
     "supports": [
       "Tarea, ensayo, calificador, transcripción y resultado",
       "tipos de calificador",
@@ -475,11 +474,20 @@
       "conjuntos balanceados",
       "leer transcripciones",
       "calificar resultados, no rutas",
-      "\"Unknown\""
+      "\"Unknown\"",
+      "Evaluar un agente es evaluar el modelo junto con su arnés",
+      "El resultado es el estado final del entorno, no lo que el agente dice",
+      "Ensayos aislados en un entorno limpio",
+      "Fuentes de tareas: pruebas manuales, uso habitual y registros de errores",
+      "Puntuación ponderada, binaria o mixta",
+      "Un juez aislado por dimensión",
+      "Capas de control como un queso suizo",
+      "Evaluar con conjuntos fijos de tareas y varios intentos",
+      "pass@k mide acertar al menos una vez; pass^k, acertar en todos los intentos"
     ],
     "kind": "primary",
     "volatility": "medium",
-    "nextReview": "2027-04-21"
+    "nextReview": "2027-04-26"
   },
   {
     "id": "src-anthropic-cot-faithfulness",
@@ -664,11 +672,13 @@
     "title": "Evals (guía)",
     "organization": "OpenAI",
     "url": "https://developers.openai.com/api/docs/guides/evals",
-    "accessedAt": "2026-10-21",
+    "accessedAt": "2026-10-26",
     "supports": [
       "Evals en solo lectura el 2026-10-31 y cierre el 2026-11-30",
       "Datasets como alternativa",
-      "flujo básico (`data_source_config`, `testing_criteria`, runs)"
+      "flujo básico (`data_source_config`, `testing_criteria`, runs)",
+      "Aviso de cierre: solo lectura el 2026-10-31 y cierre el 2026-11-30, con fechas sujetas a cambio",
+      "Evals con data_source_config, testing_criteria y ejecuciones"
     ],
     "kind": "primary",
     "volatility": "high",
@@ -4547,6 +4557,176 @@
     ],
     "kind": "primary",
     "volatility": "very-high",
+    "nextReview": "2027-01-26"
+  },
+  {
+    "id": "src-arxiv-tau-bench",
+    "title": "τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains (arXiv:2406.12045, 2024)",
+    "organization": "Yao, Shinn, Razavi y Narasimhan",
+    "url": "https://arxiv.org/abs/2406.12045",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "pass^k mide la fiabilidad de un agente en varios ensayos de la misma tarea",
+      "El éxito se mide comparando el estado final de la base de datos con el esperado",
+      "Los mejores agentes resolvieron menos de la mitad de las tareas y pass^8 quedó por debajo del 25 % en un dominio"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-26"
+  },
+  {
+    "id": "src-anthropic-stat-evals",
+    "title": "A statistical approach to model evaluations (2024-11-19)",
+    "organization": "Anthropic",
+    "url": "https://www.anthropic.com/research/statistical-approach-to-model-evals",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Tratar la puntuación de una eval como estimación con error estándar e intervalo de confianza",
+      "Analizar diferencias pareadas cuando dos versiones responden las mismas preguntas",
+      "Las evals pequeñas solo detectan diferencias grandes; análisis de potencia antes de correr"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-26"
+  },
+  {
+    "id": "src-google-mlcc-datasets",
+    "title": "Dividing the original dataset (Machine Learning Crash Course)",
+    "organization": "Google",
+    "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Ajustar repetidamente contra el conjunto de validación o de prueba lo vuelve menos fiable",
+      "Los duplicados entre ajuste y prueba inflan los resultados; la prueba justa es con ejemplos nuevos"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-26"
+  },
+  {
+    "id": "src-arxiv-fair-evaluators",
+    "title": "Large Language Models are not Fair Evaluators (arXiv:2305.17926, 2023)",
+    "organization": "Wang et al.",
+    "url": "https://arxiv.org/abs/2305.17926",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "El ranking de un juez LLM cambia al alterar el orden de presentación",
+      "Con un juez, un modelo pequeño ganó 66 de 80 comparaciones solo por el orden",
+      "Mitigaciones: evidencia antes del puntaje, promediar ambos órdenes y llevar los casos dudosos a personas"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-26"
+  },
+  {
+    "id": "src-arxiv-self-preference",
+    "title": "LLM Evaluators Recognize and Favor Their Own Generations (arXiv:2404.13076, 2024)",
+    "organization": "Panickssery, Bowman y Feng",
+    "url": "https://arxiv.org/abs/2404.13076",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Los jueces LLM puntúan mejor sus propios textos que otros de calidad similar según personas",
+      "La autopreferencia crece con la capacidad de reconocer los textos propios"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-26"
+  },
+  {
+    "id": "src-arxiv-models-think-alike",
+    "title": "Great Models Think Alike and this Undermines AI Oversight (arXiv:2502.04313, 2025)",
+    "organization": "Goel et al.",
+    "url": "https://arxiv.org/abs/2502.04313",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Los jueces LLM favorecen a modelos parecidos a ellos, medido por el solapamiento de errores",
+      "Los errores de modelos capaces están cada vez más correlacionados, un riesgo para la supervisión entre modelos"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-26"
+  },
+  {
+    "id": "src-arxiv-llm-judge-biases",
+    "title": "Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge (arXiv:2410.02736, 2024)",
+    "organization": "Ye et al.",
+    "url": "https://arxiv.org/abs/2410.02736",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Doce tipos de sesgo en jueces LLM",
+      "Aunque los modelos avanzados juzgan bien en general, persisten sesgos en tareas concretas"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-26"
+  },
+  {
+    "id": "src-openai-deprecations",
+    "title": "Deprecations (entrada del 2026-06-03: Evals)",
+    "organization": "OpenAI",
+    "url": "https://developers.openai.com/api/docs/deprecations",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Cierre de la plataforma Evals anunciado el 2026-06-03",
+      "Evals existentes en solo lectura el 2026-10-31; panel y API cierran el 2026-11-30"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2026-12-01"
+  },
+  {
+    "id": "src-openai-evals-to-promptfoo",
+    "title": "Moving from OpenAI Evals to Promptfoo (cookbook)",
+    "organization": "OpenAI",
+    "url": "https://developers.openai.com/cookbook/examples/evaluation/moving-from-openai-evals-to-promptfoo",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Guía para recrear las evals en un archivo de configuración con CLI o integración continua",
+      "Las ejecuciones anteriores no se trasladan"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2026-12-01"
+  },
+  {
+    "id": "src-openai-datasets-guide",
+    "title": "Getting started with datasets",
+    "organization": "OpenAI",
+    "url": "https://developers.openai.com/api/docs/guides/evaluation-getting-started",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Datasets: filas de casos, prompts versionados, comparación de prompts, anotaciones y graders",
+      "La página muestra el aviso de cierre de la plataforma Evals"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2026-12-01"
+  },
+  {
+    "id": "src-promptfoo-assertions",
+    "title": "Assertions & metrics (expected outputs)",
+    "organization": "Promptfoo",
+    "url": "https://www.promptfoo.dev/docs/configuration/expected-outputs/",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Aserciones deterministas (igualdad, contiene, regex, JSON, funciones en JavaScript o Python) y evaluadas por modelo (rúbrica, factualidad, comparación)"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-26"
+  },
+  {
+    "id": "src-promptfoo-github",
+    "title": "promptfoo/promptfoo (repositorio)",
+    "organization": "Promptfoo",
+    "url": "https://github.com/promptfoo/promptfoo",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Herramienta de código abierto con licencia MIT para probar prompts y agentes, en local o en integración continua",
+      "El README dice que el proyecto ahora es parte de OpenAI"
+    ],
+    "kind": "primary",
+    "volatility": "high",
     "nextReview": "2027-01-26"
   }
 ]

@@ -1,0 +1,72 @@
+{
+  "id": "m09",
+  "version": "0.1.0",
+  "title": "Evaluación, confiabilidad y control",
+  "centralQuestion": "¿Qué evidencia demuestra que una versión es mejor y es segura?",
+  "competencyIds": [
+    "C12",
+    "C11",
+    "C05",
+    "C08"
+  ],
+  "evaluatedObjectives": [
+    {
+      "id": "m09-eo1",
+      "statement": "Dado un sistema con modelo (un prompt, un flujo o un agente) y una propuesta para medirlo, distingue qué se comprueba con un test de software y qué con una eval, identifica tarea, ensayo, grader y resultado (lo que quedó hecho, no lo que el sistema afirma) y elige entre pass@k y pass^k según cómo se usará el resultado.",
+      "competencyIds": [
+        "C12"
+      ]
+    },
+    {
+      "id": "m09-eo2",
+      "statement": "Dado un conjunto de casos para evaluar un prompt o un agente, identifica qué falta (casos normales, límite y adversariales; casos donde la conducta debe y no debe ocurrir; solución de referencia), decide cómo incorporar un fallo real (reproducido con datos sintéticos, con su procedencia, como regresión) y reconoce un caso roto o un conjunto contaminado.",
+      "competencyIds": [
+        "C12"
+      ]
+    },
+    {
+      "id": "m09-eo3",
+      "statement": "Dados los criterios de una rúbrica y los resultados de dos versiones, elige el grader de cada criterio (código, modelo o persona), identifica el sesgo o la falta de calibración de un juez (posición, longitud, autopreferencia, poco acuerdo con las etiquetas humanas) y concluye solo lo que la comparación sostiene.",
+      "competencyIds": [
+        "C12",
+        "C05"
+      ]
+    },
+    {
+      "id": "m09-eo4",
+      "statement": "Dado un resultado con cifras, fuentes o afirmaciones de haber ejecutado algo, elige el control que atrapa cada error (reconciliación independiente, invariante, cifra ligada a su etiqueta, fuente entre las entregadas, evidencia en la transcripción) e identifica lo que ese control no ve, incluido el error del propio grader.",
+      "competencyIds": [
+        "C12",
+        "C08"
+      ]
+    },
+    {
+      "id": "m09-eo5",
+      "statement": "Dado un flujo que lee contenido no confiable, identifica la vía de inyección (directa o indirecta) y el daño posible (una acción, una filtración o un análisis alterado), elige la combinación de capas (mínimo privilegio, aprobación, control determinista, revisión de la salida, separar la entrada no confiable de los datos sensibles y de las acciones externas) e identifica qué deja pasar cada capa.",
+      "competencyIds": [
+        "C11"
+      ]
+    },
+    {
+      "id": "m09-eo6",
+      "statement": "Dado un cambio de versión (prompt, modelo o grader) y su evidencia, decide quién revisa y cómo (alguien independiente del autor, en contexto limpio, con criterio), reconoce los límites de la segunda opinión (autopreferencia, errores correlacionados, complacencia, revisor que siempre encuentra algo) y elige qué registrar y qué casos pasan a regresión.",
+      "competencyIds": [
+        "C05",
+        "C12"
+      ]
+    }
+  ],
+  "lessonIds": [
+    "m09-l1",
+    "m09-l2",
+    "m09-l3",
+    "m09-l4",
+    "m09-l5",
+    "m09-l6"
+  ],
+  "practiceId": "m09-lab",
+  "estimatedMinutes": 180,
+  "volatility": "medium",
+  "reviewCadence": "semiannual",
+  "status": "draft"
+}
