@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-27 |
 | Depende de | T-046 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -91,4 +91,10 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 
 ## Entrega
 
-_(Codex)_
+Informe: `investigacion/codex-revision-m10-l1-l3.md`.
+
+Hallazgos: 2 bajos. La lección convierte el objetivo de una necesidad en «decisión» como si lo exigiera su fuente, y atribuye a axe-core ser el motor más usado sin fuente de adopción. Se verificaron sin hallazgo las 16 preguntas, sus distractores, las fuentes y cifras de las lecciones, las tres fichas, el tiempo, el alcance y la separación entre `m10-eo6` y M09.
+
+Verificación: 24 fuentes abiertas y contrastadas; revisión estática de 16 ítems con una clave, ancla y fuente existente por ítem, y razón máxima de longitud de opciones de 1,25.
+
+Commit de entrega: pendiente de registrar tras el commit local.
