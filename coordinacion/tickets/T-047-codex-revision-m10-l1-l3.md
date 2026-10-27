@@ -97,4 +97,4 @@ Hallazgos: 2 bajos. La lección convierte el objetivo de una necesidad en «deci
 
 Verificación: 24 fuentes abiertas y contrastadas; revisión estática de 16 ítems con una clave, ancla y fuente existente por ítem, y razón máxima de longitud de opciones de 1,25.
 
-Commit de entrega: pendiente de registrar tras el commit local.
+Commit de entrega: `63a44e7ed2a8ad7a1fb6c787694e7e8d91efd8f1` (`[codex] Entrega T-047: revisión M10 L1-L3`).
