@@ -19,7 +19,7 @@ export default function Library() {
           const body = (
             <>
               {cover && (
-                <img className="course-card__cover" src={`/images/${cover}-480.webp`} srcSet={imageSrcSet(cover)} sizes="(min-width: 60rem) 24rem, 100vw" alt="" width={1600} height={900} loading="lazy" />
+                <img className="course-card__cover" src={`${import.meta.env.BASE_URL}images/${cover}-480.webp`} srcSet={imageSrcSet(cover)} sizes="(min-width: 60rem) 24rem, 100vw" alt="" width={1600} height={900} loading="lazy" />
               )}
               <div className="course-card__body">
                 <p className="course-card__code">{c.id.toUpperCase()}</p>

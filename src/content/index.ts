@@ -106,6 +106,9 @@ const inflight = new Map<string, Promise<CoursePackage>>()
  * Descarga el paquete de un curso y verifica su integridad (SRI). Con el SW activo, la respuesta queda en su
  * caché y el curso funciona sin conexión. Si no hay red y no se descargó antes, falla con un mensaje claro.
  */
+/** URL del paquete bajo la ruta base de la app ('/' en local, '/Ai-School/' en GitHub Pages). */
+const packageUrl = (url: string) => import.meta.env.BASE_URL + url.replace(/^\//, '')
+
 export function loadCourse(id: string, fetcher: typeof fetch = fetch): Promise<CoursePackage> {
   const hit = loaded.get(id)
   if (hit) return Promise.resolve(hit)
@@ -113,7 +116,7 @@ export function loadCourse(id: string, fetcher: typeof fetch = fetch): Promise<C
   if (pending) return pending
   const course = getCourse(id)
   if (!course) return Promise.reject(new Error(`No existe el curso ${id}`))
-  const p = fetcher(course.package.url, { integrity: course.package.integrity })
+  const p = fetcher(packageUrl(course.package.url), { integrity: course.package.integrity })
     .then(async (r) => {
       if (!r.ok) throw new Error(`HTTP ${r.status}`)
       const pkg = (await r.json()) as CoursePackage
@@ -173,7 +176,7 @@ export async function isCourseOffline(id: string): Promise<boolean> {
   const course = getCourse(id)
   if (!course || typeof caches === 'undefined') return false
   try {
-    return !!(await caches.match(course.package.url))
+    return !!(await caches.match(packageUrl(course.package.url)))
   } catch {
     // Algunos entornos (un iframe aislado, navegación privada) no dejan usar la caché.
     return false
@@ -187,5 +190,5 @@ export const loadSearchDocs = (): Promise<SearchDoc[]> => import('../generated/s
 export const covers: Record<string, string> = { m02: 'm02-cover' }
 
 export function imageSrcSet(name: string): string {
-  return [480, 960, 1600].map((w) => `/images/${name}-${w}.webp ${w}w`).join(', ')
+  return [480, 960, 1600].map((w) => `${import.meta.env.BASE_URL}images/${name}-${w}.webp ${w}w`).join(', ')
 }

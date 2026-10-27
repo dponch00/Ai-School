@@ -8,7 +8,7 @@ export default function Home() {
       <section className="hero">
         <img
           className="hero__image"
-          src="/images/hero-960.webp"
+          src={`${import.meta.env.BASE_URL}images/hero-960.webp`}
           srcSet={imageSrcSet('hero')}
           sizes="(min-width: 76rem) 76rem, 100vw"
           alt=""

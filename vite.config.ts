@@ -7,9 +7,11 @@ import { VitePWA } from 'vite-plugin-pwa'
 // Build de un solo archivo para la versión de prueba del celular: sin fragmentos ni SW (AIS_SINGLE=1).
 const single = process.env.AIS_SINGLE === '1'
 
-// Origen propio en <org>.github.io (D-013), por eso base '/'.
+// Ruta base: '/' en local; '/Ai-School/' en GitHub Pages (AIS_BASE lo fija el flujo de despliegue).
+const base = process.env.AIS_BASE ?? '/'
+
 export default defineConfig({
-  base: '/',
+  base,
   ...(single
     ? {
         build: { outDir: 'dist-single', rolldownOptions: { output: { codeSplitting: false } } },
@@ -31,19 +33,19 @@ export default defineConfig({
       manifest: {
         name: 'AI School',
         short_name: 'AI School',
-        description: 'Academia personal de IA aplicada: manuales, laboratorios, exámenes y expediente de aprendizaje.',
+        description: 'Academia personal de IA aplicada: manuales, laboratorios y exámenes de opción múltiple.',
         lang: 'es',
-        start_url: '/',
-        scope: '/',
+        start_url: base,
+        scope: base,
         display: 'standalone',
         background_color: '#F5F0E6',
         theme_color: '#172A33',
         // Íconos D1 de Codex (T-018). El de 512 sirve también como maskable: el motivo respeta la zona segura.
         icons: [
-          { src: '/icons/icon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
-          { src: '/icons/icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
-          { src: '/icons/icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
-          { src: '/icons/icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+          { src: `${base}icons/icon.svg`, sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
+          { src: `${base}icons/icon-192.png`, sizes: '192x192', type: 'image/png', purpose: 'any' },
+          { src: `${base}icons/icon-512.png`, sizes: '512x512', type: 'image/png', purpose: 'any' },
+          { src: `${base}icons/icon-maskable-512.png`, sizes: '512x512', type: 'image/png', purpose: 'maskable' },
         ],
       },
       injectManifest: {

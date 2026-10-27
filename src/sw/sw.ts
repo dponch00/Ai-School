@@ -23,7 +23,7 @@ registerRoute(new NavigationRoute(createHandlerBoundToURL('index.html')))
 // Paquetes por curso (F2-05): fuera del precache; se guardan al abrir o descargar el curso. El nombre lleva
 // el hash del contenido, así que una versión nueva es otro archivo y las viejas se depuran solas.
 registerRoute(
-  ({ url }) => url.origin === self.location.origin && url.pathname.startsWith('/courses/'),
+  ({ url }) => url.origin === self.location.origin && url.pathname.startsWith(new URL('courses/', self.registration.scope).pathname),
   new CacheFirst({ cacheName: 'ais-courses', plugins: [new ExpirationPlugin({ maxEntries: 20 })] }),
 )
 

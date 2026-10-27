@@ -47,7 +47,7 @@ export default function CourseOverview() {
         <Link to="/cursos">Cursos</Link> <span aria-hidden="true">/</span> {course.id.toUpperCase()}
       </nav>
       {cover && (
-        <img className="course-cover" src={`/images/${cover}-960.webp`} srcSet={imageSrcSet(cover)} sizes="(min-width: 76rem) 76rem, 100vw" alt="" width={1600} height={900} />
+        <img className="course-cover" src={`${import.meta.env.BASE_URL}images/${cover}-960.webp`} srcSet={imageSrcSet(cover)} sizes="(min-width: 76rem) 76rem, 100vw" alt="" width={1600} height={900} />
       )}
       <h1>{course.title}</h1>
       <p className="lead">{course.centralQuestion}</p>
