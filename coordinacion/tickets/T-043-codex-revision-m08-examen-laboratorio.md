@@ -91,7 +91,7 @@ continuidad del laboratorio, las inferencias y las dos frases nuevas de L3 y
 L4. `npm test`: 219/219. No se ejecutó Python, conforme al alcance.
 
 Estado: entregado.
-Commit de entrega: pendiente de registrar tras el commit.
+Commit de entrega: `c3bd080` (`[codex] Entrega T-043: revisión cierre M08`).
 
 ## Revisión
 
