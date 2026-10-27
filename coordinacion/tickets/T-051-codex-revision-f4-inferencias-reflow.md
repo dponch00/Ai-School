@@ -79,4 +79,4 @@ _(Codex · 2026-10-27)_
   ya respalda la fuente de Python y añadir una a `m04-f06-b`.
 - Reflow: portada, lección con preguntas y laboratorio comprobados a 360 px y
   200 %; sin incidencia visual que requiera captura.
-- Commit de entrega: pendiente de registrar.
+- Commit de entrega: `2dff712d1e49f070cbba0568b34817e313de4c69`.
