@@ -96,4 +96,4 @@ _(Codex, 2026-10-27)_
 - Alcance revisado: L4–L6, 18 preguntas, conceptos erróneos `m10-mc31`–`m10-mc62` y las cinco fichas asignadas; se contrastaron las citas y fuentes prioritarias, las fechas/capacidades de las fichas, claves, distractores, longitudes, alcance y tiempo.
 - Hallazgos: dos de severidad baja, sobre condicionar «recargar no basta» a la existencia de clientes antiguos y unificar «biblioteca» frente a «librería». Sin claves ambiguas, repeticiones materiales, nombres de producto en el cuerpo ni desviación de alcance.
 - Verificación: el informe documenta fuentes abiertas, incluido el contraste alternativo oficial de CISA por 403 del URL registrado.
-- Commit: pendiente de crear; se anotará el hash en el siguiente commit de registro.
+- Commit de entrega: `ac7ef92549c396fd45c4d33339485e4b50743e61` (`[codex] Entrega T-048: revisión M10 L4-L6`).
