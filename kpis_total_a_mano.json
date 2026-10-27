@@ -1,0 +1,123 @@
+{
+ "schema_version": "1.0",
+ "as_of_date": "2026-10-19",
+ "reporting_currency": "USD",
+ "kpis": [
+  {
+   "kpi_id": "open_pipeline",
+   "region": "Norte",
+   "value": 1201500.0,
+   "unit": "USD"
+  },
+  {
+   "kpi_id": "weighted_pipeline",
+   "region": "Norte",
+   "value": 542000.0,
+   "unit": "USD"
+  },
+  {
+   "kpi_id": "coverage_ratio",
+   "region": "Norte",
+   "value": 1.2647,
+   "unit": "x"
+  },
+  {
+   "kpi_id": "overdue_count",
+   "region": "Norte",
+   "value": 2,
+   "unit": "count"
+  },
+  {
+   "kpi_id": "open_pipeline",
+   "region": "Centro",
+   "value": 1330500.0,
+   "unit": "USD"
+  },
+  {
+   "kpi_id": "weighted_pipeline",
+   "region": "Centro",
+   "value": 707650.0,
+   "unit": "USD"
+  },
+  {
+   "kpi_id": "coverage_ratio",
+   "region": "Centro",
+   "value": 1.3305,
+   "unit": "x"
+  },
+  {
+   "kpi_id": "overdue_count",
+   "region": "Centro",
+   "value": 2,
+   "unit": "count"
+  },
+  {
+   "kpi_id": "open_pipeline",
+   "region": "Sur",
+   "value": 1240000.0,
+   "unit": "USD"
+  },
+  {
+   "kpi_id": "weighted_pipeline",
+   "region": "Sur",
+   "value": 672675.0,
+   "unit": "USD"
+  },
+  {
+   "kpi_id": "coverage_ratio",
+   "region": "Sur",
+   "value": 1.3778,
+   "unit": "x"
+  },
+  {
+   "kpi_id": "overdue_count",
+   "region": "Sur",
+   "value": 2,
+   "unit": "count"
+  },
+  {
+   "kpi_id": "open_pipeline",
+   "region": "TOTAL",
+   "value": 3780000.0,
+   "unit": "USD"
+  },
+  {
+   "kpi_id": "weighted_pipeline",
+   "region": "TOTAL",
+   "value": 1922325.0,
+   "unit": "USD"
+  },
+  {
+   "kpi_id": "coverage_ratio",
+   "region": "TOTAL",
+   "value": 1.3235,
+   "unit": "x"
+  },
+  {
+   "kpi_id": "overdue_count",
+   "region": "TOTAL",
+   "value": 6,
+   "unit": "count"
+  }
+ ],
+ "data_quality_issues": [
+  {
+   "opp_id": "OPP-1012",
+   "issue": "duplicate_id"
+  },
+  {
+   "opp_id": "OPP-1021",
+   "issue": "missing_close_date"
+  },
+  {
+   "opp_id": "OPP-1036",
+   "issue": "unknown_stage"
+  }
+ ],
+ "assumption_ids": [
+  "A1",
+  "A2",
+  "A3",
+  "A4"
+ ]
+}

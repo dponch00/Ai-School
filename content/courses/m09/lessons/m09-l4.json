@@ -1,0 +1,53 @@
+{
+  "id": "m09-l4",
+  "courseId": "m09",
+  "version": "0.1.0",
+  "order": 4,
+  "title": "Cifras, fuentes y resultados inventados",
+  "objectives": [
+    {
+      "id": "m09-l4-o1",
+      "statement": "Elige el control que atrapa cada clase de invención: cifras, fuentes o resultados de herramientas.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m09-eo4"
+    },
+    {
+      "id": "m09-l4-o2",
+      "statement": "Identifica lo que las reglas de sentido y cada nivel del grader de cifras no ven.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m09-eo4"
+    },
+    {
+      "id": "m09-l4-o3",
+      "statement": "Decide qué hacer cuando el propio grader falla con un caso conocido.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m09-eo4"
+    }
+  ],
+  "bodyPath": "courses/m09/lessons/m09-l4.md",
+  "reviewQuestionIds": [
+    "m09-l4-r1",
+    "m09-l4-r2"
+  ],
+  "checkQuestionIds": [
+    "m09-l4-c1",
+    "m09-l4-c2",
+    "m09-l4-c3",
+    "m09-l4-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [],
+  "sourceIds": [
+    "src-owasp-llm09",
+    "src-arxiv-why-hallucinate",
+    "src-arxiv-pal",
+    "src-arxiv-financebench",
+    "src-hypothesis-docs",
+    "src-python-floatingpoint",
+    "src-anthropic-evals-agents",
+    "src-arxiv-verifiability",
+    "src-scirep-fabricated-citations"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

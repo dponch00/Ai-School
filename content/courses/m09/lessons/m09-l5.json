@@ -1,0 +1,56 @@
+{
+  "id": "m09-l5",
+  "courseId": "m09",
+  "version": "0.1.0",
+  "order": 5,
+  "title": "Inyección de instrucciones: capas y sus límites",
+  "objectives": [
+    {
+      "id": "m09-l5-o1",
+      "statement": "Identifica si una inyección es directa o indirecta y qué daño puede causar.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m09-eo5"
+    },
+    {
+      "id": "m09-l5-o2",
+      "statement": "Elige la combinación de capas para un flujo que lee contenido no confiable.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m09-eo5"
+    },
+    {
+      "id": "m09-l5-o3",
+      "statement": "Identifica qué deja pasar cada capa.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m09-eo5"
+    }
+  ],
+  "bodyPath": "courses/m09/lessons/m09-l5.md",
+  "reviewQuestionIds": [
+    "m09-l5-r1",
+    "m09-l5-r2"
+  ],
+  "checkQuestionIds": [
+    "m09-l5-c1",
+    "m09-l5-c2",
+    "m09-l5-c3",
+    "m09-l5-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m09-pc-injection-protections",
+    "m09-pc-owasp-lists"
+  ],
+  "sourceIds": [
+    "src-owasp-llm01",
+    "src-ncsc-prompt-injection",
+    "src-arxiv-attacker-moves-second",
+    "src-anthropic-pi-defenses",
+    "src-owasp-llm05",
+    "src-owasp-llm06",
+    "src-arxiv-design-patterns-pi",
+    "src-arxiv-camel",
+    "src-meta-agents-rule-of-two"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

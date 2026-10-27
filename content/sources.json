@@ -75,26 +75,32 @@
     "title": "Security (Claude Code)",
     "organization": "Anthropic",
     "url": "https://code.claude.com/docs/en/security",
-    "accessedAt": "2026-10-21",
+    "accessedAt": "2026-10-26",
     "supports": [
-      "El manejo de datos, permisos y red depende del producto y de su configuración"
+      "El manejo de datos, permisos y red depende del producto y de su configuración",
+      "Protecciones contra la inyección: aprobación de operaciones sensibles, comandos de red, lectura web por otra llamada, confianza de carpeta y de .mcp.json",
+      "Ningún sistema es completamente inmune",
+      "/security-review y plugin de guía de seguridad"
     ],
     "kind": "primary",
     "volatility": "high",
-    "nextReview": "2027-01-21"
+    "nextReview": "2027-01-26"
   },
   {
     "id": "src-openai-codex-security",
     "title": "Agent approvals and security (Codex)",
     "organization": "OpenAI",
     "url": "https://learn.chatgpt.com/codex/agent-approvals-security",
-    "accessedAt": "2026-10-21",
+    "accessedAt": "2026-10-26",
     "supports": [
-      "Codex aplica sandbox, aprobaciones y restricciones de red propias de cada entorno"
+      "Codex aplica sandbox, aprobaciones y restricciones de red propias de cada entorno",
+      "Red apagada por defecto en workspace-write; búsqueda web en caché por defecto",
+      "Activar red o búsqueda expone a instrucciones inyectadas",
+      "approvals_reviewer = \"auto_review\""
     ],
     "kind": "primary",
     "volatility": "high",
-    "nextReview": "2027-01-21"
+    "nextReview": "2027-01-26"
   },
   {
     "id": "src-openai-codex-best-practices",
@@ -317,14 +323,18 @@
     "title": "LLM01:2025 Prompt Injection",
     "organization": "OWASP",
     "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
-    "accessedAt": "2026-10-21",
+    "accessedAt": "2026-10-26",
     "supports": [
       "No se conoce una prevención infalible de la inyección de instrucciones",
-      "Mitigaciones: mínimo privilegio, aprobación humana para acciones de riesgo, tratar el contenido externo como no confiable"
+      "Mitigaciones: mínimo privilegio, aprobación humana para acciones de riesgo, tratar el contenido externo como no confiable",
+      "Inyección directa e indirecta",
+      "Puede no existir una prevención infalible",
+      "Mitigaciones: instrucciones, salida validada con código, filtros, mínimo privilegio, aprobación humana, separar contenido externo y pruebas adversariales",
+      "Escenarios de filtración por enlace y de documento manipulado"
     ],
     "kind": "primary",
     "volatility": "medium",
-    "nextReview": "2027-04-21"
+    "nextReview": "2027-04-26"
   },
   {
     "id": "src-openai-eval-best-practices",
@@ -4728,5 +4738,189 @@
     "kind": "primary",
     "volatility": "high",
     "nextReview": "2027-01-26"
+  },
+  {
+    "id": "src-owasp-llm09",
+    "title": "LLM09:2025 Misinformation",
+    "organization": "OWASP",
+    "url": "https://genai.owasp.org/llmrisk/llm092025-misinformation/",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Desinformación: contenido falso con apariencia creíble",
+      "Distingue la alucinación de la confianza excesiva de quien usa el contenido",
+      "Mitigaciones: validación automática de salidas clave, verificación cruzada y supervisión humana"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-26"
+  },
+  {
+    "id": "src-owasp-llm05",
+    "title": "LLM05:2025 Improper Output Handling",
+    "organization": "OWASP",
+    "url": "https://genai.owasp.org/llmrisk/llm052025-improper-output-handling/",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Tratar la salida del modelo como la de un usuario no confiable y validarla antes de pasarla a otros componentes"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-26"
+  },
+  {
+    "id": "src-owasp-llm-top10-2025",
+    "title": "OWASP Top 10 for LLM Applications 2025",
+    "organization": "OWASP",
+    "url": "https://genai.owasp.org/llm-top-10/",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Lista LLM01 a LLM10 de 2025; la página no anuncia una edición 2026"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-26"
+  },
+  {
+    "id": "src-owasp-agentic-top10-2026",
+    "title": "OWASP Top 10 for Agentic Applications for 2026 (2025-12-09)",
+    "organization": "OWASP GenAI Security Project",
+    "url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Fecha de publicación de la lista de riesgos para aplicaciones agénticas (identificadores ASI01 a ASI10)"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-26"
+  },
+  {
+    "id": "src-ncsc-prompt-injection",
+    "title": "Prompt injection is not SQL injection (it may be worse) (2025-12-08)",
+    "organization": "UK National Cyber Security Centre",
+    "url": "https://www.ncsc.gov.uk/blog-post/prompt-injection-is-not-sql-injection",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "El modelo no tiene frontera entre instrucciones y datos, a diferencia de las consultas parametrizadas",
+      "Tratar al modelo como un intermediario que siempre puede confundirse: el riesgo se reduce, no se elimina",
+      "Si el sistema no tolera el riesgo residual, quizá un modelo no sea la herramienta adecuada",
+      "Registrar entradas, salidas, uso de herramientas y llamadas a API"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-26"
+  },
+  {
+    "id": "src-meta-agents-rule-of-two",
+    "title": "Agents Rule of Two: A Practical Approach to AI Agent Security (2025-10-31)",
+    "organization": "Meta",
+    "url": "https://ai.meta.com/blog/practical-ai-agent-security/",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Un agente no debe reunir en una sesión más de dos de: entradas no confiables, acceso a datos sensibles y cambiar estado o comunicarse hacia afuera",
+      "Con las tres, requiere supervisión humana u otra validación fiable",
+      "Límites: no cubre errores ni alucinaciones; las aprobaciones sin leer la rompen"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-26"
+  },
+  {
+    "id": "src-arxiv-design-patterns-pi",
+    "title": "Design Patterns for Securing LLM Agents against Prompt Injections (arXiv:2506.08837, 2025)",
+    "organization": "Beurer-Kellner et al.",
+    "url": "https://arxiv.org/abs/2506.08837",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Los agentes de propósito general no dan garantías con los modelos actuales",
+      "Tras leer una entrada no confiable, el agente debe quedar restringido para que no dispare acciones con consecuencias"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-26"
+  },
+  {
+    "id": "src-arxiv-camel",
+    "title": "Defeating Prompt Injections by Design (arXiv:2503.18813, 2025)",
+    "organization": "Debenedetti et al.",
+    "url": "https://arxiv.org/abs/2503.18813",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Separar el flujo de control del flujo de datos",
+      "Con garantías resolvió el 77 % de las tareas de AgentDojo frente al 84 % sin defensa"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-26"
+  },
+  {
+    "id": "src-arxiv-attacker-moves-second",
+    "title": "The Attacker Moves Second: Stronger Adaptive Attacks Bypass Defenses Against LLM Jailbreaks and Prompt Injections (arXiv:2510.09023, 2025)",
+    "organization": "Nasr et al.",
+    "url": "https://arxiv.org/abs/2510.09023",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Ataques adaptativos superaron doce defensas publicadas con más del 90 % de éxito en la mayoría",
+      "Las defensas deben evaluarse contra atacantes que se adaptan"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-26"
+  },
+  {
+    "id": "src-anthropic-pi-defenses",
+    "title": "Mitigating the risk of prompt injections in browser use (2025-11-24)",
+    "organization": "Anthropic",
+    "url": "https://www.anthropic.com/research/prompt-injection-defenses",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Entrenamiento, clasificadores y red teaming contra la inyección en navegación",
+      "Con salvaguardas, un atacante adaptativo con 100 intentos tuvo éxito en el 1,4 % de los casos",
+      "El problema está lejos de resolverse"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-26"
+  },
+  {
+    "id": "src-arxiv-financebench",
+    "title": "FinanceBench: A New Benchmark for Financial Question Answering (arXiv:2311.11944, 2023)",
+    "organization": "Islam et al.",
+    "url": "https://arxiv.org/abs/2311.11944",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Un sistema con recuperación contestó mal o se negó en el 81 % de una muestra de 150 casos revisados a mano",
+      "Todos los modelos probados mostraron alucinaciones"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-26"
+  },
+  {
+    "id": "src-hypothesis-docs",
+    "title": "Hypothesis (documentación)",
+    "organization": "Hypothesis",
+    "url": "https://hypothesis.readthedocs.io/en/latest/",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Pruebas basadas en propiedades: la herramienta genera entradas, incluidos casos límite, y comprueba que una propiedad se cumpla"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-26"
+  },
+  {
+    "id": "src-keepachangelog",
+    "title": "Keep a Changelog 1.1.0",
+    "organization": "Keep a Changelog",
+    "url": "https://keepachangelog.com/en/1.1.0/",
+    "accessedAt": "2026-10-26",
+    "supports": [
+      "Registro de cambios: lista curada y cronológica de cambios notables por versión, escrita para personas",
+      "Agrupar por tipo de cambio, con fecha y lo más reciente primero",
+      "No basta volcar el historial de commits"
+    ],
+    "kind": "secondary",
+    "volatility": "low",
+    "nextReview": "2027-10-26"
   }
 ]

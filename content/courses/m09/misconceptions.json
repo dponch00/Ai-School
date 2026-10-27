@@ -314,5 +314,268 @@
     "sourceIds": [
       "src-anthropic-evals-agents"
     ]
+  },
+  {
+    "id": "m09-mc34",
+    "courseId": "m09",
+    "description": "Si todos los números del texto están en el contrato, el texto es correcto.",
+    "whyWrong": "Un número puede estar en el contrato y pertenecer a otra región o a otro KPI; cada cifra se liga a su etiqueta.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc35",
+    "courseId": "m09",
+    "description": "Si las regiones suman el total, las cifras están bien.",
+    "whyWrong": "Las reglas de sentido no ven un error que viene de los datos de origen y se arrastra a las sumas sin descuadrarlas, como una moneda mal convertida; hace falta reconciliar por otro camino.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-arxiv-pal"
+    ]
+  },
+  {
+    "id": "m09-mc36",
+    "courseId": "m09",
+    "description": "Un grader de código no se equivoca.",
+    "whyWrong": "Un grader rígido o mal escrito rechaza respuestas correctas o aprueba atajos; se prueba con casos conocidos antes de usarlo.",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc37",
+    "courseId": "m09",
+    "description": "Si la fuente citada está entre las entregadas, la afirmación está respaldada.",
+    "whyWrong": "La fuente puede existir y no decir lo que se afirma; además de comprobar que esté, se lee el pasaje.",
+    "sourceIds": [
+      "src-arxiv-verifiability"
+    ]
+  },
+  {
+    "id": "m09-mc38",
+    "courseId": "m09",
+    "description": "Si el agente dice que corrió el check, se puede dar por hecho.",
+    "whyWrong": "Se califica el resultado, no la afirmación: la ejecución tiene que aparecer en la transcripción y sobre el archivo correcto.",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc39",
+    "courseId": "m09",
+    "description": "Una rúbrica que exige siempre una cifra es más estricta.",
+    "whyWrong": "Premia adivinar; cuando faltan datos, lo correcto es no redactar y pedirlos.",
+    "sourceIds": [
+      "src-arxiv-why-hallucinate"
+    ]
+  },
+  {
+    "id": "m09-mc40",
+    "courseId": "m09",
+    "description": "Si el grader da FAIL, se puede subir la tolerancia hasta que pase.",
+    "whyWrong": "La tolerancia se declara por la precisión que exige la cifra; agrandarla para que algo pase esconde el error.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-python-floatingpoint"
+    ]
+  },
+  {
+    "id": "m09-mc41",
+    "courseId": "m09",
+    "description": "Si el grader reprueba la solución de referencia, la que está mal es la referencia.",
+    "whyWrong": "Una solución de referencia revisada que falla indica un error del grader; se corrige el grader y se vuelve a probar.",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc42",
+    "courseId": "m09",
+    "description": "Una cifra que el modelo calculó bien puede quedar en el texto aunque no esté en el contrato.",
+    "whyWrong": "Las cifras las calcula el código y entran por el contrato; si se quiere un porcentaje nuevo, se agrega al contrato.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-arxiv-pal"
+    ]
+  },
+  {
+    "id": "m09-mc43",
+    "courseId": "m09",
+    "description": "La inyección de instrucciones se resuelve como la inyección SQL, separando datos e instrucciones.",
+    "whyWrong": "Un modelo no tiene esa frontera: todo lo que recibe es texto. El riesgo se reduce, pero no se elimina.",
+    "sourceIds": [
+      "src-ncsc-prompt-injection",
+      "src-owasp-llm01"
+    ]
+  },
+  {
+    "id": "m09-mc44",
+    "courseId": "m09",
+    "description": "Si el flujo no puede enviar ni borrar nada, una inyección no hace daño.",
+    "whyWrong": "Puede alterar el análisis que el flujo redacta, sin ninguna acción visible.",
+    "sourceIds": [
+      "src-owasp-llm01"
+    ]
+  },
+  {
+    "id": "m09-mc45",
+    "courseId": "m09",
+    "description": "Una defensa que bloqueó todos los casos de ataque es segura.",
+    "whyWrong": "Los casos de prueba son fijos; atacantes que se adaptan superaron la mayoría de las defensas publicadas.",
+    "sourceIds": [
+      "src-arxiv-attacker-moves-second"
+    ]
+  },
+  {
+    "id": "m09-mc46",
+    "courseId": "m09",
+    "description": "Con aprobación humana, cualquier combinación de permisos es segura.",
+    "whyWrong": "Las aprobaciones que se dan sin leer anulan la capa; conviene que el agente no reúna en una misma sesión entradas no confiables, datos sensibles y la capacidad de actuar hacia afuera.",
+    "sourceIds": [
+      "src-meta-agents-rule-of-two"
+    ]
+  },
+  {
+    "id": "m09-mc47",
+    "courseId": "m09",
+    "description": "La salida del modelo es de confianza porque la generó nuestro sistema.",
+    "whyWrong": "Se trata como si la hubiera escrito un usuario desconocido y se valida antes de que llegue a otros sistemas.",
+    "sourceIds": [
+      "src-owasp-llm05"
+    ]
+  },
+  {
+    "id": "m09-mc48",
+    "courseId": "m09",
+    "description": "Los controles de código detienen cualquier manipulación del texto.",
+    "whyWrong": "Detienen cifras cambiadas y omisiones; un cambio de tono con las cifras correctas pasa.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-owasp-llm01"
+    ]
+  },
+  {
+    "id": "m09-mc49",
+    "courseId": "m09",
+    "description": "Pedirle al modelo que ignore las órdenes de los documentos es un control.",
+    "whyWrong": "Es una instrucción que cualquier reformulación puede esquivar; los controles no dependen de que el modelo obedezca.",
+    "sourceIds": [
+      "src-ncsc-prompt-injection",
+      "src-arxiv-attacker-moves-second"
+    ]
+  },
+  {
+    "id": "m09-mc50",
+    "courseId": "m09",
+    "description": "Toda inyección llega escondida en un documento externo.",
+    "whyWrong": "También es directa cuando viene en el mensaje de quien usa el sistema.",
+    "sourceIds": [
+      "src-owasp-llm01"
+    ]
+  },
+  {
+    "id": "m09-mc51",
+    "courseId": "m09",
+    "description": "Basta con que el revisor sea otro modelo; cómo se le pide la revisión da igual.",
+    "whyWrong": "Un encargo que adelanta la respuesta sesga al revisor, porque los asistentes tienden a darle la razón a quien pregunta.",
+    "sourceIds": [
+      "src-arxiv-sycophancy"
+    ]
+  },
+  {
+    "id": "m09-mc52",
+    "courseId": "m09",
+    "description": "Si dos modelos coinciden, la conclusión está confirmada.",
+    "whyWrong": "Los errores de los modelos capaces se parecen cada vez más; su coincidencia no es evidencia independiente.",
+    "sourceIds": [
+      "src-arxiv-models-think-alike"
+    ]
+  },
+  {
+    "id": "m09-mc53",
+    "courseId": "m09",
+    "description": "Un revisor que encuentra muchos problemas hizo mejor trabajo.",
+    "whyWrong": "Si se le pide encontrar huecos, casi siempre encuentra alguno; importa lo que afecta a la corrección o a los requisitos.",
+    "sourceIds": [
+      "src-anthropic-cc-best-practices"
+    ]
+  },
+  {
+    "id": "m09-mc54",
+    "courseId": "m09",
+    "description": "El autor del cambio es quien mejor puede elegir los casos para probarlo.",
+    "whyWrong": "Si elige los casos mirando su propia versión, la prueba deja de ser justa; se usan casos que el autor no vio.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-google-mlcc-datasets"
+    ]
+  },
+  {
+    "id": "m09-mc55",
+    "courseId": "m09",
+    "description": "Si la regresión pasa al 100 %, la versión nueva es mejor.",
+    "whyWrong": "La regresión dice que no empeoró en lo conocido; para comparar hacen falta casos nuevos o reservados.",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc56",
+    "courseId": "m09",
+    "description": "El historial de commits ya es el registro de cambios.",
+    "whyWrong": "Registra pasos, no las diferencias que importan ni la evidencia con que se aceptó la versión.",
+    "sourceIds": [
+      "src-keepachangelog"
+    ]
+  },
+  {
+    "id": "m09-mc57",
+    "courseId": "m09",
+    "description": "Si el modelo nuevo es de la misma familia, no hace falta volver a evaluar.",
+    "whyWrong": "Cambiar el modelo cambia lo que se mide; la conclusión anterior caduca.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc58",
+    "courseId": "m09",
+    "description": "Que el modelo revise su propio cálculo equivale a verificarlo.",
+    "whyWrong": "Sin una señal externa, revisar la propia respuesta no mejora de forma fiable; la cifra se comprueba con código.",
+    "sourceIds": [
+      "src-arxiv-self-correct"
+    ]
+  },
+  {
+    "id": "m09-mc59",
+    "courseId": "m09",
+    "description": "Un conjunto de regresión que pasa al 100 % ya no sirve y se puede borrar.",
+    "whyWrong": "Sirve justamente para avisar si una versión futura empeora en lo conocido; se corre con cada cambio.",
+    "sourceIds": [
+      "src-anthropic-evals-agents"
+    ]
+  },
+  {
+    "id": "m09-mc60",
+    "courseId": "m09",
+    "description": "La conversación con el agente que escribió el cambio documenta la decisión.",
+    "whyWrong": "La conversación registra pasos y opiniones del autor; la decisión se documenta con evidencia, revisor y motivo.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-keepachangelog"
+    ]
+  },
+  {
+    "id": "m09-mc61",
+    "courseId": "m09",
+    "description": "Con una buena defensa contra la inyección, sobran las demás capas.",
+    "whyWrong": "Ninguna defensa es infalible; las capas se suman porque cada una deja pasar algo distinto.",
+    "sourceIds": [
+      "src-owasp-llm01",
+      "src-ncsc-prompt-injection"
+    ]
   }
 ]

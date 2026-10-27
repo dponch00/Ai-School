@@ -1,27 +1,27 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 a M08 completos y revisados; M09, lecciones 1 a 3 revisadas (T-044 cerrado); lecciones 4 a 6 en redacción. App publicada en https://dponch00.github.io/Ai-School/ (D-029). · **Actualizado:** 2026-10-26 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 a M08 completos y revisados; M09, lecciones 1 a 3 revisadas (T-044 cerrado); lecciones 4 a 6 en revisión de Codex (T-045). App publicada en https://dponch00.github.io/Ai-School/ (D-029). · **Actualizado:** 2026-10-26 por Claude Code
 
 ## Siguiente acción
 
-1. **Claude:** M09, lecciones 4 a 6; después, T-045 para Codex.
-2. **Codex:** sin ticket abierto hasta T-045. En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
+1. **Codex:** T-045, que revisa las lecciones 4 a 6 de M09, sus preguntas y fichas.
+2. **Claude:** al volver T-045, aplicar sus hallazgos y seguir con el examen, el laboratorio (un caso nuevo, distinto de los ejemplos de las lecciones) y la práctica de M09. En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
 3. **Daniel (a su ritmo):** estudiar los manuales en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Daniel:** instalar la app desde Chrome en el celular (⋮ → Instalar app) y contar si funciona sin wifi.
 
 ## Avance estimado (2026-10-26)
 
-**≈ 77 % de la V1** (rango razonable: 74–80 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 78 % de la V1** (rango razonable: 75–81 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 100 % (hosting resuelto con D-029) | 8,0 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 95 % (publicada en GitHub Pages con D-029; falta confirmar la instalación en el celular de Daniel) | 14,3 |
-| 3 · Nueve manuales restantes | 40 % | 82 % (M01 y M03 a M08 completos y revisados; M09, L1 a L3 en revisión; falta M10) | 32,8 |
+| 3 · Nueve manuales restantes | 40 % | 84 % (M01 y M03 a M08 completos y revisados; M09 con las seis lecciones; faltan su examen, su laboratorio y M10) | 33,6 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 77 %** |
+| **Total** | 100 % | | **≈ 78 %** |
 
 ## Tickets
 
@@ -71,18 +71,26 @@
 | [T-042](coordinacion/tickets/T-042-codex-revision-m08-l4-l6.md) | Codex | Revisión de M08: lecciones 4 a 6, sus preguntas y fichas | cerrado |
 | [T-043](coordinacion/tickets/T-043-codex-revision-m08-examen-laboratorio.md) | Codex | Revisión de M08: banco de examen, laboratorio como caso y práctica | cerrado |
 | [T-044](coordinacion/tickets/T-044-codex-revision-m09-l1-l3.md) | Codex | Revisión de M09: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
+| [T-045](coordinacion/tickets/T-045-codex-revision-m09-l4-l6.md) | Codex | Revisión de M09: lecciones 4 a 6, sus preguntas y fichas | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | `content/courses/m09/**` |
+| Codex (T-045) | `investigacion/codex-revision-m09-l4-l6.md` |
 
 ## Decisiones recientes
 
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-27 · Claude Code — M09, lecciones 4 a 6 (T-045)
+- **Lecciones:** L4, cifras, fuentes y resultados inventados (salidas reales: los errores coherentes pasan las 11 reglas de sentido y `reconcile.py` los rechaza); L5, inyección de instrucciones, capas y sus límites; L6, revisión independiente, regresión y registro, con el caso de Contraloría.
+- **Preguntas y fichas:** 18 preguntas, 28 conceptos erróneos y 3 fichas; 13 fuentes nuevas.
+- **App:** una prueba nueva impide usar `fuentes` o `comprobacion` como ancla de una lección, porque chocan con la página.
+
+**Verificación:** `npm test` 233/233 y lecciones revisadas en el navegador. El revisor de texto revisó la tanda antes del ticket.
 
 ### 2026-10-27 · Claude Code — cierre de T-044 y publicación de la app
 - **T-044:** dos hallazgos menores aplicados (`m09-l2-r1` pregunta por la cifra y no por el umbral; longitudes de `m09-l3-c1`).

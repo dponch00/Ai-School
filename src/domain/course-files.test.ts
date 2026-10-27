@@ -69,6 +69,8 @@ for (const courseDir of readdirSync(resolve(root, 'courses'))) {
         }
         for (const id of [...l.checkQuestionIds, ...l.reviewQuestionIds]) expect(checkIds.has(id), `${l.id} → ${id}`).toBe(true)
         expect(md.includes('::check-questions'), `${l.id} sin marca de comprobación`).toBe(true)
+        // La página de la lección ya usa estos IDs (Toc.tsx, LessonPage.tsx).
+        for (const reserved of ['fuentes', 'comprobacion']) expect(anchors(md).has(reserved), `${l.id} usa el ancla reservada #${reserved}`).toBe(false)
         // Dos capas (M02-R-02): el cuerpo enuncia principios; productos y proveedores solo viven en fichas.
         const vendors = md.match(/\b(Codex|Claude|Copilot|Spec Kit|GPT-?\d|Gemini|Sonnet|Opus|Haiku|Fable|Anthropic|OpenAI|Google|GitHub|Cursor|Databricks|DuckDB|Unity Catalog)\b/g)
         expect(vendors, `${l.id} menciona productos en el cuerpo: ${vendors?.join(', ')}`).toBeNull()

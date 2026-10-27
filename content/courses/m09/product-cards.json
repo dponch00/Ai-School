@@ -35,5 +35,59 @@
       "src-openai-eval-best-practices"
     ],
     "nextReview": "2027-01-26"
+  },
+  {
+    "id": "m09-pc-injection-protections",
+    "product": "Claude Code y Codex · protecciones contra la inyección de instrucciones",
+    "surfaces": [
+      "cli",
+      "ide",
+      "desktop",
+      "cloud"
+    ],
+    "capability": "Claude Code: en el modo de permisos por defecto, las operaciones sensibles piden aprobación; los comandos que traen contenido de la web, como curl o wget, no se aprueban solos; la herramienta de lectura web suele pasar la página por otra llamada al modelo y entrega su respuesta, no la página cruda; al abrir una carpeta nueva aparece un diálogo de confianza, y los servidores de .mcp.json piden su propia aprobación. Con claude -p no aparecen ni el diálogo de confianza ni esa aprobación. La documentación dice que ningún sistema es completamente inmune. Codex: en el modo workspace-write la red está apagada por defecto; la búsqueda web usa por defecto un índice en caché y pasa a ser en vivo cuando se concede acceso total; pide tratar los resultados web como no confiables y advierte que activar la red o la búsqueda permite que contenido inyectado lleve al agente a seguir instrucciones ajenas. Complementa m05-pc-permission-modes.",
+    "kind": "capability",
+    "maturity": "unspecified",
+    "verifiedAt": "2026-10-26",
+    "sourceIds": [
+      "src-anthropic-cc-security",
+      "src-openai-codex-security"
+    ],
+    "nextReview": "2027-01-26"
+  },
+  {
+    "id": "m09-pc-owasp-lists",
+    "product": "OWASP · listas de riesgos para aplicaciones con modelos",
+    "surfaces": [
+      "web"
+    ],
+    "capability": "La lista vigente para aplicaciones con modelos de lenguaje es la de 2025: LLM01 inyección de instrucciones, LLM02 divulgación de información sensible, LLM03 cadena de suministro, LLM04 envenenamiento de datos y modelos, LLM05 manejo inadecuado de la salida, LLM06 agencia excesiva, LLM07 filtración del prompt de sistema, LLM08 debilidades de vectores y embeddings, LLM09 desinformación y LLM10 consumo sin límites. La página no anuncia una edición 2026 de esa lista. Por separado, el 2025-12-09 OWASP publicó una lista de diez riesgos para aplicaciones agénticas 2026 (identificadores ASI01 a ASI10); los nombres de esos riesgos no se verificaron porque la página remite a una descarga. Son listas de referencia, no normas.",
+    "kind": "guidance",
+    "verifiedAt": "2026-10-26",
+    "sourceIds": [
+      "src-owasp-llm-top10-2025",
+      "src-owasp-agentic-top10-2026",
+      "src-owasp-llm01",
+      "src-owasp-llm05",
+      "src-owasp-llm09"
+    ],
+    "nextReview": "2027-04-26"
+  },
+  {
+    "id": "m09-pc-review-tools",
+    "product": "Claude Code y Codex · revisión de seguridad y revisores automáticos",
+    "surfaces": [
+      "cli",
+      "ide"
+    ],
+    "capability": "Claude Code ofrece /security-review, una pasada de seguridad bajo demanda sobre los cambios de la rama, y la página de seguridad enlaza un plugin de guía de seguridad que revisa los cambios del propio agente durante la sesión. Codex permite approvals_reviewer = \"auto_review\", que envía primero las solicitudes de aprobación elegibles a un agente revisor. Las dos documentaciones presentan estas funciones como protecciones que reducen el riesgo, no como garantía. No son una revisión independiente en el sentido de la lección 6: son del mismo proveedor que el agente revisado y sirven como una capa más. Complementa m04-pc-review-agents.",
+    "kind": "capability",
+    "maturity": "unspecified",
+    "verifiedAt": "2026-10-26",
+    "sourceIds": [
+      "src-anthropic-cc-security",
+      "src-openai-codex-security"
+    ],
+    "nextReview": "2027-01-26"
   }
 ]
