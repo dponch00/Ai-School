@@ -80,5 +80,5 @@ Salida: candidata de entrega con evidencias y limitaciones explícitas.
 | F4-06 | Sin conexión, reinicio, respaldo y actualizaciones en la app publicada. Actualizar el plan §13, que pide no descargar todos los cursos al inicio, con lo que decidió D-029 | Claude + Daniel (celular) | — | 🔶 cubierto por pruebas automáticas y plan §13 resuelto en D-029; falta el recorrido de Daniel en el celular |
 | F4-07 | Peso de imágenes, carga inicial y legibilidad | Claude; revisa Codex | — | ✅ 712 KB de imágenes; la app guarda solo las de 480 y 960 px |
 | F4-08 | Fichas con fechas que vencen pronto: `m09-pc-eval-platforms` y `m10-pc-model-retirement` (2026-11-30); revisión antes del 2026-12-01 | Claude | — | 🔶 `scripts/fichas-por-revisar.py` las lista; revisión agendada para el 2026-12-01 |
-| F4-09 | Cerrar los hallazgos críticos y altos, documentar los menores y preparar la candidata de entrega | Claude; revisa Codex (T-052) | F4-01 a F4-08 | 🔶 `docs/entrega-v1.md` y `README.md`; en revisión |
+| F4-09 | Cerrar los hallazgos críticos y altos, documentar los menores y preparar la candidata de entrega | Claude; revisa Codex (T-052) | F4-01 a F4-08 | ✅ `docs/entrega-v1.md` y `README.md`, revisados en T-052 |
 

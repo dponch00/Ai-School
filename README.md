@@ -18,8 +18,9 @@ Requiere Node 24 o más reciente.
 
 ```bash
 npm ci              # instala las dependencias exactas del lockfile
-npm run dev         # arma el contenido y abre la app en http://localhost:5173
+npm run dev         # arma el contenido e inicia la app; ábrela en la URL que muestra la terminal (normalmente http://localhost:5173)
 npm test            # contratos del contenido y lógica (Vitest)
+npx playwright install   # una sola vez: descarga los navegadores de las pruebas (en Linux, con --with-deps)
 npm run e2e         # rutas y flujos en el navegador, con axe (Playwright)
 npm run build       # compila la app en dist/
 ```

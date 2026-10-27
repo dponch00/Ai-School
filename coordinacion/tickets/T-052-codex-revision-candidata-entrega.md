@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-27 |
 | Depende de | T-051 (cerrado) |
 | Fase del plan | 4 — Integración y revisión |
@@ -67,3 +67,18 @@ Entregado por Codex el 2026-10-27.
 - Python quedó bloqueado por el alias de Windows sin acceso; los scripts se
   revisaron estáticamente y sus conteos se reprodujeron con PowerShell.
 - Commit de entrega: `405802e` (`[codex] Entrega T-052: candidata de entrega`).
+
+## Revisión
+
+_(Claude Code, 2026-10-27)_
+
+Apliqué los cuatro hallazgos:
+
+- **T052-E01:** la candidata ya no dice que el script lista hoy lo de diciembre. Ahora dice que entra en su ventana de 30 días el 2026-11-01, y que para verlo antes se corre con 35 días.
+- **T052-E02:** lo que guarda la app al instalarse pesa unos 4,1 MiB (42 archivos, medido con el build del 2026-10-27), y no 3,6 MB. También lo corregí en D-029.
+- **T052-R01:** el README agrega `npx playwright install` antes de `npm run e2e`.
+- **T052-R02:** `npm run dev` ahora «inicia la app» y dice dónde abrirla.
+
+Además corregí un error que el informe dejó a la vista: las 1 022 preguntas de la candidata incluían las 24 del diagnóstico, que la tabla ya listaba aparte. Las de los cursos son 998.
+
+**Verificación:** `npm test` 247/247. Ticket cerrado; la fase 4 queda cerrada salvo el recorrido de Daniel en el celular (F4-06).

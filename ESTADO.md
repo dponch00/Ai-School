@@ -1,19 +1,19 @@
 # Estado del proyecto
 
-**Fase actual:** 4 — Integración y revisión. Los diez manuales están completos y revisados (fase 3 cerrada con T-049). App publicada en https://dponch00.github.io/Ai-School/ (D-029). · **Actualizado:** 2026-10-27 por Claude Code
+**Fase actual:** 4 — Integración y revisión, cerrada salvo el recorrido de Daniel en el celular (F4-06). Candidata de entrega en `docs/entrega-v1.md`. App publicada en https://dponch00.github.io/Ai-School/ (D-029). · **Actualizado:** 2026-10-27 por Claude Code
 
 ## Siguiente acción
 
-1. **Codex:** T-052, la última revisión independiente: la candidata de entrega (`docs/entrega-v1.md`) y el `README.md` nuevo, siguiéndolo de principio a fin.
+1. **Codex:** sin ticket abierto. La fase 5 no necesita otra revisión, salvo que cambie el contenido.
 2. **Daniel (cuando pueda):** en el celular, descargar un respaldo desde «Respaldo», aceptar el aviso de versión nueva cuando aparezca y comprobar que el progreso se conserva (F4-06).
-3. **Claude:** al volver T-052, aplicar sus hallazgos y cerrar la fase 4. El 2026-12-01, revisar las fichas que vencen (`python scripts/fichas-por-revisar.py`).
+3. **Claude:** con el resultado de Daniel, cerrar F4-06 y la fase 5 (punto de continuación y entrega). El 2026-12-01, revisar las fichas que vencen (`python scripts/fichas-por-revisar.py 35` antes del 2026-11-01).
 4. **Pendiente de Daniel (sin prisa):** decidir la licencia del repositorio público. En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
 3. **Daniel (a su ritmo):** estudiar los manuales en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 5. **Daniel (a su ritmo):** estudiar en la app instalada y contar lo que no se entienda o tome demasiado tiempo.
 
 ## Avance estimado (2026-10-26)
 
-**≈ 92 % de la V1** (rango razonable: 90–94 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 94 % de la V1** (rango razonable: 92–96 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
@@ -21,9 +21,9 @@
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 100 % (publicada con D-029 e instalada en el celular de Daniel) | 15,0 |
 | 3 · Nueve manuales restantes | 40 % | 100 % (los diez completos y revisados) | 40,0 |
-| 4 · Integración y revisión | 10 % | 80 % (F4-01 a F4-05 y F4-07 cerrados; candidata de entrega en revisión; falta el recorrido de Daniel en el celular) | 8,0 |
+| 4 · Integración y revisión | 10 % | 95 % (todo cerrado y revisado; falta el recorrido de Daniel en el celular) | 9,5 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 92 %** |
+| **Total** | 100 % | | **≈ 94 %** |
 
 ## Tickets
 
@@ -80,19 +80,22 @@
 | [T-049](coordinacion/tickets/T-049-codex-revision-m10-examen-laboratorio.md) | Codex | Revisión de M10: banco de examen, laboratorio como caso y práctica | cerrado |
 | [T-050](coordinacion/tickets/T-050-codex-recorrido-alumno-referencias.md) | Codex | Fase 4: recorrido como alumno y referencias cruzadas entre manuales | cerrado |
 | [T-051](coordinacion/tickets/T-051-codex-revision-f4-inferencias-reflow.md) | Codex | Fase 4: inferencias declaradas en M01 a M05 y reflujo con letra grande | cerrado |
-| [T-052](coordinacion/tickets/T-052-codex-revision-candidata-entrega.md) | Codex | Fase 4: revisión de la candidata de entrega y del README | abierto |
+| [T-052](coordinacion/tickets/T-052-codex-revision-candidata-entrega.md) | Codex | Fase 4: revisión de la candidata de entrega y del README | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-052) | `investigacion/codex-f4-candidata-entrega.md` |
+| — | — |
 
 ## Decisiones recientes
 
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-27 · Claude Code — T-052 cerrado: candidata de entrega revisada
+Cuatro hallazgos de precisión aplicados: la ventana del script de fichas, el peso real de lo que guarda la app (4,1 MiB), `npx playwright install` en el README y la descripción de `npm run dev`. Se corrigió además el conteo de preguntas de los cursos: 998, sin las 24 del diagnóstico. Codex comprobó el README de principio a fin: `npm ci`, `npm test` 247/247, `npm run build` y `npm run e2e` 158/158.
 
 ### 2026-10-27 · Claude Code — T-051 cerrado; candidata de entrega
 - **T-051:** se quitaron 3 marcas de inferencia y se agregó 1 (`m04-f06-b`); F4-04 queda en 20.

@@ -11,7 +11,7 @@
 | --- | --: |
 | Manuales | 10 |
 | Lecciones | 60 |
-| Preguntas (comprobaciones, examen, práctica y laboratorio) | 1 022 |
+| Preguntas de los cursos (comprobaciones, examen, práctica y laboratorio) | 998 |
 | Laboratorios como caso, de 12 preguntas cada uno | 10 |
 | Fichas de producto fechadas | 68 |
 | Conceptos erróneos ligados a distractores | 683 |
@@ -42,11 +42,11 @@
 - **Tiempos de estudio.** Los 25 minutos por lección y los 30 por laboratorio son estimaciones. Se recalibran con el uso real de Daniel (D-016).
 
 **Lo que caduca y tiene fecha:**
-- `scripts/fichas-por-revisar.py` lista las fichas y fuentes que vencen. Al 2026-10-27, dos fichas y seis fuentes tienen revisión el 2026-12-01, por el cierre de la plataforma de evals de un proveedor y el retiro de un modelo, ambos el 2026-11-30.
+- `scripts/fichas-por-revisar.py` lista las fichas y fuentes que vencen en los próximos 30 días. Dos fichas y seis fuentes tienen revisión el 2026-12-01, por el cierre de la plataforma de evals de un proveedor y el retiro de un modelo, ambos el 2026-11-30. Entran en la ventana de 30 días el 2026-11-01; para verlas antes, `python scripts/fichas-por-revisar.py 35`.
 
 **Decisiones que cambiaron el plan original:**
 - **D-024:** todo de opción múltiple. No hay entregas, expediente exportable ni microtareas.
-- **D-029:** publicación en la cuenta de Daniel y no en una organización. La app guarda todos los cursos al instalarse. Eso reemplaza dos criterios del plan §13: que la carga inicial no descargue todos los cursos, y que los cursos no descargados se identifiquen. Lo primero pesa unos 3,6 MB y no incluye las imágenes de 1 600 px.
+- **D-029:** publicación en la cuenta de Daniel y no en una organización. La app guarda todos los cursos al instalarse. Eso reemplaza dos criterios del plan §13: que la carga inicial no descargue todos los cursos, y que los cursos no descargados se identifiquen. Lo que guarda al instalarse pesa unos 4,1 MiB (42 archivos, medido con `npm run build` el 2026-10-27) y no incluye las imágenes de 1 600 px.
 
 **Contenido:**
 - Todos los datos son sintéticos (Altiplano Industrial S.A.). Las reglas financieras del caso son del curso, no normas oficiales.
