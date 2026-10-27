@@ -100,4 +100,4 @@ Hallazgos: 2 medios. La familia F14 agrupa tres decisiones no equivalentes; `m09
 
 Verificación: revisión estática de 66 ítems; una clave por ítem, referencias y fuentes existentes, conceptos erróneos válidos y razón máxima de longitudes de 1,46.
 
-Commit de entrega: pendiente de registrar tras el commit local.
+Commit de entrega: `e40beaba6e4295311f96ec063e0ef602ed3028b0` (`[codex] Entrega T-046: revisión M09 examen y laboratorio`).
