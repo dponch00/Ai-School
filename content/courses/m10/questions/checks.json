@@ -710,5 +710,812 @@
       "src-govuk-performance-metrics"
     ],
     "status": "draft"
+  },
+  {
+    "id": "m10-l4-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l4",
+    "evaluatedObjectiveId": "m10-eo4",
+    "competencyIds": [
+      "C13"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El flujo de la herramienta de cobranza despliega en cada cambio. Las pruebas corren en un trabajo aparte, y el despliegue no espera su resultado.",
+    "stem": "¿Qué cambias?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: si una prueba falla, se corrige en el próximo cambio",
+        "correct": false,
+        "feedback": "Mientras tanto, la versión rota ya llegó a los usuarios y sigue ahí hasta el próximo cambio. Las pruebas tienen que correr antes, y el despliegue tiene que depender de ellas.",
+        "misconceptionId": "m10-mc31"
+      },
+      {
+        "id": "o2",
+        "text": "Que el despliegue dependa de una construcción con pruebas",
+        "correct": true,
+        "feedback": "Correcta. Si las pruebas corren dentro de la construcción y el despliegue depende de ella, una prueba que falla impide publicar. Mientras tanto, los usuarios siguen con la versión anterior."
+      },
+      {
+        "id": "o3",
+        "text": "Marcar el trabajo de pruebas como opcional",
+        "correct": false,
+        "feedback": "Como viste en el manual 4, un check que se omite cuenta como éxito. Si el paso de pruebas es opcional, puede no correr y la versión se publica igual.",
+        "misconceptionId": "m10-mc54"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l4#cadena",
+    "basis": "inference",
+    "sourceIds": [
+      "src-ghdocs-custom-workflows",
+      "src-github-status-checks"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l4-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l4",
+    "evaluatedObjectiveId": "m10-eo4",
+    "competencyIds": [
+      "C13"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Se publicó una versión nueva del Pulse. Un gerente recargó la app en su teléfono y sigue viendo la versión anterior.",
+    "stem": "¿Por qué puede pasar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Porque la nueva espera a que se cierre la vieja",
+        "correct": true,
+        "feedback": "Correcta. La versión nueva se instala y queda en espera mientras la vieja controle alguna página abierta, para que no corran dos versiones a la vez. Por eso recargar no basta."
+      },
+      {
+        "id": "o2",
+        "text": "Porque la publicación falló y hay que repetirla",
+        "correct": false,
+        "feedback": "La versión nueva puede estar publicada y esperando a que se cierre la vieja. Que el gerente no la vea no prueba que la publicación haya fallado.",
+        "misconceptionId": "m10-mc55"
+      },
+      {
+        "id": "o3",
+        "text": "Porque no recargó bien: recargar siempre la trae",
+        "correct": false,
+        "feedback": "Recargar no basta, porque durante la recarga la versión vieja sigue a cargo de la página. La nueva espera a que se cierren las páginas que usan la vieja.",
+        "misconceptionId": "m10-mc33"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l4#actualizar",
+    "sourceIds": [
+      "src-webdev-sw-lifecycle"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l4-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l4",
+    "evaluatedObjectiveId": "m10-eo4",
+    "competencyIds": [
+      "C13"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "La versión actual de la herramienta es la 1.4.2. La próxima cambia el nombre de un campo del archivo de exportación; la pantalla queda igual.",
+    "stem": "¿Qué número le corresponde?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "1.4.3, porque la pantalla quedó igual que antes",
+        "correct": false,
+        "feedback": "Lo que decide el número es la compatibilidad de lo que otros usan, no la pantalla. El archivo de exportación cambió de forma incompatible, y eso es una versión mayor.",
+        "misconceptionId": "m10-mc34"
+      },
+      {
+        "id": "o2",
+        "text": "1.5.0, porque es una mejora del archivo",
+        "correct": false,
+        "feedback": "El número del medio sube con una función nueva compatible. Renombrar un campo no es compatible, porque un archivo exportado con la versión nueva ya no lo entiende una 1.x.",
+        "misconceptionId": "m10-mc62"
+      },
+      {
+        "id": "o3",
+        "text": "2.0.0, porque el formato deja de ser compatible",
+        "correct": true,
+        "feedback": "Correcta. Un cambio incompatible en lo que otros usan, como el formato de exportación, es una versión mayor aunque la pantalla quede igual. Quien tenga archivos exportados depende de ese formato."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l4#version",
+    "basis": "inference",
+    "sourceIds": [
+      "src-semver-2"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l4-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l4",
+    "evaluatedObjectiveId": "m10-eo4",
+    "competencyIds": [
+      "C13"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El respaldo del repositorio de la herramienta es una copia en un disco externo, que se hace a mano cuando alguien se acuerda. Nunca se probó restaurarla.",
+    "stem": "¿Qué le falta?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada, porque ya existe una copia de todo",
+        "correct": false,
+        "feedback": "Una sola copia, hecha a mano y nunca probada, puede fallar justo cuando se la necesita. Mientras nadie la restaure, no se sabe si sirve.",
+        "misconceptionId": "m10-mc36"
+      },
+      {
+        "id": "o2",
+        "text": "Más copias, una en otro lugar, y probar restaurarlas",
+        "correct": true,
+        "feedback": "Correcta. La guía pide tres copias en dos tipos de almacenamiento, una de ellas en otro lugar, respaldos automáticos y restauraciones de prueba. Hoy hay una sola copia, manual y sin probar."
+      },
+      {
+        "id": "o3",
+        "text": "Hacer la copia más seguido, siempre en el mismo disco",
+        "correct": false,
+        "feedback": "Si ese disco falla o se pierde, se van todas las copias juntas. Faltan otro tipo de almacenamiento, una copia en otro lugar y una restauración de prueba.",
+        "misconceptionId": "m10-mc56"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l4#respaldos",
+    "sourceIds": [
+      "src-cisa-backup-business"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l4-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l4",
+    "evaluatedObjectiveId": "m10-eo3",
+    "competencyIds": [
+      "C13",
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Cada vez que un gerente borra los datos del navegador, la app olvida qué región había elegido y vuelve a mostrar la del Norte.",
+    "stem": "¿Qué tan grave es?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Poco: es una preferencia y se puede perder",
+        "correct": true,
+        "feedback": "Correcta. La región elegida es una preferencia, y si se pierde el gerente la vuelve a elegir sin daño. Lo que hay que proteger es lo que crea el usuario, como la marca «revisada»."
+      },
+      {
+        "id": "o2",
+        "text": "Grave: hay que exportarla, como las marcas",
+        "correct": false,
+        "feedback": "No todo lo que guarda la app vale lo mismo. La exportación sirve para lo que crea el usuario, como las marcas, y elegir la región otra vez cuesta un toque.",
+        "misconceptionId": "m10-mc57"
+      },
+      {
+        "id": "o3",
+        "text": "Grave: hay que guardarla en un servidor",
+        "correct": false,
+        "feedback": "Un servidor para una preferencia obliga a identificar a cada usuario y a mantener otro sistema, sin necesidad. Una preferencia se puede perder sin daño.",
+        "misconceptionId": "m10-mc57"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l3#clases",
+    "basis": "inference",
+    "sourceIds": [
+      "src-react-state-structure"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l4-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l4",
+    "evaluatedObjectiveId": "m10-eo2",
+    "competencyIds": [
+      "C13",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El reporte del agente sobre la pantalla nueva dice: «La hice accesible siguiendo WCAG». No adjunta nada más.",
+    "stem": "¿Qué le pides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada, porque dice que siguió la norma",
+        "correct": false,
+        "feedback": "Que diga que siguió la norma es una afirmación, no una prueba. La evidencia es el resultado de las verificaciones, como el escaneo, la revisión manual y las capturas.",
+        "misconceptionId": "m10-mc13"
+      },
+      {
+        "id": "o2",
+        "text": "Que lo confirme con otro escaneo automático",
+        "correct": false,
+        "feedback": "Un escaneo automático no comprueba todo, y otro escaneo tiene los mismos límites que el primero. Lo que falta es la revisión manual, con el teclado y el texto ampliado.",
+        "misconceptionId": "m10-mc24"
+      },
+      {
+        "id": "o3",
+        "text": "El escaneo, el teclado y capturas al 200 %",
+        "correct": true,
+        "feedback": "Correcta. Al agente se le pide evidencia y no una afirmación, es decir, el escaneo, el recorrido con el teclado y las capturas al 200 %. También conviene que liste lo que no pudo comprobar."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l2#revisar",
+    "basis": "inference",
+    "sourceIds": [
+      "src-playwright-a11y",
+      "src-w3c-easy-checks"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l5-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l5",
+    "evaluatedObjectiveId": "m10-eo5",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Para la herramienta de cobranza, el agente propone un solo documento de 40 páginas que sirva a los gerentes y a quien la mantiene.",
+    "stem": "¿Qué propones?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Mantenerlo: un documento completo sirve a todos",
+        "correct": false,
+        "feedback": "Quien usa y quien mantiene buscan cosas distintas. En 40 páginas mezcladas, ninguno de los dos encuentra lo suyo.",
+        "misconceptionId": "m10-mc37"
+      },
+      {
+        "id": "o2",
+        "text": "Una guía para gerentes y un README aparte",
+        "correct": true,
+        "feedback": "Correcta. Cada lector tiene su documento: el gerente, una guía práctica para su tarea, y quien mantiene, un README para correr, probar, publicar y recuperar la herramienta. Así cada uno encuentra lo que busca."
+      },
+      {
+        "id": "o3",
+        "text": "Alargarlo con más ejemplos para cada lector",
+        "correct": false,
+        "feedback": "Más texto no ayuda a que cada lector encuentre lo suyo. Lo que falta es separar el contenido por lector, no agregarle ejemplos.",
+        "misconceptionId": "m10-mc50"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l5#lectores",
+    "basis": "inference",
+    "sourceIds": [
+      "src-diataxis",
+      "src-github-about-readmes"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l5-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l5",
+    "evaluatedObjectiveId": "m10-eo5",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "La guía de la herramienta de cobranza no dice que los saldos son del cierre del día anterior. Un gerente llamó a un cliente por una factura que ese cliente había pagado esa misma mañana.",
+    "stem": "¿Qué faltaba en la guía?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Declarar de qué fecha son los saldos",
+        "correct": true,
+        "feedback": "Correcta. Un supuesto que no se declara se vuelve el error de otro. La fecha del dato va arriba, en la guía y en la pantalla."
+      },
+      {
+        "id": "o2",
+        "text": "Nada: todos suponen que los saldos son de ayer",
+        "correct": false,
+        "feedback": "Lo que es obvio para quien hizo la herramienta no lo es para quien la usa. Por eso los supuestos se escriben, aunque parezcan evidentes.",
+        "misconceptionId": "m10-mc53"
+      },
+      {
+        "id": "o3",
+        "text": "Explicarlo solo si algún gerente pregunta",
+        "correct": false,
+        "feedback": "Este gerente no preguntó, porque no sabía que había algo que preguntar. Los límites se declaran antes de que alguien use la herramienta, no cuando surge la duda.",
+        "misconceptionId": "m10-mc38"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l5#limitaciones",
+    "basis": "inference",
+    "sourceIds": [
+      "src-arxiv-model-cards"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l5-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l5",
+    "evaluatedObjectiveId": "m10-eo5",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "Un saldo mal calculado por la herramienta de cobranza hizo que se enviara un recordatorio por una deuda que no existía. El código lo escribió un agente, y la analista, dueña de la herramienta, aprobó su PR.",
+    "stem": "¿Quién responde?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El proveedor del agente que escribió el código",
+        "correct": false,
+        "feedback": "La documentación de los agentes de código pone la revisión y la aprobación en quien los usa. El proveedor no aprobó esa PR, y la analista sí.",
+        "misconceptionId": "m10-mc39"
+      },
+      {
+        "id": "o2",
+        "text": "La analista, que es la dueña y aprobó la PR",
+        "correct": true,
+        "feedback": "Correcta. Quien aprueba y publica responde ante los usuarios, aunque el código lo haya escrito un agente. Aprobar la PR era el momento de revisar ese cálculo."
+      },
+      {
+        "id": "o3",
+        "text": "Nadie: la herramienta solo muestra información",
+        "correct": false,
+        "feedback": "Lo que la herramienta mostró llevó a una acción con un cliente. Quien la publica responde por eso, aunque la herramienta no decida nada por sí sola.",
+        "misconceptionId": "m10-mc51"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l5#responsabilidad",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-cc-security",
+      "src-github-copilot-agents-responsible"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l5-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l5",
+    "evaluatedObjectiveId": "m10-eo5",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Para entregar la versión 2.0 de la herramienta, el agente adjunta su resumen: «Todas las pruebas pasan y la pantalla es accesible».",
+    "stem": "¿Qué evidencia falta?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguna, porque el resumen del agente ya lo dice",
+        "correct": false,
+        "feedback": "El resumen del agente es una afirmación, no evidencia. La evidencia son las salidas de las verificaciones, con su fecha.",
+        "misconceptionId": "m10-mc41"
+      },
+      {
+        "id": "o2",
+        "text": "Solo una captura de la pantalla principal",
+        "correct": false,
+        "feedback": "Una captura muestra cómo se ve la pantalla. No muestra si las cifras cuadran, si pasaron las pruebas ni si se puede usar con el teclado.",
+        "misconceptionId": "m10-mc52"
+      },
+      {
+        "id": "o3",
+        "text": "Las salidas de las pruebas y de las revisiones",
+        "correct": true,
+        "feedback": "Correcta. La entrega va con un paquete fechado con las salidas de las pruebas y de la reconciliación, la accesibilidad, la regresión y la revisión independiente. El resumen del agente no reemplaza nada de eso."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l5#evidencia",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-copilot-agents-responsible"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l5-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l5",
+    "evaluatedObjectiveId": "m10-eo4",
+    "competencyIds": [
+      "C13"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Para que nadie use datos viejos, el agente propone activar la versión nueva del Pulse en cuanto se publica, aunque el gerente tenga la app abierta.",
+    "stem": "¿Qué opinas?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Bien: así todos tienen siempre la última versión",
+        "correct": false,
+        "feedback": "Forzar la versión nueva puede mezclar dos versiones en una página abierta, y eso puede romper la app. Además, el gerente vería cambiar las cifras en medio de su tarea.",
+        "misconceptionId": "m10-mc32"
+      },
+      {
+        "id": "o2",
+        "text": "Avisar y dejar que el gerente elija cuándo",
+        "correct": true,
+        "feedback": "Correcta. Se avisa que hay una versión lista y el gerente elige cuándo recargar, así nadie pierde lo que estaba haciendo. Antes de recargar, la app guarda su estado."
+      },
+      {
+        "id": "o3",
+        "text": "No hace falta avisar: la verá cuando recargue",
+        "correct": false,
+        "feedback": "Recargar no basta para tomar la versión nueva, porque espera a que se cierre la vieja. Sin aviso, el gerente puede seguir días con la versión anterior sin saberlo.",
+        "misconceptionId": "m10-mc33"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l4#actualizar",
+    "sourceIds": [
+      "src-webdev-sw-lifecycle",
+      "src-webdev-pwa-update"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l5-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l5",
+    "evaluatedObjectiveId": "m10-eo4",
+    "competencyIds": [
+      "C13"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El runbook de recuperación de la herramienta lo escribió la analista, que es la única persona que lo ha seguido.",
+    "stem": "¿Qué le falta?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que lo siga alguien que no lo escribió",
+        "correct": true,
+        "feedback": "Correcta. Quien lo escribió completa sin darse cuenta los pasos que faltan. Otra persona, al seguirlo al pie de la letra, los descubre."
+      },
+      {
+        "id": "o2",
+        "text": "Nada: lo escribió quien mejor conoce la herramienta",
+        "correct": false,
+        "feedback": "Justo porque la conoce tan bien, puede saltarse pasos que ella hace sin pensar. Por eso lo prueba otra persona.",
+        "misconceptionId": "m10-mc49"
+      },
+      {
+        "id": "o3",
+        "text": "Agregarle más detalle, sin probarlo",
+        "correct": false,
+        "feedback": "Más detalle no prueba que alguien pueda seguirlo. La prueba es que otra persona lo siga sin ayuda.",
+        "misconceptionId": "m10-mc50"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l4#runbook",
+    "basis": "inference",
+    "sourceIds": [
+      "src-cisa-backup-business"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l6-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l6",
+    "evaluatedObjectiveId": "m10-eo6",
+    "competencyIds": [
+      "C13",
+      "C12",
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Se modificó la skill que arma el resumen semanal de cobranza. El código de la app no cambió.",
+    "stem": "¿Qué se vuelve a correr?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada, porque el código de la app sigue igual",
+        "correct": false,
+        "feedback": "La skill cambia el comportamiento de la herramienta aunque el código de la app siga igual. Por eso un cambio en la skill dispara sus evaluaciones y la regresión.",
+        "misconceptionId": "m10-mc42"
+      },
+      {
+        "id": "o2",
+        "text": "Las evaluaciones de la skill y la regresión",
+        "correct": true,
+        "feedback": "Correcta. Cada caso de la skill se corre con la versión nueva y con la anterior como línea base, y además se corre la regresión. Así se ve si algo empeoró."
+      },
+      {
+        "id": "o3",
+        "text": "Una prueba a mano con un caso, y listo",
+        "correct": false,
+        "feedback": "Un caso a mano no muestra si algo empeoró en los demás. La skill se evalúa con todos sus casos, contra la versión anterior.",
+        "misconceptionId": "m10-mc43"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l6#skills",
+    "sourceIds": [
+      "src-agentskills-evaluating"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l6-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l6",
+    "evaluatedObjectiveId": "m10-eo6",
+    "competencyIds": [
+      "C13",
+      "C12",
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El proveedor anunció que el modelo que usa la herramienta se retira en 60 días. El equipo propone cambiarlo cuando deje de responder.",
+    "stem": "¿Qué decides?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Evaluar ya con el reemplazo y anotar la fecha",
+        "correct": true,
+        "feedback": "Correcta. El reemplazo se prueba mucho antes de la fecha de retiro, y esa fecha va al calendario. Así hay tiempo para corregir lo que cambie."
+      },
+      {
+        "id": "o2",
+        "text": "Cambiarlo cuando falle, como propone el equipo",
+        "correct": false,
+        "feedback": "Las peticiones a un modelo retirado fallan, así que esperar a que deje de responder es esperar a que la herramienta falle. El reemplazo se evalúa con tiempo.",
+        "misconceptionId": "m10-mc44"
+      },
+      {
+        "id": "o3",
+        "text": "Cambiarlo hoy mismo, sin evaluar el reemplazo",
+        "correct": false,
+        "feedback": "Un modelo distinto puede responder distinto, y la herramienta puede cambiar su comportamiento. El reemplazo se evalúa antes de usarlo.",
+        "misconceptionId": "m10-mc58"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l6#modelo",
+    "sourceIds": [
+      "src-anthropic-model-deprecations"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l6-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l6",
+    "evaluatedObjectiveId": "m10-eo6",
+    "competencyIds": [
+      "C13",
+      "C12",
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Un hallazgo dice que la tabla de la pantalla de cobranza no tiene encabezados marcados. El equipo lo marca como «cerrado» porque ya abrió una tarea para corregirlo.",
+    "stem": "¿Está cerrado?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Sí, porque alguien ya lo marcó como cerrado",
+        "correct": false,
+        "feedback": "Marcarlo como cerrado no lo corrige. Un hallazgo se cierra con evidencia, es decir, con el cambio y la prueba que lo verifica.",
+        "misconceptionId": "m10-mc47"
+      },
+      {
+        "id": "o2",
+        "text": "Sí, porque la corrección ya está planificada",
+        "correct": false,
+        "feedback": "Planificar no es corregir, y la tabla sigue sin encabezados. El hallazgo se cierra cuando la corrección está hecha y probada.",
+        "misconceptionId": "m10-mc59"
+      },
+      {
+        "id": "o3",
+        "text": "No: falta corregirlo y probar la corrección",
+        "correct": true,
+        "feedback": "Correcta. Se cierra con el cambio y con una prueba que antes fallaba y ahora pasa, y que entra a la regresión. Abrir una tarea solo dice que alguien lo va a hacer."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l6#cierre",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-dependabot-alerts"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l6-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l6",
+    "evaluatedObjectiveId": "m10-eo6",
+    "competencyIds": [
+      "C13",
+      "C12",
+      "C04"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "scenario": "Hace seis meses se aceptó como riesgo usar una librería de gráficos sin mantenimiento, «mientras no tenga vulnerabilidades conocidas». Hoy apareció una alerta de seguridad sobre ella.",
+    "stem": "¿Qué corresponde?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada, porque ese riesgo ya estaba aceptado",
+        "correct": false,
+        "feedback": "El riesgo se aceptó «mientras no tenga vulnerabilidades conocidas», y ahora tiene una. Lo que justificaba aceptarlo ya no se cumple, así que se reabre.",
+        "misconceptionId": "m10-mc48"
+      },
+      {
+        "id": "o2",
+        "text": "Reabrirlo, porque se cumplió su condición",
+        "correct": true,
+        "feedback": "Correcta. La condición de reapertura era que apareciera una vulnerabilidad conocida, y apareció. Ahora se decide de nuevo, con esa información."
+      },
+      {
+        "id": "o3",
+        "text": "Aceptarlo de nuevo por otros seis meses",
+        "correct": false,
+        "feedback": "Renovarlo sin revisar el motivo ignora lo que cambió. La alerta es información nueva, y el riesgo se reabre para decidir con ella.",
+        "misconceptionId": "m10-mc60"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l6#reabrir",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-dependabot-alerts"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l6-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l6",
+    "evaluatedObjectiveId": "m10-eo5",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El agente propone agregar a la herramienta una librería de gráficos nueva. Nadie revisó todavía su licencia.",
+    "stem": "¿Qué revisas antes de aceptarla?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: si es pública, se puede usar libremente",
+        "correct": false,
+        "feedback": "Que el código esté a la vista no da permiso para usarlo. Lo que se puede hacer con él depende de su licencia.",
+        "misconceptionId": "m10-mc40"
+      },
+      {
+        "id": "o2",
+        "text": "Que exista, que haga falta y su licencia",
+        "correct": true,
+        "feedback": "Correcta. Una dependencia nueva se revisa por tres cosas: que exista y sea la que crees, que haga falta y que su licencia sea compatible con el uso. Revisarlas antes evita depender de algo que no se puede usar."
+      },
+      {
+        "id": "o3",
+        "text": "Solo que las pruebas sigan pasando bien",
+        "correct": false,
+        "feedback": "Las pruebas no revisan la licencia. Tampoco dicen si la dependencia hace falta ni si es la que crees.",
+        "misconceptionId": "m10-mc46"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l5#licencias",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-licensing-repo",
+      "src-github-dependency-review"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l6-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l6",
+    "evaluatedObjectiveId": "m10-eo4",
+    "competencyIds": [
+      "C13"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "La versión actual de la herramienta es la 1.4.2. La próxima solo corrige una errata en el título de una columna.",
+    "stem": "¿Qué número le corresponde?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "2.0.0: todo cambio visible es una versión mayor",
+        "correct": false,
+        "feedback": "La versión mayor es para cambios incompatibles en lo que otros usan. Corregir una errata en un título no rompe nada de eso.",
+        "misconceptionId": "m10-mc61"
+      },
+      {
+        "id": "o2",
+        "text": "1.5.0: cualquier cambio sube el número del medio",
+        "correct": false,
+        "feedback": "El número del medio sube con una función nueva compatible. Una corrección que no rompe nada sube el último número.",
+        "misconceptionId": "m10-mc62"
+      },
+      {
+        "id": "o3",
+        "text": "1.4.3: es una corrección compatible",
+        "correct": true,
+        "feedback": "Correcta. Una corrección que no rompe la compatibilidad es un parche, y sube el último número. La errata no cambia ni el formato ni el contrato de datos."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l4#version",
+    "sourceIds": [
+      "src-semver-2"
+    ],
+    "status": "draft"
   }
 ]

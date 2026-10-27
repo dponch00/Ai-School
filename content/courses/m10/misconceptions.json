@@ -280,5 +280,312 @@
     "sourceIds": [
       "src-govuk-performance-metrics"
     ]
+  },
+  {
+    "id": "m10-mc31",
+    "courseId": "m10",
+    "description": "Es mejor publicar rápido y correr las pruebas después.",
+    "whyWrong": "Si el despliegue depende de una construcción que corre las pruebas, una prueba que falla impide publicar; si se prueba después, lo roto ya llegó a los usuarios.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-ghdocs-custom-workflows"
+    ]
+  },
+  {
+    "id": "m10-mc32",
+    "courseId": "m10",
+    "description": "Para que todos tengan la última versión, conviene activarla de inmediato.",
+    "whyWrong": "Puede mezclar versiones en una página abierta; la guía recomienda avisar y dejar elegir cuándo recargar.",
+    "sourceIds": [
+      "src-webdev-sw-lifecycle",
+      "src-webdev-pwa-update"
+    ]
+  },
+  {
+    "id": "m10-mc33",
+    "courseId": "m10",
+    "description": "Al recargar, el usuario ya tiene la versión nueva.",
+    "whyWrong": "La versión nueva espera hasta que ninguna pestaña use la vieja; durante la recarga, la vieja sigue a cargo.",
+    "sourceIds": [
+      "src-webdev-sw-lifecycle"
+    ]
+  },
+  {
+    "id": "m10-mc34",
+    "courseId": "m10",
+    "description": "Si la pantalla casi no cambió, es una versión menor o un parche.",
+    "whyWrong": "Lo que decide es la compatibilidad de lo que otros usan, como el formato de exportación.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-semver-2"
+    ]
+  },
+  {
+    "id": "m10-mc35",
+    "courseId": "m10",
+    "description": "Una app estática se muda copiando sus archivos, con todo lo de los usuarios.",
+    "whyWrong": "El almacenamiento del navegador es por origen: en la dirección nueva la app empieza vacía.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-mdn-storage-quotas"
+    ]
+  },
+  {
+    "id": "m10-mc36",
+    "courseId": "m10",
+    "description": "Tener respaldo es tener una copia.",
+    "whyWrong": "Un respaldo vale si hay varias copias, una de ellas en otro lugar, y alguien probó restaurarlas.",
+    "sourceIds": [
+      "src-cisa-backup-business"
+    ]
+  },
+  {
+    "id": "m10-mc37",
+    "courseId": "m10",
+    "description": "Un documento completo sirve para todos los lectores.",
+    "whyWrong": "Quien usa y quien mantiene necesitan cosas distintas; mezclar formas confunde a los dos.",
+    "sourceIds": [
+      "src-diataxis"
+    ]
+  },
+  {
+    "id": "m10-mc38",
+    "courseId": "m10",
+    "description": "Las limitaciones se explican si alguien pregunta.",
+    "whyWrong": "El uso previsto y los límites se declaran antes, para que la herramienta no se use donde no sirve.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-arxiv-model-cards"
+    ]
+  },
+  {
+    "id": "m10-mc39",
+    "courseId": "m10",
+    "description": "Si el código lo escribió el agente, responde su proveedor.",
+    "whyWrong": "La documentación de los agentes de código pone la revisión y la aprobación en quien los usa.",
+    "sourceIds": [
+      "src-anthropic-cc-security",
+      "src-github-copilot-agents-responsible"
+    ]
+  },
+  {
+    "id": "m10-mc40",
+    "courseId": "m10",
+    "description": "Un repositorio público se puede reutilizar libremente.",
+    "whyWrong": "Sin licencia rigen los derechos de autor por defecto: se puede ver, pero no reproducir ni distribuir.",
+    "sourceIds": [
+      "src-github-licensing-repo"
+    ]
+  },
+  {
+    "id": "m10-mc41",
+    "courseId": "m10",
+    "description": "El resumen del agente es la evidencia de la entrega.",
+    "whyWrong": "La evidencia son las salidas de las pruebas, la reconciliación, la accesibilidad y la revisión, con fecha.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-copilot-agents-responsible"
+    ]
+  },
+  {
+    "id": "m10-mc42",
+    "courseId": "m10",
+    "description": "Si no cambió el código, no hay que volver a probar.",
+    "whyWrong": "Cambian las skills, el modelo, las dependencias y los datos, y cada cambio puede alterar el comportamiento.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-agentskills-evaluating",
+      "src-anthropic-model-deprecations"
+    ]
+  },
+  {
+    "id": "m10-mc43",
+    "courseId": "m10",
+    "description": "Una skill se prueba una vez, cuando se crea.",
+    "whyWrong": "Cada cambio se evalúa con sus casos contra la versión anterior, y con cada modelo que se va a usar.",
+    "sourceIds": [
+      "src-agentskills-evaluating",
+      "src-anthropic-skills-bp"
+    ]
+  },
+  {
+    "id": "m10-mc44",
+    "courseId": "m10",
+    "description": "El modelo se cambia cuando el proveedor lo retire.",
+    "whyWrong": "Las peticiones a un modelo retirado fallan; el reemplazo se prueba mucho antes de la fecha.",
+    "sourceIds": [
+      "src-anthropic-model-deprecations"
+    ]
+  },
+  {
+    "id": "m10-mc45",
+    "courseId": "m10",
+    "description": "Actualizar las dependencias es opcional si todo funciona.",
+    "whyWrong": "El parcheo es mantenimiento preventivo y un costo esperado de operar.",
+    "sourceIds": [
+      "src-nist-sp800-40r4"
+    ]
+  },
+  {
+    "id": "m10-mc46",
+    "courseId": "m10",
+    "description": "Si las pruebas pasan, un cambio de dependencia se puede aceptar sin revisarlo.",
+    "whyWrong": "Las pruebas pueden no cubrir lo que rompe, como la accesibilidad o la licencia; se revisa como cualquier cambio.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-dependabot-version-updates"
+    ]
+  },
+  {
+    "id": "m10-mc47",
+    "courseId": "m10",
+    "description": "Un hallazgo está cerrado cuando alguien lo marca como cerrado.",
+    "whyWrong": "Se cierra con la evidencia de la corrección, o como riesgo aceptado con motivo, responsable, fecha y condición de reapertura.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-dependabot-alerts"
+    ]
+  },
+  {
+    "id": "m10-mc48",
+    "courseId": "m10",
+    "description": "Un riesgo aceptado ya no hace falta volver a mirarlo.",
+    "whyWrong": "Se reabre cuando cambia la condición que lo justificó o cuando el problema reaparece.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-dependabot-alerts"
+    ]
+  },
+  {
+    "id": "m10-mc49",
+    "courseId": "m10",
+    "description": "Un runbook escrito por quien mejor conoce la herramienta no necesita probarse.",
+    "whyWrong": "Quien lo escribió completa sin darse cuenta lo que falta; lo prueba alguien que no lo escribió.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-cisa-backup-business"
+    ]
+  },
+  {
+    "id": "m10-mc50",
+    "courseId": "m10",
+    "description": "Cuanto más larga la documentación, más completa.",
+    "whyWrong": "Más texto no hace que cada lector encuentre lo suyo; lo que importa es la forma adecuada para cada necesidad.",
+    "sourceIds": [
+      "src-diataxis"
+    ]
+  },
+  {
+    "id": "m10-mc51",
+    "courseId": "m10",
+    "description": "Si la herramienta solo informa, nadie responde por lo que muestra.",
+    "whyWrong": "La herramienta influye en una decisión; quien la publica responde por lo que muestra.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-cc-security"
+    ]
+  },
+  {
+    "id": "m10-mc52",
+    "courseId": "m10",
+    "description": "Una captura de la pantalla basta como evidencia de una entrega.",
+    "whyWrong": "Una captura muestra cómo se ve, no si las cifras cuadran ni si se puede usar; la evidencia incluye las salidas de las pruebas.",
+    "basis": "inference",
+    "sourceIds": []
+  },
+  {
+    "id": "m10-mc53",
+    "courseId": "m10",
+    "description": "Los supuestos de negocio son obvios y no hace falta escribirlos.",
+    "whyWrong": "Lo que es obvio para quien hizo la herramienta no lo es para quien la usa; un supuesto sin declarar se vuelve el error de otro.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-arxiv-model-cards"
+    ]
+  },
+  {
+    "id": "m10-mc54",
+    "courseId": "m10",
+    "description": "Un paso de pruebas opcional da la misma protección.",
+    "whyWrong": "Un check que se omite cuenta como éxito; si el paso es opcional, puede no correr y publicar igual.",
+    "sourceIds": [
+      "src-github-status-checks"
+    ]
+  },
+  {
+    "id": "m10-mc55",
+    "courseId": "m10",
+    "description": "Si un usuario no ve la versión nueva, la publicación falló.",
+    "whyWrong": "La versión nueva puede estar publicada y esperando a que se cierren las pestañas con la vieja.",
+    "sourceIds": [
+      "src-webdev-sw-lifecycle"
+    ]
+  },
+  {
+    "id": "m10-mc56",
+    "courseId": "m10",
+    "description": "Respaldar más seguido en el mismo lugar resuelve el respaldo.",
+    "whyWrong": "Si ese lugar falla, se pierden todas las copias juntas; hacen falta dos tipos de almacenamiento, una copia en otro lugar y una restauración probada.",
+    "sourceIds": [
+      "src-cisa-backup-business"
+    ]
+  },
+  {
+    "id": "m10-mc57",
+    "courseId": "m10",
+    "description": "Todo lo que guarda la app merece el mismo cuidado.",
+    "whyWrong": "Una preferencia se puede perder sin daño; lo que crea el usuario es lo que hay que proteger.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-react-state-structure"
+    ]
+  },
+  {
+    "id": "m10-mc58",
+    "courseId": "m10",
+    "description": "Un modelo de reemplazo del mismo proveedor no necesita evaluarse.",
+    "whyWrong": "Un modelo distinto puede responder distinto, aunque sea del mismo proveedor; el reemplazo se evalúa antes de usarlo.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-model-deprecations"
+    ]
+  },
+  {
+    "id": "m10-mc59",
+    "courseId": "m10",
+    "description": "Abrir una tarea para corregir un hallazgo equivale a cerrarlo.",
+    "whyWrong": "Un hallazgo se cierra con la corrección y la prueba que la verifica, no con la intención de corregirlo.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-dependabot-alerts"
+    ]
+  },
+  {
+    "id": "m10-mc60",
+    "courseId": "m10",
+    "description": "Un riesgo aceptado se renueva sin revisar el motivo.",
+    "whyWrong": "Si se cumplió la condición de reapertura, se reabre y se decide de nuevo con la información nueva.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-dependabot-alerts"
+    ]
+  },
+  {
+    "id": "m10-mc61",
+    "courseId": "m10",
+    "description": "Todo cambio visible en la pantalla es una versión mayor.",
+    "whyWrong": "La versión mayor es para cambios incompatibles en lo que otros usan; una corrección de texto es un parche.",
+    "sourceIds": [
+      "src-semver-2"
+    ]
+  },
+  {
+    "id": "m10-mc62",
+    "courseId": "m10",
+    "description": "Cualquier cambio publicado sube el número del medio.",
+    "whyWrong": "El número del medio es para funciones nuevas compatibles; una corrección sube el último.",
+    "sourceIds": [
+      "src-semver-2"
+    ]
   }
 ]

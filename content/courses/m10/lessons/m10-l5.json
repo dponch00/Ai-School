@@ -1,0 +1,56 @@
+{
+  "id": "m10-l5",
+  "courseId": "m10",
+  "version": "0.1.0",
+  "order": 5,
+  "title": "Documentación, evidencia y quién responde",
+  "objectives": [
+    {
+      "id": "m10-l5-o1",
+      "statement": "Elige qué documento sirve a cada lector.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m10-eo5"
+    },
+    {
+      "id": "m10-l5-o2",
+      "statement": "Identifica las limitaciones y los supuestos que faltan declarar.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m10-eo5"
+    },
+    {
+      "id": "m10-l5-o3",
+      "statement": "Decide quién responde por lo entregado y con qué evidencia.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m10-eo5"
+    }
+  ],
+  "bodyPath": "courses/m10/lessons/m10-l5.md",
+  "reviewQuestionIds": [
+    "m10-l5-r1",
+    "m10-l5-r2"
+  ],
+  "checkQuestionIds": [
+    "m10-l5-c1",
+    "m10-l5-c2",
+    "m10-l5-c3",
+    "m10-l5-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m10-pc-agent-responsibility",
+    "m10-pc-dependency-review"
+  ],
+  "sourceIds": [
+    "src-diataxis",
+    "src-github-about-readmes",
+    "src-makeareadme",
+    "src-nygard-adr",
+    "src-arxiv-model-cards",
+    "src-anthropic-cc-security",
+    "src-github-copilot-agents-responsible",
+    "src-github-licensing-repo",
+    "src-github-dependency-review"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

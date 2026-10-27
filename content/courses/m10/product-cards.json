@@ -48,5 +48,90 @@
       "src-mdn-indexeddb-using"
     ],
     "nextReview": "2027-04-27"
+  },
+  {
+    "id": "m10-pc-static-hosting",
+    "product": "GitHub Pages · hosting de páginas estáticas",
+    "surfaces": [
+      "web",
+      "cloud"
+    ],
+    "capability": "Un sitio publicado puede pesar hasta 1 GB y tiene un límite blando de 100 GB de tráfico al mes; sin un flujo propio, permite 10 construcciones por hora; un despliegue que dura más de 10 minutos falla; al limitar responde con un código 429. Sus términos dicen que no está pensado para alojar un negocio, un comercio o un software como servicio, ni transacciones sensibles, y la página de límites no menciona garantías de disponibilidad. Con un flujo propio de GitHub Actions, un trabajo construye y sube el resultado y otro lo despliega, declarando que necesita al primero. La app de este curso se publica así, con las pruebas antes de construir (D-029).",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-27",
+    "sourceIds": [
+      "src-ghdocs-limits",
+      "src-ghdocs-custom-workflows"
+    ],
+    "nextReview": "2027-01-27"
+  },
+  {
+    "id": "m10-pc-agent-responsibility",
+    "product": "Claude Code, GitHub Copilot y Codex · responsabilidad sobre lo que genera el agente",
+    "surfaces": [
+      "cli",
+      "ide",
+      "cloud"
+    ],
+    "capability": "Claude Code: su documentación de seguridad dice que el usuario es responsable de revisar el código y los comandos propuestos antes de aprobarlos, y su lista de buenas prácticas empieza por revisar los cambios sugeridos. GitHub Copilot, en sus agentes: pide revisar a fondo todo lo generado antes de fusionarlo, y lista entre sus limitaciones código inexacto, riesgos de seguridad, coincidencias con código público y calidad variable según el lenguaje. Codex: pide tratar sus sugerencias como cualquier otra PR; la página no dice de forma explícita que el usuario sea el responsable. En los tres casos, la revisión y la aprobación quedan en quien usa el agente.",
+    "kind": "guidance",
+    "verifiedAt": "2026-10-27",
+    "sourceIds": [
+      "src-anthropic-cc-security",
+      "src-github-copilot-agents-responsible",
+      "src-openai-codex-security"
+    ],
+    "nextReview": "2027-01-27"
+  },
+  {
+    "id": "m10-pc-dependency-review",
+    "product": "GitHub · revisión de dependencias en la PR",
+    "surfaces": [
+      "web"
+    ],
+    "capability": "La revisión de dependencias muestra en cada PR las dependencias agregadas, quitadas o actualizadas, incluidas las indirectas que aparecen en los archivos de bloqueo (los que fijan la versión exacta de cada paquete), con sus vulnerabilidades conocidas y sus licencias. La acción correspondiente falla por defecto ante un paquete vulnerable y, si el check es obligatorio, bloquea la fusión; admite listas de licencias permitidas o prohibidas. Está disponible en los repositorios públicos y, en los privados, con productos de seguridad de pago.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-27",
+    "sourceIds": [
+      "src-github-dependency-review",
+      "src-github-licensing-repo"
+    ],
+    "nextReview": "2027-04-27"
+  },
+  {
+    "id": "m10-pc-model-retirement",
+    "product": "Anthropic y OpenAI · retiro de modelos y plataformas",
+    "surfaces": [
+      "api"
+    ],
+    "capability": "Anthropic distingue modelos activos, heredados, obsoletos (con reemplazo y fecha de retiro) y retirados, a los que las peticiones fallan; avisa con al menos 60 días antes de retirar un modelo publicado. Por ejemplo, claude-sonnet-4-5-20250929 se anunció como obsoleto el 2026-09-30, con retiro el 2026-11-30. OpenAI anunció el 2026-06-03 el cierre de su plataforma de Evals para el 2026-11-30. Las dos fechas vencen antes de la próxima revisión trimestral.",
+    "kind": "capability",
+    "maturity": "deprecated",
+    "verifiedAt": "2026-10-27",
+    "sourceIds": [
+      "src-anthropic-model-deprecations",
+      "src-openai-deprecations"
+    ],
+    "nextReview": "2026-12-01"
+  },
+  {
+    "id": "m10-pc-dependency-updates",
+    "product": "GitHub Dependabot · actualizaciones automáticas de dependencias",
+    "surfaces": [
+      "web"
+    ],
+    "capability": "Las actualizaciones de versión se configuran en dependabot.yml y abren PR con el resumen de cambios y las notas de la versión; también actualizan las acciones de los flujos y, por defecto, esperan 3 días después de una publicación antes de proponerla (cooldown, que no aplica a las de seguridad). Los intervalos van de diario (daily) a anual (yearly), o se fijan con una expresión cron; por defecto hay como máximo 5 PR de versión abiertas, y se pueden agrupar. Las actualizaciones de seguridad abren una PR solo si hay una versión corregida, y no siempre pueden actualizar las dependencias indirectas. Al descartar una alerta se elige un motivo, se puede comentar, queda en el registro de auditoría y se puede reabrir mientras no esté corregida. Al 2026-10-27, el repositorio de este curso no tiene dependabot.yml.",
+    "kind": "capability",
+    "maturity": "ga",
+    "verifiedAt": "2026-10-27",
+    "sourceIds": [
+      "src-github-dependabot-version-updates",
+      "src-github-dependabot-options",
+      "src-github-dependabot-security-updates",
+      "src-github-dependabot-alerts"
+    ],
+    "nextReview": "2027-01-27"
   }
 ]

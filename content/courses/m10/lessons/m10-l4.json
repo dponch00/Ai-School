@@ -1,0 +1,55 @@
+{
+  "id": "m10-l4",
+  "courseId": "m10",
+  "version": "0.1.0",
+  "order": 4,
+  "title": "Publicar, actualizar y seguir funcionando",
+  "objectives": [
+    {
+      "id": "m10-l4-o1",
+      "statement": "Elige una cadena de publicación que no publique si fallan las pruebas.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m10-eo4"
+    },
+    {
+      "id": "m10-l4-o2",
+      "statement": "Elige una forma de actualizar que no mezcle versiones y el número de versión adecuado.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m10-eo4"
+    },
+    {
+      "id": "m10-l4-o3",
+      "statement": "Decide el plan de continuidad: otro hosting, los datos de los usuarios y respaldos probados.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m10-eo4"
+    }
+  ],
+  "bodyPath": "courses/m10/lessons/m10-l4.md",
+  "reviewQuestionIds": [
+    "m10-l4-r1",
+    "m10-l4-r2"
+  ],
+  "checkQuestionIds": [
+    "m10-l4-c1",
+    "m10-l4-c2",
+    "m10-l4-c3",
+    "m10-l4-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m10-pc-static-hosting"
+  ],
+  "sourceIds": [
+    "src-mdn-client-server",
+    "src-vite-env",
+    "src-ghdocs-custom-workflows",
+    "src-github-status-checks",
+    "src-webdev-sw-lifecycle",
+    "src-webdev-pwa-update",
+    "src-semver-2",
+    "src-mdn-storage-quotas",
+    "src-cisa-backup-business"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

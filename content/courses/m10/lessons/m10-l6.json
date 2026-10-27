@@ -1,0 +1,55 @@
+{
+  "id": "m10-l6",
+  "courseId": "m10",
+  "version": "0.1.0",
+  "order": 6,
+  "title": "Mantenimiento: disparadores, calendario y hallazgos cerrados",
+  "objectives": [
+    {
+      "id": "m10-l6-o1",
+      "statement": "Decide qué se vuelve a probar ante cada cambio.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m10-eo6"
+    },
+    {
+      "id": "m10-l6-o2",
+      "statement": "Elige el calendario de revisión según la volatilidad de cada pieza.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m10-eo6"
+    },
+    {
+      "id": "m10-l6-o3",
+      "statement": "Decide cuándo un hallazgo está cerrado y cuándo se reabre.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m10-eo6"
+    }
+  ],
+  "bodyPath": "courses/m10/lessons/m10-l6.md",
+  "reviewQuestionIds": [
+    "m10-l6-r1",
+    "m10-l6-r2"
+  ],
+  "checkQuestionIds": [
+    "m10-l6-c1",
+    "m10-l6-c2",
+    "m10-l6-c3",
+    "m10-l6-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m10-pc-model-retirement",
+    "m10-pc-dependency-updates"
+  ],
+  "sourceIds": [
+    "src-agentskills-evaluating",
+    "src-anthropic-skills-bp",
+    "src-anthropic-model-deprecations",
+    "src-nist-sp800-40r4",
+    "src-github-dependabot-version-updates",
+    "src-keepachangelog",
+    "src-github-dependabot-alerts",
+    "src-github-codeowners"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}
