@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-27 |
 | Depende de | T-044 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -98,4 +98,10 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 
 ## Entrega
 
-_(Codex)_
+_(Codex, 2026-10-27)_
+
+- Informe: `investigacion/codex-revision-m09-l4-l6.md`.
+- Resultado: tres hallazgos medios. Uno corrige la clasificación de [C] en el borrador persistido de la regla de dos; otro separa Auto y Manual en la ficha de permisos; el tercero acota la regla de aprobación de PR a política/configuración, no a garantía universal.
+- Verificado: 18 preguntas con clave única, distractores y longitudes revisados; duración y alcance de L4–L6; contraste de cada cita y las tres fichas contra fuentes primarias. Sin cambios en `src/`, `content/`, `e2e/` ni `ESTADO.md`.
+- Pruebas: no aplican a una revisión documental sin cambios de ejecución.
+- Commit: pendiente de registrar tras crear la entrega.
