@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-27 |
 | Depende de | T-045 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -94,4 +94,10 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 
 ## Entrega
 
-_(Codex)_
+Informe: `investigacion/codex-revision-m09-examen-laboratorio.md`.
+
+Hallazgos: 2 medios. La familia F14 agrupa tres decisiones no equivalentes; `m09-f09-b` repite la decisión y evidencia de `m09-l4-c2`. Se comprobaron sin hallazgo las claves y los distractores, la trazabilidad de 66 preguntas, los casos destacados, la continuidad y cifras ficticias del laboratorio, y los solapes restantes señalados por el ticket.
+
+Verificación: revisión estática de 66 ítems; una clave por ítem, referencias y fuentes existentes, conceptos erróneos válidos y razón máxima de longitudes de 1,46.
+
+Commit de entrega: pendiente de registrar tras el commit local.
