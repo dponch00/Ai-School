@@ -66,4 +66,4 @@ Entregado por Codex el 2026-10-27.
   se comprobaron sin otro hallazgo.
 - Python quedó bloqueado por el alias de Windows sin acceso; los scripts se
   revisaron estáticamente y sus conteos se reprodujeron con PowerShell.
-- Commit de entrega: pendiente de registrar.
+- Commit de entrega: `405802e` (`[codex] Entrega T-052: candidata de entrega`).
