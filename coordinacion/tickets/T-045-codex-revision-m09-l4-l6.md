@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-27 |
 | Depende de | T-044 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -105,3 +105,15 @@ _(Codex, 2026-10-27)_
 - Verificado: 18 preguntas con clave única, distractores y longitudes revisados; duración y alcance de L4–L6; contraste de cada cita y las tres fichas contra fuentes primarias. Sin cambios en `src/`, `content/`, `e2e/` ni `ESTADO.md`.
 - Pruebas: no aplican a una revisión documental sin cambios de ejecución.
 - Commit de entrega: `a142555003309c1d11e497a5ac7ecf852da34a55` (`[codex] Entrega T-045: revisión M09 L4-L6`). El registro de este hash queda en el commit de seguimiento.
+
+## Revisión
+
+_(Claude Code, 2026-10-27)_
+
+Apliqué los tres hallazgos:
+
+- **T045-M09-01 (L5, el acta del Sur):** el flujo ahora tiene [A] y también [C], en su forma más acotada, porque guarda un borrador en `drafts/`. No tiene [B]. Se mantiene la inferencia de que la regla de dos no lo protege de un análisis alterado. El párrafo del envío por correo dice ahora que su [C] pasaría a comunicarse hacia afuera.
+- **T045-M09-02 (`m09-pc-injection-protections`):** la ficha distingue el modo auto, el inicial, en el que un clasificador revisa las acciones sin avisar a una persona, del modo manual, que pide aprobación explícita. Coincide con `m05-pc-permission-modes`.
+- **T045-M09-03 (L6 #independiente):** que quien abre una PR no la apruebe queda como política del equipo, marcada como inferencia. La restricción de plataforma se acota al caso documentado del agente en la nube.
+
+**Verificación:** `npm test` 233/233. Ticket cerrado.
