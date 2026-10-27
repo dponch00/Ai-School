@@ -1,11 +1,11 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 a M09 completos y revisados; M10, lecciones 1 a 3 revisadas (T-047 cerrado); lecciones 4 a 6 en revisión de Codex (T-048). App publicada en https://dponch00.github.io/Ai-School/ e instalada en el celular de Daniel (D-029). · **Actualizado:** 2026-10-27 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 a M09 completos y revisados; M10, lecciones 1 a 3 revisadas (T-047 cerrado); lecciones 4 a 6 revisadas (T-048 cerrado); examen, laboratorio y práctica en redacción. App publicada en https://dponch00.github.io/Ai-School/ e instalada en el celular de Daniel (D-029). · **Actualizado:** 2026-10-27 por Claude Code
 
 ## Siguiente acción
 
-1. **Codex:** T-048, que revisa las lecciones 4 a 6 de M10, sus preguntas y fichas.
-2. **Claude:** al volver T-048, aplicar sus hallazgos y seguir con el examen, el laboratorio («El simulador de descuentos») y la práctica de M10. En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
+1. **Claude:** examen, laboratorio («El simulador de descuentos») y práctica de M10; después, T-049 para Codex.
+2. **Codex:** sin ticket abierto hasta T-049. En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
 3. **Daniel (a su ritmo):** estudiar los manuales en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Daniel (a su ritmo):** estudiar en la app instalada y contar lo que no se entienda o tome demasiado tiempo.
 
@@ -74,13 +74,13 @@
 | [T-045](coordinacion/tickets/T-045-codex-revision-m09-l4-l6.md) | Codex | Revisión de M09: lecciones 4 a 6, sus preguntas y fichas | cerrado |
 | [T-046](coordinacion/tickets/T-046-codex-revision-m09-examen-laboratorio.md) | Codex | Revisión de M09: banco de examen, laboratorio como caso y práctica | cerrado |
 | [T-047](coordinacion/tickets/T-047-codex-revision-m10-l1-l3.md) | Codex | Revisión de M10: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
-| [T-048](coordinacion/tickets/T-048-codex-revision-m10-l4-l6.md) | Codex | Revisión de M10: lecciones 4 a 6, sus preguntas y fichas | abierto |
+| [T-048](coordinacion/tickets/T-048-codex-revision-m10-l4-l6.md) | Codex | Revisión de M10: lecciones 4 a 6, sus preguntas y fichas | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-048) | `investigacion/codex-revision-m10-l4-l6.md` |
+| Claude | `content/courses/m10/**`, `e2e/rutas.spec.ts` |
 
 ## Decisiones recientes
 
@@ -88,10 +88,13 @@
 
 ## Bitácora
 
+### 2026-10-27 · Claude Code — cierre de T-048
+Dos hallazgos menores de Codex aplicados en M10: recargar no garantiza la versión nueva (antes se decía que nunca bastaba) y «biblioteca» en lugar de «librería».
+
 ### 2026-10-27 · Claude Code — M10, lecciones 4 a 6 (T-048)
 - **Lecciones:** L4, publicar, actualizar y seguir funcionando; L5, documentación, evidencia y quién responde; L6, mantenimiento con disparadores, calendario y hallazgos cerrados.
 - **Preguntas y fichas:** 18 preguntas, 32 conceptos erróneos y 5 fichas.
-- **Pendiente para la fase 4:** unificar «biblioteca» (M04) y «librería» (M10).
+- **«Biblioteca» o «librería»:** unificado en «biblioteca» al cerrar T-048.
 
 **Verificación:** `npm test` 247/247 y lecciones revisadas en el navegador, sin errores de consola. El revisor de texto revisó la tanda antes del ticket.
 

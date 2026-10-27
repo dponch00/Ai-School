@@ -775,7 +775,7 @@
         "id": "o1",
         "text": "Porque la nueva espera a que se cierre la vieja",
         "correct": true,
-        "feedback": "Correcta. La versión nueva se instala y queda en espera mientras la vieja controle alguna página abierta, para que no corran dos versiones a la vez. Por eso recargar no basta."
+        "feedback": "Correcta. La versión nueva se instala y queda en espera mientras la vieja controle alguna página abierta, para que no corran dos versiones a la vez. Por eso recargar no la garantiza, por ejemplo si otra pestaña sigue abierta con la versión anterior."
       },
       {
         "id": "o2",
@@ -788,7 +788,7 @@
         "id": "o3",
         "text": "Porque no recargó bien: recargar siempre la trae",
         "correct": false,
-        "feedback": "Recargar no basta, porque durante la recarga la versión vieja sigue a cargo de la página. La nueva espera a que se cierren las páginas que usan la vieja.",
+        "feedback": "Recargar no garantiza la versión nueva. Espera mientras quede alguna pestaña abierta con la vieja, por ejemplo otra pestaña que el gerente olvidó.",
         "misconceptionId": "m10-mc33"
       }
     ],
@@ -1191,7 +1191,7 @@
         "id": "o3",
         "text": "No hace falta avisar: la verá cuando recargue",
         "correct": false,
-        "feedback": "Recargar no basta para tomar la versión nueva, porque espera a que se cierre la vieja. Sin aviso, el gerente puede seguir días con la versión anterior sin saberlo.",
+        "feedback": "Recargar no garantiza tomar la versión nueva, porque espera mientras quede abierta alguna pestaña con la vieja. Sin aviso, el gerente puede seguir días con la versión anterior sin saberlo.",
         "misconceptionId": "m10-mc33"
       }
     ],
@@ -1397,7 +1397,7 @@
     ],
     "difficulty": "advanced",
     "process": "analyze",
-    "scenario": "Hace seis meses se aceptó como riesgo usar una librería de gráficos sin mantenimiento, «mientras no tenga vulnerabilidades conocidas». Hoy apareció una alerta de seguridad sobre ella.",
+    "scenario": "Hace seis meses se aceptó como riesgo usar una biblioteca de gráficos sin mantenimiento, «mientras no tenga vulnerabilidades conocidas». Hoy apareció una alerta de seguridad sobre ella.",
     "stem": "¿Qué corresponde?",
     "options": [
       {
@@ -1442,7 +1442,7 @@
     ],
     "difficulty": "base",
     "process": "apply",
-    "scenario": "El agente propone agregar a la herramienta una librería de gráficos nueva. Nadie revisó todavía su licencia.",
+    "scenario": "El agente propone agregar a la herramienta una biblioteca de gráficos nueva. Nadie revisó todavía su licencia.",
     "stem": "¿Qué revisas antes de aceptarla?",
     "options": [
       {

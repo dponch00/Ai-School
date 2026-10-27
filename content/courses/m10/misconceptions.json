@@ -304,8 +304,8 @@
   {
     "id": "m10-mc33",
     "courseId": "m10",
-    "description": "Al recargar, el usuario ya tiene la versión nueva.",
-    "whyWrong": "La versión nueva espera hasta que ninguna pestaña use la vieja; durante la recarga, la vieja sigue a cargo.",
+    "description": "Al recargar una pestaña, el usuario ya tiene siempre la versión nueva.",
+    "whyWrong": "La versión nueva espera mientras quede alguna pestaña controlada por la anterior; recargar no lo garantiza.",
     "sourceIds": [
       "src-webdev-sw-lifecycle"
     ]

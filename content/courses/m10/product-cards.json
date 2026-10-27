@@ -39,7 +39,7 @@
     "surfaces": [
       "web"
     ],
-    "capability": "Dexie, una librería que funciona sobre IndexedDB, declara cada versión de la base con version(n).stores({...}) y una función upgrade que migra los datos. Si una función de actualización falla, la transacción se revierte y la base no se abre, en lugar de quedar a medio migrar. Las versiones que tienen función de actualización se mantienen declaradas mientras haya usuarios con versiones anteriores, y no se modifican una vez publicadas. La app de este curso usa Dexie 4 (la página no indica estado de lanzamiento).",
+    "capability": "Dexie, una biblioteca que funciona sobre IndexedDB, declara cada versión de la base con version(n).stores({...}) y una función upgrade que migra los datos. Si una función de actualización falla, la transacción se revierte y la base no se abre, en lugar de quedar a medio migrar. Las versiones que tienen función de actualización se mantienen declaradas mientras haya usuarios con versiones anteriores, y no se modifican una vez publicadas. La app de este curso usa Dexie 4 (la página no indica estado de lanzamiento).",
     "kind": "capability",
     "maturity": "unspecified",
     "verifiedAt": "2026-10-27",

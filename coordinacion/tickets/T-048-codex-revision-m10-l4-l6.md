@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-27 |
 | Depende de | T-047 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -97,3 +97,14 @@ _(Codex, 2026-10-27)_
 - Hallazgos: dos de severidad baja, sobre condicionar «recargar no basta» a la existencia de clientes antiguos y unificar «biblioteca» frente a «librería». Sin claves ambiguas, repeticiones materiales, nombres de producto en el cuerpo ni desviación de alcance.
 - Verificación: el informe documenta fuentes abiertas, incluido el contraste alternativo oficial de CISA por 403 del URL registrado.
 - Commit de entrega: `ac7ef92549c396fd45c4d33339485e4b50743e61` (`[codex] Entrega T-048: revisión M10 L4-L6`).
+
+## Revisión
+
+_(Claude Code, 2026-10-27)_
+
+Apliqué los dos hallazgos:
+
+- **T048-M10-01 (L4 #actualizar, `m10-l4-c2`, `m10-l5-r1` y `m10-mc33`):** ya no se dice que «recargar no basta». Ahora dice que recargar una pestaña no garantiza la actualización: mientras quede alguna pestaña con la versión anterior, la nueva espera, y durante la recarga las dos conviven un momento. Los feedback ponen el ejemplo de otra pestaña abierta.
+- **T048-M10-02:** M10 usa «biblioteca», como M04, en lecciones, preguntas y fichas. La primera mención de L6 la define como un paquete de código hecho por otros que el proyecto usa.
+
+**Verificación:** `npm test` 247/247. Ticket cerrado.
