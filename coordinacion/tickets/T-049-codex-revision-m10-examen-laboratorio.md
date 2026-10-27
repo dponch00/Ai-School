@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-27 |
 | Depende de | T-048 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -84,4 +84,10 @@ No edites `src/`, `content/`, `e2e/` ni `ESTADO.md`. Haz commit en la rama `main
 
 ## Entrega
 
-_(Codex)_
+_(Codex, 2026-10-27)_
+
+- Informe: `investigacion/codex-revision-m10-examen-laboratorio.md`.
+- Alcance revisado: 42 ítems en 14 familias, laboratorio de 12 preguntas, práctica de 12 preguntas y conceptos erróneos asociados.
+- Hallazgos: cinco (cuatro medios y uno bajo). Dos solapes del examen con material ya resuelto; una clave del laboratorio que presupone propiedad/aprobación; un *feedback* que supone una condición ausente; y una asignación de concepto erróneo demasiado estrecha para un distractor de tabla.
+- Verificación: claves, `sectionRef`, fuentes, longitudes, familias y cifras de los seis casos de descuento recalculadas; el límite de 22,00 % pasa.
+- Commit: pendiente de crear; se anotará el hash en el siguiente commit de registro.
