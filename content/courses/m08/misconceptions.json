@@ -700,5 +700,15 @@
     "sourceIds": [
       "src-anthropic-building-agents"
     ]
+  },
+  {
+    "id": "m08-mc77",
+    "courseId": "m08",
+    "description": "Un agente por elemento da mejor resultado porque cada uno se especializa.",
+    "whyWrong": "Para partes cortas, repartir no aporta y agentes separados toman decisiones distintas; la especialización no reemplaza un criterio común.",
+    "sourceIds": [
+      "src-cognition-dont-build-multi-agents",
+      "src-anthropic-eng-multi-agent-research"
+    ]
   }
 ]

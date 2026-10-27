@@ -187,35 +187,35 @@
     ],
     "difficulty": "base",
     "process": "evaluate",
-    "scenario": "El compañero insiste: «Diez agentes, uno por nota, cuestan lo mismo que uno y terminan antes».",
-    "stem": "¿Qué le respondes?",
+    "scenario": "El compañero insiste en diez agentes, uno por nota, «para que cada uno se especialice en su oportunidad y terminen antes».",
+    "stem": "¿Conviene repartirlas hoy en diez agentes?",
     "options": [
       {
         "id": "o1",
-        "text": "Que tiene razón: el trabajo total es el mismo",
+        "text": "Sí, porque cada agente se especializa en su oportunidad",
         "correct": false,
-        "feedback": "Cada agente gasta sus propios tokens y necesita su contexto. Repartir no deja el costo igual.",
-        "misconceptionId": "m08-mc64"
+        "feedback": "Una nota de tres líneas no necesita un especialista. Y diez agentes separados pueden entender el riesgo cada uno a su manera.",
+        "misconceptionId": "m08-mc77"
       },
       {
         "id": "o2",
-        "text": "Que no conviene: diez notas cortas caben en una sesión",
+        "text": "No: las diez notas son cortas y caben en una llamada",
         "correct": true,
-        "feedback": "Correcta. Repartir rinde cuando las partes son independientes y largas. Para diez notas cortas, diez agentes solo multiplican el costo."
+        "feedback": "Correcta. Repartir rinde con partes largas o voluminosas. Diez notas de tres o cuatro líneas se clasifican juntas, con la misma rúbrica."
       },
       {
         "id": "o3",
-        "text": "Que tiene razón, porque los subagentes no ocupan contexto",
+        "text": "Sí: en paralelo, más agentes terminan antes y mejor",
         "correct": false,
-        "feedback": "No ocupan el contexto principal, pero gastan sus propios tokens. No son gratis.",
-        "misconceptionId": "m08-mc13"
+        "feedback": "El efecto de repartir depende de la tarea. Aquí no hay nada largo que repartir, y el resultado no mejora.",
+        "misconceptionId": "m08-mc12"
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m08-l3#costo",
+    "sectionRef": "m08-l3#cuando",
     "sourceIds": [
       "src-anthropic-eng-multi-agent-research",
-      "src-anthropic-cc-subagents"
+      "src-cognition-dont-build-multi-agents"
     ],
     "status": "draft"
   },

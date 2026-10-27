@@ -57,7 +57,7 @@
     "family": "m08-f10",
     "evaluatedObjectiveId": "m08-eo4",
     "decision": "Decidir qué deja un trabajo programado, con qué identidad corre y qué pasa si corre dos veces",
-    "equivalence": "Las tres variantes describen una tarea programada y piden qué cambiar. Cambia el problema: publica sin revisión (a), corre con una cuenta con permisos de más (b) y una segunda ejecución pisa a la primera (c, más difícil porque el reintento parece inofensivo)."
+    "equivalence": "Las tres variantes describen una tarea programada y piden qué cambiar. Cambia el problema: publica sin revisión (a), quien la creó también aprueba lo que produce (b) y una segunda ejecución pisa a la primera (c, más difícil porque el reintento parece inofensivo)."
   },
   {
     "family": "m08-f11",
@@ -75,12 +75,12 @@
     "family": "m08-f13",
     "evaluatedObjectiveId": "m08-eo6",
     "decision": "Identificar la causa de un fallo en el registro y decidir la primera acción",
-    "equivalence": "Las tres variantes presentan una automatización que falló y piden qué hacer. Cambia el caso: un estado de éxito con una salida vacía (a), el mismo error tres noches (b) y un registro donde el agente siguió con valores por defecto (c, más difícil porque hay que combinar pausar, invalidar y corregir)."
+    "equivalence": "Las tres variantes presentan una automatización con problemas y piden qué hacer. Cambia el caso: un estado de éxito con una salida vacía (a), un estado de éxito con una salida incompleta que parece completa (b) y un registro donde el agente siguió con valores por defecto (c, más difícil porque hay que combinar pausar, invalidar y corregir)."
   },
   {
     "family": "m08-f14",
     "evaluatedObjectiveId": "m08-eo6",
     "decision": "Elegir entre corregir o simplificar una automatización, con una verificación proporcional a lo no supervisado",
-    "equivalence": "Las tres variantes describen una automatización y piden qué decidir. Cambia el caso: un informe que pasó a correr sin supervisión (a, verificación más firme), un sistema que se intenta arreglar con prompts (b) y un ahorro que nadie midió (c, más difícil porque el equipo está convencido)."
+    "equivalence": "Las tres variantes describen una automatización y piden qué decidir. Cambia el caso: un agente que pasa de proponer a escribir un dato operativo (a, un control independiente más firme), un sistema que se intenta arreglar con prompts (b) y un ahorro que nadie midió (c, más difícil porque el equipo está convencido)."
   }
 ]

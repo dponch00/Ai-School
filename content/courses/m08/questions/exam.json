@@ -1293,35 +1293,36 @@
     "process": "apply",
     "family": "m08-f10",
     "variant": "b",
-    "scenario": "Para leer el pipeline, la tarea programada usa la cuenta personal del jefe de FP&A, que también tiene acceso a los sueldos.",
+    "scenario": "La tarea programada que creó la analista abrirá una PR cada semana con el borrador del reporte. Se propone que la propia analista sea quien apruebe esas PR.",
     "stem": "¿Qué cambias?",
     "options": [
       {
         "id": "o1",
-        "text": "Nada: lo que haga la tarea no quedará a nombre del jefe",
+        "text": "Que las apruebe la analista, porque la tarea usa una cuenta neutra",
         "correct": false,
-        "feedback": "La tarea usa la cuenta del jefe, así que todo lo que haga sale a su nombre. En los productos revisados, además, actúa con la identidad de quien la creó.",
+        "feedback": "En los productos revisados, la tarea actúa en nombre de quien la creó. La analista estaría aprobando su propio trabajo.",
         "misconceptionId": "m08-mc35"
       },
       {
         "id": "o2",
-        "text": "Que use solo los permisos que el encargo necesita",
+        "text": "Que las apruebe otra persona: la tarea actúa en nombre de la analista",
         "correct": true,
-        "feedback": "Correcta. Lo que hace la tarea lo hace en nombre de quien la creó. Para leer el pipeline no hace falta acceso a los sueldos."
+        "feedback": "Correcta. El trabajo de la automatización se atribuye a quien la creó. Para que la revisión sea independiente, la aprueba alguien distinto."
       },
       {
         "id": "o3",
-        "text": "Nada: como nadie aprueba, conviene que tenga todo",
+        "text": "Que se aprueben solas, porque nadie estará mirando",
         "correct": false,
-        "feedback": "Sin nadie que apruebe, un permiso de más es más peligroso, no menos. Se da solo lo justo.",
-        "misconceptionId": "m08-mc36"
+        "feedback": "Que nadie mire es justamente la razón para revisar el resultado. Sin aprobación, la PR deja de ser un control.",
+        "misconceptionId": "m08-mc66"
       }
     ],
     "fixedOrder": false,
     "sectionRef": "m08-l4#identidad",
+    "basis": "inference",
     "sourceIds": [
-      "src-anthropic-cc-routines",
-      "src-github-cloud-agent-risks"
+      "src-github-cloud-agent-risks",
+      "src-anthropic-cc-routines"
     ],
     "status": "draft"
   },
@@ -1702,35 +1703,35 @@
     "process": "apply",
     "family": "m08-f13",
     "variant": "b",
-    "scenario": "Una tarea programada falló tres noches seguidas con el mismo error de permiso.",
+    "scenario": "La tarea programada que procesa los archivos de diez proveedores terminó con éxito. En la transcripción dice: «procesé 7 de 10 archivos; los otros 3 dieron tiempo agotado». El reporte final se ve completo a simple vista.",
     "stem": "¿Qué haces?",
     "options": [
       {
         "id": "o1",
-        "text": "La relanzo esta noche de nuevo, a ver si pasa",
+        "text": "Usarlo: la tarea terminó con éxito y el reporte se ve bien",
         "correct": false,
-        "feedback": "El mismo error tres veces dice que la causa sigue ahí. Relanzar solo repite el fallo y el gasto.",
-        "misconceptionId": "m08-mc47"
+        "feedback": "El estado describe cómo terminó la sesión. La transcripción dice que faltan tres de diez archivos.",
+        "misconceptionId": "m08-mc46"
       },
       {
         "id": "o2",
-        "text": "La borro, para que no siga fallando",
+        "text": "Relanzarla entera de inmediato para completar los tres",
         "correct": false,
-        "feedback": "Borrarla pierde la configuración. Pausarla evita el próximo fallo y conserva lo que hay para corregir.",
-        "misconceptionId": "m08-mc48"
+        "feedback": "Si los tiempos agotados tienen una causa que sigue ahí, relanzar la repite. Y reprocesar los siete puede duplicar.",
+        "misconceptionId": "m08-mc47"
       },
       {
         "id": "o3",
-        "text": "La pauso y leo el registro antes de la próxima noche",
+        "text": "Marcar el reporte como incompleto y ver por qué fallaron esos tres",
         "correct": true,
-        "feedback": "Correcta. Pausar evita que la próxima ejecución repita el fallo. Con el registro a la vista, se corrige el permiso."
+        "feedback": "Correcta. El reporte parece completo, pero le faltan tres archivos. No se usa como si estuviera completo, y antes de seguir se busca la causa."
       }
     ],
     "fixedOrder": false,
-    "sectionRef": "m08-l6#detener",
-    "basis": "inference",
+    "sectionRef": "m08-l6#estado",
     "sourceIds": [
-      "src-anthropic-cc-routines"
+      "src-anthropic-cc-routines",
+      "src-google-sre-cron"
     ],
     "status": "draft"
   },
@@ -1795,28 +1796,28 @@
     "process": "apply",
     "family": "m08-f14",
     "variant": "a",
-    "scenario": "Un informe que antes se generaba con la analista al lado ahora corre solo, de madrugada, y se envía a dirección a primera hora.",
+    "scenario": "Un agente proponía ajustes de probabilidad que una persona revisaba por muestreo, uno de cada diez. Ahora, para ahorrar tiempo, escribe los ajustes directo en la tabla que usa el dashboard cada noche.",
     "stem": "¿Qué decides?",
     "options": [
       {
         "id": "o1",
-        "text": "Mantener la misma revisión rápida que antes",
+        "text": "Seguir revisando uno de cada diez ajustes, como antes",
         "correct": false,
-        "feedback": "Antes alguien miraba mientras se hacía; ahora nadie. Lo que no se supervisa necesita un check más firme.",
+        "feedback": "Antes, nada llegaba al dashboard sin pasar por una persona. Ahora el ajuste se aplica solo, y lo no supervisado necesita un control más firme.",
         "misconceptionId": "m08-mc51"
       },
       {
         "id": "o2",
-        "text": "Que un agente revisor lo apruebe antes de enviarlo",
+        "text": "Que el mismo agente confirme cada ajuste antes de escribirlo",
         "correct": false,
-        "feedback": "La aprobación de otro agente no es un check independiente. Verificar mal o no verificar es uno de los fallos frecuentes de los sistemas con varios agentes.",
+        "feedback": "Que el agente se revise a sí mismo no es una señal independiente. Hace falta un check que no dependa de él.",
         "misconceptionId": "m08-mc52"
       },
       {
         "id": "o3",
-        "text": "Una compuerta automática, una alerta si falla y revisión humana",
+        "text": "Un check independiente contra la política, que frene lo que no cumple",
         "correct": true,
-        "feedback": "Correcta. Cuanto menos se supervisa, más firme el check. La compuerta frena lo que está mal, y una persona revisa antes de que llegue a dirección."
+        "feedback": "Correcta. El ajuste ahora cambia un dato operativo sin nadie en medio. Un check independiente frena lo que no cumple la política, y conviene revisar todo al principio."
       }
     ],
     "fixedOrder": false,

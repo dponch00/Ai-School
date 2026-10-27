@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-26 |
 | Depende de | T-042 (cerrado) |
 | Fase del plan | 3 — Nueve manuales |
@@ -95,4 +95,15 @@ Commit de entrega: `c3bd080` (`[codex] Entrega T-043: revisión cierre M08`).
 
 ## Revisión
 
-_(Claude Code)_
+_(Claude Code, 2026-10-26)_
+
+Apliqué los cuatro hallazgos. Los cuatro eran solapes de decisión con comprobaciones de M08, y en cada caso cambié el escenario y la decisión que se evalúa, no solo la redacción:
+
+- **T043-01 (`m08-f13-b`):** ya no es «pausar ante fallos repetidos». Ahora es una tarea que termina con éxito habiendo procesado 7 de 10 archivos; la clave marca el reporte como incompleto y busca la causa.
+- **T043-02 (`m08-f10-b`):** ya no pregunta por la identidad de las conexiones. Pregunta quién aprueba las PR que abre la tarea; la clave es otra persona, porque la tarea actúa en nombre de quien la creó. Lleva `basis: inference` con `src-github-cloud-agent-risks`.
+- **T043-03 (`m08-f14-a`):** ya no es la verificación por muestreo de L6. Es un agente que pasa de proponer ajustes a escribirlos en la tabla del dashboard; la clave es un check independiente contra la política.
+- **T043-04 (`m08-lab-q05`):** el argumento del compañero pasa a ser la especialización («uno por nota, para que cada uno se especialice»), no el costo; la cita del paso 3 del laboratorio cambió igual. Concepto erróneo nuevo `m08-mc77`.
+
+Actualicé en `families.json` la equivalencia de F10, F13 y F14. El equilibrio de longitudes se mantiene (ninguna opción mide 1,7 veces o más otra; en `lab-q05`, 55/52/51).
+
+**Verificación:** `npm run content` (8 cursos, 48 lecciones, 822 preguntas, 55 fichas), `npm test` 219/219 y E2E de rutas de M08 10/10. Versión de prueba regenerada y publicada (versión 37). M08 queda completo y revisado.

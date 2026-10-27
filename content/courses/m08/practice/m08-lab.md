@@ -20,7 +20,7 @@ Para probar, la analista clasifica las diez notas con una sola llamada al modelo
 
 ## Paso 3 · ¿Repartir? {#paso-3}
 
-El compañero insiste en su diseño: «Diez agentes, uno por nota, cuestan lo mismo que uno y terminan antes». La analista quiere decidir con argumentos, y pensar también qué haría falta si algún día las notas fueran largas y conviniera repartirlas.
+El compañero insiste en su diseño: «Diez agentes, uno por nota, para que cada uno se especialice en su oportunidad y terminen antes». La analista quiere decidir con argumentos, y pensar también qué haría falta si algún día las notas fueran largas y conviniera repartirlas.
 
 ::lab-questions{step="paso-3"}
 
