@@ -104,4 +104,4 @@ _(Codex, 2026-10-27)_
 - Resultado: tres hallazgos medios. Uno corrige la clasificación de [C] en el borrador persistido de la regla de dos; otro separa Auto y Manual en la ficha de permisos; el tercero acota la regla de aprobación de PR a política/configuración, no a garantía universal.
 - Verificado: 18 preguntas con clave única, distractores y longitudes revisados; duración y alcance de L4–L6; contraste de cada cita y las tres fichas contra fuentes primarias. Sin cambios en `src/`, `content/`, `e2e/` ni `ESTADO.md`.
 - Pruebas: no aplican a una revisión documental sin cambios de ejecución.
-- Commit: pendiente de registrar tras crear la entrega.
+- Commit de entrega: `a142555003309c1d11e497a5ac7ecf852da34a55` (`[codex] Entrega T-045: revisión M09 L4-L6`). El registro de este hash queda en el commit de seguimiento.
