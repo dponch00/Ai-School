@@ -1,27 +1,27 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 a M09 completos y revisados; falta M10. App publicada en https://dponch00.github.io/Ai-School/ e instalada en el celular de Daniel (D-029). · **Actualizado:** 2026-10-27 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 a M09 completos y revisados; M10, lecciones 1 a 3 en revisión de Codex (T-047). App publicada en https://dponch00.github.io/Ai-School/ e instalada en el celular de Daniel (D-029). · **Actualizado:** 2026-10-27 por Claude Code
 
 ## Siguiente acción
 
-1. **Claude:** investigación de M10 (de prototipo a producto, proyecto integrador) con un subagente; después, M10 lección por lección.
-2. **Codex:** sin ticket abierto hasta la primera tanda de M10. En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
+1. **Codex:** T-047, que revisa el blueprint, las lecciones 1 a 3, las preguntas y las fichas de M10.
+2. **Claude:** al volver T-047, aplicar sus hallazgos y seguir con las lecciones 4 a 6 de M10. En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
 3. **Daniel (a su ritmo):** estudiar los manuales en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Daniel (a su ritmo):** estudiar en la app instalada y contar lo que no se entienda o tome demasiado tiempo.
 
 ## Avance estimado (2026-10-26)
 
-**≈ 80 % de la V1** (rango razonable: 77–83 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 81 % de la V1** (rango razonable: 78–84 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 100 % (hosting resuelto con D-029) | 8,0 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 100 % (publicada con D-029 e instalada en el celular de Daniel) | 15,0 |
-| 3 · Nueve manuales restantes | 40 % | 90 % (M01 y M03 a M09 completos y revisados; falta M10) | 36,0 |
+| 3 · Nueve manuales restantes | 40 % | 92 % (M01 y M03 a M09 completos y revisados; M10, L1 a L3 en revisión) | 36,8 |
 | 4 · Integración y revisión | 10 % | 0 % | 0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 80 %** |
+| **Total** | 100 % | | **≈ 81 %** |
 
 ## Tickets
 
@@ -73,18 +73,26 @@
 | [T-044](coordinacion/tickets/T-044-codex-revision-m09-l1-l3.md) | Codex | Revisión de M09: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
 | [T-045](coordinacion/tickets/T-045-codex-revision-m09-l4-l6.md) | Codex | Revisión de M09: lecciones 4 a 6, sus preguntas y fichas | cerrado |
 | [T-046](coordinacion/tickets/T-046-codex-revision-m09-examen-laboratorio.md) | Codex | Revisión de M09: banco de examen, laboratorio como caso y práctica | cerrado |
+| [T-047](coordinacion/tickets/T-047-codex-revision-m10-l1-l3.md) | Codex | Revisión de M10: blueprint, lecciones 1 a 3, preguntas y fichas | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Claude | `investigacion/M10-*` |
+| Codex (T-047) | `investigacion/codex-revision-m10-l1-l3.md` |
 
 ## Decisiones recientes
 
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-27 · Claude Code — M10, lecciones 1 a 3 (T-047)
+- **Investigación de M10:** 56 fuentes; el laboratorio propuesto, «El simulador de descuentos», ya es un caso nuevo. Las 44 fuentes nuevas pasaron a `content/sources.json`.
+- **Lecciones:** L1, usuario, problema y alcance mínimo útil; L2, usabilidad y accesibilidad de lo que hizo el agente (WCAG 2.2); L3, dónde vive cada dato y cómo no perderlo.
+- **Preguntas y fichas:** 16 preguntas, 30 conceptos erróneos y 3 fichas.
+
+**Verificación:** `npm test` 247/247 y lecciones revisadas en el navegador. El revisor de texto revisó la tanda antes del ticket.
 
 ### 2026-10-27 · Claude Code — cierre de T-046: M09 completo y revisado
 Dos hallazgos de Codex aplicados: la familia `f14` ahora evalúa una sola decisión (volver a evaluar cuando cambia una pieza) y `f09-b` usa un error coherente distinto del de L4. Daniel confirmó que la PWA está instalada en su celular y funciona.

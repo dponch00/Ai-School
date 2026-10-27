@@ -1,0 +1,47 @@
+{
+  "id": "m10-l1",
+  "courseId": "m10",
+  "version": "0.1.0",
+  "order": 1,
+  "title": "Usuario, problema y alcance mínimo útil",
+  "objectives": [
+    {
+      "id": "m10-l1-o1",
+      "statement": "Identifica al usuario principal y la decisión que la herramienta apoya.",
+      "process": "understand",
+      "evaluatedObjectiveId": "m10-eo1"
+    },
+    {
+      "id": "m10-l1-o2",
+      "statement": "Elige el alcance mínimo útil y lo que queda fuera, con su motivo.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m10-eo1"
+    },
+    {
+      "id": "m10-l1-o3",
+      "statement": "Elige criterios de éxito medibles con una línea base.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m10-eo1"
+    }
+  ],
+  "bodyPath": "courses/m10/lessons/m10-l1.md",
+  "reviewQuestionIds": [],
+  "checkQuestionIds": [
+    "m10-l1-c1",
+    "m10-l1-c2",
+    "m10-l1-c3",
+    "m10-l1-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [],
+  "sourceIds": [
+    "src-govuk-user-needs",
+    "src-govuk-discovery",
+    "src-govuk-whole-problem",
+    "src-govuk-alpha",
+    "src-nngroup-mvp-video",
+    "src-govuk-performance-metrics"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

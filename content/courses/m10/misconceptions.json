@@ -1,0 +1,284 @@
+[
+  {
+    "id": "m10-mc01",
+    "courseId": "m10",
+    "description": "Si construir con un agente es barato, conviene incluir todo lo que pidieron.",
+    "whyWrong": "Construir es barato; revisar, documentar y mantener cada función no lo es. El alcance lo fija la necesidad.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-govuk-whole-problem"
+    ]
+  },
+  {
+    "id": "m10-mc02",
+    "courseId": "m10",
+    "description": "El pedido de quien encarga la herramienta ya es la especificación del producto.",
+    "whyWrong": "Es una solución que llega definida; hay que reformularla como problema y validarla con quienes la usarán.",
+    "sourceIds": [
+      "src-govuk-discovery",
+      "src-govuk-user-needs"
+    ]
+  },
+  {
+    "id": "m10-mc03",
+    "courseId": "m10",
+    "description": "Que a los usuarios les guste es el criterio de éxito.",
+    "whyWrong": "Los indicadores se derivan de la necesidad, son pocos y se miden contra una línea base.",
+    "sourceIds": [
+      "src-govuk-performance-metrics"
+    ]
+  },
+  {
+    "id": "m10-mc04",
+    "courseId": "m10",
+    "description": "El producto mínimo viable es la versión 1 con menos pulido.",
+    "whyWrong": "Es lo mínimo para aprender sobre lo que el producto promete; puede ser un experimento antes de publicar nada.",
+    "sourceIds": [
+      "src-nngroup-mvp-video",
+      "src-govuk-alpha"
+    ]
+  },
+  {
+    "id": "m10-mc05",
+    "courseId": "m10",
+    "description": "Si ya se pidió la herramienta, no construirla no es una opción.",
+    "whyWrong": "Entender el problema puede terminar en no construir, o en una solución que no es software.",
+    "sourceIds": [
+      "src-govuk-discovery"
+    ]
+  },
+  {
+    "id": "m10-mc06",
+    "courseId": "m10",
+    "description": "Primero se construye todo y después se prueba con usuarios.",
+    "whyWrong": "Se prueban primero los supuestos más riesgosos, con lo mínimo necesario.",
+    "sourceIds": [
+      "src-govuk-alpha"
+    ]
+  },
+  {
+    "id": "m10-mc07",
+    "courseId": "m10",
+    "description": "Si el escaneo automático no encuentra errores, la pantalla es accesible.",
+    "whyWrong": "Las herramientas no comprueban todo; una parte grande de los problemas exige el juicio de una persona.",
+    "sourceIds": [
+      "src-w3c-eval-tools",
+      "src-gds-a11y-tools-2017"
+    ]
+  },
+  {
+    "id": "m10-mc08",
+    "courseId": "m10",
+    "description": "Marcar algo con un color basta, porque todos ven ese color.",
+    "whyWrong": "El color no puede ser el único medio de transmitir una información.",
+    "sourceIds": [
+      "src-w3c-wcag22"
+    ]
+  },
+  {
+    "id": "m10-mc09",
+    "courseId": "m10",
+    "description": "Un gráfico con alternativa en texto ya es accesible.",
+    "whyWrong": "Un gráfico complejo necesita una descripción con sus valores, visible para todos; una alternativa como «gráfico» no dice nada.",
+    "sourceIds": [
+      "src-w3c-complex-images"
+    ]
+  },
+  {
+    "id": "m10-mc10",
+    "courseId": "m10",
+    "description": "Una tabla que se ve ordenada está bien hecha.",
+    "whyWrong": "Sin encabezados marcados en el código, un lector de pantalla no puede asociar cada celda con su encabezado.",
+    "sourceIds": [
+      "src-w3c-tables-tutorial"
+    ]
+  },
+  {
+    "id": "m10-mc11",
+    "courseId": "m10",
+    "description": "En una herramienta interna, la accesibilidad no hace falta.",
+    "whyWrong": "Los criterios ayudan también a quien usa el teléfono con una mano, en movimiento o con el texto ampliado.",
+    "sourceIds": [
+      "src-w3c-understanding-target-size"
+    ]
+  },
+  {
+    "id": "m10-mc12",
+    "courseId": "m10",
+    "description": "Las herramientas detectan el 57 % de los problemas: esa es su cobertura.",
+    "whyWrong": "Es una cifra de proveedor contada por volumen de problemas; otras mediciones dan cifras distintas.",
+    "sourceIds": [
+      "src-deque-coverage-report",
+      "src-gds-a11y-tools-2017"
+    ]
+  },
+  {
+    "id": "m10-mc13",
+    "courseId": "m10",
+    "description": "Si el agente dice que la pantalla es accesible, está verificado.",
+    "whyWrong": "Es una afirmación; la evidencia es el escaneo, la revisión manual y las capturas.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-playwright-a11y"
+    ]
+  },
+  {
+    "id": "m10-mc14",
+    "courseId": "m10",
+    "description": "Guardar los totales ya calculados ahorra trabajo.",
+    "whyWrong": "Lo derivado se calcula; una copia guardada queda desactualizada cuando cambian los datos de los que sale.",
+    "sourceIds": [
+      "src-react-state-structure"
+    ]
+  },
+  {
+    "id": "m10-mc15",
+    "courseId": "m10",
+    "description": "Lo que la app guarda en el navegador queda ahí para siempre.",
+    "whyWrong": "Por defecto, el navegador puede borrarlo si falta espacio, y el usuario siempre puede borrarlo.",
+    "sourceIds": [
+      "src-mdn-storage-quotas"
+    ]
+  },
+  {
+    "id": "m10-mc16",
+    "courseId": "m10",
+    "description": "Si cambia la estructura de la base, los datos viejos se adaptan solos.",
+    "whyWrong": "Hay que migrarlos en la actualización de versión; recrear un almacén borra sus datos.",
+    "sourceIds": [
+      "src-mdn-indexeddb-using"
+    ]
+  },
+  {
+    "id": "m10-mc17",
+    "courseId": "m10",
+    "description": "Si la migración funciona en mi navegador, está probada.",
+    "whyWrong": "Lo habitual es que se haya probado con una base vacía o recién creada; hay que probarla con datos de la versión anterior y forzar el caso de fallo.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-dexie-versioning"
+    ]
+  },
+  {
+    "id": "m10-mc18",
+    "courseId": "m10",
+    "description": "Si una migración falla a la mitad, se arregla después.",
+    "whyWrong": "Una migración debe ser atómica: si falla, se revierte y los datos quedan como estaban.",
+    "sourceIds": [
+      "src-dexie-versioning",
+      "src-mdn-indexeddb-using"
+    ]
+  },
+  {
+    "id": "m10-mc19",
+    "courseId": "m10",
+    "description": "Sin servidor no hay datos del usuario que proteger.",
+    "whyWrong": "Lo que el usuario crea en su dispositivo es lo único que no se puede reconstruir, y necesita una salida, como exportarlo a un archivo.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-mdn-storage-quotas"
+    ]
+  },
+  {
+    "id": "m10-mc20",
+    "courseId": "m10",
+    "description": "Una necesidad se escribe como una función que el sistema debe tener.",
+    "whyWrong": "Se escribe en palabras del usuario, con lo que necesita y para qué decisión; la función viene después.",
+    "sourceIds": [
+      "src-govuk-user-needs"
+    ]
+  },
+  {
+    "id": "m10-mc21",
+    "courseId": "m10",
+    "description": "Conviene construir alrededor de la tecnología más novedosa.",
+    "whyWrong": "Se diseña alrededor del problema del usuario y no de una tecnología, y eso incluye la IA.",
+    "sourceIds": [
+      "src-govuk-whole-problem"
+    ]
+  },
+  {
+    "id": "m10-mc22",
+    "courseId": "m10",
+    "description": "Más preguntas de opinión mejoran la medición del éxito.",
+    "whyWrong": "La opinión no dice si la decisión mejoró; hacen falta indicadores de resultado y de corrección con línea base.",
+    "sourceIds": [
+      "src-govuk-performance-metrics"
+    ]
+  },
+  {
+    "id": "m10-mc23",
+    "courseId": "m10",
+    "description": "Con buen contraste, el color puede ser la única señal.",
+    "whyWrong": "El contraste es otro criterio; aunque se vea bien, el color no puede ser el único medio de transmitir algo.",
+    "sourceIds": [
+      "src-w3c-wcag22"
+    ]
+  },
+  {
+    "id": "m10-mc24",
+    "courseId": "m10",
+    "description": "Sumar más herramientas de escaneo reemplaza la revisión manual.",
+    "whyWrong": "En la prueba de 2017, ni todas las herramientas juntas detectaron todas las barreras; la revisión manual sigue haciendo falta.",
+    "sourceIds": [
+      "src-gds-a11y-tools-2017"
+    ]
+  },
+  {
+    "id": "m10-mc25",
+    "courseId": "m10",
+    "description": "Un título visible reemplaza la descripción de un gráfico.",
+    "whyWrong": "El título dice qué es; la descripción larga da las escalas, los valores y las tendencias.",
+    "sourceIds": [
+      "src-w3c-complex-images"
+    ]
+  },
+  {
+    "id": "m10-mc26",
+    "courseId": "m10",
+    "description": "Un aviso al usuario reemplaza corregir la barrera.",
+    "whyWrong": "El aviso no quita la barrera: quien no puede tocar un objetivo pequeño sigue sin poder hacerlo.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-w3c-understanding-target-size"
+    ]
+  },
+  {
+    "id": "m10-mc27",
+    "courseId": "m10",
+    "description": "Recalcular de vez en cuando arregla una copia guardada de un dato derivado.",
+    "whyWrong": "Entre recálculo y recálculo, la copia puede estar desactualizada sin que nadie lo note; lo derivado no se guarda.",
+    "sourceIds": [
+      "src-react-state-structure"
+    ]
+  },
+  {
+    "id": "m10-mc28",
+    "courseId": "m10",
+    "description": "El formato de exportación se puede cambiar sin avisar.",
+    "whyWrong": "Quien guardó un archivo depende de él; el formato lleva versión y la app nueva sabe leer los anteriores.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-semver-2"
+    ]
+  },
+  {
+    "id": "m10-mc29",
+    "courseId": "m10",
+    "description": "Si la migración interna funciona, los archivos exportados no importan.",
+    "whyWrong": "Los archivos exportados son el respaldo del usuario; si la app deja de leerlos, el respaldo no sirve.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-semver-2"
+    ]
+  },
+  {
+    "id": "m10-mc30",
+    "courseId": "m10",
+    "description": "Una cifra tomada después del cambio basta para afirmar una mejora.",
+    "whyWrong": "Sin una línea base medida antes, no se sabe si hubo mejora.",
+    "sourceIds": [
+      "src-govuk-performance-metrics"
+    ]
+  }
+]

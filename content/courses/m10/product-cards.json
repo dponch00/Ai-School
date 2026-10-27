@@ -1,0 +1,52 @@
+[
+  {
+    "id": "m10-pc-a11y-scan",
+    "product": "axe-core y Playwright · escaneo automático de accesibilidad",
+    "surfaces": [
+      "cli",
+      "web"
+    ],
+    "capability": "axe-core, el motor de reglas de Deque, dice encontrar de forma automática, en promedio, el 57 % de los problemas WCAG, y marca como «incompletos» los resultados que necesitan una revisión manual. Deque calcula esa cifra por volumen de problemas, sobre más de 2 000 auditorías propias. Playwright lo integra en las pruebas de extremo a extremo con AxeBuilder y con etiquetas como wcag2a y wcag2aa, y su documentación advierte que muchos problemas solo se descubren con pruebas manuales. La app de este curso lo usa en sus pruebas de extremo a extremo (la página no indica estado de lanzamiento).",
+    "kind": "capability",
+    "maturity": "unspecified",
+    "verifiedAt": "2026-10-27",
+    "sourceIds": [
+      "src-github-axe-core",
+      "src-deque-coverage-report",
+      "src-playwright-a11y"
+    ],
+    "nextReview": "2027-04-27"
+  },
+  {
+    "id": "m10-pc-storage-eviction",
+    "product": "Navegadores · cuotas y borrado del almacenamiento",
+    "surfaces": [
+      "web",
+      "mobile"
+    ],
+    "capability": "En Chromium, cada origen puede usar hasta el 60 % del disco, y el navegador en total, como máximo el 80 %. Safari borra los datos que los scripts de un origen guardaron si el usuario no interactúa con el sitio durante siete días de uso del navegador, cuando la prevención de rastreo está activa. Al pedir almacenamiento persistente, Firefox le muestra un permiso al usuario, mientras que Safari y Chromium deciden sin preguntar, según cómo se ha usado el sitio. localStorage, el almacenamiento simple, tiene 5 MiB por origen. Son datos de la documentación de MDN, y cada navegador puede cambiar sus reglas.",
+    "kind": "capability",
+    "maturity": "mixed",
+    "verifiedAt": "2026-10-27",
+    "sourceIds": [
+      "src-mdn-storage-quotas"
+    ],
+    "nextReview": "2027-04-27"
+  },
+  {
+    "id": "m10-pc-db-migrations",
+    "product": "Dexie · migraciones de la base del navegador",
+    "surfaces": [
+      "web"
+    ],
+    "capability": "Dexie, una librería que funciona sobre IndexedDB, declara cada versión de la base con version(n).stores({...}) y una función upgrade que migra los datos. Si una función de actualización falla, la transacción se revierte y la base no se abre, en lugar de quedar a medio migrar. Las versiones que tienen función de actualización se mantienen declaradas mientras haya usuarios con versiones anteriores, y no se modifican una vez publicadas. La app de este curso usa Dexie 4 (la página no indica estado de lanzamiento).",
+    "kind": "capability",
+    "maturity": "unspecified",
+    "verifiedAt": "2026-10-27",
+    "sourceIds": [
+      "src-dexie-versioning",
+      "src-mdn-indexeddb-using"
+    ],
+    "nextReview": "2027-04-27"
+  }
+]

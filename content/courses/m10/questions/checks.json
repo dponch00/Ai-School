@@ -1,0 +1,714 @@
+[
+  {
+    "id": "m10-l1-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l1",
+    "evaluatedObjectiveId": "m10-eo1",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Tesorería pide «una app para ver el flujo de caja en el celular, con gráficos, alertas y exportación a Excel».",
+    "stem": "¿Qué haces antes de construir?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Construirla completa: con un agente sale rápido",
+        "correct": false,
+        "feedback": "Construir con un agente es rápido, pero cada función hay que revisarla, documentarla y mantenerla. Antes de decidir qué entra, hay que saber quién la usará y qué necesita.",
+        "misconceptionId": "m10-mc01"
+      },
+      {
+        "id": "o2",
+        "text": "Preguntar quién la usará y para qué decisión",
+        "correct": true,
+        "feedback": "Correcta. El pedido describe una solución, no el problema. Antes de construir se averigua quién la usará y qué decisión le ayuda a tomar, y con eso se decide qué entra."
+      },
+      {
+        "id": "o3",
+        "text": "Pasarle al agente el pedido tal como llegó",
+        "correct": false,
+        "feedback": "Así el pedido se trata como si fuera la especificación, cuando es una solución ya definida. Hay que reformularlo como problema y comprobarlo con quienes van a usar la herramienta.",
+        "misconceptionId": "m10-mc02"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l1#problema",
+    "sourceIds": [
+      "src-govuk-discovery",
+      "src-govuk-user-needs"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l1-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l1",
+    "evaluatedObjectiveId": "m10-eo1",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "En las entrevistas, los analistas de crédito cuentan que cada mañana buscan en tres archivos qué clientes superaron su límite de crédito.",
+    "stem": "¿Cómo escribes su necesidad?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "«Un tablero de crédito con todos los indicadores posibles»",
+        "correct": false,
+        "feedback": "Eso describe una solución, no una necesidad, y no dice qué decisión se toma con ella. Una necesidad se escribe con la forma «necesito… para…», desde quien la tiene.",
+        "misconceptionId": "m10-mc02"
+      },
+      {
+        "id": "o2",
+        "text": "«Necesito ver quién superó su límite para llamarlo hoy»",
+        "correct": true,
+        "feedback": "Correcta. Está en palabras del usuario y dice qué necesita ver y para qué decisión, que es a quién llamar hoy. Con eso se puede decidir después qué mostrar."
+      },
+      {
+        "id": "o3",
+        "text": "«El sistema debe mostrar más datos de cada cliente»",
+        "correct": false,
+        "feedback": "Es una función del sistema, y además vaga, porque no dice quién la necesita ni para qué decisión. La necesidad se escribe desde el usuario, y la función se decide después.",
+        "misconceptionId": "m10-mc20"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l1#necesidades",
+    "sourceIds": [
+      "src-govuk-user-needs"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l1-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l1",
+    "evaluatedObjectiveId": "m10-eo1",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Para la herramienta de crédito, el agente propone sumar a la versión 1 un chat con IA, un mapa de clientes y alertas por correo. Ninguna de las tres salió en las entrevistas.",
+    "stem": "¿Qué haces con esas funciones?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Incluirlas: el agente las hace en una tarde",
+        "correct": false,
+        "feedback": "Hacerlas es barato, pero revisarlas, documentarlas y mantenerlas no lo es. Además, nadie las pidió en las entrevistas, así que no sirven a la decisión del usuario.",
+        "misconceptionId": "m10-mc01"
+      },
+      {
+        "id": "o2",
+        "text": "Incluir solo el chat, que es lo más novedoso",
+        "correct": false,
+        "feedback": "Elegir una función por novedosa es diseñar alrededor de una tecnología, y no del problema del usuario. El chat tampoco salió en las entrevistas.",
+        "misconceptionId": "m10-mc21"
+      },
+      {
+        "id": "o3",
+        "text": "Dejarlas fuera, por escrito y con su motivo",
+        "correct": true,
+        "feedback": "Correcta. El alcance mínimo útil deja fuera lo que no sirve a la decisión. Se anota por escrito, con su motivo y con lo que haría falta para que entre después."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l1#alcance",
+    "basis": "inference",
+    "sourceIds": [
+      "src-govuk-whole-problem"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l1-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l1",
+    "evaluatedObjectiveId": "m10-eo1",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "Para la herramienta de crédito proponen medir el éxito con dos indicadores: cuántas veces la abren por semana y una encuesta de satisfacción.",
+    "stem": "¿Qué le falta a esa medición?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Un indicador de resultado, con línea base",
+        "correct": true,
+        "feedback": "Correcta. Que la abran y que les guste no dice si la decisión mejoró. Falta un indicador de resultado, como el tiempo o los errores, medido antes y después del cambio."
+      },
+      {
+        "id": "o2",
+        "text": "Nada: si la abren y les gusta, funciona",
+        "correct": false,
+        "feedback": "La frecuencia de uso y la opinión no dicen si la decisión mejoró ni si se ahorró tiempo. Los indicadores salen de la necesidad y se comparan con una línea base.",
+        "misconceptionId": "m10-mc03"
+      },
+      {
+        "id": "o3",
+        "text": "Más preguntas en la encuesta de satisfacción",
+        "correct": false,
+        "feedback": "Más preguntas de opinión siguen midiendo opinión, no el resultado. Lo que falta es un indicador de resultado comparado con una línea base.",
+        "misconceptionId": "m10-mc22"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l1#exito",
+    "sourceIds": [
+      "src-govuk-performance-metrics"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l2-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l2",
+    "evaluatedObjectiveId": "m10-eo2",
+    "competencyIds": [
+      "C13",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "En la pantalla de cobranza, los clientes morosos se distinguen porque su fila es de color naranja. No hay ninguna otra marca.",
+    "stem": "¿Qué problema hay?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguno, si el naranja tiene buen contraste",
+        "correct": false,
+        "feedback": "El contraste es otro criterio. Aunque el naranja se vea bien, quien no lo distingue no sabe qué fila es morosa, y por eso el color no puede ser la única señal.",
+        "misconceptionId": "m10-mc23"
+      },
+      {
+        "id": "o2",
+        "text": "El color es la única señal: falta un texto",
+        "correct": true,
+        "feedback": "Correcta. Quien no distingue ese color no sabe qué fila es morosa. Hace falta otra señal además del color, como la palabra «Moroso»."
+      },
+      {
+        "id": "o3",
+        "text": "Ninguno: cualquiera distingue el naranja",
+        "correct": false,
+        "feedback": "No todas las personas distinguen los colores igual, ni todas las pantallas los muestran igual. Por eso el color no puede ser la única señal.",
+        "misconceptionId": "m10-mc08"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l2#norma",
+    "sourceIds": [
+      "src-w3c-wcag22"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l2-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l2",
+    "evaluatedObjectiveId": "m10-eo2",
+    "competencyIds": [
+      "C13",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El agente entrega la pantalla de cobranza con su reporte: «escaneo de accesibilidad: sin errores». Propone publicarla hoy.",
+    "stem": "¿Qué falta antes de publicar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada, porque el escaneo no encontró errores",
+        "correct": false,
+        "feedback": "Un escaneo no lo comprueba todo, y una parte grande de los problemas solo aparece en una revisión manual. «Sin errores» es la primera capa de la revisión, no la última.",
+        "misconceptionId": "m10-mc07"
+      },
+      {
+        "id": "o2",
+        "text": "Revisión manual y una prueba con un usuario",
+        "correct": true,
+        "feedback": "Correcta. El escaneo es solo la primera capa. Faltan la revisión manual breve, con teclado, texto ampliado y ancho de teléfono, y la prueba con alguien que vaya a usarla."
+      },
+      {
+        "id": "o3",
+        "text": "Correr el escaneo otra vez con otra herramienta",
+        "correct": false,
+        "feedback": "En la prueba de 2017, ni las diez herramientas juntas encontraron todas las barreras. Otra herramienta no reemplaza la revisión manual.",
+        "misconceptionId": "m10-mc24"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l2#revisar",
+    "sourceIds": [
+      "src-w3c-eval-tools",
+      "src-playwright-a11y"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l2-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l2",
+    "evaluatedObjectiveId": "m10-eo2",
+    "competencyIds": [
+      "C13",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "El gráfico de antigüedad de saldos tiene como alternativa en texto «gráfico de barras». Debajo no hay ninguna tabla ni descripción.",
+    "stem": "¿Qué le falta?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Una descripción con sus valores, como una tabla",
+        "correct": true,
+        "feedback": "Correcta. Un gráfico es una imagen compleja y necesita una descripción larga con escalas y valores, visible para todos. Una tabla con los mismos datos, junto al gráfico, sirve."
+      },
+      {
+        "id": "o2",
+        "text": "Nada: ya tiene su alternativa en texto",
+        "correct": false,
+        "feedback": "Tiene una alternativa, pero «gráfico de barras» solo dice qué es, no qué muestra. Quien no ve el gráfico se queda sin sus valores.",
+        "misconceptionId": "m10-mc09"
+      },
+      {
+        "id": "o3",
+        "text": "Un título más grande y claro encima del gráfico",
+        "correct": false,
+        "feedback": "Un título dice qué es el gráfico, no qué valores tiene. Lo que falta es la descripción larga, con escalas, valores y tendencias.",
+        "misconceptionId": "m10-mc25"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l2#tablas-graficos",
+    "sourceIds": [
+      "src-w3c-complex-images"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l2-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l2",
+    "evaluatedObjectiveId": "m10-eo2",
+    "competencyIds": [
+      "C13",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "En el teléfono, los botones de filtro de la pantalla de cobranza miden 16 por 16 píxeles y están pegados entre sí.",
+    "stem": "¿Qué haces?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: con un poco de cuidado se pueden tocar",
+        "correct": false,
+        "feedback": "No todos pueden tener ese cuidado. Con temblor, con una mano o en movimiento, es fácil tocar el botón vecino, y por eso la norma fija un tamaño mínimo.",
+        "misconceptionId": "m10-mc11"
+      },
+      {
+        "id": "o2",
+        "text": "Agregar un aviso que pida tocar con cuidado",
+        "correct": false,
+        "feedback": "El aviso no quita la barrera. Quien no puede acertar un objetivo pequeño sigue sin poder, por mucho que se le pida cuidado.",
+        "misconceptionId": "m10-mc26"
+      },
+      {
+        "id": "o3",
+        "text": "Agrandarlos a 24 píxeles o más, con espacio",
+        "correct": true,
+        "feedback": "Correcta. El mínimo es de 24 por 24 píxeles, o espacio suficiente alrededor, y se recomienda más. Así se corrige la barrera en lugar de pedirle al usuario que la sortee."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l2#norma",
+    "sourceIds": [
+      "src-w3c-wcag22-new",
+      "src-w3c-understanding-target-size"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l2-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l2",
+    "evaluatedObjectiveId": "m10-eo1",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Antes de construir el Pulse completo, la analista duda de que los gerentes lo vayan a abrir en el teléfono antes de sus reuniones.",
+    "stem": "¿Qué hace primero?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Probarlo una semana con un prototipo navegable",
+        "correct": true,
+        "feedback": "Correcta. Se prueba primero el supuesto más riesgoso, con lo justo y antes de pulir nada. Si los gerentes no la abren, se sabe en una semana y sin haber construido de más."
+      },
+      {
+        "id": "o2",
+        "text": "Construir la versión completa y ver si la usan",
+        "correct": false,
+        "feedback": "Construir todo antes cuesta mucho, y si el supuesto más riesgoso falla, ese trabajo se pierde. Primero se prueba el supuesto, con lo mínimo.",
+        "misconceptionId": "m10-mc06"
+      },
+      {
+        "id": "o3",
+        "text": "Publicar la versión 1 con menos pulido como MVP",
+        "correct": false,
+        "feedback": "Un MVP no es la versión 1 sin pulir. Es lo mínimo que permite aprender sobre lo que el producto promete, y puede ser un experimento antes de publicar nada.",
+        "misconceptionId": "m10-mc04"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l1#supuesto",
+    "sourceIds": [
+      "src-govuk-alpha",
+      "src-nngroup-mvp-video"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l2-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l2",
+    "evaluatedObjectiveId": "m10-eo1",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "Al entrevistar a quienes piden un tablero de viáticos, la analista descubre que bastaría con agregar una columna de estado a la planilla mensual que ya usan.",
+    "stem": "¿Qué decide?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Construir el tablero, porque ya se pidió",
+        "correct": false,
+        "feedback": "Que se haya pedido no obliga a construirlo. Entender el problema puede terminar en no construir, si otra solución lo resuelve mejor.",
+        "misconceptionId": "m10-mc05"
+      },
+      {
+        "id": "o2",
+        "text": "Proponer la columna y no construir el tablero",
+        "correct": true,
+        "feedback": "Correcta. Entender el problema puede terminar en no construir. Aquí basta un cambio en la planilla que ya usan, sin nada nuevo que mantener."
+      },
+      {
+        "id": "o3",
+        "text": "Hacer las dos cosas, ya que el agente es rápido",
+        "correct": false,
+        "feedback": "El tablero no resuelve nada que la columna no resuelva, y agrega algo que revisar y mantener. Que el agente sea rápido no lo hace gratis.",
+        "misconceptionId": "m10-mc01"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l1#problema",
+    "sourceIds": [
+      "src-govuk-discovery"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l3-c1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l3",
+    "evaluatedObjectiveId": "m10-eo3",
+    "competencyIds": [
+      "C13",
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "En la herramienta de cobranza, el agente propone guardar en el navegador el saldo vencido de cada cliente, calculado al abrirla, «para no recalcularlo».",
+    "stem": "¿Qué haces con ese saldo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Guardarlo, así la herramienta carga más rápido",
+        "correct": false,
+        "feedback": "Una copia guardada queda desactualizada cuando cambian los datos de los que sale, y puede que nadie lo note. Lo derivado se calcula cada vez.",
+        "misconceptionId": "m10-mc14"
+      },
+      {
+        "id": "o2",
+        "text": "No guardarlo: se calcula cada vez que se abre",
+        "correct": true,
+        "feedback": "Correcta. El saldo vencido es un dato derivado, porque sale de otros datos. Si se calcula cada vez, nunca queda desactualizado."
+      },
+      {
+        "id": "o3",
+        "text": "Guardarlo y recalcularlo una vez por semana",
+        "correct": false,
+        "feedback": "Entre un recálculo y otro, la copia puede estar desactualizada sin que nadie lo note. Lo derivado no se guarda, se calcula.",
+        "misconceptionId": "m10-mc27"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l3#clases",
+    "sourceIds": [
+      "src-react-state-structure"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l3-c2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l3",
+    "evaluatedObjectiveId": "m10-eo3",
+    "competencyIds": [
+      "C13",
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Un gerente pregunta si las notas que guarda en la herramienta, que abre en el navegador de su teléfono, «están a salvo ahí».",
+    "stem": "¿Qué le respondes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Sí: lo guardado en el navegador queda para siempre",
+        "correct": false,
+        "feedback": "Por defecto, el navegador puede borrarlo si falta espacio. Además, el usuario siempre puede borrarlo desde los ajustes, incluso sin querer.",
+        "misconceptionId": "m10-mc15"
+      },
+      {
+        "id": "o2",
+        "text": "Que sin servidor no hay datos que se puedan perder",
+        "correct": false,
+        "feedback": "Justo porque no hay servidor, esas notas existen solo en su teléfono. Son lo único que no se puede reconstruir, y por eso lo que más hay que cuidar.",
+        "misconceptionId": "m10-mc19"
+      },
+      {
+        "id": "o3",
+        "text": "Que pueden borrarse, y que conviene exportarlas",
+        "correct": true,
+        "feedback": "Correcta. El navegador puede borrar lo que guarda, y el usuario también. Exportar las notas a un archivo le da un respaldo, y el almacenamiento persistente evita que el navegador las borre por su cuenta."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l3#navegador",
+    "sourceIds": [
+      "src-mdn-storage-quotas"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l3-c3",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l3",
+    "evaluatedObjectiveId": "m10-eo3",
+    "competencyIds": [
+      "C13",
+      "C08"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "La versión 2 de la herramienta de cobranza cambia la clave con que se guardan las notas. El agente dice que la migración «funciona en su navegador».",
+    "stem": "¿Qué falta comprobar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que migre datos de la v1 y se revierta si falla",
+        "correct": true,
+        "feedback": "Correcta. La migración se prueba con una base sintética de la versión anterior, y se fuerza un fallo para ver que la v1 queda intacta."
+      },
+      {
+        "id": "o2",
+        "text": "Nada: si funciona en un navegador, está probada",
+        "correct": false,
+        "feedback": "«Funciona en mi navegador» suele significar que se probó con una base vacía o recién creada. Falta probarla con datos como los que tienen los usuarios.",
+        "misconceptionId": "m10-mc17"
+      },
+      {
+        "id": "o3",
+        "text": "Que los datos viejos se adapten solos al abrirla",
+        "correct": false,
+        "feedback": "Los datos no se adaptan solos. Cambiar la clave obliga a recrear el almacén, y sin una migración sus datos se borran.",
+        "misconceptionId": "m10-mc16"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l3#probar-migracion",
+    "basis": "inference",
+    "sourceIds": [
+      "src-dexie-versioning",
+      "src-mdn-indexeddb-using"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l3-c4",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l3",
+    "evaluatedObjectiveId": "m10-eo3",
+    "competencyIds": [
+      "C13",
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "La herramienta exporta las notas a un archivo. La versión 3 cambia el formato y deja de leer los archivos exportados con la versión 2.",
+    "stem": "¿Qué problema hay?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguno: basta con exportar de nuevo con la v3",
+        "correct": false,
+        "feedback": "Quien perdió los datos de su navegador solo tiene el archivo que exportó con la v2. Ya no tiene nada que volver a exportar.",
+        "misconceptionId": "m10-mc28"
+      },
+      {
+        "id": "o2",
+        "text": "Ninguno, si la migración interna funciona bien",
+        "correct": false,
+        "feedback": "La migración cuida la base del navegador, no los archivos exportados. Esos archivos son el respaldo del usuario, y quedan inservibles si la app no los lee.",
+        "misconceptionId": "m10-mc29"
+      },
+      {
+        "id": "o3",
+        "text": "Los respaldos de la v2 ya no se pueden importar",
+        "correct": true,
+        "feedback": "Correcta. El formato de exportación es un contrato con versión, y quien guardó un archivo depende de él. La app nueva debe leer los formatos anteriores, o decir con claridad que no puede."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l3#exportacion",
+    "basis": "inference",
+    "sourceIds": [
+      "src-semver-2"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l3-r1",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l3",
+    "evaluatedObjectiveId": "m10-eo2",
+    "competencyIds": [
+      "C13",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "La alternativa en texto del gráfico de cobertura dice «Cobertura por región». La tabla con los valores está en otra página de la app.",
+    "stem": "¿Basta con eso?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Sí: tiene alternativa, y la tabla existe en la app",
+        "correct": false,
+        "feedback": "La descripción larga tiene que estar junto al gráfico, visible para quien lo mira. En otra página de la app, quien necesita los valores no los encuentra.",
+        "misconceptionId": "m10-mc09"
+      },
+      {
+        "id": "o2",
+        "text": "No: la descripción con valores va junto al gráfico",
+        "correct": true,
+        "feedback": "Correcta. Un gráfico complejo lleva una descripción larga visible, con sus valores. La tabla de cobertura puede ser esa descripción si se pone al lado del gráfico."
+      },
+      {
+        "id": "o3",
+        "text": "Sí, si el escaneo automático no lo marca",
+        "correct": false,
+        "feedback": "El escaneo ve que hay alternativa, pero no puede juzgar si alcanza. Que no lo marque no dice nada sobre la descripción larga.",
+        "misconceptionId": "m10-mc07"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l2#tablas-graficos",
+    "sourceIds": [
+      "src-w3c-complex-images"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-l3-r2",
+    "version": 1,
+    "use": "check",
+    "courseId": "m10",
+    "lessonId": "m10-l3",
+    "evaluatedObjectiveId": "m10-eo1",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "scenario": "La herramienta de crédito se publicó, y ahora los analistas tardan 10 minutos cada mañana en su revisión. Nadie midió cuánto tardaban antes.",
+    "stem": "¿Qué puedes concluir del ahorro de tiempo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que ahorra tiempo, porque 10 minutos es poco",
+        "correct": false,
+        "feedback": "Sin saber cuánto tardaban antes, no hay con qué comparar. Diez minutos podrían ser más que antes, o lo mismo.",
+        "misconceptionId": "m10-mc30"
+      },
+      {
+        "id": "o2",
+        "text": "Que funciona, porque la usan cada mañana",
+        "correct": false,
+        "feedback": "El uso no dice si ahorra tiempo. Para afirmarlo hace falta comparar con lo que tardaban antes del cambio.",
+        "misconceptionId": "m10-mc03"
+      },
+      {
+        "id": "o3",
+        "text": "Nada firme: falta la línea base de antes",
+        "correct": true,
+        "feedback": "Correcta. Un indicador de resultado se compara con una línea base medida antes del cambio. Sin ella, diez minutos no dicen si hubo mejora."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l1#exito",
+    "sourceIds": [
+      "src-govuk-performance-metrics"
+    ],
+    "status": "draft"
+  }
+]

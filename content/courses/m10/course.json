@@ -1,0 +1,76 @@
+{
+  "id": "m10",
+  "version": "0.1.0",
+  "title": "De prototipo a producto: proyecto integrador",
+  "centralQuestion": "¿Qué le falta a una herramienta para ser útil y mantenible?",
+  "competencyIds": [
+    "C13",
+    "C02",
+    "C12",
+    "C08",
+    "C04"
+  ],
+  "evaluatedObjectives": [
+    {
+      "id": "m10-eo1",
+      "statement": "Dado un pedido de herramienta y lo que se sabe de quienes la usarían, identifica al usuario principal y la decisión que la herramienta debe apoyar, elige el alcance mínimo útil (qué entra, qué queda fuera y por qué) y un criterio de éxito medible con línea base, y reconoce cuándo conviene probar un supuesto antes de construir, o no construir.",
+      "competencyIds": [
+        "C13",
+        "C02"
+      ]
+    },
+    {
+      "id": "m10-eo2",
+      "statement": "Dada una pantalla hecha por un agente y su reporte de verificación, identifica las barreras de usabilidad y accesibilidad que importan en una herramienta de datos (color como única señal, tabla o gráfico sin estructura ni alternativa, teclado, foco, tamaño de lo que se toca, texto ampliado) y decide qué verificación falta, sin concluir que es accesible por un escaneo automático en verde.",
+      "competencyIds": [
+        "C13",
+        "C12"
+      ]
+    },
+    {
+      "id": "m10-eo3",
+      "statement": "Dado el diseño del estado de una herramienta, decide dónde vive cada dato (derivado, de referencia, preferencia, creado por el usuario), identifica qué pone en riesgo los datos del usuario (cambio de estructura, borrado del navegador, cambio de origen) y elige la protección (migración atómica probada con datos de la versión anterior, exportación con versión de formato, almacenamiento persistente).",
+      "competencyIds": [
+        "C13",
+        "C08"
+      ]
+    },
+    {
+      "id": "m10-eo4",
+      "statement": "Dado un plan de publicación, elige la cadena que impide publicar si fallan las pruebas, la forma de actualizar que no mezcla versiones ni hace perder trabajo, el número de versión y el plan de continuidad (otro hosting, origen, respaldo con restauración probada).",
+      "competencyIds": [
+        "C13"
+      ]
+    },
+    {
+      "id": "m10-eo5",
+      "statement": "Dada una entrega con su documentación, elige qué documento sirve a cada lector (quien usa o quien mantiene; tutorial, guía, referencia o explicación), identifica las limitaciones y supuestos que faltan declarar y decide quién responde por lo entregado y con qué evidencia, incluido el código escrito por un agente y las licencias de las dependencias.",
+      "competencyIds": [
+        "C13",
+        "C02"
+      ]
+    },
+    {
+      "id": "m10-eo6",
+      "statement": "Dado un cambio (instrucciones, skill, dependencia, modelo, hosting) o un hallazgo de revisión, decide qué se vuelve a probar y quién revisa, elige el calendario de revisión según la volatilidad de cada pieza y decide cuándo un hallazgo está cerrado (corrección con prueba, o riesgo aceptado con motivo, responsable y fecha) y cuándo se reabre.",
+      "competencyIds": [
+        "C13",
+        "C12",
+        "C04"
+      ]
+    }
+  ],
+  "lessonIds": [
+    "m10-l1",
+    "m10-l2",
+    "m10-l3",
+    "m10-l4",
+    "m10-l5",
+    "m10-l6"
+  ],
+  "practiceId": "m10-lab",
+  "estimatedMinutes": 180,
+  "volatility": "low",
+  "reviewCadence": "annual",
+  "status": "draft"
+}

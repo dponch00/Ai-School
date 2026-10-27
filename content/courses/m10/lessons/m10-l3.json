@@ -1,0 +1,53 @@
+{
+  "id": "m10-l3",
+  "courseId": "m10",
+  "version": "0.1.0",
+  "order": 3,
+  "title": "Dónde vive cada dato y cómo no perderlo",
+  "objectives": [
+    {
+      "id": "m10-l3-o1",
+      "statement": "Decide dónde vive cada clase de dato.",
+      "process": "apply",
+      "evaluatedObjectiveId": "m10-eo3"
+    },
+    {
+      "id": "m10-l3-o2",
+      "statement": "Identifica qué pone en riesgo los datos del usuario.",
+      "process": "analyze",
+      "evaluatedObjectiveId": "m10-eo3"
+    },
+    {
+      "id": "m10-l3-o3",
+      "statement": "Elige la protección: migración probada, exportación con versión o almacenamiento persistente.",
+      "process": "evaluate",
+      "evaluatedObjectiveId": "m10-eo3"
+    }
+  ],
+  "bodyPath": "courses/m10/lessons/m10-l3.md",
+  "reviewQuestionIds": [
+    "m10-l3-r1",
+    "m10-l3-r2"
+  ],
+  "checkQuestionIds": [
+    "m10-l3-c1",
+    "m10-l3-c2",
+    "m10-l3-c3",
+    "m10-l3-c4"
+  ],
+  "assetIds": [],
+  "productCardIds": [
+    "m10-pc-storage-eviction",
+    "m10-pc-db-migrations"
+  ],
+  "sourceIds": [
+    "src-react-state-structure",
+    "src-mdn-storage-quotas",
+    "src-mdn-indexeddb-using",
+    "src-dexie-versioning",
+    "src-semver-2",
+    "src-inkandswitch-local-first"
+  ],
+  "estimatedMinutes": 25,
+  "status": "draft"
+}

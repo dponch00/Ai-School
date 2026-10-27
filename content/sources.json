@@ -4922,5 +4922,711 @@
     "kind": "secondary",
     "volatility": "low",
     "nextReview": "2027-10-26"
+  },
+  {
+    "id": "src-govuk-user-needs",
+    "title": "Learning about users and their needs (publ. 2016-04-04; act. 2017-03-23)",
+    "organization": "Government Digital Service (GOV.UK Service Manual)",
+    "url": "https://www.gov.uk/service-manual/user-research/start-by-learning-user-needs",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Qué son las necesidades",
+      "Empezar por los usuarios",
+      "Formato «necesito… para…» con contexto",
+      "Opiniones que no vienen de usuarios = supuestos",
+      "Servicios basados en necesidades se usan más y cuestan menos"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-govuk-discovery",
+    "title": "How the discovery phase works (act. 2021-06-21)",
+    "organization": "GDS (GOV.UK Service Manual)",
+    "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Entender el problema antes de construir",
+      "Reformular soluciones como problemas",
+      "Definir qué queda fuera",
+      "Puede terminar en no construir",
+      "Alternativas que no son software",
+      "Planear métricas"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-govuk-alpha",
+    "title": "How the alpha phase works (act. 2019-05-08)",
+    "organization": "GDS (GOV.UK Service Manual)",
+    "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Prototipos lo justo para probar",
+      "Descartar",
+      "Probar los supuestos más riesgosos",
+      "No prototipar todo el recorrido",
+      "Métricas de la fase previa",
+      "Se puede parar"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-govuk-whole-problem",
+    "title": "Service Standard, point 2: Solve a whole problem for users (act. 2026-01-29)",
+    "organization": "GDS (GOV.UK Service Manual)",
+    "url": "https://www.gov.uk/service-manual/service-standard/point-2-solve-a-whole-problem",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Alcance «ni demasiado estrecho ni demasiado amplio»",
+      "No un servicio grande que haga demasiado",
+      "Incrementos frecuentes",
+      "No diseñar alrededor de una tecnología, IA incluida"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-govuk-performance-metrics",
+    "title": "How to set performance metrics for your service (publ. 2017-12-05)",
+    "organization": "GDS (GOV.UK Service Manual)",
+    "url": "https://www.gov.uk/service-manual/measuring-success/how-to-set-performance-metrics-for-your-service",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Propósito → beneficios → hipótesis",
+      "3 o 4 indicadores",
+      "Varias fuentes",
+      "Línea base",
+      "Medir de forma continua",
+      "Revisar las métricas"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-nngroup-mvp-video",
+    "title": "MVP: Why It Isn't Always Release 1 (video, 2024-08-19)",
+    "organization": "Nielsen Norman Group (Sara Paul)",
+    "url": "https://www.nngroup.com/videos/mvp-isnt-release1/",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "MVP como representación razonable que maximiza lo aprendido sobre la propuesta de valor",
+      "Puede ser un experimento",
+      "No tiene que ser la primera versión"
+    ],
+    "kind": "secondary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-nngroup-heuristics",
+    "title": "10 Usability Heuristics for User Interface Design (1994; revisado 2024-01-30)",
+    "organization": "Nielsen Norman Group (Jakob Nielsen)",
+    "url": "https://www.nngroup.com/articles/ten-usability-heuristics/",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Las diez heurísticas (estado visible, lenguaje del usuario, control, consistencia, prevención de errores, reconocer, flexibilidad, minimalismo, errores, ayuda)"
+    ],
+    "kind": "secondary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-w3c-wcag22",
+    "title": "Web Content Accessibility Guidelines (WCAG) 2.2 (REC 2024-12-12)",
+    "organization": "W3C",
+    "url": "https://www.w3.org/TR/WCAG22/",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Texto de 1.1.1, 1.3.1, 1.4.1, 1.4.3, 1.4.4, 1.4.10 (tablas exentas), 1.4.11, 2.1.1, 2.4.7, 3.3.1, 3.3.2, 4.1.2, 4.1.3 con sus niveles",
+      "Edición vigente"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-w3c-wcag22-new",
+    "title": "What's New in WCAG 2.2 (act. 2023-10-05)",
+    "organization": "W3C WAI",
+    "url": "https://www.w3.org/WAI/standards-guidelines/wcag/new-in-22/",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Publicación 2023-10-05",
+      "9 criterios nuevos con nivel",
+      "2.4.11, 2.5.7, 2.5.8 (24 × 24 y excepciones), 3.3.7, 3.3.8",
+      "4.1.1 retirado",
+      "2.0 y 2.1 casi sin cambios"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-w3c-understanding-target-size",
+    "title": "Understanding SC 2.5.8: Target Size (Minimum)",
+    "organization": "W3C WAI",
+    "url": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Intención (no activar el objetivo vecino)",
+      "Beneficiarios: temblor, una mano, transporte, pantalla táctil",
+      "24 px es un mínimo"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-w3c-tables-tutorial",
+    "title": "Tables Tutorial (act. 2023-02-16)",
+    "organization": "W3C WAI",
+    "url": "https://www.w3.org/WAI/tutorials/tables/",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "`th`/`td`",
+      "`scope`",
+      "Encabezados irregulares y multinivel",
+      "Título",
+      "No maquetar con tablas",
+      "Pistas visuales insuficientes",
+      "Relación con 1.3.1"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-w3c-complex-images",
+    "title": "Complex Images (act. 2026-04-08)",
+    "organization": "W3C WAI",
+    "url": "https://www.w3.org/WAI/tutorials/images/complex/",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Gráficos como imágenes complejas",
+      "Descripción corta y larga (escalas, valores, tendencias)",
+      "Visible para todos",
+      "Tabla dentro de la descripción",
+      "Límites de `aria-describedby`"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-w3c-easy-checks",
+    "title": "Easy Checks – A First Review of Web Accessibility (act. 2023-08-09)",
+    "organization": "W3C WAI",
+    "url": "https://www.w3.org/WAI/test-evaluate/preliminary/",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Comprobaciones manuales rápidas (título, alternativas, encabezados, contraste, texto ampliado, teclado y foco, formularios, estructura)",
+      "Advertencia de que pasarlas no garantiza ausencia de barreras"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-w3c-eval-tools",
+    "title": "Selecting Web Accessibility Evaluation Tools (act. 2024-05-13)",
+    "organization": "W3C WAI",
+    "url": "https://www.w3.org/WAI/test-evaluate/tools/selecting/",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Las herramientas no comprueban todo",
+      "Juicio humano",
+      "Resultados falsos o engañosos posibles"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-github-axe-core",
+    "title": "axe-core README",
+    "organization": "Deque Systems",
+    "url": "https://github.com/dequelabs/axe-core",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "«En promedio el 57 % de los problemas WCAG» de forma automática",
+      "Resultados «incompletos» para revisión manual"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-27"
+  },
+  {
+    "id": "src-deque-coverage-report",
+    "title": "Automated Accessibility Coverage Report (sin fecha en la página; imagen de 2025-11)",
+    "organization": "Deque Systems",
+    "url": "https://www.deque.com/automated-accessibility-coverage-report/",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "57,38 % de los problemas por volumen",
+      ">2 000 auditorías, 13 000+ páginas, 294 958 problemas",
+      "Solo primeras auditorías y HTML",
+      "Métrica distinta de «criterios automatizables» (20-30 %)",
+      "Informe de proveedor"
+    ],
+    "kind": "secondary",
+    "volatility": "medium",
+    "nextReview": "2027-04-27"
+  },
+  {
+    "id": "src-gds-a11y-tools-2017",
+    "title": "What we found when we tested tools on the world's least-accessible webpage (2017-02-24)",
+    "organization": "GDS (Accessibility blog, Mehmet Duran)",
+    "url": "https://accessibility.blog.gov.uk/2017/02/24/what-we-found-when-we-tested-tools-on-the-worlds-least-accessible-webpage/",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "143 barreras",
+      "Mejor herramienta 37 % (41 % con avisos manuales)",
+      "71 % entre todas",
+      "29 % no detectado",
+      "Combinar con revisión manual, auditoría y usuarios"
+    ],
+    "kind": "secondary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-playwright-a11y",
+    "title": "Accessibility testing",
+    "organization": "Microsoft (Playwright)",
+    "url": "https://playwright.dev/docs/accessibility-testing",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Escaneo con `AxeBuilder` y etiquetas WCAG en las pruebas",
+      "Muchos problemas solo se descubren a mano",
+      "Combinar con revisión manual y pruebas inclusivas"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-27"
+  },
+  {
+    "id": "src-react-state-structure",
+    "title": "Choosing the State Structure",
+    "organization": "React (Meta)",
+    "url": "https://react.dev/learn/choosing-the-state-structure",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Agrupar, evitar contradicciones, no guardar lo derivado, no duplicar, no anidar",
+      "Lo derivado se calcula al renderizar"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-mdn-indexeddb-using",
+    "title": "Using IndexedDB (mod. 2026-09-11)",
+    "organization": "Mozilla (MDN)",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Versiones enteras",
+      "Estructura solo en la actualización de versión",
+      "Recrear un almacén borra datos",
+      "Bloqueo con otras pestañas",
+      "Transacciones sin garantía de terminar",
+      "Privado = memoria"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-mdn-storage-quotas",
+    "title": "Storage quotas and eviction criteria (mod. 2026-01-05)",
+    "organization": "Mozilla (MDN)",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Por origen",
+      "Mejor esfuerzo frente a persistente",
+      "Desalojo LRU y por origen entero",
+      "Safari 7 días",
+      "Cuotas por navegador",
+      "`estimate()`",
+      "El usuario puede borrar todo"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-27"
+  },
+  {
+    "id": "src-dexie-versioning",
+    "title": "Database versioning (Design)",
+    "organization": "Dexie",
+    "url": "https://dexie.org/docs/Tutorial/Design",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "`version().stores().upgrade()`",
+      "Reversión si falla",
+      "Qué versiones conservar",
+      "No modificar versiones con función de actualización"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-27"
+  },
+  {
+    "id": "src-inkandswitch-local-first",
+    "title": "Local-first software: You own your data, in spite of the cloud (2019-04; Onward! 2019)",
+    "organization": "Ink & Switch (Kleppmann, Wiggins, van Hardenberg, McGranaghan)",
+    "url": "https://www.inkandswitch.com/essay/local-first/",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Siete ideales",
+      "«The Long Now»",
+      "Control del usuario sobre sus datos",
+      "Si el servicio cierra, la app deja de funcionar (Aparte)"
+    ],
+    "kind": "secondary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-webdev-sw-lifecycle",
+    "title": "The service worker lifecycle (act. 2016-09-29)",
+    "organization": "Google (web.dev, Jake Archibald)",
+    "url": "https://web.dev/articles/service-worker-lifecycle",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Instalar, esperar, activar",
+      "Recargar no basta",
+      "Riesgo de activar de inmediato (versiones mezcladas)",
+      "Cuándo se buscan actualizaciones",
+      "Mantener la URL del *service worker*"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-27"
+  },
+  {
+    "id": "src-webdev-pwa-update",
+    "title": "Learn PWA: Update (act. 2022-03-10)",
+    "organization": "Google (web.dev)",
+    "url": "https://web.dev/learn/pwa/update",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Actualizar recursos",
+      "La caché vieja no se borra sola",
+      "Avisar y dejar elegir",
+      "Riesgo de versiones mezcladas",
+      "Actualización del manifiesto por plataforma (ficha)"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-27"
+  },
+  {
+    "id": "src-semver-2",
+    "title": "Semantic Versioning 2.0.0",
+    "organization": "Semantic Versioning (Tom Preston-Werner y colaboradores)",
+    "url": "https://semver.org/",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "MAYOR.MENOR.PARCHE",
+      "API pública obligatoria",
+      "0.y.z",
+      "Versiones publicadas inmutables",
+      "Obsolescencia antes de quitar"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-ghdocs-limits",
+    "title": "GitHub Pages limits",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "1 GB, 100 GB/mes, 10 compilaciones/h, 10 min, 429",
+      "No para negocios, comercio ni SaaS",
+      "No para transacciones sensibles",
+      "Sin mención de garantías de disponibilidad (ficha)"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-27"
+  },
+  {
+    "id": "src-ghdocs-custom-workflows",
+    "title": "Using custom workflows with GitHub Pages",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Trabajos de construcción y despliegue",
+      "`needs: build`",
+      "Permisos `pages: write`, `id-token: write`",
+      "Entorno con reglas de protección",
+      "Límite del artefacto (ficha)"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-27"
+  },
+  {
+    "id": "src-cisa-backup-business",
+    "title": "Back Up Business Data (sin fecha en la página)",
+    "organization": "CISA (Cybersecurity and Infrastructure Security Agency, EE. UU.)",
+    "url": "https://www.cisa.gov/back-business-data",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Regla 3-2-1",
+      "Respaldos automáticos",
+      "Copias sin conexión y cifradas",
+      "Probar restauraciones totales y parciales",
+      "Volver al menos siete días atrás"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-diataxis",
+    "title": "Diátaxis (inicio y «Start here»)",
+    "organization": "Diátaxis (la página no nombra autor; proyecto atribuido a Daniele Procida según búsqueda, no verificado)",
+    "url": "https://diataxis.fr/ · https://diataxis.fr/start-here/",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Cuatro formas y las necesidades que sirven (acción/conocimiento, estudio/trabajo)",
+      "Mezclarlas causa problemas"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-github-about-readmes",
+    "title": "About the repository README file",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Qué responde un README (qué hace, por qué sirve, cómo empezar, ayuda, quién mantiene)",
+      "Dónde se busca"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-27"
+  },
+  {
+    "id": "src-makeareadme",
+    "title": "Make a README",
+    "organization": "Danny Guo (proyecto comunitario)",
+    "url": "https://www.makeareadme.com/",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Secciones sugeridas (instalación, uso con salida esperada, soporte, contribución con pruebas, licencia, estado del proyecto). Fuente secundaria, de convención"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-arxiv-model-cards",
+    "title": "Model Cards for Model Reporting (arXiv:1810.03993, v2 2019-01-14; FAT* 2019)",
+    "organization": "Mitchell, Wu, Zaldivar, Barnes, Vasserman, Hutchinson, Spitzer, Raji, Gebru",
+    "url": "https://arxiv.org/abs/1810.03993",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Documentar uso previsto, desempeño por condiciones y procedimiento de evaluación para evitar usos inadecuados (base de la analogía de limitaciones)"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-github-licensing-repo",
+    "title": "Licensing a repository",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Sin licencia rigen los derechos de autor por defecto",
+      "Público = ver y bifurcar",
+      "Incluir LICENSE",
+      "No es asesoría legal"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-github-dependency-review",
+    "title": "About dependency review",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Dependencias agregadas, quitadas y actualizadas en la PR",
+      "Vulnerabilidades",
+      "Licencias",
+      "La acción bloquea si el check es obligatorio",
+      "Listas de licencias",
+      "Disponibilidad (ficha)"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-27"
+  },
+  {
+    "id": "src-github-copilot-agents-responsible",
+    "title": "Application card: GitHub Copilot Agents (página de uso responsable)",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/copilot/responsible-use/copilot-coding-agent",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Revisar a fondo lo generado antes de fusionar",
+      "Revisar y probar sobre todo en aplicaciones críticas",
+      "Limitaciones (código inexacto, seguridad, coincidencias con código público, calidad por lenguaje) (ficha L5). La página no muestra fecha"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-27"
+  },
+  {
+    "id": "src-github-dependabot-version-updates",
+    "title": "About Dependabot version updates",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "`dependabot.yml`",
+      "PR con notas",
+      "Acciones de flujos",
+      "Diferencia con las de seguridad",
+      "`cooldown` de 3 días por defecto",
+      "Pausa si nadie interactúa (ficha L6)"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-27"
+  },
+  {
+    "id": "src-github-dependabot-security-updates",
+    "title": "About Dependabot security updates",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "PR ante alertas con versión corregida",
+      "Versión mínima con el parche",
+      "Límites (sin parche, indirectas, fuera de manifiesto)",
+      "Agrupación por ecosistema (ficha L6)"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-27"
+  },
+  {
+    "id": "src-github-dependabot-options",
+    "title": "Dependabot options reference",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Intervalos (`daily` a `yearly`, `cron`)",
+      "5 PR de versión abiertas por defecto, 10 fijas de seguridad",
+      "`groups` (ficha L6). Página leída solo hasta el carácter 100 000"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-27"
+  },
+  {
+    "id": "src-github-dependabot-alerts",
+    "title": "Viewing and updating Dependabot alerts",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Descartar con motivo",
+      "Comentario visible en la historia",
+      "Registro de auditoría (quién, qué, cuándo, motivo)",
+      "Reabrir si no está corregida"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-27"
+  },
+  {
+    "id": "src-github-codeowners",
+    "title": "About code owners",
+    "organization": "GitHub",
+    "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Revisión pedida automáticamente a los responsables",
+      "Exigir su aprobación con protección de rama",
+      "Ubicación del archivo"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-27"
+  },
+  {
+    "id": "src-nist-sp800-40r4",
+    "title": "Guide to Enterprise Patch Management Planning: Preventive Maintenance for Technology (SP 800-40 Rev. 4, 2022-04)",
+    "organization": "NIST (Souppaya, Scarfone)",
+    "url": "https://csrc.nist.gov/pubs/sp/800/40/r4/final",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Parcheo como mantenimiento preventivo y costo esperado de operar",
+      "Estrategia de parcheo",
+      "Previene incidentes"
+    ],
+    "kind": "primary",
+    "volatility": "low",
+    "nextReview": "2027-10-27"
+  },
+  {
+    "id": "src-anthropic-model-deprecations",
+    "title": "Model deprecations",
+    "organization": "Anthropic",
+    "url": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Estados del ciclo de vida",
+      "Al menos 60 días de aviso",
+      "Probar con el reemplazo antes del retiro",
+      "Peticiones a retirados fallan",
+      "Ejemplo `claude-sonnet-4-5-20250929` (obsoleto 2026-09-30, retiro 2026-11-30) (ficha L6)"
+    ],
+    "kind": "primary",
+    "volatility": "very-high",
+    "nextReview": "2026-12-01"
+  },
+  {
+    "id": "src-agentskills-evaluating",
+    "title": "Evaluating skill output quality",
+    "organization": "Agent Skills (proyecto abierto)",
+    "url": "https://agentskills.io/skill-creation/evaluating-skills",
+    "accessedAt": "2026-10-27",
+    "supports": [
+      "Casos (consulta, salida esperada, archivos) junto a la skill",
+      "Correr con y sin la skill, o con la versión anterior como línea base",
+      "Contexto limpio por corrida",
+      "Aserciones por código y revisión humana",
+      "Revisar las aserciones",
+      "Iterar"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-27"
   }
 ]
