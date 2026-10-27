@@ -1,0 +1,86 @@
+[
+  {
+    "family": "m10-f01",
+    "evaluatedObjectiveId": "m10-eo1",
+    "decision": "Elegir el alcance mínimo útil a partir de la necesidad del usuario principal, dejando fuera lo demás con su motivo",
+    "equivalence": "Las tres variantes describen un pedido y lo que mostraron las entrevistas, y piden el alcance. Cambia el pedido: una app de presupuesto con muchas funciones (a), un control de inventario (b) y un caso en que lo mínimo útil no es una app sino un cambio en algo que ya existe (c, más difícil porque el pedido parece justificado)."
+  },
+  {
+    "family": "m10-f02",
+    "evaluatedObjectiveId": "m10-eo1",
+    "decision": "Elegir pocos criterios de éxito, derivados de la necesidad y medidos contra una línea base",
+    "equivalence": "Las tres variantes describen una herramienta por publicar y piden el criterio de éxito. Cambia la trampa: un criterio de opinión (a), uno de instalación (b) y uno de resultado sin línea base (c, más difícil porque parece un resultado)."
+  },
+  {
+    "family": "m10-f03",
+    "evaluatedObjectiveId": "m10-eo2",
+    "decision": "Identificar la barrera de accesibilidad que importa en una pantalla de datos",
+    "equivalence": "Las tres variantes describen una pantalla y piden la barrera. Cambia la barrera: el color como única señal (a), un gráfico sin descripción (b) y un foco que queda tapado (c, más difícil porque solo se ve al recorrer con el teclado)."
+  },
+  {
+    "family": "m10-f04",
+    "evaluatedObjectiveId": "m10-eo2",
+    "decision": "Decidir qué capa de verificación falta: escaneo, revisión manual o prueba con usuarios",
+    "equivalence": "Las tres variantes describen lo que ya se verificó y piden lo que falta. Cambia lo hecho: solo un escaneo (a), solo la afirmación del agente (b) y escaneo y revisión manual sin prueba con usuarios (c, más difícil porque parece completo)."
+  },
+  {
+    "family": "m10-f05",
+    "evaluatedObjectiveId": "m10-eo2",
+    "decision": "Elegir el cambio que quita la barrera, no uno que la disimula",
+    "equivalence": "Las tres variantes describen una barrera y piden el cambio. Cambia la barrera: botones pequeños (a), tabla sin encabezados (b) y color como única señal (c, más difícil porque subir el contraste parece una solución)."
+  },
+  {
+    "family": "m10-f06",
+    "evaluatedObjectiveId": "m10-eo3",
+    "decision": "Decidir dónde vive un dato según su clase: derivado, preferencia o creado por el usuario",
+    "equivalence": "Las tres variantes describen un dato de una herramienta y piden dónde vive. Cambia la clase: un total derivado (a, no se guarda), una preferencia (b, almacenamiento simple) y un dato creado por el usuario (c, más difícil porque hay que protegerlo)."
+  },
+  {
+    "family": "m10-f07",
+    "evaluatedObjectiveId": "m10-eo3",
+    "decision": "Identificar qué pone en riesgo los datos que el usuario guarda en el navegador",
+    "equivalence": "Las tres variantes describen una situación y piden el riesgo para los datos del usuario. Cambia la situación: un teléfono sin espacio (a), la navegación privada (b) y un cambio de estructura sin migración (c, más difícil porque parece un detalle técnico)."
+  },
+  {
+    "family": "m10-f08",
+    "evaluatedObjectiveId": "m10-eo3",
+    "decision": "Elegir la protección de los datos del usuario: migración atómica probada o exportación con versión de formato",
+    "equivalence": "Las tres variantes describen un cambio que afecta a los datos del usuario y piden la protección. Cambia el cambio: una migración nueva (a), un formato de exportación nuevo (b) y una migración que puede fallar a la mitad (c, más difícil porque arreglarla después parece posible)."
+  },
+  {
+    "family": "m10-f09",
+    "evaluatedObjectiveId": "m10-eo4",
+    "decision": "Elegir una publicación que no deje pasar versiones rotas ni mezcle versiones",
+    "equivalence": "Las tres variantes describen un plan de publicación y piden el cambio. Cambia el problema: el despliegue no espera a las pruebas (a), la activación forzada (b) y un paso de pruebas opcional (c, más difícil porque parece que las pruebas existen)."
+  },
+  {
+    "family": "m10-f10",
+    "evaluatedObjectiveId": "m10-eo4",
+    "decision": "Elegir el número de versión según la compatibilidad de lo que otros usan",
+    "equivalence": "Las tres variantes describen un cambio sobre la versión 1.2.4 y piden el número. Cambia el cambio: una función nueva compatible (a, menor), una corrección (b, parche) y un cambio incompatible en el formato con la pantalla igual (c, más difícil porque casi no se ve)."
+  },
+  {
+    "family": "m10-f11",
+    "evaluatedObjectiveId": "m10-eo5",
+    "decision": "Elegir el documento que sirve a cada lector y necesidad",
+    "equivalence": "Las tres variantes dan una pieza de información y piden el documento. Cambia la pieza: una instrucción de recuperación (a, runbook o README), una definición (b, referencia) y el porqué de una exclusión (c, más difícil porque parece una explicación)."
+  },
+  {
+    "family": "m10-f12",
+    "evaluatedObjectiveId": "m10-eo5",
+    "decision": "Identificar el límite o supuesto que falta declarar en la documentación",
+    "equivalence": "Las tres variantes describen una herramienta con su documentación y piden qué falta declarar. Cambia lo que falta: la fecha de los datos (a), un supuesto de cálculo (b) y el uso previsto (c, más difícil porque la herramienta parece servir para todo)."
+  },
+  {
+    "family": "m10-f13",
+    "evaluatedObjectiveId": "m10-eo6",
+    "decision": "Decidir qué prueba dispara cada cambio, aunque el código no cambie",
+    "equivalence": "Las tres variantes describen un cambio y piden qué se vuelve a probar. Cambia el cambio: las instrucciones del agente (a), una dependencia mayor (b) y la estructura de los datos guardados (c, más difícil porque la prueba es otra)."
+  },
+  {
+    "family": "m10-f14",
+    "evaluatedObjectiveId": "m10-eo6",
+    "decision": "Decidir si un hallazgo está cerrado según la evidencia: corrección probada o riesgo aceptado completo",
+    "equivalence": "Las tres variantes describen el estado de un hallazgo y piden si está cerrado. Cambia el estado: una corrección sin prueba (a, no), un riesgo aceptado sin responsable ni condición (b, no) y una corrección con prueba en la regresión (c, sí; más difícil porque la clave es afirmativa)."
+  }
+]

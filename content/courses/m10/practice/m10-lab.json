@@ -1,0 +1,31 @@
+{
+  "id": "m10-lab",
+  "courseId": "m10",
+  "version": "0.1.0",
+  "title": "El simulador de descuentos",
+  "evaluatedObjectiveIds": [
+    "m10-eo1",
+    "m10-eo2",
+    "m10-eo3",
+    "m10-eo4",
+    "m10-eo5",
+    "m10-eo6"
+  ],
+  "instructionsPath": "courses/m10/practice/m10-lab.md",
+  "estimatedMinutes": 30,
+  "questionIds": [
+    "m10-lab-q01",
+    "m10-lab-q02",
+    "m10-lab-q03",
+    "m10-lab-q04",
+    "m10-lab-q05",
+    "m10-lab-q06",
+    "m10-lab-q07",
+    "m10-lab-q08",
+    "m10-lab-q09",
+    "m10-lab-q10",
+    "m10-lab-q11",
+    "m10-lab-q12"
+  ],
+  "status": "draft"
+}

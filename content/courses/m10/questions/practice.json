@@ -1,0 +1,526 @@
+[
+  {
+    "id": "m10-p01",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo1",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Le explicas a un colega qué es el alcance mínimo útil.",
+    "stem": "¿Cómo lo defines?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La versión 1 con todas las funciones, pero menos pulida",
+        "correct": false,
+        "feedback": "Eso no recorta nada. El alcance mínimo útil deja fuera lo que no sirve a la decisión.",
+        "misconceptionId": "m10-mc04"
+      },
+      {
+        "id": "o2",
+        "text": "Lo más pequeño que ya le sirve al usuario principal",
+        "correct": true,
+        "feedback": "Correcta. Lo que queda fuera se escribe, con su motivo y con lo que lo haría entrar después."
+      },
+      {
+        "id": "o3",
+        "text": "Todo lo que se puede construir en una semana",
+        "correct": false,
+        "feedback": "Lo que se puede construir no define lo que conviene. Lo define la necesidad.",
+        "misconceptionId": "m10-mc01"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l1#alcance",
+    "basis": "inference",
+    "sourceIds": [
+      "src-govuk-whole-problem"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-p02",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo1",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Antes de construir, la analista duda de que los usuarios abran la herramienta en el teléfono.",
+    "stem": "¿Qué hace primero?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Construirla completa y después ver si la usan",
+        "correct": false,
+        "feedback": "Si el supuesto falla, todo ese trabajo se pierde. Lo más riesgoso se prueba primero, con lo mínimo.",
+        "misconceptionId": "m10-mc06"
+      },
+      {
+        "id": "o2",
+        "text": "Publicar como MVP la versión 1, aunque esté sin pulir",
+        "correct": false,
+        "feedback": "Un MVP es lo mínimo para aprender, no la versión 1 sin pulir. Aquí lo que hay que aprender es si la abren en el teléfono.",
+        "misconceptionId": "m10-mc04"
+      },
+      {
+        "id": "o3",
+        "text": "Probar ese supuesto con un prototipo sencillo",
+        "correct": true,
+        "feedback": "Correcta. Se prueba primero el supuesto más riesgoso, con lo justo."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l1#supuesto",
+    "sourceIds": [
+      "src-govuk-alpha",
+      "src-nngroup-mvp-video"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-p03",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo2",
+    "competencyIds": [
+      "C13",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Le explicas a un colega por qué un escaneo automático no basta.",
+    "stem": "¿Qué le dices?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Porque no lo comprueban todo y falta mirar a mano",
+        "correct": true,
+        "feedback": "Correcta. Una parte grande de los problemas exige que una persona mire y recorra la pantalla."
+      },
+      {
+        "id": "o2",
+        "text": "Porque los escaneos siempre dan muchos errores falsos",
+        "correct": false,
+        "feedback": "El problema no son los errores falsos, sino lo que el escaneo no ve. Esa parte exige que una persona mire y recorra la pantalla.",
+        "misconceptionId": "m10-mc77"
+      },
+      {
+        "id": "o3",
+        "text": "Porque detectan exactamente el 57 % de los problemas",
+        "correct": false,
+        "feedback": "Esa cifra es de un fabricante, medida a su manera. Lo que se sostiene es que dejan mucho fuera.",
+        "misconceptionId": "m10-mc12"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l2#escaneo",
+    "sourceIds": [
+      "src-w3c-eval-tools"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-p04",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo2",
+    "competencyIds": [
+      "C13",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Revisas a mano una pantalla que hizo el agente.",
+    "stem": "¿Qué comprobación incluyes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Pedirle al agente que confirme que es accesible",
+        "correct": false,
+        "feedback": "Eso es una afirmación, no una comprobación. La revisión manual la hace una persona que mira y recorre la pantalla.",
+        "misconceptionId": "m10-mc13"
+      },
+      {
+        "id": "o2",
+        "text": "Recorrerla con el teclado y ampliar el texto",
+        "correct": true,
+        "feedback": "Correcta. Son dos de las comprobaciones rápidas: el teclado con el foco visible y el texto al 200 %."
+      },
+      {
+        "id": "o3",
+        "text": "Correr el mismo escaneo una segunda vez",
+        "correct": false,
+        "feedback": "El mismo escaneo da el mismo resultado. La revisión manual mira otras cosas.",
+        "misconceptionId": "m10-mc24"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l2#revisar",
+    "sourceIds": [
+      "src-w3c-easy-checks"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-p05",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo3",
+    "competencyIds": [
+      "C13",
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Le explicas a un colega qué datos de una app hay que proteger más.",
+    "stem": "¿Cuáles son?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Los totales calculados, que costó obtener",
+        "correct": false,
+        "feedback": "Los totales se vuelven a calcular. No hace falta guardarlos.",
+        "misconceptionId": "m10-mc14"
+      },
+      {
+        "id": "o2",
+        "text": "Todos por igual, sin distinguir entre ellos",
+        "correct": false,
+        "feedback": "Una preferencia se puede perder sin daño. Lo que crea el usuario, no.",
+        "misconceptionId": "m10-mc57"
+      },
+      {
+        "id": "o3",
+        "text": "Los que crea el usuario, como notas o marcas",
+        "correct": true,
+        "feedback": "Correcta. Son los únicos que no se pueden reconstruir desde otra fuente."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l3#clases",
+    "basis": "inference",
+    "sourceIds": [
+      "src-react-state-structure"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-p06",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo3",
+    "competencyIds": [
+      "C13",
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Una app sin servidor guarda los comentarios del usuario en el navegador.",
+    "stem": "¿Qué le agregas?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Exportación e importación de los comentarios",
+        "correct": true,
+        "feedback": "Correcta. Es la salida y la entrada de esos datos, por si el navegador los borra."
+      },
+      {
+        "id": "o2",
+        "text": "Nada: el navegador los guarda para siempre",
+        "correct": false,
+        "feedback": "El navegador puede borrarlos si falta espacio. Sin una forma de exportarlos, se perderían sin copia.",
+        "misconceptionId": "m10-mc15"
+      },
+      {
+        "id": "o3",
+        "text": "Nada, porque sin servidor no hay riesgo",
+        "correct": false,
+        "feedback": "Sin servidor, esos comentarios solo existen ahí. Si el navegador los borra, no hay otra copia.",
+        "misconceptionId": "m10-mc19"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l3#navegador",
+    "basis": "inference",
+    "sourceIds": [
+      "src-mdn-storage-quotas"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-p07",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo4",
+    "competencyIds": [
+      "C13"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Le explicas a un colega por qué la publicación espera a las pruebas.",
+    "stem": "¿Qué le dices?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Porque así se publica más rápido y sin demoras",
+        "correct": false,
+        "feedback": "Esperar a las pruebas no acelera nada. Lo que logra es que una versión rota no llegue a los usuarios.",
+        "misconceptionId": "m10-mc80"
+      },
+      {
+        "id": "o2",
+        "text": "Para que una prueba que falla impida publicar",
+        "correct": true,
+        "feedback": "Correcta. Si falla, sigue en pie la versión anterior, y nada roto llega a los usuarios."
+      },
+      {
+        "id": "o3",
+        "text": "No espera: se prueba después de publicar",
+        "correct": false,
+        "feedback": "Probar después deja llegar lo roto a los usuarios. Las pruebas van antes y pueden impedir la publicación.",
+        "misconceptionId": "m10-mc31"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l4#cadena",
+    "basis": "inference",
+    "sourceIds": [
+      "src-ghdocs-custom-workflows"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-p08",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo4",
+    "competencyIds": [
+      "C13"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Vas a respaldar el repositorio de una herramienta.",
+    "stem": "¿Qué plan eliges?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Una copia en el mismo computador, hecha a mano",
+        "correct": false,
+        "feedback": "Si el computador falla, se pierde todo. Además, una copia que nadie probó restaurar no se sabe si sirve.",
+        "misconceptionId": "m10-mc36"
+      },
+      {
+        "id": "o2",
+        "text": "Muchas copias automáticas, todas en el mismo disco",
+        "correct": false,
+        "feedback": "Si ese disco falla, se pierden todas. Hacen falta dos tipos de almacenamiento y una copia en otro lugar.",
+        "misconceptionId": "m10-mc56"
+      },
+      {
+        "id": "o3",
+        "text": "Tres copias, una en otro lugar, y restauración probada",
+        "correct": true,
+        "feedback": "Correcta. Copias en dos medios, una fuera del lugar, automáticas y con una restauración probada."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l4#respaldos",
+    "sourceIds": [
+      "src-cisa-backup-business"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-p09",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo5",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Le explicas a un colega qué responde un README.",
+    "stem": "¿Qué le dices?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Qué hace, cómo empezar y quién lo mantiene",
+        "correct": true,
+        "feedback": "Correcta. También por qué sirve y dónde pedir ayuda."
+      },
+      {
+        "id": "o2",
+        "text": "Todo sobre la herramienta, para todos los lectores",
+        "correct": false,
+        "feedback": "Un documento para todos no sirve bien a nadie. El README es la puerta de entrada para quien mantiene.",
+        "misconceptionId": "m10-mc37"
+      },
+      {
+        "id": "o3",
+        "text": "Solo la historia de cómo se construyó la herramienta",
+        "correct": false,
+        "feedback": "La historia no le dice a nadie cómo empezar ni a quién recurrir. Un README responde qué hace, cómo empezar y quién lo mantiene.",
+        "misconceptionId": "m10-mc78"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l5#lectores",
+    "sourceIds": [
+      "src-github-about-readmes"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-p10",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo5",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Tu repositorio es público y no tiene licencia.",
+    "stem": "¿Qué significa?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que cualquiera puede reutilizarlo libremente, sin pedir permiso",
+        "correct": false,
+        "feedback": "Que sea público no da permiso. Hace falta una licencia.",
+        "misconceptionId": "m10-mc40"
+      },
+      {
+        "id": "o2",
+        "text": "Que otros no pueden reproducirlo ni distribuirlo",
+        "correct": true,
+        "feedback": "Correcta. Sin licencia rigen los derechos de autor por defecto."
+      },
+      {
+        "id": "o3",
+        "text": "Que solo las personas que invites pueden verlo",
+        "correct": false,
+        "feedback": "Público quiere decir que se puede ver. Lo que no se puede es reutilizarlo.",
+        "misconceptionId": "m10-mc79"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l5#licencias",
+    "sourceIds": [
+      "src-github-licensing-repo"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-p11",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo6",
+    "competencyIds": [
+      "C13",
+      "C12",
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "scenario": "Le explicas a un colega qué es un disparador en el mantenimiento.",
+    "stem": "¿Qué le dices?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La fecha en que el proveedor retira un modelo",
+        "correct": false,
+        "feedback": "Esa fecha va en el calendario. El disparador es el cambio y la prueba que exige.",
+        "misconceptionId": "m10-mc44"
+      },
+      {
+        "id": "o2",
+        "text": "Una revisión que se hace solo si algo falla",
+        "correct": false,
+        "feedback": "Esperar a que falle es lo que el disparador evita. Hace correr la prueba cuando algo cambia, antes del fallo.",
+        "misconceptionId": "m10-mc42"
+      },
+      {
+        "id": "o3",
+        "text": "Un cambio que obliga a correr cierta prueba",
+        "correct": true,
+        "feedback": "Correcta. Por ejemplo, un cambio de modelo obliga a correr las evaluaciones antes del retiro."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l6#disparadores",
+    "basis": "inference",
+    "sourceIds": [
+      "src-agentskills-evaluating",
+      "src-anthropic-model-deprecations"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-p12",
+    "version": 1,
+    "use": "practice",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo6",
+    "competencyIds": [
+      "C13",
+      "C12",
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Aceptas como riesgo una biblioteca sin mantenimiento.",
+    "stem": "¿Qué registras?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Motivo, responsable, fecha y condición para reabrirlo",
+        "correct": true,
+        "feedback": "Correcta. Sin condición de reapertura, el riesgo se olvida."
+      },
+      {
+        "id": "o2",
+        "text": "Solo que se aceptó, para no tener que reabrirlo",
+        "correct": false,
+        "feedback": "Un riesgo aceptado se reabre cuando cambia lo que lo justificó. Para eso hay que dejar escrita la condición.",
+        "misconceptionId": "m10-mc48"
+      },
+      {
+        "id": "o3",
+        "text": "Nada: si se aceptó, ya no hace falta volver a mirarlo",
+        "correct": false,
+        "feedback": "Se vuelve a mirar cuando cambia la condición. Si no está escrita, nadie sabe cuándo.",
+        "misconceptionId": "m10-mc48"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l6#cierre",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-dependabot-alerts"
+    ],
+    "status": "draft"
+  }
+]

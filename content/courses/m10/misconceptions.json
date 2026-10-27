@@ -587,5 +587,186 @@
     "sourceIds": [
       "src-semver-2"
     ]
+  },
+  {
+    "id": "m10-mc63",
+    "courseId": "m10",
+    "description": "Lo más novedoso de un pedido es lo primero que conviene construir.",
+    "whyWrong": "Se construye primero lo que resuelve la necesidad del usuario principal; lo novedoso entra si hace falta.",
+    "sourceIds": [
+      "src-govuk-whole-problem"
+    ]
+  },
+  {
+    "id": "m10-mc64",
+    "courseId": "m10",
+    "description": "El número de descargas mide si la herramienta funciona.",
+    "whyWrong": "Mide la instalación, no si la decisión mejoró; hacen falta indicadores de resultado con línea base.",
+    "sourceIds": [
+      "src-govuk-performance-metrics"
+    ]
+  },
+  {
+    "id": "m10-mc65",
+    "courseId": "m10",
+    "description": "Agrandar un control que exige arrastrar resuelve la barrera.",
+    "whyWrong": "Sigue exigiendo arrastrar; hace falta una alternativa con un toque o con el teclado.",
+    "sourceIds": [
+      "src-w3c-wcag22-new"
+    ]
+  },
+  {
+    "id": "m10-mc66",
+    "courseId": "m10",
+    "description": "Si la lista de precios cambia y el código no, no hace falta correr las pruebas.",
+    "whyWrong": "La lista es una entrada del cálculo: cambia los resultados, y las pruebas lo tienen que verificar.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-ghdocs-custom-workflows"
+    ]
+  },
+  {
+    "id": "m10-mc67",
+    "courseId": "m10",
+    "description": "Si la publicación se demora, hay que saltar las pruebas para no atrasar a los usuarios.",
+    "whyWrong": "Publicar algo roto atrasa más que esperar; mientras tanto, sigue en pie la versión anterior, con su fecha.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-ghdocs-custom-workflows"
+    ]
+  },
+  {
+    "id": "m10-mc68",
+    "courseId": "m10",
+    "description": "Copiar la lista de precios dentro de cada escenario guardado evita problemas.",
+    "whyWrong": "Duplica la referencia: cuando la lista cambia, cada copia queda vieja; se guarda la versión de la lista, no la lista.",
+    "sourceIds": [
+      "src-react-state-structure"
+    ]
+  },
+  {
+    "id": "m10-mc69",
+    "courseId": "m10",
+    "description": "Si a un escenario viejo le falta un campo nuevo, la app nueva lo puede ignorar.",
+    "whyWrong": "Sin migración, el dato faltante puede mezclar supuestos, como montos sin moneda; se migra con un valor explícito.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-mdn-indexeddb-using"
+    ]
+  },
+  {
+    "id": "m10-mc70",
+    "courseId": "m10",
+    "description": "Borrar los datos guardados al actualizar evita migrarlos.",
+    "whyWrong": "Lo que crea el usuario es lo único que no se puede reconstruir; borrarlo es perderlo.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-mdn-storage-quotas"
+    ]
+  },
+  {
+    "id": "m10-mc71",
+    "courseId": "m10",
+    "description": "Un hallazgo cerrado no se reabre, porque reabrirlo sería rehacer la revisión.",
+    "whyWrong": "Un riesgo aceptado se reabre cuando cambia la condición que lo justificó; no se rehace todo, se decide de nuevo ese punto.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-dependabot-alerts"
+    ]
+  },
+  {
+    "id": "m10-mc72",
+    "courseId": "m10",
+    "description": "Un hallazgo se da por corregido apenas se publica el cambio.",
+    "whyWrong": "Se cierra cuando una prueba demuestra que el cambio funciona, y esa prueba entra a la regresión.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-dependabot-alerts"
+    ]
+  },
+  {
+    "id": "m10-mc73",
+    "courseId": "m10",
+    "description": "Si una herramienta ya se usa a diario, documentarla es opcional.",
+    "whyWrong": "Que se use es justamente la razón: quien la usa y quien la mantiene necesitan saber cómo y con qué límites.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-about-readmes"
+    ]
+  },
+  {
+    "id": "m10-mc74",
+    "courseId": "m10",
+    "description": "Un hallazgo nunca se cierra del todo, aunque haya evidencia.",
+    "whyWrong": "Se cierra con la corrección, la prueba que la demuestra y el caso en la regresión; si vuelve a aparecer, la regresión lo avisa.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-dependabot-alerts"
+    ]
+  },
+  {
+    "id": "m10-mc75",
+    "courseId": "m10",
+    "description": "Que la herramienta se use mucho prueba que funciona.",
+    "whyWrong": "El uso es un indicador, pero no dice si la decisión mejoró; hace falta un resultado comparado con una línea base.",
+    "sourceIds": [
+      "src-govuk-performance-metrics"
+    ]
+  },
+  {
+    "id": "m10-mc76",
+    "courseId": "m10",
+    "description": "Si a alguien le sirve usar la herramienta para otra cosa, no hace falta declarar para qué sirve.",
+    "whyWrong": "Usada fuera de su propósito puede llevar a decisiones equivocadas; el uso previsto se declara.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-arxiv-model-cards"
+    ]
+  },
+  {
+    "id": "m10-mc77",
+    "courseId": "m10",
+    "description": "El problema de los escaneos automáticos es que dan errores falsos.",
+    "whyWrong": "El problema principal es lo que no ven: una parte grande de las barreras exige que una persona mire.",
+    "sourceIds": [
+      "src-w3c-eval-tools"
+    ]
+  },
+  {
+    "id": "m10-mc78",
+    "courseId": "m10",
+    "description": "Un README cuenta cómo se construyó la herramienta.",
+    "whyWrong": "Responde qué hace, por qué sirve, cómo empezar, dónde pedir ayuda y quién la mantiene.",
+    "sourceIds": [
+      "src-github-about-readmes"
+    ]
+  },
+  {
+    "id": "m10-mc79",
+    "courseId": "m10",
+    "description": "Un repositorio sin licencia es privado.",
+    "whyWrong": "Si es público, cualquiera puede verlo; la falta de licencia limita reproducirlo y distribuirlo, no verlo.",
+    "sourceIds": [
+      "src-github-licensing-repo"
+    ]
+  },
+  {
+    "id": "m10-mc80",
+    "courseId": "m10",
+    "description": "Las pruebas antes de publicar sirven para publicar más rápido.",
+    "whyWrong": "Sirven para que nada roto llegue a los usuarios; a veces publicar espera, y mientras tanto sigue la versión anterior.",
+    "basis": "inference",
+    "sourceIds": [
+      "src-ghdocs-custom-workflows"
+    ]
+  },
+  {
+    "id": "m10-mc81",
+    "courseId": "m10",
+    "description": "Si la pantalla funciona con el mouse, funciona para todos.",
+    "whyWrong": "Hay quien la usa con el teclado o con un lector de pantalla; lo que solo se ve con el mouse deja a esas personas fuera.",
+    "sourceIds": [
+      "src-w3c-wcag22"
+    ]
   }
 ]

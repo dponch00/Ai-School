@@ -1,0 +1,1922 @@
+[
+  {
+    "id": "m10-f01-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo1",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "family": "m10-f01",
+    "variant": "a",
+    "scenario": "Las jefaturas de área piden una app de presupuesto con gráficos, chat, proyecciones y alertas. En las entrevistas, todas dicen lo mismo: no saben cuánto les queda por gastar en el mes.",
+    "stem": "¿Qué alcance eliges para la versión 1?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Todo lo pedido, porque el agente lo hace rápido",
+        "correct": false,
+        "feedback": "Hacerlo es rápido; mantenerlo no. Las entrevistas apuntan a una sola necesidad.",
+        "misconceptionId": "m10-mc01"
+      },
+      {
+        "id": "o2",
+        "text": "Una vista del saldo disponible del mes por área",
+        "correct": true,
+        "feedback": "Correcta. Resuelve la necesidad que repitieron todas. Lo demás queda fuera, por escrito y con su motivo."
+      },
+      {
+        "id": "o3",
+        "text": "Las proyecciones, que son lo más avanzado",
+        "correct": false,
+        "feedback": "Lo avanzado no es lo que pidieron en las entrevistas. Se construye primero lo que resuelve su necesidad.",
+        "misconceptionId": "m10-mc63"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l1#alcance",
+    "basis": "inference",
+    "sourceIds": [
+      "src-govuk-whole-problem"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f01-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo1",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "family": "m10-f01",
+    "variant": "b",
+    "scenario": "El jefe de bodega pide «una app con todo el inventario». En las entrevistas, los bodegueros cuentan que solo necesitan saber qué repuestos están por debajo del mínimo.",
+    "stem": "¿Qué alcance eliges para la versión 1?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Todo el inventario, porque así lo pidió el jefe",
+        "correct": false,
+        "feedback": "El pedido es una solución; las entrevistas muestran el problema. El alcance sigue a la necesidad.",
+        "misconceptionId": "m10-mc02"
+      },
+      {
+        "id": "o2",
+        "text": "Todo el inventario, ya que con un agente es barato",
+        "correct": false,
+        "feedback": "Construirlo es barato; revisarlo, documentarlo y mantenerlo no lo es. Además, las entrevistas piden solo los repuestos bajo el mínimo, así que el resto sería trabajo sin uso.",
+        "misconceptionId": "m10-mc01"
+      },
+      {
+        "id": "o3",
+        "text": "Una lista de repuestos bajo el mínimo, y nada más",
+        "correct": true,
+        "feedback": "Correcta. Es lo más pequeño que ya sirve para su decisión. Lo demás puede entrar después, si hace falta."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l1#alcance",
+    "basis": "inference",
+    "sourceIds": [
+      "src-govuk-discovery",
+      "src-govuk-whole-problem"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f01-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo1",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m10-f01",
+    "variant": "c",
+    "scenario": "Contabilidad pide una app para saber qué facturas de proveedores faltan por aprobar. En las entrevistas, la analista ve que el reporte semanal que ya reciben resolvería el problema con una columna más, la del estado de cada factura.",
+    "stem": "¿Qué alcance eliges para la versión 1?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Agregar la columna al reporte y no construir la app",
+        "correct": true,
+        "feedback": "Correcta. El alcance mínimo útil puede no ser software. Entender el problema puede terminar en no construir."
+      },
+      {
+        "id": "o2",
+        "text": "Construir la app, porque contabilidad ya la pidió",
+        "correct": false,
+        "feedback": "Que se haya pedido no obliga a construirla. A veces otra solución resuelve mejor el problema.",
+        "misconceptionId": "m10-mc05"
+      },
+      {
+        "id": "o3",
+        "text": "Construir la app y además agregar la columna al reporte",
+        "correct": false,
+        "feedback": "La app no resuelve nada que la columna no resuelva. Solo agrega algo más que revisar, documentar y mantener.",
+        "misconceptionId": "m10-mc01"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l1#problema",
+    "sourceIds": [
+      "src-govuk-discovery"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f02-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo1",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m10-f02",
+    "variant": "a",
+    "scenario": "La app de saldos del presupuesto se publicará en un mes. Proponen medir su éxito con una encuesta de satisfacción a las jefaturas.",
+    "stem": "¿Qué criterio de éxito conviene fijar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La encuesta, con más preguntas para que sea completa",
+        "correct": false,
+        "feedback": "Más preguntas de opinión no dicen si la decisión mejoró. Hace falta un resultado ligado a la necesidad, como los sobregiros, medido contra una línea base.",
+        "misconceptionId": "m10-mc22"
+      },
+      {
+        "id": "o2",
+        "text": "Los sobregiros por área contra los meses anteriores",
+        "correct": true,
+        "feedback": "Correcta. Es un resultado ligado a la necesidad, medido contra una línea base. La encuesta puede sumar, pero no basta."
+      },
+      {
+        "id": "o3",
+        "text": "Que las jefaturas digan en la encuesta que les gustó",
+        "correct": false,
+        "feedback": "Que les guste no dice si gastan mejor. El indicador sale de la necesidad.",
+        "misconceptionId": "m10-mc03"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l1#exito",
+    "sourceIds": [
+      "src-govuk-performance-metrics"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f02-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo1",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m10-f02",
+    "variant": "b",
+    "scenario": "Para la lista de repuestos bajo el mínimo, proponen medir el éxito con cuántos bodegueros la instalan en su teléfono.",
+    "stem": "¿Qué criterio de éxito conviene fijar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Cuántos la instalan, porque es fácil de medir",
+        "correct": false,
+        "feedback": "Instalarla no dice si evita quiebres de stock. Mide la instalación, no el resultado.",
+        "misconceptionId": "m10-mc64"
+      },
+      {
+        "id": "o2",
+        "text": "Que la abran todos los días, sea cual sea el resultado",
+        "correct": false,
+        "feedback": "El uso es un indicador, pero no dice si el problema se resolvió. Falta el resultado.",
+        "misconceptionId": "m10-mc75"
+      },
+      {
+        "id": "o3",
+        "text": "Los quiebres de stock comparados con la línea base",
+        "correct": true,
+        "feedback": "Correcta. Es el resultado que busca la herramienta, comparado con lo que pasaba antes."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l1#exito",
+    "sourceIds": [
+      "src-govuk-performance-metrics"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f02-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo1",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "family": "m10-f02",
+    "variant": "c",
+    "scenario": "Hace un mes que se publicó la app de facturas pendientes, y hoy una aprobación tarda tres días. Como nadie midió cuánto tardaba antes, alguien propone anunciar esos tres días como un éxito.",
+    "stem": "¿Qué criterio de éxito conviene fijar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El tiempo de aprobación frente a registros de antes",
+        "correct": true,
+        "feedback": "Correcta. Un resultado se compara con lo que pasaba antes del cambio. Si nadie lo midió, la línea base se reconstruye con los registros de aprobaciones anteriores, y hasta tenerla no se anuncia una mejora."
+      },
+      {
+        "id": "o2",
+        "text": "Tres días por aprobación, que ya es un buen tiempo",
+        "correct": false,
+        "feedback": "Sin saber cuánto tardaban antes, no se sabe si tres días es mejor o peor. Una cifra tomada después del cambio no basta para afirmar una mejora.",
+        "misconceptionId": "m10-mc30"
+      },
+      {
+        "id": "o3",
+        "text": "Que la app se use a diario, lo que ya es un éxito",
+        "correct": false,
+        "feedback": "El uso no dice si las aprobaciones son más rápidas que antes. Para afirmar una mejora hace falta compararlas con una línea base.",
+        "misconceptionId": "m10-mc75"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l1#exito",
+    "sourceIds": [
+      "src-govuk-performance-metrics"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f03-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo2",
+    "competencyIds": [
+      "C13",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "family": "m10-f03",
+    "variant": "a",
+    "scenario": "En la app de saldos del presupuesto, las áreas sobregiradas se marcan solo con un fondo rojo, sin ninguna palabra ni ícono.",
+    "stem": "¿Qué barrera hay en esta pantalla?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguna: cualquiera distingue el rojo",
+        "correct": false,
+        "feedback": "No todos distinguen los colores igual, ni en todas las pantallas. Por eso hace falta otra señal además del color, como una palabra o un ícono.",
+        "misconceptionId": "m10-mc08"
+      },
+      {
+        "id": "o2",
+        "text": "El color es la única señal de sobregiro",
+        "correct": true,
+        "feedback": "Correcta. Hace falta otra señal, como la palabra «Sobregiro», además del color."
+      },
+      {
+        "id": "o3",
+        "text": "Ninguna, si el rojo tiene buen contraste",
+        "correct": false,
+        "feedback": "El contraste es otro criterio. El color sigue siendo la única señal.",
+        "misconceptionId": "m10-mc23"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l2#norma",
+    "sourceIds": [
+      "src-w3c-wcag22"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f03-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo2",
+    "competencyIds": [
+      "C13",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "family": "m10-f03",
+    "variant": "b",
+    "scenario": "Como alternativa en texto, el gráfico de gasto mensual por área solo dice «gráfico». Cerca no hay ninguna tabla ni descripción con sus cifras.",
+    "stem": "¿Qué barrera hay en esta pantalla?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguna: ya tiene una alternativa en texto",
+        "correct": false,
+        "feedback": "La tiene, pero no dice nada. Quien no ve el gráfico no sabe qué muestra.",
+        "misconceptionId": "m10-mc09"
+      },
+      {
+        "id": "o2",
+        "text": "Ninguna, si tiene un título visible arriba",
+        "correct": false,
+        "feedback": "El título dice qué es, no qué valores tiene. Quien no ve el gráfico sigue sin conocer las cifras.",
+        "misconceptionId": "m10-mc25"
+      },
+      {
+        "id": "o3",
+        "text": "Le falta una descripción con sus valores",
+        "correct": true,
+        "feedback": "Correcta. Un gráfico complejo necesita una descripción larga, por ejemplo una tabla con los mismos datos."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l2#tablas-graficos",
+    "sourceIds": [
+      "src-w3c-complex-images"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f03-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo2",
+    "competencyIds": [
+      "C13",
+      "C12"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "family": "m10-f03",
+    "variant": "c",
+    "scenario": "Al recorrer con el teclado la tabla de facturas pendientes, la fila que tiene el foco queda escondida detrás de una barra fija al pie de la pantalla.",
+    "stem": "¿Qué barrera hay en esta pantalla?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El foco queda tapado por la barra fija",
+        "correct": true,
+        "feedback": "Correcta. El elemento con el foco no puede quedar oculto detrás de contenido de la página. Es un criterio nuevo de WCAG 2.2."
+      },
+      {
+        "id": "o2",
+        "text": "Ninguna, si el escaneo automático no la marca",
+        "correct": false,
+        "feedback": "Esta barrera depende del recorrido. Un escaneo suele no verla.",
+        "misconceptionId": "m10-mc07"
+      },
+      {
+        "id": "o3",
+        "text": "Ninguna: con el mouse se ve bien",
+        "correct": false,
+        "feedback": "Quien usa el teclado no ve dónde está. La pantalla tiene que servir también así.",
+        "misconceptionId": "m10-mc81"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l2#norma",
+    "sourceIds": [
+      "src-w3c-wcag22-new"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f04-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo2",
+    "competencyIds": [
+      "C13",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m10-f04",
+    "variant": "a",
+    "scenario": "La pantalla de saldos pasó un escaneo automático sin errores. Nadie la recorrió con el teclado ni amplió el texto.",
+    "stem": "¿Qué falta verificar antes de publicar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada, porque el escaneo no encontró errores",
+        "correct": false,
+        "feedback": "Las herramientas no comprueban todo. Una parte grande de los problemas queda fuera.",
+        "misconceptionId": "m10-mc07"
+      },
+      {
+        "id": "o2",
+        "text": "Revisarla a mano: teclado, texto al 200 % y color",
+        "correct": true,
+        "feedback": "Correcta. El escaneo es una capa. Faltan las comprobaciones que exigen mirar y recorrer la pantalla."
+      },
+      {
+        "id": "o3",
+        "text": "Otro escaneo, esta vez con una herramienta distinta",
+        "correct": false,
+        "feedback": "Sumar escaneos no reemplaza la revisión manual. En una prueba de 2017, ni todas las herramientas juntas detectaron todas las barreras.",
+        "misconceptionId": "m10-mc24"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l2#revisar",
+    "sourceIds": [
+      "src-w3c-eval-tools",
+      "src-w3c-easy-checks"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f04-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo2",
+    "competencyIds": [
+      "C13",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m10-f04",
+    "variant": "b",
+    "scenario": "El agente da por terminada la pantalla de inventario con un mensaje: «ya quedó accesible». No adjunta escaneo, capturas ni la lista de lo que comprobó.",
+    "stem": "¿Qué falta verificar antes de publicar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada, porque el agente ya dijo que es accesible",
+        "correct": false,
+        "feedback": "Es una afirmación. La evidencia es el resultado de las verificaciones.",
+        "misconceptionId": "m10-mc13"
+      },
+      {
+        "id": "o2",
+        "text": "Un aviso que ofrezca ayuda a quien tenga problemas",
+        "correct": false,
+        "feedback": "Un aviso no verifica ni corrige nada. Antes de publicar falta la evidencia de que la pantalla se puede usar.",
+        "misconceptionId": "m10-mc26"
+      },
+      {
+        "id": "o3",
+        "text": "El escaneo, la revisión manual y sus capturas",
+        "correct": true,
+        "feedback": "Correcta. Se le pide evidencia: escaneo, recorrido con teclado y capturas, y lo que no pudo comprobar."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l2#revisar",
+    "basis": "inference",
+    "sourceIds": [
+      "src-playwright-a11y"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f04-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo2",
+    "competencyIds": [
+      "C13",
+      "C12"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m10-f04",
+    "variant": "c",
+    "scenario": "La pantalla de facturas pasó el escaneo y la revisión manual. Nadie la probó todavía en el teléfono con alguna de las personas que la van a usar.",
+    "stem": "¿Qué falta verificar antes de publicar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Probarla con alguien que la usará, en su teléfono",
+        "correct": true,
+        "feedback": "Correcta. La tercera capa es la prueba con un usuario, en su dispositivo y con su configuración."
+      },
+      {
+        "id": "o2",
+        "text": "Nada, porque ya pasó dos capas de revisión",
+        "correct": false,
+        "feedback": "Hay cosas que solo aparecen con quien la usa, como si entiende los nombres. Esa es la tercera capa, y todavía falta.",
+        "misconceptionId": "m10-mc07"
+      },
+      {
+        "id": "o3",
+        "text": "Otros escaneos automáticos, para estar más seguros",
+        "correct": false,
+        "feedback": "Ningún escaneo dice qué entiende una persona. Lo que falta es probarla con alguien que la va a usar, en su teléfono.",
+        "misconceptionId": "m10-mc24"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l2#revisar",
+    "sourceIds": [
+      "src-gds-a11y-tools-2017"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f05-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo2",
+    "competencyIds": [
+      "C13",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m10-f05",
+    "variant": "a",
+    "scenario": "En la app de inventario, los botones «+» y «−» de cada repuesto son de 16 por 16 píxeles y no tienen espacio entre ellos.",
+    "stem": "¿Qué cambio resuelve la barrera?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Un aviso que pida tocar los botones con cuidado",
+        "correct": false,
+        "feedback": "El aviso no quita la barrera. Quien tiene temblor sigue tocando el botón vecino.",
+        "misconceptionId": "m10-mc26"
+      },
+      {
+        "id": "o2",
+        "text": "Agrandarlos a 24 píxeles o más, con espacio",
+        "correct": true,
+        "feedback": "Correcta. El mínimo es de 24 por 24 píxeles, o espacio suficiente alrededor. Se recomienda más."
+      },
+      {
+        "id": "o3",
+        "text": "Nada, porque con cuidado se pueden tocar",
+        "correct": false,
+        "feedback": "No todos pueden tener ese cuidado, ni todas las situaciones lo permiten. Quien usa el teléfono con una mano o en movimiento sigue tocando el botón vecino.",
+        "misconceptionId": "m10-mc11"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l2#norma",
+    "sourceIds": [
+      "src-w3c-wcag22-new",
+      "src-w3c-understanding-target-size"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f05-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo2",
+    "competencyIds": [
+      "C13",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m10-f05",
+    "variant": "b",
+    "scenario": "La tabla de saldos por área está armada con bloques genéricos. Se ve ordenada, pero en el código no tiene encabezados.",
+    "stem": "¿Qué cambio resuelve la barrera?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada, porque se ve ordenada y se entiende bien",
+        "correct": false,
+        "feedback": "Se ve ordenada, pero quien usa un lector de pantalla no sabe a qué columna pertenece cada cifra. Para eso los encabezados tienen que estar marcados en el código.",
+        "misconceptionId": "m10-mc10"
+      },
+      {
+        "id": "o2",
+        "text": "Ponerle un título más grande encima de la tabla",
+        "correct": false,
+        "feedback": "El título no dice qué columna corresponde a cada celda. Un lector de pantalla necesita los encabezados marcados para asociar cada cifra con su columna.",
+        "misconceptionId": "m10-mc25"
+      },
+      {
+        "id": "o3",
+        "text": "Marcar los encabezados de la tabla en el código",
+        "correct": true,
+        "feedback": "Correcta. Con los encabezados marcados, un lector de pantalla anuncia a qué columna pertenece cada celda."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l2#tablas-graficos",
+    "sourceIds": [
+      "src-w3c-tables-tutorial"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f05-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo2",
+    "competencyIds": [
+      "C13",
+      "C12"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m10-f05",
+    "variant": "c",
+    "scenario": "En la tabla de facturas, las vencidas se marcan con un texto naranja claro. Alguien propone oscurecer el naranja para que se vea mejor.",
+    "stem": "¿Qué cambio resuelve la barrera?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Agregar la palabra «Vencida» además del color",
+        "correct": true,
+        "feedback": "Correcta. El color no puede ser la única señal. Con la palabra, la información no depende de distinguirlo."
+      },
+      {
+        "id": "o2",
+        "text": "Oscurecer el naranja, como se propuso, para que resalte",
+        "correct": false,
+        "feedback": "Mejora el contraste, pero el color sigue siendo la única señal. Quien no distingue el naranja sigue sin saber qué factura está vencida.",
+        "misconceptionId": "m10-mc23"
+      },
+      {
+        "id": "o3",
+        "text": "Nada, porque todos distinguen el naranja",
+        "correct": false,
+        "feedback": "No todos distinguen los colores igual. Hace falta otra señal.",
+        "misconceptionId": "m10-mc08"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l2#norma",
+    "sourceIds": [
+      "src-w3c-wcag22"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f06-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo3",
+    "competencyIds": [
+      "C13",
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m10-f06",
+    "variant": "a",
+    "scenario": "El agente quiere que la app de saldos guarde en el navegador el saldo disponible de cada área, tal como sale del cálculo.",
+    "stem": "¿Dónde debe vivir este dato?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Guardarlo en el navegador, para que cargue más rápido",
+        "correct": false,
+        "feedback": "Cuando cambian los gastos, la copia guardada queda desactualizada y nadie lo nota. Lo derivado se calcula cada vez.",
+        "misconceptionId": "m10-mc14"
+      },
+      {
+        "id": "o2",
+        "text": "No guardarlo: se calcula a partir de sus datos",
+        "correct": true,
+        "feedback": "Correcta. Es un dato derivado. Una copia guardada se desactualiza cuando cambian sus datos."
+      },
+      {
+        "id": "o3",
+        "text": "Guardarlo y volver a calcularlo cada semana",
+        "correct": false,
+        "feedback": "Entre un recálculo y otro, la copia puede estar desactualizada sin que nadie lo note. Lo derivado no se guarda.",
+        "misconceptionId": "m10-mc27"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l3#clases",
+    "sourceIds": [
+      "src-react-state-structure"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f06-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo3",
+    "competencyIds": [
+      "C13",
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m10-f06",
+    "variant": "b",
+    "scenario": "En la app de inventario, cada bodeguero elige si ve los repuestos ordenados por código o por nombre.",
+    "stem": "¿Dónde debe vivir este dato?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En un servidor, para no perderlo nunca",
+        "correct": false,
+        "feedback": "Para una preferencia, un servidor agrega trabajo sin necesidad. Si se pierde, basta con elegir el orden otra vez.",
+        "misconceptionId": "m10-mc57"
+      },
+      {
+        "id": "o2",
+        "text": "Con exportación, como los datos que crea el usuario",
+        "correct": false,
+        "feedback": "No todo lo que guarda la app vale lo mismo. Perder esta preferencia cuesta un toque, el de elegir el orden otra vez.",
+        "misconceptionId": "m10-mc57"
+      },
+      {
+        "id": "o3",
+        "text": "En almacenamiento simple, sin más cuidados",
+        "correct": true,
+        "feedback": "Correcta. Es una preferencia, y si se pierde no pasa nada. La app vuelve al valor por defecto y el bodeguero elige el orden de nuevo."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l3#clases",
+    "basis": "inference",
+    "sourceIds": [
+      "src-react-state-structure"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f06-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo3",
+    "competencyIds": [
+      "C13",
+      "C08"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m10-f06",
+    "variant": "c",
+    "scenario": "En la app de facturas, cada analista escribe comentarios sobre por qué una factura sigue pendiente. La app no tiene servidor.",
+    "stem": "¿Dónde debe vivir este dato?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En la base del navegador, con exportación",
+        "correct": true,
+        "feedback": "Correcta. Lo que crea el usuario se guarda en el navegador, con exportación e importación y almacenamiento persistente."
+      },
+      {
+        "id": "o2",
+        "text": "Ningún cuidado especial: sin servidor no hay datos",
+        "correct": false,
+        "feedback": "Esos comentarios existen solo en su navegador. Son lo único que no se puede reconstruir.",
+        "misconceptionId": "m10-mc19"
+      },
+      {
+        "id": "o3",
+        "text": "En el navegador, sin más: ahí queda para siempre",
+        "correct": false,
+        "feedback": "El navegador puede borrarlo si falta espacio, y el usuario puede borrarlo sin querer. Por eso se pide almacenamiento persistente y se ofrece exportar.",
+        "misconceptionId": "m10-mc15"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l3#navegador",
+    "basis": "inference",
+    "sourceIds": [
+      "src-mdn-storage-quotas"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f07-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo3",
+    "competencyIds": [
+      "C13",
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "family": "m10-f07",
+    "variant": "a",
+    "scenario": "El teléfono de una jefa de área se está quedando sin espacio. Ella guarda en la app de saldos sus notas sobre cada gasto.",
+    "stem": "¿Qué riesgo corren los datos del usuario?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguno: lo guardado en el navegador queda siempre",
+        "correct": false,
+        "feedback": "Por defecto, lo que guarda el navegador es de mejor esfuerzo. Puede borrarlo si falta espacio.",
+        "misconceptionId": "m10-mc15"
+      },
+      {
+        "id": "o2",
+        "text": "El navegador puede borrar las notas sin avisar",
+        "correct": true,
+        "feedback": "Correcta. Sin almacenamiento persistente, el navegador puede borrar los datos de un sitio si falta espacio."
+      },
+      {
+        "id": "o3",
+        "text": "Ninguno, porque la app no tiene servidor",
+        "correct": false,
+        "feedback": "Justo por no tener servidor, las notas existen solo en ese teléfono. Si el navegador las borra, no hay otra copia.",
+        "misconceptionId": "m10-mc19"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l3#navegador",
+    "sourceIds": [
+      "src-mdn-storage-quotas"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f07-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo3",
+    "competencyIds": [
+      "C13",
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "understand",
+    "family": "m10-f07",
+    "variant": "b",
+    "scenario": "Un bodeguero usa la app de inventario en una ventana de navegación privada y marca los repuestos que ya pidió.",
+    "stem": "¿Qué riesgo corren los datos del usuario?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguno, porque las marcas quedan en el teléfono",
+        "correct": false,
+        "feedback": "En la navegación privada, los datos suelen borrarse al cerrar la ventana. Quedan en el teléfono solo mientras esté abierta.",
+        "misconceptionId": "m10-mc15"
+      },
+      {
+        "id": "o2",
+        "text": "Ninguno: la app no tiene servidor que falle",
+        "correct": false,
+        "feedback": "El riesgo no es el servidor. Es dónde quedan las marcas y cuándo se borran.",
+        "misconceptionId": "m10-mc19"
+      },
+      {
+        "id": "o3",
+        "text": "Las marcas suelen borrarse al cerrar la ventana",
+        "correct": true,
+        "feedback": "Correcta. En la navegación privada, lo guardado suele borrarse al cerrar. Conviene avisarlo y ofrecer exportar."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l3#navegador",
+    "sourceIds": [
+      "src-mdn-storage-quotas"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f07-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo3",
+    "competencyIds": [
+      "C13",
+      "C08"
+    ],
+    "difficulty": "advanced",
+    "process": "analyze",
+    "family": "m10-f07",
+    "variant": "c",
+    "scenario": "En la versión 3 de la app de facturas, los comentarios pasan a guardarse con otra clave. Para lograrlo, el agente recreó el almacén sin migrar nada.",
+    "stem": "¿Qué riesgo corren los datos del usuario?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Se borran: recrear el almacén elimina lo guardado",
+        "correct": true,
+        "feedback": "Correcta. Para cambiar la clave hay que recrear el almacén, y eso borra los comentarios si antes no se leen y se vuelven a guardar."
+      },
+      {
+        "id": "o2",
+        "text": "Ninguno: los datos viejos se adaptan solos",
+        "correct": false,
+        "feedback": "No se adaptan solos. Sin migración, se pierden.",
+        "misconceptionId": "m10-mc16"
+      },
+      {
+        "id": "o3",
+        "text": "Ninguno, si funciona en el navegador del agente",
+        "correct": false,
+        "feedback": "En su navegador probó una base vacía, no la de los usuarios. La migración se prueba con datos de la versión anterior.",
+        "misconceptionId": "m10-mc17"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l3#migracion",
+    "sourceIds": [
+      "src-mdn-indexeddb-using"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f08-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo3",
+    "competencyIds": [
+      "C13",
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m10-f08",
+    "variant": "a",
+    "scenario": "La versión 2 de la app de saldos agrega un campo a las notas guardadas. El agente escribió la migración.",
+    "stem": "¿Qué protección corresponde?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguna: si funciona en un navegador, está probada",
+        "correct": false,
+        "feedback": "En un navegador limpio se prueba una base vacía, no la de los usuarios. Hace falta abrir una base de la versión 1 con la versión 2.",
+        "misconceptionId": "m10-mc17"
+      },
+      {
+        "id": "o2",
+        "text": "Probarla con una base de la versión 1",
+        "correct": true,
+        "feedback": "Correcta. Se abre una base sintética de la versión 1 con la versión 2 y se comprueba que llegó cada nota. También se fuerza un fallo para ver que la base queda intacta."
+      },
+      {
+        "id": "o3",
+        "text": "Borrar las notas viejas para no migrarlas",
+        "correct": false,
+        "feedback": "Las notas son del usuario y no se pueden reconstruir. Borrarlas para no migrarlas es perderlas.",
+        "misconceptionId": "m10-mc70"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l3#probar-migracion",
+    "basis": "inference",
+    "sourceIds": [
+      "src-dexie-versioning"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f08-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo3",
+    "competencyIds": [
+      "C13",
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m10-f08",
+    "variant": "b",
+    "scenario": "La versión 3 de la app de inventario cambia el formato del archivo que exporta.",
+    "stem": "¿Qué protección corresponde?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Ninguna: basta con exportar de nuevo con la v3",
+        "correct": false,
+        "feedback": "Quien perdió sus datos solo tiene el archivo viejo. Si la versión 3 no lo lee, ese respaldo ya no sirve.",
+        "misconceptionId": "m10-mc28"
+      },
+      {
+        "id": "o2",
+        "text": "Ninguna, si la migración interna ya funciona bien",
+        "correct": false,
+        "feedback": "La migración cuida la base del navegador, no los archivos exportados. Esos archivos son el respaldo del usuario y tienen que poder leerse.",
+        "misconceptionId": "m10-mc29"
+      },
+      {
+        "id": "o3",
+        "text": "Que el archivo lleve versión y la app lea las anteriores",
+        "correct": true,
+        "feedback": "Correcta. El formato de exportación es un contrato: lleva número de versión y la app nueva sabe leer los anteriores."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l3#exportacion",
+    "basis": "inference",
+    "sourceIds": [
+      "src-semver-2"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f08-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo3",
+    "competencyIds": [
+      "C13",
+      "C08"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m10-f08",
+    "variant": "c",
+    "scenario": "La migración de la versión 4 de la app de facturas reescribe los comentarios uno por uno. Si falla a la mitad, quedan unos con el formato nuevo y otros con el viejo.",
+    "stem": "¿Qué protección corresponde?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Hacerla atómica: si falla, todo vuelve a como estaba",
+        "correct": true,
+        "feedback": "Correcta. Una migración atómica no deja datos a medias. Si falla, se revierte y la base queda como antes."
+      },
+      {
+        "id": "o2",
+        "text": "Dejarla así y arreglar lo que falle después",
+        "correct": false,
+        "feedback": "Con datos a medias no se sabe qué quedó bien. Es peor que no migrar.",
+        "misconceptionId": "m10-mc18"
+      },
+      {
+        "id": "o3",
+        "text": "Borrar los comentarios si falla, para empezar limpio",
+        "correct": false,
+        "feedback": "Borrar los datos del usuario es perderlos. Lo que hace falta es que, si falla, todo vuelva a como estaba.",
+        "misconceptionId": "m10-mc70"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l3#migracion",
+    "sourceIds": [
+      "src-dexie-versioning",
+      "src-mdn-indexeddb-using"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f09-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo4",
+    "competencyIds": [
+      "C13"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m10-f09",
+    "variant": "a",
+    "scenario": "La app de saldos se publica en cada cambio. Las pruebas corren al mismo tiempo, pero el despliegue no espera a saber si pasaron.",
+    "stem": "¿Qué cambias en la publicación?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: si algo falla, se corrige en el siguiente cambio",
+        "correct": false,
+        "feedback": "Mientras tanto, la versión rota ya llegó a los usuarios. Las pruebas tienen que poder impedir que se publique.",
+        "misconceptionId": "m10-mc31"
+      },
+      {
+        "id": "o2",
+        "text": "Que el despliegue dependa de que pasen las pruebas",
+        "correct": true,
+        "feedback": "Correcta. Si las pruebas corren dentro de la construcción y el despliegue depende de ella, un fallo impide publicar."
+      },
+      {
+        "id": "o3",
+        "text": "Saltar las pruebas cuando haya apuro por publicar",
+        "correct": false,
+        "feedback": "Publicar algo roto atrasa más que esperar. Mientras tanto, sigue en pie la versión anterior.",
+        "misconceptionId": "m10-mc67"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l4#cadena",
+    "basis": "inference",
+    "sourceIds": [
+      "src-ghdocs-custom-workflows"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f09-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo4",
+    "competencyIds": [
+      "C13"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m10-f09",
+    "variant": "b",
+    "scenario": "La app de inventario cambia a cada versión nueva en el acto, aunque el bodeguero la tenga abierta registrando un pedido.",
+    "stem": "¿Qué cambias en la publicación?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada, porque así todos tienen siempre la última versión",
+        "correct": false,
+        "feedback": "Forzar el cambio puede mezclar versiones a mitad de un pedido. Es mejor avisar y que el bodeguero recargue cuando termine.",
+        "misconceptionId": "m10-mc32"
+      },
+      {
+        "id": "o2",
+        "text": "No avisar, porque la tomará cuando recargue",
+        "correct": false,
+        "feedback": "Recargar no lo garantiza. Sin aviso, puede seguir días con la vieja.",
+        "misconceptionId": "m10-mc33"
+      },
+      {
+        "id": "o3",
+        "text": "Avisar de la versión nueva y dejarlo elegir cuándo",
+        "correct": true,
+        "feedback": "Correcta. El usuario recarga cuando termina, y la app guarda su estado antes."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l4#actualizar",
+    "sourceIds": [
+      "src-webdev-sw-lifecycle",
+      "src-webdev-pwa-update"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f09-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo4",
+    "competencyIds": [
+      "C13"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m10-f09",
+    "variant": "c",
+    "scenario": "El flujo de la app de facturas tiene un paso de pruebas marcado como opcional: si no corre, el despliegue sigue igual.",
+    "stem": "¿Qué cambias en la publicación?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Hacerlo obligatorio y que el despliegue dependa de él",
+        "correct": true,
+        "feedback": "Correcta. Si el paso es obligatorio y el despliegue depende de él, nada se publica sin pasar las pruebas."
+      },
+      {
+        "id": "o2",
+        "text": "Nada: las pruebas existen y casi siempre corren",
+        "correct": false,
+        "feedback": "Un paso opcional puede no correr. Y un check omitido cuenta como éxito.",
+        "misconceptionId": "m10-mc54"
+      },
+      {
+        "id": "o3",
+        "text": "Saltarlo siempre, ya que de todos modos es opcional",
+        "correct": false,
+        "feedback": "Sin pruebas, una versión rota se publica igual. El paso tiene que ser obligatorio y el despliegue tiene que depender de él.",
+        "misconceptionId": "m10-mc67"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l4#cadena",
+    "basis": "inference",
+    "sourceIds": [
+      "src-ghdocs-custom-workflows",
+      "src-github-status-checks"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f10-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo4",
+    "competencyIds": [
+      "C13"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m10-f10",
+    "variant": "a",
+    "scenario": "La app de saldos está en la versión 1.2.4. La próxima agrega un filtro por mes y deja igual el formato de los archivos que exporta.",
+    "stem": "¿Qué número de versión corresponde?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "2.0.0, porque todo cambio visible es mayor",
+        "correct": false,
+        "feedback": "La versión mayor es para cambios incompatibles en lo que otros usan. Un filtro nuevo que no toca el formato exportado es una función compatible.",
+        "misconceptionId": "m10-mc61"
+      },
+      {
+        "id": "o2",
+        "text": "1.3.0, porque agrega una función compatible",
+        "correct": true,
+        "feedback": "Correcta. Una función nueva que no rompe nada sube el número del medio."
+      },
+      {
+        "id": "o3",
+        "text": "1.2.5, porque cualquier cambio es un parche",
+        "correct": false,
+        "feedback": "El parche es para correcciones. Una función nueva sube el número del medio.",
+        "misconceptionId": "m10-mc62"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l4#version",
+    "sourceIds": [
+      "src-semver-2"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f10-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo4",
+    "competencyIds": [
+      "C13"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m10-f10",
+    "variant": "b",
+    "scenario": "La app de inventario está en la versión 1.2.4. La próxima corrige un error en el orden de la lista y no cambia nada más.",
+    "stem": "¿Qué número de versión corresponde?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "1.3.0, porque todo cambio sube el número del medio",
+        "correct": false,
+        "feedback": "El número del medio es para funciones nuevas. Una corrección sube el último.",
+        "misconceptionId": "m10-mc62"
+      },
+      {
+        "id": "o2",
+        "text": "2.0.0, porque todo cambio visible es una versión mayor",
+        "correct": false,
+        "feedback": "Una corrección compatible no es un cambio mayor. La versión mayor queda para cambios incompatibles en lo que otros usan.",
+        "misconceptionId": "m10-mc61"
+      },
+      {
+        "id": "o3",
+        "text": "1.2.5, porque es una corrección que no rompe nada",
+        "correct": true,
+        "feedback": "Correcta. Una corrección que no rompe la compatibilidad es un parche."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l4#version",
+    "sourceIds": [
+      "src-semver-2"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f10-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo4",
+    "competencyIds": [
+      "C13"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m10-f10",
+    "variant": "c",
+    "scenario": "La app de facturas está en la versión 1.2.4. En la próxima, un campo del archivo exportado cambia de nombre, aunque la pantalla se ve igual.",
+    "stem": "¿Qué número de versión corresponde?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "2.0.0, porque el archivo exportado deja de ser compatible",
+        "correct": true,
+        "feedback": "Correcta. El archivo exportado es lo que otros usan. Un cambio incompatible ahí es una versión mayor."
+      },
+      {
+        "id": "o2",
+        "text": "1.2.5, porque la pantalla se ve exactamente igual que antes",
+        "correct": false,
+        "feedback": "Lo que decide es la compatibilidad de lo que otros usan, no la pantalla. Aquí cambia el archivo exportado, del que dependen otros.",
+        "misconceptionId": "m10-mc34"
+      },
+      {
+        "id": "o3",
+        "text": "1.3.0, porque es una mejora del archivo que se exporta",
+        "correct": false,
+        "feedback": "Una mejora compatible sube el número del medio, pero esta no es compatible. Quien guardó un archivo con el nombre viejo del campo no podría usarlo.",
+        "misconceptionId": "m10-mc62"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l4#version",
+    "basis": "inference",
+    "sourceIds": [
+      "src-semver-2"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f11-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo5",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m10-f11",
+    "variant": "a",
+    "scenario": "Hay que dejar escrito cómo volver a la versión anterior de la app de saldos si la publicación nueva falla.",
+    "stem": "¿En qué documento va esto?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En la guía de uso para las jefaturas",
+        "correct": false,
+        "feedback": "Las jefaturas usan la app; no la publican ni la recuperan. Esa instrucción la necesita quien la mantiene.",
+        "misconceptionId": "m10-mc37"
+      },
+      {
+        "id": "o2",
+        "text": "En el runbook, enlazado desde el README",
+        "correct": true,
+        "feedback": "Correcta. Es una instrucción para quien mantiene. Va en el runbook, que se enlaza desde el README."
+      },
+      {
+        "id": "o3",
+        "text": "En ningún lado: se explica si alguien pregunta",
+        "correct": false,
+        "feedback": "Cuando falle, quien la mantenga necesitará esos pasos escritos. En ese momento puede no haber nadie a quien preguntar.",
+        "misconceptionId": "m10-mc38"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l5#lectores",
+    "basis": "inference",
+    "sourceIds": [
+      "src-diataxis",
+      "src-github-about-readmes"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f11-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo5",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m10-f11",
+    "variant": "b",
+    "scenario": "Hay que explicar qué significa «stock mínimo» en la app de inventario y cómo se calcula.",
+    "stem": "¿En qué documento va esto?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En el README, junto a la instalación",
+        "correct": false,
+        "feedback": "El README es para quien mantiene. Quien usa la app necesita la definición a mano.",
+        "misconceptionId": "m10-mc37"
+      },
+      {
+        "id": "o2",
+        "text": "En un documento único que lo explique todo",
+        "correct": false,
+        "feedback": "Mezclar formas confunde. Cada pieza va donde la busca su lector.",
+        "misconceptionId": "m10-mc37"
+      },
+      {
+        "id": "o3",
+        "text": "En la referencia de indicadores de la app",
+        "correct": true,
+        "feedback": "Correcta. Es un dato exacto que se consulta mientras se trabaja: va en la referencia."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l5#formas",
+    "sourceIds": [
+      "src-diataxis"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f11-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo5",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "advanced",
+    "process": "apply",
+    "family": "m10-f11",
+    "variant": "c",
+    "scenario": "Hay que dejar constancia de por qué la versión 1 de la app de facturas permite ver las facturas, pero no aprobarlas.",
+    "stem": "¿En qué documento va esto?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "En el registro de decisiones de producto",
+        "correct": true,
+        "feedback": "Correcta. Qué quedó fuera de la versión 1 y por qué es una decisión de producto: va en el registro de decisiones."
+      },
+      {
+        "id": "o2",
+        "text": "En la guía de uso, como un paso más de la tarea",
+        "correct": false,
+        "feedback": "No es un paso de la tarea. Es una decisión con su motivo.",
+        "misconceptionId": "m10-mc37"
+      },
+      {
+        "id": "o3",
+        "text": "En ningún lado: es evidente para todos",
+        "correct": false,
+        "feedback": "Lo evidente para quien la hizo no lo es para quien la mantenga después. Sin el motivo escrito, alguien podría agregar la aprobación sin saber por qué quedó fuera.",
+        "misconceptionId": "m10-mc53"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l5#lectores",
+    "basis": "inference",
+    "sourceIds": [
+      "src-nygard-adr"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f12-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo5",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "family": "m10-f12",
+    "variant": "a",
+    "scenario": "La guía de la app de saldos no dice que los datos se actualizan los lunes. Una jefa decidió un gasto el jueves con el saldo del lunes, creyendo que era el del día.",
+    "stem": "¿Qué falta declarar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: todos saben que se actualiza los lunes",
+        "correct": false,
+        "feedback": "Lo sabe quien la hizo. La jefa no lo sabía.",
+        "misconceptionId": "m10-mc53"
+      },
+      {
+        "id": "o2",
+        "text": "De qué fecha son los datos y cuándo se actualizan",
+        "correct": true,
+        "feedback": "Correcta. Un supuesto sin declarar se vuelve el error de otro. La fecha va en la guía y en la pantalla."
+      },
+      {
+        "id": "o3",
+        "text": "Nada: se le explica a quien pregunte por la fecha",
+        "correct": false,
+        "feedback": "Ella no preguntó porque no sabía que había algo que preguntar. Por eso la fecha de los datos se declara antes, en la guía y en la pantalla.",
+        "misconceptionId": "m10-mc38"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l5#limitaciones",
+    "basis": "inference",
+    "sourceIds": [
+      "src-arxiv-model-cards"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f12-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo5",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "analyze",
+    "family": "m10-f12",
+    "variant": "b",
+    "scenario": "La app de inventario valoriza los repuestos importados con un tipo de cambio fijo del inicio del mes. Su guía no lo dice.",
+    "stem": "¿Qué falta declarar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: el tipo de cambio es un detalle técnico",
+        "correct": false,
+        "feedback": "Cambia el valor que ven los usuarios. Es un supuesto que afecta sus decisiones.",
+        "misconceptionId": "m10-mc53"
+      },
+      {
+        "id": "o2",
+        "text": "Solo si un bodeguero pregunta por una diferencia",
+        "correct": false,
+        "feedback": "Para cuando pregunte, ya habrá decidido con una cifra que no entendía. Un supuesto que cambia las cifras se declara antes.",
+        "misconceptionId": "m10-mc38"
+      },
+      {
+        "id": "o3",
+        "text": "Que se usa el tipo de cambio del inicio del mes",
+        "correct": true,
+        "feedback": "Correcta. Es un supuesto de cálculo que cambia las cifras. Se declara en la guía y en la referencia."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l5#limitaciones",
+    "basis": "inference",
+    "sourceIds": [
+      "src-arxiv-model-cards"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f12-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo5",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m10-f12",
+    "variant": "c",
+    "scenario": "La app de facturas muestra lo pendiente de pagar. Un gerente empezó a usarla para proyectar la caja del próximo trimestre.",
+    "stem": "¿Qué falta declarar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Su uso previsto: muestra lo pendiente, no proyecta",
+        "correct": true,
+        "feedback": "Correcta. Declarar el uso previsto evita que se use donde no sirve."
+      },
+      {
+        "id": "o2",
+        "text": "Nada: si al gerente le sirve para proyectar, está bien",
+        "correct": false,
+        "feedback": "No está hecha para proyectar. Usada así, puede llevar a decisiones equivocadas.",
+        "misconceptionId": "m10-mc76"
+      },
+      {
+        "id": "o3",
+        "text": "Una guía más larga que cubra la proyección",
+        "correct": false,
+        "feedback": "El problema no es el largo, sino que no declara para qué sirve. Una guía más larga no impide que se use para proyectar.",
+        "misconceptionId": "m10-mc50"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l5#limitaciones",
+    "basis": "inference",
+    "sourceIds": [
+      "src-arxiv-model-cards"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f13-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo6",
+    "competencyIds": [
+      "C13",
+      "C12",
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m10-f13",
+    "variant": "a",
+    "scenario": "Alguien editó el archivo de instrucciones del agente que mantiene la app de saldos. El código de la app sigue igual.",
+    "stem": "¿Qué se vuelve a correr?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada, porque el código sigue igual",
+        "correct": false,
+        "feedback": "Las instrucciones cambian el comportamiento del agente aunque el código siga igual. Que el código no cambie no significa que el resultado sea el mismo.",
+        "misconceptionId": "m10-mc42"
+      },
+      {
+        "id": "o2",
+        "text": "Las evaluaciones y la regresión",
+        "correct": true,
+        "feedback": "Correcta. Un cambio en las instrucciones es un cambio de comportamiento. Se corren sus evaluaciones y la regresión."
+      },
+      {
+        "id": "o3",
+        "text": "Una prueba a mano con un caso",
+        "correct": false,
+        "feedback": "Un caso no muestra si algo empeoró. Se corren las evaluaciones completas.",
+        "misconceptionId": "m10-mc43"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l6#skills",
+    "basis": "inference",
+    "sourceIds": [
+      "src-agentskills-evaluating"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f13-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo6",
+    "competencyIds": [
+      "C13",
+      "C12",
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "family": "m10-f13",
+    "variant": "b",
+    "scenario": "Una PR automática actualiza la biblioteca de gráficos de la app de inventario a una versión mayor. Las pruebas de cifras pasan.",
+    "stem": "¿Qué se vuelve a correr?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada más, porque las pruebas de cifras ya pasaron",
+        "correct": false,
+        "feedback": "Una actualización mayor puede romper lo que no son cifras, como la alternativa en texto del gráfico. Por eso el escaneo de accesibilidad forma parte de las pruebas.",
+        "misconceptionId": "m10-mc46"
+      },
+      {
+        "id": "o2",
+        "text": "Nada, porque actualizar dependencias es algo opcional",
+        "correct": false,
+        "feedback": "El parcheo es mantenimiento normal, y lo que se actualiza se prueba. Una PR automática se revisa como cualquier otro cambio.",
+        "misconceptionId": "m10-mc45"
+      },
+      {
+        "id": "o3",
+        "text": "Escaneo de accesibilidad y revisión de la licencia",
+        "correct": true,
+        "feedback": "Correcta. Las pruebas de cifras no cubren el gráfico ni la licencia. Se corren las demás comprobaciones y se revisan los cambios incompatibles de la biblioteca."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l6#dependencias",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-dependabot-version-updates",
+      "src-nist-sp800-40r4"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f13-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo6",
+    "competencyIds": [
+      "C13",
+      "C12",
+      "C04"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m10-f13",
+    "variant": "c",
+    "scenario": "La versión nueva de la app de facturas cambia la estructura con que se guardan los comentarios en el navegador.",
+    "stem": "¿Qué se vuelve a correr?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "La migración, con una base de la versión anterior",
+        "correct": true,
+        "feedback": "Correcta. Un cambio de estructura dispara la prueba de migración con datos de la versión anterior."
+      },
+      {
+        "id": "o2",
+        "text": "Las pruebas de siempre, con una base recién creada",
+        "correct": false,
+        "feedback": "Esas pruebas usan una base vacía. No muestran qué pasa con los comentarios guardados.",
+        "misconceptionId": "m10-mc17"
+      },
+      {
+        "id": "o3",
+        "text": "Nada, porque los datos viejos se adaptan solos",
+        "correct": false,
+        "feedback": "No se adaptan solos. Hay que migrarlos y probarlo.",
+        "misconceptionId": "m10-mc16"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l6#disparadores",
+    "basis": "inference",
+    "sourceIds": [
+      "src-dexie-versioning"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f14-a",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo6",
+    "competencyIds": [
+      "C13",
+      "C12",
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "family": "m10-f14",
+    "variant": "a",
+    "scenario": "Hallazgo: «el contraste de la etiqueta de sobregiro es de 3,8 a 1». El equipo cambió el color y lo marcó cerrado, sin medir el contraste nuevo.",
+    "stem": "¿El hallazgo está cerrado?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Sí, porque el color ya se cambió",
+        "correct": false,
+        "feedback": "Cambiarlo no prueba que el nuevo cumpla. Falta medirlo.",
+        "misconceptionId": "m10-mc72"
+      },
+      {
+        "id": "o2",
+        "text": "No: falta medir el contraste nuevo",
+        "correct": true,
+        "feedback": "Correcta. Se cierra con evidencia: el contraste nuevo medido, de 4,5 a 1 o más."
+      },
+      {
+        "id": "o3",
+        "text": "Sí, porque alguien ya lo marcó",
+        "correct": false,
+        "feedback": "Marcarlo no lo corrige. Se cierra con evidencia.",
+        "misconceptionId": "m10-mc47"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l6#cierre",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-dependabot-alerts",
+      "src-w3c-wcag22"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f14-b",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo6",
+    "competencyIds": [
+      "C13",
+      "C12",
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "family": "m10-f14",
+    "variant": "b",
+    "scenario": "Hallazgo: «la app de inventario usa una biblioteca sin mantenimiento». Se cerró como «riesgo aceptado», sin motivo, responsable ni fecha.",
+    "stem": "¿El hallazgo está cerrado?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Sí, porque un riesgo aceptado ya no se vuelve a mirar",
+        "correct": false,
+        "feedback": "Se vuelve a mirar cuando cambia la condición. Sin condición, nadie sabrá cuándo.",
+        "misconceptionId": "m10-mc48"
+      },
+      {
+        "id": "o2",
+        "text": "Sí, porque ya figura como riesgo aceptado",
+        "correct": false,
+        "feedback": "Un riesgo aceptado necesita más que la etiqueta. Sin motivo, responsable, fecha ni condición, nadie sabe por qué se aceptó ni cuándo revisarlo.",
+        "misconceptionId": "m10-mc47"
+      },
+      {
+        "id": "o3",
+        "text": "No: faltan motivo, responsable, fecha y condición",
+        "correct": true,
+        "feedback": "Correcta. Un riesgo aceptado se registra con motivo, responsable, fecha y la condición que lo haría reabrir."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l6#cierre",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-dependabot-alerts"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-f14-c",
+    "version": 1,
+    "use": "exam",
+    "courseId": "m10",
+    "evaluatedObjectiveId": "m10-eo6",
+    "competencyIds": [
+      "C13",
+      "C12",
+      "C04"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "family": "m10-f14",
+    "variant": "c",
+    "scenario": "Hallazgo: «la exportación de comentarios no se puede importar». La corrección tiene una prueba que falla con el código viejo y pasa con el nuevo, y esa prueba ya está en la regresión.",
+    "stem": "¿El hallazgo está cerrado?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Sí: hay corrección, prueba y caso en regresión",
+        "correct": true,
+        "feedback": "Correcta. Tiene todo lo que pide un hallazgo corregido: el cambio, la prueba que lo demuestra y el caso que evita que vuelva."
+      },
+      {
+        "id": "o2",
+        "text": "No, porque un hallazgo nunca se cierra del todo",
+        "correct": false,
+        "feedback": "Sí se cierra, con evidencia. Este la tiene.",
+        "misconceptionId": "m10-mc74"
+      },
+      {
+        "id": "o3",
+        "text": "No, hasta que el revisor deje de preguntar",
+        "correct": false,
+        "feedback": "Se cierra con evidencia, no por silencio. Esta corrección la tiene.",
+        "misconceptionId": "m10-mc47"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l6#cierre",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-dependabot-alerts"
+    ],
+    "status": "draft"
+  }
+]

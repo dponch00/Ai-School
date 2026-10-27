@@ -1,0 +1,544 @@
+[
+  {
+    "id": "m10-lab-q01",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m10",
+    "labStep": "paso-1",
+    "evaluatedObjectiveId": "m10-eo1",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El director pide PDF de cotización, conexión al CRM y un chat con IA. Los vendedores dicen que, en la visita, no saben si el descuento está dentro de la política, y que muchas veces no hay señal.",
+    "stem": "¿Qué alcance eliges para la versión 1?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Todo lo pedido, porque el agente lo construye en una semana",
+        "correct": false,
+        "feedback": "Construir es barato, pero mantener cada función no lo es. Además, ningún vendedor pidió el PDF ni el chat en las entrevistas.",
+        "misconceptionId": "m10-mc01"
+      },
+      {
+        "id": "o2",
+        "text": "Una calculadora de margen y aprobación que funcione sin señal",
+        "correct": true,
+        "feedback": "Correcta. Resuelve la decisión que el vendedor toma en la visita, aunque no haya señal. El PDF, el CRM y el chat quedan fuera, por escrito y con su motivo."
+      },
+      {
+        "id": "o3",
+        "text": "Solo el chat con IA, que es lo más innovador de todo el pedido",
+        "correct": false,
+        "feedback": "Se diseña alrededor del problema, no de una tecnología. El chat no le dice al vendedor si el descuento está dentro de la política.",
+        "misconceptionId": "m10-mc63"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l1#alcance",
+    "basis": "inference",
+    "sourceIds": [
+      "src-govuk-whole-problem",
+      "src-govuk-discovery"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-lab-q02",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m10",
+    "labStep": "paso-1",
+    "evaluatedObjectiveId": "m10-eo1",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "La analista tiene que fijar cómo sabrá, dentro de unos meses, si la calculadora sirvió.",
+    "stem": "¿Qué criterios de éxito conviene fijar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que los vendedores digan en una encuesta que les gusta",
+        "correct": false,
+        "feedback": "La opinión no dice si la decisión mejoró. Los indicadores salen de la necesidad.",
+        "misconceptionId": "m10-mc03"
+      },
+      {
+        "id": "o2",
+        "text": "Cuántos vendedores la descargan en el primer mes",
+        "correct": false,
+        "feedback": "Descargar no es usar ni decidir mejor. Mide la instalación, no el resultado.",
+        "misconceptionId": "m10-mc64"
+      },
+      {
+        "id": "o3",
+        "text": "Los descuentos fuera de política contra la línea base",
+        "correct": true,
+        "feedback": "Correcta. El resultado se compara con los meses anteriores, en los que 3 de cada 10 descuentos quedaron fuera. Se completa con el uso en las visitas y la coincidencia con los casos de FP&A."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l1#exito",
+    "sourceIds": [
+      "src-govuk-performance-metrics"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-lab-q03",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m10",
+    "labStep": "paso-2",
+    "evaluatedObjectiveId": "m10-eo2",
+    "competencyIds": [
+      "C13",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El reporte del agente dice «0 violaciones; probado en el navegador de escritorio». La banda de aprobación es un círculo de color sin texto y el botón «Calcular» mide 20 por 20 píxeles, pegado a «Borrar».",
+    "stem": "¿Qué concluye la analista del reporte?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Faltan la revisión manual y una prueba en el teléfono",
+        "correct": true,
+        "feedback": "Correcta. Hay barreras que el escaneo no ve, y nadie probó la pantalla en el teléfono, de pie y al sol, como la van a usar."
+      },
+      {
+        "id": "o2",
+        "text": "Está lista para publicar, porque no tiene violaciones",
+        "correct": false,
+        "feedback": "El escaneo no lo comprueba todo. El color como única señal y el botón pequeño suelen escaparle.",
+        "misconceptionId": "m10-mc07"
+      },
+      {
+        "id": "o3",
+        "text": "Basta con darle más contraste al círculo de color",
+        "correct": false,
+        "feedback": "El contraste es otro criterio. Aunque se vea mejor, el color sigue siendo la única señal.",
+        "misconceptionId": "m10-mc23"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l2#revisar",
+    "sourceIds": [
+      "src-w3c-eval-tools",
+      "src-playwright-a11y"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-lab-q04",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m10",
+    "labStep": "paso-2",
+    "evaluatedObjectiveId": "m10-eo2",
+    "competencyIds": [
+      "C13",
+      "C12"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "En la calculadora, el descuento se elige solo arrastrando un control deslizante con el dedo.",
+    "stem": "¿Qué cambio resuelve esa barrera?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Hacer más grande el deslizador, para arrastrarlo mejor",
+        "correct": false,
+        "feedback": "Aunque sea más grande, sigue exigiendo arrastrar. Falta una alternativa que no lo exija.",
+        "misconceptionId": "m10-mc65"
+      },
+      {
+        "id": "o2",
+        "text": "Agregar un campo numérico además del deslizador",
+        "correct": true,
+        "feedback": "Correcta. Lo que se hace arrastrando también tiene que poder hacerse con un toque o con el teclado."
+      },
+      {
+        "id": "o3",
+        "text": "Una nota que explique cómo arrastrarlo con el dedo",
+        "correct": false,
+        "feedback": "La nota no quita la barrera. Quien no puede arrastrar sigue sin poder elegir el descuento.",
+        "misconceptionId": "m10-mc26"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l2#norma",
+    "sourceIds": [
+      "src-w3c-wcag22-new"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-lab-q05",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m10",
+    "labStep": "paso-3",
+    "evaluatedObjectiveId": "m10-eo3",
+    "competencyIds": [
+      "C13",
+      "C08"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El agente propone guardar en cada escenario el precio final, el margen y la banda ya calculados, «para no recalcular».",
+    "stem": "¿Qué se guarda de cada escenario?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "El precio y el margen calculados, para que cargue rápido",
+        "correct": false,
+        "feedback": "Con una lista nueva, esas cifras quedarían calculadas con precios viejos sin que nadie lo note. Lo derivado no se guarda, se recalcula al abrir el escenario.",
+        "misconceptionId": "m10-mc14"
+      },
+      {
+        "id": "o2",
+        "text": "Todo, incluida una copia de la lista en cada escenario",
+        "correct": false,
+        "feedback": "Copiar la lista en cada escenario duplica los datos de referencia. Cuando la lista cambie, cada copia quedará vieja.",
+        "misconceptionId": "m10-mc68"
+      },
+      {
+        "id": "o3",
+        "text": "Lo que ingresó el vendedor y qué versión de lista usó",
+        "correct": true,
+        "feedback": "Correcta. Precio, margen y banda se recalculan al abrir el escenario. Si la lista cambió desde entonces, la app lo avisa."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l3#clases",
+    "sourceIds": [
+      "src-react-state-structure"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-lab-q06",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m10",
+    "labStep": "paso-3",
+    "evaluatedObjectiveId": "m10-eo3",
+    "competencyIds": [
+      "C13",
+      "C08"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "En diciembre, la lista agrega una columna de moneda. Los escenarios ya guardados en los teléfonos no la tienen.",
+    "stem": "¿Cómo se manejan los escenarios ya guardados?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Migrarlos con moneda dólar, de forma atómica y probada",
+        "correct": true,
+        "feedback": "Correcta. La migración les asigna el dólar, que era la moneda de todos los precios hasta ahora. Se prueba con datos de la versión anterior y, si falla, no deja nada a medias."
+      },
+      {
+        "id": "o2",
+        "text": "Borrarlos al actualizar la app, porque son pocos",
+        "correct": false,
+        "feedback": "Lo que crea el usuario es lo único que no se puede reconstruir. Borrarlo es perderlo.",
+        "misconceptionId": "m10-mc70"
+      },
+      {
+        "id": "o3",
+        "text": "Que la app nueva ignore el campo de moneda que les falta",
+        "correct": false,
+        "feedback": "Un escenario sin moneda puede mezclar dólares y euros sin que nadie lo vea. Hay que migrarlo con un valor explícito.",
+        "misconceptionId": "m10-mc69"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l3#migracion",
+    "basis": "inference",
+    "sourceIds": [
+      "src-mdn-indexeddb-using",
+      "src-dexie-versioning"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-lab-q07",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m10",
+    "labStep": "paso-4",
+    "evaluatedObjectiveId": "m10-eo4",
+    "competencyIds": [
+      "C13"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El agente propone publicar cada cambio sin esperar a las pruebas, para que la lista de diciembre llegue antes.",
+    "stem": "¿Qué cadena de publicación corresponde?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Publicar primero y correr las pruebas después",
+        "correct": false,
+        "feedback": "Si una lista mal cargada pasa, los vendedores dan descuentos con precios erróneos hasta que alguien lo note. Las pruebas tienen que correr antes y poder impedir la publicación.",
+        "misconceptionId": "m10-mc31"
+      },
+      {
+        "id": "o2",
+        "text": "Pruebas con los casos de FP&A antes de publicar",
+        "correct": true,
+        "feedback": "Correcta. Si falla un caso, incluido el del límite de 22,00 %, no se publica, y sigue en pie la lista anterior con su fecha."
+      },
+      {
+        "id": "o3",
+        "text": "Correr las pruebas solo cuando cambia el código",
+        "correct": false,
+        "feedback": "La lista es una entrada del cálculo y cambia los resultados. También se prueba.",
+        "misconceptionId": "m10-mc66"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l4#cadena",
+    "basis": "inference",
+    "sourceIds": [
+      "src-ghdocs-custom-workflows"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-lab-q08",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m10",
+    "labStep": "paso-4",
+    "evaluatedObjectiveId": "m10-eo4",
+    "competencyIds": [
+      "C13"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El agente propone activar la versión nueva en cuanto se publica, aunque el vendedor esté en una visita con la app abierta.",
+    "stem": "¿Cómo debe llegarle la versión nueva?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Activarla de inmediato, para que nadie use precios viejos",
+        "correct": false,
+        "feedback": "Puede mezclar versiones a mitad de un cálculo, frente al cliente. Es mejor avisar y dejar que el vendedor recargue al terminar.",
+        "misconceptionId": "m10-mc32"
+      },
+      {
+        "id": "o2",
+        "text": "Sin aviso, porque la verá en cuanto recargue la app",
+        "correct": false,
+        "feedback": "Recargar no lo garantiza. Sin aviso, el vendedor puede seguir días con la lista vieja sin saberlo.",
+        "misconceptionId": "m10-mc33"
+      },
+      {
+        "id": "o3",
+        "text": "Avisar que hay lista nueva y dejar que elija cuándo",
+        "correct": true,
+        "feedback": "Correcta. La app muestra la fecha de la lista vigente y deja recargar cuando termina el cálculo en curso."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l4#actualizar",
+    "sourceIds": [
+      "src-webdev-sw-lifecycle",
+      "src-webdev-pwa-update"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-lab-q09",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m10",
+    "labStep": "paso-5",
+    "evaluatedObjectiveId": "m10-eo5",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "El README único mezcla instalación, «cómo dar un descuento en tres toques» y las columnas de la lista. No declara ningún límite.",
+    "stem": "¿Cómo se reorganiza la documentación?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Una guía para vendedores con los límites y un README aparte",
+        "correct": true,
+        "feedback": "Correcta. Cada lector tiene lo suyo, y la guía declara arriba los límites: precios de lista sin impuestos, vigencia y escenarios solo en ese teléfono."
+      },
+      {
+        "id": "o2",
+        "text": "Un solo README más completo, para que esté todo junto",
+        "correct": false,
+        "feedback": "Más completo no ayuda a que cada lector encuentre lo suyo. La documentación se separa por lector.",
+        "misconceptionId": "m10-mc37"
+      },
+      {
+        "id": "o3",
+        "text": "Quitar las limitaciones del texto, para no desalentar el uso",
+        "correct": false,
+        "feedback": "Si los límites no están escritos, la app se usa donde no sirve. Se declaran arriba, en la guía.",
+        "misconceptionId": "m10-mc38"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l5#lectores",
+    "basis": "inference",
+    "sourceIds": [
+      "src-diataxis",
+      "src-arxiv-model-cards"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-lab-q10",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m10",
+    "labStep": "paso-5",
+    "evaluatedObjectiveId": "m10-eo5",
+    "competencyIds": [
+      "C13",
+      "C02"
+    ],
+    "difficulty": "base",
+    "process": "evaluate",
+    "scenario": "El director pregunta quién responde si un margen sale mal y se da un descuento que no correspondía. El código lo escribió un agente.",
+    "stem": "¿Qué le responde la analista?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Que responde el proveedor del agente que lo escribió",
+        "correct": false,
+        "feedback": "La documentación de los agentes de código pone la revisión y la aprobación en quien los usa. Responde quien aprobó el cambio y publicó la app.",
+        "misconceptionId": "m10-mc39"
+      },
+      {
+        "id": "o2",
+        "text": "Que responde ella, con evidencia y un suplente",
+        "correct": true,
+        "feedback": "Correcta. Como dueña de la herramienta, responde ella, y la entrega va con sus pruebas, su revisión y un suplente nombrado."
+      },
+      {
+        "id": "o3",
+        "text": "Que nadie: la app informa y decide el vendedor",
+        "correct": false,
+        "feedback": "La app influye en la decisión del vendedor. Quien la publica responde por lo que muestra.",
+        "misconceptionId": "m10-mc51"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l5#responsabilidad",
+    "basis": "inference",
+    "sourceIds": [
+      "src-anthropic-cc-security",
+      "src-github-copilot-agents-responsible"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-lab-q11",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m10",
+    "labStep": "paso-6",
+    "evaluatedObjectiveId": "m10-eo6",
+    "competencyIds": [
+      "C13",
+      "C12",
+      "C04"
+    ],
+    "difficulty": "advanced",
+    "process": "evaluate",
+    "scenario": "Hay que mudar la app a otra dirección. El hallazgo «no hay forma de exportar los escenarios» se cerró como aceptado, sin responsable ni condición para reabrirlo.",
+    "stem": "¿Qué hay que reabrir y qué se hace antes de mudar?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Nada: copiar los archivos lleva los escenarios con la app",
+        "correct": false,
+        "feedback": "El navegador guarda los datos por origen, es decir, por dirección. En la dirección nueva, la app empieza vacía.",
+        "misconceptionId": "m10-mc35"
+      },
+      {
+        "id": "o2",
+        "text": "Nada: el hallazgo se cerró, y reabrirlo es rehacer la revisión",
+        "correct": false,
+        "feedback": "Un riesgo aceptado se reabre cuando cambia lo que lo justificaba, y aquí cambió. No se rehace la revisión, se decide de nuevo ese punto.",
+        "misconceptionId": "m10-mc71"
+      },
+      {
+        "id": "o3",
+        "text": "El hallazgo y la decisión del paso 3, y exportar antes de mudar",
+        "correct": true,
+        "feedback": "Correcta. Cambió la condición que justificaba aceptarlo. Antes de mudar hay que exportar en la dirección vieja, importar en la nueva y probarlo."
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l6#reabrir",
+    "basis": "inference",
+    "sourceIds": [
+      "src-mdn-storage-quotas",
+      "src-github-dependabot-alerts"
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "m10-lab-q12",
+    "version": 1,
+    "use": "lab",
+    "courseId": "m10",
+    "labStep": "paso-6",
+    "evaluatedObjectiveId": "m10-eo6",
+    "competencyIds": [
+      "C13",
+      "C12",
+      "C04"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "La exportación ya está publicada en la dirección vieja. La analista decide cuándo cerrar el hallazgo y qué agrega al plan de mantenimiento.",
+    "stem": "¿Cuándo se cierra el hallazgo?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Cuando la prueba de ida y vuelta pasa en la nueva dirección",
+        "correct": true,
+        "feedback": "Correcta. Se cierra con evidencia, que aquí es exportar en la dirección vieja, importar en la nueva y comprobar que llegó todo. Esa prueba entra después a la regresión."
+      },
+      {
+        "id": "o2",
+        "text": "Apenas se publica la exportación en la dirección vieja",
+        "correct": false,
+        "feedback": "Publicarla no prueba que el archivo se importe bien en la dirección nueva. Falta la prueba de ida y vuelta.",
+        "misconceptionId": "m10-mc72"
+      },
+      {
+        "id": "o3",
+        "text": "Cuando el director deja de preguntar por la mudanza de la app",
+        "correct": false,
+        "feedback": "Que nadie insista no cierra un hallazgo. Se cierra con la prueba que lo verifica.",
+        "misconceptionId": "m10-mc47"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m10-l6#cierre",
+    "basis": "inference",
+    "sourceIds": [
+      "src-github-dependabot-alerts"
+    ],
+    "status": "draft"
+  }
+]
