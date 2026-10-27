@@ -1,0 +1,331 @@
+<title>Guía de AI School</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: una columna de lectura (~68ch) con bandas de sección; la ruta de estudio es una línea vertical con hitos, como la ruta del ícono D1. */
+:root {
+  --canvas: #F5F0E6;
+  --surface: #FFFDF7;
+  --ink: #172A33;
+  --muted: #4D6265;
+  --line: #C9C2B3;
+  --accent: #A94E2B;
+  --product: #0E5B65;
+  --ok: #23694D;
+  --ok-bg: #E5F2EA;
+  --warn: #865500;
+  --warn-bg: #FFF3D6;
+  --info-bg: #E5F0F6;
+  --focus: #006E74;
+  --display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --canvas: #121D22; --surface: #1A282E; --ink: #EAE4D8; --muted: #A9B8B8; --line: #34474D;
+    --accent: #E08A64; --product: #5FB7BF; --ok: #7CC9A3; --ok-bg: #18332A; --warn: #E7B45A; --warn-bg: #33291A;
+    --info-bg: #1B3040; --focus: #6FD0D6; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --canvas: #121D22; --surface: #1A282E; --ink: #EAE4D8; --muted: #A9B8B8; --line: #34474D;
+  --accent: #E08A64; --product: #5FB7BF; --ok: #7CC9A3; --ok-bg: #18332A; --warn: #E7B45A; --warn-bg: #33291A;
+  --info-bg: #1B3040; --focus: #6FD0D6; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--canvas); color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 4rem;
+}
+.wrap { max-width: 44rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--display); font-weight: 650; line-height: 1.2; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2rem, 6vw, 2.75rem); }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.15rem; }
+p { margin: 0; }
+a { color: var(--product); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 3px; }
+code, .ui { font-family: var(--mono); font-size: 0.86em; }
+.ui { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 0.05em 0.35em; white-space: nowrap; }
+.eyebrow { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.stack { display: flex; flex-direction: column; gap: 1rem; }
+
+header.top { padding-block: 2.5rem 1.5rem; border-bottom: 1px solid var(--line); }
+header.top .stack { gap: 0.75rem; }
+.lede { font-size: 1.15rem; color: var(--muted); max-width: 38rem; }
+nav.toc { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-family: var(--mono); font-size: 0.85rem; padding-top: 0.5rem; }
+
+section { padding-block: 2.5rem 0.5rem; }
+section > .stack { gap: 1.1rem; }
+
+/* Estado */
+.meter { display: flex; flex-direction: column; gap: 0.5rem; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 1.1rem 1.2rem; }
+.meter__row { display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap; }
+.meter__big { font-family: var(--display); font-size: 2.6rem; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.bar { height: 10px; background: var(--line); border-radius: 5px; overflow: hidden; }
+.bar > span { display: block; height: 100%; background: var(--product); }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+th, td { text-align: left; padding: 0.55rem 0.6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.mini { display: inline-block; width: 4.5rem; height: 6px; background: var(--line); border-radius: 3px; vertical-align: middle; margin-right: 0.4rem; overflow: hidden; }
+.mini > span { display: block; height: 100%; background: var(--product); }
+
+.who { display: grid; grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr)); gap: 0.75rem; }
+.who > div { border-top: 3px solid var(--line); padding-top: 0.6rem; display: flex; flex-direction: column; gap: 0.3rem; min-width: 0; }
+.who .tag { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
+.who .you { border-top-color: var(--accent); }
+
+/* Ruta de estudio */
+ol.route { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+ol.route > li { counter-increment: step; position: relative; padding: 0 0 1.6rem 3rem; }
+ol.route > li::before {
+  content: counter(step); position: absolute; left: 0; top: 0; width: 2rem; height: 2rem; border-radius: 50%;
+  background: var(--surface); border: 2px solid var(--product); color: var(--product);
+  font: 600 0.95rem/1.75rem var(--mono); text-align: center;
+}
+ol.route > li::after { content: ""; position: absolute; left: calc(1rem - 1px); top: 2.1rem; bottom: 0.2rem; border-left: 2px dashed var(--line); }
+ol.route > li:last-child::after { display: none; }
+ol.route > li.key::before { border-color: var(--accent); color: var(--accent); }
+.step { display: flex; flex-direction: column; gap: 0.35rem; }
+.step h3 { padding-top: 0.2rem; }
+.meta { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+.step ul { margin: 0.2rem 0 0; padding-left: 1.15rem; display: flex; flex-direction: column; gap: 0.2rem; }
+.pill { display: inline-block; font-family: var(--mono); font-size: 0.72rem; padding: 0.1rem 0.45rem; border-radius: 999px; vertical-align: 0.1em; }
+.pill--count { background: var(--ok-bg); color: var(--ok); }
+.pill--free { background: var(--info-bg); color: var(--product); }
+
+/* Respuesta de texto */
+.answer { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 6px; padding: 1.1rem 1.2rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.answer strong { font-weight: 600; }
+.split { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 0.9rem; }
+.split > div { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0.9rem 1rem; display: flex; flex-direction: column; gap: 0.4rem; min-width: 0; }
+.split ul { margin: 0; padding-left: 1.1rem; }
+.flow { display: grid; grid-template-columns: 1fr; gap: 0; counter-reset: f; margin: 0; padding: 0; list-style: none; }
+.flow > li { counter-increment: f; display: grid; grid-template-columns: 2.4rem 1fr; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--line); }
+.flow > li::before { content: counter(f, decimal-leading-zero); font: 500 0.9rem/1.6 var(--mono); color: var(--accent); }
+.flow .where { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); display: block; margin-top: 0.15rem; }
+.flow .actor { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--product); }
+
+.note { background: var(--warn-bg); color: var(--ink); border-radius: 6px; padding: 0.85rem 1rem; display: flex; flex-direction: column; gap: 0.3rem; }
+.note b { color: var(--warn); font-family: var(--mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500; }
+
+details { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0.7rem 1rem; }
+details + details { margin-top: 0.6rem; }
+summary { cursor: pointer; font-weight: 600; }
+details[open] summary { margin-bottom: 0.5rem; }
+details p + p { margin-top: 0.5rem; }
+
+.next { border: 2px solid var(--accent); border-radius: 8px; padding: 1.1rem 1.2rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.next ul { margin: 0; padding-left: 1.15rem; display: flex; flex-direction: column; gap: 0.3rem; }
+footer { padding-top: 2.5rem; color: var(--muted); font-size: 0.9rem; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="stack">
+      <span class="eyebrow">AI School · 26 de octubre de 2026</span>
+      <h1>Dónde vamos y cómo usar la app</h1>
+      <p class="lede">Una página para ubicarte: qué está listo, qué falta y cómo estudiar los cinco manuales que ya están en la app.</p>
+      <nav class="toc" aria-label="En esta página">
+        <a href="#estado">Estado</a>
+        <a href="#ruta">Ruta de estudio</a>
+        <a href="#texto">Lo que cambió</a>
+        <a href="#cuidado">Antes de empezar</a>
+        <a href="#siguiente">Tu siguiente paso</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ESTADO -->
+  <section id="estado" aria-labelledby="h-estado">
+    <div class="stack">
+      <span class="eyebrow">1 · Estado del proyecto</span>
+      <h2 id="h-estado">Vamos en el 74 % de la versión 1</h2>
+      <div class="meter" role="img" aria-label="Avance total estimado: 74 por ciento">
+        <div class="meter__row"><span class="meter__big">74 %</span><span class="meta">rango razonable 71–77 % · actualizado el 26 de octubre</span></div>
+        <div class="bar"><span style="width:74%"></span></div>
+      </div>
+      <p>Hay <b>ocho manuales completos</b> en la app, cada uno con seis lecciones, preguntas de práctica, un laboratorio como caso práctico y el examen. <b>Todo se responde con opción múltiple</b>: no hay nada que redactar, entregar ni mandar a evaluar. Los ocho ya pasaron la revisión cruzada de Codex. Faltan M09 y M10; la investigación de M09 ya está lista.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Manual</th><th>De qué trata</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr><td>M01</td><td>Herramientas, modelos y límites de la IA</td><td>Completo y revisado</td></tr>
+            <tr><td>M02</td><td>Prompting avanzado y especificaciones</td><td>Completo y revisado</td></tr>
+            <tr><td>M03</td><td>Ingeniería de contexto y conocimiento</td><td>Completo y revisado</td></tr>
+            <tr><td>M04</td><td>Código, Git y entornos para dirigir agentes</td><td>Completo y revisado</td></tr>
+            <tr><td>M05</td><td>Desarrollo con agentes de código</td><td>Completo y revisado</td></tr>
+            <tr><td>M06</td><td>Datos y arquitectura de herramientas analíticas</td><td>Completo y revisado</td></tr>
+            <tr><td>M07</td><td>APIs, MCP, conectores e integraciones</td><td>Completo y revisado</td></tr>
+            <tr><td>M08</td><td>Agentes, automatización y equipos</td><td>Completo y revisado</td></tr>
+            <tr><td>M09 y M10</td><td>Evaluación y control, y proyecto final</td><td>Por escribir</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Fase</th><th>Peso</th><th>Avance</th><th>Qué falta</th></tr></thead>
+          <tbody>
+            <tr><td>0 · Definición</td><td class="num">8 %</td><td class="num"><span class="mini"><span style="width:95%"></span></span>95 %</td><td>La prueba de publicar la app (necesita tu organización de GitHub)</td></tr>
+            <tr><td>1 · Piloto M02</td><td class="num">22 %</td><td class="num"><span class="mini"><span style="width:97%"></span></span>97 %</td><td>Tu recorrido de estudio, para calibrar los tiempos</td></tr>
+            <tr><td>2 · Base de la app</td><td class="num">15 %</td><td class="num"><span class="mini"><span style="width:88%"></span></span>88 %</td><td>Publicarla e instalarla de verdad en tu celular</td></tr>
+            <tr><td>3 · Nueve manuales</td><td class="num">40 %</td><td class="num"><span class="mini"><span style="width:79%"></span></span>79 %</td><td>Escribir M09 y M10</td></tr>
+            <tr><td>4 · Integración</td><td class="num">10 %</td><td class="num"><span class="mini"><span style="width:0%"></span></span>0 %</td><td>Revisión de todo junto</td></tr>
+            <tr><td>5 · Entrega</td><td class="num">5 %</td><td class="num"><span class="mini"><span style="width:0%"></span></span>0 %</td><td>Versión final</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Quién hace qué</h3>
+      <div class="who">
+        <div><span class="tag">Claude Code</span><p>Coordina, investiga, escribe lecciones y preguntas, programa la app y la prueba.</p></div>
+        <div><span class="tag">Codex</span><p>Revisa todo lo que escribe Claude, hace las imágenes y el diseño. Tú le pasas los tickets.</p></div>
+        <div class="you"><span class="tag">Tú</span><p>Estudias a tu ritmo, decides y pasas los prompts. Si algo no se entiende o toma demasiado, avísale a Claude.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RUTA -->
+  <section id="ruta" aria-labelledby="h-ruta">
+    <div class="stack">
+      <span class="eyebrow">2 · Guía de uso</span>
+      <h2 id="h-ruta">La ruta de estudio, en orden</h2>
+      <p>Abre la app (la <a href="https://claude.ai/artifact/9bGWxdG356ToKPhcdgNJTJ">versión de prueba</a> sirve) y sigue estos pasos con cada manual. Junto a cada uno dice si <span class="pill pill--count">cuenta</span> para terminar el curso o si es <span class="pill pill--free">práctica</span>. Repártelo en varios días; no hace falta hacerlo de una sentada.</p>
+      <p><b>Orden sugerido:</b> M01 → M02 → M03 → M04 → M05 → M06 → M07 → M08. Cada manual se apoya en los anteriores: M03 usa lo de M01, M04 retoma la reconciliación de M02, M05 junta M03 y M04 para dirigir una mejora completa, M06 explica dónde se calcula cada cifra y cómo se comprueba, M07 enseña a conectar el agente con otros sistemas sin darle más permisos de los necesarios, y M08, cuánta autonomía conviene darle y qué hacer cuando algo falla sin que nadie lo vea.</p>
+      <ol class="route">
+        <li>
+          <div class="step">
+            <h3>Haz el diagnóstico inicial <span class="pill pill--free">práctica</span></h3>
+            <span class="meta">Menú «Diagnóstico» · unos 25 min</span>
+            <p>Son 24 preguntas. Al final ves una señal por bloque, por ejemplo «fortaleza probable» o «conviene repasar». No te pone nota: con cuatro preguntas por bloque es una pista, no un veredicto.</p>
+          </div>
+        </li>
+        <li class="key">
+          <div class="step">
+            <h3>Lee las seis lecciones del manual <span class="pill pill--count">cuenta</span></h3>
+            <span class="meta">Cursos › el manual › Lecciones · unos 25 min cada una</span>
+            <ul>
+              <li><b>Al empezar</b>, un «Repaso antes de empezar» con preguntas de la lección anterior. Respóndelas sin mirar: recordar es parte de aprender.</li>
+              <li><b>Al terminar</b>, «Comprueba lo que aprendiste». Después de responder ves por qué cada opción es o no la mejor. La lección queda completada cuando respondes todas.</li>
+              <li><b>Antes de comprobar</b> puedes marcar «Estoy muy seguro». Si fallas esa pregunta, vuelve en el repaso de errores.</li>
+              <li><b>Al final de la lección</b> puedes dejar una nota o un marcador. Solo los ves tú.</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="step">
+            <h3>Subraya y anota mientras lees <span class="pill pill--free">práctica</span></h3>
+            <span class="meta">En cualquier lección · menú «Subrayados» para repasar</span>
+            <ul>
+              <li><b>Selecciona un texto</b> y aparece abajo una barra con cuatro colores y «Subrayar y anotar».</li>
+              <li><b>Toca un subrayado</b> para cambiarle el color, escribir una nota o borrarlo.</li>
+              <li><b>En «Subrayados»</b> tienes todo por manual, lección y sección, con filtros. «Ir a la sección» te lleva al punto exacto.</li>
+              <li><b>Modo repaso:</b> oculta el texto subrayado y te deja la sección y tu nota. Intenta recordarlo antes de destaparlo.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="key">
+          <div class="step">
+            <h3>Resuelve el laboratorio <span class="pill pill--count">cuenta</span></h3>
+            <span class="meta">Portada del manual › Laboratorio · unos 30 min</span>
+            <p>Es un caso completo de Altiplano Industrial en seis pasos. En M02, un correo vago del director termina convertido en una especificación; en M04, revisas el cambio de un agente que rompió la reconciliación; en M05, diriges a un agente de principio a fin con unas alertas de cobranza; en M06, decides qué hacer con unas oportunidades que entran en una etapa que nadie esperaba; en M07, preparas un informe que corre solo cada lunes; en M08, comparas un sistema de diez agentes con una sola llamada bien encargada. Al final de cada paso tomas las decisiones clave respondiendo preguntas, 12 en total, y al terminarlas queda hecho. El apartado «Pruébalo en tu entorno» es opcional y no se registra.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step">
+            <h3>Practica y repasa tus errores <span class="pill pill--free">práctica</span></h3>
+            <span class="meta">Portada del manual › «Práctica y examen» · «Repaso de errores»</span>
+            <p>Las preguntas de práctica muestran la explicación al responder y no cuentan para aprobar. Lo que fallaste habiendo marcado «Estoy muy seguro» vuelve al día siguiente; si lo aciertas, vuelve siete días después, y con esos dos aciertos seguidos sale del repaso. Si lo vuelves a fallar, regresa al día siguiente.</p>
+          </div>
+        </li>
+        <li class="key">
+          <div class="step">
+            <h3>Presenta el examen <span class="pill pill--count">cuenta</span></h3>
+            <span class="meta">Portada del manual › Examen · 12 preguntas · se puede pausar y retomar</span>
+            <ul>
+              <li><b>Para aprobar</b> necesitas 10 de 12, y ningún objetivo puede tener todas sus preguntas falladas.</li>
+              <li><b>Si no apruebas</b>, al día siguiente puedes hacer el reintento. Antes tienes que volver a responder las comprobaciones de las lecciones donde fallaste. El reintento trae preguntas que no has visto.</li>
+              <li><b>Si apruebas</b>, a los 7 días se abre una comprobación de retención de 6 preguntas, y necesitas 5. Sirve para confirmar que lo aprendido sigue ahí.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- TEXTO -->
+  <section id="texto" aria-labelledby="h-texto">
+    <div class="stack">
+      <span class="eyebrow">3 · Cómo se evalúa</span>
+      <h2 id="h-texto">Todo es de opción múltiple</h2>
+      <div class="answer">
+        <p><strong>Ya no hay respuestas de texto.</strong> Pediste aprender sin perder tiempo llenando cosas, así que la app se simplificó: cada pregunta, también las del laboratorio y el diagnóstico, es de opción múltiple y trae la explicación de por qué cada opción es o no la mejor.</p>
+        <p>Se quitaron la pantalla de datos personales, la preparación de reportes para un chat, «Mi ruta», la entrega escrita del laboratorio y las tareas de redacción del diagnóstico. Lo que guardaste antes no se pierde: sigue en el navegador y en tus respaldos.</p>
+      </div>
+      <div class="split">
+        <div>
+          <h3>Para terminar un curso</h3>
+          <ul>
+            <li>Completa sus seis lecciones</li>
+            <li>Resuelve el laboratorio</li>
+            <li>Aprueba el examen</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Lo que es práctica</h3>
+          <ul>
+            <li>Diagnóstico inicial</li>
+            <li>Preguntas de práctica</li>
+            <li>Repaso de errores</li>
+            <li>Comprobación de retención</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUIDADO -->
+  <section id="cuidado" aria-labelledby="h-cuidado">
+    <div class="stack">
+      <span class="eyebrow">4 · Antes de empezar</span>
+      <h2 id="h-cuidado">Tres cosas que conviene saber</h2>
+      <details open>
+        <summary>Tu progreso vive solo en ese navegador</summary>
+        <p>No hay cuentas ni servidor. Si abres la app en otro navegador o en otro dispositivo, empieza vacía. Si borras los datos del sitio, se pierde el progreso.</p>
+      </details>
+      <details open>
+        <summary>Haz un respaldo de vez en cuando</summary>
+        <p>En el menú <span class="ui">Respaldo</span> está «Exportar respaldo completo». Ese archivo te permite restaurar todo en otro navegador. Ahí mismo, «Pedir que no se borre» le pide al navegador que no limpie tus datos.</p>
+      </details>
+      <details>
+        <summary>Funciona sin conexión</summary>
+        <p>En la portada de cada manual, «Descargar para usar sin conexión» guarda el curso completo. Así puedes estudiar en el celular sin internet.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- SIGUIENTE -->
+  <section id="siguiente" aria-labelledby="h-siguiente">
+    <div class="stack">
+      <span class="eyebrow">5 · Lo que sigue</span>
+      <h2 id="h-siguiente">Tu siguiente paso</h2>
+      <div class="next">
+        <p>Estudia los manuales a tu ritmo, empezando por M01, y usa los subrayados y su modo repaso para fijar lo importante. Mientras tanto, Claude sigue con M09 lección por lección, con revisión de Codex en tandas pequeñas, para cuidar la calidad del contenido y de las preguntas. Si mientras estudias algo no se entiende, una pregunta te parece injusta o una parte toma demasiado tiempo, cuéntaselo a Claude y se corrige.</p>
+      </div>
+      <p class="meta">También pendiente, sin prisa: crear la organización gratuita de GitHub para publicar la app y probarla instalada en el celular.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Página preparada por Claude Code con el estado del 26 de octubre de 2026. Los porcentajes son una estimación por esfuerzo y se recalibran con tu recorrido.</p>
+  </footer>
+</div>

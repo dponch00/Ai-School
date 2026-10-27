@@ -1,11 +1,11 @@
 # Estado del proyecto
 
-**Fase actual:** 3 — Nueve manuales. M01 a M08 completos y revisados; M09, lecciones 1 a 3 en revisión de Codex (T-044). · **Actualizado:** 2026-10-26 por Claude Code
+**Fase actual:** 3 — Nueve manuales. M01 a M08 completos y revisados; M09, lecciones 1 a 3 revisadas por Codex (T-044 entregado; hallazgos sin aplicar). · **Actualizado:** 2026-10-26 por Claude Code
 
 ## Siguiente acción
 
-1. **Codex:** T-044, que revisa el blueprint, las lecciones 1 a 3, las preguntas y las fichas de M09. En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
-2. **Claude:** al volver T-044, aplicar sus hallazgos y seguir con las lecciones 4 a 6 de M09.
+1. **Claude (pausa por créditos, se retoma cuando se reinicien):** leer `investigacion/codex-revision-m09-l1-l3.md`, aplicar los hallazgos de T-044 y cerrarlo; después, las lecciones 4 a 6 de M09.
+2. **Codex:** sin ticket abierto hasta T-045. En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
 3. **Daniel (a su ritmo):** estudiar los manuales en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 4. **Pendiente de Daniel (sin prisa):** crear la organización gratuita de GitHub para la prueba de hosting (F0-11, D-013).
 
@@ -70,19 +70,22 @@
 | [T-041](coordinacion/tickets/T-041-codex-revision-m08-l1-l3.md) | Codex | Revisión de M08: blueprint, lecciones 1 a 3, preguntas y fichas | cerrado |
 | [T-042](coordinacion/tickets/T-042-codex-revision-m08-l4-l6.md) | Codex | Revisión de M08: lecciones 4 a 6, sus preguntas y fichas | cerrado |
 | [T-043](coordinacion/tickets/T-043-codex-revision-m08-examen-laboratorio.md) | Codex | Revisión de M08: banco de examen, laboratorio como caso y práctica | cerrado |
-| [T-044](coordinacion/tickets/T-044-codex-revision-m09-l1-l3.md) | Codex | Revisión de M09: blueprint, lecciones 1 a 3, preguntas y fichas | abierto |
+| [T-044](coordinacion/tickets/T-044-codex-revision-m09-l1-l3.md) | Codex | Revisión de M09: blueprint, lecciones 1 a 3, preguntas y fichas | entregado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-044) | `investigacion/codex-revision-m09-l1-l3.md` |
+| — | — |
 
 ## Decisiones recientes
 
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-26 · Claude Code — respaldo antes de la pausa
+Codex entregó T-044; sus hallazgos quedan sin aplicar hasta la próxima sesión. Versión de prueba regenerada con M09 L1 a L3 (versión 38). En la guía se quitó el anuncio «visto en un poste de luz» (versión 10); su fuente queda respaldada en `docs/guia-ai-school.html`.
 
 ### 2026-10-26 · Claude Code — M09, lecciones 1 a 3 (T-044)
 - **Blueprint:** seis objetivos evaluados de la investigación §2, con C12, C11, C05 y C08.
