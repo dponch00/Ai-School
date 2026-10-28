@@ -75,4 +75,4 @@ Entregado por Codex el 2026-10-27.
 - Hoja de contacto y decisiones: `design/qa/T-053/contact-sheet.png` y
   `design/qa/T-053/selection-notes.md`; las fuentes y tres alternativas
   descartadas quedaron en `design/images/raw/T-053/` (ignorado por Git).
-- Commit de entrega: pendiente de registrar.
+- Commit de entrega: `4bc69ad` (`[codex] Entrega T-053: portadas e ilustraciones`).
