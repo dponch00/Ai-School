@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-27 |
 | Depende de | T-054 (cerrado) |
 | Fase del plan | Mantenimiento posterior a la V1 (pedido de Daniel) |
@@ -74,4 +74,13 @@ No edites `content/`, las imágenes de `public/images/` ni `ESTADO.md`. Haz comm
 
 ## Entrega
 
-_(Codex)_
+### Codex · 2026-10-27
+
+- Marca vectorial propia «Atlas de criterio»: hoja plegada, ruta y hito, sin letras dentro; documentada en `design/identidad/README.md` con usos, área de respeto, mínimo y colores de tokens existentes.
+- Reemplacé el SVG maestro y los cuatro PNG de instalación de la PWA (incluido maskable con fondo opaco y motivo en zona segura); la cabecera usa la marca junto al texto HTML «AI School».
+- Rehice `#/` y `#/cursos` como inicio de estudio: tarjeta «Continuar» basada en la última visita (o M01 al empezar), diez portadas existentes con avance de lecciones/laboratorio/examen y accesos breves a Diagnóstico y Cómo funciona. No se modificaron imágenes existentes ni las paletas claro/oscuro.
+- Añadí prueba E2E del inicio y seis capturas: 360, 768 y 1280 px en claro y oscuro, en `design/qa/T-055/`.
+
+Verificado: `npm test` (250/250), `npm run build` y `npm run e2e` (160/160) en verde; revisión visual sin desborde horizontal en 360, 768 y 1280 px.
+
+Commit de implementación: `a0a69ef` (`[codex] diseña identidad e inicio de estudio`). Sin push.
