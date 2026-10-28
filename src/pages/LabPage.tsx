@@ -54,7 +54,18 @@ export default function LabPage() {
         <Link to={`/cursos/${course.id}`}>{course.id.toUpperCase()}</Link> <span aria-hidden="true">/</span> Laboratorio
       </nav>
       <div className="reader">
-        <Toc entries={lab.toc} />
+        <aside className="reader__side">
+          <ReaderProgress
+            courseId={course.id}
+            currentLesson={0}
+            lessonCount={course.lessons.length}
+            targetId="lector-contenido"
+            kind="lab"
+            ready={!!pkg?.practiceBlocks}
+            placement="side"
+          />
+          <Toc entries={lab.toc} />
+        </aside>
         <article className="reader__main" aria-labelledby="lab-title">
           <p className="eyebrow">Laboratorio de {course.id.toUpperCase()} · {total} preguntas · {lab.estimatedMinutes} min</p>
           <h1 id="lab-title">{lab.title}</h1>
@@ -65,6 +76,7 @@ export default function LabPage() {
             targetId="lector-contenido"
             kind="lab"
             ready={!!pkg?.practiceBlocks}
+            placement="inline"
           />
           <div id="lector-contenido">
             {last && (

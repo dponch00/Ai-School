@@ -54,7 +54,18 @@ export default function LessonPage() {
         <Link to={`/cursos/${course.id}`}>{course.id.toUpperCase()}</Link> <span aria-hidden="true">/</span> Lección {lesson.order}
       </nav>
       <div className="reader">
-        <Toc entries={lesson.toc} hasChecks hasSources={sources.length > 0} />
+        <aside className="reader__side">
+          <ReaderProgress
+            courseId={course.id}
+            currentLesson={lesson.order}
+            lessonCount={course.lessons.length}
+            targetId="lector-contenido"
+            kind="lesson"
+            ready={!!body}
+            placement="side"
+          />
+          <Toc entries={lesson.toc} hasChecks hasSources={sources.length > 0} />
+        </aside>
         <article className="reader__main" aria-labelledby="lesson-title">
           <p className="eyebrow">Lección {lesson.order} de {course.lessons.length} · {lesson.estimatedMinutes} min</p>
           <h1 id="lesson-title">{lesson.title}</h1>
@@ -65,6 +76,7 @@ export default function LessonPage() {
             targetId="lector-contenido"
             kind="lesson"
             ready={!!body}
+            placement="inline"
           />
 
           {!body && <p className="notice notice--info" role="status">{pkgError ?? 'Cargando la lección…'}</p>}

@@ -8,6 +8,7 @@ type ReaderProgressProps = {
   targetId: string
   kind: 'lesson' | 'lab'
   ready: boolean
+  placement: 'inline' | 'side'
 }
 
 function readingPercent(target: HTMLElement) {
@@ -18,7 +19,7 @@ function readingPercent(target: HTMLElement) {
   return Math.round(Math.min(100, Math.max(0, value)))
 }
 
-export default function ReaderProgress({ courseId, currentLesson, lessonCount, targetId, kind, ready }: ReaderProgressProps) {
+export default function ReaderProgress({ courseId, currentLesson, lessonCount, targetId, kind, ready, placement }: ReaderProgressProps) {
   const [percent, setPercent] = useState(0)
 
   useEffect(() => {
@@ -47,7 +48,7 @@ export default function ReaderProgress({ courseId, currentLesson, lessonCount, t
   const label = kind === 'lab' ? 'Laboratorio' : `Lección ${currentLesson} de ${lessonCount}`
 
   return (
-    <aside className="reader-progress" aria-label="Progreso de lectura">
+    <aside className={`reader-progress reader-progress--${placement}`} aria-label="Progreso de lectura">
       <div className="reader-progress__summary">
         <span className="reader-progress__course">{courseId.toUpperCase()} · {label}</span>
         <span className="reader-progress__percent">{percent}% leído</span>
