@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-27 |
 | Depende de | T-054 (cerrado) |
 | Fase del plan | Mantenimiento posterior a la V1 (pedido de Daniel) |
@@ -84,3 +84,16 @@ No edites `content/`, las imágenes de `public/images/` ni `ESTADO.md`. Haz comm
 Verificado: `npm test` (250/250), `npm run build` y `npm run e2e` (160/160) en verde; revisión visual sin desborde horizontal en 360, 768 y 1280 px.
 
 Commit de implementación: `a0a69ef` (`[codex] diseña identidad e inicio de estudio`). Sin push.
+
+## Revisión
+
+_(Claude Code, 2026-10-27)_
+
+Revisé el código, las seis capturas y la compilación con la ruta `/Ai-School/`. La lógica de «Continuar» y del progreso coincide con la de la página de cada curso (`checksCompletedAt` para lecciones y laboratorio, examen aprobado en `attempts`). El maskable deja el motivo dentro del círculo seguro, y `mark.svg` entra en la precaché, así que el logo de la cabecera se ve sin conexión. No se tocaron contenido, imágenes ni colores.
+
+Ajusté dos textos repetidos:
+- **La tarjeta de la primera vez** decía «M01 · Empezar con M01». Ahora el título de la sección dice «Empezar», la tarjeta «M01 · Lección 1» y la acción «Empezar →». Con historial vuelve a «Continuar» y «Abrir →».
+- **Saqué el «AI School» que iba sobre «Tu estudio»,** porque la cabecera ya muestra el logo con el nombre.
+
+**Verificación:** `npm test` 250/250, E2E 160/160 y compilación con `AIS_BASE=/Ai-School/`.
+

@@ -15,7 +15,7 @@ export default function Home() {
       ? `/cursos/${visitedCourse!.id}/lecciones/${lastLesson.id}`
       : `/cursos/${visitedCourse!.id}/laboratorio`
     : `/cursos/${continuingCourse.id}/lecciones/${continuingCourse.lessons[0]!.id}`
-  const continuingLabel = lastLesson ? `Lección ${lastLesson.order}` : last ? 'Laboratorio' : 'Empezar con M01'
+  const continuingLabel = lastLesson ? `Lección ${lastLesson.order}` : last ? 'Laboratorio' : 'Lección 1'
   const continuingCover = covers[continuingCourse.id]
 
   return (
@@ -23,7 +23,6 @@ export default function Home() {
       <header className="study-home__heading">
         <img className="study-home__mark" src={`${import.meta.env.BASE_URL}icons/mark.svg`} alt="" width="48" height="48" />
         <div>
-          <p className="eyebrow">AI School</p>
           <h1>Tu estudio</h1>
         </div>
         <nav className="study-home__links" aria-label="Accesos de estudio">
@@ -33,13 +32,13 @@ export default function Home() {
       </header>
 
       <section aria-labelledby="continuar">
-        <h2 id="continuar" className="study-home__section-title">Continuar</h2>
+        <h2 id="continuar" className="study-home__section-title">{last ? 'Continuar' : 'Empezar'}</h2>
         <Link className="continue-card" to={continuingTo}>
           {continuingCover && <img src={`${import.meta.env.BASE_URL}images/${continuingCover}-480.webp`} alt="" width="1600" height="900" />}
           <span className="continue-card__body">
             <span className="continue-card__eyebrow">{continuingCourse.id.toUpperCase()} · {continuingLabel}</span>
             <strong>{continuingCourse.title}</strong>
-            <span className="continue-card__action">Abrir →</span>
+            <span className="continue-card__action">{last ? 'Abrir' : 'Empezar'} →</span>
           </span>
         </Link>
       </section>
