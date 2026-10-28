@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router'
 import StorageNotice from './StorageNotice'
 import UpdatePrompt from './UpdatePrompt'
+import AppearanceControls from './AppearanceControls'
 
 export default function Layout() {
   const { pathname } = useLocation()
@@ -27,6 +28,7 @@ export default function Layout() {
             <NavLink to="/notas">Subrayados</NavLink>
             <NavLink to="/respaldo">Respaldo</NavLink>
           </nav>
+          <AppearanceControls />
         </div>
       </header>
       <StorageNotice />

@@ -10,29 +10,6 @@ type ReaderProgressProps = {
   ready: boolean
 }
 
-const themeKey = 'ai-school-reading-theme'
-
-type Theme = 'light' | 'dark'
-
-function isTheme(value: string | null): value is Theme {
-  return value === 'light' || value === 'dark'
-}
-
-function savedTheme(): Theme {
-  try {
-    const saved = localStorage.getItem(themeKey)
-    return isTheme(saved) ? saved : 'light'
-  } catch {
-    return 'light'
-  }
-}
-
-function applyTheme(theme: Theme) {
-  document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : ''
-  const themeColor = document.querySelector('meta[name="theme-color"]')
-  themeColor?.setAttribute('content', theme === 'dark' ? '#10191D' : '#172A33')
-}
-
 function readingPercent(target: HTMLElement) {
   const start = target.getBoundingClientRect().top + window.scrollY
   const range = target.offsetHeight - window.innerHeight
@@ -43,14 +20,6 @@ function readingPercent(target: HTMLElement) {
 
 export default function ReaderProgress({ courseId, currentLesson, lessonCount, targetId, kind, ready }: ReaderProgressProps) {
   const [percent, setPercent] = useState(0)
-  const [theme, setTheme] = useState<Theme>(savedTheme)
-  const [fullscreen, setFullscreen] = useState(() => document.fullscreenElement !== null)
-  const [fullscreenAvailable] = useState(() => document.fullscreenEnabled)
-  const [fullscreenMessage, setFullscreenMessage] = useState('')
-
-  useEffect(() => {
-    applyTheme(theme)
-  }, [theme])
 
   useEffect(() => {
     if (!ready) return
@@ -73,32 +42,6 @@ export default function ReaderProgress({ courseId, currentLesson, lessonCount, t
     }
   }, [ready, targetId])
 
-  useEffect(() => {
-    const sync = () => setFullscreen(document.fullscreenElement !== null)
-    document.addEventListener('fullscreenchange', sync)
-    return () => document.removeEventListener('fullscreenchange', sync)
-  }, [])
-
-  const changeTheme = () => {
-    const next = theme === 'dark' ? 'light' : 'dark'
-    setTheme(next)
-    try {
-      localStorage.setItem(themeKey, next)
-    } catch {
-      // La lectura sigue funcionando aunque el navegador no permita guardar la preferencia.
-    }
-  }
-
-  const toggleFullscreen = async () => {
-    setFullscreenMessage('')
-    try {
-      if (document.fullscreenElement) await document.exitFullscreen()
-      else await document.documentElement.requestFullscreen()
-    } catch {
-      setFullscreenMessage('El navegador no permitió la pantalla completa. Puedes seguir leyendo normalmente.')
-    }
-  }
-
   const step = kind === 'lab' ? lessonCount + 1 : currentLesson
   const steps = lessonCount + 2
   const label = kind === 'lab' ? 'Laboratorio' : `Lección ${currentLesson} de ${lessonCount}`
@@ -111,17 +54,6 @@ export default function ReaderProgress({ courseId, currentLesson, lessonCount, t
       </div>
       <progress className="reader-progress__bar" value={percent} max="100" aria-label={`Progreso de lectura: ${percent}%`} />
       <p className="reader-progress__route">Ruta {step} de {steps} · {routeHint(kind, currentLesson, lessonCount)}</p>
-      <div className="reader-progress__controls">
-        <button className="button button--small reader-progress__control" type="button" onClick={changeTheme} aria-pressed={theme === 'dark'}>
-          {theme === 'dark' ? '☀ Lectura clara' : '☾ Lectura oscura'}
-        </button>
-        {fullscreenAvailable && (
-          <button className="button button--small reader-progress__control" type="button" onClick={toggleFullscreen} aria-pressed={fullscreen}>
-            {fullscreen ? '× Salir de pantalla completa' : '⛶ Pantalla completa'}
-          </button>
-        )}
-      </div>
-      {fullscreenMessage && <p className="reader-progress__message" role="status">{fullscreenMessage}</p>}
     </aside>
   )
 }

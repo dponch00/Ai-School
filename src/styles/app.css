@@ -44,6 +44,9 @@ main:focus { outline: none; }
 .site-header nav { display: flex; gap: var(--ais-space-2); }
 .site-header nav a { display: inline-flex; align-items: center; min-height: var(--ais-layout-touch-target); padding-inline: var(--ais-space-3); color: var(--ais-color-ink); text-decoration: none; border-radius: var(--ais-radius-sm); }
 .site-header nav a.active { box-shadow: inset 0 -3px 0 var(--ais-color-accent); }
+.appearance-controls { display: flex; align-items: center; gap: var(--ais-space-1); }
+.appearance-controls__button { display: inline-grid; place-items: center; width: var(--ais-layout-touch-target); height: var(--ais-layout-touch-target); border: 0; border-radius: var(--ais-radius-pill); background: transparent; color: var(--ais-color-ink); font: inherit; font-size: 1.3rem; line-height: 1; cursor: pointer; }
+.appearance-controls__button:hover, .appearance-controls__button[aria-pressed="true"] { background: var(--ais-color-canvas); color: var(--ais-color-accent); }
 /* Con la letra agrandada en un teléfono, las palabras largas se cortan con guion en vez de desbordar la página. */
 .page { padding-block: var(--ais-space-5) var(--ais-space-8); overflow-wrap: break-word; hyphens: auto; }
 .site-footer { padding-block: var(--ais-space-5); color: var(--ais-color-muted); font-size: var(--ais-font-size-sm); border-top: 1px solid var(--ais-color-border); }
@@ -125,9 +128,6 @@ main:focus { outline: none; }
 .reader-progress__bar::-webkit-progress-value { background: var(--ais-color-accent); border-radius: inherit; transition: width 160ms ease-out; }
 .reader-progress__bar::-moz-progress-bar { background: var(--ais-color-accent); border-radius: inherit; }
 .reader-progress__route, .reader-progress__message { margin: 0; color: var(--ais-color-muted); font-size: var(--ais-font-size-sm); }
-.reader-progress__controls { display: flex; flex-wrap: wrap; gap: var(--ais-space-2); margin-top: var(--ais-space-3); }
-.reader-progress__control { background: var(--ais-color-surface); }
-.reader-progress__message { margin-top: var(--ais-space-2); }
 @media (max-width: 30rem) {
   .reader-progress { margin-inline: calc(-1 * var(--ais-space-1)); padding: var(--ais-space-3); }
   .reader-progress__summary { align-items: baseline; }
@@ -263,9 +263,11 @@ main:focus { outline: none; }
 
 /* Cabecera en pantallas angostas (T014-U01): la navegación baja a su propia fila y no desborda. */
 @media (max-width: 34rem) {
-  .site-header__inner { flex-wrap: wrap; gap: 0 var(--ais-space-2); padding-block: var(--ais-space-1); }
+  .site-header__inner { position: relative; flex-wrap: wrap; gap: 0 var(--ais-space-2); padding-block: var(--ais-space-1); }
   .site-header nav { flex-wrap: wrap; gap: 0; width: 100%; justify-content: space-between; }
   .site-header nav a { padding-inline: var(--ais-space-2); }
+  .header-search { margin-right: calc(var(--ais-layout-touch-target) * 2 + var(--ais-space-1)); }
+  .appearance-controls { position: absolute; top: var(--ais-space-1); right: var(--ais-layout-page-gutter); }
 }
 
 /* Estados de la lista de lecciones y botones */
