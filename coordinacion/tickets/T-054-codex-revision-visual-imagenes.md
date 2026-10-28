@@ -69,4 +69,4 @@ Entregado por Codex el 2026-10-27.
   mantuvo visibles las 10 portadas de 480 px y las 4 figuras.
 - Evidencia: 35 capturas en `design/qa/T-054/`, incluidas las rutas móviles,
   de escritorio y sin red.
-- Commit de entrega: pendiente de registrar.
+- Commit de entrega: `9770d9d` (`[codex] Entrega T-054: revisión visual publicada`).
