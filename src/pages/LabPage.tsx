@@ -5,6 +5,7 @@ import { content, getCourse, useCoursePackage } from '../content'
 import LessonBlocks from '../components/LessonBlocks'
 import QuestionCheck from '../components/QuestionCheck'
 import Toc from '../components/Toc'
+import ReaderProgress from '../components/ReaderProgress'
 import NotFound from './NotFound'
 import { db } from '../storage/db'
 import { lessonProgress } from '../storage/progress'
@@ -57,18 +58,28 @@ export default function LabPage() {
         <article className="reader__main" aria-labelledby="lab-title">
           <p className="eyebrow">Laboratorio de {course.id.toUpperCase()} · {total} preguntas · {lab.estimatedMinutes} min</p>
           <h1 id="lab-title">{lab.title}</h1>
-          {last && (
-            <p className="checks__last" role="status">
-              {last.at < visitStart
-                ? `La última vez acertaste ${last.correct} de ${last.total}. Las opciones cambian de orden en cada visita.`
-                : `Guardado: acertaste ${last.correct} de ${last.total}. El laboratorio cuenta como hecho.`}
-            </p>
-          )}
-          {pkg?.practiceBlocks ? (
-            <LessonBlocks blocks={pkg.practiceBlocks} productCards={pkg.productCards} assets={pkg.assets} sources={Object.values(content.sources)} labQuestions={stepQuestions} />
-          ) : (
-            <p className="notice notice--info" role="status">{pkgError ?? 'Cargando el caso…'}</p>
-          )}
+          <ReaderProgress
+            courseId={course.id}
+            currentLesson={0}
+            lessonCount={course.lessons.length}
+            targetId="lector-contenido"
+            kind="lab"
+            ready={!!pkg?.practiceBlocks}
+          />
+          <div id="lector-contenido">
+            {last && (
+              <p className="checks__last" role="status">
+                {last.at < visitStart
+                  ? `La última vez acertaste ${last.correct} de ${last.total}. Las opciones cambian de orden en cada visita.`
+                  : `Guardado: acertaste ${last.correct} de ${last.total}. El laboratorio cuenta como hecho.`}
+              </p>
+            )}
+            {pkg?.practiceBlocks ? (
+              <LessonBlocks blocks={pkg.practiceBlocks} productCards={pkg.productCards} assets={pkg.assets} sources={Object.values(content.sources)} labQuestions={stepQuestions} />
+            ) : (
+              <p className="notice notice--info" role="status">{pkgError ?? 'Cargando el caso…'}</p>
+            )}
+          </div>
         </article>
       </div>
     </div>

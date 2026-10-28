@@ -7,6 +7,7 @@ import QuestionCheck from '../components/QuestionCheck'
 import Toc from '../components/Toc'
 import LessonNotes from '../components/LessonNotes'
 import HighlightLayer from '../components/HighlightLayer'
+import ReaderProgress from '../components/ReaderProgress'
 import NotFound from './NotFound'
 import { db } from '../storage/db'
 import { lessonProgress, markLessonVisited } from '../storage/progress'
@@ -57,63 +58,72 @@ export default function LessonPage() {
         <article className="reader__main" aria-labelledby="lesson-title">
           <p className="eyebrow">Lección {lesson.order} de {course.lessons.length} · {lesson.estimatedMinutes} min</p>
           <h1 id="lesson-title">{lesson.title}</h1>
+          <ReaderProgress
+            courseId={course.id}
+            currentLesson={lesson.order}
+            lessonCount={course.lessons.length}
+            targetId="lector-contenido"
+            kind="lesson"
+            ready={!!body}
+          />
 
           {!body && <p className="notice notice--info" role="status">{pkgError ?? 'Cargando la lección…'}</p>}
           {body && (
             <>
-
-          {lesson.reviewQuestionIds.length > 0 && (
-            <section className="review" aria-labelledby="repaso">
-              <h2 id="repaso" className="review__title">Repaso antes de empezar</h2>
-              <p className="muted">Responde sin mirar la lección anterior. Recordar es parte de aprender.</p>
-              {lesson.reviewQuestionIds.map((id, i) => q(id) && (
-                <QuestionCheck key={id} question={q(id)!} courseId={course.id} currentLessonId={lesson.id} label={`Repaso ${i + 1}`} onAnswer={recordReview} />
-              ))}
-            </section>
-          )}
-
-          <section className="objectives-box" aria-labelledby="objetivos-leccion">
-            <h2 id="objetivos-leccion">En esta lección</h2>
-            <ul>{lesson.objectives.map((o) => <li key={o.id}>{o.statement}</li>)}</ul>
-          </section>
-
-          <div ref={bodyRef}>
-          <LessonBlocks
-            blocks={body.blocks}
-            productCards={pkg!.productCards}
-            assets={pkg!.assets}
-            sources={Object.values(content.sources)}
-            checks={
-              <section className="checks" aria-labelledby="comprobacion">
-                <h2 id="comprobacion">Comprueba lo que aprendiste</h2>
-                <p className="muted">Sin volver a leer. Después de responder verás por qué cada opción es o no la mejor.</p>
-                {progress?.lastCheck && (
-                  <p className="checks__last" role="status">
-                    {progress.lastCheck.at < visitStart
-                      ? `La última vez acertaste ${progress.lastCheck.correct} de ${progress.lastCheck.total} (${shortDate(progress.lastCheck.at)}). Las opciones cambian de orden en cada visita.`
-                      : `Guardado: acertaste ${progress.lastCheck.correct} de ${progress.lastCheck.total}. La lección cuenta como completada.`}
-                  </p>
+              <div id="lector-contenido">
+                {lesson.reviewQuestionIds.length > 0 && (
+                  <section className="review" aria-labelledby="repaso">
+                    <h2 id="repaso" className="review__title">Repaso antes de empezar</h2>
+                    <p className="muted">Responde sin mirar la lección anterior. Recordar es parte de aprender.</p>
+                    {lesson.reviewQuestionIds.map((id, i) => q(id) && (
+                      <QuestionCheck key={id} question={q(id)!} courseId={course.id} currentLessonId={lesson.id} label={`Repaso ${i + 1}`} onAnswer={recordReview} />
+                    ))}
+                  </section>
                 )}
-                {lesson.checkQuestionIds.map((id, i) => q(id) && (
-                  <QuestionCheck key={id} question={q(id)!} courseId={course.id} currentLessonId={lesson.id} label={`Pregunta ${i + 1} de ${lesson.checkQuestionIds.length}`} onAnswer={recordCheck} />
-                ))}
-              </section>
-            }
-          />
-          </div>
 
-          {sources.length > 0 && (
-            <section className="sources" aria-labelledby="fuentes">
-              <h2 id="fuentes">Fuentes</h2>
-              <ol>
-                {sources.map((s) => (
-                  <li key={s.id} id={`fuente-${s.n}`}>
-                    <a href={s.url} target="_blank" rel="noreferrer">{s.title}</a>, {s.organization}. Consultada el {s.accessedAt}.
-                  </li>
-                ))}
-              </ol>
-            </section>
-          )}
+                <section className="objectives-box" aria-labelledby="objetivos-leccion">
+                  <h2 id="objetivos-leccion">En esta lección</h2>
+                  <ul>{lesson.objectives.map((o) => <li key={o.id}>{o.statement}</li>)}</ul>
+                </section>
+
+                <div ref={bodyRef}>
+                  <LessonBlocks
+                    blocks={body.blocks}
+                    productCards={pkg!.productCards}
+                    assets={pkg!.assets}
+                    sources={Object.values(content.sources)}
+                    checks={
+                      <section className="checks" aria-labelledby="comprobacion">
+                        <h2 id="comprobacion">Comprueba lo que aprendiste</h2>
+                        <p className="muted">Sin volver a leer. Después de responder verás por qué cada opción es o no la mejor.</p>
+                        {progress?.lastCheck && (
+                          <p className="checks__last" role="status">
+                            {progress.lastCheck.at < visitStart
+                              ? `La última vez acertaste ${progress.lastCheck.correct} de ${progress.lastCheck.total} (${shortDate(progress.lastCheck.at)}). Las opciones cambian de orden en cada visita.`
+                              : `Guardado: acertaste ${progress.lastCheck.correct} de ${progress.lastCheck.total}. La lección cuenta como completada.`}
+                          </p>
+                        )}
+                        {lesson.checkQuestionIds.map((id, i) => q(id) && (
+                          <QuestionCheck key={id} question={q(id)!} courseId={course.id} currentLessonId={lesson.id} label={`Pregunta ${i + 1} de ${lesson.checkQuestionIds.length}`} onAnswer={recordCheck} />
+                        ))}
+                      </section>
+                    }
+                  />
+                </div>
+
+                {sources.length > 0 && (
+                  <section className="sources" aria-labelledby="fuentes">
+                    <h2 id="fuentes">Fuentes</h2>
+                    <ol>
+                      {sources.map((s) => (
+                        <li key={s.id} id={`fuente-${s.n}`}>
+                          <a href={s.url} target="_blank" rel="noreferrer">{s.title}</a>, {s.organization}. Consultada el {s.accessedAt}.
+                        </li>
+                      ))}
+                    </ol>
+                  </section>
+                )}
+              </div>
 
             </>
           )}
