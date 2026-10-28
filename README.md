@@ -10,7 +10,14 @@ Todo el contenido usa datos sintéticos de una empresa ficticia, Altiplano Indus
 
 ## Para usarla
 
-Abre la dirección publicada en Chrome, con conexión. La primera vez guarda la app y los diez manuales. Después instálala desde el menú (⋮ → «Instalar app») y funciona sin internet. El progreso se respalda desde la pantalla «Respaldo».
+Abre la dirección publicada en Chrome, con conexión. La primera vez guarda la app y los diez manuales. Después instálala desde el menú (⋮ → «Instalar app») y funciona sin internet.
+
+### Respaldo, actualización y recuperación
+
+- **Tu progreso vive solo en ese navegador:** respuestas, exámenes, notas y subrayados. No hay cuenta ni servidor.
+- **Respaldo:** en la pantalla «Respaldo», «Exportar respaldo completo» descarga un archivo JSON. Conviene hacerlo de vez en cuando y guardarlo fuera del teléfono. En esa misma pantalla, «Pedir que no se borre» le pide al navegador que no borre los datos si le falta espacio.
+- **Recuperación:** en otro dispositivo, en un navegador nuevo o si se borraron los datos del sitio, «Restaurar desde un archivo» carga el respaldo. Reemplaza lo que hay; no lo mezcla. Un archivo inválido se rechaza sin tocar el progreso.
+- **Actualización:** cuando se publica una versión nueva, la app avisa. Tú eliges cuándo recargar, y el progreso se conserva. Si un examen está en curso, el aviso espera.
 
 ## Para correrla y probarla
 

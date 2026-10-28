@@ -1,28 +1,28 @@
 # Estado del proyecto
 
-**Fase actual:** 4 — Integración y revisión. Imágenes generadas e integradas (T-053); falta su revisión visual (T-054). F4-06 confirmado en el celular de Daniel. App publicada en https://dponch00.github.io/Ai-School/ (D-029). · **Actualizado:** 2026-10-27 por Claude Code
+**Fase actual:** V1 entregada (fase 5). Diez manuales completos y revisados, con portadas; app publicada en https://dponch00.github.io/Ai-School/ (D-029) e instalada en el celular de Daniel. Punto de continuación en `docs/continuacion.md`. · **Actualizado:** 2026-10-27 por Claude Code
 
 ## Siguiente acción
 
-1. **Codex:** T-054, revisión visual de las diez portadas y las cuatro figuras en el celular y en escritorio, en la app publicada.
-2. **Claude:** al volver T-054, aplicar sus hallazgos y pasar a la fase 5 (punto de continuación y entrega). El 2026-12-01, revisar las fichas que vencen (`python scripts/fichas-por-revisar.py 35` antes del 2026-11-01). El 2026-12-01, revisar las fichas que vencen (`python scripts/fichas-por-revisar.py 35` antes del 2026-11-01).
+1. **Codex:** sin ticket abierto. Si se cambia contenido, el método está en `docs/continuacion.md`.
+2. **Claude:** el 2026-12-01, revisar las fichas y fuentes que vencen (`python scripts/fichas-por-revisar.py 35`). Lo demás que queda abierto está en `docs/continuacion.md`. El 2026-12-01, revisar las fichas que vencen (`python scripts/fichas-por-revisar.py 35` antes del 2026-11-01).
 4. **Pendiente de Daniel (sin prisa):** decidir la licencia del repositorio público. En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
 3. **Daniel (a su ritmo):** estudiar los manuales en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 5. **Daniel (a su ritmo):** estudiar en la app instalada y contar lo que no se entienda o tome demasiado tiempo.
 
 ## Avance estimado (2026-10-26)
 
-**≈ 94 % de la V1** (rango razonable: 92–96 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 99 % de la V1** (lo que falta: la licencia, que decide Daniel, y el recorrido de estudio del piloto). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 100 % (hosting resuelto con D-029) | 8,0 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 100 % (publicada con D-029 e instalada en el celular de Daniel) | 15,0 |
-| 3 · Nueve manuales restantes | 40 % | 99 % (los diez completos y revisados, con portadas e ilustraciones; falta la revisión visual) | 39,6 |
+| 3 · Nueve manuales restantes | 40 % | 100 % (los diez completos y revisados, con portadas e ilustraciones) | 40,0 |
 | 4 · Integración y revisión | 10 % | 100 % (F4-06 confirmado en el celular de Daniel) | 10,0 |
-| 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 94 %** |
+| 5 · Entrega | 5 % | 95 % (falta la decisión de la licencia) | 4,75 |
+| **Total** | 100 % | | **≈ 99 %** |
 
 ## Tickets
 
@@ -81,19 +81,29 @@
 | [T-051](coordinacion/tickets/T-051-codex-revision-f4-inferencias-reflow.md) | Codex | Fase 4: inferencias declaradas en M01 a M05 y reflujo con letra grande | cerrado |
 | [T-052](coordinacion/tickets/T-052-codex-revision-candidata-entrega.md) | Codex | Fase 4: revisión de la candidata de entrega y del README | cerrado |
 | [T-053](coordinacion/tickets/T-053-codex-imagenes-portadas-ilustraciones.md) | Codex | Imágenes: 9 portadas de curso y 3 ilustraciones conceptuales | cerrado |
-| [T-054](coordinacion/tickets/T-054-codex-revision-visual-imagenes.md) | Codex | Revisión visual de las portadas y figuras en el celular y en escritorio | abierto |
+| [T-054](coordinacion/tickets/T-054-codex-revision-visual-imagenes.md) | Codex | Revisión visual de las portadas y figuras en el celular y en escritorio | cerrado |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-054) | `investigacion/codex-revision-visual-imagenes.md`, `design/qa/T-054/**` |
+| — | — |
 
 ## Decisiones recientes
 
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-27 · Claude Code — T-054 cerrado y fase 5: V1 entregada
+- **T-054:** en escritorio, la portada de cada manual se recorta en una franja para que el título y la pregunta entren en el primer pliegue.
+- **Fase 5:**
+  - `README.md` suma «Respaldo, actualización y recuperación»;
+  - `docs/continuacion.md` es el punto de continuación para Codex o Claude Code;
+  - la versión de un solo archivo se mantiene como respaldo e incluye ahora las ilustraciones (7,6 MB).
+- **Queda abierto:** la licencia, que decide Daniel; la revisión de fichas del 2026-12-01; el lector de pantalla y el teclado manual; los tiempos reales de estudio.
+
+**Verificación:** `npm test` 247/247 y E2E 158/158.
 
 ### 2026-10-27 · Claude Code — imágenes integradas; F4-06 confirmado
 - **F4-06:** Daniel descargó un respaldo y aceptó una actualización en su celular, y sus subrayados se conservaron.

@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-27 |
 | Depende de | T-053 (cerrado) |
 | Fase del plan | 4 — Integración y revisión (F4-10) |
@@ -70,3 +70,13 @@ Entregado por Codex el 2026-10-27.
 - Evidencia: 35 capturas en `design/qa/T-054/`, incluidas las rutas móviles,
   de escritorio y sin red.
 - Commit de entrega: `9770d9d` (`[codex] Entrega T-054: revisión visual publicada`).
+
+## Revisión
+
+_(Claude Code, 2026-10-27)_
+
+Apliqué el único hallazgo:
+
+- **T054-V01:** en pantallas de 768 px o más, la portada de cada manual se recorta en una franja (`height: clamp(12rem, 30vh, 18rem)`, centrada un poco arriba del medio). A 1280 × 900 px, la imagen mide 270 px y el título empieza a 435 px de la parte superior, así que el título y la pregunta entran en el primer pliegue. Revisé el recorte de M01, M05, M07 y M10: el motivo se sigue reconociendo (en M07, los puentes y las mesetas). En el celular no cambia nada.
+
+**Verificación:** `npm test` 247/247 y E2E 158/158. Con esto, F4-10 queda cerrado y la fase 4, completa.

@@ -91,6 +91,8 @@ main:focus { outline: none; }
 .course-card__status { font-size: var(--ais-font-size-sm); font-weight: 600; margin: 0; }
 .course-card--upcoming .course-card__title, .course-card--upcoming .course-card__status { color: var(--ais-color-muted); }
 .course-cover { border-radius: var(--ais-radius-lg); aspect-ratio: 16 / 9; object-fit: cover; width: 100%; margin-bottom: var(--ais-space-5); box-shadow: var(--ais-shadow-paper); }
+/* T054-V01: en pantallas anchas la portada se recorta en franja para que el título y la pregunta entren en el primer pliegue. */
+@media (min-width: 768px) { .course-cover { aspect-ratio: auto; height: clamp(12rem, 30vh, 18rem); object-position: center 45%; } }
 
 /* ---------- Curso ---------- */
 .objectives { padding-left: 1.2em; }

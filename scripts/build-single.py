@@ -28,7 +28,7 @@ assert "/fonts/" not in css
 # Imágenes: el JS arma las rutas en tiempo de ejecución, así que un script las cambia al insertarse.
 # Se incrustan 480 y 960; 1600 apunta a 960 para no inflar el archivo.
 assets = {}
-for p in glob.glob(f"{D}/images/*") + glob.glob(f"{D}/generated/**/*.svg", recursive=True):
+for p in glob.glob(f"{D}/images/*") + glob.glob(f"{D}/generated/**/*.svg", recursive=True) + glob.glob(f"{D}/generated/**/*.webp", recursive=True):
     rel = "/" + os.path.relpath(p, D).replace(os.sep, "/")
     if "-1600." in rel:
         continue
@@ -86,7 +86,7 @@ shim = """
 """ % json.dumps(assets)
 
 banner = ('<div style="background:#2b3a55;color:#fff;font:14px/1.4 system-ui,sans-serif;padding:8px 16px;text-align:center">'
-          'Versión de prueba · M01 a M10 completos y revisados · 27 oct 2026 · el progreso se guarda solo en este navegador</div>')
+          'Versión de prueba · M01 a M10 completos, con portadas · 27 oct 2026 · el progreso se guarda solo en este navegador</div>')
 
 out = f"""<!doctype html>
 <html lang="es">

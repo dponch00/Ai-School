@@ -1,6 +1,6 @@
 # AI School · Candidata de entrega V1
 
-> Fecha: 2026-10-27. Preparado por Claude Code para la fase 4 (F4-09). Este documento resume qué se entrega, con qué evidencia y con qué límites. No reemplaza a `ESTADO.md`, que sigue siendo el tablero vivo.
+> Fecha: 2026-10-27. Preparado por Claude Code para la fase 4 (F4-09) y cerrado en la fase 5. El punto de continuación está en [`continuacion.md`](continuacion.md). Este documento resume qué se entrega, con qué evidencia y con qué límites. No reemplaza a `ESTADO.md`, que sigue siendo el tablero vivo.
 
 ## Qué se entrega
 
@@ -32,6 +32,7 @@
 | Referencias entre manuales | `scripts/cross-refs.py` y verificación de Codex (T-050) | 110/110 correctas |
 | Inferencias declaradas | D-028 aplicada en los diez manuales; en M01 a M05, hacia atrás (F4-04, T-051) | 20 preguntas marcadas en M01 a M05 |
 | Publicación | Cada push a `main` corre el contenido, las pruebas y la compilación; si algo falla, no publica (D-029) | En uso desde el 2026-10-26 |
+| Imágenes | Codex revisó en el celular, en escritorio y sin conexión las diez portadas y las cuatro figuras (T-054) | Hallazgo aplicado |
 | Instalación, respaldo y actualización | Daniel la instaló en su celular, la usa sin wifi, descargó un respaldo y aceptó una actualización sin perder sus subrayados (F4-06) | Confirmado el 2026-10-27 |
 
 ## Límites conocidos
@@ -52,9 +53,7 @@
 - Todos los datos son sintéticos (Altiplano Industrial S.A.). Las reglas financieras del caso son del curso, no normas oficiales.
 - Las cifras de estudios y proveedores van con fuente y año, como dirección del efecto y no como predicción.
 
-## Qué falta para cerrar la V1 (fase 5)
+## Lo que queda abierto después de la V1
 
-1. La revisión visual de las imágenes nuevas (F4-10): diez portadas y cuatro figuras, generadas en T-053 e integradas; las revisa Codex en el celular y en escritorio (T-054).
 2. Revisar las fichas que vencen el 2026-12-01.
 3. Decidir sobre la licencia del repositorio público. Sin licencia, rigen los derechos de autor por defecto (ver M10 L5).
-4. Dejar el punto de continuación para Codex o Claude Code.

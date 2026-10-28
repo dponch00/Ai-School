@@ -81,4 +81,19 @@ Salida: candidata de entrega con evidencias y limitaciones explícitas.
 | F4-07 | Peso de imágenes, carga inicial y legibilidad | Claude; revisa Codex | — | ✅ 712 KB de imágenes; la app guarda solo las de 480 y 960 px |
 | F4-08 | Fichas con fechas que vencen pronto: `m09-pc-eval-platforms` y `m10-pc-model-retirement` (2026-11-30); revisión antes del 2026-12-01 | Claude | — | 🔶 `scripts/fichas-por-revisar.py` las lista; revisión agendada para el 2026-12-01 |
 | F4-09 | Cerrar los hallazgos críticos y altos, documentar los menores y preparar la candidata de entrega | Claude; revisa Codex (T-052) | F4-01 a F4-08 | ✅ `docs/entrega-v1.md` y `README.md`, revisados en T-052 |
-| F4-10 | **Imágenes pendientes de la fase 3 (plan §7 y §12):** 9 portadas (M01 y M03 a M10) y 3 ilustraciones conceptuales (M03 L1, M08 L3, M09 L5). Briefs en `design/image-briefs/`; genera Codex, integra Claude, revisa Codex en el celular y en escritorio | Codex (T-053) genera; Claude integra; Codex revisa (T-054) | — | 🔶 generadas (T-053) e integradas; en revisión visual (T-054) |
+| F4-10 | **Imágenes pendientes de la fase 3 (plan §7 y §12):** 9 portadas (M01 y M03 a M10) y 3 ilustraciones conceptuales (M03 L1, M08 L3, M09 L5). Briefs en `design/image-briefs/`; genera Codex, integra Claude, revisa Codex en el celular y en escritorio | Codex (T-053) genera; Claude integra; Codex revisa (T-054) | — | ✅ diez portadas y tres ilustraciones integradas y revisadas en el celular, en escritorio y sin conexión |
+
+## Fase 5 — Entrega y continuidad (plan §12)
+
+Salida: producto utilizable y mantenible, que distingue lo verificado por herramientas de lo que requiere comprobación en el dispositivo de Daniel.
+
+| ID | Tarea | Quién | Estado |
+| --- | --- | --- | --- |
+| F5-01 | Código fuente, lockfile e instrucciones de ejecución | Claude | ✅ repositorio público y `README.md` (revisado en T-052) |
+| F5-02 | App compilada y publicada | Claude + Daniel | ✅ GitHub Pages con despliegue automático (D-029) |
+| F5-03 | Instalación y uso en el dispositivo de Daniel | Daniel | ✅ instalada; respaldo y actualización probados (F4-06) |
+| F5-04 | Instrucciones de respaldo, actualización y recuperación | Claude | ✅ `README.md`, «Respaldo, actualización y recuperación», y «Para publicar» |
+| F5-05 | Punto de continuación para Codex o Claude Code | Claude | ✅ `docs/continuacion.md` |
+| F5-06 | Evaluar la edición HTML portable sin duplicar contenido | Claude | ✅ se mantiene como respaldo (`docs/continuacion.md`); incluye ahora las ilustraciones |
+| F5-07 | Licencia del repositorio público | Daniel | ⬜ decisión pendiente |
+
