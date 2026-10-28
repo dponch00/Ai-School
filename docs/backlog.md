@@ -81,4 +81,4 @@ Salida: candidata de entrega con evidencias y limitaciones explícitas.
 | F4-07 | Peso de imágenes, carga inicial y legibilidad | Claude; revisa Codex | — | ✅ 712 KB de imágenes; la app guarda solo las de 480 y 960 px |
 | F4-08 | Fichas con fechas que vencen pronto: `m09-pc-eval-platforms` y `m10-pc-model-retirement` (2026-11-30); revisión antes del 2026-12-01 | Claude | — | 🔶 `scripts/fichas-por-revisar.py` las lista; revisión agendada para el 2026-12-01 |
 | F4-09 | Cerrar los hallazgos críticos y altos, documentar los menores y preparar la candidata de entrega | Claude; revisa Codex (T-052) | F4-01 a F4-08 | ✅ `docs/entrega-v1.md` y `README.md`, revisados en T-052 |
-
+| F4-10 | **Imágenes pendientes de la fase 3 (plan §7 y §12):** 9 portadas (M01 y M03 a M10) y 3 ilustraciones conceptuales (M03 L1, M08 L3, M09 L5). Briefs en `design/image-briefs/`; genera Codex, integra Claude, revisa Codex en el celular y en escritorio | Codex (T-053) genera; Claude integra | — | 🔶 briefs listos; en generación |

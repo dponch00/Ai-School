@@ -54,6 +54,7 @@
 
 ## Qué falta para cerrar la V1 (fase 5)
 
+0. Las imágenes que faltan de la fase 3: 9 portadas de curso y 3 ilustraciones conceptuales (F4-10, T-053). Hoy solo M02 tiene portada.
 1. El recorrido de Daniel en su celular: descargar un respaldo, aceptar una actualización y comprobar que el progreso se conserva (F4-06).
 2. Revisar las fichas que vencen el 2026-12-01.
 3. Decidir sobre la licencia del repositorio público. Sin licencia, rigen los derechos de autor por defecto (ver M10 L5).
