@@ -35,7 +35,7 @@ export default function LessonBlocks({ blocks, checks, labQuestions, sources, pr
         if (!asset) return null
         return (
           <figure key={i} className="lesson-figure">
-            <img src={`/${asset.url}`} alt={asset.alt} width={asset.dimensions.width} height={asset.dimensions.height} loading="lazy" />
+            <img src={`${import.meta.env.BASE_URL}${asset.url}`} alt={asset.alt} width={asset.dimensions.width} height={asset.dimensions.height} loading="lazy" />
           </figure>
         )
       })}

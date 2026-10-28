@@ -35,7 +35,9 @@
     "m08-l3-c3",
     "m08-l3-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m08-parallel-merge"
+  ],
   "productCardIds": [
     "m08-pc-subagents-teams"
   ],

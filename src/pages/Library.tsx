@@ -2,16 +2,24 @@ import { Link } from 'react-router'
 import { content, covers, getCourse, imageSrcSet } from '../content'
 
 export default function Library() {
+  const available = content.catalog.filter((c) => c.available)
+  const allAvailable = available.length === content.catalog.length
   return (
     <div className="page">
       <h1>Cursos</h1>
-      <p className="lead">Diez manuales. Los demás se publican cuando estén completos y revisados.</p>
-      <p className="available-now">
-        Disponible ahora:{' '}
-        {content.catalog.filter((c) => c.available).map((c, i) => (
-          <span key={c.id}>{i > 0 && ' · '}<Link to={`/cursos/${c.id}`}>{c.id.toUpperCase()} · {c.title}</Link></span>
-        ))}
-      </p>
+      {allAvailable ? (
+        <p className="lead">Diez manuales, en el orden sugerido: cada uno se apoya en los anteriores.</p>
+      ) : (
+        <>
+          <p className="lead">Diez manuales. Los demás se publican cuando estén completos y revisados.</p>
+          <p className="available-now">
+            Disponible ahora:{' '}
+            {available.map((c, i) => (
+              <span key={c.id}>{i > 0 && ' · '}<Link to={`/cursos/${c.id}`}>{c.id.toUpperCase()} · {c.title}</Link></span>
+            ))}
+          </p>
+        </>
+      )}
       <ul className="course-grid">
         {content.catalog.map((c) => {
           const course = getCourse(c.id)

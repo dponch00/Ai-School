@@ -1,29 +1,28 @@
 # Estado del proyecto
 
-**Fase actual:** 4 — Integración y revisión. Pendiente detectado: las imágenes de la fase 3 (9 portadas y 3 ilustraciones, F4-10, T-053). Falta también el recorrido de Daniel en el celular (F4-06). App publicada en https://dponch00.github.io/Ai-School/ (D-029). · **Actualizado:** 2026-10-27 por Claude Code
+**Fase actual:** 4 — Integración y revisión. Imágenes generadas e integradas (T-053); falta su revisión visual (T-054). F4-06 confirmado en el celular de Daniel. App publicada en https://dponch00.github.io/Ai-School/ (D-029). · **Actualizado:** 2026-10-27 por Claude Code
 
 ## Siguiente acción
 
-1. **Codex:** T-053, que genera 9 portadas de curso y 3 ilustraciones conceptuales con los briefs de `design/image-briefs/`.
-2. **Daniel (cuando pueda):** en el celular, descargar un respaldo desde «Respaldo», aceptar el aviso de versión nueva cuando aparezca y comprobar que el progreso se conserva (F4-06).
-3. **Claude:** al volver T-053, revisar el valor pedagógico y el texto alternativo de cada imagen, integrarlas (versiones web, portadas en la app y figuras en las lecciones) y pasar a Codex la revisión visual. Con el resultado de Daniel, cerrar F4-06 y seguir con la fase 5. El 2026-12-01, revisar las fichas que vencen (`python scripts/fichas-por-revisar.py 35` antes del 2026-11-01).
+1. **Codex:** T-054, revisión visual de las diez portadas y las cuatro figuras en el celular y en escritorio, en la app publicada.
+2. **Claude:** al volver T-054, aplicar sus hallazgos y pasar a la fase 5 (punto de continuación y entrega). El 2026-12-01, revisar las fichas que vencen (`python scripts/fichas-por-revisar.py 35` antes del 2026-11-01). El 2026-12-01, revisar las fichas que vencen (`python scripts/fichas-por-revisar.py 35` antes del 2026-11-01).
 4. **Pendiente de Daniel (sin prisa):** decidir la licencia del repositorio público. En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
 3. **Daniel (a su ritmo):** estudiar los manuales en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 5. **Daniel (a su ritmo):** estudiar en la app instalada y contar lo que no se entienda o tome demasiado tiempo.
 
 ## Avance estimado (2026-10-26)
 
-**≈ 92 % de la V1** (rango razonable: 90–94 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 94 % de la V1** (rango razonable: 92–96 %). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
 | 0 · Definición | 8 % | 100 % (hosting resuelto con D-029) | 8,0 |
 | 1 · Piloto M02 | 22 % | 97 % (laboratorio como caso revisado por Codex en T-023) | 21,3 |
 | 2 · Base de app y PWA | 15 % | 100 % (publicada con D-029 e instalada en el celular de Daniel) | 15,0 |
-| 3 · Nueve manuales restantes | 40 % | 95 % (los diez completos y revisados; faltan sus visuales: 9 portadas y 3 ilustraciones, F4-10) | 38,0 |
-| 4 · Integración y revisión | 10 % | 95 % (todo cerrado y revisado; falta el recorrido de Daniel en el celular) | 9,5 |
+| 3 · Nueve manuales restantes | 40 % | 99 % (los diez completos y revisados, con portadas e ilustraciones; falta la revisión visual) | 39,6 |
+| 4 · Integración y revisión | 10 % | 100 % (F4-06 confirmado en el celular de Daniel) | 10,0 |
 | 5 · Entrega | 5 % | 0 % | 0 |
-| **Total** | 100 % | | **≈ 92 %** |
+| **Total** | 100 % | | **≈ 94 %** |
 
 ## Tickets
 
@@ -81,19 +80,28 @@
 | [T-050](coordinacion/tickets/T-050-codex-recorrido-alumno-referencias.md) | Codex | Fase 4: recorrido como alumno y referencias cruzadas entre manuales | cerrado |
 | [T-051](coordinacion/tickets/T-051-codex-revision-f4-inferencias-reflow.md) | Codex | Fase 4: inferencias declaradas en M01 a M05 y reflujo con letra grande | cerrado |
 | [T-052](coordinacion/tickets/T-052-codex-revision-candidata-entrega.md) | Codex | Fase 4: revisión de la candidata de entrega y del README | cerrado |
-| [T-053](coordinacion/tickets/T-053-codex-imagenes-portadas-ilustraciones.md) | Codex | Imágenes: 9 portadas de curso y 3 ilustraciones conceptuales | abierto |
+| [T-053](coordinacion/tickets/T-053-codex-imagenes-portadas-ilustraciones.md) | Codex | Imágenes: 9 portadas de curso y 3 ilustraciones conceptuales | cerrado |
+| [T-054](coordinacion/tickets/T-054-codex-revision-visual-imagenes.md) | Codex | Revisión visual de las portadas y figuras en el celular y en escritorio | abierto |
 
 ## En curso (no tocar estos archivos)
 
 | Quién | Archivos |
 | --- | --- |
-| Codex (T-053) | `design/images/masters/**`, `design/asset-manifest.json`, `design/qa/T-053/**` |
+| Codex (T-054) | `investigacion/codex-revision-visual-imagenes.md`, `design/qa/T-054/**` |
 
 ## Decisiones recientes
 
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-27 · Claude Code — imágenes integradas; F4-06 confirmado
+- **F4-06:** Daniel descargó un respaldo y aceptó una actualización en su celular, y sus subrayados se conservaron.
+- **T-053:** las 12 imágenes se aceptan e integran. Las diez portadas ya se ven en la app, y hay figuras en M03 L1, M08 L3 y M09 L5.
+- **Error de la app corregido:** las figuras usaban una ruta sin `/Ai-School/`, y el diagrama de M02 L4 respondía 404 en GitHub Pages desde el 2026-10-26. Las figuras raster entran ahora en el modo sin conexión.
+- **Página de cursos:** ya no dice que faltan manuales por publicar.
+
+**Verificación:** `npm test` 247/247 y E2E 158/158.
 
 ### 2026-10-27 · Claude Code — pendiente de imágenes detectado; briefs y T-053
 Daniel preguntó por las imágenes de los demás manuales. El plan §7 y §12 pide 10 portadas y hasta 6 ilustraciones, y solo se hizo el piloto de la fase 1. Se me pasó al cerrar la fase 3, que bajo de 100 % a 95 %; el total corregido es ≈ 92 %. Escribí 12 briefs (9 portadas con terreno, hora y motivo propios por D-018, y 3 ilustraciones para M03 L1, M08 L3 y M09 L5) y abrí T-053. La candidata de entrega se actualizará al integrarlas.

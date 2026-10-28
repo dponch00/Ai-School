@@ -1,0 +1,24 @@
+[
+  {
+    "id": "m09-defense-layers",
+    "courseId": "m09",
+    "file": "content/courses/m09/images/m09-defense-layers.webp",
+    "function": "explain",
+    "pedagogicalQuestion": "¿Por qué hace falta más de una capa si cada una detiene algo?",
+    "whyNotTextOrSvg": "La metáfora de capas con agujeros en lugares distintos se entiende de un vistazo. Qué detiene y qué deja pasar cada capa está en la tabla de la lección; la imagen no lleva etiquetas.",
+    "alt": "Tres hojas de papel, una detrás de otra, con agujeros en lugares distintos; un rayo de luz pasa por el agujero de la primera y se detiene en la segunda.",
+    "generation": {
+      "prompt": "Several upright thick paper sheets with offset cut holes. A thin warm ray enters from left, passes only through the first hole, and stops on a solid second sheet. Close 4:3 handmade paper collage; no text, logos, people, arrows or labels.",
+      "tool": "image_gen.imagegen",
+      "modelReported": "no expuesto",
+      "modelDocumented": "gpt-image-2; documentación oficial registrada el 2026-10-21",
+      "generatedAt": "2026-10-27",
+      "selectedVariant": "T-053-m09-defense-layers-v1"
+    },
+    "dimensions": {
+      "width": 960,
+      "height": 720
+    },
+    "reviewStatus": "pending"
+  }
+]

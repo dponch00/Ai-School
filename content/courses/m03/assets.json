@@ -1,0 +1,24 @@
+[
+  {
+    "id": "m03-context-frame",
+    "courseId": "m03",
+    "file": "content/courses/m03/images/m03-context-frame.webp",
+    "function": "explain",
+    "pedagogicalQuestion": "¿Qué quiere decir que el agente solo «ve» una parte de todo lo disponible?",
+    "whyNotTextOrSvg": "La idea es espacial: una ventana limitada sobre un territorio mucho más grande. Los nombres y límites exactos se explican en el texto de la lección; la imagen no lleva etiquetas.",
+    "alt": "Un marco de papel deja ver pocos elementos nítidos; alrededor, muchas capas pálidas siguen más allá del borde.",
+    "generation": {
+      "prompt": "Close view of a rectangular cut-paper frame over a layered landscape: a few crisp orderly elements inside, many pale stacked layers continuing beyond the edges outside. Centered 4:3 handmade paper collage; no text, logos, people, arrows or labels.",
+      "tool": "image_gen.imagegen",
+      "modelReported": "no expuesto",
+      "modelDocumented": "gpt-image-2; documentación oficial registrada el 2026-10-21",
+      "generatedAt": "2026-10-27",
+      "selectedVariant": "T-053-m03-context-frame-v1"
+    },
+    "dimensions": {
+      "width": 960,
+      "height": 720
+    },
+    "reviewStatus": "pending"
+  }
+]

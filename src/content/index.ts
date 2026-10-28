@@ -186,8 +186,10 @@ export async function isCourseOffline(id: string): Promise<boolean> {
 /** Documentos de búsqueda: van en un archivo aparte que se carga solo al abrir la búsqueda. */
 export const loadSearchDocs = (): Promise<SearchDoc[]> => import('../generated/search.json').then((m) => m.default as unknown as SearchDoc[])
 
-/** Las imágenes de portada existen solo para los cursos que ya tienen una. */
-export const covers: Record<string, string> = { m02: 'm02-cover' }
+/** Portada de cada curso (T-053). */
+export const covers: Record<string, string> = Object.fromEntries(
+  ['m01', 'm02', 'm03', 'm04', 'm05', 'm06', 'm07', 'm08', 'm09', 'm10'].map((id) => [id, `${id}-cover`]),
+)
 
 export function imageSrcSet(name: string): string {
   return [480, 960, 1600].map((w) => `${import.meta.env.BASE_URL}images/${name}-${w}.webp ${w}w`).join(', ')

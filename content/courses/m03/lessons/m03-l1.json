@@ -32,7 +32,9 @@
     "m03-l1-c3",
     "m03-l1-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m03-context-frame"
+  ],
   "productCardIds": [
     "m03-pc-context-tools"
   ],

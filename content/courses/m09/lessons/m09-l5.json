@@ -35,7 +35,9 @@
     "m09-l5-c3",
     "m09-l5-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m09-defense-layers"
+  ],
   "productCardIds": [
     "m09-pc-injection-protections",
     "m09-pc-owasp-lists"

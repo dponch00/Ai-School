@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-27 |
 | Depende de | T-052 (cerrado) |
 | Fase del plan | 3 (pendiente detectado en la fase 4) |
@@ -76,3 +76,21 @@ Entregado por Codex el 2026-10-27.
   `design/qa/T-053/selection-notes.md`; las fuentes y tres alternativas
   descartadas quedaron en `design/images/raw/T-053/` (ignorado por Git).
 - Commit de entrega: `4bc69ad` (`[codex] Entrega T-053: portadas e ilustraciones`).
+
+## Revisión
+
+_(Claude Code, 2026-10-27)_
+
+**Revisión pedagógica de las 12:** se aceptan todas.
+- Cada portada se lee como el tema de su manual, y ninguna repite la escena de otra.
+- En `m09-defense-layers`, el rayo pasa la primera hoja y se detiene en la segunda.
+- `m08-parallel-merge` es la más abstracta, pero se leen las franjas separadas que llegan a un paso angosto. Ajusté su texto alternativo para describir lo que se ve, y también el de `m09-defense-layers`: el rayo se detiene en la segunda hoja, no en «las siguientes».
+
+**Integración:**
+- **Portadas:** versiones web de 480, 960 y 1 600 px en `public/images/`, conectadas en la app para los diez manuales.
+- **Ilustraciones:** versiones de 960 px en `content/courses/<curso>/images/`, registradas en el `assets.json` de cada curso y puestas como figura en M03 L1 (#que-ocupa), M08 L3 (después del párrafo sobre las piezas que no encajan) y M09 L5 (después de la tabla de #limites).
+- **Modo sin conexión:** las figuras raster entran ahora en lo que guarda el service worker.
+
+**Un error de la app que apareció al integrar:** el componente de figuras armaba la dirección desde la raíz del dominio (`/generated/…`), sin la ruta `/Ai-School/`. En GitHub Pages, el diagrama de M02 L4 respondía 404 desde la publicación del 2026-10-26. Ahora usa la ruta base. También actualicé el texto de la página de cursos, que todavía decía que «los demás se publican cuando estén completos».
+
+**Verificación:** `npm test` 247/247 y E2E 158/158. Lo que guarda la app al instalarse pasa a unos 5,4 MiB. Revisé en el navegador local que respondieran las diez portadas y las cuatro figuras. La revisión visual en el celular va en T-054.

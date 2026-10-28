@@ -1,0 +1,24 @@
+[
+  {
+    "id": "m08-parallel-merge",
+    "courseId": "m08",
+    "file": "content/courses/m08/images/m08-parallel-merge.webp",
+    "function": "explain",
+    "pedagogicalQuestion": "¿Por qué repartir un trabajo deja una tarea pendiente al final?",
+    "whyNotTextOrSvg": "Muestra una relación (partes que avanzan por separado y un punto de encuentro estrecho) que ayuda a imaginar el riesgo de integración. Cuándo conviene repartir se explica en la lección, con su tabla.",
+    "alt": "Varias franjas de papel de colores, como caminos que avanzan por separado, convergen en un paso angosto entre montañas, donde sus bordes no calzan del todo.",
+    "generation": {
+      "prompt": "Three paper paths cross distinct terrains and meet at one narrow pass; their cut-paper edges do not quite align at the join. Close 4:3 handmade paper collage; no text, logos, people, arrows or labels.",
+      "tool": "image_gen.imagegen",
+      "modelReported": "no expuesto",
+      "modelDocumented": "gpt-image-2; documentación oficial registrada el 2026-10-21",
+      "generatedAt": "2026-10-27",
+      "selectedVariant": "T-053-m08-parallel-merge-v1"
+    },
+    "dimensions": {
+      "width": 960,
+      "height": 720
+    },
+    "reviewStatus": "pending"
+  }
+]

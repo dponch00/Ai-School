@@ -17,6 +17,7 @@
 | Conceptos erróneos ligados a distractores | 683 |
 | Fuentes registradas | 355 |
 | Ítems del diagnóstico inicial | 24 |
+| Portadas de curso e ilustraciones (sin texto incrustado) | 10 y 3, más un diagrama SVG |
 
 - **El código fuente y su lockfile:** el repositorio público `dponch00/Ai-School`. Las instrucciones para correrlo, probarlo y publicarlo están en `README.md`; el flujo de publicación, en `.github/workflows/deploy.yml`.
 
@@ -31,14 +32,13 @@
 | Referencias entre manuales | `scripts/cross-refs.py` y verificación de Codex (T-050) | 110/110 correctas |
 | Inferencias declaradas | D-028 aplicada en los diez manuales; en M01 a M05, hacia atrás (F4-04, T-051) | 20 preguntas marcadas en M01 a M05 |
 | Publicación | Cada push a `main` corre el contenido, las pruebas y la compilación; si algo falla, no publica (D-029) | En uso desde el 2026-10-26 |
-| Instalación | Daniel la instaló en su celular y la usa sin wifi | Confirmado el 2026-10-27 |
+| Instalación, respaldo y actualización | Daniel la instaló en su celular, la usa sin wifi, descargó un respaldo y aceptó una actualización sin perder sus subrayados (F4-06) | Confirmado el 2026-10-27 |
 
 ## Límites conocidos
 
 **Lo que no se comprobó, o se comprobó solo en parte:**
 - **Lectores de pantalla y teclado.** Las pruebas automáticas de axe pasan en todas las rutas probadas, y los E2E responden una comprobación con teclado. No hubo un recorrido completo con NVDA, VoiceOver o TalkBack, ni un recorrido manual completo con teclado.
 - **El menú nativo de selección del celular** al subrayar (F2-12) solo se probó en el navegador del computador.
-- **El respaldo y la actualización en el celular** (F4-06): las pruebas automáticas cubren exportar, restaurar, rechazar un archivo inválido y migrar respaldos viejos, pero falta un recorrido en el celular de Daniel.
 - **Tiempos de estudio.** Los 25 minutos por lección y los 30 por laboratorio son estimaciones. Se recalibran con el uso real de Daniel (D-016).
 
 **Lo que caduca y tiene fecha:**
@@ -46,7 +46,7 @@
 
 **Decisiones que cambiaron el plan original:**
 - **D-024:** todo de opción múltiple. No hay entregas, expediente exportable ni microtareas.
-- **D-029:** publicación en la cuenta de Daniel y no en una organización. La app guarda todos los cursos al instalarse. Eso reemplaza dos criterios del plan §13: que la carga inicial no descargue todos los cursos, y que los cursos no descargados se identifiquen. Lo que guarda al instalarse pesa unos 4,1 MiB (42 archivos, medido con `npm run build` el 2026-10-27) y no incluye las imágenes de 1 600 px.
+- **D-029:** publicación en la cuenta de Daniel y no en una organización. La app guarda todos los cursos al instalarse. Eso reemplaza dos criterios del plan §13: que la carga inicial no descargue todos los cursos, y que los cursos no descargados se identifiquen. Lo que guarda al instalarse pesa unos 5,4 MiB (63 archivos, medido con `npm run build` el 2026-10-27, ya con las diez portadas y las cuatro figuras) y no incluye las imágenes de 1 600 px.
 
 **Contenido:**
 - Todos los datos son sintéticos (Altiplano Industrial S.A.). Las reglas financieras del caso son del curso, no normas oficiales.
@@ -54,8 +54,7 @@
 
 ## Qué falta para cerrar la V1 (fase 5)
 
-0. Las imágenes que faltan de la fase 3: 9 portadas de curso y 3 ilustraciones conceptuales (F4-10, T-053). Hoy solo M02 tiene portada.
-1. El recorrido de Daniel en su celular: descargar un respaldo, aceptar una actualización y comprobar que el progreso se conserva (F4-06).
+1. La revisión visual de las imágenes nuevas (F4-10): diez portadas y cuatro figuras, generadas en T-053 e integradas; las revisa Codex en el celular y en escritorio (T-054).
 2. Revisar las fichas que vencen el 2026-12-01.
 3. Decidir sobre la licencia del repositorio público. Sin licencia, rigen los derechos de autor por defecto (ver M10 L5).
 4. Dejar el punto de continuación para Codex o Claude Code.
