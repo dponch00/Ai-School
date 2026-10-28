@@ -95,5 +95,5 @@ Salida: producto utilizable y mantenible, que distingue lo verificado por herram
 | F5-04 | Instrucciones de respaldo, actualización y recuperación | Claude | ✅ `README.md`, «Respaldo, actualización y recuperación», y «Para publicar» |
 | F5-05 | Punto de continuación para Codex o Claude Code | Claude | ✅ `docs/continuacion.md` |
 | F5-06 | Evaluar la edición HTML portable sin duplicar contenido | Claude | ✅ se mantiene como respaldo (`docs/continuacion.md`); incluye ahora las ilustraciones |
-| F5-07 | Licencia del repositorio público | Daniel | ⬜ decisión pendiente |
+| F5-07 | Licencia del repositorio público | Daniel | ✅ sin licencia, por decisión de Daniel (2026-10-27) |
 

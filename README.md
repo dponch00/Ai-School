@@ -64,4 +64,4 @@ Daniel es el dueño. Claude Code coordina y escribe; Codex revisa de forma indep
 
 ## Licencia
 
-El repositorio todavía no tiene licencia, así que rigen los derechos de autor por defecto: se puede ver, pero no reproducir ni distribuir. Está pendiente que Daniel lo decida.
+Sin licencia, por decisión de Daniel (2026-10-27): rigen los derechos de autor por defecto. El repositorio es público solo para que funcione GitHub Pages; se puede ver, pero no reproducir, modificar ni distribuir sin permiso.

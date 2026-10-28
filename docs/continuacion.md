@@ -19,7 +19,7 @@
 | Qué | Cuándo | Cómo |
 | --- | --- | --- |
 | Revisar las fichas y fuentes que vencen | 2026-12-01 | `python scripts/fichas-por-revisar.py 35`; actualizar `m09-pc-eval-platforms` y `m10-pc-model-retirement` después de las fechas del 2026-11-30 |
-| Licencia del repositorio público | Cuando Daniel decida | Hoy no hay licencia: rigen los derechos de autor por defecto |
+| Licencia del repositorio público | Decidido el 2026-10-27 | Sin licencia, a propósito: rigen los derechos de autor por defecto. No agregar una sin que Daniel lo pida |
 | Lector de pantalla y teclado manual completo | Sin fecha | Recorrido con NVDA, VoiceOver o TalkBack; hoy solo hay axe y un flujo de teclado en los E2E |
 | Menú nativo de selección al subrayar en el celular | Sin fecha | Probarlo en Chrome Android (F2-12) |
 | Tiempos de estudio reales | Con el uso de Daniel | Recalibrar los 25 minutos por lección y los 30 por laboratorio (D-016) |

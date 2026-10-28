@@ -6,13 +6,13 @@
 
 1. **Codex:** sin ticket abierto. Si se cambia contenido, el método está en `docs/continuacion.md`.
 2. **Claude:** el 2026-12-01, revisar las fichas y fuentes que vencen (`python scripts/fichas-por-revisar.py 35`). Lo demás que queda abierto está en `docs/continuacion.md`. El 2026-12-01, revisar las fichas que vencen (`python scripts/fichas-por-revisar.py 35` antes del 2026-11-01).
-4. **Pendiente de Daniel (sin prisa):** decidir la licencia del repositorio público. En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
+4. **Licencia:** sin licencia, por decisión de Daniel (2026-10-27). En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
 3. **Daniel (a su ritmo):** estudiar los manuales en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
 5. **Daniel (a su ritmo):** estudiar en la app instalada y contar lo que no se entienda o tome demasiado tiempo.
 
 ## Avance estimado (2026-10-26)
 
-**≈ 99 % de la V1** (lo que falta: la licencia, que decide Daniel, y el recorrido de estudio del piloto). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
+**≈ 99 % de la V1** (lo que falta: el recorrido de estudio del piloto, que llega con el uso). Estimación por esfuerzo, no por número de archivos; se recalibra en la puerta F1-13 con las horas reales del piloto (D-016).
 
 | Fase | Peso en la V1 | Avance | Aporta |
 | --- | --: | --: | --: |
@@ -21,7 +21,7 @@
 | 2 · Base de app y PWA | 15 % | 100 % (publicada con D-029 e instalada en el celular de Daniel) | 15,0 |
 | 3 · Nueve manuales restantes | 40 % | 100 % (los diez completos y revisados, con portadas e ilustraciones) | 40,0 |
 | 4 · Integración y revisión | 10 % | 100 % (F4-06 confirmado en el celular de Daniel) | 10,0 |
-| 5 · Entrega | 5 % | 95 % (falta la decisión de la licencia) | 4,75 |
+| 5 · Entrega | 5 % | 100 % (licencia decidida: sin licencia) | 5,0 |
 | **Total** | 100 % | | **≈ 99 %** |
 
 ## Tickets
@@ -94,6 +94,9 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-27 · Claude Code — licencia decidida
+Daniel decide dejar el repositorio sin licencia: rigen los derechos de autor por defecto. Queda registrado en el README, el backlog (F5-07), la candidata de entrega y el punto de continuación.
 
 ### 2026-10-27 · Claude Code — T-054 cerrado y fase 5: V1 entregada
 - **T-054:** en escritorio, la portada de cada manual se recorta en una franja para que el título y la pregunta entren en el primer pliegue.

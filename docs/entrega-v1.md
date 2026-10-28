@@ -56,4 +56,4 @@
 ## Lo que queda abierto después de la V1
 
 2. Revisar las fichas que vencen el 2026-12-01.
-3. Decidir sobre la licencia del repositorio público. Sin licencia, rigen los derechos de autor por defecto (ver M10 L5).
+3. Licencia: el repositorio queda sin licencia por decisión de Daniel (2026-10-27); rigen los derechos de autor por defecto.
