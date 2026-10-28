@@ -2,6 +2,15 @@
 import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
 
+test('el inicio orienta con continuar y los diez manuales (T-055)', async ({ page }) => {
+  await page.goto('/#/')
+  await expect(page.getByRole('heading', { name: 'Tu estudio' })).toBeVisible()
+  const continueCard = page.locator('.continue-card')
+  await expect(continueCard).toHaveAttribute('href', /#\/cursos\/m01\/lecciones\/m01-l1$/)
+  await expect(page.locator('.study-course')).toHaveCount(10)
+  await expect(page.locator('.brand__mark')).toBeVisible()
+})
+
 test('una comprobación se responde con teclado y la lección queda completada tras recargar', async ({ page }) => {
   await page.goto('/#/cursos/m02/lecciones/m02-l1')
   const preguntas = page.locator('section.checks fieldset.question')

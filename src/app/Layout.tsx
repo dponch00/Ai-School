@@ -20,7 +20,10 @@ export default function Layout() {
       </a>
       <header className="site-header">
         <div className="site-header__inner">
-          <Link to="/" className="brand">AI School</Link>
+          <Link to="/" className="brand">
+            <img className="brand__mark" src={`${import.meta.env.BASE_URL}icons/mark.svg`} alt="" width="28" height="28" />
+            <span>AI School</span>
+          </Link>
           <Link to="/buscar" className="header-search"><span aria-hidden="true">⌕</span> Buscar</Link>
           <nav aria-label="Principal">
             <NavLink to="/cursos">Cursos</NavLink>

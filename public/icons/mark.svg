@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Marca de AI School</title>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#172A33"/>
+  <path d="M15 17 31 11l18 7v29l-17 7-17-7Z" fill="#FFFDF7"/>
+  <path d="m15 17 17 7 17-6v10l-17 7-17-7Z" fill="#DCECF5"/>
+  <path d="M20 45c4-8 7-15 13-16 5-1 7 5 11 4 3-1 4-4 5-7" fill="none" stroke="#006E74" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+  <path d="M45 17h5v5h-5z" fill="#A94E2B"/>
+  <path d="m31 11 1 13 17-6" fill="none" stroke="#172A33" stroke-linejoin="round" stroke-width="1.5" opacity=".25"/>
+</svg>

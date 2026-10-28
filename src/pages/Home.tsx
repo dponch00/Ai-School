@@ -1,52 +1,70 @@
 import { Link } from 'react-router'
-import { content, imageSrcSet } from '../content'
+import { content, covers, getCourse, imageSrcSet } from '../content'
+import { db } from '../storage/db'
+import { useLive } from '../storage/useLive'
 
 export default function Home() {
-  const m02 = content.courses.find((c) => c.id === 'm02')
+  const progress = useLive(() => db.lessonProgress.toArray(), [], [])
+  const attempts = useLive(() => db.attempts.toArray(), [], [])
+  const last = [...progress].sort((a, b) => b.lastVisitedAt.localeCompare(a.lastVisitedAt))[0]
+  const visitedCourse = getCourse(last?.courseId)
+  const lastLesson = visitedCourse?.lessons.find((lesson) => lesson.id === last?.lessonId)
+  const continuingCourse = visitedCourse ?? getCourse('m01')!
+  const continuingTo = last
+    ? lastLesson
+      ? `/cursos/${visitedCourse!.id}/lecciones/${lastLesson.id}`
+      : `/cursos/${visitedCourse!.id}/laboratorio`
+    : `/cursos/${continuingCourse.id}/lecciones/${continuingCourse.lessons[0]!.id}`
+  const continuingLabel = lastLesson ? `Lección ${lastLesson.order}` : last ? 'Laboratorio' : 'Empezar con M01'
+  const continuingCover = covers[continuingCourse.id]
+
   return (
-    <div className="page">
-      <section className="hero">
-        <img
-          className="hero__image"
-          src={`${import.meta.env.BASE_URL}images/hero-960.webp`}
-          srcSet={imageSrcSet('hero')}
-          sizes="(min-width: 76rem) 76rem, 100vw"
-          alt=""
-          width={1600}
-          height={900}
-        />
-        <div className="hero__text">
-          <h1>Dirige agentes de IA con criterio</h1>
-          <p className="lead">
-            Diez manuales para pasar de pedirle cosas a la IA a especificar, verificar y mantener herramientas que funcionan.
-          </p>
-          {m02 && (
-            <Link className="button button--primary" to={`/cursos/m02/lecciones/${m02.lessons[0]?.id}`}>
-              Empezar con M02: {m02.title}
-            </Link>
-          )}
+    <div className="page study-home">
+      <header className="study-home__heading">
+        <img className="study-home__mark" src={`${import.meta.env.BASE_URL}icons/mark.svg`} alt="" width="48" height="48" />
+        <div>
+          <p className="eyebrow">AI School</p>
+          <h1>Tu estudio</h1>
         </div>
+        <nav className="study-home__links" aria-label="Accesos de estudio">
+          <Link to="/diagnostico">Diagnóstico</Link>
+          <Link to="/como-funciona">Cómo funciona</Link>
+        </nav>
+      </header>
+
+      <section aria-labelledby="continuar">
+        <h2 id="continuar" className="study-home__section-title">Continuar</h2>
+        <Link className="continue-card" to={continuingTo}>
+          {continuingCover && <img src={`${import.meta.env.BASE_URL}images/${continuingCover}-480.webp`} alt="" width="1600" height="900" />}
+          <span className="continue-card__body">
+            <span className="continue-card__eyebrow">{continuingCourse.id.toUpperCase()} · {continuingLabel}</span>
+            <strong>{continuingCourse.title}</strong>
+            <span className="continue-card__action">Abrir →</span>
+          </span>
+        </Link>
       </section>
 
-      <section className="section" aria-labelledby="ruta">
-        <h2 id="ruta">Tu ruta</h2>
-        <p className="muted">
-          Los manuales se publican a medida que quedan completos y revisados. Si recién empiezas, M01 explica qué herramienta
-          usar para cada tarea y cómo comprobar su resultado; M02, cómo convertir una idea en un encargo que se pueda verificar.
-        </p>
-        <p>
-          <Link to="/diagnostico">Haz el diagnóstico inicial</Link> (unos 25 minutos) para saber por dónde te conviene empezar y
-          en qué bloques puedes ir más rápido. Si es tu primera vez, lee <Link to="/como-funciona">cómo funciona</Link>: en qué
-          orden estudiar y qué cuenta para terminar un curso. Todo se responde con opción múltiple.
-        </p>
-        <ol className="route">
-          {content.catalog.map((c) => {
-            const draft = !c.available && content.courses.some((x) => x.id === c.id)
+      <section aria-labelledby="manuales">
+        <h2 id="manuales" className="study-home__section-title">Manuales</h2>
+        <ol className="study-shelf">
+          {content.courses.map((course) => {
+            const courseProgress = progress.filter((item) => item.courseId === course.id)
+            const doneLessons = course.lessons.filter((lesson) => courseProgress.some((item) => item.lessonId === lesson.id && item.checksCompletedAt)).length
+            const labDone = !!course.practice && courseProgress.some((item) => item.lessonId === course.practice?.id && item.checksCompletedAt)
+            const examDone = attempts.some((attempt) => attempt.courseId === course.id && attempt.kind === 'exam' && attempt.result?.passed)
+            const stepsDone = doneLessons + Number(labDone) + Number(examDone)
+            const cover = covers[course.id]
             return (
-              <li key={c.id} className={c.available ? 'route__item route__item--available' : 'route__item'}>
-                <span className="route__code">{c.id.toUpperCase()}</span>
-                {c.available || draft ? <Link to={`/cursos/${c.id}`}>{c.title}</Link> : <span>{c.title}</span>}
-                <span className="route__status">{c.available ? 'Disponible' : draft ? 'En preparación' : 'Próximamente'}</span>
+              <li key={course.id}>
+                <Link className="study-course" to={`/cursos/${course.id}`}>
+                  {cover && <img className="study-course__cover" src={`${import.meta.env.BASE_URL}images/${cover}-480.webp`} srcSet={imageSrcSet(cover)} sizes="(min-width: 70rem) 15rem, (min-width: 44rem) 30vw, 45vw" alt="" width="1600" height="900" loading="lazy" />}
+                  <span className="study-course__body">
+                    <span className="study-course__code">{course.id.toUpperCase()}</span>
+                    <strong>{course.title}</strong>
+                    <progress value={stepsDone} max={course.lessons.length + 2} aria-label={`${course.id.toUpperCase()}: ${doneLessons} de ${course.lessons.length} lecciones, ${labDone ? 'laboratorio hecho' : 'laboratorio pendiente'}, ${examDone ? 'examen aprobado' : 'examen pendiente'}`} />
+                    <span className="study-course__status">{doneLessons}/{course.lessons.length} lecciones · {labDone ? 'lab ✓' : 'lab'} · {examDone ? 'examen ✓' : 'examen'}</span>
+                  </span>
+                </Link>
               </li>
             )
           })}

@@ -1,11 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <!-- AI School · Atlas de criterio. El motivo deja al menos 68 px de fondo para el recorte maskable. -->
-  <rect width="512" height="512" fill="#172A33"/>
-  <path d="M118 346C118 270 150 182 232 122c47-34 110-33 166-14v254c-53 36-127 38-186 9-34-17-65-29-94-25Z" fill="#FFFDF7"/>
-  <path d="M118 346c29-4 60 8 94 25 59 29 133 27 186-9v38c-57 39-133 41-195 10-31-15-59-27-85-22Z" fill="#DCECF5"/>
-  <path d="M148 344c45-50 59-119 108-142 37-17 57 17 71 44 18 35 39 48 68 22" fill="none" stroke="#006E74" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/>
-  <circle cx="396" cy="260" r="48" fill="#A94E2B"/>
-  <circle cx="396" cy="260" r="17" fill="#FFFDF7"/>
-  <path d="m256 202 18 36 40 6-29 29 7 40-36-19-36 19 7-40-29-29 40-6Z" fill="#172A33" opacity=".16"/>
-  <path d="M150 388c23-2 44 7 67 18 58 29 127 27 181-8" fill="none" stroke="#172A33" stroke-linecap="round" stroke-width="8" opacity=".18"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Atlas de criterio: pliegue de papel, ruta y hito. Motivo dentro de la zona segura maskable. -->
+  <rect width="64" height="64" fill="#172A33"/>
+  <path d="M15 17 31 11l18 7v29l-17 7-17-7Z" fill="#FFFDF7"/>
+  <path d="m15 17 17 7 17-6v10l-17 7-17-7Z" fill="#DCECF5"/>
+  <path d="M20 45c4-8 7-15 13-16 5-1 7 5 11 4 3-1 4-4 5-7" fill="none" stroke="#006E74" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+  <path d="M45 17h5v5h-5z" fill="#A94E2B"/>
+  <path d="m31 11 1 13 17-6" fill="none" stroke="#172A33" stroke-linejoin="round" stroke-width="1.5" opacity=".25"/>
 </svg>
