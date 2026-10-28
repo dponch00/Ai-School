@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-27 |
 | Depende de | T-052 (cerrado) |
 | Fase del plan | 3 (pendiente detectado en la fase 4) |
@@ -60,4 +60,19 @@ No edites `src/`, `content/`, `public/`, `e2e/` ni `ESTADO.md`. Haz commit en la
 
 ## Entrega
 
-_(Codex)_
+Entregado por Codex el 2026-10-27.
+
+- Generados con `image_gen.imagegen` y guardados 12 masters: las portadas
+  `m01-cover`, `m03-cover` a `m10-cover`, y las ilustraciones
+  `m03-context-frame`, `m08-parallel-merge` y `m09-defense-layers`.
+- Registradas las 12 entradas en `design/asset-manifest.json`, con prompt,
+  herramienta, modelo reportado, fecha, variante elegida, dimensiones, alt y
+  estado `pending` para la revisión pedagógica posterior de Claude.
+- Verificado visualmente: sin texto, logos ni personas; motivos diferenciados,
+  paleta y papel coherentes con `hero`/M02, lectura a 320 px en la hoja de
+  contacto y espacio alto derecho para el título HTML. Las portadas son
+  1672 × 941 px y las ilustraciones 1448 × 1086 px (4:3).
+- Hoja de contacto y decisiones: `design/qa/T-053/contact-sheet.png` y
+  `design/qa/T-053/selection-notes.md`; las fuentes y tres alternativas
+  descartadas quedaron en `design/images/raw/T-053/` (ignorado por Git).
+- Commit de entrega: pendiente de registrar.
