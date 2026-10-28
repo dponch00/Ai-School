@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-27 |
 | Depende de | T-053 (cerrado) |
 | Fase del plan | 4 — Integración y revisión (F4-10) |
@@ -57,4 +57,16 @@ No edites `src/`, `content/`, `public/`, `e2e/`, `design/images/` ni `ESTADO.md`
 
 ## Entrega
 
-_(Codex)_
+Entregado por Codex el 2026-10-27.
+
+- Informe: `investigacion/codex-revision-visual-imagenes.md`.
+- Verificado en la publicación a 360 px y escritorio: las 10 tarjetas y
+  portadas, M02 L4 y las tres figuras raster. Carga, nitidez, recorte,
+  ubicación y textos alternativos correctos; 1 hallazgo medio: en escritorio
+  la imagen de 630 px desplaza el título de las diez portadas fuera del primer
+  pliegue (`T054-V01`).
+- Sin conexión: tras la primera carga, el service worker controló la app y
+  mantuvo visibles las 10 portadas de 480 px y las 4 figuras.
+- Evidencia: 35 capturas en `design/qa/T-054/`, incluidas las rutas móviles,
+  de escritorio y sin red.
+- Commit de entrega: pendiente de registrar.
