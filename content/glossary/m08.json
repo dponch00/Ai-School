@@ -96,5 +96,24 @@
     "refs": [
       "m08-l6#estado"
     ]
+  },
+  {
+    "id": "g-registro-ejecucion",
+    "term": "Registro de ejecución",
+    "en": "run log",
+    "definition": "Evidencia de lo que hizo una corrida: pasos, entradas, salidas, herramientas y fallos. Es distinto del estado final; «terminó» no prueba que el resultado sea correcto.",
+    "refs": [
+      "m08-l6#estado",
+      "m08-l6#fallos"
+    ]
+  },
+  {
+    "id": "g-resultado-parcial",
+    "term": "Resultado parcial",
+    "en": "partial result",
+    "definition": "Salida que se entrega marcada como incompleta porque se alcanzó un límite, faltó evidencia o una parte falló. No se presenta como éxito ni se usa como si contuviera el resultado total.",
+    "refs": [
+      "m08-l2#termino"
+    ]
   }
 ]

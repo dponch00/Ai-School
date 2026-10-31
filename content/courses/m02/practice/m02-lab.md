@@ -16,7 +16,7 @@ Este correo llega el viernes a las 18:40:
 >
 > — R. Ibáñez, director financiero (ficticio)
 
-Los datos que te pasó Marta son el snapshot de oportunidades del 2026-10-19 (unas 40 filas), la tabla de probabilidades por etapa de FP&A, los tipos de cambio, la cuota y lo ganado en el T4. Antes de escribir nada, hay que separar las dudas según la política de :ref[la lección 2]{to=m02-l2#supuestos}:
+Los datos que te pasó Marta son el :term[snapshot]{id=g-snapshot-datos} de oportunidades del 2026-10-19 (unas 40 filas), la tabla de probabilidades por etapa de FP&A, los tipos de cambio, la cuota y lo ganado en el T4. Antes de escribir nada, hay que separar las dudas según la política de :ref[la lección 2]{to=m02-l2#supuestos}:
 
 - **Preguntar:** cambia una cifra visible, el alcance o algo irreversible.
 - **Decidir y registrar:** no cambia cifras, así que la decides tú y la dejas escrita con su motivo.
@@ -40,7 +40,7 @@ Con la lista de dudas lista, le escribes al director. Esto responde:
 - **Comentario de IA:** 120 palabras como máximo, basado solo en cifras calculadas.
 - **Plazo:** para el lunes basta una primera versión, sin navegación de detalle.
 
-Hay dos cosas que el director no sabe: qué hacer con las oportunidades duplicadas y qué significa «en riesgo». Las dudas resueltas pasan al brief como definiciones. Las dos abiertas necesitan un plan, y ese plan también va en el brief.
+Hay dos cosas que el director no sabe: qué hacer con las oportunidades duplicadas y qué significa «en riesgo». Las dudas resueltas pasan al :term[brief]{id=g-brief} como definiciones. Las dos abiertas necesitan un plan, y ese plan también va en el brief.
 
 ::lab-questions{step="paso-2"}
 
@@ -54,19 +54,19 @@ El brief reúne lo que preparaste en las lecciones 1 a 3. Tiene cinco partes:
 4. **Registro de supuestos:** ID, supuesto, dueño, estado y política, incluidas las dos preguntas que el director no supo responder.
 5. **Casos de prueba y contraejemplos:** casos sobre los datos con su valor esperado, algunos de calidad de datos y al menos un contraejemplo sobre el comentario narrativo (:ref[lección 3]{to=m02-l3#contraejemplos}).
 
-Los KPI salen con el formato del contrato `pipeline_kpis` v1 de :ref[la lección 3]{to=m02-l3#contrato}. El brief lo cita en lugar de copiarlo, y añade las invariantes que se comprueban en código.
+Los KPI salen con el formato del contrato `pipeline_kpis` v1 de :ref[la lección 3]{to=m02-l3#contrato}. El brief lo cita en lugar de copiarlo, y añade las :term[invariantes]{id=g-invariante} que se comprueban en código.
 
 ::lab-questions{step="paso-3"}
 
 ## Paso 4 · Los criterios de aceptación {#paso-4}
 
-Los criterios dicen cuándo está listo el trabajo, con el formato Given/When/Then de :ref[la lección 6]{to=m02-l6#observables}. La parte delicada es el Then: tiene que describir algo que se pueda observar, como una cifra en pantalla, una fila en un panel o un aviso, y no un estado interno del sistema. Cada escenario tiene que poder rastrearse hasta una parte del objetivo.
+Los criterios dicen cuándo está listo el trabajo, con el formato Given/When/Then de :ref[la lección 6]{to=m02-l6#observables}. La parte delicada es el Then: tiene que describir algo que se pueda observar, como una cifra en pantalla, una fila en un panel o un aviso, y no un :term[estado interno]{id=g-estado-interno} del sistema. Cada escenario tiene que poder rastrearse hasta una parte del objetivo.
 
 ::lab-questions{step="paso-4"}
 
 ## Paso 5 · El prompt de ejecución {#paso-5}
 
-El prompt de ejecución es el encargo que le darías a un agente de código al abrir una sesión nueva. Cita el brief y el contrato sin copiarlos, para que cada regla exista en una sola versión, y añade cuatro cosas: los hitos con su prueba y un punto de control humano (:ref[lección 5]{to=m02-l5#hitos}), la política de ambigüedad, los límites de acción y la evidencia que exiges en el reporte final (:ref[lección 6]{to=m02-l6#ejecutable}).
+El prompt de ejecución es el encargo que le darías a un agente de código al abrir una sesión nueva. Cita el brief y el contrato sin copiarlos, para que cada regla exista en una sola versión, y añade cuatro cosas: los hitos con su prueba y un punto de control humano (:ref[lección 5]{to=m02-l5#hitos}), la política de :term[ambigüedad]{id=g-ambiguedad}, los límites de acción y la evidencia que exiges en el reporte final (:ref[lección 6]{to=m02-l6#ejecutable}).
 
 ::lab-questions{step="paso-5"}
 
@@ -74,7 +74,7 @@ El prompt de ejecución es el encargo que le darías a un agente de código al a
 
 El lunes a primera hora, Marta envía el snapshot del 2026-10-26. Trae una etapa nueva, «En pausa», con tres oportunidades del Centro por USD 410 000. FP&A todavía no le ha asignado probabilidad.
 
-Es el mismo problema de OPP-1036 del paso 1, ahora con tres oportunidades y USD 410 000. Si la especificación no tiene una regla para las etapas sin probabilidad, el script de reconciliación se detiene antes de calcular y avisa cuáles son. Si la tiene, por ejemplo dejarlas fuera del ponderado y mostrarlas en el panel de calidad hasta que FP&A decida, el script las excluye y las lista. Una especificación que resolvió OPP-1036 con una regla general aguanta el cambio; una que lo trató como caso aislado, no.
+Es el mismo problema de OPP-1036 del paso 1, ahora con tres oportunidades y USD 410 000. Si la especificación no tiene una regla para las etapas sin probabilidad, el script de :term[reconciliación]{id=g-reconciliacion} se detiene antes de calcular y avisa cuáles son. Si la tiene, por ejemplo dejarlas fuera del ponderado y mostrarlas en el panel de calidad hasta que FP&A decida, el script las excluye y las lista. Una especificación que resolvió OPP-1036 con una regla general aguanta el cambio; una que lo trató como caso aislado, no.
 
 ::lab-questions{step="paso-6"}
 

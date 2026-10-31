@@ -83,7 +83,8 @@
     "term": "Worktree",
     "definition": "Otra carpeta de trabajo conectada al mismo repositorio, con sus propios archivos, índice y `HEAD`, que comparte la historia de commits. Permite que dos agentes trabajen en paralelo, pero no trae los archivos ignorados ni las dependencias instaladas.",
     "refs": [
-      "m04-l4#worktree"
+      "m04-l4#worktree",
+      "m08-l3#worktree"
     ]
   },
   {
@@ -118,6 +119,69 @@
     "definition": "Propuesta para incorporar los cambios de una rama a otra, que reúne la conversación, los commits y los archivos cambiados. Se revisa línea por línea y se cierra comentando, aprobando o pidiendo cambios.",
     "refs": [
       "m04-l6#pr"
+    ]
+  },
+  {
+    "id": "g-funcion",
+    "term": "Función",
+    "en": "function",
+    "definition": "Pieza de código que recibe entradas, aplica reglas y devuelve una salida o señala un problema. Para revisarla se sigue qué entra, qué condición cambia el camino y qué resultado deja.",
+    "refs": [
+      "m04-l1#caja"
+    ]
+  },
+  {
+    "id": "g-parametro",
+    "term": "Parámetro",
+    "en": "parameter",
+    "definition": "Dato que quien llama entrega a una función, solicitud o herramienta para indicar qué debe hacer. Cambiarlo puede cambiar el resultado aunque el cuerpo del código no se modifique.",
+    "refs": [
+      "m04-l1#caja"
+    ]
+  },
+  {
+    "id": "g-valor-por-defecto",
+    "term": "Valor por defecto",
+    "en": "default value",
+    "definition": "Valor que se usa cuando quien llama no proporciona uno. Es comportamiento: modificarlo afecta todas las llamadas que lo omiten y puede cambiar resultados fuera del diff visible.",
+    "refs": [
+      "m04-l1#otras-salidas"
+    ]
+  },
+  {
+    "id": "g-decimal-exacto",
+    "term": "Decimal exacto",
+    "en": "decimal",
+    "definition": "Forma de representar montos decimales sin los redondeos invisibles de la coma flotante. Se usa en cálculos contables y se redondea para mostrar, no para alterar la regla de cálculo.",
+    "refs": [
+      "m04-l1#dinero"
+    ]
+  },
+  {
+    "id": "g-variable-entorno",
+    "term": "Variable de entorno",
+    "en": "environment variable",
+    "definition": "Valor que el sistema entrega a un programa al ejecutarlo, por ejemplo una configuración o una credencial. Reduce que un secreto quede escrito en el repositorio, pero no es una caja fuerte ni debe llegar al navegador.",
+    "refs": [
+      "m04-l3#variables"
+    ]
+  },
+  {
+    "id": "g-gestor-secretos",
+    "term": "Gestor de secretos",
+    "en": "secrets manager",
+    "definition": "Servicio que guarda credenciales y las entrega solo al proceso autorizado. Permite rotar o retirar secretos sin dejarlos en archivos de código, historial o registros.",
+    "refs": [
+      "m04-l3#variables"
+    ]
+  },
+  {
+    "id": "g-traceback",
+    "term": "Traza de error",
+    "en": "traceback",
+    "definition": "Recorrido de llamadas que muestra un programa cuando una excepción no se captura. Se lee desde la última línea, que dice qué falló, hacia el primer archivo del proyecto que participó.",
+    "refs": [
+      "m04-l5#traceback"
     ]
   }
 ]

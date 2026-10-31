@@ -106,5 +106,13 @@
       "m05-l6#remoto",
       "m05-l6#para-que"
     ]
+  },
+  {
+    "id": "g-prueba-trampa",
+    "term": "Prueba que pasa por la razón equivocada",
+    "definition": "Comprobación que termina en verde aunque el comportamiento pedido siga mal, porque no cubre la regla relevante o permite un atajo. Se detecta revisando qué casos contiene y añadiendo contraejemplos.",
+    "refs": [
+      "m05-l3#trampa"
+    ]
   }
 ]

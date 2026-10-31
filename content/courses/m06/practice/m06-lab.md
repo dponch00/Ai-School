@@ -14,7 +14,7 @@ Para esta semana, el jefe de FP&A pide dos cosas nuevas en el dashboard: una lí
 
 ## Paso 2 · El snapshot del 26 {#paso-2}
 
-El snapshot del 26 de octubre trae las mismas filas que el del 19 y tres oportunidades nuevas del Centro: OPP-1040, OPP-1041 y OPP-1042, por 410 000 USD en total. Las tres están en una etapa que no existía, «En pausa», sin probabilidad aprobada. El registro de supuestos ya declara una política para las etapas sin probabilidad: excluirlas del pipeline y reportarlas. FP&A la aprobó hace dos semanas pensando en OPP-1036, una sola oportunidad «En revisión».
+El :term[snapshot]{id=g-snapshot-datos} del 26 de octubre trae las mismas filas que el del 19 y tres oportunidades nuevas del Centro: OPP-1040, OPP-1041 y OPP-1042, por 410 000 USD en total. Las tres están en una etapa que no existía, «En pausa», sin probabilidad aprobada. El :term[registro de supuestos]{id=g-registro-supuestos} ya declara una política para las etapas sin probabilidad: excluirlas del pipeline y reportarlas. FP&A la aprobó hace dos semanas pensando en OPP-1036, una sola oportunidad «En revisión».
 
 ::lab-questions{step="paso-2"}
 

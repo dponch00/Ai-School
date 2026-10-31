@@ -4,7 +4,7 @@
 
 ## Siguiente acción
 
-1. **Codex:** T-057, buscar en las 60 lecciones los términos importantes que faltan en el glosario y proponer definiciones.
+1. **Codex:** sin ticket abierto.
 2. **Claude:** el 2026-12-01, revisar las fichas y fuentes que vencen (`python scripts/fichas-por-revisar.py 35`). Lo demás que queda abierto está en `docs/continuacion.md`. El 2026-12-01, revisar las fichas que vencen (`python scripts/fichas-por-revisar.py 35` antes del 2026-11-01).
 4. **Licencia:** sin licencia, por decisión de Daniel (2026-10-27). En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
 3. **Daniel (a su ritmo):** estudiar los manuales en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
@@ -84,7 +84,7 @@
 | [T-054](coordinacion/tickets/T-054-codex-revision-visual-imagenes.md) | Codex | Revisión visual de las portadas y figuras en el celular y en escritorio | cerrado |
 | [T-055](coordinacion/tickets/T-055-codex-identidad-logo-inicio.md) | Codex | Identidad: logo, íconos de la PWA y pantalla de inicio | cerrado |
 | [T-056](coordinacion/tickets/T-056-codex-revision-relaciones-api.md) | Codex | Revisión: API en M01 L5, glosario y panel de relaciones | cerrado |
-| [T-057](coordinacion/tickets/T-057-codex-terminos-faltantes-glosario.md) | Codex | Términos que faltan en el glosario | abierto |
+| [T-057](coordinacion/tickets/T-057-codex-terminos-faltantes-glosario.md) | Codex | Términos que faltan en el glosario | cerrado |
 
 ## En curso (no tocar estos archivos)
 
@@ -97,6 +97,13 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-30 · Claude Code — T-057: el glosario sube a 199 términos
+- **Propuesta de Codex:** 60 términos.
+- **Lo que entró:** 49 términos, después de comprobar que cada uno aparece en el apartado que lo explica. Se descartaron 11: diez que el curso no usa y uno duplicado.
+- **Mejoras a entradas existentes:** nueve, en refs y definiciones.
+- **Marcas:** 116 nuevas, también en los laboratorios. Son 375 en total, con un tope de unas ocho por lección.
+- **Verificación:** `npm test` 250/250 y E2E 162/162. Publicado.
 
 ### 2026-10-30 · Claude Code — Panel de relaciones, glosario de los diez manuales y «Qué es una API»
 - **M01 L5:** sección nueva `#api`, con diagrama SVG, la pregunta `m01-l5-c5`, el concepto erróneo `m01-mc40` y cuatro fuentes oficiales (`investigacion/M01-l5-api.md`).

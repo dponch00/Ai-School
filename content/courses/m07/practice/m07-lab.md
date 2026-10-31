@@ -20,13 +20,13 @@ En la primera prueba, el agente pide las oportunidades abiertas del Centro con `
 
 ## Paso 2 · Los permisos {#paso-2}
 
-Para conectar el agente, el CRM muestra una pantalla de consentimiento con cinco alcances: `opportunities:read`, `opportunities:write`, `tasks:write`, `accounts:export` y `admin:*`. La lectura para el borrador correrá desde el primer lunes; la creación de tareas se activará recién cuando FP&A apruebe su formato, dentro de dos semanas. La ejecución correrá en el servidor de integración continua del equipo, con una credencial de servicio, y en la primera prueba allí el registro de la ejecución guardó completa la cabecera de autorización.
+Para conectar el agente, el CRM muestra una pantalla de consentimiento con cinco alcances: `opportunities:read`, `opportunities:write`, `tasks:write`, `accounts:export` y `admin:*`. La lectura para el borrador correrá desde el primer lunes; la creación de tareas se activará recién cuando FP&A apruebe su formato, dentro de dos semanas. La ejecución correrá en el servidor de integración continua del equipo, con una credencial de servicio, y en la primera prueba allí el :term[registro de la ejecución]{id=g-registro-ejecucion} guardó completa la :term[cabecera]{id=g-cabecera-http} de autorización.
 
 ::lab-questions{step="paso-2"}
 
 ## Paso 3 · La vía y su configuración {#paso-3}
 
-El equipo ya tiene una herramienta de línea de comandos interna para el CRM, bien documentada, que el agente puede usar desde la terminal donde corre. Aun así, un compañero propone conectar también el servidor MCP que ofrece el proveedor del CRM, y pasa la línea que usa en su equipo para agregarla al archivo de configuración del proyecto. La línea lleva escrito el token de administrador.
+El equipo ya tiene una herramienta de línea de comandos interna para el CRM, bien documentada, que el agente puede usar desde la terminal donde corre. Aun así, un compañero propone conectar también el servidor MCP que ofrece el proveedor del CRM, y pasa la línea que usa en su equipo para agregarla al archivo de :term[configuración del proyecto]{id=g-configuracion-proyecto}. La línea lleva escrito el token de administrador.
 
 ::lab-questions{step="paso-3"}
 

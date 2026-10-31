@@ -18,7 +18,7 @@ El destino de `:ref` puede ser `m07` (manual), `m07-l1` (lección) o `m07-l1#pet
    - Se marca solo la **primera aparición** de cada término en la lección.
    - Va solo donde el término **se usa**, no en el apartado donde se explica: el panel no le sirve a quien está leyendo la definición.
    - No van en títulos, ni dentro de `:::decision`, `:::quick-check` o `:::summary`, ni en bloques de código.
-   - Como máximo, unas seis marcas por lección. Si hay más candidatos, se priorizan los que más cuesta recordar.
+   - Como máximo, unas ocho marcas por lección. Si hay más candidatos, se priorizan los que más cuesta recordar.
 2. **Referencias:**
    - Toda mención a otro manual o a otra lección («como viste en el manual 3», «la lección 4») se envuelve con `:ref` y apunta al apartado que trata esa idea.
    - El texto entre corchetes es el de la frase original, sin reescribirla: `:ref[el manual 3]{…}` o `:ref[la lección 4]{…}`.

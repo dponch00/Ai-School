@@ -185,7 +185,8 @@
     "definition": "Todo el texto que el modelo tiene presente durante la sesión. Su rendimiento baja a medida que se llena, por eso conviene dar contexto específico y no abundante.",
     "refs": [
       "m01-l3#contexto",
-      "m02-l2#contexto"
+      "m02-l2#contexto",
+      "m03-l1#que-ocupa"
     ]
   },
   {
@@ -239,6 +240,43 @@
     "refs": [
       "m02-l4#autocontenida",
       "m02-l4#archivos"
+    ]
+  },
+  {
+    "id": "g-regla-negocio",
+    "term": "Regla de negocio",
+    "en": "business rule",
+    "definition": "Decisión sobre cómo se interpreta o calcula algo del negocio, por ejemplo qué oportunidad cuenta como abierta. Se declara fuera del modelo y se aplica con código para que pueda comprobarse.",
+    "refs": [
+      "m02-l4#entrevista",
+      "m06-l1#capas"
+    ]
+  },
+  {
+    "id": "g-registro-supuestos",
+    "term": "Registro de supuestos",
+    "en": "assumption register",
+    "definition": "Lista con cada definición aún no resuelta o decisión adoptada, su identificador, dueño, estado y efecto. Evita que una ambigüedad que cambia cifras quede escondida en la conversación.",
+    "refs": [
+      "m02-l2#calculos"
+    ]
+  },
+  {
+    "id": "g-requisito",
+    "term": "Requisito",
+    "en": "requirement",
+    "definition": "Necesidad o condición que el trabajo debe satisfacer para una persona o decisión. Se vuelve útil cuando se concreta en algo observable y comprobable, no cuando queda como un adjetivo vago.",
+    "refs": [
+      "m02-l6#testable"
+    ]
+  },
+  {
+    "id": "g-estado-interno",
+    "term": "Estado interno",
+    "en": "internal state",
+    "definition": "Información o cambio que ocurre dentro de un sistema y que quien usa la herramienta no ve directamente. No basta como criterio de aceptación: se pide además el resultado observable que produce.",
+    "refs": [
+      "m02-l6#observables"
     ]
   }
 ]

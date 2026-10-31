@@ -10,8 +10,8 @@ Calcula unos 30 minutos [H]. Son seis pasos con dos preguntas cada uno, y cada r
 
 La analista le pidió al agente: «Unifica cómo se escriben los nombres de las etapas en el reporte. No toques el cálculo ni los datos». El historial del repositorio quedó así:
 
-- **c1** · «Calcula KPIs del pipeline». La reconciliación pasa.
-- **c2** · «Unifica nombres de etapas», el commit del agente. Ya está en la rama principal compartida.
+- **c1** · «Calcula KPIs del pipeline». La :term[reconciliación]{id=g-reconciliacion} pasa.
+- **c2** · «Unifica nombres de etapas», el commit del agente. Ya está en la :term[rama]{id=g-rama} principal compartida.
 
 Antes de revisar, la analista guarda sus notas de trabajo en un commit para dejar la carpeta limpia. Cuando mira el resumen de c2 con `--stat`, aparece un archivo que no esperaba: `.env`, con la línea `ALTIPLANO_CRM_TOKEN=TOKEN_FICTICIO_NO_REAL`.
 

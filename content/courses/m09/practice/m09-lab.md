@@ -8,9 +8,9 @@ Calcula unos 30 minutos. Cada paso tiene dos preguntas, y cada respuesta trae la
 
 ## Paso 1 · Qué se mide {#paso-1}
 
-El asistente recibe la pregunta de un gerente por el chat interno, consulta el `kpis.json` verificado (el contrato de KPI) y el snapshot de la semana, y responde una sola vez. El gerente usa esa respuesta tal cual en su reunión de equipo. La versión 1 del prompt da respuestas breves; la versión 2 explica, además, de dónde sale cada cifra.
+El asistente recibe la pregunta de un gerente por el chat interno, consulta el `kpis.json` verificado (el contrato de KPI) y el :term[snapshot]{id=g-snapshot-datos} de la semana, y responde una sola vez. El gerente usa esa respuesta tal cual en su reunión de equipo. La versión 1 del prompt da respuestas breves; la versión 2 explica, además, de dónde sale cada cifra.
 
-La analista corre las dos versiones sobre 40 preguntas, con tres ensayos por pregunta, y califica dos criterios críticos: que la cifra sea correcta y que, si la pregunta no tiene respuesta en los datos, el asistente lo diga sin dar una cifra. La versión 1 acierta al menos una vez en 39 preguntas, pero acierta en los tres ensayos solo en 30. La versión 2 acierta al menos una vez en las 40, y en los tres ensayos, en 33.
+La analista corre las dos versiones sobre 40 preguntas, con tres ensayos por pregunta, y califica dos :term[criterios críticos]{id=g-criterio-critico}: que la cifra sea correcta y que, si la pregunta no tiene respuesta en los datos, el asistente lo diga sin dar una cifra. La versión 1 acierta al menos una vez en 39 preguntas, pero acierta en los tres ensayos solo en 30. La versión 2 acierta al menos una vez en las 40, y en los tres ensayos, en 33.
 
 ::lab-questions{step="paso-1"}
 
@@ -42,7 +42,7 @@ Queda una prueba más. El asistente puede leer el detalle del snapshot por clien
 
 ## Paso 6 · Dos semanas después {#paso-6}
 
-Dirección decidió adoptar la versión 2, ya con la autorización por región en el código y el grader de cifras corregido. Dos semanas después, el gerente del Sur presentó en el comité un pipeline ponderado que la controller no reconoció. La analista buscó el origen y lo encontró en el conjunto de prueba. Para cubrir las otras regiones y las preguntas sin dato, el compañero había escrito 12 preguntas nuevas, y para ahorrar tiempo usó como respuesta esperada lo que contestaba la versión 2. En 5 de ellas esa respuesta estaba mal, y la versión 2 «acertaba» porque coincidía consigo misma. El compañero fue también quien revisó los resultados antes de la adopción.
+Dirección decidió adoptar la versión 2, ya con la autorización por región en el código y el grader de cifras corregido. Dos semanas después, el gerente del Sur presentó en el comité un pipeline ponderado que la controller no reconoció. La analista buscó el origen y lo encontró en el :term[conjunto de prueba]{id=g-conjunto-prueba}. Para cubrir las otras regiones y las preguntas sin dato, el compañero había escrito 12 preguntas nuevas, y para ahorrar tiempo usó como respuesta esperada lo que contestaba la versión 2. En 5 de ellas esa respuesta estaba mal, y la versión 2 «acertaba» porque coincidía consigo misma. El compañero fue también quien revisó los resultados antes de la adopción.
 
 Con las respuestas esperadas recalculadas con `reconcile.py` y el snapshot, la versión 2 cumple los dos criterios críticos en los tres ensayos en 28 de las 40 preguntas, y la versión 1, en 35.
 

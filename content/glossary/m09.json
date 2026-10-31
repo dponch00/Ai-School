@@ -116,7 +116,8 @@
       "m09-l5#vias",
       "m09-l5#sin-solucion",
       "m03-l6#dato",
-      "m07-l6#inyeccion"
+      "m07-l6#inyeccion",
+      "m07-l5#confianza"
     ]
   },
   {
@@ -135,6 +136,33 @@
     "definition": "Lista cronológica de los cambios notables de cada versión, escrita para personas y con la más reciente primero. Para un prompt o un flujo con modelo, cada entrada agrega la evidencia: casos, graders, resultados, condiciones, quién revisó y qué se decidió.",
     "refs": [
       "m09-l6#registro"
+    ]
+  },
+  {
+    "id": "g-rubrica",
+    "term": "Rúbrica",
+    "en": "rubric",
+    "definition": "Conjunto explícito de criterios y reglas con que se califica una salida. Debe decir qué observa cada criterio y qué casos no admite, para que persona, código o juez apliquen la misma regla.",
+    "refs": [
+      "m09-l3#rubrica"
+    ]
+  },
+  {
+    "id": "g-conjunto-prueba",
+    "term": "Conjunto de prueba",
+    "en": "test set",
+    "definition": "Colección de casos con entradas y respuestas o criterios esperados usada para medir un sistema. Se reserva de quien ajusta el sistema para que sus resultados sigan siendo una señal honesta.",
+    "refs": [
+      "m09-l2#contaminacion"
+    ]
+  },
+  {
+    "id": "g-entrada-no-confiable",
+    "term": "Entrada no confiable",
+    "en": "untrusted input",
+    "definition": "Texto o dato que el sistema recibe sin poder asumir que respeta sus reglas, incluso si viene de un documento de la empresa. Se trata como dato y se limita lo que puede causar después de leerse.",
+    "refs": [
+      "m09-l5#capas"
     ]
   }
 ]

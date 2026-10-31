@@ -123,5 +123,51 @@
       "m10-l6#cierre",
       "m10-l6#reabrir"
     ]
+  },
+  {
+    "id": "g-usabilidad",
+    "term": "Usabilidad",
+    "en": "usability",
+    "definition": "Qué tan fácil es para una persona completar una tarea y entender lo que ocurrió. Se revisa con escenarios y barreras concretas, no con una impresión general de que la pantalla se ve bien.",
+    "refs": [
+      "m10-l2#heuristicas"
+    ]
+  },
+  {
+    "id": "g-navegacion-teclado",
+    "term": "Navegación con teclado",
+    "en": "keyboard navigation",
+    "definition": "Forma de recorrer y activar todos los controles sin ratón ni toque. Requiere orden de foco visible, nombres claros y que no haya un control atrapado o inaccesible.",
+    "refs": [
+      "m10-l2#revisar"
+    ]
+  },
+  {
+    "id": "g-despliegue",
+    "term": "Despliegue",
+    "en": "deployment",
+    "definition": "Proceso de publicar una versión para que otras personas la usen. Va después de las pruebas y deja evidencia de versión, origen y forma de volver atrás si la publicación falla.",
+    "refs": [
+      "m10-l4#cadena"
+    ]
+  },
+  {
+    "id": "g-respaldo",
+    "term": "Respaldo",
+    "en": "backup",
+    "definition": "Copia de datos que permite reconstruirlos después de pérdida, cambio o fallo. Solo cuenta como respaldo si se puede restaurar y comprobar, no por el hecho de existir un archivo.",
+    "refs": [
+      "m10-l4#respaldos",
+      "m10-l3#exportacion"
+    ]
+  },
+  {
+    "id": "g-reversion",
+    "term": "Reversión",
+    "en": "rollback",
+    "definition": "Vuelta controlada a una versión anterior cuando una actualización rompe algo. Requiere saber qué versión estaba funcionando y cómo preservar o migrar los datos que ya cambió la nueva.",
+    "refs": [
+      "m10-l4#actualizar"
+    ]
   }
 ]

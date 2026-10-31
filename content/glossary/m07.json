@@ -121,7 +121,82 @@
     "term": "Ejecución desatendida",
     "definition": "Ejecución que corre sin nadie que mire ni apruebe. Lo que pediría aprobación tiene que quedar denegado o no existir, y una denegación debe terminar en un fallo visible, no en un resultado incompleto que nadie nota.",
     "refs": [
-      "m07-l6#desatendido"
+      "m07-l6#desatendido",
+      "m08-l4#identidad",
+      "m08-l6#estado"
+    ]
+  },
+  {
+    "id": "g-configuracion-proyecto",
+    "term": "Configuración del proyecto",
+    "en": "project configuration",
+    "definition": "Archivos declarativos que fijan cómo se construye, prueba o conecta un proyecto. Son comportamiento del sistema y se revisan como código, aunque no parezcan un programa.",
+    "refs": [
+      "m07-l4#caso"
+    ]
+  },
+  {
+    "id": "g-metodo-http",
+    "term": "Método HTTP",
+    "en": "HTTP method",
+    "definition": "Palabra de una petición que declara la intención sobre un recurso, como leer o crear. El servidor decide qué métodos admite; cambiar el método no es una forma de saltarse permisos.",
+    "refs": [
+      "m07-l1#metodos"
+    ]
+  },
+  {
+    "id": "g-cabecera-http",
+    "term": "Cabecera HTTP",
+    "en": "HTTP header",
+    "definition": "Parte de una petición o respuesta que lleva datos de protocolo, como autorización o tipo de contenido. No se usa para esconder secretos: puede registrarse según cómo esté configurado el sistema.",
+    "refs": [
+      "m07-l1#peticion",
+      "m07-l2#portador"
+    ]
+  },
+  {
+    "id": "g-cuerpo-peticion",
+    "term": "Cuerpo de la petición",
+    "en": "request body",
+    "definition": "Parte de una petición que contiene los datos que se envían al servicio, normalmente con una estructura como JSON. Se valida contra el contrato antes de que una acción use sus valores.",
+    "refs": [
+      "m07-l1#peticion"
+    ]
+  },
+  {
+    "id": "g-token-portador",
+    "term": "Token portador",
+    "en": "bearer token",
+    "definition": "Credencial que da acceso a quien la presente, sin comprobar quién la sostiene. Por eso no va en URL, registros ni cliente, y se limita por alcance y duración.",
+    "refs": [
+      "m07-l2#portador"
+    ]
+  },
+  {
+    "id": "g-tiempo-agotado",
+    "term": "Tiempo agotado",
+    "en": "timeout",
+    "definition": "Fallo que ocurre cuando una petición o herramienta no termina dentro del tiempo permitido. No demuestra que nada haya pasado: antes de repetir una acción con efecto se considera la idempotencia.",
+    "refs": [
+      "m07-l3#herramientas"
+    ]
+  },
+  {
+    "id": "g-transporte-stdio",
+    "term": "Transporte por entrada/salida estándar",
+    "en": "stdio",
+    "definition": "Forma de conectar un cliente y un servidor local como subproceso: se intercambian mensajes por la entrada y salida de texto. El cliente lo arranca y comparte los permisos de ese entorno.",
+    "refs": [
+      "m07-l4#transportes"
+    ]
+  },
+  {
+    "id": "g-consulta-estructurada",
+    "term": "Consulta estructurada",
+    "en": "structured query",
+    "definition": "Petición con lenguaje y parámetros definidos que devuelve filas o totales repetibles desde los datos. Se usa para cifras; una explicación basada en documentos recuperados no sustituye su cálculo.",
+    "refs": [
+      "m07-l5#consulta"
     ]
   }
 ]

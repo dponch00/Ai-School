@@ -8,7 +8,7 @@ Calcula unos 30 minutos [H]. Cada paso tiene dos preguntas, y cada respuesta tra
 
 ## Paso 1 · La propuesta {#paso-1}
 
-Cada viernes, dirección quiere un memo con los riesgos de las diez oportunidades abiertas más grandes. Para cada una, el memo indica el monto, la etapa y si está vencida, datos que salen del snapshot, y el riesgo que se lee en su nota libre del CRM, que puede ser de precio, de plazo o ninguno. Las notas son cortas, de tres o cuatro líneas, y no dependen unas de otras. Un compañero propone un orquestador que lance un agente por oportunidad; cada agente leería su nota y calcularía sus cifras, y un agente revisor aprobaría el memo final.
+Cada viernes, dirección quiere un memo con los riesgos de las diez oportunidades abiertas más grandes. Para cada una, el memo indica el monto, la etapa y si está vencida, datos que salen del :term[snapshot]{id=g-snapshot-datos}, y el riesgo que se lee en su nota libre del CRM, que puede ser de precio, de plazo o ninguno. Las notas son cortas, de tres o cuatro líneas, y no dependen unas de otras. Un compañero propone un orquestador que lance un agente por oportunidad; cada agente leería su nota y calcularía sus cifras, y un agente revisor aprobaría el memo final.
 
 ::lab-questions{step="paso-1"}
 
@@ -32,7 +32,7 @@ El memo tiene que estar listo el viernes a las siete de la tarde. La analista se
 
 ## Paso 5 · Las reglas del arnés {#paso-5}
 
-FP&A fija dos reglas. La primera es que el memo no cite ningún monto que no esté en el snapshot. La segunda, que ningún agente edite el archivo con la rúbrica de riesgo, donde se define qué cuenta como riesgo de precio, de plazo o ninguno.
+FP&A fija dos reglas. La primera es que el memo no cite ningún monto que no esté en el snapshot. La segunda, que ningún agente edite el archivo con la :term[rúbrica]{id=g-rubrica} de riesgo, donde se define qué cuenta como riesgo de precio, de plazo o ninguno.
 
 ::lab-questions{step="paso-5"}
 

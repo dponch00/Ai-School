@@ -3,9 +3,10 @@
     "id": "g-cliente-servidor",
     "term": "Cliente y servidor",
     "en": "frontend / backend",
-    "definition": "El cliente es el navegador, que pide los datos y muestra lo que recibe; el servidor es la máquina que interpreta cada petición, consulta la base de datos y arma la respuesta. Todo lo que llega al cliente queda en manos del usuario.",
+    "definition": "El cliente, como un navegador, un script o un agente, pide los datos y usa lo que recibe; el servidor es la máquina que interpreta cada petición, consulta la base de datos y arma la respuesta. Todo lo que llega al cliente queda en manos de quien lo usa.",
     "refs": [
-      "m06-l1#cliente-servidor"
+      "m06-l1#cliente-servidor",
+      "m07-l1#peticion"
     ]
   },
   {
@@ -116,6 +117,52 @@
     "definition": "Valor con el que se inicia un generador de números pseudoaleatorios; con la misma semilla, repite exactamente la misma secuencia. Por eso los datos de prueba se generan con una semilla fija y se guardan junto con sus cifras esperadas.",
     "refs": [
       "m06-l6#sinteticos"
+    ]
+  },
+  {
+    "id": "g-snapshot-datos",
+    "term": "Snapshot de datos",
+    "en": "snapshot",
+    "definition": "Copia de los datos en una fecha de corte concreta. Permite repetir un cálculo y saber qué información existía al decidir; no se reemplaza silenciosamente por datos más recientes.",
+    "refs": [
+      "m06-l2#caso"
+    ]
+  },
+  {
+    "id": "g-validacion-datos",
+    "term": "Validación de datos",
+    "en": "data validation",
+    "definition": "Comprobación de que datos o una respuesta respetan la forma y reglas esperadas antes de usarlos. Valida tipos, campos y límites; no convierte por sí sola un valor plausible en verdadero.",
+    "refs": [
+      "m06-l1#validacion"
+    ]
+  },
+  {
+    "id": "g-solo-lectura",
+    "term": "Solo lectura",
+    "en": "read-only",
+    "definition": "Permiso que permite consultar sin cambiar el recurso de destino. Reduce el daño posible, pero no basta si los datos expuestos son sensibles o si la herramienta puede llamar a otra con más privilegios.",
+    "refs": [
+      "m06-l3#modo",
+      "m06-l3#anotaciones"
+    ]
+  },
+  {
+    "id": "g-metadatos-archivo",
+    "term": "Metadatos de archivo",
+    "en": "file metadata",
+    "definition": "Información que acompaña a un archivo y describe sus columnas, tipos u organización. En Parquet ayuda al motor a entender y omitir partes; CSV guarda texto separado y no conserva esos tipos.",
+    "refs": [
+      "m06-l4#formatos"
+    ]
+  },
+  {
+    "id": "g-mediana",
+    "term": "Mediana",
+    "en": "median",
+    "definition": "Valor que queda en medio al ordenar los datos. Frente a la media, cambia menos cuando uno o pocos montos son extremos; no decide por sí solo si un dato es un error.",
+    "refs": [
+      "m06-l5#estadistico"
     ]
   }
 ]

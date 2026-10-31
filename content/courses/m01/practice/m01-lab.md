@@ -58,4 +58,4 @@ El jueves, Legal informa que los contratos del encargo 4 contienen datos persona
 
 ## Pruébalo en tu entorno (opcional) {#en-tu-entorno}
 
-Si quieres practicar con herramientas reales, toma una tarea de tu trabajo que se parezca al encargo 1 y compara dos asistentes como en el paso 6: las mismas entradas, tres ensayos con cada uno, un criterio crítico que se compruebe sin opinión y las condiciones anotadas (producto, superficie, modelo, esfuerzo y fecha). Usa solo datos que puedas compartir con esas herramientas. Este apartado no se registra en la app ni cuenta para nada.
+Si quieres practicar con herramientas reales, toma una tarea de tu trabajo que se parezca al encargo 1 y compara dos asistentes como en el paso 6: las mismas entradas, tres ensayos con cada uno, un :term[criterio crítico]{id=g-criterio-critico} que se compruebe sin opinión y las condiciones anotadas (producto, superficie, modelo, esfuerzo y fecha). Usa solo datos que puedas compartir con esas herramientas. Este apartado no se registra en la app ni cuenta para nada.

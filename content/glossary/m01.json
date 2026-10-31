@@ -15,7 +15,8 @@
     "en": "API key",
     "definition": "Cadena secreta que viaja en cada solicitud a una API e identifica la cuenta que paga. Quien la tiene puede gastar a tu nombre, así que nunca se incrusta en el código ni se expone en el cliente: se carga en el servidor desde una variable de entorno o un gestor de secretos.",
     "refs": [
-      "m01-l5#api"
+      "m01-l5#api",
+      "m04-l3#variables"
     ]
   },
   {
@@ -33,7 +34,8 @@
     "en": "agent",
     "definition": "Modelo al que se le dieron herramientas, como leer archivos, ejecutar comandos o buscar en la web, y un bucle en el que él mismo decide el siguiente paso: reunir contexto, actuar, verificar y volver a empezar. El programa que lo rodea y aporta todo eso se llama arnés.",
     "refs": [
-      "m01-l1#agente"
+      "m01-l1#agente",
+      "m08-l1#flujo-agente"
     ]
   },
   {
@@ -139,6 +141,87 @@
     "definition": "Cálculo con que el modelo produce cada respuesta. Si el modelo es del proveedor, lo que el agente lee y tus instrucciones viajan a sus servidores aunque el agente corra en tu máquina; solo un modelo en tu propio equipo la mantiene dentro.",
     "refs": [
       "m01-l5#local-nube"
+    ]
+  },
+  {
+    "id": "g-arnes",
+    "term": "Arnés",
+    "en": "harness",
+    "definition": "Programa que rodea al modelo y le aporta herramientas, permisos, contexto y el bucle de trabajo. El modelo decide los pasos dentro de ese marco; el arnés decide qué puede alcanzar.",
+    "refs": [
+      "m01-l1#agente"
+    ]
+  },
+  {
+    "id": "g-flujo-fijo",
+    "term": "Flujo fijo",
+    "en": "workflow",
+    "definition": "Secuencia de pasos que el código deja decidida de antemano. A diferencia de un agente, no elige en cada paso qué herramienta usar ni qué hacer después.",
+    "refs": [
+      "m01-l1#agente"
+    ]
+  },
+  {
+    "id": "g-conector",
+    "term": "Conector",
+    "en": "connector",
+    "definition": "Enlace configurado entre una herramienta y otro servicio, como correo, archivos o datos. Amplía lo que puede alcanzar el agente y por eso se revisan sus permisos y datos.",
+    "refs": [
+      "m01-l1#producto-superficie"
+    ]
+  },
+  {
+    "id": "g-contenedor",
+    "term": "Contenedor",
+    "en": "container",
+    "definition": "Espacio aislado donde corre un programa con límites propios de archivos, red y dependencias. Que un agente corra en un contenedor no le da por sí solo acceso a todo ni vuelve seguro lo que haga dentro.",
+    "refs": [
+      "m01-l1#entorno"
+    ]
+  },
+  {
+    "id": "g-latencia",
+    "term": "Latencia",
+    "en": "latency",
+    "definition": "Tiempo que tarda una solicitud en empezar a responder o terminar. Es una palanca distinta de calidad, costo y privacidad, y se mide en la tarea real antes de elegir configuración.",
+    "refs": [
+      "m01-l5#palancas"
+    ]
+  },
+  {
+    "id": "g-procesamiento-lotes",
+    "term": "Procesamiento por lotes",
+    "en": "batch processing",
+    "definition": "Forma de enviar muchos trabajos para que se procesen después, no al instante. Sirve cuando el volumen es repetido y no urgente, y puede reducir el costo a cambio de esperar.",
+    "refs": [
+      "m01-l5#pago"
+    ]
+  },
+  {
+    "id": "g-cache-prompts",
+    "term": "Caché de prompts",
+    "en": "prompt caching",
+    "definition": "Mecanismo que reaprovecha una parte repetida de las instrucciones o el contexto entre solicitudes. Abarata repetir contenido, pero no corrige una mala selección de contexto ni cambia los datos que el modelo recibe.",
+    "refs": [
+      "m01-l5#pago"
+    ]
+  },
+  {
+    "id": "g-criterio-critico",
+    "term": "Criterio crítico",
+    "en": "critical criterion",
+    "definition": "Condición que debe cumplirse en todos los ensayos y no se compensa con puntos de otros criterios. Cuando se puede, se comprueba con código porque un buen tono no compensa una cifra incorrecta.",
+    "refs": [
+      "m01-l6#criterio-critico"
+    ]
+  },
+  {
+    "id": "g-fuente-primaria",
+    "term": "Fuente primaria",
+    "en": "primary source",
+    "definition": "Documento publicado por quien produjo la norma, dato, estudio o producto que se afirma. Es el primer lugar para comprobar una afirmación técnica antes de depender de un resumen de terceros.",
+    "refs": [
+      "m01-l4#verificar"
     ]
   }
 ]

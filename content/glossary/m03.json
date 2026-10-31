@@ -24,7 +24,8 @@
     "en": "subagent",
     "definition": "Otra instancia del agente que trabaja en su propio contexto y devuelve un resumen condensado. Sirve para exploraciones amplias que llenarían la sesión principal, aunque gasta sus propios tokens.",
     "refs": [
-      "m03-l1#movimientos"
+      "m03-l1#movimientos",
+      "m08-l3#subagente"
     ]
   },
   {
@@ -44,7 +45,9 @@
     "refs": [
       "m03-l2#contexto-no-regla",
       "m04-l3#defensas",
-      "m08-l5#hook"
+      "m08-l5#hook",
+      "m08-l5#momentos",
+      "m08-l5#limites"
     ]
   },
   {
@@ -116,6 +119,50 @@
     "definition": "Forma de trabajar en la que el agente guarda referencias ligeras, como rutas, consultas o enlaces, y trae el contenido cuando lo necesita. Suele combinarse con cargar de antemano lo poco que siempre hace falta.",
     "refs": [
       "m03-l6#justo-a-tiempo"
+    ]
+  },
+  {
+    "id": "g-brief",
+    "term": "Brief",
+    "definition": "Documento breve que reúne el objetivo, alcance, definiciones y condiciones de una tarea antes de pedir ejecución. Da al agente una versión estable de lo acordado sin depender del historial del chat.",
+    "refs": [
+      "m03-l5#traspaso"
+    ]
+  },
+  {
+    "id": "g-instruccion-sistema",
+    "term": "Instrucción del sistema",
+    "en": "system instruction",
+    "definition": "Instrucción que la herramienta pone alrededor de una conversación y que forma parte del contexto del modelo. Tiene una precedencia propia, pero no sustituye un permiso o control técnico.",
+    "refs": [
+      "m03-l1#que-ocupa"
+    ]
+  },
+  {
+    "id": "g-regla-rutas",
+    "term": "Regla por rutas",
+    "en": "path rule",
+    "definition": "Instrucción asociada solo a ciertas carpetas o tipos de archivo, que se carga cuando el agente los toca. Mantiene fuera de la instrucción permanente las reglas que no aplican a todo el proyecto.",
+    "refs": [
+      "m03-l3#cuatro-preguntas"
+    ]
+  },
+  {
+    "id": "g-artefacto-trabajo",
+    "term": "Artefacto de trabajo",
+    "en": "work artifact",
+    "definition": "Archivo o registro que conserva fuera del chat el estado útil para continuar: progreso, decisiones, commits, lista de funciones o rutina de arranque. Su finalidad es que otra sesión pueda verificar y retomar.",
+    "refs": [
+      "m03-l5#artefactos"
+    ]
+  },
+  {
+    "id": "g-metadatos",
+    "term": "Metadatos",
+    "en": "metadata",
+    "definition": "Datos que describen a otro archivo, recurso o skill, como nombre, descripción, tipo o fecha. En una skill ayudan a encontrarla y validarla antes de cargar su contenido.",
+    "refs": [
+      "m03-l4#que-es"
     ]
   }
 ]

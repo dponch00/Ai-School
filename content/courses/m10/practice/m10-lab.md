@@ -57,4 +57,4 @@ Dos meses después, TI informa que el servicio gratuito donde se publicó la app
 
 ## Pruébalo en tu entorno (opcional) {#en-tu-entorno}
 
-Con una planilla o un script de Python que use decimales exactos, calcula los seis casos de la tabla y mira con atención el caso límite: un margen de exactamente 22,00 %, ¿pasa o no pasa, según cómo escribas la comparación? Después abre cualquier app web instalable, mira en las herramientas de desarrollo del navegador dónde guarda sus datos y comprueba que están asociados a su dirección. No uses datos ni credenciales reales. Este apartado no se registra en la app ni cuenta para el curso.
+Con una planilla o un script de Python que use :term[decimales exactos]{id=g-decimal-exacto}, calcula los seis casos de la tabla y mira con atención el caso límite: un margen de exactamente 22,00 %, ¿pasa o no pasa, según cómo escribas la comparación? Después abre cualquier app web instalable, mira en las herramientas de desarrollo del navegador dónde guarda sus datos y comprueba que están asociados a su dirección. No uses datos ni credenciales reales. Este apartado no se registra en la app ni cuenta para el curso.
