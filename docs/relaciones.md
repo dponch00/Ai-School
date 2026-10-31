@@ -33,6 +33,6 @@ El destino de `:ref` puede ser `m07` (manual), `m07-l1` (lección) o `m07-l1#pet
 ## Comprobar
 
 ```bash
-node scripts/build-content.ts
+node scripts/build-content.ts --check
 npx vitest run src/domain
 ```

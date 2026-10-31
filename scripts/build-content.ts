@@ -24,6 +24,9 @@ import { Asset, Competency, Course, DiagnosticForm, GlossaryTerm, Lesson, Miscon
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const contentDir = resolve(root, 'content')
 const readJson = (p: string) => JSON.parse(readFileSync(resolve(contentDir, p), 'utf8'))
+/** `--check`: valida todo sin escribir archivos (para revisar contenido mientras otros arman). */
+const CHECK = process.argv.includes('--check')
+const write = (path: string, data: string) => void (CHECK || writeFileSync(path, data))
 
 // ---------- Markdown → bloques ----------
 
@@ -265,7 +268,7 @@ for (const courseId of readdirSync(resolve(contentDir, 'courses'))) {
     for (const a of Asset.array().parse(readJson(`${base}/assets.json`))) {
       const target = `generated/${courseId}/${a.file.split('/').pop()}`
       mkdirSync(resolve(root, 'public/generated', courseId), { recursive: true })
-      copyFileSync(resolve(root, a.file), resolve(root, 'public', target))
+      if (!CHECK) copyFileSync(resolve(root, a.file), resolve(root, 'public', target))
       assets[a.id] = pieces.assets[a.id] = { ...a, url: target }
     }
 
@@ -363,7 +366,7 @@ const diagnostic = { form: diagnosticForm }
 // El paquete principal lleva el índice de cada curso (lecciones, objetivos, rúbrica); lo pesado va en
 // public/courses/<curso>.<hash>.json, con verificación de integridad (SRI) y caché propia en el SW.
 const coursesDir = resolve(root, 'public/courses')
-rmSync(coursesDir, { recursive: true, force: true })
+if (!CHECK) rmSync(coursesDir, { recursive: true, force: true })
 mkdirSync(coursesDir, { recursive: true })
 const outlines = (courses as any[]).map((c) => {
   const pieces = coursePieces.get(c.id)!
@@ -378,7 +381,7 @@ const outlines = (courses as any[]).map((c) => {
   }
   const body = JSON.stringify(pkg)
   const name = `${c.id}.${createHash('sha256').update(body).digest('hex').slice(0, 10)}.json`
-  writeFileSync(resolve(coursesDir, name), body)
+  write(resolve(coursesDir, name), body)
   const integrity = `sha384-${createHash('sha384').update(body).digest('base64')}`
   return {
     ...c,
@@ -403,9 +406,9 @@ const out = {
   sources: Object.fromEntries([...sources.values()].map((s) => [s.id, { id: s.id, title: s.title, organization: s.organization, url: s.url, accessedAt: s.accessedAt }])),
 }
 mkdirSync(resolve(root, 'src/generated'), { recursive: true })
-writeFileSync(resolve(root, 'src/generated/content.json'), JSON.stringify(out))
+write(resolve(root, 'src/generated/content.json'), JSON.stringify(out))
 // El índice de búsqueda solo lo usa la pantalla de búsqueda: va aparte y se carga al abrirla.
-writeFileSync(resolve(root, 'src/generated/search.json'), JSON.stringify(searchDocs))
+write(resolve(root, 'src/generated/search.json'), JSON.stringify(searchDocs))
 
 // ---------- Tokens de diseño → variables CSS ----------
 const tokens = JSON.parse(readFileSync(resolve(root, 'design/tokens.json'), 'utf8'))
@@ -415,7 +418,7 @@ for (const group of ['color', 'font', 'fontSize', 'lineHeight', 'space', 'radius
   for (const [name, def] of Object.entries(tokens[group] as Record<string, { value: string }>))
     lines.push(`  --ais-${kebab(group)}-${kebab(name)}: ${def.value};`)
 }
-writeFileSync(resolve(root, 'src/generated/tokens.css'), `/* Generado desde design/tokens.json. No editar. */\n:root {\n${lines.join('\n')}\n}\n`)
+write(resolve(root, 'src/generated/tokens.css'), `/* Generado desde design/tokens.json. No editar. */\n:root {\n${lines.join('\n')}\n}\n`)
 
 const lessonCount = (courses as any[]).reduce((n, c) => n + c.lessons.length, 0)
 console.log(`contenido: ${courses.length} curso(s), ${lessonCount} lecciones, ${Object.keys(questions).length} preguntas, ${Object.keys(productCards).length} fichas`)
