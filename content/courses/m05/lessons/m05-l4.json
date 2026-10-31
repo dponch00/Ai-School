@@ -35,7 +35,9 @@
     "m05-l4-c3",
     "m05-l4-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m05-l4-depurar"
+  ],
   "productCardIds": [
     "m05-pc-session-moves"
   ],

@@ -60,12 +60,12 @@ Cada fila lleva el identificador del activo (archivo `content/courses/mNN/diagra
 | --- | --- | --- | --- |
 | `m05-l1-tres-capas` | m05-l1#capas | ¿Qué limita a un agente? | Permisos, sandbox y red como tres capas distintas, cada una con lo que controla |
 | `m05-l3-cuatro-piezas` | m05-l3#piezas | ¿Qué lleva un encargo acotado? | Las cuatro piezas del encargo |
-| `m05-l4-depurar` | m05-l4#movimientos | ¿Cómo se depura sin perderse? | El ciclo reproducir → hipótesis → corregir → verificar, con la salida «parar a tiempo» (#parar) |
+| `m05-l4-depurar` | m05-l4#parar | ¿Cómo se depura sin perderse? | El ciclo reproducir → hipótesis → corregir → verificar, con la salida «parar a tiempo» |
 | `m05-l6-nube-remoto` | m05-l6#remoto | ¿Qué ve la sesión en la nube? | La carpeta local, el remoto y la sesión en la nube, que copia el remoto y no la carpeta |
 | `m06-l1-cuatro-capas` | m06-l1#capas | ¿Dónde ocurre cada operación? | Las cuatro capas y la responsabilidad de cada una, con el error del caso marcado |
 | `m06-l2-raw-contrato` | m06-l2#capas | ¿Qué pasa con un dato desde que llega? | Conservar, limpiar, agregar, con el contrato como filtro y las tres respuestas ante una violación (#respuestas) |
 | `m06-l5-tres-salidas` | m06-l5#determinista | ¿Qué clase de salida es? | Determinista, estadística y generativa, comparadas por lo que se puede esperar de cada una |
-| `m06-l6-reconciliar` | m06-l6#reconciliar | ¿Cómo se comprueba una cifra? | Dos caminos independientes desde los mismos datos que se comparan al final |
+| `m06-l6-reconciliar` | m06-l6#independencia | ¿Cómo se comprueba una cifra? | Dos caminos independientes desde los mismos datos que se comparan al final |
 
 ### Lote 4 · M07 y M08
 

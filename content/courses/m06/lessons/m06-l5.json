@@ -35,7 +35,9 @@
     "m06-l5-c3",
     "m06-l5-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m06-l5-tres-salidas"
+  ],
   "productCardIds": [],
   "sourceIds": [
     "src-python-statistics",

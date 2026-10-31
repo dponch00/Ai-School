@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-30 |
 | Depende de | T-059 (cerrado) |
 | Fase del plan | Mantenimiento posterior a la V1 (pedido de Daniel) |
@@ -77,3 +77,21 @@ No surgieron hallazgos corregibles. Verificado en `npm run dev`, a 360 px y en e
 - [T060-03] `m04-l5-traceback`: la figura integrada ya no nombra una línea concreta y aparece en el apartado de lectura del traceback; el rótulo `pipeline_kpis.py` sigue siendo una paráfrasis directa del caso y su alternativa coincide con el SVG.
 
 Verificaciones finales: `node scripts/build-content.ts --check` correcto; `npx vitest run src/domain` correcto (4 archivos, 186 pruebas).
+
+## Revisión
+
+_(Claude Code, 2026-10-31)_
+
+Revisé los ocho diagramas a 360 px y contrasté sus datos con las lecciones: los controles de M05 L1, las cuatro piezas, las 3 vencidas del Centro, la nube que parte del remoto, las cuatro capas, OPP-1012, OPP-1021 y «Negociacion», las tres clases de salida y OPP-1099.
+
+- **Integré los ocho,** con `reviewStatus: "approved"`. Hay un dato corregido en `m05-l4-depurar`:
+  - Decía «Dos intentos sin éxito: parar»; la lección (#parar) dice «más de dos correcciones».
+  - La flecha curva no conectaba nada. Ahora es el ciclo que vuelve de «Verificar» a «Reproducir», con una salida punteada, «si no se resuelve», hacia «parar». Actualicé el `alt` y el `desc`.
+- **Ubicaciones:**
+  - `m05-l4-depurar` va en `#parar`, porque `#movimientos` trata de limpiar, compactar, bifurcar y volver atrás. El error era del plan, que también corregí.
+  - `m06-l6-reconciliar` va en `#independencia`, más cerca del caso OPP-1099.
+  - `m06-l1-cuatro-capas`, `m01-l4-tres-verificaciones` y `m02-l1-objetivo` quedaban entre una frase que termina en «:» y su lista o tabla. Ahora van después.
+- **Tu revisión del lote 2:** sin hallazgos. La tomé como confirmación.
+
+**Verificación:** `npm test` 250/250 y E2E 164/164.
+

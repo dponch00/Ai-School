@@ -32,7 +32,9 @@
     "m06-l1-c3",
     "m06-l1-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m06-l1-cuatro-capas"
+  ],
   "productCardIds": [
     "m06-pc-sql-warehouse"
   ],

@@ -4,7 +4,7 @@
 
 ## Siguiente acción
 
-1. **Codex:** T-060, diagramas del lote 3 (M05 y M06) y revisión del lote 2 integrado.
+1. **Codex:** T-061, diagramas del lote 4 (M07 y M08) y revisión del lote 3 integrado.
 2. **Claude:** el 2026-12-01, revisar las fichas y fuentes que vencen (`python scripts/fichas-por-revisar.py 35`). Lo demás que queda abierto está en `docs/continuacion.md`. El 2026-12-01, revisar las fichas que vencen (`python scripts/fichas-por-revisar.py 35` antes del 2026-11-01).
 4. **Licencia:** sin licencia, por decisión de Daniel (2026-10-27). En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
 3. **Daniel (a su ritmo):** estudiar los manuales en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
@@ -87,7 +87,8 @@
 | [T-057](coordinacion/tickets/T-057-codex-terminos-faltantes-glosario.md) | Codex | Términos que faltan en el glosario | cerrado |
 | [T-058](coordinacion/tickets/T-058-codex-diagramas-lote-1.md) | Codex | Diagramas explicativos, lote 1 (M01 y M02) | cerrado |
 | [T-059](coordinacion/tickets/T-059-codex-diagramas-lote-2.md) | Codex | Diagramas, lote 2 (M03 y M04) y revisión del lote 1 | cerrado |
-| [T-060](coordinacion/tickets/T-060-codex-diagramas-lote-3.md) | Codex | Diagramas, lote 3 (M05 y M06) y revisión del lote 2 | abierto |
+| [T-060](coordinacion/tickets/T-060-codex-diagramas-lote-3.md) | Codex | Diagramas, lote 3 (M05 y M06) y revisión del lote 2 | cerrado |
+| [T-061](coordinacion/tickets/T-061-codex-diagramas-lote-4.md) | Codex | Diagramas, lote 4 (M07 y M08) y revisión del lote 3 | abierto |
 
 ## En curso (no tocar estos archivos)
 
@@ -100,6 +101,14 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-31 · Claude Code — Lote 3 de diagramas integrado (T-060)
+- **Integrados:** ocho diagramas en M05 y M06.
+- **Dato corregido:** el umbral de «parar» en M05 L4 es «más de dos correcciones», no «dos intentos».
+- **Ubicaciones:** cinco figuras cambiaron de lugar, incluido un error del plan en M05 L4.
+- **Avance:** 28 de 43 diagramas publicados.
+- **Verificación:** `npm test` 250/250 y E2E 164/164. Publicado.
+- **Siguiente:** T-061.
 
 ### 2026-10-30 · Claude Code — Lote 2 de diagramas integrado (T-059)
 - **Integrados:** nueve diagramas en M03 y M04, con dos ajustes: un número de línea inventado y la ubicación en M04 L1.

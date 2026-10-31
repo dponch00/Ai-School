@@ -32,7 +32,9 @@
     "m05-l1-c3",
     "m05-l1-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m05-l1-tres-capas"
+  ],
   "productCardIds": [
     "m05-pc-permission-modes"
   ],

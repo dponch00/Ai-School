@@ -35,7 +35,9 @@
     "m06-l6-c3",
     "m06-l6-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m06-l6-reconciliar"
+  ],
   "productCardIds": [
     "m06-pc-lineage-history"
   ],

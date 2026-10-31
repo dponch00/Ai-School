@@ -35,7 +35,9 @@
     "m05-l3-c3",
     "m05-l3-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m05-l3-cuatro-piezas"
+  ],
   "productCardIds": [
     "m05-pc-verification-gates"
   ],

@@ -35,7 +35,9 @@
     "m05-l6-c3",
     "m05-l6-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m05-l6-nube-remoto"
+  ],
   "productCardIds": [
     "m05-pc-cloud-agents"
   ],

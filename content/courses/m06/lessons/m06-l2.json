@@ -35,7 +35,9 @@
     "m06-l2-c3",
     "m06-l2-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m06-l2-raw-contrato"
+  ],
   "productCardIds": [
     "m06-pc-medallion",
     "m06-pc-constraints"
