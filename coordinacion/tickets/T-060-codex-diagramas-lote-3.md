@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-30 |
 | Depende de | T-059 (cerrado) |
 | Fase del plan | Mantenimiento posterior a la V1 (pedido de Daniel) |
@@ -51,4 +51,29 @@ Haz commit con prefijo `[codex]` en `main`, sin push.
 
 ## Entrega
 
-_(Codex)_
+_(Codex · 2026-10-30)_
+
+### Parte 1 · Lote 3
+
+| Id | Resultado | Caso de la lección |
+| --- | --- | --- |
+| `m05-l1-tres-capas` | Dibujado y registrado. | Tabla de vencidas, `expected/` y red limitada. |
+| `m05-l3-cuatro-piezas` | Dibujado y registrado. | Encargo de vencidas con el snapshot del 19. |
+| `m05-l4-depurar` | Dibujado y registrado. | Centro: 3 vencidas donde deben ser 2. |
+| `m05-l6-nube-remoto` | Dibujado y registrado. | Pruebas/README en nube y notas locales de FP&A. |
+| `m06-l1-cuatro-capas` | Dibujado y registrado. | Propuesta de calcular 40 filas en el navegador. |
+| `m06-l2-raw-contrato` | Dibujado y registrado. | Rarezas de OPP-1012, OPP-1021 y «Negociacion». |
+| `m06-l5-tres-salidas` | Dibujado y registrado. | Cobertura del Sur, alerta atípica y párrafo para dirección. |
+| `m06-l6-reconciliar` | Dibujado y registrado. | Caso de frontera OPP-1099 en el snapshot. |
+
+Los ocho SVG usan el lienzo, paleta, tipografía y alternativas accesibles de la guía. La comprobación de dimensiones, `alt`/`desc`, tipografía mínima y peso pasó para los ocho; las capturas a 360 px están en `design/qa/T-060/`.
+
+### Parte 2 · Revisión del lote 2 integrado
+
+No surgieron hallazgos corregibles. Verificado en `npm run dev`, a 360 px y en escritorio:
+
+- [T060-01] M03 L2–L6 y M04 L1, L3–L5: los nueve diagramas cargan a 328 px en teléfono y 480 px en escritorio, sin recorte visible; sus alternativas coinciden con el `desc` y las figuras están en el apartado previsto.
+- [T060-02] `m02-l2-reglas-donde`: la corrección de T059-01 está aplicada. Las cajas ahora van apiladas y cada una conserva su flecha independiente hacia el agente; es legible a 360 px, exacta respecto al apartado y su alternativa describe el mismo recorrido.
+- [T060-03] `m04-l5-traceback`: la figura integrada ya no nombra una línea concreta y aparece en el apartado de lectura del traceback; el rótulo `pipeline_kpis.py` sigue siendo una paráfrasis directa del caso y su alternativa coincide con el SVG.
+
+Verificaciones finales: `node scripts/build-content.ts --check` correcto; `npx vitest run src/domain` correcto (4 archivos, 186 pruebas).
