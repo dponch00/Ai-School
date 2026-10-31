@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-30 |
 | Depende de | T-058 (cerrado) |
 | Fase del plan | Mantenimiento posterior a la V1 (pedido de Daniel) |
@@ -58,4 +58,30 @@ Haz commit con prefijo `[codex]` en `main`, sin push.
 
 ## Entrega
 
-_(Codex)_
+_(Codex · 2026-10-30)_
+
+### Parte 1 · Lote 2
+
+| Id | Resultado | Caso de la lección |
+| --- | --- | --- |
+| `m03-l2-capas-precedencia` | Dibujado y registrado. | La regla de USD del pipeline y la contradicción con moneda local. |
+| `m03-l3-cuatro-preguntas` | Dibujado y registrado. | Pruebas, SQL, cierre semanal y tabla de probabilidades de Altiplano. |
+| `m03-l4-carga-progresiva` | Dibujado y registrado. | Skill del cierre semanal y sus snapshots. |
+| `m03-l5-continuidad` | Dibujado y registrado. | Decisión del viernes sobre duplicados y verificación del lunes. |
+| `m03-l6-justo-a-tiempo` | Dibujado y registrado. | Pregunta del comité sobre la cobertura del Sur. |
+| `m04-l1-caja-funcion` | Dibujado y registrado. | Límite del 31 de diciembre y OPP-1038 del Sur. |
+| `m04-l3-defensas-secretos` | Dibujado y registrado. | Token ficticio del CRM que llega a `.env`. |
+| `m04-l4-tres-lugares` | Dibujado y registrado. | Cambio del operador de trimestre entre carpeta, índice y commit. |
+| `m04-l5-traceback` | Dibujado y registrado. | Archivo propio del pipeline como punto de lectura del traceback. |
+
+Los nueve usan lienzo de 480, fondo y paleta del sistema, texto de 15 unidades o más, y `title`/`desc` coherentes con `alt`. La medición conservadora de líneas (7,5 unidades por carácter a 16) no detectó texto fuera de su ancho útil. Se guardaron las nueve capturas de 360 px en `design/qa/T-059/`.
+
+### Parte 2 · Revisión del lote 1 integrado
+
+- [T059-01] Severidad: baja
+  Ubicación: `content/courses/m02/diagrams/m02-l2-reglas-donde.svg`; figura tras el primer párrafo de `m02-l2#capas`.
+  Evidencia: a 360 px las cajas «Proyecto» y «Tarea» siguen legibles y ambas flechas llegan correctamente al agente, pero están lado a lado. La guía `design/diagramas/estilo.md` pide apilar dos vías para conservar el orden de lectura vertical; los rótulos de las cajas son por ello más compactos que los del resto del lote.
+  Consecuencia: no cambia el significado, pero rompe la pauta móvil del sistema y deja menos margen a futuras traducciones o textos de caso más largos.
+  Corrección recomendada: apilar «Proyecto» y «Tarea» y hacer que cada flecha llegue de forma independiente al agente, conservando los ejemplos de cálculos en Python y `kpis.py`.
+
+Verificado en `npm run dev`: los 11 diagramas del lote 1 se cargan a 360 px y en escritorio, están después del primer párrafo de su apartado y sus textos alternativos describen el mismo recorrido que las figuras (la diferencia `FP&amp;A`/`FP&A` en M02 L1 es solo el escape XML). Verificaciones finales: `node scripts/build-content.ts --check` correcto; `npx vitest run src/domain` correcto (4 archivos, 186 pruebas).

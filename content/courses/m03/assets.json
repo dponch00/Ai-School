@@ -20,5 +20,30 @@
       "height": 720
     },
     "reviewStatus": "pending"
+  },
+  {
+    "id": "m03-l2-capas-precedencia", "courseId": "m03", "file": "content/courses/m03/diagrams/m03-l2-capas-precedencia.svg", "function": "organize",
+    "pedagogicalQuestion": "¿Qué instrucción gana cuando las capas se contradicen?", "whyNotTextOrSvg": "Es un SVG hecho con código: hace visible que las capas se leen como contexto y que una contradicción de moneda se resuelve en el origen.",
+    "alt": "Las instrucciones de organización, usuario, proyecto, subcarpeta y personales se leen como contexto; si dos reglas de moneda se contradicen, se elimina una en lugar de confiar en un orden.", "dimensions": { "width": 480, "height": 760 }, "reviewStatus": "pending"
+  },
+  {
+    "id": "m03-l3-cuatro-preguntas", "courseId": "m03", "file": "content/courses/m03/diagrams/m03-l3-cuatro-preguntas.svg", "function": "organize",
+    "pedagogicalQuestion": "¿En qué capa va cada pieza del pipeline de Altiplano?", "whyNotTextOrSvg": "Es un SVG hecho con código: conecta las cuatro preguntas con las piezas concretas del caso sin convertirlas en una lista desconectada.",
+    "alt": "Cuatro preguntas ordenan las piezas del pipeline de Altiplano: pruebas siempre en la instrucción permanente, convenciones SQL por rutas, cierre semanal en una skill y la prohibición de editar probabilidades en un control determinista.", "dimensions": { "width": 480, "height": 850 }, "reviewStatus": "pending"
+  },
+  {
+    "id": "m03-l4-carga-progresiva", "courseId": "m03", "file": "content/courses/m03/diagrams/m03-l4-carga-progresiva.svg", "function": "explain",
+    "pedagogicalQuestion": "¿Por qué una skill puede contener mucho material sin llenar el contexto?", "whyNotTextOrSvg": "Es un SVG hecho con código: separa los tres momentos de carga de la skill semanal en el orden que explica la lección.",
+    "alt": "La skill de reconciliación semanal carga primero su nombre y descripción, al activarse su cuerpo y solo cuando hace falta los recursos sobre snapshots, etapas y duplicados.", "dimensions": { "width": 480, "height": 700 }, "reviewStatus": "pending"
+  },
+  {
+    "id": "m03-l5-continuidad", "courseId": "m03", "file": "content/courses/m03/diagrams/m03-l5-continuidad.svg", "function": "organize",
+    "pedagogicalQuestion": "¿Qué sobrevive de una sesión del viernes a otra del lunes?", "whyNotTextOrSvg": "Es un SVG hecho con código: muestra la ruta de los artefactos que unen dos sesiones sin atribuir memoria al chat.",
+    "alt": "La sesión del viernes termina sin que el compañero recuerde su chat; los artefactos escritos transmiten la decisión de conservar el duplicado más reciente, el estado y la verificación al lunes.", "dimensions": { "width": 480, "height": 720 }, "reviewStatus": "pending"
+  },
+  {
+    "id": "m03-l6-justo-a-tiempo", "courseId": "m03", "file": "content/courses/m03/diagrams/m03-l6-justo-a-tiempo.svg", "function": "explain",
+    "pedagogicalQuestion": "¿Conviene precargar todo o recuperar fuentes cuando hacen falta?", "whyNotTextOrSvg": "Es un SVG hecho con código: contrapone dos cargas de contexto sobre la misma pregunta del comité y hace visible su diferencia.",
+    "alt": "Para explicar la cobertura del Sur, precargar todo ocupa el contexto con diccionario, snapshots, historial y actas; recuperar justo a tiempo conserva referencias ligeras y trae solo el fragmento necesario.", "dimensions": { "width": 480, "height": 710 }, "reviewStatus": "pending"
   }
 ]

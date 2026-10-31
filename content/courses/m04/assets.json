@@ -1,0 +1,22 @@
+[
+  {
+    "id": "m04-l1-caja-funcion", "courseId": "m04", "file": "content/courses/m04/diagrams/m04-l1-caja-funcion.svg", "function": "explain",
+    "pedagogicalQuestion": "¿Qué cambia un solo carácter en la condición del trimestre?", "whyNotTextOrSvg": "Es un SVG hecho con código: conecta la entrada de frontera con las dos salidas y el caso de OPP-1038 del Sur.",
+    "alt": "La función recibe una fecha y decide si cae en el cuarto trimestre. Con menor o igual, el 31 de diciembre devuelve verdadero; con menor estricto, devuelve falso y excluye la oportunidad OPP-1038 del Sur.", "dimensions": { "width": 480, "height": 720 }, "reviewStatus": "pending"
+  },
+  {
+    "id": "m04-l3-defensas-secretos", "courseId": "m04", "file": "content/courses/m04/diagrams/m04-l3-defensas-secretos.svg", "function": "organize",
+    "pedagogicalQuestion": "¿En qué momentos se puede detener un secreto antes de que se publique?", "whyNotTextOrSvg": "Es un SVG hecho con código: ordena las defensas desde el cambio local hasta el servidor sobre el mismo token ficticio.",
+    "alt": "El token del CRM se puede detectar antes del commit con un escáner o hook, en integración continua y al enviar al servidor con protección de envíos; las capas se combinan porque ninguna detecta todo.", "dimensions": { "width": 480, "height": 700 }, "reviewStatus": "pending"
+  },
+  {
+    "id": "m04-l4-tres-lugares", "courseId": "m04", "file": "content/courses/m04/diagrams/m04-l4-tres-lugares.svg", "function": "organize",
+    "pedagogicalQuestion": "¿Dónde está un cambio y qué operación sirve para deshacerlo?", "whyNotTextOrSvg": "Es un SVG hecho con código: relaciona los tres estados de Git con las tres operaciones de recuperación en el caso del trimestre.",
+    "alt": "El cambio del operador de trimestre pasa por carpeta de trabajo, índice y commit. Restore recupera un archivo, revert crea un commit que deshace otro y reset reescribe la historia.", "dimensions": { "width": 480, "height": 780 }, "reviewStatus": "pending"
+  },
+  {
+    "id": "m04-l5-traceback", "courseId": "m04", "file": "content/courses/m04/diagrams/m04-l5-traceback.svg", "function": "explain",
+    "pedagogicalQuestion": "¿Cómo se lee un traceback para encontrar un punto útil de partida?", "whyNotTextOrSvg": "Es un SVG hecho con código: invierte visualmente el orden de lectura y separa la causa final del primer archivo propio.",
+    "alt": "Un traceback del pipeline muestra arriba el recorrido de archivos y abajo el tipo de error y su mensaje; al subir, el primer archivo del proyecto es el mejor lugar para empezar a mirar.", "dimensions": { "width": 480, "height": 690 }, "reviewStatus": "pending"
+  }
+]
