@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 650" role="img" aria-labelledby="title desc">
+  <title id="title">Dónde poner cada regla</title>
+  <desc id="desc">Las reglas que se repiten viven en un archivo de instrucciones, las reglas de una tarea viven en el prompt y ambas llegan al agente.</desc>
+  <rect width="480" height="650" rx="18" fill="#FFFDF7"/>
+  <text x="36" y="52" fill="#172A33" font-family="Fraunces, Georgia, serif" font-size="23" font-weight="700">Dónde poner cada regla</text>
+  <text x="36" y="81" fill="#4D6265" font-family="Source Serif 4, Georgia, serif" font-size="16">Separa lo estable de lo que cambia con la tarea.</text>
+  <rect x="48" y="119" width="384" height="142" rx="14" fill="#fff" stroke="#778984" stroke-width="2"/>
+  <text x="72" y="156" fill="#A94E2B" font-family="Source Serif 4, Georgia, serif" font-size="16" font-weight="700">PROYECTO</text>
+  <text x="72" y="191" fill="#172A33" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="700">Archivo de instrucciones</text>
+  <text x="72" y="220" fill="#4D6265" font-family="Source Serif 4, Georgia, serif" font-size="16">Reglas que se repiten entre tareas.</text>
+  <path d="M240 261v52" fill="none" stroke="#778984" stroke-width="3" stroke-linecap="round"/>
+  <path d="M233 305l7 9 7-9" fill="none" stroke="#778984" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="48" y="332" width="384" height="142" rx="14" fill="#fff" stroke="#778984" stroke-width="2"/>
+  <text x="72" y="369" fill="#A94E2B" font-family="Source Serif 4, Georgia, serif" font-size="16" font-weight="700">TAREA</text>
+  <text x="72" y="404" fill="#172A33" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="700">Prompt</text>
+  <text x="72" y="433" fill="#4D6265" font-family="Source Serif 4, Georgia, serif" font-size="16">Reglas que sirven para este encargo.</text>
+  <path d="M240 474v42" fill="none" stroke="#778984" stroke-width="3" stroke-linecap="round"/>
+  <path d="M233 508l7 9 7-9" fill="none" stroke="#778984" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="120" y="535" width="240" height="66" rx="14" fill="#DCECF5" stroke="#006E74" stroke-width="3"/>
+  <text x="240" y="576" text-anchor="middle" fill="#172A33" font-family="Fraunces, Georgia, serif" font-size="21" font-weight="700">Agente</text>
+  <text x="240" y="631" text-anchor="middle" fill="#A94E2B" font-family="Source Serif 4, Georgia, serif" font-size="16" font-weight="700">Cada regla tiene una casa clara.</text>
+</svg>

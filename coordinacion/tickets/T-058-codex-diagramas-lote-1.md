@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-30 |
 | Depende de | T-057 (cerrado) |
 | Fase del plan | Mantenimiento posterior a la V1 (pedido de Daniel) |
@@ -61,4 +61,20 @@ Haz commit con prefijo `[codex]` en `main`, sin push.
 
 ## Entrega
 
-_(Codex)_
+_(Codex · 2026-10-30)_
+
+| Id | Resultado | Dudas de contenido |
+| --- | --- | --- |
+| `m01-l1-cinco-capas` | Dibujado; capas anidadas para distinguir modelo, agente, producto, superficie y entorno. | Ninguna. |
+| `m01-l2-elegir-herramienta` | Dibujado; árbol de cuatro preguntas y sus cuatro salidas. | Ninguna. |
+| `m01-l3-ventana-contexto` | Dibujado; contenido y límite de la ventana de contexto. | Ninguna. |
+| `m01-l4-tres-verificaciones` | Dibujado; tres afirmaciones vinculadas a su verificación correspondiente. | Ninguna. |
+| `m01-l5-local-nube` | Dibujado; las tres situaciones de ejecución local y en nube. | Ninguna. |
+| `m01-l6-comparar` | Dibujado; ensayos con tarea fija y criterio crítico. | Ninguna. |
+| `m02-l1-objetivo` | Dibujado; quién, para qué, cuándo y criterio de cierre. | Ninguna. |
+| `m02-l2-reglas-donde` | Dibujado; separación entre instrucciones de proyecto y prompt de tarea. | Ninguna. |
+| `m02-l3-forma-verdad` | Dibujado; filtro de forma separado del filtro de sentido. | Ninguna. |
+| `m02-l5-hitos` | Dibujado; hitos comprobables y retorno al origen del error. | Ninguna. |
+| `m02-l6-criterio-evidencia` | Dibujado; cadena de criterio, resultado observable, comprobación y evidencia. | Ninguna. |
+
+Los once SVG se registraron con `reviewStatus: "pending"`; sus descripciones accesibles, dimensiones y capturas a 360 px se revisaron. No se modificó ninguna lección. Verificaciones: `node scripts/build-content.ts --check` correcto; `npx vitest run src/domain` correcto (4 archivos, 186 pruebas).

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 710" role="img" aria-labelledby="title desc">
+  <title id="title">Hitos que hacen visible el avance</title>
+  <desc id="desc">Un plan divide el trabajo en hitos, comprueba cada uno y, si aparece un error, lo corrige donde nació antes de continuar.</desc>
+  <rect width="480" height="710" rx="18" fill="#FFFDF7"/>
+  <text x="36" y="52" fill="#172A33" font-family="Fraunces, Georgia, serif" font-size="23" font-weight="700">Hitos que hacen visible el avance</text>
+  <text x="36" y="81" fill="#4D6265" font-family="Source Serif 4, Georgia, serif" font-size="16">Un plan útil permite comprobar sin esperar al final.</text>
+  <rect x="72" y="118" width="336" height="68" rx="14" fill="#DCECF5" stroke="#006E74" stroke-width="3"/>
+  <text x="240" y="160" text-anchor="middle" fill="#172A33" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="700">Hito 1: preparar</text>
+  <path d="M240 186v26" fill="none" stroke="#778984" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="240" cy="229" r="17" fill="#23694D"/>
+  <path d="M232 229l5 5 11-12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="270" y="235" fill="#4D6265" font-family="Source Serif 4, Georgia, serif" font-size="16">comprobar</text>
+  <path d="M240 246v26" fill="none" stroke="#778984" stroke-width="3" stroke-linecap="round"/>
+  <rect x="72" y="272" width="336" height="68" rx="14" fill="#fff" stroke="#778984" stroke-width="2"/>
+  <text x="240" y="314" text-anchor="middle" fill="#172A33" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="700">Hito 2: ejecutar</text>
+  <path d="M240 340v26" fill="none" stroke="#778984" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="240" cy="383" r="17" fill="#23694D"/>
+  <path d="M232 383l5 5 11-12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="270" y="389" fill="#4D6265" font-family="Source Serif 4, Georgia, serif" font-size="16">comprobar</text>
+  <path d="M240 400v26" fill="none" stroke="#778984" stroke-width="3" stroke-linecap="round"/>
+  <rect x="72" y="426" width="336" height="68" rx="14" fill="#fff" stroke="#778984" stroke-width="2"/>
+  <text x="240" y="468" text-anchor="middle" fill="#172A33" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="700">Hito 3: entregar</text>
+  <path d="M132 551c0-28 26-42 53-42h71c27 0 53 14 53 42" fill="none" stroke="#A94E2B" stroke-width="3" stroke-linecap="round"/>
+  <path d="M299 542l10 9-13 4" fill="none" stroke="#A94E2B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="240" y="584" text-anchor="middle" fill="#A94E2B" font-family="Source Serif 4, Georgia, serif" font-size="17" font-weight="700">Si falla, corrige donde nació el error.</text>
+  <rect x="36" y="620" width="408" height="55" rx="12" fill="#172A33"/>
+  <text x="240" y="655" text-anchor="middle" fill="#FFFDF7" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="700">Avanzar no es ocultar una falla.</text>
+</svg>
