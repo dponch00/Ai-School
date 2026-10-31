@@ -81,10 +81,10 @@ interface ContentData {
   courses: CourseView[]
   competencies: Record<string, Competency>
   diagnostic: { form: DiagnosticForm }
-  glossary: GlossaryTerm[]
+  glossary: (GlossaryTerm & { usedIn: string[] })[]
   /** Solo las del diagnóstico: las de cada curso viajan en su paquete. */
   questions: Record<string, Question>
-  sources: Record<string, { id: string; title: string; organization: string; url: string }>
+  sources: Record<string, { id: string; title: string; organization: string; url: string; accessedAt: string }>
 }
 
 export const content = data as unknown as ContentData

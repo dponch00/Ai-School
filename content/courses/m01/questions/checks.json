@@ -1273,6 +1273,50 @@
     "status": "draft"
   },
   {
+    "id": "m01-l5-c5",
+    "version": 1,
+    "use": "check",
+    "courseId": "m01",
+    "lessonId": "m01-l5",
+    "evaluatedObjectiveId": "m01-eo5",
+    "competencyIds": [
+      "C01"
+    ],
+    "difficulty": "base",
+    "process": "apply",
+    "scenario": "Cada viernes llegan unas 300 respuestas de una encuesta de clientes, y hay que clasificar cada una en uno de cinco motivos, siempre con las mismas instrucciones. Hoy una analista las pega en el chat de a diez.",
+    "stem": "¿Qué propones para el próximo viernes?",
+    "options": [
+      {
+        "id": "o1",
+        "text": "Pegar las respuestas de a cincuenta en el mismo chat, para terminar en menos tiempo",
+        "correct": false,
+        "feedback": "Sigue haciendo falta una persona que pegue y copie en cada tanda. Además, cuanto más largo el historial, más consume cada mensaje.",
+        "misconceptionId": "m01-mc40"
+      },
+      {
+        "id": "o2",
+        "text": "Un script que envíe cada respuesta por la API y anote el motivo en la planilla",
+        "correct": true,
+        "feedback": "Correcta. Es un volumen repetido con las mismas instrucciones, justo lo que la API resuelve sin que nadie intervenga. Se paga por tokens y la clave se guarda como un secreto."
+      },
+      {
+        "id": "o3",
+        "text": "Pedirle al chat que recuerde las instrucciones y seguir pegándolas de a diez",
+        "correct": false,
+        "feedback": "Recordar las instrucciones no quita el trabajo de pegar y copiar cada tanda. El cuello de botella es la persona, no las instrucciones.",
+        "misconceptionId": "m01-mc40"
+      }
+    ],
+    "fixedOrder": false,
+    "sectionRef": "m01-l5#api",
+    "sourceIds": [
+      "src-anthropic-get-started",
+      "src-openai-text-generation"
+    ],
+    "status": "draft"
+  },
+  {
     "id": "m01-l5-r1",
     "version": 1,
     "use": "check",

@@ -364,5 +364,15 @@
     "sourceIds": [
       "src-anthropic-develop-tests"
     ]
+  },
+  {
+    "id": "m01-mc40",
+    "courseId": "m01",
+    "description": "Un trabajo repetido se resuelve igual de bien en el chat, pegando más texto por vez o pidiéndole que recuerde las instrucciones.",
+    "whyWrong": "El chat necesita a una persona en cada paso; la API deja que un programa envíe cada caso con las mismas instrucciones y guarde el resultado sin intervención.",
+    "sourceIds": [
+      "src-anthropic-get-started",
+      "src-openai-text-generation"
+    ]
   }
 ]

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "m01-l5-chat-api",
+    "courseId": "m01",
+    "file": "content/courses/m01/diagrams/m01-l5-chat-api.svg",
+    "function": "explain",
+    "pedagogicalQuestion": "¿En qué se diferencia usar el modelo desde el chat de usarlo por su API, y por qué la API conviene para un volumen repetido?",
+    "whyNotTextOrSvg": "Es un SVG hecho con código: compara las dos vías con etiquetas exactas (solicitud, respuesta, clave de API) y el mismo caso de las 1 200 notas. Una ilustración generada no podría llevar texto.",
+    "alt": "Dos vías para usar el mismo modelo. En el chat, una persona pega cada nota en la ventana de chat y lee la respuesta del modelo: 1 200 notas son 1 200 veces pegar y copiar. Con la API, un script con la clave de API toma las 1 200 notas, envía una solicitud por nota al modelo, recibe cada respuesta y anota cliente, acción, fecha y monto en una planilla, sin que nadie intervenga.",
+    "dimensions": {
+      "width": 480,
+      "height": 800
+    },
+    "reviewStatus": "pending"
+  }
+]

@@ -1,7 +1,8 @@
-import type { ReactNode } from 'react'
+import { useState, type MouseEvent, type ReactNode } from 'react'
 import type { Block, CoursePackage } from '../content'
 import ProductCardView from './ProductCardView'
 import { handleAnchorClick } from './anchors'
+import RelationPanel, { relationFromClick, type Relation } from './RelationPanel'
 
 interface Props {
   blocks: Block[]
@@ -19,8 +20,17 @@ const today = new Date().toISOString().slice(0, 10)
 
 export default function LessonBlocks({ blocks, checks, labQuestions, sources, productCards = {}, assets = {} }: Props) {
   const sourceById = new Map(sources.map((s) => [s.id, s]))
+  const [relations, setRelations] = useState<Relation[]>([])
+  // Términos, referencias y citas se abren en el panel lateral; el resto de los enlaces internos, como antes.
+  const onClick = (e: MouseEvent) => {
+    const relation = relationFromClick(e)
+    if (!relation) return handleAnchorClick(e)
+    e.preventDefault()
+    setRelations([relation])
+  }
   return (
-    <div className="lesson-body" onClick={handleAnchorClick}>
+    <div className="lesson-body" onClick={onClick}>
+      <RelationPanel stack={relations} onChange={setRelations} />
       {blocks.map((b, i) => {
         if (b.type === 'html') return <div key={i} className="prose" dangerouslySetInnerHTML={{ __html: b.html }} />
         if (b.type === 'check-questions') return <div key={i}>{checks}</div>

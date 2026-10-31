@@ -38,6 +38,17 @@ interface Rendered {
   blocks: Block[]
   toc: { id: string; text: string }[]
   citations: string[]
+  /** Términos del glosario (`:term`) y relaciones con otros manuales o lecciones (`:ref`), para validarlos. */
+  terms: string[]
+  refs: string[]
+}
+
+/** Destino de `:ref[…]{to=…}`: un manual (`m07`), una lección (`m07-l1`) o un apartado (`m07-l1#contrato`). */
+const REF_TARGET = /^(m\d{2})(?:-(l\d)(?:#([a-z0-9-]+))?)?$/
+function refHref(to: string): string {
+  const [, courseId, lessonPart, anchor] = to.match(REF_TARGET)!
+  if (!lessonPart) return `#/cursos/${courseId}`
+  return `#/cursos/${courseId}/lecciones/${courseId}-${lessonPart}${anchor ? `?seccion=${anchor}` : ''}`
 }
 
 const CONTAINERS: Record<string, { tag: string; className: string; label?: string }> = {
@@ -53,7 +64,7 @@ const CONTAINERS: Record<string, { tag: string; className: string; label?: strin
 }
 const LEAVES = new Set(['product-card', 'figure', 'check-questions', 'lab-questions'])
 
-function lessonPlugin(state: { citations: string[]; toc: { id: string; text: string }[]; file: string }) {
+function lessonPlugin(state: { citations: string[]; toc: { id: string; text: string }[]; terms: string[]; refs: string[]; file: string }) {
   return () => (tree: MdastRoot) => {
     visit(tree, (node: any, index, parent: any) => {
       if (node.type === 'heading') {
@@ -98,6 +109,22 @@ function lessonPlugin(state: { citations: string[]; toc: { id: string; text: str
         parent.children.splice(index, 1, ...out)
         return index + out.length
       }
+      if (node.type === 'textDirective' && node.name === 'term') {
+        // :term[texto]{id=g-…} abre la definición en el panel lateral; sin JavaScript lleva al glosario.
+        const id = node.attributes?.id ?? ''
+        if (!/^g-[a-z0-9-]+$/.test(id)) throw new Error(`${state.file}: :term sin id de glosario válido («${id}»)`)
+        state.terms.push(id)
+        node.data = { hName: 'a', hProperties: { className: ['term'], href: `#/glosario?termino=${id}`, dataTerm: id } }
+        return
+      }
+      if (node.type === 'textDirective' && node.name === 'ref') {
+        // :ref[texto]{to=m07-l1#contrato} abre el manual, la lección o el apartado en el panel lateral.
+        const to = node.attributes?.to ?? ''
+        if (!REF_TARGET.test(to)) throw new Error(`${state.file}: :ref con destino inválido («${to}»)`)
+        state.refs.push(to)
+        node.data = { hName: 'a', hProperties: { className: ['xref'], href: refHref(to), dataRef: to } }
+        return
+      }
       if (node.type === 'textDirective') {
         if (node.name !== 'cite') throw new Error(`${state.file}: directiva de texto desconocida «:${node.name}» (¿un «:» seguido de letra en el texto?)`)
         const id = node.children.map((c: any) => c.value).join('')
@@ -117,10 +144,12 @@ const sanitizeSchema = {
   tagNames: [...(defaultSchema.tagNames ?? []), 'section', 'aside', 'details', 'summary', 'sup'],
   attributes: {
     ...defaultSchema.attributes,
-    '*': [...(defaultSchema.attributes?.['*'] ?? []), 'className', 'id', 'dataBlock', 'dataId', 'dataSource'],
+    '*': [...(defaultSchema.attributes?.['*'] ?? []), 'className', 'id', 'dataBlock', 'dataId', 'dataSource', 'dataTerm', 'dataRef'],
     code: [['className', /^language-./]],
     // El esquema por defecto restringe la clase de section a 'footnotes'; aquí usamos las nuestras.
     section: ['className', 'id'],
+    // El esquema por defecto limita la clase de los enlaces a las notas al pie; aquí van term y xref (`:term`, `:ref`).
+    a: [...(defaultSchema.attributes?.a ?? []).filter((x) => !(Array.isArray(x) && x[0] === 'className')), ['className', 'term', 'xref']],
     aside: ['className'],
     details: ['className'],
   },
@@ -164,7 +193,7 @@ function rehypeCodeBlocks() {
 }
 
 function renderMarkdown(md: string, file: string): Rendered {
-  const state = { citations: [] as string[], toc: [] as { id: string; text: string }[], file }
+  const state = { citations: [] as string[], toc: [] as { id: string; text: string }[], terms: [] as string[], refs: [] as string[], file }
   const processor = unified()
     .use(remarkParse)
     .use(remarkGfm)
@@ -195,7 +224,7 @@ function renderMarkdown(md: string, file: string): Rendered {
     else blocks.push({ type: block as 'product-card' | 'figure', id })
   }
   flush()
-  return { blocks, toc: state.toc, citations: state.citations }
+  return { blocks, toc: state.toc, citations: state.citations, terms: state.terms, refs: state.refs }
 }
 
 // ---------- Construcción ----------
@@ -207,6 +236,8 @@ const questions: Record<string, unknown> = {}
 const productCards: Record<string, unknown> = {}
 const assets: Record<string, unknown> = {}
 const courses: unknown[] = []
+/** Dónde se usa cada `:term` y cada `:ref`, para validarlos cuando ya se conocen todas las lecciones. */
+const relationUses: { file: string; lessonId: string | null; terms: string[]; refs: string[] }[] = []
 /** Lo pesado de cada curso (preguntas, fichas, activos) va en su propio paquete (F2-05). */
 const coursePieces = new Map<string, { questions: Record<string, unknown>; productCards: Record<string, unknown>; assets: Record<string, unknown> }>()
 mkdirSync(resolve(root, 'public/generated'), { recursive: true })
@@ -243,6 +274,7 @@ for (const courseId of readdirSync(resolve(contentDir, 'courses'))) {
     .map((id) => {
       const lesson = Lesson.parse(readJson(`${base}/lessons/${id}.json`))
       const rendered = renderMarkdown(readFileSync(resolve(contentDir, lesson.bodyPath), 'utf8'), lesson.bodyPath)
+      relationUses.push({ file: lesson.bodyPath, lessonId: lesson.id, terms: rendered.terms, refs: rendered.refs })
       return { ...lesson, toc: rendered.toc, blocks: rendered.blocks, sources: cite(rendered.citations) }
     })
 
@@ -251,6 +283,7 @@ for (const courseId of readdirSync(resolve(contentDir, 'courses'))) {
   if (existsSync(resolve(contentDir, labPath))) {
     const lab = Practice.parse(readJson(labPath))
     const rendered = renderMarkdown(readFileSync(resolve(contentDir, lab.instructionsPath), 'utf8'), lab.instructionsPath)
+    relationUses.push({ file: lab.instructionsPath, lessonId: null, terms: rendered.terms, refs: rendered.refs })
     // Caso práctico (D-024): cada pregunta existe, es de laboratorio y su paso tiene una marca ::lab-questions.
     const steps = new Set(rendered.blocks.flatMap((b) => (b.type === 'lab-questions' ? [b.id] : [])))
     for (const id of lab.questionIds) {
@@ -270,13 +303,31 @@ for (const courseId of readdirSync(resolve(contentDir, 'courses'))) {
 }
 
 // ---------- Glosario e índice de búsqueda (F2-07) ----------
-const glossary = GlossaryTerm.array().parse(readJson('glossary.json'))
+// Un archivo por manual (content/glossary/mNN.json), con los términos que ese manual explica.
+const glossary = readdirSync(resolve(contentDir, 'glossary')).sort().flatMap((f) => GlossaryTerm.array().parse(readJson(`glossary/${f}`)))
+for (const [i, g] of glossary.entries()) if (glossary.findIndex((x) => x.id === g.id) !== i) throw new Error(`glosario: el término ${g.id} está repetido`)
 const anchorsByLesson = new Map<string, Set<string>>()
 for (const c of courses as any[]) for (const l of c.lessons) anchorsByLesson.set(l.id, new Set(l.toc.map((t: { id: string }) => t.id)))
 for (const g of glossary) {
   for (const ref of g.refs) {
     const [lessonId, anchor] = ref.split('#')
     if (!anchorsByLesson.get(lessonId)?.has(anchor)) throw new Error(`glosario ${g.id}: el apartado ${ref} no existe`)
+  }
+}
+// Cada :term apunta a un término que existe y cada :ref a un manual, lección o apartado que existe.
+const glossaryIds = new Set(glossary.map((g) => g.id))
+const courseIds = new Set((courses as any[]).map((c) => c.id))
+const usedIn = new Map<string, string[]>()
+for (const use of relationUses) {
+  for (const id of use.terms) {
+    if (!glossaryIds.has(id)) throw new Error(`${use.file}: :term apunta a ${id}, que no está en el glosario`)
+    if (use.lessonId && !usedIn.get(id)?.includes(use.lessonId)) usedIn.set(id, [...(usedIn.get(id) ?? []), use.lessonId])
+  }
+  for (const to of use.refs) {
+    const [, courseId, lessonPart, anchor] = to.match(REF_TARGET)!
+    if (!courseIds.has(courseId)) throw new Error(`${use.file}: :ref apunta al manual ${courseId}, que no existe`)
+    if (lessonPart && !anchorsByLesson.has(`${courseId}-${lessonPart}`)) throw new Error(`${use.file}: :ref apunta a ${courseId}-${lessonPart}, que no existe`)
+    if (anchor && !anchorsByLesson.get(`${courseId}-${lessonPart}`)!.has(anchor)) throw new Error(`${use.file}: :ref apunta a ${to}, que no existe`)
   }
 }
 
@@ -344,11 +395,12 @@ const out = {
   courses: outlines,
   competencies,
   diagnostic,
-  glossary,
+  // `usedIn`: lecciones que marcan el término con :term (panel lateral, «También aparece en»).
+  glossary: glossary.map((g) => ({ ...g, usedIn: usedIn.get(g.id) ?? [] })),
   // Solo las del diagnóstico: las de cada curso viajan en su paquete.
   questions: diagnosticQuestions,
   // Datos mínimos de cada fuente para las fichas de producto (que citan fuentes fuera de la lección).
-  sources: Object.fromEntries([...sources.values()].map((s) => [s.id, { id: s.id, title: s.title, organization: s.organization, url: s.url }])),
+  sources: Object.fromEntries([...sources.values()].map((s) => [s.id, { id: s.id, title: s.title, organization: s.organization, url: s.url, accessedAt: s.accessedAt }])),
 }
 mkdirSync(resolve(root, 'src/generated'), { recursive: true })
 writeFileSync(resolve(root, 'src/generated/content.json'), JSON.stringify(out))

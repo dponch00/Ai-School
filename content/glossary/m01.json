@@ -1,0 +1,21 @@
+[
+  {
+    "id": "g-api",
+    "term": "API",
+    "en": "Application Programming Interface",
+    "definition": "La puerta por la que un programa, y no una persona, usa un servicio: envía una solicitud con forma fija y recibe una respuesta. Con un modelo de IA, la solicitud lleva el modelo, las instrucciones y el texto, y se cobra por tokens.",
+    "refs": [
+      "m01-l5#api",
+      "m07-l1#peticion"
+    ]
+  },
+  {
+    "id": "g-clave-api",
+    "term": "Clave de API",
+    "en": "API key",
+    "definition": "Cadena secreta que viaja en cada solicitud a una API e identifica la cuenta que paga. Quien la tiene puede gastar a tu nombre: se guarda en una variable de entorno o en un gestor de secretos, nunca dentro del código.",
+    "refs": [
+      "m01-l5#api"
+    ]
+  }
+]

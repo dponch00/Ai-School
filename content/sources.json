@@ -5628,5 +5628,67 @@
     "kind": "primary",
     "volatility": "medium",
     "nextReview": "2027-04-27"
+  },
+  {
+    "id": "src-anthropic-get-started",
+    "title": "Get started with Claude",
+    "organization": "Anthropic",
+    "url": "https://platform.claude.com/docs/en/get-started",
+    "accessedAt": "2026-10-30",
+    "supports": [
+      "La primera llamada es un POST a la Messages API con modelo, tope de tokens y mensajes con rol",
+      "La respuesta es un JSON con el mensaje del asistente, el motivo de parada y los tokens de entrada y salida",
+      "La clave se exporta como variable de entorno ANTHROPIC_API_KEY antes de llamar"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-30"
+  },
+  {
+    "id": "src-openai-text-generation",
+    "title": "Text generation",
+    "organization": "OpenAI",
+    "url": "https://developers.openai.com/api/docs/guides/text",
+    "accessedAt": "2026-10-30",
+    "supports": [
+      "La Responses API recibe model, input y un parámetro opcional instructions con prioridad sobre el input",
+      "La entrada puede ser texto o una lista de mensajes con roles developer, user y assistant",
+      "La respuesta trae un arreglo output con los elementos generados"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-30"
+  },
+  {
+    "id": "src-anthropic-authentication",
+    "title": "Authentication",
+    "organization": "Anthropic",
+    "url": "https://platform.claude.com/docs/en/manage-claude/authentication",
+    "accessedAt": "2026-10-30",
+    "supports": [
+      "La clave de API es un secreto fijo que viaja en cada solicitud y actúa como una identidad de la organización",
+      "Guardar las claves en un gestor de secretos, rotarlas y desactivar o borrar cualquier clave sospechosa de fuga",
+      "La caducidad limita cuánto dura una clave filtrada, pero no sustituye la higiene de secretos",
+      "Apps de iOS y macOS pueden llamar a la API con credenciales de corta vida sin llevar la clave dentro"
+    ],
+    "kind": "primary",
+    "volatility": "high",
+    "nextReview": "2027-01-30"
+  },
+  {
+    "id": "src-openai-api-reference-overview",
+    "title": "API Overview (API reference)",
+    "organization": "OpenAI",
+    "url": "https://developers.openai.com/api/reference/overview",
+    "accessedAt": "2026-10-30",
+    "supports": [
+      "La clave de API es secreta: no compartirla ni exponerla en código de navegador o apps",
+      "Guardar la clave en el servidor y cargarla desde una variable de entorno o un servicio de gestión de claves",
+      "La credencial viaja en la cabecera Authorization como Bearer",
+      "Se puede llamar a la API HTTP desde cualquier entorno capaz de hacer solicitudes HTTP"
+    ],
+    "kind": "primary",
+    "volatility": "medium",
+    "nextReview": "2027-04-30"
   }
 ]

@@ -11,6 +11,32 @@ test('el inicio orienta con continuar y los diez manuales (T-055)', async ({ pag
   await expect(page.locator('.brand__mark')).toBeVisible()
 })
 
+test('un término abre el panel lateral, encadena relaciones y «atrás» lo cierra sin dejar la lección', async ({ page }) => {
+  await page.goto('/#/cursos/m01/lecciones/m01-l1')
+  const term = page.locator('.lesson-body a.term[data-term="g-api"]').first()
+  await expect(term).toBeVisible()
+  await term.click()
+  const panel = page.getByRole('dialog', { name: /API/ })
+  await expect(panel).toBeVisible()
+  await expect(panel.locator('.relation__lead')).toContainText('solicitud')
+  // Se explica en M01 L5: el apartado se abre dentro del panel, como anticipo.
+  await panel.getByRole('button', { name: /M01 · L5/ }).click()
+  await expect(panel.locator('.relation__kind')).toHaveText(/anticipar/)
+  await expect(panel.locator('.relation__body')).toContainText('clave de API')
+  const axe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze()
+  expect(axe.violations.map((v) => v.id)).toEqual([])
+  await panel.getByRole('button', { name: 'Volver a la relación anterior' }).click()
+  await expect(panel.locator('.relation__kind')).toHaveText('Definición')
+  await page.goBack()
+  await expect(panel).toBeHidden()
+  await expect(page).toHaveURL(/m01-l1$/)
+  // Una cita abre su fuente en el panel; Esc lo cierra.
+  await page.locator('.lesson-body sup.cite a').first().click()
+  await expect(page.getByRole('dialog')).toContainText('Fuente citada')
+  await page.keyboard.press('Escape')
+  await expect(page.getByRole('dialog')).toBeHidden()
+})
+
 test('una comprobación se responde con teclado y la lección queda completada tras recargar', async ({ page }) => {
   await page.goto('/#/cursos/m02/lecciones/m02-l1')
   const preguntas = page.locator('section.checks fieldset.question')

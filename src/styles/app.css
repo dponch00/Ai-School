@@ -476,3 +476,43 @@ html[data-theme="dark"] .hl-bar { box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.34); }
 .notes-filters__course select { flex: 1 1 12rem; min-width: 0; max-width: 100%; }
 .notes-section h3 { font-size: 1em; margin-top: var(--ais-space-4); color: var(--ais-color-muted); }
 .notes-filters select { font: inherit; padding: var(--ais-space-1) var(--ais-space-2); min-height: 44px; }
+
+/* ---------- Relaciones: términos, referencias y panel lateral ---------- */
+.prose a.term { color: inherit; text-decoration: underline dotted var(--ais-color-accent); text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
+.prose a.xref { text-decoration-style: dashed; text-underline-offset: 0.2em; }
+.prose a.term:hover, .prose a.xref:hover { background: var(--ais-color-selection); color: var(--ais-color-on-selection); }
+
+/* Celular: casi toda la pantalla. Tableta: la mitad. Escritorio: un 45 %, con topes para que se lea bien. */
+.relation-panel {
+  position: fixed; inset: 0 0 0 auto; margin: 0; padding: 0;
+  width: 92vw; max-width: none; height: 100dvh; max-height: none;
+  border: 0; border-left: 1px solid var(--ais-color-border);
+  background: var(--ais-color-surface); color: var(--ais-color-ink); box-shadow: var(--ais-shadow-raised);
+  overflow: hidden;
+  transform: translateX(100%);
+  transition: transform 0.28s ease-out, overlay 0.28s allow-discrete, display 0.28s allow-discrete;
+}
+.relation-panel[open] { transform: translateX(0); }
+@starting-style { .relation-panel[open] { transform: translateX(100%); } }
+.relation-panel::backdrop { background: rgb(0 0 0 / 0); transition: background 0.28s, overlay 0.28s allow-discrete, display 0.28s allow-discrete; }
+.relation-panel[open]::backdrop { background: rgb(0 0 0 / 0.4); }
+@starting-style { .relation-panel[open]::backdrop { background: rgb(0 0 0 / 0); } }
+@media (min-width: 48rem) and (pointer: coarse) { .relation-panel { width: 50vw; } }
+@media (min-width: 48rem) and (pointer: fine) { .relation-panel { width: clamp(24rem, 45vw, 40rem); } }
+@media (prefers-reduced-motion: reduce) { .relation-panel, .relation-panel::backdrop { transition: none; } }
+.relation-panel__inner { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; height: 100%; }
+.relation-panel__bar { display: flex; justify-content: space-between; align-items: center; padding: var(--ais-space-2) var(--ais-space-3); border-bottom: 1px solid var(--ais-color-border); }
+.relation-panel__icon { min-width: var(--ais-layout-touch-target); min-height: var(--ais-layout-touch-target); border: 0; border-radius: var(--ais-radius-sm); background: transparent; color: var(--ais-color-ink); font-size: var(--ais-font-size-lg); cursor: pointer; }
+.relation-panel__icon:hover { background: var(--ais-color-canvas); }
+.relation-panel__content { overflow-y: auto; overscroll-behavior: contain; padding: var(--ais-space-4) var(--ais-space-5) var(--ais-space-6); overflow-wrap: break-word; }
+.relation-panel__footer { padding: var(--ais-space-3) var(--ais-space-5); border-top: 1px solid var(--ais-color-border); }
+.relation-panel__footer .button { width: 100%; justify-content: center; }
+.relation__kind { margin: 0; font-family: var(--ais-font-mono); font-size: var(--ais-font-size-sm); color: var(--ais-color-muted); }
+.relation__title { margin: var(--ais-space-1) 0 var(--ais-space-2); }
+.relation__context { margin-top: 0; color: var(--ais-color-muted); font-size: var(--ais-font-size-sm); }
+.relation__lead { font-size: var(--ais-font-size-lg); }
+.relation__subtitle { margin: var(--ais-space-5) 0 var(--ais-space-2); font-size: var(--ais-font-size-base, 1rem); }
+.relation__links { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--ais-space-2); }
+.relation__links button { width: 100%; min-height: var(--ais-layout-touch-target); padding: var(--ais-space-2) var(--ais-space-3); text-align: left; font: inherit; color: var(--ais-color-ink); background: var(--ais-color-canvas); border: 1px solid var(--ais-color-border); border-radius: var(--ais-radius-md); cursor: pointer; }
+.relation__links button:hover { border-color: var(--ais-color-accent); }
+.relation__body h3 { font-size: var(--ais-font-size-base, 1rem); }

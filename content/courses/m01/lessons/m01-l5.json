@@ -33,9 +33,12 @@
     "m01-l5-c1",
     "m01-l5-c2",
     "m01-l5-c3",
-    "m01-l5-c4"
+    "m01-l5-c4",
+    "m01-l5-c5"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m01-l5-chat-api"
+  ],
   "productCardIds": [
     "m01-pc-api-prices",
     "m01-pc-plans-data"
@@ -61,7 +64,12 @@
     "src-openai-codex-cli-reference",
     "src-openai-help-data-training",
     "src-anthropic-privacy-consumer-training",
-    "src-anthropic-privacy-commercial-training"
+    "src-anthropic-privacy-commercial-training",
+    "src-anthropic-get-started",
+    "src-openai-text-generation",
+    "src-mdn-client-server",
+    "src-anthropic-authentication",
+    "src-openai-api-reference-overview"
   ],
   "estimatedMinutes": 25,
   "status": "draft"
