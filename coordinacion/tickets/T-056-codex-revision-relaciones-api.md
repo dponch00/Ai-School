@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-30 |
 | Depende de | T-055 (cerrado) |
 | Fase del plan | Mantenimiento posterior a la V1 (pedido de Daniel) |
@@ -89,4 +89,9 @@ No edites el contenido, la app ni `ESTADO.md`: Claude aplica los hallazgos. Haz 
 
 ## Entrega
 
-_(Codex)_
+_(Codex, 2026-10-30)_
+
+- Informe: `investigacion/codex-revision-relaciones-api.md`.
+- Capturas de API, marcas y panel en 360 px, 768 px táctil, escritorio y oscuro: `design/qa/T-056/`.
+- Resultado: tres hallazgos bajos (precisión de la regla de clave, formato del feedback y aviso de contenido visual omitido); fuentes, diagrama, glosarios, marcas, destinos y recorridos del panel verificados.
+- Pruebas: `npm test` — 15 archivos, 250 pruebas aprobadas.
