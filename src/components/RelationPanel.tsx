@@ -42,6 +42,18 @@ function extract(blocks: Block[], select: (root: HTMLElement) => Element[]): str
   return parts.map((el) => el.outerHTML).join('')
 }
 
+/** Si el apartado tiene figuras o fichas de producto, que el panel no muestra (T056-03). */
+function sectionHasVisuals(blocks: Block[], anchor: string): boolean {
+  let inside = false
+  for (const b of blocks) {
+    if (b.type === 'html') {
+      const ids = [...b.html.matchAll(/<h2 id="([^"]+)"/g)].map((m) => m[1])
+      if (ids.length) inside = ids[ids.length - 1] === anchor
+    } else if (inside && (b.type === 'figure' || b.type === 'product-card')) return true
+  }
+  return false
+}
+
 function sectionParts(root: HTMLElement, anchor: string): Element[] {
   const h2 = root.querySelector(`h2#${CSS.escape(anchor)}`)
   const out: Element[] = []
@@ -143,6 +155,9 @@ function RefView({ to, push, here }: { to: string; push: (r: Relation) => void; 
       <p className="relation__context">{course.id.toUpperCase()} · Lección {lesson.order}{section ? `: ${lesson.title}` : ''}</p>
       {!blocks && <p className="muted" role="status">{error ?? 'Cargando…'}</p>}
       {html && <div className="prose relation__body" dangerouslySetInnerHTML={{ __html: html }} />}
+      {blocks && anchor && sectionHasVisuals(blocks, anchor) && (
+        <p className="notice notice--info">Aquí está el texto del apartado. La figura o la ficha que lo acompañan se ven en la lección.</p>
+      )}
     </>
   )
 }

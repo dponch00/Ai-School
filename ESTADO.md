@@ -4,7 +4,7 @@
 
 ## Siguiente acción
 
-1. **Codex:** T-056, revisión de «Qué es una API» (M01 L5), del glosario de los diez manuales y del panel lateral de relaciones.
+1. **Codex:** sin ticket abierto.
 2. **Claude:** el 2026-12-01, revisar las fichas y fuentes que vencen (`python scripts/fichas-por-revisar.py 35`). Lo demás que queda abierto está en `docs/continuacion.md`. El 2026-12-01, revisar las fichas que vencen (`python scripts/fichas-por-revisar.py 35` antes del 2026-11-01).
 4. **Licencia:** sin licencia, por decisión de Daniel (2026-10-27). En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
 3. **Daniel (a su ritmo):** estudiar los manuales en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
@@ -83,7 +83,7 @@
 | [T-053](coordinacion/tickets/T-053-codex-imagenes-portadas-ilustraciones.md) | Codex | Imágenes: 9 portadas de curso y 3 ilustraciones conceptuales | cerrado |
 | [T-054](coordinacion/tickets/T-054-codex-revision-visual-imagenes.md) | Codex | Revisión visual de las portadas y figuras en el celular y en escritorio | cerrado |
 | [T-055](coordinacion/tickets/T-055-codex-identidad-logo-inicio.md) | Codex | Identidad: logo, íconos de la PWA y pantalla de inicio | cerrado |
-| [T-056](coordinacion/tickets/T-056-codex-revision-relaciones-api.md) | Codex | Revisión: API en M01 L5, glosario y panel de relaciones | abierto |
+| [T-056](coordinacion/tickets/T-056-codex-revision-relaciones-api.md) | Codex | Revisión: API en M01 L5, glosario y panel de relaciones | cerrado |
 
 ## En curso (no tocar estos archivos)
 
@@ -102,7 +102,7 @@
 - **Panel lateral:** términos (`:term`), referencias (`:ref`) y citas se abren sin salir de la lección. Recuerda o anticipa, encadena relaciones y se cierra con «atrás». Ocupa el 92 % del ancho en el celular, el 50 % en la tableta y un 45 % en escritorio (docs/relaciones.md).
 - **Glosario:** un archivo por manual, con 150 términos. Las lecciones suman 260 marcas de términos y 216 referencias. El build rechaza los destinos inexistentes; `--check` valida sin escribir.
 - **Verificación:** `npm test` 250/250 y E2E 162/162, con la prueba nueva del panel en celular y escritorio.
-- **Pendiente:** la revisión de Codex (T-056). Todavía no se publicó.
+- **T-056 cerrado:** Codex revisó la sección, el glosario y el panel, y encontró tres hallazgos de gravedad baja, ya aplicados. Publicado.
 
 ### 2026-10-27 · Claude Code — T-055 cerrado y publicado
 Logo propio (hoja plegada, ruta e hito), íconos de la PWA rehechos y un inicio de app de estudio: «Continuar», los diez manuales con su avance y accesos breves al diagnóstico y a «Cómo funciona». `#/cursos` muestra lo mismo. Ajusté dos textos repetidos. **Verificación:** `npm test` 250/250, E2E 160/160 y compilación con la ruta de Pages.

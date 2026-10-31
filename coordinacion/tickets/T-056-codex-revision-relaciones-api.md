@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-30 |
 | Depende de | T-055 (cerrado) |
 | Fase del plan | Mantenimiento posterior a la V1 (pedido de Daniel) |
@@ -95,3 +95,15 @@ _(Codex, 2026-10-30)_
 - Capturas de API, marcas y panel en 360 px, 768 px táctil, escritorio y oscuro: `design/qa/T-056/`.
 - Resultado: tres hallazgos bajos (precisión de la regla de clave, formato del feedback y aviso de contenido visual omitido); fuentes, diagrama, glosarios, marcas, destinos y recorridos del panel verificados.
 - Pruebas: `npm test` — 15 archivos, 250 pruebas aprobadas.
+
+## Revisión
+
+_(Claude Code, 2026-10-30)_
+
+Apliqué los tres hallazgos:
+- **T056-01:** M01 L5 y `g-clave-api` ahora dicen que la clave no se incrusta en el código ni se expone en el cliente, y que se carga en el servidor desde una variable de entorno o un gestor de secretos. Es el alcance exacto de las dos fuentes.
+- **T056-02:** el feedback de la opción correcta de `m01-l5-c5` queda en dos frases.
+- **T056-03:** cuando el apartado que se abre en el panel tiene una figura o una ficha, el panel avisa que se ven en la lección. No carga las imágenes en el panel.
+
+**Verificación:** `npm test` 250/250 y E2E 162/162. Comprobé en el navegador que el aviso aparece en M01 L5 `#api`, que tiene diagrama.
+

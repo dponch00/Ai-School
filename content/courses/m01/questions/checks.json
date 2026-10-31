@@ -1298,7 +1298,7 @@
         "id": "o2",
         "text": "Un script que envíe cada respuesta por la API y anote el motivo en la planilla",
         "correct": true,
-        "feedback": "Correcta. Es un volumen repetido con las mismas instrucciones, justo lo que la API resuelve sin que nadie intervenga. Se paga por tokens y la clave se guarda como un secreto."
+        "feedback": "Correcta: es un volumen repetido con las mismas instrucciones, justo lo que la API resuelve sin que nadie intervenga. Se paga por tokens y la clave se guarda como un secreto."
       },
       {
         "id": "o3",

@@ -13,7 +13,7 @@
     "id": "g-clave-api",
     "term": "Clave de API",
     "en": "API key",
-    "definition": "Cadena secreta que viaja en cada solicitud a una API e identifica la cuenta que paga. Quien la tiene puede gastar a tu nombre: se guarda en una variable de entorno o en un gestor de secretos, nunca dentro del código.",
+    "definition": "Cadena secreta que viaja en cada solicitud a una API e identifica la cuenta que paga. Quien la tiene puede gastar a tu nombre, así que nunca se incrusta en el código ni se expone en el cliente: se carga en el servidor desde una variable de entorno o un gestor de secretos.",
     "refs": [
       "m01-l5#api"
     ]
