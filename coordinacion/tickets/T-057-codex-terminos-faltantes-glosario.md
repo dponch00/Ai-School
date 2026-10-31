@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-30 |
 | Depende de | T-056 (cerrado) |
 | Fase del plan | Mantenimiento posterior a la V1 (pedido de Daniel) |
@@ -70,4 +70,8 @@ No edites el glosario, las lecciones ni `ESTADO.md`. Claude escribe las definici
 
 ## Entrega
 
-_(Codex)_
+_(Codex, 2026-10-30)_
+
+- Informe: `investigacion/codex-terminos-faltantes.md`.
+- Propone 60 términos nuevos, con dueño, refs de lección válidos, usos para marcar, definición breve y prioridad; además lista nueve entradas existentes que necesitan ampliar definición o refs y once apariciones que merecen una marca.
+- Verificado: los 60 IDs no existen todavía, las definiciones tienen menos de 400 caracteres y `node scripts/build-content.ts --check` pasa (10 cursos, 60 lecciones, 1 023 preguntas y 68 fichas).
