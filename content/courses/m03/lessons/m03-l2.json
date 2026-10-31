@@ -35,7 +35,9 @@
     "m03-l2-c3",
     "m03-l2-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m03-l2-capas-precedencia"
+  ],
   "productCardIds": [
     "m03-pc-instruction-precedence",
     "m03-pc-copilot-instructions"

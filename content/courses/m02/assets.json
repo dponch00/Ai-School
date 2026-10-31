@@ -34,10 +34,10 @@
     "function": "organize",
     "pedagogicalQuestion": "¿Dónde conviene poner una regla que se repite y una regla propia de una tarea?",
     "whyNotTextOrSvg": "Es un SVG hecho con código: distingue con claridad las reglas de proyecto y las reglas de tarea antes de que lleguen al agente.",
-    "alt": "Dos cajas lado a lado. Proyecto: el archivo de instrucciones, que vale para todas las tareas, por ejemplo «los cálculos van en Python». Tarea: el prompt, que vale para este encargo, por ejemplo «toca solo kpis.py». Las dos llegan al agente, cada una por su lado. Repetir reglas en cada prompt gasta contexto.",
+    "alt": "Dos cajas apiladas, cada una con su propia flecha hacia el agente. Proyecto: el archivo de instrucciones, que vale para todas las tareas, por ejemplo «los cálculos van en Python». Tarea: el prompt, que vale solo para este encargo, por ejemplo «toca solo kpis.py». Las dos llegan al agente, cada una por su lado. Repetir reglas en cada prompt gasta contexto.",
     "dimensions": {
       "width": 480,
-      "height": 566
+      "height": 562
     },
     "reviewStatus": "approved"
   },

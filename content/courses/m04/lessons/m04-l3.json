@@ -35,7 +35,9 @@
     "m04-l3-c3",
     "m04-l3-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m04-l3-defensas-secretos"
+  ],
   "productCardIds": [
     "m04-pc-push-protection"
   ],

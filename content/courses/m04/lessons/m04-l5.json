@@ -35,7 +35,9 @@
     "m04-l5-c3",
     "m04-l5-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m04-l5-traceback"
+  ],
   "productCardIds": [],
   "sourceIds": [
     "src-python-errors",

@@ -35,7 +35,9 @@
     "m04-l4-c3",
     "m04-l4-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m04-l4-tres-lugares"
+  ],
   "productCardIds": [
     "m04-pc-worktrees",
     "m04-pc-checkpoints"

@@ -35,7 +35,9 @@
     "m03-l5-c3",
     "m03-l5-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m03-l5-continuidad"
+  ],
   "productCardIds": [
     "m03-pc-memory"
   ],

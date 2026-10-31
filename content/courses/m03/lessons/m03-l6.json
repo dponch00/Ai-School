@@ -35,7 +35,9 @@
     "m03-l6-c3",
     "m03-l6-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m03-l6-justo-a-tiempo"
+  ],
   "productCardIds": [
     "m03-pc-citations"
   ],

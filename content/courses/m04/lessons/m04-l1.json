@@ -32,7 +32,9 @@
     "m04-l1-c3",
     "m04-l1-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m04-l1-caja-funcion"
+  ],
   "productCardIds": [],
   "sourceIds": [
     "src-python-controlflow",

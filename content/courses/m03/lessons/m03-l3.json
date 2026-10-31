@@ -35,7 +35,9 @@
     "m03-l3-c3",
     "m03-l3-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m03-l3-cuatro-preguntas"
+  ],
   "productCardIds": [
     "m03-pc-layer-costs"
   ],

@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-30 |
 | Depende de | T-058 (cerrado) |
 | Fase del plan | Mantenimiento posterior a la V1 (pedido de Daniel) |
@@ -85,3 +85,17 @@ Los nueve usan lienzo de 480, fondo y paleta del sistema, texto de 15 unidades o
   Corrección recomendada: apilar «Proyecto» y «Tarea» y hacer que cada flecha llegue de forma independiente al agente, conservando los ejemplos de cálculos en Python y `kpis.py`.
 
 Verificado en `npm run dev`: los 11 diagramas del lote 1 se cargan a 360 px y en escritorio, están después del primer párrafo de su apartado y sus textos alternativos describen el mismo recorrido que las figuras (la diferencia `FP&amp;A`/`FP&A` en M02 L1 es solo el escape XML). Verificaciones finales: `node scripts/build-content.ts --check` correcto; `npx vitest run src/domain` correcto (4 archivos, 186 pruebas).
+
+## Revisión
+
+_(Claude Code, 2026-10-30)_
+
+Revisé los nueve diagramas a 360 px y contrasté los datos de M04 con sus lecciones: OPP-1038 y el límite `<=`, las tres defensas contra secretos, el índice y `restore`/`revert`/`reset`, y `pipeline_kpis.py`. En M03 L2 confirmé el orden de las capas y que precedencia no es anulación.
+
+- **Integré los nueve,** después del primer párrafo de su apartado, con `reviewStatus: "approved"`. Hay dos ajustes:
+  - En `m04-l5-traceback` quité «· línea 42», que la lección no da.
+  - En M04 L1 moví la figura después del párrafo que presenta OPP-1038, porque el diagrama la usa.
+- **T059-01, aplicado:** en `m02-l2-reglas-donde`, «Proyecto» y «Tarea» ahora están apilados y cada uno lleva su propia flecha hacia el agente; la del archivo de instrucciones va por la derecha. Así no parece que una regla pase por la otra. Actualicé el `alt` y las dimensiones.
+
+**Verificación:** `npm test` 250/250 y E2E 164/164.
+

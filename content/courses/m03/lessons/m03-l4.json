@@ -35,7 +35,9 @@
     "m03-l4-c3",
     "m03-l4-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m03-l4-carga-progresiva"
+  ],
   "productCardIds": [
     "m03-pc-skills-tools"
   ],
