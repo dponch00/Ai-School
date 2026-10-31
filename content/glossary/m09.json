@@ -1,0 +1,140 @@
+[
+  {
+    "id": "g-eval",
+    "term": "Eval",
+    "en": "eval",
+    "definition": "Prueba que mide un sistema con modelo cuyas salidas varían: un grupo de tareas fijas, varios ensayos por tarea y graders que califican cada uno. Su resultado es una tasa de acierto, no un «pasa» o «no pasa» como el de un test de software.",
+    "refs": [
+      "m09-l1#test-eval",
+      "m09-l1#piezas"
+    ]
+  },
+  {
+    "id": "g-ensayo",
+    "term": "Ensayo",
+    "en": "trial",
+    "definition": "Cada intento de resolver una misma tarea. Se corren varios porque un modelo puede responder distinto ante la misma entrada, y cada uno empieza en un entorno limpio, sin restos del anterior.",
+    "refs": [
+      "m09-l1#piezas",
+      "m09-l2#aislados",
+      "m01-l6#ensayos"
+    ]
+  },
+  {
+    "id": "g-grader",
+    "term": "Grader",
+    "en": "grader",
+    "definition": "La lógica que califica un aspecto del resultado de un ensayo. Puede ser código, para lo que se comprueba sin interpretar; un modelo calibrado, para lo que exige juicio, o una persona, que es la referencia de calidad.",
+    "refs": [
+      "m09-l1#piezas",
+      "m09-l3#graders"
+    ]
+  },
+  {
+    "id": "g-transcripcion",
+    "term": "Transcripción",
+    "en": "transcript",
+    "definition": "Registro completo de un ensayo: lo que el sistema escribió, las herramientas que llamó y los resultados intermedios. Si el sistema dice que corrió algo, cuenta solo si esa ejecución aparece en la transcripción.",
+    "refs": [
+      "m09-l1#piezas",
+      "m09-l4#herramientas"
+    ]
+  },
+  {
+    "id": "g-pass-k",
+    "term": "pass@k y pass^k",
+    "definition": "Dos formas de resumir k intentos de una tarea. pass@k es la probabilidad de acertar al menos una vez y sirve cuando alguien elige entre varios intentos; pass^k, la de acertar en todos, describe un resultado que se usa tal como sale y se cuenta caso por caso si la dificultad varía.",
+    "refs": [
+      "m09-l1#metricas",
+      "m09-l1#uso",
+      "m09-l1#por-caso"
+    ]
+  },
+  {
+    "id": "g-eval-regresion",
+    "term": "Eval de regresión",
+    "en": "regression eval",
+    "definition": "Eval que comprueba que el sistema sigue resolviendo lo que ya resolvía, y que debería pasar cerca del 100 %. A ella entran, por ejemplo, los fallos reales reproducidos. Sirve para saber que nada empeoró, no para elegir entre dos versiones nuevas.",
+    "refs": [
+      "m09-l1#capas",
+      "m09-l2#fallo-real",
+      "m09-l6#regresion"
+    ]
+  },
+  {
+    "id": "g-solucion-referencia",
+    "term": "Solución de referencia",
+    "en": "reference solution",
+    "definition": "Respuesta correcta escrita de antemano para un caso de la eval, que pasa todos sus graders. Demuestra que el caso tiene solución y que el grader está bien configurado.",
+    "refs": [
+      "m09-l2#buen-caso"
+    ]
+  },
+  {
+    "id": "g-caso-adversarial",
+    "term": "Caso adversarial",
+    "definition": "Caso de prueba con una entrada que intenta torcer el resultado, como una instrucción escondida en un documento que el sistema lee. Pasarlos sirve para atrapar regresiones, no para declarar que algo es seguro, porque un atacante real adapta el ataque.",
+    "refs": [
+      "m09-l2#tipos",
+      "m09-l5#sin-solucion"
+    ]
+  },
+  {
+    "id": "g-contaminacion",
+    "term": "Conjunto de prueba contaminado",
+    "definition": "Conjunto de evaluación cuyos casos se usaron para ajustar el prompt, como ejemplos o mirando sus resultados al reescribirlo. La eval pasa a medir cuánto se parece el prompt a esos casos y no cuánto sirve para la tarea; por eso se reservan casos que no ve quien cambia el prompt.",
+    "refs": [
+      "m09-l2#contaminacion"
+    ]
+  },
+  {
+    "id": "g-juez-calibrado",
+    "term": "Juez calibrado",
+    "en": "LLM-as-judge",
+    "definition": "Modelo que califica con una rúbrica lo que exige juicio, después de comprobar que sus veredictos coinciden con las etiquetas de una persona. Lo que importa al calibrarlo es cuántos casos malos detecta, no cuántos aprueba.",
+    "refs": [
+      "m09-l3#calibrar",
+      "m09-l3#rubrica"
+    ]
+  },
+  {
+    "id": "g-autopreferencia",
+    "term": "Autopreferencia",
+    "en": "self-preference",
+    "definition": "Tendencia de un modelo que juzga a puntuar mejor sus propios textos y los de modelos parecidos. Por eso un juez o un revisor del mismo modelo, o de la misma familia, que el que redactó es una segunda opinión débil.",
+    "refs": [
+      "m09-l3#sesgos",
+      "m09-l6#limites"
+    ]
+  },
+  {
+    "id": "g-inyeccion-instrucciones",
+    "term": "Inyección de instrucciones",
+    "en": "prompt injection",
+    "definition": "Texto que el modelo recibe y que cambia lo que hace de una forma que nadie previó. Es directa si viene en el mensaje de quien usa el sistema e indirecta si llega dentro de contenido que el modelo lee. No tiene una defensa infalible, así que se combinan varias capas.",
+    "refs": [
+      "m09-l5#vias",
+      "m09-l5#sin-solucion",
+      "m03-l6#dato",
+      "m07-l6#inyeccion"
+    ]
+  },
+  {
+    "id": "g-regla-de-dos",
+    "term": "Regla de dos",
+    "en": "rule of two",
+    "definition": "Propuesta de diseño según la cual un agente no debería reunir en una misma sesión más de dos de estas propiedades: procesar entradas no confiables, acceder a datos sensibles y cambiar algo o comunicarse hacia afuera. Si necesita las tres, requiere supervisión humana.",
+    "refs": [
+      "m09-l5#regla-dos"
+    ]
+  },
+  {
+    "id": "g-registro-cambios",
+    "term": "Registro de cambios",
+    "en": "changelog",
+    "definition": "Lista cronológica de los cambios notables de cada versión, escrita para personas y con la más reciente primero. Para un prompt o un flujo con modelo, cada entrada agrega la evidencia: casos, graders, resultados, condiciones, quién revisó y qué se decidió.",
+    "refs": [
+      "m09-l6#registro"
+    ]
+  }
+]

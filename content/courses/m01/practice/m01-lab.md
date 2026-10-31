@@ -22,7 +22,7 @@ Antes de elegir herramientas, un compañero cuenta dos cosas que le pasaron el t
 
 ## Paso 2 · Qué herramienta para cada encargo {#paso-2}
 
-Para elegir, la analista usa las cuatro preguntas de la lección 2: qué tiene que tocar la herramienta, si necesita información reciente, si el resultado se ejecuta o se lee, y cómo se va a comprobar. El encargo 3 queda resuelto rápido: es un cambio pequeño en el repositorio y conviene guiarlo de cerca, así que va a un agente de código en sesión local. Quedan los otros.
+Para elegir, la analista usa las cuatro preguntas de :ref[la lección 2]{to=m01-l2#cuatro-preguntas}: qué tiene que tocar la herramienta, si necesita información reciente, si el resultado se ejecuta o se lee, y cómo se va a comprobar. El encargo 3 queda resuelto rápido: es un cambio pequeño en el repositorio y conviene guiarlo de cerca, así que va a un agente de código en sesión local. Quedan los otros.
 
 ::lab-questions{step="paso-2"}
 

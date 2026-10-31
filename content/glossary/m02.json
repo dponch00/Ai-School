@@ -4,7 +4,10 @@
     "term": "Archivo de instrucciones",
     "definition": "Archivo del repositorio con las reglas que valen para todo el proyecto, como el lenguaje de los cálculos o la prohibición de usar datos reales. Conviene que sea breve, y cada herramienta tiene el suyo, así que hay que comprobar que el agente lo cargó.",
     "refs": [
-      "m02-l2#capas"
+      "m02-l2#capas",
+      "m03-l3#cuatro-preguntas",
+      "m03-l3#costo",
+      "m03-l3#poda"
     ]
   },
   {
@@ -181,6 +184,7 @@
     "en": "context window",
     "definition": "Todo el texto que el modelo tiene presente durante la sesión. Su rendimiento baja a medida que se llena, por eso conviene dar contexto específico y no abundante.",
     "refs": [
+      "m01-l3#contexto",
       "m02-l2#contexto"
     ]
   },
@@ -208,6 +212,33 @@
     "definition": "El texto con el encargo que le das al modelo o al agente. Lleva las reglas de esa tarea en particular; las que valen para todo el proyecto van en el archivo de instrucciones.",
     "refs": [
       "m02-l2#capas"
+    ]
+  },
+  {
+    "id": "g-sobreajuste",
+    "term": "Sobreajuste a los ejemplos",
+    "en": "overfitting",
+    "definition": "Lo que pasa cuando el modelo se ciñe tanto a los ejemplos que copia rasgos casuales, como que todos sean de una región o tengan montos redondos. Se evita con ejemplos pertinentes, diversos y delimitados.",
+    "refs": [
+      "m02-l3#ejemplos"
+    ]
+  },
+  {
+    "id": "g-salida-estructurada",
+    "term": "Salida estructurada",
+    "en": "structured outputs",
+    "definition": "Opción de la API que obliga al modelo a responder siguiendo un esquema. Garantiza la forma de la respuesta, no que sus valores sean exactos, así que los valores se validan en la propia aplicación.",
+    "refs": [
+      "m02-l3#forma-verdad"
+    ]
+  },
+  {
+    "id": "g-interfaz",
+    "term": "Interfaz",
+    "definition": "Punto donde una pieza del sistema recibe o entrega datos a otra, como el contrato que fija lo que el cálculo pasa a la vista. Nombrarla en la especificación permite que el agente construya una pieza sin tocar la otra.",
+    "refs": [
+      "m02-l4#autocontenida",
+      "m02-l4#archivos"
     ]
   }
 ]

@@ -1,0 +1,121 @@
+[
+  {
+    "id": "g-cliente-servidor",
+    "term": "Cliente y servidor",
+    "en": "frontend / backend",
+    "definition": "El cliente es el navegador, que pide los datos y muestra lo que recibe; el servidor es la máquina que interpreta cada petición, consulta la base de datos y arma la respuesta. Todo lo que llega al cliente queda en manos del usuario.",
+    "refs": [
+      "m06-l1#cliente-servidor"
+    ]
+  },
+  {
+    "id": "g-codigo-calculo",
+    "term": "Código de cálculo",
+    "definition": "Programa que corre en el servidor, o script aparte, que aplica las reglas de negocio con montos exactos y las políticas declaradas, corre los checks y escribe el contrato de salida. Es la capa que produce las cifras que se reconcilian.",
+    "refs": [
+      "m06-l1#capas"
+    ]
+  },
+  {
+    "id": "g-almacen-datos",
+    "term": "Almacén de datos",
+    "definition": "Servicio donde se guardan y se consultan los datos. Su cómputo, el almacén SQL, ejecuta cada consulta cerca de donde están las filas, y quien la envía, como un script o un agente, solo recibe el resultado.",
+    "refs": [
+      "m06-l1#motor",
+      "m06-l3#cerca"
+    ]
+  },
+  {
+    "id": "g-raw",
+    "term": "RAW",
+    "en": "raw data",
+    "definition": "Los datos tal como llegaron del sistema de origen. Se conservan intactos, sin corregirlos a mano, y las correcciones viven en reglas declaradas que se aplican en cada ejecución.",
+    "refs": [
+      "m06-l2#capas"
+    ]
+  },
+  {
+    "id": "g-llave-primaria",
+    "term": "Llave primaria",
+    "en": "primary key",
+    "definition": "Columna, o combinación de columnas, que identifica cada fila, así que no puede repetirse ni quedar vacía. En algunos almacenes de datos es solo informativa y nadie la hace cumplir, por eso la unicidad se comprueba en el código.",
+    "refs": [
+      "m06-l2#llaves"
+    ]
+  },
+  {
+    "id": "g-granularidad",
+    "term": "Granularidad",
+    "definition": "Nivel de detalle de lo que se descarga, por ejemplo el agregado por región o el detalle de una región en un snapshot. Se elige según lo que pide el paso siguiente.",
+    "refs": [
+      "m06-l3#granularidad"
+    ]
+  },
+  {
+    "id": "g-servidor-herramientas",
+    "term": "Servidor de herramientas",
+    "definition": "Programa que le ofrece al agente acciones concretas, como ejecutar una consulta, y le devuelve lo que obtuvo. Puede recortar los resultados grandes, y lo que declara de sí mismo, como ser de solo lectura, no reemplaza al permiso ni a la política.",
+    "refs": [
+      "m06-l3#recorte",
+      "m06-l3#anotaciones"
+    ]
+  },
+  {
+    "id": "g-motor-embebido",
+    "term": "Motor analítico embebido",
+    "definition": "Base de datos que funciona dentro del mismo programa que la usa, sin servidor, y procesa los datos por columnas. Sirve para que una persona o un agente consulte archivos locales con SQL; en ese modo, un solo programa puede escribir.",
+    "refs": [
+      "m06-l4#embebido"
+    ]
+  },
+  {
+    "id": "g-parquet",
+    "term": "Parquet",
+    "definition": "Formato de archivo abierto que guarda los datos por columnas y comprimidos, con el nombre y el tipo de cada columna y los valores mínimo y máximo de cada bloque. A diferencia de CSV, conserva los tipos, y tiene un tipo decimal para los montos.",
+    "refs": [
+      "m06-l4#formatos"
+    ]
+  },
+  {
+    "id": "g-salida-determinista",
+    "term": "Salida determinista",
+    "definition": "Resultado que sale siempre igual con los mismos datos y los mismos supuestos, como el pipeline abierto o la cobertura. Se comprueba con una igualdad o con una tolerancia fija, y lo produce el código de cálculo.",
+    "refs": [
+      "m06-l5#determinista"
+    ]
+  },
+  {
+    "id": "g-salida-estadistica",
+    "term": "Salida estadística",
+    "definition": "Estimación hecha con supuestos explícitos sobre unos datos, como una marca de monto atípico. No se compara al centavo: se revisan el método, los supuestos y cuánto cambia el resultado si cambian.",
+    "refs": [
+      "m06-l5#estadistico"
+    ]
+  },
+  {
+    "id": "g-salida-generativa",
+    "term": "Salida generativa",
+    "definition": "Texto que produce un modelo de lenguaje: puede sonar correcto sin ser exacto y variar entre llamadas idénticas, incluso con temperatura 0. Las cifras que cita se comprueban contra el contrato con un check independiente.",
+    "refs": [
+      "m06-l5#generativo",
+      "m06-l5#verificar"
+    ]
+  },
+  {
+    "id": "g-trazabilidad",
+    "term": "Trazabilidad",
+    "definition": "Poder decir de dónde salió una cifra: la fecha de corte, los supuestos, la fuente, la versión del código y los problemas de calidad reportados. El linaje que registra una plataforma ayuda, pero no ve lo que pasa después de descargar los datos.",
+    "refs": [
+      "m06-l6#trazabilidad"
+    ]
+  },
+  {
+    "id": "g-semilla",
+    "term": "Semilla",
+    "en": "seed",
+    "definition": "Valor con el que se inicia un generador de números pseudoaleatorios; con la misma semilla, repite exactamente la misma secuencia. Por eso los datos de prueba se generan con una semilla fija y se guardan junto con sus cifras esperadas.",
+    "refs": [
+      "m06-l6#sinteticos"
+    ]
+  }
+]

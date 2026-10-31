@@ -1,0 +1,127 @@
+[
+  {
+    "id": "g-codigo-estado",
+    "term": "Código de estado",
+    "en": "status code",
+    "definition": "Número de tres dígitos con que el servidor contesta cada petición. Se lee por su primer dígito: un 2xx es éxito, un 4xx un problema de la petición y un 5xx un fallo del servidor; un código desconocido se trata como el x00 de su clase.",
+    "refs": [
+      "m07-l1#codigos"
+    ]
+  },
+  {
+    "id": "g-endpoint",
+    "term": "Endpoint",
+    "definition": "Cada dirección concreta que atiende una API, como la ruta que devuelve las oportunidades. El contrato de la API dice qué endpoints existen y qué parámetros acepta cada uno, así que una llamada a uno que no figura ahí se revisa antes de darla por buena.",
+    "refs": [
+      "m07-l1#contrato"
+    ]
+  },
+  {
+    "id": "g-paginacion",
+    "term": "Paginación",
+    "en": "pagination",
+    "definition": "Forma de entregar una respuesta larga por partes: cada página trae un número limitado de filas y un cursor para pedir la siguiente, que queda nulo cuando ya no hay más. Si nadie sigue el cursor, el total sale corto aunque la respuesta tenga código 200.",
+    "refs": [
+      "m07-l1#exito"
+    ]
+  },
+  {
+    "id": "g-autenticar-autorizar",
+    "term": "Autenticar y autorizar",
+    "definition": "Autenticar es comprobar quién llama; autorizar, decidir qué puede hacer. Un 401 indica que faltan credenciales válidas y se resuelve volviendo a autenticarse; un 403, que el servidor se niega aunque las credenciales sean válidas, y no se arregla repitiendo la petición.",
+    "refs": [
+      "m07-l2#autenticar"
+    ]
+  },
+  {
+    "id": "g-oauth",
+    "term": "OAuth",
+    "definition": "Estándar que permite a una aplicación obtener acceso limitado a un servicio en nombre de una persona, mediante un token que emite un servidor de autorización. Así el agente trabaja con un token acotado y nunca ve tu contraseña.",
+    "refs": [
+      "m07-l2#oauth"
+    ]
+  },
+  {
+    "id": "g-alcance-permisos",
+    "term": "Alcance de un token",
+    "en": "scope",
+    "definition": "Lista de permisos que lleva un token y que define el servidor de autorización. El servidor puede conceder algo distinto de lo pedido, así que lo que cuenta es el alcance concedido; los alcances comodín, que lo abarcan todo, se evitan.",
+    "refs": [
+      "m07-l2#oauth",
+      "m07-l2#alcances"
+    ]
+  },
+  {
+    "id": "g-minimo-privilegio",
+    "term": "Mínimo privilegio",
+    "en": "least privilege",
+    "definition": "Principio de dar a cada credencial solo los permisos que su tarea necesita: empezar con lo mínimo, usar una credencial por tarea y ampliar solo con exactamente lo que falte. Un permiso de más no estorba mientras todo sale bien, pero amplía el daño si la credencial se filtra.",
+    "refs": [
+      "m07-l2#alcances"
+    ]
+  },
+  {
+    "id": "g-agencia-excesiva",
+    "term": "Agencia excesiva",
+    "en": "excessive agency",
+    "definition": "Riesgo de dar a una aplicación con modelos de lenguaje más funcionalidad, permisos o autonomía de los que su tarea necesita. Se controla haciendo cumplir la autorización en el sistema de destino, porque una instrucción en el prompt se puede ignorar y un permiso que no existe, no.",
+    "refs": [
+      "m07-l2#agencia",
+      "m05-l1#fatiga"
+    ]
+  },
+  {
+    "id": "g-retroceso-exponencial",
+    "term": "Retroceso exponencial",
+    "en": "exponential backoff",
+    "definition": "Pauta de reintento que espera cada vez más entre un intento y otro, por ejemplo el doble, sin pasar de un tope, con un número máximo de intentos y algo de azar. Si el servicio dice cuánto esperar, esa indicación manda sobre cualquier fórmula propia.",
+    "refs": [
+      "m07-l3#espera"
+    ]
+  },
+  {
+    "id": "g-idempotencia",
+    "term": "Idempotencia",
+    "en": "idempotency",
+    "definition": "Propiedad de una operación que tiene el mismo efecto si se hace una vez o varias, de modo que repetirla es seguro. Una petición que crea algo no lo es, y solo se repite con una clave de idempotencia que le permita al servidor reconocer que es un reintento.",
+    "refs": [
+      "m07-l3#idempotencia",
+      "m07-l3#clave"
+    ]
+  },
+  {
+    "id": "g-anfitrion-mcp",
+    "term": "Anfitrión, cliente y servidor (MCP)",
+    "en": "host, client, server",
+    "definition": "Los tres papeles de MCP. El anfitrión es la aplicación donde trabaja el modelo y hace cumplir la seguridad; dentro tiene un cliente por cada servidor conectado, y el servidor es el programa que ofrece herramientas, recursos y prompts.",
+    "refs": [
+      "m07-l4#arquitectura"
+    ]
+  },
+  {
+    "id": "g-envenenamiento-herramientas",
+    "term": "Envenenamiento de herramientas",
+    "en": "tool poisoning",
+    "definition": "Riesgo de que un servidor esconda instrucciones para el modelo en la descripción, el esquema o el resultado de una herramienta. Una descripción que da órdenes, como usar siempre una herramienta, es una señal de alarma.",
+    "refs": [
+      "m07-l4#confianza"
+    ]
+  },
+  {
+    "id": "g-rag",
+    "term": "RAG",
+    "en": "retrieval-augmented generation",
+    "definition": "Generación aumentada con recuperación: el sistema busca en un índice los fragmentos de documentos más parecidos a la pregunta y los agrega al prompt. Sirve para definiciones, políticas y explicaciones, no para cifras, que salen de una consulta o de un cálculo.",
+    "refs": [
+      "m07-l5#rag"
+    ]
+  },
+  {
+    "id": "g-ejecucion-desatendida",
+    "term": "Ejecución desatendida",
+    "definition": "Ejecución que corre sin nadie que mire ni apruebe. Lo que pediría aprobación tiene que quedar denegado o no existir, y una denegación debe terminar en un fallo visible, no en un resultado incompleto que nadie nota.",
+    "refs": [
+      "m07-l6#desatendido"
+    ]
+  }
+]

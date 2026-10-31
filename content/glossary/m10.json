@@ -1,0 +1,127 @@
+[
+  {
+    "id": "g-alcance-minimo-util",
+    "term": "Alcance mínimo útil",
+    "definition": "La versión más pequeña de una herramienta que ya permite al usuario principal tomar su decisión con los datos verificados. Se escribe en dos listas, lo que entra y lo que queda fuera, y cada exclusión lleva su motivo.",
+    "refs": [
+      "m10-l1#alcance"
+    ]
+  },
+  {
+    "id": "g-linea-base",
+    "term": "Línea base",
+    "en": "baseline",
+    "definition": "Medición tomada antes de un cambio, que sirve como punto de comparación para saber si el cambio mejoró algo. Si se mejora una skill que ya existe, la línea base es su versión anterior.",
+    "refs": [
+      "m10-l1#exito",
+      "m10-l6#skills"
+    ]
+  },
+  {
+    "id": "g-wcag",
+    "term": "WCAG",
+    "en": "Web Content Accessibility Guidelines",
+    "definition": "Las pautas de accesibilidad para el contenido web, la norma de referencia. Cada criterio tiene un nivel, de A, el más básico, a AAA, el más exigente, y el nivel AA es la meta habitual.",
+    "refs": [
+      "m10-l2#norma"
+    ]
+  },
+  {
+    "id": "g-alternativa-texto",
+    "term": "Alternativa en texto",
+    "en": "text alternative",
+    "definition": "Descripción guardada en el código que el lector de pantalla lee en lugar de una imagen. Un gráfico necesita además una descripción larga con sus escalas y valores, y una tabla con los mismos datos sirve para eso.",
+    "refs": [
+      "m10-l2#norma",
+      "m10-l2#tablas-graficos"
+    ]
+  },
+  {
+    "id": "g-escaneo-accesibilidad",
+    "term": "Escaneo automático de accesibilidad",
+    "definition": "Programa que revisa el código de una pantalla contra una lista de reglas de accesibilidad. Conviene correrlo en cada cambio, pero un resultado sin errores no demuestra que la pantalla sea accesible: hacen falta además una revisión manual y una prueba con usuarios.",
+    "refs": [
+      "m10-l2#escaneo",
+      "m10-l2#revisar"
+    ]
+  },
+  {
+    "id": "g-clases-dato",
+    "term": "Clases de dato",
+    "definition": "Forma de decidir dónde vive cada dato de una herramienta. Lo derivado se calcula y no se guarda, lo de referencia viene verificado y la app no lo edita, las preferencias se pueden perder sin daño y lo creado por el usuario es lo único que no se puede reconstruir, así que se protege.",
+    "refs": [
+      "m10-l3#clases"
+    ]
+  },
+  {
+    "id": "g-origen",
+    "term": "Origen",
+    "en": "origin",
+    "definition": "La combinación de protocolo, dominio y puerto de un sitio, que en la práctica es su dirección. El navegador guarda los datos de cada app por origen, así que si la app se publica en otra dirección empieza vacía.",
+    "refs": [
+      "m10-l3#navegador",
+      "m10-l4#continuidad"
+    ]
+  },
+  {
+    "id": "g-almacenamiento-persistente",
+    "term": "Almacenamiento persistente",
+    "en": "persistent storage",
+    "definition": "Modo que una app web pide al navegador para que sus datos no se borren cuando falta espacio; con él, solo el usuario puede borrarlos. Sin ese modo, el navegador los conserva mientras puede, sin garantía.",
+    "refs": [
+      "m10-l3#navegador"
+    ]
+  },
+  {
+    "id": "g-migracion",
+    "term": "Migración",
+    "definition": "Paso que convierte los datos guardados a una estructura nueva. Debe ser atómica, de modo que si falla a la mitad todo vuelva a como estaba, y se prueba con datos de la versión anterior, no con una base vacía.",
+    "refs": [
+      "m10-l3#migracion",
+      "m10-l3#probar-migracion"
+    ]
+  },
+  {
+    "id": "g-service-worker",
+    "term": "Service worker",
+    "definition": "Programa que el navegador instala junto con una app web y que atiende sus peticiones, lo que permite abrirla sin conexión. Una versión nueva queda en espera mientras la anterior controle alguna pestaña, y forzar el cambio puede mezclar las dos.",
+    "refs": [
+      "m10-l4#actualizar"
+    ]
+  },
+  {
+    "id": "g-versionado-semantico",
+    "term": "Versionado semántico",
+    "en": "semantic versioning",
+    "definition": "Convención que numera las versiones como MAYOR.MENOR.PARCHE: el mayor sube con un cambio incompatible, el menor con una función compatible y el parche con una corrección. Lo decide la compatibilidad de lo que otros usan, como un formato de exportación, no cuánto cambió la pantalla.",
+    "refs": [
+      "m10-l4#version"
+    ]
+  },
+  {
+    "id": "g-runbook",
+    "term": "Runbook",
+    "definition": "Lista de pasos que otra persona puede seguir para reconstruir la app, publicarla y volver a la versión anterior, con la forma de comprobar cada paso. Se prueba haciendo que lo siga alguien que no lo escribió.",
+    "refs": [
+      "m10-l4#runbook"
+    ]
+  },
+  {
+    "id": "g-disparador",
+    "term": "Disparador",
+    "definition": "Regla que dice qué prueba se vuelve a correr cuando cambia una pieza de la herramienta, como el código, una skill, el modelo, una dependencia, los datos o el hosting. Lo que no tiene un disparador claro se revisa con fecha, en un calendario con responsable.",
+    "refs": [
+      "m10-l6#disparadores",
+      "m10-l6#calendario"
+    ]
+  },
+  {
+    "id": "g-riesgo-aceptado",
+    "term": "Riesgo aceptado",
+    "definition": "Forma de cerrar un hallazgo sin corregirlo por ahora, dejando escritos el motivo, el responsable, la fecha y la condición que haría reabrirlo. Sin esa condición, el riesgo queda aceptado para siempre sin que nadie lo haya decidido.",
+    "refs": [
+      "m10-l6#cierre",
+      "m10-l6#reabrir"
+    ]
+  }
+]

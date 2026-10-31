@@ -1,0 +1,100 @@
+[
+  {
+    "id": "g-programador-tareas",
+    "term": "Programador de tareas",
+    "en": "scheduler",
+    "definition": "Servicio que lanza un proceso el día y a la hora indicados. Fija cuándo corre algo, no quién decide sus pasos, y no garantiza puntualidad: una ejecución puede retrasarse o, con mucha carga, perderse.",
+    "refs": [
+      "m08-l1#flujo-agente",
+      "m08-l4#hora"
+    ]
+  },
+  {
+    "id": "g-cadena-prompts",
+    "term": "Cadena de prompts",
+    "en": "prompt chaining",
+    "definition": "Patrón en que varios pasos fijos se ejecutan en secuencia, con comprobaciones entre ellos. Sirve cuando la tarea se descompone limpiamente y siempre en el mismo orden.",
+    "refs": [
+      "m08-l1#patrones"
+    ]
+  },
+  {
+    "id": "g-enrutamiento",
+    "term": "Enrutamiento",
+    "en": "routing",
+    "definition": "Patrón que clasifica la entrada y la manda a un tratamiento especializado. Sirve cuando hay pocas categorías conocidas que piden tratamientos distintos, como una pregunta sobre una política frente a otra sobre una cifra.",
+    "refs": [
+      "m08-l1#patrones"
+    ]
+  },
+  {
+    "id": "g-paralelizacion",
+    "term": "Paralelización",
+    "en": "parallelization",
+    "definition": "Patrón que hace varias llamadas a la vez, por partes independientes o repitiendo la misma tarea para comparar. Rinde cuando las partes no dependen unas de otras ni editan el mismo archivo, y encarece el trabajo.",
+    "refs": [
+      "m08-l1#patrones",
+      "m08-l3#cuando"
+    ]
+  },
+  {
+    "id": "g-orquestador-trabajadores",
+    "term": "Orquestador-trabajadores",
+    "en": "orchestrator-workers",
+    "definition": "Patrón en que un modelo central parte la tarea, la reparte y junta los resultados. Sirve cuando las partes no se pueden prever; si se conocen de antemano, basta encadenarlas.",
+    "refs": [
+      "m08-l1#patrones"
+    ]
+  },
+  {
+    "id": "g-evaluador-optimizador",
+    "term": "Evaluador-optimizador",
+    "en": "evaluator-optimizer",
+    "definition": "Patrón en que un modelo genera y otro evalúa, en ciclos. Necesita criterios escritos y comprobables y un número máximo de vueltas, porque un modelo que revisa su propia respuesta sin una señal externa no mejora de forma fiable.",
+    "refs": [
+      "m08-l1#patrones"
+    ]
+  },
+  {
+    "id": "g-condicion-termino",
+    "term": "Condición de término",
+    "definition": "Momento en que un agente deja de trabajar, también si no logra el objetivo. La más fiable es un check que pasa o falla o un resultado con forma fija; un tope limita el daño sin probar nada, y si se alcanza, el resultado se marca como parcial.",
+    "refs": [
+      "m08-l2#termino"
+    ]
+  },
+  {
+    "id": "g-estado-escrito",
+    "term": "Estado escrito",
+    "definition": "Lo que un agente deja anotado fuera de la conversación, como un registro de avance, una lista de pendientes o commits, para que otro lo revise o lo continúe. Hace falta porque cada sesión nueva empieza sin memoria de la anterior.",
+    "refs": [
+      "m08-l2#estado"
+    ]
+  },
+  {
+    "id": "g-tarea-programada",
+    "term": "Tarea programada",
+    "definition": "Encargo que un agente ejecuta solo, según un calendario. Puede correr en la nube, sin ver archivos locales; en tu equipo, si la máquina está encendida, o dentro de una sesión, que termina con ella.",
+    "refs": [
+      "m08-l4#caso",
+      "m08-l4#opciones"
+    ]
+  },
+  {
+    "id": "g-ejecucion-sin-interfaz",
+    "term": "Ejecución sin interfaz",
+    "en": "headless",
+    "definition": "Forma de correr un agente como un comando, desde un script o la integración continua, sin una conversación en pantalla. Termina con código 0 si tuvo éxito y con otro si falló; conviene fijar qué configuración carga y comprobar que la salida exista antes de usarla.",
+    "refs": [
+      "m08-l5#sin-interfaz"
+    ]
+  },
+  {
+    "id": "g-estado-ejecucion",
+    "term": "Estado de una ejecución",
+    "definition": "Lo que el historial dice de cómo terminó una ejecución, por ejemplo «terminada con éxito». Describe cómo terminó la sesión, no si el trabajo quedó bien; eso se comprueba en la transcripción y contra un check independiente.",
+    "refs": [
+      "m08-l6#estado"
+    ]
+  }
+]

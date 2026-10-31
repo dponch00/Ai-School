@@ -479,7 +479,8 @@ html[data-theme="dark"] .hl-bar { box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.34); }
 
 /* ---------- Relaciones: términos, referencias y panel lateral ---------- */
 .prose a.term { color: inherit; text-decoration: underline dotted var(--ais-color-accent); text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
-.prose a.xref { text-decoration-style: dashed; text-underline-offset: 0.2em; }
+/* El área de toque crece sin mover el texto: algunas referencias son un solo número («los manuales 4 y 6»). */
+.prose a.xref { text-decoration-style: dashed; text-underline-offset: 0.2em; padding: 0.3em 0.35em; margin: -0.3em -0.35em; border-radius: var(--ais-radius-sm); }
 .prose a.term:hover, .prose a.xref:hover { background: var(--ais-color-selection); color: var(--ais-color-on-selection); }
 
 /* Celular: casi toda la pantalla. Tableta: la mitad. Escritorio: un 45 %, con topes para que se lea bien. */

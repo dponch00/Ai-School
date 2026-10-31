@@ -50,4 +50,4 @@ Quedan dos tareas independientes y acotadas: agregar pruebas para la función de
 
 ## Pruébalo en tu entorno (opcional) {#en-tu-entorno}
 
-Si quieres practicar con un agente de verdad, usa un repositorio de prueba con datos inventados. Configura el sandbox con escritura limitada al repositorio y la red apagada, y escribe un encargo con las cuatro piezas de la lección 3. Al recibir el resultado, comprueba en el resumen del diff que no se tocaron las pruebas existentes. Y si el agente tiene que verificar la interfaz, no le des un navegador con tus sesiones personales abiertas. Este apartado no se registra en la app ni cuenta para nada.
+Si quieres practicar con un agente de verdad, usa un repositorio de prueba con datos inventados. Configura el sandbox con escritura limitada al repositorio y la red apagada, y escribe un encargo con las cuatro piezas de :ref[la lección 3]{to=m05-l3#piezas}. Al recibir el resultado, comprueba en el resumen del diff que no se tocaron las pruebas existentes. Y si el agente tiene que verificar la interfaz, no le des un navegador con tus sesiones personales abiertas. Este apartado no se registra en la app ni cuenta para nada.

@@ -1,0 +1,121 @@
+[
+  {
+    "id": "g-ingenieria-contexto",
+    "term": "Ingeniería de contexto",
+    "en": "context engineering",
+    "definition": "La tarea de decidir, en cada paso, qué información tiene delante el modelo. Es más amplia que redactar un buen prompt y busca el conjunto más pequeño de información relevante que haga más probable el resultado buscado.",
+    "refs": [
+      "m03-l1#que-ocupa"
+    ]
+  },
+  {
+    "id": "g-compactar",
+    "term": "Compactar",
+    "en": "compaction",
+    "definition": "Reemplazar la conversación de una sesión por un resumen para liberar contexto. Conviene hacerlo con foco, diciendo qué conservar; lo que se dijo solo en el chat puede perderse en el resumen, mientras que los archivos de instrucciones se vuelven a leer.",
+    "refs": [
+      "m03-l1#movimientos",
+      "m03-l1#fragil"
+    ]
+  },
+  {
+    "id": "g-subagente",
+    "term": "Subagente",
+    "en": "subagent",
+    "definition": "Otra instancia del agente que trabaja en su propio contexto y devuelve un resumen condensado. Sirve para exploraciones amplias que llenarían la sesión principal, aunque gasta sus propios tokens.",
+    "refs": [
+      "m03-l1#movimientos"
+    ]
+  },
+  {
+    "id": "g-control-determinista",
+    "term": "Control determinista",
+    "definition": "Control que no depende de que el modelo obedezca, como un permiso que prohíbe una acción o un hook que la bloquea. Es lo que garantiza una regla que debe cumplirse siempre; escrita en las instrucciones, la regla solo es una petición.",
+    "refs": [
+      "m03-l2#contexto-no-regla",
+      "m03-l3#cuatro-preguntas",
+      "m03-l3#combinar"
+    ]
+  },
+  {
+    "id": "g-hook",
+    "term": "Hook",
+    "definition": "Programa que una herramienta ejecuta automáticamente en ciertos momentos. En un agente sirve como control determinista, porque no depende de que el modelo obedezca; en Git, un hook pre-commit corre antes de crear el commit y puede cancelarlo.",
+    "refs": [
+      "m03-l2#contexto-no-regla",
+      "m04-l3#defensas",
+      "m08-l5#hook"
+    ]
+  },
+  {
+    "id": "g-precedencia",
+    "term": "Precedencia",
+    "definition": "Qué instrucción pesa más cuando dos chocan. Cada herramienta la describe distinto y no garantiza nada: es un orden de lectura y una tendencia, así que una contradicción se resuelve dejando la regla en un solo archivo.",
+    "refs": [
+      "m03-l2#precedencia"
+    ]
+  },
+  {
+    "id": "g-skill",
+    "term": "Skill",
+    "definition": "Carpeta con un archivo SKILL.md (metadatos y luego instrucciones) y, si hace falta, scripts y referencias, en un formato abierto. Sirve para procedimientos que se usan a veces: hasta que se activa solo ocupa el espacio de su nombre y su descripción.",
+    "refs": [
+      "m03-l3#cuatro-preguntas",
+      "m03-l4#que-es",
+      "m03-l4#carga-progresiva"
+    ]
+  },
+  {
+    "id": "g-mcp",
+    "term": "MCP",
+    "en": "Model Context Protocol",
+    "definition": "Estándar abierto para conectar aplicaciones de IA con fuentes de datos, herramientas y flujos de trabajo externos. Da acceso a datos y acciones que el agente no ve, pero ocupa contexto con sus herramientas y sus salidas.",
+    "refs": [
+      "m03-l3#cuatro-preguntas"
+    ]
+  },
+  {
+    "id": "g-casi-acierto",
+    "term": "Casi acierto",
+    "en": "near miss",
+    "definition": "Consulta de prueba que comparte palabras con una skill pero pide otra cosa, así que no debería activarla. Son las consultas negativas más valiosas para comprobar una descripción.",
+    "refs": [
+      "m03-l4#probar"
+    ]
+  },
+  {
+    "id": "g-memoria-automatica",
+    "term": "Memoria automática",
+    "definition": "Hechos y preferencias que algunas herramientas guardan por su cuenta de una sesión a otra. Ayuda a recordar, pero no es el lugar de lo obligatorio y no viaja entre herramientas ni personas.",
+    "refs": [
+      "m03-l5#memoria"
+    ]
+  },
+  {
+    "id": "g-registro-decisiones",
+    "term": "Registro de decisiones",
+    "en": "architecture decision record",
+    "definition": "Archivo con una entrada breve y numerada por cada decisión importante: título, contexto, decisión, estado y consecuencias. Los números no se reutilizan y lo reemplazado se conserva marcado; responde por qué algo está así.",
+    "refs": [
+      "m03-l5#registro"
+    ]
+  },
+  {
+    "id": "g-documento-traspaso",
+    "term": "Documento de traspaso",
+    "en": "handoff",
+    "definition": "Nota para quien retoma un trabajo: el estado actual, las decisiones de la sesión, el siguiente paso, cómo verificar antes de seguir y lo que se probó y falló. No es un relato de la sesión.",
+    "refs": [
+      "m03-l5#traspaso"
+    ]
+  },
+  {
+    "id": "g-justo-a-tiempo",
+    "term": "Recuperación justo a tiempo",
+    "en": "just-in-time retrieval",
+    "definition": "Forma de trabajar en la que el agente guarda referencias ligeras, como rutas, consultas o enlaces, y trae el contenido cuando lo necesita. Suele combinarse con cargar de antemano lo poco que siempre hace falta.",
+    "refs": [
+      "m03-l6#justo-a-tiempo"
+    ]
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "id": "g-permisos-agente",
+    "term": "Permisos (de un agente)",
+    "en": "permissions",
+    "definition": "Control que decide, antes de que una acción ocurra, si el agente la ejecuta solo o espera tu aprobación. Aprobar una acción no limita lo que esa acción toca una vez que corre; de eso se encarga el sandbox.",
+    "refs": [
+      "m05-l1#capas"
+    ]
+  },
+  {
+    "id": "g-sandbox",
+    "term": "Sandbox",
+    "en": "sandbox",
+    "definition": "Límite que impone el sistema operativo sobre lo que un comando ya en marcha puede tocar, por ejemplo escribir solo dentro de la carpeta del proyecto. Necesita aislar tanto los archivos como la red, porque cada aislamiento cubre al otro.",
+    "refs": [
+      "m05-l1#capas"
+    ]
+  },
+  {
+    "id": "g-fatiga-aprobacion",
+    "term": "Fatiga de aprobación",
+    "en": "approval fatigue",
+    "definition": "Lo que ocurre cuando el agente pide permiso tan seguido que la persona deja de leer lo que aprueba, y la seguridad empeora. Por eso un límite técnico, que protege aunque la atención falle, rinde más que aprobarlo todo a mano.",
+    "refs": [
+      "m05-l1#fatiga"
+    ]
+  },
+  {
+    "id": "g-modo-automatico",
+    "term": "Modo automático",
+    "definition": "Modo que delega la aprobación de cada acción en otro modelo, que decide cuáles son seguras. Reduce las preguntas, pero no garantiza la seguridad: para una garantía firme hacen falta reglas de denegación.",
+    "refs": [
+      "m05-l1#automatico"
+    ]
+  },
+  {
+    "id": "g-regla-denegacion",
+    "term": "Regla de denegación",
+    "en": "deny rule",
+    "definition": "Prohibición escrita en la configuración de la herramienta, como «no escribir en esta carpeta». Da una garantía que no da el chat, porque un límite dicho solo en la conversación no queda como regla y puede perderse al compactar.",
+    "refs": [
+      "m05-l1#automatico"
+    ]
+  },
+  {
+    "id": "g-modo-planificacion",
+    "term": "Modo de planificación",
+    "en": "plan mode",
+    "definition": "Forma de trabajar en la que el agente investiga y propone un plan antes de cambiar nada. Rinde cuando el enfoque es incierto, el cambio toca varios archivos o no conoces el código; si el diff cabe en una frase, se pide directo.",
+    "refs": [
+      "m05-l2#caso",
+      "m05-l2#cuando"
+    ]
+  },
+  {
+    "id": "g-caso-limite",
+    "term": "Caso límite",
+    "definition": "Situación que cae justo en el borde de una regla, como una fecha que coincide con el día de corte, donde es más fácil equivocarse. En los datos de prueba se pone a propósito, con su cifra esperada.",
+    "refs": [
+      "m02-l3#ejemplos",
+      "m05-l2#entrevista",
+      "m06-l6#sinteticos"
+    ]
+  },
+  {
+    "id": "g-encargo-acotado",
+    "term": "Encargo acotado",
+    "definition": "Encargo con cuatro piezas: qué cambiar, qué no tocar, cómo se comprueba con un check que el agente pueda correr y qué entregar como evidencia. Conviene que pida además detenerse y explicarlo si una prueba existente parece incorrecta.",
+    "refs": [
+      "m05-l3#piezas",
+      "m05-l3#trampa"
+    ]
+  },
+  {
+    "id": "g-compuerta",
+    "term": "Compuerta",
+    "en": "gate",
+    "definition": "Control que impide dar una tarea por terminada mientras su check no pase. Es la forma más firme de pedir una verificación, la que conviene cuanto menos vayas a supervisar la ejecución.",
+    "refs": [
+      "m05-l3#piezas"
+    ]
+  },
+  {
+    "id": "g-verificacion-visual",
+    "term": "Verificación visual",
+    "definition": "Comprobación de un cambio de interfaz viéndolo: se abre la página en un navegador, se toma una captura, se compara con el diseño y se listan las diferencias. Encuentra errores que no ven las pruebas que no muestran la página.",
+    "refs": [
+      "m05-l5#navegador"
+    ]
+  },
+  {
+    "id": "g-rama-base",
+    "term": "Rama de base",
+    "en": "base branch",
+    "definition": "La rama de la que partió el trabajo. Para revisar un cambio, el diff se compara con ella o con lo que todavía no se confirmó.",
+    "refs": [
+      "m05-l5#revision"
+    ]
+  },
+  {
+    "id": "g-sesion-nube",
+    "term": "Sesión en la nube",
+    "definition": "Sesión de un agente que corre en un entorno remoto y parte de la rama remota tal como está, así que no ve los cambios sin confirmar ni los commits que no subiste. Conviene para tareas acotadas, independientes y que se puedan verificar en una PR.",
+    "refs": [
+      "m05-l6#remoto",
+      "m05-l6#para-que"
+    ]
+  }
+]

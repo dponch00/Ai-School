@@ -17,5 +17,128 @@
     "refs": [
       "m01-l5#api"
     ]
+  },
+  {
+    "id": "g-modelo",
+    "term": "Modelo de lenguaje",
+    "en": "language model",
+    "definition": "Sistema que se entrena primero para predecir la palabra siguiente en enormes cantidades de texto y después se ajusta para seguir instrucciones como un asistente. Por sí solo no abre archivos, no navega, no ejecuta programas ni recuerda conversaciones anteriores: solo produce texto.",
+    "refs": [
+      "m01-l1#modelo"
+    ]
+  },
+  {
+    "id": "g-agente",
+    "term": "Agente",
+    "en": "agent",
+    "definition": "Modelo al que se le dieron herramientas, como leer archivos, ejecutar comandos o buscar en la web, y un bucle en el que él mismo decide el siguiente paso: reunir contexto, actuar, verificar y volver a empezar. El programa que lo rodea y aporta todo eso se llama arnés.",
+    "refs": [
+      "m01-l1#agente"
+    ]
+  },
+  {
+    "id": "g-producto",
+    "term": "Producto",
+    "definition": "Lo que un proveedor ofrece sobre sus modelos, como un asistente de chat, un agente de código o una API. Cada producto decide qué herramientas existen, qué se guarda de tus conversaciones y con qué política de datos, así que dos productos con el mismo modelo pueden comportarse distinto.",
+    "refs": [
+      "m01-l1#producto-superficie"
+    ]
+  },
+  {
+    "id": "g-superficie",
+    "term": "Superficie",
+    "definition": "Lugar desde donde usas un producto: el chat en el navegador, la aplicación de escritorio, el celular, la terminal, una extensión del editor o una sesión en la nube. Aunque compartan motor, cada superficie puede tener capacidades distintas.",
+    "refs": [
+      "m01-l1#producto-superficie"
+    ]
+  },
+  {
+    "id": "g-entorno-ejecucion",
+    "term": "Entorno de ejecución",
+    "definition": "Lugar donde se ejecutan de verdad los comandos y lo que desde ahí se puede alcanzar: tu propia máquina, una máquina virtual del proveedor que trabaja sobre una copia del repositorio o un contenedor aislado, a veces sin red.",
+    "refs": [
+      "m01-l1#entorno"
+    ]
+  },
+  {
+    "id": "g-token",
+    "term": "Token",
+    "definition": "Fragmento de texto con que el modelo lee y escribe: una palabra entera, un pedazo de palabra, un signo o un carácter. Lo que cabe en una conversación y lo que se cobra se mide en tokens, y su equivalencia con las palabras cambia según el idioma y el modelo.",
+    "refs": [
+      "m01-l3#tokens"
+    ]
+  },
+  {
+    "id": "g-fecha-corte",
+    "term": "Fecha de corte del modelo",
+    "en": "knowledge cutoff",
+    "definition": "Fecha hasta la que llega lo que el modelo aprendió en su entrenamiento. Lo que pasó después solo le llega por una búsqueda, un documento que le das o un conector, aunque el modelo sea el más nuevo.",
+    "refs": [
+      "m01-l3#fecha-corte"
+    ]
+  },
+  {
+    "id": "g-deterioro-contexto",
+    "term": "Deterioro del contexto",
+    "en": "context rot",
+    "definition": "Pérdida de exactitud y de capacidad de recordar lo que está en el contexto a medida que crecen los tokens. Por eso una ventana enorme no invita a meterlo todo: conviene elegir lo que entra.",
+    "refs": [
+      "m01-l3#mas-contexto"
+    ]
+  },
+  {
+    "id": "g-alucinacion",
+    "term": "Alucinación",
+    "en": "hallucination",
+    "definition": "Contenido falso o erróneo que el modelo afirma con seguridad y que puede inducir a error; también se le llama confabulación. El tono no la delata, porque llega igual que una respuesta correcta.",
+    "refs": [
+      "m01-l4#que-es",
+      "m01-l4#por-que"
+    ]
+  },
+  {
+    "id": "g-sesgo-automatizacion",
+    "term": "Sesgo de automatización",
+    "en": "automation bias",
+    "definition": "Tendencia a aceptar sin cuestionarlo lo que sale de un sistema automático. La respuesta no es desconfiar de todo, sino ajustar el esfuerzo de verificar a lo que está en juego.",
+    "refs": [
+      "m01-l4#proporcion"
+    ]
+  },
+  {
+    "id": "g-investigacion-profunda",
+    "term": "Investigación profunda",
+    "en": "deep research",
+    "definition": "Función que encadena muchas búsquedas siguiendo un plan que puedes revisar, lee muchas fuentes y entrega un informe con citas. Tarda más y consume más del límite de uso que una búsqueda normal, que basta para un dato puntual.",
+    "refs": [
+      "m01-l2#investigar"
+    ]
+  },
+  {
+    "id": "g-esfuerzo-razonamiento",
+    "term": "Esfuerzo de razonamiento",
+    "en": "reasoning effort",
+    "definition": "Cuánto piensa el modelo antes de responder. Con menos esfuerzo responde más rápido y más barato; con más, resuelve mejor las tareas difíciles a cambio de tiempo y costo. Sus tokens se cobran como salida aunque no se vean.",
+    "refs": [
+      "m01-l5#esfuerzo"
+    ]
+  },
+  {
+    "id": "g-pesos-abiertos",
+    "term": "Modelo de pesos abiertos",
+    "en": "open-weight model",
+    "definition": "Modelo que el fabricante publica para que cualquiera lo descargue y lo ejecute en su propio equipo. Así la inferencia no sale de tu máquina, aunque la capacidad y la velocidad dependen de tu hardware.",
+    "refs": [
+      "m01-l5#local-nube"
+    ]
+  },
+  {
+    "id": "g-inferencia",
+    "term": "Inferencia",
+    "en": "inference",
+    "definition": "Cálculo con que el modelo produce cada respuesta. Si el modelo es del proveedor, lo que el agente lee y tus instrucciones viajan a sus servidores aunque el agente corra en tu máquina; solo un modelo en tu propio equipo la mantiene dentro.",
+    "refs": [
+      "m01-l5#local-nube"
+    ]
   }
 ]

@@ -1,0 +1,123 @@
+[
+  {
+    "id": "g-error-frontera",
+    "term": "Error de frontera",
+    "definition": "Error en el valor exacto del límite de una condición que separa dos casos, como poner `<` donde iba `<=`. No produce ningún mensaje, sino otra cifra, por eso el caso que se prueba a mano es justo el límite.",
+    "refs": [
+      "m04-l1#frontera"
+    ]
+  },
+  {
+    "id": "g-excepcion",
+    "term": "Excepción",
+    "en": "exception",
+    "definition": "Error que ocurre durante la ejecución: el programa está bien escrito, pero se encuentra con algo que no puede resolver. Se lanza con `raise`, detiene la ejecución y sube hasta que alguna parte del programa lo atrapa o el programa termina.",
+    "refs": [
+      "m04-l1#otras-salidas",
+      "m04-l5#sintaxis-excepcion"
+    ]
+  },
+  {
+    "id": "g-nulo-sql",
+    "term": "NULL",
+    "definition": "Valor vacío de SQL, que significa «desconocido». Comparar con `= NULL` nunca da verdadero, así que los vacíos se buscan con `IS NULL`; además, los agregados los tratan de forma particular.",
+    "refs": [
+      "m04-l2#nulos"
+    ]
+  },
+  {
+    "id": "g-integracion-continua",
+    "term": "Integración continua",
+    "en": "continuous integration (CI)",
+    "definition": "Proceso automático que corre las pruebas y otras verificaciones cada vez que se envía un cambio al repositorio. Sus flujos suelen escribirse en YAML y sus resultados se ven como checks.",
+    "refs": [
+      "m04-l2#caso",
+      "m04-l5#ci"
+    ]
+  },
+  {
+    "id": "g-dependencia",
+    "term": "Dependencia",
+    "definition": "Paquete de código ajeno que el proyecto necesita para funcionar, declarado en un archivo como `pyproject.toml`. Una dependencia nueva merece tanta atención como el código: hay que comprobar que exista, que sea la correcta y que haga falta.",
+    "refs": [
+      "m04-l2#caso",
+      "m04-l3#dependencias"
+    ]
+  },
+  {
+    "id": "g-entorno-virtual",
+    "term": "Entorno virtual",
+    "en": "virtual environment",
+    "definition": "Carpeta, como `.venv/`, con los paquetes que usa un proyecto de Python, aislados del resto del sistema. No se versiona: se borra y se reconstruye a partir de la lista de dependencias.",
+    "refs": [
+      "m04-l3#entorno"
+    ]
+  },
+  {
+    "id": "g-commit",
+    "term": "Commit",
+    "definition": "Versión guardada de los cambios en el historial de Git. Lo confirmado en un commit casi siempre se puede recuperar, mientras que lo que nunca se confirmó puede perderse sin remedio.",
+    "refs": [
+      "m04-l4#estados"
+    ]
+  },
+  {
+    "id": "g-diff",
+    "term": "Diff",
+    "definition": "Vista de las diferencias entre dos versiones. Las líneas que empiezan con `-` se eliminaron, las que empiezan con `+` se agregaron y el resto es contexto sin cambios.",
+    "refs": [
+      "m04-l4#diff"
+    ]
+  },
+  {
+    "id": "g-rama",
+    "term": "Rama",
+    "en": "branch",
+    "definition": "Puntero que señala un commit y avanza solo con cada commit nuevo. Crearla cuesta casi nada y permite que un agente experimente sin tocar la rama principal.",
+    "refs": [
+      "m04-l4#rama"
+    ]
+  },
+  {
+    "id": "g-worktree",
+    "term": "Worktree",
+    "definition": "Otra carpeta de trabajo conectada al mismo repositorio, con sus propios archivos, índice y `HEAD`, que comparte la historia de commits. Permite que dos agentes trabajen en paralelo, pero no trae los archivos ignorados ni las dependencias instaladas.",
+    "refs": [
+      "m04-l4#worktree"
+    ]
+  },
+  {
+    "id": "g-checkpoint",
+    "term": "Checkpoint",
+    "definition": "Punto de restauración que una herramienta de agentes guarda antes de cada petición para deshacer lo que el agente editó en la sesión. No reemplaza a un commit: no se comparte, caduca y no cubre comandos de terminal ni acciones externas.",
+    "refs": [
+      "m04-l4#checkpoint"
+    ]
+  },
+  {
+    "id": "g-codigo-salida",
+    "term": "Código de salida",
+    "en": "exit code",
+    "definition": "Número que devuelve un programa al terminar: 0 significa éxito y cualquier otro valor, fallo. Con él, un sistema automático decide si un paso pasó o falló.",
+    "refs": [
+      "m04-l5#codigo-salida"
+    ]
+  },
+  {
+    "id": "g-check",
+    "term": "Check",
+    "definition": "Verificación automática que indica si un commit cumple las condiciones del repositorio, como pasar las pruebas. Un check que pasa solo demuestra los casos que contiene, y uno omitido cuenta como éxito sin probar nada.",
+    "refs": [
+      "m04-l5#ci"
+    ]
+  },
+  {
+    "id": "g-pull-request",
+    "term": "Pull request",
+    "en": "pull request (PR)",
+    "definition": "Propuesta para incorporar los cambios de una rama a otra, que reúne la conversación, los commits y los archivos cambiados. Se revisa línea por línea y se cierra comentando, aprobando o pidiendo cambios.",
+    "refs": [
+      "m04-l6#pr"
+    ]
+  }
+]
