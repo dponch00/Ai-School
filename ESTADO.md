@@ -98,6 +98,12 @@
 
 ## Bitácora
 
+### 2026-10-30 · Claude Code — Botón «volver arriba» que no tapa el texto
+- **Cuándo aparece:** en cualquier página larga, después de bajar una pantalla y media.
+- **Dónde va:** si a la derecha de la columna de lectura hay margen libre (escritorio, tableta en horizontal), se queda ahí. Si no lo hay (celular), aparece solo al deslizar hacia arriba y se esconde al seguir leyendo o a los 2,5 s.
+- **Al tocarlo:** el foco vuelve al contenido principal.
+- **Verificación:** `npm test` 250/250 y E2E 164/164, con la prueba nueva en celular y escritorio. Publicado.
+
 ### 2026-10-30 · Claude Code — T-057: el glosario sube a 199 términos
 - **Propuesta de Codex:** 60 términos.
 - **Lo que entró:** 49 términos, después de comprobar que cada uno aparece en el apartado que lo explica. Se descartaron 11: diez que el curso no usa y uno duplicado.

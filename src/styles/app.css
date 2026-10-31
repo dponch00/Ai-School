@@ -517,3 +517,22 @@ html[data-theme="dark"] .hl-bar { box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.34); }
 .relation__links button { width: 100%; min-height: var(--ais-layout-touch-target); padding: var(--ais-space-2) var(--ais-space-3); text-align: left; font: inherit; color: var(--ais-color-ink); background: var(--ais-color-canvas); border: 1px solid var(--ais-color-border); border-radius: var(--ais-radius-md); cursor: pointer; }
 .relation__links button:hover { border-color: var(--ais-color-accent); }
 .relation__body h3 { font-size: var(--ais-font-size-base, 1rem); }
+
+/* ---------- Volver arriba ---------- */
+/* Queda debajo de la barra de subrayado (z-index 50) y del panel lateral, que se abre en la capa superior. */
+.back-to-top {
+  position: fixed; right: var(--ais-space-4); bottom: calc(var(--ais-space-4) + env(safe-area-inset-bottom)); z-index: 40;
+  display: inline-flex; align-items: center; gap: var(--ais-space-1);
+  min-height: var(--ais-layout-touch-target); padding: 0 var(--ais-space-4);
+  font: inherit; font-weight: 600; color: var(--ais-color-on-accent); background: var(--ais-color-accent);
+  border: 0; border-radius: var(--ais-radius-pill); box-shadow: var(--ais-shadow-raised); cursor: pointer;
+  opacity: 0; transform: translateY(1rem); pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.back-to-top--visible { opacity: 1; transform: none; pointer-events: auto; }
+.back-to-top:hover { background: var(--ais-color-accent-hover); }
+.back-to-top:focus-visible { outline: 3px solid var(--ais-color-focus); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .back-to-top { transition: none; } }
+/* En el celular, solo la flecha en un círculo: tapa menos texto. */
+@media (max-width: 47.99rem) { .back-to-top { width: var(--ais-layout-touch-target); padding: 0; justify-content: center; font-size: var(--ais-font-size-lg); } .back-to-top__label { display: none; } }
+@media print { .back-to-top { display: none; } }

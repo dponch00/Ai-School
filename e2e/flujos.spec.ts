@@ -37,6 +37,21 @@ test('un término abre el panel lateral, encadena relaciones y «atrás» lo cie
   await expect(page.getByRole('dialog')).toBeHidden()
 })
 
+test('en una lectura larga aparece «volver arriba» y lleva al inicio de la página', async ({ page }) => {
+  await page.goto('/#/cursos/m01/lecciones/m01-l5')
+  await expect(page.locator('.lesson-body').first()).toBeVisible()
+  const button = page.getByRole('button', { name: 'Volver al inicio de la página' })
+  await expect(button).toBeHidden()
+  // En pantallas sin margen aparece al deslizar hacia arriba; con margen, al bajar. Las dos cosas lo muestran.
+  await page.evaluate(() => window.scrollTo(0, 4000))
+  await page.waitForTimeout(100)
+  await page.evaluate(() => window.scrollTo(0, 3800))
+  await expect(button).toBeVisible()
+  await button.click()
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0)
+  await expect(page.locator('#contenido')).toBeFocused()
+})
+
 test('una comprobación se responde con teclado y la lección queda completada tras recargar', async ({ page }) => {
   await page.goto('/#/cursos/m02/lecciones/m02-l1')
   const preguntas = page.locator('section.checks fieldset.question')

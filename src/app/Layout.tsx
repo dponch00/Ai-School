@@ -3,6 +3,7 @@ import { Link, NavLink, Outlet, useLocation } from 'react-router'
 import StorageNotice from './StorageNotice'
 import UpdatePrompt from './UpdatePrompt'
 import AppearanceControls from './AppearanceControls'
+import BackToTop from './BackToTop'
 
 export default function Layout() {
   const { pathname } = useLocation()
@@ -39,6 +40,7 @@ export default function Layout() {
       <main id="contenido" tabIndex={-1}>
         <Outlet />
       </main>
+      <BackToTop />
       <footer className="site-footer">
         <p>Datos sintéticos de una empresa ficticia. Versión piloto en construcción. Tu progreso se guarda solo en este navegador.</p>
         <p className="site-footer__links"><Link to="/como-funciona">Cómo funciona</Link> · <Link to="/glosario">Glosario</Link></p>
