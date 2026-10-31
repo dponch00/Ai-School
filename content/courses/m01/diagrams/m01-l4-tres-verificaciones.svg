@@ -1,1 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 680" role="img" aria-labelledby="t d" font-family="'Source Serif 4', Georgia, serif"><title id="t">Tres afirmaciones y tres verificaciones</title><desc id="d">Tres filas muestran: un hecho externo o cita se abre en la fuente primaria; una cifra se recalcula con código; una acción declarada se comprueba con evidencia de herramienta.</desc><rect width="480" height="680" rx="18" fill="#FFFDF7"/><text x="28" y="48" font-family="Fraunces, Georgia, serif" font-size="24" font-weight="700" fill="#172A33">No todo se verifica igual</text><text x="28" y="76" font-size="17" fill="#4D6265">La forma de comprobar depende de la afirmación</text><g fill="#FFF" stroke="#778984" stroke-width="2"><rect x="34" y="118" width="412" height="126" rx="14"/><rect x="34" y="270" width="412" height="126" rx="14"/><rect x="34" y="422" width="412" height="126" rx="14"/></g><g fill="#172A33" font-size="18"><text x="58" y="154" font-family="Fraunces, Georgia, serif" font-weight="700">Hecho externo o cita</text><text x="58" y="184">Abrir la fuente primaria</text><text x="58" y="306" font-family="Fraunces, Georgia, serif" font-weight="700">Cifra</text><text x="58" y="336">Recalcular con código</text><text x="58" y="458" font-family="Fraunces, Georgia, serif" font-weight="700">Acción que dice haber hecho</text><text x="58" y="488">Pedir comando y salida</text></g><g fill="#006E74"><circle cx="390" cy="174" r="30"/><circle cx="390" cy="326" r="30"/><circle cx="390" cy="478" r="30"/></g><g fill="#FFF" text-anchor="middle" font-size="16"><text x="390" y="180">Fuente</text><text x="390" y="332">Código</text><text x="390" y="484">Evidencia</text></g><text x="240" y="616" text-anchor="middle" font-size="18" fill="#A94E2B">El tono seguro no demuestra nada</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 530" role="img" aria-labelledby="tres-verif-t tres-verif-d">
+  <title id="tres-verif-t">Tres tipos de afirmación, tres verificaciones</title>
+  <desc id="tres-verif-d">Tres tarjetas. Un hecho externo o una cita: abre la fuente primaria y comprueba que diga lo que afirma la respuesta. Una cifra: recalcúlala con código o con la comprobación que ya tiene el proyecto. Una acción que dice haber hecho: pide la evidencia, el comando y su salida, o el enlace consultado. El tono seguro no demuestra nada.</desc>
+  <rect width="480" height="530" rx="18" fill="#FFFDF7"/>
+  <text x="24" y="46" font-family="Fraunces, Georgia, serif" font-size="23" font-weight="700" fill="#172A33">No todo se verifica igual</text>
+  <text x="24" y="72" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#4D6265">Cada tipo de afirmación tiene su comprobación</text>
+  <rect x="20" y="96" width="440" height="110" rx="14" fill="#FFFFFF" stroke="#778984" stroke-width="2"/>
+  <rect x="20" y="96" width="8" height="110" rx="4" fill="#006E74"/>
+  <text x="44" y="130" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="700" fill="#172A33">Un hecho externo o una cita</text>
+  <text x="44" y="160" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#172A33">→ Abre la fuente primaria y comprueba</text>
+  <text x="62" y="184" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#172A33">que diga lo que afirma la respuesta</text>
+  <rect x="20" y="222" width="440" height="110" rx="14" fill="#FFFFFF" stroke="#778984" stroke-width="2"/>
+  <rect x="20" y="222" width="8" height="110" rx="4" fill="#006E74"/>
+  <text x="44" y="256" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="700" fill="#172A33">Una cifra</text>
+  <text x="44" y="286" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#172A33">→ Recalcúlala con código o con la</text>
+  <text x="62" y="310" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#172A33">comprobación que ya tiene el proyecto</text>
+  <rect x="20" y="348" width="440" height="110" rx="14" fill="#FFFFFF" stroke="#778984" stroke-width="2"/>
+  <rect x="20" y="348" width="8" height="110" rx="4" fill="#006E74"/>
+  <text x="44" y="382" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="700" fill="#172A33">Una acción que dice haber hecho</text>
+  <text x="44" y="412" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#172A33">→ Pide la evidencia: el comando y su</text>
+  <text x="62" y="436" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#172A33">salida, o el enlace consultado</text>
+  <text x="240" y="500" font-family="'Source Serif 4', Georgia, serif" font-size="17" fill="#A94E2B" text-anchor="middle">El tono seguro no demuestra nada</text>
+</svg>

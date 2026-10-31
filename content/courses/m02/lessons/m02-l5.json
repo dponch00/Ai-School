@@ -35,7 +35,9 @@
     "m02-l5-c3",
     "m02-l5-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m02-l5-hitos"
+  ],
   "productCardIds": [
     "m02-pc-plan-mode",
     "m02-pc-self-verification"

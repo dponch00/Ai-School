@@ -35,7 +35,9 @@
     "m02-l6-c3",
     "m02-l6-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m02-l6-criterio-evidencia"
+  ],
   "productCardIds": [
     "m02-pc-ears",
     "m02-pc-verification-gates"

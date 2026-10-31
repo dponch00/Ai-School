@@ -37,7 +37,8 @@
     "m01-l5-c5"
   ],
   "assetIds": [
-    "m01-l5-chat-api"
+    "m01-l5-chat-api",
+    "m01-l5-local-nube"
   ],
   "productCardIds": [
     "m01-pc-api-prices",

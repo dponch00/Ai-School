@@ -1,22 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 650" role="img" aria-labelledby="title desc">
-  <title id="title">Dónde poner cada regla</title>
-  <desc id="desc">Las reglas que se repiten viven en un archivo de instrucciones, las reglas de una tarea viven en el prompt y ambas llegan al agente.</desc>
-  <rect width="480" height="650" rx="18" fill="#FFFDF7"/>
-  <text x="36" y="52" fill="#172A33" font-family="Fraunces, Georgia, serif" font-size="23" font-weight="700">Dónde poner cada regla</text>
-  <text x="36" y="81" fill="#4D6265" font-family="Source Serif 4, Georgia, serif" font-size="16">Separa lo estable de lo que cambia con la tarea.</text>
-  <rect x="48" y="119" width="384" height="142" rx="14" fill="#fff" stroke="#778984" stroke-width="2"/>
-  <text x="72" y="156" fill="#A94E2B" font-family="Source Serif 4, Georgia, serif" font-size="16" font-weight="700">PROYECTO</text>
-  <text x="72" y="191" fill="#172A33" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="700">Archivo de instrucciones</text>
-  <text x="72" y="220" fill="#4D6265" font-family="Source Serif 4, Georgia, serif" font-size="16">Reglas que se repiten entre tareas.</text>
-  <path d="M240 261v52" fill="none" stroke="#778984" stroke-width="3" stroke-linecap="round"/>
-  <path d="M233 305l7 9 7-9" fill="none" stroke="#778984" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="48" y="332" width="384" height="142" rx="14" fill="#fff" stroke="#778984" stroke-width="2"/>
-  <text x="72" y="369" fill="#A94E2B" font-family="Source Serif 4, Georgia, serif" font-size="16" font-weight="700">TAREA</text>
-  <text x="72" y="404" fill="#172A33" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="700">Prompt</text>
-  <text x="72" y="433" fill="#4D6265" font-family="Source Serif 4, Georgia, serif" font-size="16">Reglas que sirven para este encargo.</text>
-  <path d="M240 474v42" fill="none" stroke="#778984" stroke-width="3" stroke-linecap="round"/>
-  <path d="M233 508l7 9 7-9" fill="none" stroke="#778984" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="120" y="535" width="240" height="66" rx="14" fill="#DCECF5" stroke="#006E74" stroke-width="3"/>
-  <text x="240" y="576" text-anchor="middle" fill="#172A33" font-family="Fraunces, Georgia, serif" font-size="21" font-weight="700">Agente</text>
-  <text x="240" y="631" text-anchor="middle" fill="#A94E2B" font-family="Source Serif 4, Georgia, serif" font-size="16" font-weight="700">Cada regla tiene una casa clara.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 566" role="img" aria-labelledby="reglas-t reglas-d">
+  <title id="reglas-t">Dónde va cada regla</title>
+  <desc id="reglas-d">Dos cajas lado a lado. Proyecto: el archivo de instrucciones, que vale para todas las tareas, por ejemplo «los cálculos van en Python». Tarea: el prompt, que vale para este encargo, por ejemplo «toca solo kpis.py». Las dos llegan al agente, cada una por su lado. Repetir reglas en cada prompt gasta contexto.</desc>
+  <rect width="480" height="566" rx="18" fill="#FFFDF7"/>
+  <text x="24" y="46" font-family="Fraunces, Georgia, serif" font-size="23" font-weight="700" fill="#172A33">Dónde va cada regla</text>
+  <text x="24" y="72" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#4D6265">Lo estable, en un archivo; lo de hoy, en el prompt</text>
+  <rect x="20" y="96" width="210" height="214" rx="14" fill="#FFFFFF" stroke="#778984" stroke-width="2"/>
+  <text x="40" y="126" font-family="'Source Serif 4', Georgia, serif" font-size="15" font-weight="700" fill="#A94E2B">PROYECTO</text>
+  <text x="40" y="156" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="700" fill="#172A33">Archivo de</text>
+  <text x="40" y="180" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="700" fill="#172A33">instrucciones</text>
+  <text x="40" y="214" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#4D6265">Vale para todas</text>
+  <text x="40" y="236" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#4D6265">las tareas</text>
+  <text x="40" y="270" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#172A33">«Los cálculos</text>
+  <text x="40" y="292" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#172A33">van en Python»</text>
+  <rect x="250" y="96" width="210" height="214" rx="14" fill="#FFFFFF" stroke="#778984" stroke-width="2"/>
+  <text x="270" y="126" font-family="'Source Serif 4', Georgia, serif" font-size="15" font-weight="700" fill="#A94E2B">TAREA</text>
+  <text x="270" y="156" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="700" fill="#172A33">Prompt</text>
+  <text x="270" y="214" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#4D6265">Vale para este</text>
+  <text x="270" y="236" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#4D6265">encargo</text>
+  <text x="270" y="270" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#172A33">«Toca solo</text>
+  <text x="270" y="292" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#172A33">kpis.py»</text>
+  <path d="M125 310V350Q125 370 145 370H222" fill="none" stroke="#172A33" stroke-width="3" stroke-linecap="round"/>
+  <path d="M355 310V350Q355 370 335 370H258" fill="none" stroke="#172A33" stroke-width="3" stroke-linecap="round"/>
+  <path d="M240 370V406" stroke="#172A33" stroke-width="3" stroke-linecap="round"/><path d="M231 398l9 10 9-10" fill="none" stroke="#172A33" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="140" y="410" width="200" height="62" rx="14" fill="#DCECF5" stroke="#006E74" stroke-width="3"/>
+  <text x="240" y="448" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="700" fill="#172A33" text-anchor="middle">Agente</text>
+  <text x="240" y="504" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#4D6265" text-anchor="middle">Las dos llegan al agente, cada una por su lado</text>
+  <text x="240" y="536" font-family="'Source Serif 4', Georgia, serif" font-size="17" fill="#A94E2B" text-anchor="middle">Repetir reglas en cada prompt gasta contexto</text>
 </svg>

@@ -35,7 +35,9 @@
     "m01-l3-c3",
     "m01-l3-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m01-l3-ventana-contexto"
+  ],
   "productCardIds": [
     "m01-pc-context-cutoff",
     "m01-pc-context-tools"

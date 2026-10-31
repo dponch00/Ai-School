@@ -20,9 +20,12 @@
     "function": "organize",
     "pedagogicalQuestion": "¿Qué información convierte un encargo en un objetivo revisable?",
     "whyNotTextOrSvg": "Es un SVG hecho con código: reúne las cuatro piezas de un objetivo alrededor de una sola idea central.",
-    "alt": "Un objetivo en el centro se concreta con quién lo usa, para qué sirve, cuándo se necesita y con qué criterio se considerará terminado.",
-    "dimensions": { "width": 480, "height": 680 },
-    "reviewStatus": "pending"
+    "alt": "Cuatro tarjetas con el objetivo del dashboard de Altiplano. Quién lo usa: la directora comercial y la analista de FP&A. Qué decisión apoya: en qué oportunidades concentrar el seguimiento para cerrar el trimestre. Qué periodo cubre: el cuarto trimestre de 2026, con los datos del último snapshot. Qué criterio separa: las oportunidades de más de USD 100 000. Sin tecnología ni gráficas: eso es el cómo.",
+    "dimensions": {
+      "width": 480,
+      "height": 532
+    },
+    "reviewStatus": "approved"
   },
   {
     "id": "m02-l2-reglas-donde",
@@ -31,9 +34,12 @@
     "function": "organize",
     "pedagogicalQuestion": "¿Dónde conviene poner una regla que se repite y una regla propia de una tarea?",
     "whyNotTextOrSvg": "Es un SVG hecho con código: distingue con claridad las reglas de proyecto y las reglas de tarea antes de que lleguen al agente.",
-    "alt": "Las reglas que se repiten viven en un archivo de instrucciones, las reglas de una tarea viven en el prompt y ambas llegan al agente.",
-    "dimensions": { "width": 480, "height": 650 },
-    "reviewStatus": "pending"
+    "alt": "Dos cajas lado a lado. Proyecto: el archivo de instrucciones, que vale para todas las tareas, por ejemplo «los cálculos van en Python». Tarea: el prompt, que vale para este encargo, por ejemplo «toca solo kpis.py». Las dos llegan al agente, cada una por su lado. Repetir reglas en cada prompt gasta contexto.",
+    "dimensions": {
+      "width": 480,
+      "height": 566
+    },
+    "reviewStatus": "approved"
   },
   {
     "id": "m02-l3-forma-verdad",
@@ -43,8 +49,11 @@
     "pedagogicalQuestion": "¿Por qué una respuesta con formato correcto todavía debe comprobarse?",
     "whyNotTextOrSvg": "Es un SVG hecho con código: separa visualmente el filtro de forma del filtro de sentido para mostrar que no son equivalentes.",
     "alt": "Una respuesta puede cumplir el formato acordado y aun así contener un valor incorrecto, por eso se comprueba tanto la forma como el sentido.",
-    "dimensions": { "width": 480, "height": 670 },
-    "reviewStatus": "pending"
+    "dimensions": {
+      "width": 480,
+      "height": 670
+    },
+    "reviewStatus": "approved"
   },
   {
     "id": "m02-l5-hitos",
@@ -53,9 +62,12 @@
     "function": "organize",
     "pedagogicalQuestion": "¿Cómo hacen los hitos que un plan sea comprobable durante el trabajo?",
     "whyNotTextOrSvg": "Es un SVG hecho con código: convierte la secuencia de hitos y comprobaciones en un recorrido con un bucle de corrección visible.",
-    "alt": "Un plan divide el trabajo en hitos, comprueba cada uno y, si aparece un error, lo corrige donde nació antes de continuar.",
-    "dimensions": { "width": 480, "height": 710 },
-    "reviewStatus": "pending"
+    "alt": "El dashboard en tres hitos: leer los datos, calcular los KPI y armar la vista. Entre el hito 1 y el 2, la prueba pasa y apruebas los supuestos. Entre el 2 y el 3, la prueba no pasa y no se avanza: sabes que el problema está en el hito 2 y no en una entrega enorme. Si el hueco está en la especificación, se corrige ahí, no solo en el código.",
+    "dimensions": {
+      "width": 480,
+      "height": 566
+    },
+    "reviewStatus": "approved"
   },
   {
     "id": "m02-l6-criterio-evidencia",
@@ -64,8 +76,11 @@
     "function": "explain",
     "pedagogicalQuestion": "¿Cómo se transforma un criterio en una evidencia que otra persona pueda revisar?",
     "whyNotTextOrSvg": "Es un SVG hecho con código: hace visible la cadena que conecta el criterio con una comprobación y su evidencia.",
-    "alt": "Un criterio específico se convierte en un resultado observable, una comprobación ejecutable y una evidencia que otra persona puede revisar.",
-    "dimensions": { "width": 480, "height": 680 },
-    "reviewStatus": "pending"
+    "alt": "Cuatro pasos con un caso del dashboard de Altiplano. Criterio específico: una oportunidad sin fecha de cierre no suma al pipeline del trimestre. Resultado observable: aparece en el panel de calidad de datos, no «se guardó en la base». Comprobación ejecutable: una prueba o el script de reconciliación que el propio agente puede correr. Evidencia: el comando, su salida y el valor esperado frente al obtenido, en el reporte final.",
+    "dimensions": {
+      "width": 480,
+      "height": 616
+    },
+    "reviewStatus": "approved"
   }
 ]

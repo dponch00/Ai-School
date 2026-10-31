@@ -35,7 +35,9 @@
     "m01-l6-c3",
     "m01-l6-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m01-l6-comparar"
+  ],
   "productCardIds": [],
   "sourceIds": [
     "src-anthropic-choosing-model",

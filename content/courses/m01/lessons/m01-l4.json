@@ -35,7 +35,9 @@
     "m01-l4-c3",
     "m01-l4-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m01-l4-tres-verificaciones"
+  ],
   "productCardIds": [
     "m01-pc-hallucination-guidance"
   ],

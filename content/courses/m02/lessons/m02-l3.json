@@ -35,7 +35,9 @@
     "m02-l3-c3",
     "m02-l3-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m02-l3-forma-verdad"
+  ],
   "productCardIds": [
     "m02-pc-examples-count",
     "m02-pc-schema-support"

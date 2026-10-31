@@ -1,29 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 680" role="img" aria-labelledby="title desc">
-  <title id="title">Las cuatro piezas de un objetivo</title>
-  <desc id="desc">Un objetivo en el centro se concreta con quién lo usa, para qué sirve, cuándo se necesita y con qué criterio se considerará terminado.</desc>
-  <rect width="480" height="680" rx="18" fill="#FFFDF7"/>
-  <text x="36" y="52" fill="#172A33" font-family="Fraunces, Georgia, serif" font-size="23" font-weight="700">Las cuatro piezas de un objetivo</text>
-  <text x="36" y="81" fill="#4D6265" font-family="Source Serif 4, Georgia, serif" font-size="16">Antes de pedir trabajo, concreta el encargo.</text>
-  <rect x="120" y="111" width="240" height="78" rx="14" fill="#DCECF5" stroke="#006E74" stroke-width="3"/>
-  <text x="240" y="145" text-anchor="middle" fill="#172A33" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="700">Objetivo</text>
-  <text x="240" y="171" text-anchor="middle" fill="#4D6265" font-family="Source Serif 4, Georgia, serif" font-size="16">que se pueda revisar</text>
-  <path d="M240 189v30M240 219H132M240 219h108M132 219v22M348 219v22" fill="none" stroke="#778984" stroke-width="3" stroke-linecap="round"/>
-  <rect x="36" y="241" width="192" height="126" rx="14" fill="#fff" stroke="#778984" stroke-width="2"/>
-  <text x="58" y="276" fill="#A94E2B" font-family="Source Serif 4, Georgia, serif" font-size="16" font-weight="700">QUIÉN</text>
-  <text x="58" y="308" fill="#172A33" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="700">La persona que decide</text>
-  <text x="58" y="335" fill="#4D6265" font-family="Source Serif 4, Georgia, serif" font-size="16">necesita usar el resultado.</text>
-  <rect x="252" y="241" width="192" height="126" rx="14" fill="#fff" stroke="#778984" stroke-width="2"/>
-  <text x="274" y="276" fill="#A94E2B" font-family="Source Serif 4, Georgia, serif" font-size="16" font-weight="700">PARA QUÉ</text>
-  <text x="274" y="308" fill="#172A33" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="700">La decisión concreta</text>
-  <text x="274" y="335" fill="#4D6265" font-family="Source Serif 4, Georgia, serif" font-size="16">que debe permitir tomar.</text>
-  <rect x="36" y="397" width="192" height="126" rx="14" fill="#fff" stroke="#778984" stroke-width="2"/>
-  <text x="58" y="432" fill="#A94E2B" font-family="Source Serif 4, Georgia, serif" font-size="16" font-weight="700">CUÁNDO</text>
-  <text x="58" y="464" fill="#172A33" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="700">El momento o período</text>
-  <text x="58" y="491" fill="#4D6265" font-family="Source Serif 4, Georgia, serif" font-size="16">al que se refiere el trabajo.</text>
-  <rect x="252" y="397" width="192" height="126" rx="14" fill="#fff" stroke="#778984" stroke-width="2"/>
-  <text x="274" y="432" fill="#A94E2B" font-family="Source Serif 4, Georgia, serif" font-size="16" font-weight="700">CON QUÉ CRITERIO</text>
-  <text x="274" y="464" fill="#172A33" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="700">La condición de cierre</text>
-  <text x="274" y="491" fill="#4D6265" font-family="Source Serif 4, Georgia, serif" font-size="16">que hará visible si terminó.</text>
-  <rect x="36" y="563" width="408" height="62" rx="12" fill="#172A33"/>
-  <text x="240" y="602" text-anchor="middle" fill="#FFFDF7" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="700">Si falta una pieza, el agente rellena el hueco.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 532" role="img" aria-labelledby="objetivo-t objetivo-d">
+  <title id="objetivo-t">Las cuatro preguntas de un objetivo</title>
+  <desc id="objetivo-d">Cuatro tarjetas con el objetivo del dashboard de Altiplano. Quién lo usa: la directora comercial y la analista de FP&amp;A. Qué decisión apoya: en qué oportunidades concentrar el seguimiento para cerrar el trimestre. Qué periodo cubre: el cuarto trimestre de 2026, con los datos del último snapshot. Qué criterio separa: las oportunidades de más de USD 100 000. Sin tecnología ni gráficas: eso es el cómo.</desc>
+  <rect width="480" height="532" rx="18" fill="#FFFDF7"/>
+  <text x="24" y="46" font-family="Fraunces, Georgia, serif" font-size="22" font-weight="700" fill="#172A33">Las cuatro preguntas de un objetivo</text>
+  <text x="24" y="72" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#4D6265">El dashboard de Altiplano</text>
+  <rect x="20" y="94" width="440" height="74" rx="14" fill="#FFFFFF" stroke="#778984" stroke-width="2"/>
+  <text x="40" y="124" font-family="'Source Serif 4', Georgia, serif" font-size="15" font-weight="700" fill="#A94E2B">QUIÉN LO USA</text>
+  <text x="40" y="150" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#172A33">La directora comercial y la analista de FP&amp;A</text>
+  <rect x="20" y="180" width="440" height="96" rx="14" fill="#FFFFFF" stroke="#778984" stroke-width="2"/>
+  <text x="40" y="210" font-family="'Source Serif 4', Georgia, serif" font-size="15" font-weight="700" fill="#A94E2B">QUÉ DECISIÓN APOYA</text>
+  <text x="40" y="236" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#172A33">En qué oportunidades concentrar el seguimiento</text>
+  <text x="40" y="258" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#172A33">para cerrar el trimestre</text>
+  <rect x="20" y="288" width="440" height="96" rx="14" fill="#FFFFFF" stroke="#778984" stroke-width="2"/>
+  <text x="40" y="318" font-family="'Source Serif 4', Georgia, serif" font-size="15" font-weight="700" fill="#A94E2B">QUÉ PERIODO CUBRE</text>
+  <text x="40" y="344" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#172A33">El cuarto trimestre de 2026, con los datos</text>
+  <text x="40" y="366" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#172A33">del último snapshot</text>
+  <rect x="20" y="396" width="440" height="74" rx="14" fill="#FFFFFF" stroke="#778984" stroke-width="2"/>
+  <text x="40" y="426" font-family="'Source Serif 4', Georgia, serif" font-size="15" font-weight="700" fill="#A94E2B">QUÉ CRITERIO SEPARA</text>
+  <text x="40" y="452" font-family="'Source Serif 4', Georgia, serif" font-size="16" fill="#172A33">Las oportunidades de más de USD 100 000</text>
+  <text x="240" y="508" font-family="'Source Serif 4', Georgia, serif" font-size="17" fill="#A94E2B" text-anchor="middle">Sin tecnología ni gráficas: eso es el cómo</text>
 </svg>

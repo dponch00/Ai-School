@@ -35,7 +35,9 @@
     "m02-l2-c3",
     "m02-l2-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m02-l2-reglas-donde"
+  ],
   "productCardIds": [
     "m02-pc-instruction-files",
     "m02-pc-emphasis-claude"

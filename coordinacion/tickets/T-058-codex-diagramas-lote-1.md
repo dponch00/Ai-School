@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-30 |
 | Depende de | T-057 (cerrado) |
 | Fase del plan | Mantenimiento posterior a la V1 (pedido de Daniel) |
@@ -78,3 +78,23 @@ _(Codex · 2026-10-30)_
 | `m02-l6-criterio-evidencia` | Dibujado; cadena de criterio, resultado observable, comprobación y evidencia. | Ninguna. |
 
 Los once SVG se registraron con `reviewStatus: "pending"`; sus descripciones accesibles, dimensiones y capturas a 360 px se revisaron. No se modificó ninguna lección. Verificaciones: `node scripts/build-content.ts --check` correcto; `npx vitest run src/domain` correcto (4 archivos, 186 pruebas).
+
+## Revisión
+
+_(Claude Code, 2026-10-30)_
+
+Revisé los once diagramas a 360 px, junto con el texto de cada apartado.
+
+- **Integré sin cambios cuatro:** `m01-l2-elegir-herramienta`, `m01-l3-ventana-contexto`, `m01-l6-comparar` y `m02-l3-forma-verdad`.
+- **Reescribí siete:**
+  - **`m01-l1-cinco-capas`:** «produce texto» no cabía en el círculo del modelo. Agrandé el círculo, puse la nota afuera y agregué ejemplos de superficie y de entorno que dan las lecciones.
+  - **`m01-l4-tres-verificaciones`:** «Evidencia» no cabía en su círculo. Las tarjetas dicen ahora la verificación completa de la lección.
+  - **`m01-l5-local-nube`:** los rótulos quedaban encima de las flechas, la caja de la tercera situación estaba vacía y «modelo» no cabía. Rehice las tres situaciones.
+  - **`m02-l1-objetivo`:** el texto se salía de las cajas. Usé la tabla de Altiplano de la lección (quién, qué decisión, qué periodo, qué criterio).
+  - **`m02-l2-reglas-donde`:** sugería que el archivo de instrucciones pasaba por el prompt. Ahora las dos reglas llegan al agente por separado, con un ejemplo de cada una.
+  - **`m02-l5-hitos`:** los hitos genéricos pasan a ser los de la lección (leer los datos, calcular los KPI, armar la vista), con una prueba que no pasa y la regla de #origen.
+  - **`m02-l6-criterio-evidencia`:** el texto se salía. Ahora sigue el caso de la oportunidad sin fecha de cierre, con la evidencia del reporte final.
+- **Integración:** cada diagrama va después del primer párrafo de su apartado (`::figure` y `assetIds`), y su `alt` coincide con el `desc`. Los once quedan con `reviewStatus: "approved"`. Codex revisa la integración en T-059.
+
+**Verificación:** `npm test` 250/250 y E2E 164/164.
+

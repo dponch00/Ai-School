@@ -32,7 +32,9 @@
     "m02-l1-c3",
     "m02-l1-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m02-l1-objetivo"
+  ],
   "productCardIds": [
     "m02-pc-autonomy-levels",
     "m02-pc-codex-task-shape"

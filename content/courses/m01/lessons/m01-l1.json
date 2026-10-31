@@ -32,7 +32,9 @@
     "m01-l1-c3",
     "m01-l1-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m01-l1-cinco-capas"
+  ],
   "productCardIds": [
     "m01-pc-agent-surfaces",
     "m01-pc-cloud-sessions"

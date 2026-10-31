@@ -35,7 +35,9 @@
     "m01-l2-c3",
     "m01-l2-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m01-l2-elegir-herramienta"
+  ],
   "productCardIds": [
     "m01-pc-chat-capabilities",
     "m01-pc-agent-choice"
