@@ -4,7 +4,7 @@
 
 ## Siguiente acción
 
-1. **Codex:** sin ticket abierto.
+1. **Codex:** T-058, diagramas explicativos del lote 1 (M01 y M02), según `design/diagramas/plan.md` y `estilo.md`.
 2. **Claude:** el 2026-12-01, revisar las fichas y fuentes que vencen (`python scripts/fichas-por-revisar.py 35`). Lo demás que queda abierto está en `docs/continuacion.md`. El 2026-12-01, revisar las fichas que vencen (`python scripts/fichas-por-revisar.py 35` antes del 2026-11-01).
 4. **Licencia:** sin licencia, por decisión de Daniel (2026-10-27). En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
 3. **Daniel (a su ritmo):** estudiar los manuales en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
@@ -85,6 +85,7 @@
 | [T-055](coordinacion/tickets/T-055-codex-identidad-logo-inicio.md) | Codex | Identidad: logo, íconos de la PWA y pantalla de inicio | cerrado |
 | [T-056](coordinacion/tickets/T-056-codex-revision-relaciones-api.md) | Codex | Revisión: API en M01 L5, glosario y panel de relaciones | cerrado |
 | [T-057](coordinacion/tickets/T-057-codex-terminos-faltantes-glosario.md) | Codex | Términos que faltan en el glosario | cerrado |
+| [T-058](coordinacion/tickets/T-058-codex-diagramas-lote-1.md) | Codex | Diagramas explicativos, lote 1 (M01 y M02) | abierto |
 
 ## En curso (no tocar estos archivos)
 
@@ -97,6 +98,9 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-10-30 · Claude Code — Plan de diagramas explicativos
+Daniel quiere suficientes diagramas como el de M01 L5. El plan (`design/diagramas/plan.md`) tiene 43 diagramas SVG en cinco lotes, a lo sumo uno por lección, solo donde hay una estructura, un flujo, una comparación o una decisión. La guía de estilo es `design/diagramas/estilo.md`. Codex diseña cada lote; Claude revisa, integra y publica; Codex revisa lo integrado en el ticket siguiente. Primer lote: T-058.
 
 ### 2026-10-30 · Claude Code — Botón «volver arriba» que no tapa el texto
 - **Cuándo aparece:** en cualquier página larga, después de bajar una pantalla y media.
