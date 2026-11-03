@@ -35,7 +35,9 @@
     "m07-l4-c3",
     "m07-l4-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m07-l4-mcp"
+  ],
   "productCardIds": [
     "m07-pc-mcp-config"
   ],

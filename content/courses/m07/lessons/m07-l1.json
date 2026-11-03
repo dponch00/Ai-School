@@ -32,7 +32,9 @@
     "m07-l1-c3",
     "m07-l1-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m07-l1-peticion-respuesta"
+  ],
   "productCardIds": [],
   "sourceIds": [
     "src-ietf-rfc9110",

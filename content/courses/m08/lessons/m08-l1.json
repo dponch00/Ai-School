@@ -32,7 +32,9 @@
     "m08-l1-c3",
     "m08-l1-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m08-l1-flujo-agente"
+  ],
   "productCardIds": [],
   "sourceIds": [
     "src-anthropic-building-agents",

@@ -35,7 +35,9 @@
     "m07-l5-c3",
     "m07-l5-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m07-l5-rag-consulta"
+  ],
   "productCardIds": [],
   "sourceIds": [
     "src-arxiv-rag-lewis",

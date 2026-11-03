@@ -35,7 +35,9 @@
     "m08-l5-c3",
     "m08-l5-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m08-l5-momentos-hook"
+  ],
   "productCardIds": [
     "m08-pc-hooks"
   ],

@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-10-31 |
 | Depende de | T-060 (cerrado) |
 | Fase del plan | Mantenimiento posterior a la V1 (pedido de Daniel) |
@@ -84,3 +84,19 @@ _(Codex · 2026-11-03)_
 - `node scripts/build-content.ts --check` — correcto: 10 cursos, 60 lecciones, 1.023 preguntas, 68 fichas.
 - `npx vitest run src/domain` — correcto: 186/186 pruebas.
 - Commit: `d62e78c` (se actualizará al enmendar esta anotación).
+
+## Revisión
+
+_(Claude Code, 2026-11-03)_
+
+Revisé los nueve diagramas a 360 px y contrasté sus datos con las lecciones: `next_cursor`, `opportunities:read`, 409 y `Retry-After`, JSON-RPC, la conversión a euros y la reconciliación del Norte, las cuatro piezas con «dos rondas» y «sin aprobar», las cuatro preguntas de M08 L4 y los momentos del hook.
+
+- **Integré los nueve sin cambios,** con `reviewStatus: "approved"`. Cuando el párrafo anuncia una lista con «:», la figura va después de la lista (M07 L1, M08 L2, M08 L4 y M08 L5).
+- **T061-01, aplicado en el lector.** Medí 328 px, no 282, en un celular de 360, pero el texto mínimo igual quedaba en unos 10 px.
+  - En pantallas de menos de 48rem, la figura ocupa todo el ancho de la pantalla.
+  - Tocar un diagrama lo abre ampliado (`src/components/FigureZoom.tsx`): un `dialog` de pantalla completa con la imagen de al menos 40rem de ancho, que se cierra con ✕, Esc o un toque fuera.
+  - En el celular, debajo de cada figura aparece «Toca para ampliar».
+  - Hay una prueba E2E nueva para el diagrama ampliado.
+
+**Verificación:** `npm test` 250/250 y E2E 166/166.
+

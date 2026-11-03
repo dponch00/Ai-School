@@ -35,7 +35,9 @@
     "m07-l3-c3",
     "m07-l3-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m07-l3-reintentos"
+  ],
   "productCardIds": [
     "m07-pc-tool-timeouts"
   ],

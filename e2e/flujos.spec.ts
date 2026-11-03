@@ -52,6 +52,18 @@ test('en una lectura larga aparece «volver arriba» y lleva al inicio de la pá
   await expect(page.locator('#contenido')).toBeFocused()
 })
 
+test('un diagrama se amplía al tocarlo y Esc lo cierra', async ({ page }) => {
+  await page.goto('/#/cursos/m05/lecciones/m05-l1')
+  const zoom = page.locator('.lesson-figure__zoom').first()
+  await expect(zoom).toBeVisible()
+  await zoom.click()
+  const dialog = page.getByRole('dialog', { name: 'Diagrama ampliado' })
+  await expect(dialog).toBeVisible()
+  await expect(dialog.locator('img')).toHaveAttribute('alt', /permisos/i)
+  await page.keyboard.press('Escape')
+  await expect(dialog).toBeHidden()
+})
+
 test('una comprobación se responde con teclado y la lección queda completada tras recargar', async ({ page }) => {
   await page.goto('/#/cursos/m02/lecciones/m02-l1')
   const preguntas = page.locator('section.checks fieldset.question')

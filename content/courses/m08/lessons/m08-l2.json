@@ -35,7 +35,9 @@
     "m08-l2-c3",
     "m08-l2-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m08-l2-delegar"
+  ],
   "productCardIds": [
     "m08-pc-termination-limits"
   ],

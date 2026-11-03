@@ -35,7 +35,9 @@
     "m08-l4-c3",
     "m08-l4-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m08-l4-cuatro-preguntas"
+  ],
   "productCardIds": [
     "m08-pc-scheduling-options"
   ],

@@ -7,8 +7,11 @@
     "pedagogicalQuestion": "¿Qué piezas hay que leer en una petición y respuesta de API?",
     "whyNotTextOrSvg": "Es un SVG hecho con código: conecta las cinco piezas del intercambio con el cursor que muestra que un 200 no asegura un dato completo.",
     "alt": "El agente de Altiplano pide oportunidades abiertas del Sur con GET, una URL, cabeceras y parámetros. El servidor responde 200 y un cuerpo JSON con next_cursor, que indica que queda una página pendiente.",
-    "dimensions": { "width": 480, "height": 790 },
-    "reviewStatus": "pending"
+    "dimensions": {
+      "width": 480,
+      "height": 790
+    },
+    "reviewStatus": "approved"
   },
   {
     "id": "m07-l2-oauth",
@@ -18,8 +21,11 @@
     "pedagogicalQuestion": "¿Cómo accede una aplicación a un servicio sin recibir la contraseña?",
     "whyNotTextOrSvg": "Es un SVG hecho con código: muestra los cuatro papeles del flujo y hace visible el token limitado entre la aplicación y el servidor de recursos.",
     "alt": "La persona autoriza a la aplicación de Altiplano. El servidor de autorización emite un token con opportunities:read, que la aplicación presenta al servidor de recursos para leer oportunidades sin recibir la contraseña.",
-    "dimensions": { "width": 480, "height": 790 },
-    "reviewStatus": "pending"
+    "dimensions": {
+      "width": 480,
+      "height": 790
+    },
+    "reviewStatus": "approved"
   },
   {
     "id": "m07-l3-reintentos",
@@ -29,8 +35,11 @@
     "pedagogicalQuestion": "¿Cómo se reintenta un POST sin duplicar su efecto?",
     "whyNotTextOrSvg": "Es un SVG hecho con código: ordena la clave, el fallo, la espera y el reintento sobre una misma operación.",
     "alt": "Para crear una tarea de seguimiento, el agente genera una clave de idempotencia una vez. Si la petición falla, espera y reintenta con la misma clave y el mismo cuerpo; el servidor reconoce el reintento y evita un segundo efecto.",
-    "dimensions": { "width": 480, "height": 755 },
-    "reviewStatus": "pending"
+    "dimensions": {
+      "width": 480,
+      "height": 755
+    },
+    "reviewStatus": "approved"
   },
   {
     "id": "m07-l4-mcp",
@@ -40,8 +49,11 @@
     "pedagogicalQuestion": "¿Quién habla con quién dentro de MCP y dónde se decide la confianza?",
     "whyNotTextOrSvg": "Es un SVG hecho con código: separa anfitrión, cliente y servidor, y muestra que las políticas y el consentimiento residen en el anfitrión.",
     "alt": "En Altiplano, el anfitrión contiene al modelo y a un cliente para el servidor del CRM. El anfitrión aplica seguridad y consentimiento, limita el contexto que comparte, y el servidor ofrece herramientas, recursos y prompts.",
-    "dimensions": { "width": 480, "height": 670 },
-    "reviewStatus": "pending"
+    "dimensions": {
+      "width": 480,
+      "height": 670
+    },
+    "reviewStatus": "approved"
   },
   {
     "id": "m07-l5-rag-consulta",
@@ -51,7 +63,10 @@
     "pedagogicalQuestion": "¿Cuándo corresponde recuperar texto y cuándo consultar datos?",
     "whyNotTextOrSvg": "Es un SVG hecho con código: compara, sobre preguntas del mismo caso, las dos vías y los resultados que puede devolver cada una.",
     "alt": "La política de FP y A responde qué cuenta como oportunidad vencida mediante documentos recuperados. El pipeline abierto del Sur se obtiene mediante una consulta estructurada que devuelve filas y totales repetibles.",
-    "dimensions": { "width": 480, "height": 735 },
-    "reviewStatus": "pending"
+    "dimensions": {
+      "width": 480,
+      "height": 735
+    },
+    "reviewStatus": "approved"
   }
 ]
