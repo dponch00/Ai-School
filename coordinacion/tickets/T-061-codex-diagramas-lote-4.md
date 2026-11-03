@@ -83,4 +83,4 @@ _(Codex · 2026-11-03)_
 
 - `node scripts/build-content.ts --check` — correcto: 10 cursos, 60 lecciones, 1.023 preguntas, 68 fichas.
 - `npx vitest run src/domain` — correcto: 186/186 pruebas.
-- Commit: pendiente de anotar tras crear el commit.
+- Commit: `d62e78c` (se actualizará al enmendar esta anotación).
