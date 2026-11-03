@@ -32,7 +32,9 @@
     "m09-l1-c3",
     "m09-l1-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m09-l1-pass-k"
+  ],
   "productCardIds": [],
   "sourceIds": [
     "src-anthropic-glossary",

@@ -7,8 +7,11 @@
     "pedagogicalQuestion": "¿Dónde debe vivir cada clase de dato en el Pulse?",
     "whyNotTextOrSvg": "Es un SVG hecho con código: clasifica los datos del mismo caso por su origen y riesgo de pérdida, sin convertir la explicación en una tabla extensa.",
     "alt": "En el Pulse, el total de vencidas es derivado y no se guarda; monto, etapa y fechas son de referencia del snapshot verificado; región y orden son preferencias; la marca revisada la crea el usuario y se guarda en el navegador con exportación.",
-    "dimensions": { "width": 480, "height": 770 },
-    "reviewStatus": "pending"
+    "dimensions": {
+      "width": 480,
+      "height": 770
+    },
+    "reviewStatus": "approved"
   },
   {
     "id": "m10-l4-cadena",
@@ -18,8 +21,11 @@
     "pedagogicalQuestion": "¿Qué cadena impide publicar una versión con una comprobación fallida?",
     "whyNotTextOrSvg": "Es un SVG hecho con código: ordena los controles dentro de la construcción, el único camino hacia despliegue y la salida cuando uno falla.",
     "alt": "La construcción del Pulse corre pruebas, reconcile.py sobre kpis.json y el escaneo de accesibilidad. Si una falla, no se publica y sigue la versión anterior. Solo una construcción que pasa genera archivos que el despliegue publica.",
-    "dimensions": { "width": 480, "height": 770 },
-    "reviewStatus": "pending"
+    "dimensions": {
+      "width": 480,
+      "height": 770
+    },
+    "reviewStatus": "approved"
   },
   {
     "id": "m10-l6-disparadores",
@@ -29,7 +35,10 @@
     "pedagogicalQuestion": "¿Qué prueba se vuelve a correr según el cambio que ocurrió?",
     "whyNotTextOrSvg": "Es un SVG hecho con código: convierte la tabla de mantenimiento en seis reglas legibles antes de la revisión independiente que comparten.",
     "alt": "En el Pulse, código o pantalla disparan pruebas, reconcile.py, accesibilidad y revisión manual. Instrucciones, skills, modelos, dependencias, formatos y hosting disparan sus comprobaciones específicas antes de que una persona distinta revise el resultado.",
-    "dimensions": { "width": 480, "height": 890 },
-    "reviewStatus": "pending"
+    "dimensions": {
+      "width": 480,
+      "height": 890
+    },
+    "reviewStatus": "approved"
   }
 ]

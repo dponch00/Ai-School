@@ -35,7 +35,9 @@
     "m10-l4-c3",
     "m10-l4-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m10-l4-cadena"
+  ],
   "productCardIds": [
     "m10-pc-static-hosting"
   ],

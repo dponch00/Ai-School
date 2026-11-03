@@ -10,7 +10,7 @@
   <path d="M240 169v29" stroke="#172A33" stroke-width="3" fill="none" marker-end="url(#a)"/>
   <g fill="#fff" stroke="#778984" stroke-width="2"><rect x="42" y="213" width="396" height="55" rx="13"/><rect x="42" y="283" width="396" height="55" rx="13"/><rect x="42" y="353" width="396" height="55" rx="13"/></g>
   <g font-size="16" fill="#172A33"><text x="240" y="247" text-anchor="middle">Pruebas</text><text x="240" y="317" text-anchor="middle">reconcile.py sobre kpis.json</text><text x="240" y="387" text-anchor="middle">Escaneo de accesibilidad</text></g>
-  <path d="M240 268v15m0 55v15" stroke="#172A33" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <path d="M240 268v15M240 338v15" stroke="#778984" stroke-width="3" fill="none"/>
   <path d="M240 408v29" stroke="#172A33" stroke-width="3" fill="none" marker-end="url(#a)"/>
   <rect x="42" y="452" width="396" height="70" rx="13" fill="#23694D"/>
   <text x="240" y="482" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="700" fill="#fff">Construcción aprobada</text><text x="240" y="505" text-anchor="middle" font-size="15" fill="#fff">Genera los archivos finales</text>

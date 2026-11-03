@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | entregado |
+| Estado | cerrado |
 | Creado | 2026-11-03 |
 | Depende de | T-061 (cerrado) |
 | Fase del plan | Mantenimiento posterior a la V1 (pedido de Daniel) |
@@ -83,3 +83,21 @@ _(Codex · 2026-11-03)_
 
 - `node scripts/build-content.ts --check` — correcto.
 - `npx vitest run src/domain` — correcto: 4 archivos, 186 pruebas.
+
+## Revisión
+
+_(Claude Code, 2026-11-03)_
+
+Revisé los seis diagramas a 360 px y contrasté sus datos con las lecciones:
+- las definiciones de pass@k y pass^k, palabra por palabra;
+- el orden código → juez calibrado → persona, y que el criterio crítico va siempre en modo binario;
+- las cuatro clases de dato y «el código de la oportunidad, no su monto»;
+- la cadena de construcción y despliegue;
+- los disparadores del plan de mantenimiento.
+
+- **Integré los seis,** con `reviewStatus: "approved"`. Hay un ajuste de dibujo en `m10-l4-cadena`: entre «Pruebas», «reconcile.py» y «Escaneo de accesibilidad» las cajas están a solo 15 unidades y la punta de flecha se metía en la caja. Ahora son conectores sin punta, como pasos de una misma construcción.
+- **Tu revisión del lote 4 y del diagrama ampliado:** sin hallazgos. La tomé como confirmación.
+- **Con este lote se completa el plan:** 43 diagramas nuevos, de M01 a M10.
+
+**Verificación:** `npm test` 250/250 y E2E 166/166.
+

@@ -35,7 +35,9 @@
     "m09-l3-c3",
     "m09-l3-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m09-l3-graders"
+  ],
   "productCardIds": [
     "m09-pc-eval-platforms",
     "m09-pc-judge-guidance"

@@ -4,7 +4,7 @@
 
 ## Siguiente acción
 
-1. **Codex:** T-062, diagramas del lote 5 (M09 y M10, el último) y revisión del lote 4 y del diagrama ampliado.
+1. **Codex:** sin ticket abierto.
 2. **Claude:** el 2026-12-01, revisar las fichas y fuentes que vencen (`python scripts/fichas-por-revisar.py 35`). Lo demás que queda abierto está en `docs/continuacion.md`. El 2026-12-01, revisar las fichas que vencen (`python scripts/fichas-por-revisar.py 35` antes del 2026-11-01).
 4. **Licencia:** sin licencia, por decisión de Daniel (2026-10-27). En su sesión, Python (alias de WindowsApps) no arranca: las comprobaciones con scripts las ejecuta Claude.
 3. **Daniel (a su ritmo):** estudiar los manuales en la versión de prueba y contar lo que no se entienda o tome demasiado tiempo.
@@ -89,7 +89,7 @@
 | [T-059](coordinacion/tickets/T-059-codex-diagramas-lote-2.md) | Codex | Diagramas, lote 2 (M03 y M04) y revisión del lote 1 | cerrado |
 | [T-060](coordinacion/tickets/T-060-codex-diagramas-lote-3.md) | Codex | Diagramas, lote 3 (M05 y M06) y revisión del lote 2 | cerrado |
 | [T-061](coordinacion/tickets/T-061-codex-diagramas-lote-4.md) | Codex | Diagramas, lote 4 (M07 y M08) y revisión del lote 3 | cerrado |
-| [T-062](coordinacion/tickets/T-062-codex-diagramas-lote-5.md) | Codex | Diagramas, lote 5 (M09 y M10) y revisión del lote 4 | abierto |
+| [T-062](coordinacion/tickets/T-062-codex-diagramas-lote-5.md) | Codex | Diagramas, lote 5 (M09 y M10) y revisión del lote 4 | cerrado |
 
 ## En curso (no tocar estos archivos)
 
@@ -102,6 +102,12 @@
 **D-024 (2026-10-23):** todo de opción múltiple; fuera el expediente exportable, las entregas y las microtareas; el laboratorio es un caso con preguntas. Antes, Daniel aceptó el 2026-10-21: revisión cruzada con Codex (D-003), React + TS + Vite (D-005), GitHub Pages público (D-006) y el programa de Educación como contexto del perfil (D-009). Ver [`docs/decisions.md`](docs/decisions.md).
 
 ## Bitácora
+
+### 2026-11-03 · Claude Code — Plan de diagramas completo (T-062)
+- **Último lote integrado:** seis diagramas en M09 y M10, con un ajuste de dibujo en M10 L4.
+- **Plan completo:** 43 diagramas SVG nuevos en los diez manuales (T-058 a T-062). Cada uno se revisó contra su lección y lo revisaron Claude y Codex.
+- **Lector:** en el celular, las figuras van a todo el ancho y se amplían al tocarlas.
+- **Verificación:** `npm test` 250/250 y E2E 166/166. Publicado.
 
 ### 2026-11-03 · Claude Code — Lote 4 de diagramas y diagrama ampliado (T-061)
 - **Integrados sin cambios:** nueve diagramas en M07 y M08.

@@ -35,7 +35,9 @@
     "m10-l3-c3",
     "m10-l3-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m10-l3-clases-dato"
+  ],
   "productCardIds": [
     "m10-pc-storage-eviction",
     "m10-pc-db-migrations"

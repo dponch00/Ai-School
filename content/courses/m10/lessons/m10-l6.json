@@ -35,7 +35,9 @@
     "m10-l6-c3",
     "m10-l6-c4"
   ],
-  "assetIds": [],
+  "assetIds": [
+    "m10-l6-disparadores"
+  ],
   "productCardIds": [
     "m10-pc-model-retirement",
     "m10-pc-dependency-updates"
