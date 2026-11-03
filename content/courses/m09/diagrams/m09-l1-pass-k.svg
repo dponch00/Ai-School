@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 820" role="img" aria-labelledby="t d" font-family="Source Serif 4, Georgia, serif">
+  <title id="t">pass arroba k y pass elevado a k</title>
+  <desc id="d">En una tarea del comentario se hacen tres ensayos. Con dos aciertos y un fallo, pass@3 cuenta el caso porque acertó al menos una vez, mientras pass^3 no lo cuenta porque los tres ensayos no acertaron. Si los tres aciertan, ambas métricas cuentan el caso.</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M1 1L8 5L1 9" fill="none" stroke="#172A33" stroke-width="2"/></marker></defs>
+  <rect width="480" height="820" rx="18" fill="#FFFDF7"/>
+  <text x="28" y="46" font-family="Fraunces, Georgia, serif" font-size="23" font-weight="700" fill="#172A33">Dos cifras para tres ensayos</text>
+  <text x="28" y="73" font-size="16" fill="#4D6265">Caso: un comentario del comité.</text>
+  <rect x="42" y="107" width="396" height="67" rx="13" fill="#DCECF5" stroke="#778984" stroke-width="2"/>
+  <text x="240" y="136" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="700" fill="#172A33">Una tarea, k = 3</text><text x="240" y="159" text-anchor="middle" font-size="15" fill="#4D6265">Tres ensayos del mismo comentario</text>
+  <path d="M240 174v29" stroke="#172A33" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <rect x="42" y="218" width="396" height="81" rx="13" fill="#fff" stroke="#778984" stroke-width="2"/>
+  <text x="63" y="248" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="700" fill="#172A33">Caso con 2 de 3 aciertos</text><text x="63" y="274" font-size="17" fill="#23694D">✓ ensayo 1 · ✓ ensayo 2 · ✕ ensayo 3</text>
+  <path d="M240 299v29" stroke="#172A33" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <rect x="42" y="343" width="396" height="112" rx="13" fill="#006E74"/>
+  <text x="63" y="375" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="700" fill="#fff">pass@k</text><text x="63" y="401" font-size="16" fill="#fff">es la probabilidad de acertar al menos</text><text x="63" y="423" font-size="16" fill="#fff">una vez en k intentos.</text><text x="63" y="445" font-size="16" fill="#fff">Aquí: cuenta el caso.</text>
+  <path d="M240 455v29" stroke="#172A33" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <rect x="42" y="499" width="396" height="112" rx="13" fill="#fff" stroke="#778984" stroke-width="2"/>
+  <text x="63" y="531" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="700" fill="#172A33">pass^k</text><text x="63" y="557" font-size="16" fill="#172A33">es la probabilidad de acertar en los k</text><text x="63" y="579" font-size="16" fill="#172A33">intentos, todos sin excepción.</text><text x="63" y="601" font-size="16" fill="#A53636">Aquí: no cuenta el caso.</text>
+  <path d="M240 611v29" stroke="#4D6265" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <rect x="42" y="655" width="396" height="65" rx="13" fill="#F5F0E6" stroke="#778984" stroke-width="2"/>
+  <text x="240" y="683" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="700" fill="#172A33">Con 3 de 3, las dos cuentan el caso</text><text x="240" y="706" text-anchor="middle" font-size="15" fill="#4D6265">pass@k sube; pass^k baja al crecer k.</text>
+  <text x="240" y="789" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="17" font-weight="700" fill="#A94E2B">La cifra depende de cómo se usa el resultado.</text>
+</svg>

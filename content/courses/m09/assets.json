@@ -20,5 +20,38 @@
       "height": 720
     },
     "reviewStatus": "pending"
+  },
+  {
+    "id": "m09-l1-pass-k",
+    "courseId": "m09",
+    "file": "content/courses/m09/diagrams/m09-l1-pass-k.svg",
+    "function": "explain",
+    "pedagogicalQuestion": "¿Qué cuenta pass@k y qué cuenta pass^k sobre los mismos ensayos?",
+    "whyNotTextOrSvg": "Es un SVG hecho con código: muestra cómo un mismo caso con tres ensayos entra o no en cada métrica, sin reducir la diferencia a una fórmula abstracta.",
+    "alt": "En una tarea del comentario se hacen tres ensayos. Con dos aciertos y un fallo, pass@3 cuenta el caso porque acertó al menos una vez, mientras pass^3 no lo cuenta porque los tres ensayos no acertaron. Si los tres aciertan, ambas métricas cuentan el caso.",
+    "dimensions": { "width": 480, "height": 820 },
+    "reviewStatus": "pending"
+  },
+  {
+    "id": "m09-l2-mapa-casos",
+    "courseId": "m09",
+    "file": "content/courses/m09/diagrams/m09-l2-mapa-casos.svg",
+    "function": "organize",
+    "pedagogicalQuestion": "¿Qué tipos de caso debe cubrir el conjunto de evaluación?",
+    "whyNotTextOrSvg": "Es un SVG hecho con código: ordena los tipos de caso sobre los datos del comité y hace visible el recorrido de un fallo real hacia una regresión sintética.",
+    "alt": "El conjunto de Altiplano combina un caso normal, uno límite, una semana sin cambios, datos incompletos y un caso adversarial. Un fallo real se reproduce con datos sintéticos y se incorpora como caso de regresión.",
+    "dimensions": { "width": 480, "height": 860 },
+    "reviewStatus": "pending"
+  },
+  {
+    "id": "m09-l3-graders",
+    "courseId": "m09",
+    "file": "content/courses/m09/diagrams/m09-l3-graders.svg",
+    "function": "explain",
+    "pedagogicalQuestion": "¿Qué grader corresponde a cada criterio de la rúbrica?",
+    "whyNotTextOrSvg": "Es un SVG hecho con código: relaciona R1 a R4 con el tipo de grader que puede justificar su veredicto y su límite.",
+    "alt": "En la rúbrica del comentario, el código comprueba R1, R3 y R4 contra kpis.json o palabras. R2 necesita un modelo calibrado o una persona porque decide si una causa tiene un dato detrás. La persona valida y decide lo que no pueden resolver código ni modelo.",
+    "dimensions": { "width": 480, "height": 745 },
+    "reviewStatus": "pending"
   }
 ]

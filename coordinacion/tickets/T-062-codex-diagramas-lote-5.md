@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-11-03 |
 | Depende de | T-061 (cerrado) |
 | Fase del plan | Mantenimiento posterior a la V1 (pedido de Daniel) |
@@ -64,4 +64,22 @@ Haz commit con prefijo `[codex]` en `main`, sin push.
 
 ## Entrega
 
-_(Codex)_
+_(Codex · 2026-11-03)_
+
+### Parte 1 · Lote 5
+
+- Añadidos seis SVG hechos a mano y registrados con `reviewStatus: "pending"`:
+  - M09: `m09-l1-pass-k`, `m09-l2-mapa-casos`, `m09-l3-graders`.
+  - M10: `m10-l3-clases-dato`, `m10-l4-cadena`, `m10-l6-disparadores`.
+- Cada diagrama usa el caso concreto de Altiplano/Pulse de su lección. En particular, `m09-l1-pass-k` conserva literalmente las definiciones de `pass@k` y `pass^k` y separa el caso de 2 de 3 aciertos del caso de 3 de 3.
+- Se dejaron seis capturas de lectura a 360 px en `design/qa/T-062/`.
+
+### Parte 2 · Revisión del lote 4 y ampliación
+
+- **T062-01 · Verificado, sin hallazgo:** los nueve diagramas de M07 y M08 cargan en la lección correspondiente; a 360 px ocupan 314 px de contenido y en escritorio conservan su ancho de 480 px. Los botones que los contienen exponen el texto alternativo completo mediante su nombre accesible y la indicación móvil «Toca para ampliar» está presente.
+- **T062-02 · Verificado, sin hallazgo:** el ampliador se abre al tocar, fija inicialmente el foco en ✕ y cierra con ✕, `Esc` y un toque exterior. En los tres cierres el foco vuelve al botón de la figura. A 360 px el diálogo permite desplazamiento lateral y el documento no desborda horizontalmente (314 px de contenido frente a 327 px de viewport).
+
+### Verificación
+
+- `node scripts/build-content.ts --check` — correcto.
+- `npx vitest run src/domain` — correcto: 4 archivos, 186 pruebas.

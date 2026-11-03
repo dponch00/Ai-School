@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 770" role="img" aria-labelledby="t d" font-family="Source Serif 4, Georgia, serif">
+  <title id="t">Una construcción aprobada antes del despliegue</title>
+  <desc id="d">La construcción del Pulse corre pruebas, reconcile.py sobre kpis.json y el escaneo de accesibilidad. Si una falla, no se publica y sigue la versión anterior. Solo una construcción que pasa genera archivos que el despliegue publica.</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M1 1L8 5L1 9" fill="none" stroke="#172A33" stroke-width="2"/></marker></defs>
+  <rect width="480" height="770" rx="18" fill="#FFFDF7"/>
+  <text x="28" y="46" font-family="Fraunces, Georgia, serif" font-size="23" font-weight="700" fill="#172A33">Pruebas antes de publicar</text>
+  <text x="28" y="73" font-size="16" fill="#4D6265">Caso: construcción y publicación del Pulse.</text>
+  <rect x="42" y="107" width="396" height="62" rx="13" fill="#DCECF5" stroke="#778984" stroke-width="2"/>
+  <text x="240" y="145" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="700" fill="#172A33">Construcción</text>
+  <path d="M240 169v29" stroke="#172A33" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <g fill="#fff" stroke="#778984" stroke-width="2"><rect x="42" y="213" width="396" height="55" rx="13"/><rect x="42" y="283" width="396" height="55" rx="13"/><rect x="42" y="353" width="396" height="55" rx="13"/></g>
+  <g font-size="16" fill="#172A33"><text x="240" y="247" text-anchor="middle">Pruebas</text><text x="240" y="317" text-anchor="middle">reconcile.py sobre kpis.json</text><text x="240" y="387" text-anchor="middle">Escaneo de accesibilidad</text></g>
+  <path d="M240 268v15m0 55v15" stroke="#172A33" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <path d="M240 408v29" stroke="#172A33" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <rect x="42" y="452" width="396" height="70" rx="13" fill="#23694D"/>
+  <text x="240" y="482" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="700" fill="#fff">Construcción aprobada</text><text x="240" y="505" text-anchor="middle" font-size="15" fill="#fff">Genera los archivos finales</text>
+  <path d="M240 522v29" stroke="#172A33" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <rect x="42" y="566" width="396" height="62" rx="13" fill="#006E74"/>
+  <text x="240" y="604" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="700" fill="#fff">Despliegue</text>
+  <rect x="42" y="647" width="396" height="57" rx="13" fill="#fff" stroke="#A53636" stroke-width="2"/>
+  <text x="240" y="674" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="17" font-weight="700" fill="#A53636">Si una prueba falla: no se publica</text><text x="240" y="695" text-anchor="middle" font-size="15" fill="#A53636">Sigue la versión anterior.</text>
+  <text x="240" y="748" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="17" font-weight="700" fill="#A94E2B">Un check omitido cuenta como éxito.</text>
+</svg>
