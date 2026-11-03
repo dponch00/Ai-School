@@ -20,5 +20,49 @@
       "height": 720
     },
     "reviewStatus": "pending"
+  },
+  {
+    "id": "m08-l1-flujo-agente",
+    "courseId": "m08",
+    "file": "content/courses/m08/diagrams/m08-l1-flujo-agente.svg",
+    "function": "explain",
+    "pedagogicalQuestion": "¿Quién decide el siguiente paso en un flujo fijo y en un agente?",
+    "whyNotTextOrSvg": "Es un SVG hecho con código: contrasta dos recorridos concretos de Altiplano y atribuye la decisión al código o al modelo.",
+    "alt": "Para convertir euros cada viernes, el código decide pasos fijos: calcula, reconcilia, redacta y una persona revisa. Para investigar por qué falló la reconciliación del Norte, un agente decide el siguiente paso según lo que encuentra.",
+    "dimensions": { "width": 480, "height": 755 },
+    "reviewStatus": "pending"
+  },
+  {
+    "id": "m08-l2-delegar",
+    "courseId": "m08",
+    "file": "content/courses/m08/diagrams/m08-l2-delegar.svg",
+    "function": "organize",
+    "pedagogicalQuestion": "¿Qué piezas necesita una delegación que otro agente pueda terminar y revisar?",
+    "whyNotTextOrSvg": "Es un SVG hecho con código: convierte el encargo del redactor en cuatro piezas verificables, incluida la salida al llegar al tope.",
+    "alt": "El encargo del redactor de Altiplano define un objetivo y archivo, las herramientas permitidas, el estado escrito y una condición de término comprobable: el criterio se cumple o se detiene tras dos rondas y marca el borrador sin aprobar.",
+    "dimensions": { "width": 480, "height": 735 },
+    "reviewStatus": "pending"
+  },
+  {
+    "id": "m08-l4-cuatro-preguntas",
+    "courseId": "m08",
+    "file": "content/courses/m08/diagrams/m08-l4-cuatro-preguntas.svg",
+    "function": "organize",
+    "pedagogicalQuestion": "¿Qué preguntas deciden dónde puede correr un trabajo que no espera?",
+    "whyNotTextOrSvg": "Es un SVG hecho con código: reúne las cuatro preguntas y las conecta con las cinco alternativas concretas de la lección.",
+    "alt": "Antes de programar el borrador de Altiplano, se pregunta por archivos locales, computadora encendida, sesión abierta y aprobaciones. Según las respuestas, se elige nube, equipo, sesión, integración continua o no correr solo.",
+    "dimensions": { "width": 480, "height": 885 },
+    "reviewStatus": "pending"
+  },
+  {
+    "id": "m08-l5-momentos-hook",
+    "courseId": "m08",
+    "file": "content/courses/m08/diagrams/m08-l5-momentos-hook.svg",
+    "function": "explain",
+    "pedagogicalQuestion": "¿Cuándo debe actuar un hook y cuál es el límite de cada momento?",
+    "whyNotTextOrSvg": "Es un SVG hecho con código: sitúa las tres reglas del repositorio en una secuencia temporal y distingue bloqueo, revisión y compuerta.",
+    "alt": "En el repositorio de Altiplano, un hook antes de editar bloquea expected y los supuestos. Un hook después ejecuta reconcile.py, y un hook al terminar no deja cerrar mientras la reconciliación falle, con un tope.",
+    "dimensions": { "width": 480, "height": 790 },
+    "reviewStatus": "pending"
   }
 ]

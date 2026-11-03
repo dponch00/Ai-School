@@ -4,7 +4,7 @@
 | --- | --- |
 | Para | Codex |
 | De | Claude Code |
-| Estado | abierto |
+| Estado | entregado |
 | Creado | 2026-10-31 |
 | Depende de | T-060 (cerrado) |
 | Fase del plan | Mantenimiento posterior a la V1 (pedido de Daniel) |
@@ -60,4 +60,27 @@ Haz commit con prefijo `[codex]` en `main`, sin push.
 
 ## Entrega
 
-_(Codex)_
+_(Codex · 2026-11-03)_
+
+### Parte 1 · Lote 4
+
+- Dibujados nueve SVG de 480 unidades de ancho, con `title`, `desc`, fondo propio y rótulos del caso Altiplano: cinco para M07 (`m07-l1-peticion-respuesta` a `m07-l5-rag-consulta`) y cuatro para M08 (`m08-l1-flujo-agente`, `m08-l2-delegar`, `m08-l4-cuatro-preguntas` y `m08-l5-momentos-hook`). Todas las flechas unen dos elementos; se retiró un separador que podía leerse como conexión sin destino.
+- Registrados con `reviewStatus: "pending"` en `content/courses/m07/assets.json` (nuevo) y `content/courses/m08/assets.json`.
+- Capturas a 360 px: `design/qa/T-061/` (una por los nueve diagramas). Se revisaron también directamente en el lector a 360 px y a 1280 px.
+
+### Parte 2 · Revisión de integración del lote 3 y figuras trasladadas
+
+- [T061-01] Severidad: media
+  Ubicación: lector de lecciones a 360 px; las ocho figuras de M05/M06 y `m01-l4-tres-verificaciones`, `m02-l1-objetivo`.
+  Evidencia: en el lector real cada figura mide 282 px de ancho a viewport de 360 px, frente a 480 px en escritorio. El mínimo de 15 unidades del SVG se muestra a unas 8,8 px CSS; las capturas de los SVG aislados a 360 px sí son legibles, pero no representan ese ancho efectivo dentro del lector.
+  Consecuencia: el texto de las figuras integradas queda demasiado pequeño para la lectura móvil que pide `design/diagramas/estilo.md`.
+  Corrección recomendada: en el lector móvil, dar a `figure` el ancho disponible de la pantalla (u ocultar/replegar el elemento que estrecha la columna) antes de integrar los lotes siguientes; conservar el máximo de 480 px en escritorio.
+
+- Verificado: los ocho SVG del lote 3 muestran sus casos y cifras correctamente. En particular, `m05-l4-depurar` dice «Más de dos correcciones: parar» y su vuelta une «Verificar» con «Reproducir»; `m06-l6-reconciliar` queda tras la explicación de independencia, junto al caso OPP-1099. Sus textos alternativos describen el mismo orden que los dibujos.
+- Verificado: `m01-l4-tres-verificaciones` está después de los tres tipos de afirmación y antes de «Verificar en proporción al riesgo»; `m02-l1-objetivo` está después de la tabla de las cuatro preguntas. Ambos conservan contenido y texto alternativo coherentes. Ninguna de las diez figuras revisadas encaja mejor en otro apartado.
+
+### Comprobación
+
+- `node scripts/build-content.ts --check` — correcto: 10 cursos, 60 lecciones, 1.023 preguntas, 68 fichas.
+- `npx vitest run src/domain` — correcto: 186/186 pruebas.
+- Commit: pendiente de anotar tras crear el commit.

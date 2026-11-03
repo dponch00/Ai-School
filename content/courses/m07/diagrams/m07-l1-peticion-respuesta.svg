@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 790" role="img" aria-labelledby="t d" font-family="Source Serif 4, Georgia, serif">
+  <title id="t">Las cinco piezas de una petición y una respuesta</title>
+  <desc id="d">El agente de Altiplano pide oportunidades abiertas del Sur con GET, una URL, cabeceras y parámetros. El servidor responde 200 y un cuerpo JSON con next_cursor, que indica que queda una página pendiente.</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M1 1L8 5L1 9" fill="none" stroke="#172A33" stroke-width="2"/></marker></defs>
+  <rect width="480" height="790" rx="18" fill="#FFFDF7"/>
+  <text x="28" y="46" font-family="Fraunces, Georgia, serif" font-size="23" font-weight="700" fill="#172A33">Una petición se lee por piezas</text>
+  <text x="28" y="73" font-size="16" fill="#4D6265">Caso: oportunidades abiertas del Sur.</text>
+  <rect x="46" y="103" width="388" height="58" rx="13" fill="#006E74"/>
+  <text x="240" y="139" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="700" fill="#fff">Cliente: agente de Altiplano</text>
+  <path d="M240 161v28" stroke="#172A33" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <g fill="#fff" stroke="#778984" stroke-width="2">
+    <rect x="42" y="202" width="396" height="74" rx="13"/><rect x="42" y="291" width="396" height="74" rx="13"/><rect x="42" y="380" width="396" height="74" rx="13"/>
+  </g>
+  <g fill="#172A33"><text x="63" y="231" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="700">Método</text><text x="63" y="256" font-size="16">GET: leer oportunidades</text><text x="63" y="320" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="700">URL y parámetros</text><text x="63" y="345" font-size="15">/v1/opportunities?region=Sur&amp;status=open</text><text x="63" y="409" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="700">Cabeceras</text><text x="63" y="434" font-size="16">Credencial y formato del cuerpo</text></g>
+  <path d="M240 454v29" stroke="#172A33" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <rect x="46" y="498" width="388" height="58" rx="13" fill="#DCECF5" stroke="#778984" stroke-width="2"/>
+  <text x="240" y="534" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="700" fill="#172A33">Servidor del CRM ficticio</text>
+  <path d="M240 556v29" stroke="#4D6265" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <g fill="#fff" stroke="#778984" stroke-width="2"><rect x="42" y="598" width="396" height="63" rx="13"/><rect x="42" y="676" width="396" height="70" rx="13"/></g>
+  <g fill="#172A33"><text x="63" y="626" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="700">Código de estado: 200</text><text x="63" y="649" font-size="15">La petición fue aceptada.</text><text x="63" y="704" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="700">Cuerpo: JSON</text><text x="63" y="729" font-size="15">next_cursor no es nulo: queda otra página.</text></g>
+  <text x="240" y="777" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="17" font-weight="700" fill="#A94E2B">Un 200 no garantiza un dato completo.</text>
+</svg>
